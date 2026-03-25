@@ -9,7 +9,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Cases : IParsable
+    public partial class Inquiries : IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The extractionType property</summary>
@@ -31,20 +31,28 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>A list of objects containing the actual value extracted and additional information relevant to the extraction result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Cases_results>? Results { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.Inquiries_results>? Results { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Cases_results> Results { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.Inquiries_results> Results { get; set; }
+#endif
+        /// <summary>A list of structured AI extraction results with locations stripped. Values are recursive — objects contain nested structured results — but bounding-box location data is omitted from the API response.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Persona.OpenApiClient.Models.Inquiries_structuredResults>? StructuredResults { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Persona.OpenApiClient.Models.Inquiries_structuredResults> StructuredResults { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Cases"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiries"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.Cases CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.Inquiries CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.Cases();
+            return new global::Soenneker.Persona.OpenApiClient.Models.Inquiries();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +64,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "extraction-type", n => { ExtractionType = n.GetStringValue(); } },
                 { "field-name", n => { FieldName = n.GetStringValue(); } },
-                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Cases_results>(global::Soenneker.Persona.OpenApiClient.Models.Cases_results.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Inquiries_results>(global::Soenneker.Persona.OpenApiClient.Models.Inquiries_results.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "structured-results", n => { StructuredResults = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Inquiries_structuredResults>(global::Soenneker.Persona.OpenApiClient.Models.Inquiries_structuredResults.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -68,7 +77,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("extraction-type", ExtractionType);
             writer.WriteStringValue("field-name", FieldName);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Cases_results>("results", Results);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Inquiries_results>("results", Results);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Inquiries_structuredResults>("structured-results", StructuredResults);
         }
     }
 }

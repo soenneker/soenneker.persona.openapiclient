@@ -23639,6 +23639,13 @@
             "field-name": {
               "type": "string"
             },
+            "structured-results": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "description": "A list of structured AI extraction results with locations stripped. Values are recursive \u2014 objects contain nested structured results \u2014 but bounding-box location data is omitted from the API response."
+            },
             "results": {
               "type": "array",
               "items": {

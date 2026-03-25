@@ -36,6 +36,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<global::Soenneker.Persona.OpenApiClient.Models.Generics_results> Results { get; set; }
 #endif
+        /// <summary>A list of structured AI extraction results with locations stripped. Values are recursive — objects contain nested structured results — but bounding-box location data is omitted from the API response.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Persona.OpenApiClient.Models.Generics_structuredResults>? StructuredResults { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Persona.OpenApiClient.Models.Generics_structuredResults> StructuredResults { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -57,6 +65,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "extraction-type", n => { ExtractionType = n.GetStringValue(); } },
                 { "field-name", n => { FieldName = n.GetStringValue(); } },
                 { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Generics_results>(global::Soenneker.Persona.OpenApiClient.Models.Generics_results.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "structured-results", n => { StructuredResults = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Generics_structuredResults>(global::Soenneker.Persona.OpenApiClient.Models.Generics_structuredResults.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -69,6 +78,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("extraction-type", ExtractionType);
             writer.WriteStringValue("field-name", FieldName);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Generics_results>("results", Results);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Generics_structuredResults>("structured-results", StructuredResults);
         }
     }
 }

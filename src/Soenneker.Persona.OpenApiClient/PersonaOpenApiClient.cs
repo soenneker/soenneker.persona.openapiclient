@@ -10,6 +10,7 @@ using Soenneker.Persona.OpenApiClient.Accounts;
 using Soenneker.Persona.OpenApiClient.ApiKeys;
 using Soenneker.Persona.OpenApiClient.ApiLogs;
 using Soenneker.Persona.OpenApiClient.Cases;
+using Soenneker.Persona.OpenApiClient.Connect;
 using Soenneker.Persona.OpenApiClient.Devices;
 using Soenneker.Persona.OpenApiClient.Document;
 using Soenneker.Persona.OpenApiClient.Documents;
@@ -63,6 +64,11 @@ namespace Soenneker.Persona.OpenApiClient
         public global::Soenneker.Persona.OpenApiClient.Cases.CasesRequestBuilder Cases
         {
             get => new global::Soenneker.Persona.OpenApiClient.Cases.CasesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The connect property</summary>
+        public global::Soenneker.Persona.OpenApiClient.Connect.ConnectRequestBuilder Connect
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.Connect.ConnectRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The devices property</summary>
         public global::Soenneker.Persona.OpenApiClient.Devices.DevicesRequestBuilder Devices

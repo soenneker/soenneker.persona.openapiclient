@@ -49,11 +49,11 @@ namespace Soenneker.Persona.OpenApiClient.List.BrowserFingerprints
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BrowserFingerprints429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsPostResponse?> PostAsBrowserFingerprintsPostResponseAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_browser_fingerprint_list body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsRequestBuilder.BrowserFingerprintsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_browser_fingerprint_list body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsRequestBuilder.BrowserFingerprintsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsPostResponse> PostAsBrowserFingerprintsPostResponseAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_browser_fingerprint_list body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsRequestBuilder.BrowserFingerprintsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_browser_fingerprint_list body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsRequestBuilder.BrowserFingerprintsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -68,43 +68,6 @@ namespace Soenneker.Persona.OpenApiClient.List.BrowserFingerprints
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.BrowserFingerprints429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsPostResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Create a new list for your organization.
-        /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/lists/create-a-browser-fingerprint-list" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BrowserFingerprints400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BrowserFingerprints401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BrowserFingerprints403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BrowserFingerprints409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BrowserFingerprints422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BrowserFingerprints429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsBrowserFingerprintsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_browser_fingerprint_list body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsRequestBuilder.BrowserFingerprintsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_browser_fingerprint_list body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsRequestBuilder.BrowserFingerprintsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.BrowserFingerprints400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.BrowserFingerprints401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.BrowserFingerprints403Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.BrowserFingerprints409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.BrowserFingerprints422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.BrowserFingerprints429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new list for your organization.
@@ -163,14 +126,6 @@ namespace Soenneker.Persona.OpenApiClient.List.BrowserFingerprints
             [QueryParameter("include")]
             public string Include { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class BrowserFingerprintsRequestBuilderPostRequestConfiguration : RequestConfiguration<global::Soenneker.Persona.OpenApiClient.List.BrowserFingerprints.BrowserFingerprintsRequestBuilder.BrowserFingerprintsRequestBuilderPostQueryParameters>
-        {
         }
     }
 }

@@ -88,11 +88,11 @@ namespace Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Document429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentPatchResponse?> PatchAsDocumentPatchResponseAsync(global::Soenneker.Persona.OpenApiClient.Models.Update_a_government_id_document body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentItemRequestBuilder.DocumentItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentPatchResponse?> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.Update_a_government_id_document body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentItemRequestBuilder.DocumentItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentPatchResponse> PatchAsDocumentPatchResponseAsync(global::Soenneker.Persona.OpenApiClient.Models.Update_a_government_id_document body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentItemRequestBuilder.DocumentItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentPatchResponse> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.Update_a_government_id_document body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentItemRequestBuilder.DocumentItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -108,45 +108,6 @@ namespace Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.Document429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentPatchResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Updates an existing government ID document. Can only update `initiated` documents.
-        /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/documents/update-a-government-id-document" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Document400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Document401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Document403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Document404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Document409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Document422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Document429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use PatchAsDocumentPatchResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentResponse?> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.Update_a_government_id_document body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentItemRequestBuilder.DocumentItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentResponse> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.Update_a_government_id_document body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentItemRequestBuilder.DocumentItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Document400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Document401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Document403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Document404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Document409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Document422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Document429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves the details of a government-id document that has been previously created.
@@ -226,14 +187,6 @@ namespace Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item
 #endif
         }
         /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class DocumentItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentItemRequestBuilder.DocumentItemRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
         /// Updates an existing government ID document. Can only update `initiated` documents.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
@@ -259,14 +212,6 @@ namespace Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item
             [QueryParameter("include")]
             public string Include { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class DocumentItemRequestBuilderPatchRequestConfiguration : RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentItemRequestBuilder.DocumentItemRequestBuilderPatchQueryParameters>
-        {
         }
     }
 }

@@ -50,11 +50,11 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.AddTag429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagPostResponse?> PostAsAddTagPostResponseAsync(global::Soenneker.Persona.OpenApiClient.Models.Transactions_add_tag body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagRequestBuilder.AddTagRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Transactions_add_tag body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagRequestBuilder.AddTagRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagPostResponse> PostAsAddTagPostResponseAsync(global::Soenneker.Persona.OpenApiClient.Models.Transactions_add_tag body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagRequestBuilder.AddTagRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Transactions_add_tag body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagRequestBuilder.AddTagRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -70,45 +70,6 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.AddTag429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagPostResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Adds a tag to a Transaction. Create a new tag if the tag does not already exist. No effect if the transaction already has the tag.
-        /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/transactions/add-tag" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.AddTag400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.AddTag401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.AddTag403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.AddTag404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.AddTag409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.AddTag422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.AddTag429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsAddTagPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Transactions_add_tag body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagRequestBuilder.AddTagRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Transactions_add_tag body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagRequestBuilder.AddTagRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.AddTag400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.AddTag401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.AddTag403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.AddTag404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.AddTag409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.AddTag422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.AddTag429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Adds a tag to a Transaction. Create a new tag if the tag does not already exist. No effect if the transaction already has the tag.
@@ -167,14 +128,6 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag
             [QueryParameter("include")]
             public string Include { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class AddTagRequestBuilderPostRequestConfiguration : RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagRequestBuilder.AddTagRequestBuilderPostQueryParameters>
-        {
         }
     }
 }

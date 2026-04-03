@@ -49,11 +49,11 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsPostResponse?> PostAsRedactBiometricsPostResponseAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsRequestBuilder.RedactBiometricsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsPostResponse?> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsRequestBuilder.RedactBiometricsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsPostResponse> PostAsRedactBiometricsPostResponseAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsRequestBuilder.RedactBiometricsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsPostResponse> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsRequestBuilder.RedactBiometricsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
@@ -68,43 +68,6 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsPostResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Permanently deletes biometric data for a Transaction AND all its associated objects. **This action cannot be undone**.
-        /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/transactions/redact-transaction-biometrics" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsRedactBiometricsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsResponse?> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsRequestBuilder.RedactBiometricsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsResponse> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsRequestBuilder.RedactBiometricsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToPostRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.RedactBiometrics429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Permanently deletes biometric data for a Transaction AND all its associated objects. **This action cannot be undone**.
@@ -160,14 +123,6 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics
             [QueryParameter("include")]
             public string Include { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class RedactBiometricsRequestBuilderPostRequestConfiguration : RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsRequestBuilder.RedactBiometricsRequestBuilderPostQueryParameters>
-        {
         }
     }
 }

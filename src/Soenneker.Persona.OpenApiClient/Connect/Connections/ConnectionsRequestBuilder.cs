@@ -94,11 +94,11 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Connections429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsPostResponse?> PostAsConnectionsPostResponseAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_connect_connection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_connect_connection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsPostResponse> PostAsConnectionsPostResponseAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_connect_connection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_connect_connection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -113,43 +113,6 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.Connections429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsPostResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Creates a new Connection for your organization.
-        /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/connect/connections/create-a-connect-connection" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Connections400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Connections401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Connections403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Connections409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Connections422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Connections429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsConnectionsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_connect_connection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_connect_connection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Connections400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Connections401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Connections403Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Connections409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Connections422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Connections429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your organization&apos;s connect connections. Results are returned in reverse chronological order, with the most recently created objects first.
@@ -237,14 +200,6 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections
 #endif
         }
         /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ConnectionsRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderGetQueryParameters>
-        {
-        }
-        /// <summary>
         /// Creates a new Connection for your organization.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
@@ -260,14 +215,6 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections
             [QueryParameter("fields")]
             public string Fields { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ConnectionsRequestBuilderPostRequestConfiguration : RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsRequestBuilder.ConnectionsRequestBuilderPostQueryParameters>
-        {
         }
     }
 }

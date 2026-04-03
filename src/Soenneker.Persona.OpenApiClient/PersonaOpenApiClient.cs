@@ -15,6 +15,7 @@ using Soenneker.Persona.OpenApiClient.Devices;
 using Soenneker.Persona.OpenApiClient.Document;
 using Soenneker.Persona.OpenApiClient.Documents;
 using Soenneker.Persona.OpenApiClient.Events;
+using Soenneker.Persona.OpenApiClient.GraphQueries;
 using Soenneker.Persona.OpenApiClient.Importer;
 using Soenneker.Persona.OpenApiClient.Importers;
 using Soenneker.Persona.OpenApiClient.Inquiries;
@@ -89,6 +90,11 @@ namespace Soenneker.Persona.OpenApiClient
         public global::Soenneker.Persona.OpenApiClient.Events.EventsRequestBuilder Events
         {
             get => new global::Soenneker.Persona.OpenApiClient.Events.EventsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The graphQueries property</summary>
+        public global::Soenneker.Persona.OpenApiClient.GraphQueries.GraphQueriesRequestBuilder GraphQueries
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.GraphQueries.GraphQueriesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The importer property</summary>
         public global::Soenneker.Persona.OpenApiClient.Importer.ImporterRequestBuilder Importer

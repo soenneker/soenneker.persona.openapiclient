@@ -47,11 +47,11 @@ namespace Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Verification429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationGetResponse?> GetAsVerificationGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationItemRequestBuilder.VerificationItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationItemRequestBuilder.VerificationItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationGetResponse> GetAsVerificationGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationItemRequestBuilder.VerificationItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationItemRequestBuilder.VerificationItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -64,39 +64,6 @@ namespace Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.Verification429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationGetResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Retrieve a Government ID NFC verification
-        /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/verifications/government-id-nfc-verifications/retrieve-a-government-id-nfc-verification" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Verification400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Verification401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Verification403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Verification404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Verification429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsVerificationGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationItemRequestBuilder.VerificationItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationItemRequestBuilder.VerificationItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Verification400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Verification401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Verification403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Verification404Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Verification429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve a Government ID NFC verification
@@ -152,14 +119,6 @@ namespace Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item
             [QueryParameter("include")]
             public string Include { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class VerificationItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Verification.GovernmentIdNfcs.Item.VerificationItemRequestBuilder.VerificationItemRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

@@ -1,5 +1,5 @@
 {
-  "descriptionHash": "3077DFE613E3B3FD5761A4B75A4DFC9413AC2E61FD3CBF6341609E6BF1ABBF1DA37177D1E70CA9D305533D1338B89D82D1B6A86148D44CAF6F3D1E359EE1B04E",
+  "descriptionHash": "A0EFBF5C1661895DDF754A7BDE95E8959A3CE82B8B8DF035584CDCDA078BE5CFC406FED15B493CF96DA59E5214F814B828FB39F052202758E8405068035910AF",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.30.0",
@@ -8,7 +8,7 @@
   "clientNamespaceName": "Soenneker.Persona.OpenApiClient",
   "language": "CSharp",
   "usesBackingStore": false,
-  "excludeBackwardCompatible": false,
+  "excludeBackwardCompatible": true,
   "includeAdditionalData": true,
   "disableSSLValidation": false,
   "serializers": [

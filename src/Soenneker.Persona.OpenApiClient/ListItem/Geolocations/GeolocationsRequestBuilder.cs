@@ -63,11 +63,11 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Geolocations
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Geolocations429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsPostResponse?> PostAsGeolocationsPostResponseAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_geolocation_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsRequestBuilder.GeolocationsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_geolocation_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsRequestBuilder.GeolocationsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsPostResponse> PostAsGeolocationsPostResponseAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_geolocation_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsRequestBuilder.GeolocationsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_geolocation_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsRequestBuilder.GeolocationsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -83,45 +83,6 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Geolocations
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.Geolocations429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsPostResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Create a new item in a list.
-        /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/list-items/create-a-geolocation-list-item" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Geolocations400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Geolocations401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Geolocations403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Geolocations404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Geolocations409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Geolocations422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Geolocations429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use PostAsGeolocationsPostResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_geolocation_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsRequestBuilder.GeolocationsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_geolocation_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsRequestBuilder.GeolocationsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Geolocations400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Geolocations401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Geolocations403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Geolocations404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Geolocations409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Geolocations422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Geolocations429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new item in a list.
@@ -180,14 +141,6 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Geolocations
             [QueryParameter("include")]
             public string Include { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class GeolocationsRequestBuilderPostRequestConfiguration : RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Geolocations.GeolocationsRequestBuilder.GeolocationsRequestBuilderPostQueryParameters>
-        {
         }
     }
 }

@@ -49,11 +49,11 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Strings.Item
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemDeleteResponse?> DeleteAsListItemDeleteResponseAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemItemRequestBuilder.ListItemItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemDeleteResponse?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemItemRequestBuilder.ListItemItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemDeleteResponse> DeleteAsListItemDeleteResponseAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemItemRequestBuilder.ListItemItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemDeleteResponse> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemItemRequestBuilder.ListItemItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -68,43 +68,6 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Strings.Item
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.ListItem429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemDeleteResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Archived items are not matched against new inquiries.
-        /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/list-items/archive-a-string-list-item" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use DeleteAsListItemDeleteResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemResponse?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemItemRequestBuilder.ListItemItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemResponse> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemItemRequestBuilder.ListItemItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.ListItem400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.ListItem401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.ListItem403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.ListItem404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.ListItem409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.ListItem422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.ListItem429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves the details of an existing string List Item.
@@ -122,11 +85,11 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Strings.Item
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemGetResponse?> GetAsListItemGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemItemRequestBuilder.ListItemItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemItemRequestBuilder.ListItemItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemGetResponse> GetAsListItemGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemItemRequestBuilder.ListItemItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemItemRequestBuilder.ListItemItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -141,43 +104,6 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Strings.Item
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.ListItem429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemGetResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Retrieves the details of an existing string List Item.
-        /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/list-items/retrieve-a-string-list-item" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListItem429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsListItemGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemItemRequestBuilder.ListItemItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemItemRequestBuilder.ListItemItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.ListItem400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.ListItem401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.ListItem403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.ListItem404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.ListItem409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.ListItem422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.ListItem429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Archived items are not matched against new inquiries.
@@ -254,14 +180,6 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Strings.Item
 #endif
         }
         /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ListItemItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemItemRequestBuilder.ListItemItemRequestBuilderDeleteQueryParameters>
-        {
-        }
-        /// <summary>
         /// Retrieves the details of an existing string List Item.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
@@ -287,14 +205,6 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Strings.Item
             [QueryParameter("include")]
             public string Include { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ListItemItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Strings.Item.ListItemItemRequestBuilder.ListItemItemRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

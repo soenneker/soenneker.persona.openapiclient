@@ -28,6 +28,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Relationship { get; set; }
 #endif
+        /// <summary>The applicable categories of the associate.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Topics { get; set; }
+#nullable restore
+#else
+        public List<string> Topics { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -48,6 +56,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "relationship", n => { Relationship = n.GetStringValue(); } },
+                { "topics", n => { Topics = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -59,6 +68,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("relationship", Relationship);
+            writer.WriteCollectionOfPrimitiveValues<string>("topics", Topics);
         }
     }
 }

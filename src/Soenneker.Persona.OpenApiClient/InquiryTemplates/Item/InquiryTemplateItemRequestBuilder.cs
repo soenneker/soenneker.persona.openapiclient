@@ -47,11 +47,11 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateGetResponse?> GetAsInquiryTemplateGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateItemRequestBuilder.InquiryTemplateItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateItemRequestBuilder.InquiryTemplateItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateGetResponse> GetAsInquiryTemplateGetResponseAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateItemRequestBuilder.InquiryTemplateItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateItemRequestBuilder.InquiryTemplateItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -64,39 +64,6 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateGetResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// &quot;Retrieves details of a specific Inquiry Template by ID.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.&quot;
-        /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiry-templates/retrieve-an-inquiry-template" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate429Error">When receiving a 429 status code</exception>
-        [Obsolete("This method is obsolete. Use GetAsInquiryTemplateGetResponseAsync instead.")]
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateItemRequestBuilder.InquiryTemplateItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateItemRequestBuilder.InquiryTemplateItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate404Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Retrieves details of a specific Inquiry Template by ID.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.&quot;
@@ -152,14 +119,6 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item
             [QueryParameter("include")]
             public string Include { get; set; }
 #endif
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class InquiryTemplateItemRequestBuilderGetRequestConfiguration : RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateItemRequestBuilder.InquiryTemplateItemRequestBuilderGetQueryParameters>
-        {
         }
     }
 }

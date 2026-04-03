@@ -14,30 +14,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
     {
         /// <summary>When this share token was created</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>The ID of the destination resource where the data was imported (when redeemed)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DestinationId { get; set; }
-#nullable restore
-#else
-        public string DestinationId { get; set; }
-#endif
-        /// <summary>When this share token expired</summary>
-        public DateTimeOffset? ExpiredAt { get; set; }
         /// <summary>When this share token expires</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
         /// <summary>When this share token started processing</summary>
         public DateTimeOffset? PendingAt { get; set; }
         /// <summary>When this share token was redeemed</summary>
         public DateTimeOffset? RedeemedAt { get; set; }
-        /// <summary>The ID of the source resource being shared (Account or Inquiry)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SourceId { get; set; }
-#nullable restore
-#else
-        public string SourceId { get; set; }
-#endif
         /// <summary>The status of the share token</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,12 +49,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "destination-id", n => { DestinationId = n.GetStringValue(); } },
-                { "expired-at", n => { ExpiredAt = n.GetDateTimeOffsetValue(); } },
                 { "expires-at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "pending-at", n => { PendingAt = n.GetDateTimeOffsetValue(); } },
                 { "redeemed-at", n => { RedeemedAt = n.GetDateTimeOffsetValue(); } },
-                { "source-id", n => { SourceId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -85,12 +64,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
-            writer.WriteStringValue("destination-id", DestinationId);
-            writer.WriteDateTimeOffsetValue("expired-at", ExpiredAt);
             writer.WriteDateTimeOffsetValue("expires-at", ExpiresAt);
             writer.WriteDateTimeOffsetValue("pending-at", PendingAt);
             writer.WriteDateTimeOffsetValue("redeemed-at", RedeemedAt);
-            writer.WriteStringValue("source-id", SourceId);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);
         }

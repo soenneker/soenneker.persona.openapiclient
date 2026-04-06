@@ -9,7 +9,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Inquiries_results : IParsable
+    public partial class Cases_results : IParsable
     #pragma warning restore CS1591
     {
         /// <summary>If extraction-type is guided, match-level describes the degree in which the extracted value is similar to the source value. Otherwise the match-level is full.</summary>
@@ -23,10 +23,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>This is a free-form object containing potentially helpful metadata on the extraction result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Inquiries_results_metadata? Metadata { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.Cases_results_metadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Inquiries_results_metadata Metadata { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.Cases_results_metadata Metadata { get; set; }
 #endif
         /// <summary>The page number the extraction result is detected. Page is 1-indexed.</summary>
         public int? Page { get; set; }
@@ -41,12 +41,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiries_results"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Cases_results"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.Inquiries_results CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.Cases_results CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.Inquiries_results();
+            return new global::Soenneker.Persona.OpenApiClient.Models.Cases_results();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +57,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "match-level", n => { MatchLevel = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiries_results_metadata>(global::Soenneker.Persona.OpenApiClient.Models.Inquiries_results_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Cases_results_metadata>(global::Soenneker.Persona.OpenApiClient.Models.Cases_results_metadata.CreateFromDiscriminatorValue); } },
                 { "page", n => { Page = n.GetIntValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
             };
@@ -70,7 +70,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("match-level", MatchLevel);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiries_results_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Cases_results_metadata>("metadata", Metadata);
             writer.WriteIntValue("page", Page);
             writer.WriteStringValue("value", Value);
         }

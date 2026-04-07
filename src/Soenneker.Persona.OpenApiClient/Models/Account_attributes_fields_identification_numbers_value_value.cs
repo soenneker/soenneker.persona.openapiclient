@@ -12,6 +12,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public partial class Account_attributes_fields_identification_numbers_value_value : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>A SHA-256 hash of the identification number, keyed on organization, country code, identification class, and issuing subdivision. Stable across re-verifications of the same document for the same organization. Null when the identification number has not been hashed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.Account_attributes_fields_identification_numbers_value_value_hashed_identification_number? HashedIdentificationNumber { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.Account_attributes_fields_identification_numbers_value_value_hashed_identification_number HashedIdentificationNumber { get; set; }
+#endif
         /// <summary>The identification_class property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,6 +62,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "hashed_identification_number", n => { HashedIdentificationNumber = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account_attributes_fields_identification_numbers_value_value_hashed_identification_number>(global::Soenneker.Persona.OpenApiClient.Models.Account_attributes_fields_identification_numbers_value_value_hashed_identification_number.CreateFromDiscriminatorValue); } },
                 { "identification_class", n => { IdentificationClass = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account_attributes_fields_identification_numbers_value_value_identification_class>(global::Soenneker.Persona.OpenApiClient.Models.Account_attributes_fields_identification_numbers_value_value_identification_class.CreateFromDiscriminatorValue); } },
                 { "identification_number", n => { IdentificationNumber = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account_attributes_fields_identification_numbers_value_value_identification_number>(global::Soenneker.Persona.OpenApiClient.Models.Account_attributes_fields_identification_numbers_value_value_identification_number.CreateFromDiscriminatorValue); } },
                 { "issuing_country", n => { IssuingCountry = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account_attributes_fields_identification_numbers_value_value_issuing_country>(global::Soenneker.Persona.OpenApiClient.Models.Account_attributes_fields_identification_numbers_value_value_issuing_country.CreateFromDiscriminatorValue); } },
@@ -66,6 +75,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account_attributes_fields_identification_numbers_value_value_hashed_identification_number>("hashed_identification_number", HashedIdentificationNumber);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account_attributes_fields_identification_numbers_value_value_identification_class>("identification_class", IdentificationClass);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account_attributes_fields_identification_numbers_value_value_identification_number>("identification_number", IdentificationNumber);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account_attributes_fields_identification_numbers_value_value_issuing_country>("issuing_country", IssuingCountry);

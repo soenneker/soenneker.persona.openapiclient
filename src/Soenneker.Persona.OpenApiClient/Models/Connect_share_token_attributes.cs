@@ -14,6 +14,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
     {
         /// <summary>When this share token was created</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>Whether this share token is outbound (your organization is the source) or inbound (your organization is the destination)</summary>
+        public global::Soenneker.Persona.OpenApiClient.Models.Connect_share_token_attributes_direction? Direction { get; set; }
         /// <summary>When this share token expires</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
         /// <summary>When this share token started processing</summary>
@@ -49,6 +51,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.Connect_share_token_attributes_direction>(); } },
                 { "expires-at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "pending-at", n => { PendingAt = n.GetDateTimeOffsetValue(); } },
                 { "redeemed-at", n => { RedeemedAt = n.GetDateTimeOffsetValue(); } },
@@ -64,6 +67,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.Connect_share_token_attributes_direction>("direction", Direction);
             writer.WriteDateTimeOffsetValue("expires-at", ExpiresAt);
             writer.WriteDateTimeOffsetValue("pending-at", PendingAt);
             writer.WriteDateTimeOffsetValue("redeemed-at", RedeemedAt);

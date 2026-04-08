@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Soenneker.Persona.OpenApiClient.Document.Generics.Item.Submit;
 using Soenneker.Persona.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -18,11 +17,6 @@ namespace Soenneker.Persona.OpenApiClient.Document.Generics.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DocumentItemRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The submit property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Document.Generics.Item.Submit.SubmitRequestBuilder Submit
-        {
-            get => new global::Soenneker.Persona.OpenApiClient.Document.Generics.Item.Submit.SubmitRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Document.Generics.Item.DocumentItemRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -72,44 +66,6 @@ namespace Soenneker.Persona.OpenApiClient.Document.Generics.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.Retrieve_a_generic_document_200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.Retrieve_a_generic_document_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates an existing generic document. Can only update `initiated` documents.
-        /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/documents/update-a-document" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200429Error">When receiving a 429 status code</exception>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200?> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.Update_a_document body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Document.Generics.Item.DocumentItemRequestBuilder.DocumentItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.Update_a_document body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Document.Generics.Item.DocumentItemRequestBuilder.DocumentItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.Update_a_document_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
         /// Retrieves the details of a generic document that has been previously created.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
@@ -129,28 +85,6 @@ namespace Soenneker.Persona.OpenApiClient.Document.Generics.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates an existing generic document. Can only update `initiated` documents.
-        /// </summary>
-        /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Update_a_document body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Document.Generics.Item.DocumentItemRequestBuilder.DocumentItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
-        {
-#nullable restore
-#else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Update_a_document body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Document.Generics.Item.DocumentItemRequestBuilder.DocumentItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
-            requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
-            return requestInfo;
-        }
-        /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Document.Generics.Item.DocumentItemRequestBuilder"/></returns>
@@ -164,33 +98,6 @@ namespace Soenneker.Persona.OpenApiClient.Document.Generics.Item
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DocumentItemRequestBuilderGetQueryParameters 
-        {
-            /// <summary>Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("fields")]
-            public string? Fields { get; set; }
-#nullable restore
-#else
-            [QueryParameter("fields")]
-            public string Fields { get; set; }
-#endif
-            /// <summary>A comma-separated list of relationship paths. This can be used to customize which related resources will be fully serialized in the `included` key in the response. See [Serialization](https://docs.withpersona.com/serialization#inclusion-of-related-resources) for more details.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("include")]
-            public string? Include { get; set; }
-#nullable restore
-#else
-            [QueryParameter("include")]
-            public string Include { get; set; }
-#endif
-        }
-        /// <summary>
-        /// Updates an existing generic document. Can only update `initiated` documents.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class DocumentItemRequestBuilderPatchQueryParameters 
         {
             /// <summary>Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

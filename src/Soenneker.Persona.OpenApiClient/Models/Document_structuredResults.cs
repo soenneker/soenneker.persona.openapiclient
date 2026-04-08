@@ -7,30 +7,29 @@ using System.IO;
 using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
-    /// <summary>
-    /// Additional metadata about the error
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Document403Error_errors_meta : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class Document_structuredResults : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.Document403Error_errors_meta"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.Document_structuredResults"/> and sets the default values.
         /// </summary>
-        public Document403Error_errors_meta()
+        public Document_structuredResults()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Document403Error_errors_meta"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Document_structuredResults"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.Document403Error_errors_meta CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.Document_structuredResults CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.Document403Error_errors_meta();
+            return new global::Soenneker.Persona.OpenApiClient.Models.Document_structuredResults();
         }
         /// <summary>
         /// The deserialization information for the current model

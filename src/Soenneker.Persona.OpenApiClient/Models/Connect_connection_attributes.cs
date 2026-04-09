@@ -14,7 +14,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     {
         /// <summary>The date and time when this connection was created</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>The organization that is authorized to access objects through this connection</summary>
+        /// <summary>The organization authorized to access objects through this connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DestinationOrganizationId { get; set; }
@@ -29,6 +29,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public List<string> Scopes { get; set; }
+#endif
+        /// <summary>The organization that created and owns this connection.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SourceOrganizationId { get; set; }
+#nullable restore
+#else
+        public string SourceOrganizationId { get; set; }
 #endif
         /// <summary>The current status of the connection</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,6 +69,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "destination-organization-id", n => { DestinationOrganizationId = n.GetStringValue(); } },
                 { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "source-organization-id", n => { SourceOrganizationId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -75,6 +84,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteStringValue("destination-organization-id", DestinationOrganizationId);
             writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
+            writer.WriteStringValue("source-organization-id", SourceOrganizationId);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);
         }

@@ -8,9 +8,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public enum List_item_name_relationships_creator_dataMember5_type
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "importer/name")]
+        [EnumMember(Value = "importer/list-item/name")]
         #pragma warning disable CS1591
-        ImporterName,
+        ImporterListItemName,
         #pragma warning restore CS1591
     }
 }

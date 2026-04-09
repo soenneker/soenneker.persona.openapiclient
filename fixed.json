@@ -1586,7 +1586,7 @@
           "Connect"
         ],
         "summary": "List all Connections",
-        "description": "Returns a list of your organization\u0027s connect connections. Results are returned in reverse chronological order, with the most recently created objects first.",
+        "description": "Returns a list of connect connections associated with your organization, including both outbound connections your organization created and inbound connections where your organization is the destination. Results are returned in reverse chronological order, with the most recently created objects first.",
         "externalDocs": {
           "description": "Full documentation for this API on the Persona website.",
           "url": "https://docs.withpersona.com/api-reference/connect/connections/list-all-connect-connections"
@@ -18437,7 +18437,11 @@
               },
               "destination-organization-id": {
                 "type": "string",
-                "description": "The organization that is authorized to access objects through this connection"
+                "description": "The organization authorized to access objects through this connection."
+              },
+              "source-organization-id": {
+                "type": "string",
+                "description": "The organization that created and owns this connection."
               },
               "scopes": {
                 "type": "array",
@@ -27839,6 +27843,79 @@
         },
         "additionalProperties": false
       },
+      "network": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "network"
+            ],
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for this Network. Starts with \u0060net_\u0060."
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "created-at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "ip-address": {
+                "type": "string",
+                "nullable": true
+              },
+              "service-provider": {
+                "type": "string",
+                "nullable": true
+              },
+              "service-type": {
+                "type": "string",
+                "description": "Possible values:\n- residential\n- mobile\n- datacenter\n- corporate\n- education\n\nDo not assume this is a static enumeration; Persona may add new values\nin the future without a versioned update.",
+                "nullable": true
+              },
+              "proxy-type": {
+                "type": "string",
+                "description": "Possible values:\n- residential\n- mobile\n- corporate\n- vpn\n- unknown\n- tor\n\nDo not assume this is a static enumeration; Persona may add new values\nin the future without a versioned update.",
+                "nullable": true
+              },
+              "threat-level": {
+                "type": "string",
+                "description": "Possible values:\n- unknown\n- low\n- medium\n- high\n\nDo not assume this is a static enumeration; Persona may add new values\nin the future without a versioned update.",
+                "nullable": true
+              },
+              "country-code": {
+                "type": "string",
+                "nullable": true
+              },
+              "country-name": {
+                "type": "string",
+                "nullable": true
+              },
+              "region-code": {
+                "type": "string",
+                "nullable": true
+              },
+              "region-name": {
+                "type": "string",
+                "nullable": true
+              },
+              "latitude": {
+                "type": "number",
+                "nullable": true
+              },
+              "longitude": {
+                "type": "number",
+                "nullable": true
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
       "inquiry_sessions_included_objects": {
         "type": "array",
         "items": {
@@ -27852,6 +27929,9 @@
             },
             {
               "$ref": "#/components/schemas/inquiry"
+            },
+            {
+              "$ref": "#/components/schemas/network"
             }
           ],
           "properties": {
@@ -27863,7 +27943,8 @@
             "propertyName": "type",
             "mapping": {
               "device": "#/components/schemas/device",
-              "inquiry": "#/components/schemas/inquiry"
+              "inquiry": "#/components/schemas/inquiry",
+              "network": "#/components/schemas/network"
             }
           }
         }
@@ -28336,7 +28417,7 @@
                         "properties": {
                           "type": {
                             "enum": [
-                              "importer/email-address"
+                              "importer/list-item/email-address"
                             ],
                             "type": "string"
                           },
@@ -28579,7 +28660,7 @@
                         "properties": {
                           "type": {
                             "enum": [
-                              "importer/geolocation"
+                              "importer/list-item/geolocation"
                             ],
                             "type": "string"
                           },
@@ -28706,7 +28787,7 @@
                         "properties": {
                           "type": {
                             "enum": [
-                              "importer/government-id-number"
+                              "importer/list-item/government-id-number"
                             ],
                             "type": "string"
                           },
@@ -28830,7 +28911,7 @@
                         "properties": {
                           "type": {
                             "enum": [
-                              "importer/ip-address"
+                              "importer/list-item/ip-address"
                             ],
                             "type": "string"
                           },
@@ -28957,7 +29038,7 @@
                         "properties": {
                           "type": {
                             "enum": [
-                              "importer/name"
+                              "importer/list-item/name"
                             ],
                             "type": "string"
                           },
@@ -29081,7 +29162,7 @@
                         "properties": {
                           "type": {
                             "enum": [
-                              "importer/phone-number"
+                              "importer/list-item/phone-number"
                             ],
                             "type": "string"
                           },
@@ -38762,8 +38843,9 @@
               "type": "connect/connection",
               "id": "cxn_ABC123",
               "attributes": {
-                "status": "pending",
-                "destination-organization-id": "org_ABC123",
+                "status": "active",
+                "source-organization-id": "org_ABC123",
+                "destination-organization-id": "org_XYZ789",
                 "scopes": [
                   "inquiry.read",
                   "account.read"
@@ -38776,8 +38858,9 @@
               "type": "connect/connection",
               "id": "cxn_XYZ789",
               "attributes": {
-                "status": "active",
-                "destination-organization-id": "org_XYZ789",
+                "status": "pending",
+                "source-organization-id": "org_XYZ789",
+                "destination-organization-id": "org_ABC123",
                 "scopes": [
                   "inquiry.read",
                   "account.read"
@@ -38809,7 +38892,8 @@
             "id": "cxn_ABC123",
             "attributes": {
               "status": "pending",
-              "destination-organization-id": "org_ABC123",
+              "source-organization-id": "org_ABC123",
+              "destination-organization-id": "org_XYZ789",
               "scopes": [
                 "inquiry.read",
                 "account.read"
@@ -38839,7 +38923,8 @@
             "id": "cxn_ABC123",
             "attributes": {
               "status": "inactive",
-              "destination-organization-id": "org_ABC123",
+              "source-organization-id": "org_ABC123",
+              "destination-organization-id": "org_XYZ789",
               "scopes": [
                 "inquiry.read",
                 "account.read"

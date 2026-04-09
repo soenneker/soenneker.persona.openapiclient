@@ -8,9 +8,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public enum List_item_geolocation_relationships_creator_dataMember5_type
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "importer/geolocation")]
+        [EnumMember(Value = "importer/list-item/geolocation")]
         #pragma warning disable CS1591
-        ImporterGeolocation,
+        ImporterListItemGeolocation,
         #pragma warning restore CS1591
     }
 }

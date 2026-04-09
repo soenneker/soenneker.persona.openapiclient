@@ -47,7 +47,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections
         {
         }
         /// <summary>
-        /// Returns a list of your organization&apos;s connect connections. Results are returned in reverse chronological order, with the most recently created objects first.
+        /// Returns a list of connect connections associated with your organization, including both outbound connections your organization created and inbound connections where your organization is the destination. Results are returned in reverse chronological order, with the most recently created objects first.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/connect/connections/list-all-connect-connections" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.List_all_connect_connections_200"/></returns>
@@ -115,7 +115,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsPostResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a list of your organization&apos;s connect connections. Results are returned in reverse chronological order, with the most recently created objects first.
+        /// Returns a list of connect connections associated with your organization, including both outbound connections your organization created and inbound connections where your organization is the destination. Results are returned in reverse chronological order, with the most recently created objects first.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -165,7 +165,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections
             return new global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a list of your organization&apos;s connect connections. Results are returned in reverse chronological order, with the most recently created objects first.
+        /// Returns a list of connect connections associated with your organization, including both outbound connections your organization created and inbound connections where your organization is the destination. Results are returned in reverse chronological order, with the most recently created objects first.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConnectionsRequestBuilderGetQueryParameters 

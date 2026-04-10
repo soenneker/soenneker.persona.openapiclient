@@ -23,10 +23,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>A list of extractions resulting from processing the uploaded documents corresponding to the document&apos;s extraction configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Cases>? ExtractionResponses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.Inquiries>? ExtractionResponses { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Cases> ExtractionResponses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.Inquiries> ExtractionResponses { get; set; }
 #endif
         /// <summary>JSON key-value pairs of field name to field value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,7 +71,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "document-type", n => { DocumentType = n.GetStringValue(); } },
-                { "extraction-responses", n => { ExtractionResponses = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Cases>(global::Soenneker.Persona.OpenApiClient.Models.Cases.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "extraction-responses", n => { ExtractionResponses = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Inquiries>(global::Soenneker.Persona.OpenApiClient.Models.Inquiries.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Verification_document_attributes_fields>(global::Soenneker.Persona.OpenApiClient.Models.Verification_document_attributes_fields.CreateFromDiscriminatorValue); } },
                 { "files", n => { Files = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "files-normalized", n => { FilesNormalized = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -86,7 +86,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("document-type", DocumentType);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Cases>("extraction-responses", ExtractionResponses);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Inquiries>("extraction-responses", ExtractionResponses);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Verification_document_attributes_fields>("fields", Fields);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("files", Files);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("files-normalized", FilesNormalized);

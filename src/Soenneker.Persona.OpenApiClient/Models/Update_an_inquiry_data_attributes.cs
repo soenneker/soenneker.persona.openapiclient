@@ -15,10 +15,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>JSON key-value pairs of field name to field value. Schema is defined by your Inquiry Template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_data_attributes_fields? Fields { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.Inquiry_fields? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_data_attributes_fields Fields { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.Inquiry_fields Fields { get; set; }
 #endif
         /// <summary>Unstructured field for your custom use</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,7 +62,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_data_attributes_fields>(global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_data_attributes_fields.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry_fields>(global::Soenneker.Persona.OpenApiClient.Models.Inquiry_fields.CreateFromDiscriminatorValue); } },
                 { "note", n => { Note = n.GetStringValue(); } },
                 { "redirect-uri", n => { RedirectUri = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -75,7 +75,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_data_attributes_fields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry_fields>("fields", Fields);
             writer.WriteStringValue("note", Note);
             writer.WriteStringValue("redirect-uri", RedirectUri);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);

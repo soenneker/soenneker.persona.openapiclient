@@ -9,27 +9,36 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Inquiries_structuredResults : IAdditionalDataHolder, IParsable
+    public partial class Workflow_deployment_attributes_configuration_versions : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiries_structuredResults"/> and sets the default values.
-        /// </summary>
-        public Inquiries_structuredResults()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>The label of the version (treatment or control)</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Label { get; set; }
+#nullable restore
+#else
+        public string Label { get; set; }
+#endif
+        /// <summary>The percentage of traffic this version should receive</summary>
+        public int? Percentage { get; set; }
+        /// <summary>The token of the workflow version</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Token { get; set; }
+#nullable restore
+#else
+        public string Token { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiries_structuredResults"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration_versions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.Inquiries_structuredResults CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration_versions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.Inquiries_structuredResults();
+            return new global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration_versions();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -39,6 +48,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "label", n => { Label = n.GetStringValue(); } },
+                { "percentage", n => { Percentage = n.GetIntValue(); } },
+                { "token", n => { Token = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -48,7 +60,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteStringValue("label", Label);
+            writer.WriteIntValue("percentage", Percentage);
+            writer.WriteStringValue("token", Token);
         }
     }
 }

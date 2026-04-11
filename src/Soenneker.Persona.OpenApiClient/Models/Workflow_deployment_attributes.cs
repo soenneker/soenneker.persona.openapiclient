@@ -9,16 +9,16 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Workflow_relationships_activeDeployment_data_attributes : IParsable
+    public partial class Workflow_deployment_attributes : IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The deployment configuration containing version information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes_configuration? Configuration { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration? Configuration { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes_configuration Configuration { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration Configuration { get; set; }
 #endif
         /// <summary>The createdAt property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -35,12 +35,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes();
+            return new global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,7 +50,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "configuration", n => { Configuration = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes_configuration>(global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes_configuration.CreateFromDiscriminatorValue); } },
+                { "configuration", n => { Configuration = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration>(global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration.CreateFromDiscriminatorValue); } },
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -63,7 +63,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes_configuration>("configuration", Configuration);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration>("configuration", Configuration);
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);

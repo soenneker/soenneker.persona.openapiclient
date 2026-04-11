@@ -11,25 +11,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// The deployment configuration containing version information
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Workflow_relationships_activeDeployment_data_attributes_configuration : IParsable
+    public partial class Workflow_deployment_attributes_configuration : IParsable
     {
         /// <summary>The versions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes_configuration_versions>? Versions { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration_versions>? Versions { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes_configuration_versions> Versions { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration_versions> Versions { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes_configuration"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes_configuration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes_configuration();
+            return new global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "versions", n => { Versions = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes_configuration_versions>(global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes_configuration_versions.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "versions", n => { Versions = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration_versions>(global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration_versions.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Workflow_relationships_activeDeployment_data_attributes_configuration_versions>("versions", Versions);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Workflow_deployment_attributes_configuration_versions>("versions", Versions);
         }
     }
 }

@@ -32808,33 +32808,6 @@
               }
             },
             "additionalProperties": false
-          },
-          "relationships": {
-            "type": "object",
-            "properties": {
-              "environment": {
-                "type": "object",
-                "properties": {
-                  "data": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      },
-                      "type": {
-                        "enum": [
-                          "environment"
-                        ],
-                        "type": "string"
-                      }
-                    },
-                    "additionalProperties": false
-                  }
-                },
-                "additionalProperties": false
-              }
-            },
-            "additionalProperties": false
           }
         },
         "additionalProperties": false,
@@ -46269,14 +46242,6 @@
                         "sync-mode": "upsert",
                         "archive-after-completion": false
                       }
-                    },
-                    "relationships": {
-                      "environment": {
-                        "data": {
-                          "type": "environment",
-                          "id": "env_ABC123"
-                        }
-                      }
                     }
                   }
                 ]
@@ -46347,14 +46312,6 @@
                         "destination": "account",
                         "sync-mode": "upsert",
                         "archive-after-completion": false
-                      }
-                    },
-                    "relationships": {
-                      "environment": {
-                        "data": {
-                          "type": "environment",
-                          "id": "env_ABC123"
-                        }
                       }
                     }
                   }
@@ -46427,14 +46384,6 @@
                         "sync-mode": "upsert",
                         "archive-after-completion": false
                       }
-                    },
-                    "relationships": {
-                      "environment": {
-                        "data": {
-                          "type": "environment",
-                          "id": "env_ABC123"
-                        }
-                      }
                     }
                   }
                 ]
@@ -46505,14 +46454,6 @@
                         "destination": "account",
                         "sync-mode": "upsert",
                         "archive-after-completion": false
-                      }
-                    },
-                    "relationships": {
-                      "environment": {
-                        "data": {
-                          "type": "environment",
-                          "id": "env_ABC123"
-                        }
                       }
                     }
                   }
@@ -46585,14 +46526,6 @@
                         "sync-mode": "upsert",
                         "archive-after-completion": false
                       }
-                    },
-                    "relationships": {
-                      "environment": {
-                        "data": {
-                          "type": "environment",
-                          "id": "env_ABC123"
-                        }
-                      }
                     }
                   }
                 ]
@@ -46663,14 +46596,6 @@
                         "destination": "account",
                         "sync-mode": "upsert",
                         "archive-after-completion": false
-                      }
-                    },
-                    "relationships": {
-                      "environment": {
-                        "data": {
-                          "type": "environment",
-                          "id": "env_ABC123"
-                        }
                       }
                     }
                   }

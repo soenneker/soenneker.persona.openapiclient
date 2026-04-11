@@ -31,10 +31,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>JSON key-value pairs of field name to field value. Schema is defined by your Inquiry Template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Create_an_inquiry_data_attributes_fields? Fields { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.Inquiry_fields? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Create_an_inquiry_data_attributes_fields Fields { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.Inquiry_fields Fields { get; set; }
 #endif
         /// <summary>BETA FEATURE -- Specify an alternate initial step. Only available for Dynamic Flow Inquiries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,7 +137,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "account-id", n => { AccountId = n.GetStringValue(); } },
                 { "creator-email-address", n => { CreatorEmailAddress = n.GetStringValue(); } },
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Create_an_inquiry_data_attributes_fields>(global::Soenneker.Persona.OpenApiClient.Models.Create_an_inquiry_data_attributes_fields.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry_fields>(global::Soenneker.Persona.OpenApiClient.Models.Inquiry_fields.CreateFromDiscriminatorValue); } },
                 { "initial-step-name", n => { InitialStepName = n.GetStringValue(); } },
                 { "inquiry-template-id", n => { InquiryTemplateId = n.GetStringValue(); } },
                 { "inquiry-template-version-id", n => { InquiryTemplateVersionId = n.GetStringValue(); } },
@@ -159,7 +159,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("account-id", AccountId);
             writer.WriteStringValue("creator-email-address", CreatorEmailAddress);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Create_an_inquiry_data_attributes_fields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry_fields>("fields", Fields);
             writer.WriteStringValue("initial-step-name", InitialStepName);
             writer.WriteStringValue("inquiry-template-id", InquiryTemplateId);
             writer.WriteStringValue("inquiry-template-version-id", InquiryTemplateVersionId);

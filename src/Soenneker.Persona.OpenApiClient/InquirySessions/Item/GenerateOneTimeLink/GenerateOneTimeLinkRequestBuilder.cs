@@ -37,37 +37,37 @@ namespace Soenneker.Persona.OpenApiClient.InquirySessions.Item.GenerateOneTimeLi
         /// Generates a one-time link for a specific Inquiry Session.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiry-sessions/generate-a-one-time-link-for-an-inquiry-session" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200409Error">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200422Error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200?> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.Item.GenerateOneTimeLink.GenerateOneTimeLinkRequestBuilder.GenerateOneTimeLinkRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200?> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.Item.GenerateOneTimeLink.GenerateOneTimeLinkRequestBuilder.GenerateOneTimeLinkRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.Item.GenerateOneTimeLink.GenerateOneTimeLinkRequestBuilder.GenerateOneTimeLinkRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.Item.GenerateOneTimeLink.GenerateOneTimeLinkRequestBuilder.GenerateOneTimeLinkRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200404Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200409Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200422Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200429Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.Generate_a_one_time_link_for_an_inquiry_session_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Generates a one-time link for a specific Inquiry Session.

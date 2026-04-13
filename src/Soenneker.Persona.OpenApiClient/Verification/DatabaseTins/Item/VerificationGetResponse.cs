@@ -16,10 +16,10 @@ namespace Soenneker.Persona.OpenApiClient.Verification.DatabaseTins.Item
         /// <summary>A TIN Database Verification</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Verification_database_tin? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseTin? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Verification_database_tin Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseTin Data { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.Verification.DatabaseTins.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Verification_database_tin>(global::Soenneker.Persona.OpenApiClient.Models.Verification_database_tin.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseTin>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseTin.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Verification.DatabaseTins.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Verification_database_tin>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseTin>("data", Data);
         }
     }
 }

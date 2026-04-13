@@ -7,19 +7,20 @@ using System.IO;
 using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
-    /// <summary>
-    /// An Account object.Note that `fields` is **not** key inflected.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Account : IParsable
+    #pragma warning disable CS1591
+    public partial class Account : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The attributes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Account_attributes? Attributes { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountTypeAttributes? Attributes { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Account_attributes Attributes { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountTypeAttributes Attributes { get; set; }
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -29,16 +30,21 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The relationships property</summary>
+        /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Account_relationships? Relationships { get; set; }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Account_relationships Relationships { get; set; }
+        public string Type { get; set; }
 #endif
-        /// <summary>The type property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.Account_type? Type { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account"/> and sets the default values.
+        /// </summary>
+        public Account()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -57,10 +63,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account_attributes>(global::Soenneker.Persona.OpenApiClient.Models.Account_attributes.CreateFromDiscriminatorValue); } },
+                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountTypeAttributes>(global::Soenneker.Persona.OpenApiClient.Models.AccountTypeAttributes.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account_relationships>(global::Soenneker.Persona.OpenApiClient.Models.Account_relationships.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.Account_type>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -70,10 +75,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account_attributes>("attributes", Attributes);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountTypeAttributes>("attributes", Attributes);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account_relationships>("relationships", Relationships);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.Account_type>("type", Type);
+            writer.WriteStringValue("type", Type);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

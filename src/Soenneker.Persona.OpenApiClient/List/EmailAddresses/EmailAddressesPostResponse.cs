@@ -16,10 +16,10 @@ namespace Soenneker.Persona.OpenApiClient.List.EmailAddresses
         /// <summary>A Email Address List object</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Lists_email_addresses? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListsEmailAddresses? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Lists_email_addresses Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListsEmailAddresses Data { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.List.EmailAddresses
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Lists_email_addresses>(global::Soenneker.Persona.OpenApiClient.Models.Lists_email_addresses.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListsEmailAddresses>(global::Soenneker.Persona.OpenApiClient.Models.ListsEmailAddresses.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.List.EmailAddresses
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Lists_email_addresses>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListsEmailAddresses>("data", Data);
         }
     }
 }

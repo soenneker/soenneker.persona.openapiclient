@@ -63,11 +63,11 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.IpAddresses
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.IpAddresses429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.IpAddresses.IpAddressesPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_an_ip_address_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.IpAddresses.IpAddressesRequestBuilder.IpAddressesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.IpAddresses.IpAddressesPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateAnIpAddressListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.IpAddresses.IpAddressesRequestBuilder.IpAddressesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.IpAddresses.IpAddressesPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_an_ip_address_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.IpAddresses.IpAddressesRequestBuilder.IpAddressesRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.IpAddresses.IpAddressesPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateAnIpAddressListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.IpAddresses.IpAddressesRequestBuilder.IpAddressesRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -92,11 +92,11 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.IpAddresses
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Create_an_ip_address_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.IpAddresses.IpAddressesRequestBuilder.IpAddressesRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateAnIpAddressListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.IpAddresses.IpAddressesRequestBuilder.IpAddressesRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Create_an_ip_address_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.IpAddresses.IpAddressesRequestBuilder.IpAddressesRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateAnIpAddressListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.IpAddresses.IpAddressesRequestBuilder.IpAddressesRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

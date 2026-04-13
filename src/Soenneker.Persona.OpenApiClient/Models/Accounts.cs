@@ -17,10 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The attributes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Accounts_attributes? Attributes { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountTypeAttributes? Attributes { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Accounts_attributes Attributes { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountTypeAttributes Attributes { get; set; }
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,7 +63,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Accounts_attributes>(global::Soenneker.Persona.OpenApiClient.Models.Accounts_attributes.CreateFromDiscriminatorValue); } },
+                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountTypeAttributes>(global::Soenneker.Persona.OpenApiClient.Models.AccountTypeAttributes.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -75,7 +75,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Accounts_attributes>("attributes", Attributes);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountTypeAttributes>("attributes", Attributes);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);

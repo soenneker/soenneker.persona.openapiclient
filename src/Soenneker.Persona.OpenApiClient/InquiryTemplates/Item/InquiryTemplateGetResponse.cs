@@ -16,10 +16,10 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item
         /// <summary>An Inquiry Template object</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Inquiry_template? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Inquiry_template Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate Data { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry_template>(global::Soenneker.Persona.OpenApiClient.Models.Inquiry_template.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry_template>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate>("data", Data);
         }
     }
 }

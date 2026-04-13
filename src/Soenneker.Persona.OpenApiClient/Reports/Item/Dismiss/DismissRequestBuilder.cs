@@ -37,39 +37,39 @@ namespace Soenneker.Persona.OpenApiClient.Reports.Item.Dismiss
         /// Dismisses active matches for supported report types
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/reports/dismiss-matches" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200409Error">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200422Error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Reports.Item.Dismiss.DismissRequestBuilder.DismissRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.DismissMatches body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Reports.Item.Dismiss.DismissRequestBuilder.DismissRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Reports.Item.Dismiss.DismissRequestBuilder.DismissRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.DismissMatches body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Reports.Item.Dismiss.DismissRequestBuilder.DismissRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200404Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200409Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200422Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200429Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Dismisses active matches for supported report types
@@ -79,11 +79,11 @@ namespace Soenneker.Persona.OpenApiClient.Reports.Item.Dismiss
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Reports.Item.Dismiss.DismissRequestBuilder.DismissRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.DismissMatches body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Reports.Item.Dismiss.DismissRequestBuilder.DismissRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Dismiss_matches body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Reports.Item.Dismiss.DismissRequestBuilder.DismissRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.DismissMatches body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Reports.Item.Dismiss.DismissRequestBuilder.DismissRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -50,11 +50,11 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RemoveTag429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag.RemoveTagPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Transactions_remove_tag body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag.RemoveTagRequestBuilder.RemoveTagRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag.RemoveTagPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.TransactionsRemoveTag body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag.RemoveTagRequestBuilder.RemoveTagRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag.RemoveTagPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Transactions_remove_tag body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag.RemoveTagRequestBuilder.RemoveTagRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag.RemoveTagPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.TransactionsRemoveTag body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag.RemoveTagRequestBuilder.RemoveTagRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -79,11 +79,11 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Transactions_remove_tag body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag.RemoveTagRequestBuilder.RemoveTagRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.TransactionsRemoveTag body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag.RemoveTagRequestBuilder.RemoveTagRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Transactions_remove_tag body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag.RemoveTagRequestBuilder.RemoveTagRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.TransactionsRemoveTag body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag.RemoveTagRequestBuilder.RemoveTagRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

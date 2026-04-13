@@ -9,41 +9,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Document : IComposedTypeWrapper, IParsable
+    public partial class Document : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Document_generic"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Document_generic? DocumentGeneric { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Persona.OpenApiClient.Models.Document_generic DocumentGeneric { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Document_government_id"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Document_government_id? DocumentGovernmentId { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Persona.OpenApiClient.Models.Document_government_id DocumentGovernmentId { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Document_government_id_nfc"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Document_government_id_nfc? DocumentGovernmentIdNfc { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Persona.OpenApiClient.Models.Document_government_id_nfc DocumentGovernmentIdNfc { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Document_mdoc"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Document_mdoc? DocumentMdoc { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Persona.OpenApiClient.Models.Document_mdoc DocumentMdoc { get; set; }
-#endif
         /// <summary>The extractionType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,30 +52,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.Document CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Soenneker.Persona.OpenApiClient.Models.Document();
-            if(parseNode.GetStringValue() is string extractionTypeValue)
-            {
-                result.ExtractionType = extractionTypeValue;
-            }
-            else if(parseNode.GetStringValue() is string fieldNameValue)
-            {
-                result.FieldName = fieldNameValue;
-            }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Document_results>(global::Soenneker.Persona.OpenApiClient.Models.Document_results.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Persona.OpenApiClient.Models.Document_results> resultsValue)
-            {
-                result.Results = resultsValue;
-            }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Document_structuredResults>(global::Soenneker.Persona.OpenApiClient.Models.Document_structuredResults.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Persona.OpenApiClient.Models.Document_structuredResults> structuredResultsValue)
-            {
-                result.StructuredResults = structuredResultsValue;
-            }
-            else {
-                result.DocumentGeneric = new global::Soenneker.Persona.OpenApiClient.Models.Document_generic();
-                result.DocumentGovernmentId = new global::Soenneker.Persona.OpenApiClient.Models.Document_government_id();
-                result.DocumentGovernmentIdNfc = new global::Soenneker.Persona.OpenApiClient.Models.Document_government_id_nfc();
-                result.DocumentMdoc = new global::Soenneker.Persona.OpenApiClient.Models.Document_mdoc();
-            }
-            return result;
+            return new global::Soenneker.Persona.OpenApiClient.Models.Document();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -115,11 +60,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(DocumentGeneric != null || DocumentGovernmentId != null || DocumentGovernmentIdNfc != null || DocumentMdoc != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(DocumentGeneric, DocumentGovernmentId, DocumentGovernmentIdNfc, DocumentMdoc);
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "extraction-type", n => { ExtractionType = n.GetStringValue(); } },
+                { "field-name", n => { FieldName = n.GetStringValue(); } },
+                { "results", n => { Results = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Document_results>(global::Soenneker.Persona.OpenApiClient.Models.Document_results.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "structured-results", n => { StructuredResults = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Document_structuredResults>(global::Soenneker.Persona.OpenApiClient.Models.Document_structuredResults.CreateFromDiscriminatorValue)?.AsList(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -128,25 +75,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ExtractionType != null)
-            {
-                writer.WriteStringValue(null, ExtractionType);
-            }
-            else if(FieldName != null)
-            {
-                writer.WriteStringValue(null, FieldName);
-            }
-            else if(Results != null)
-            {
-                writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Document_results>(null, Results);
-            }
-            else if(StructuredResults != null)
-            {
-                writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Document_structuredResults>(null, StructuredResults);
-            }
-            else {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Document_generic>(null, DocumentGeneric, DocumentGovernmentId, DocumentGovernmentIdNfc, DocumentMdoc);
-            }
+            writer.WriteStringValue("extraction-type", ExtractionType);
+            writer.WriteStringValue("field-name", FieldName);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Document_results>("results", Results);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Document_structuredResults>("structured-results", StructuredResults);
         }
     }
 }

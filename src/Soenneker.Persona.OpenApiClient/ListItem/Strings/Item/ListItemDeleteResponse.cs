@@ -16,10 +16,10 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Strings.Item
         /// <summary>A String List Item</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.List_item_string? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemString? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.List_item_string Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemString Data { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Strings.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.List_item_string>(global::Soenneker.Persona.OpenApiClient.Models.List_item_string.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemString>(global::Soenneker.Persona.OpenApiClient.Models.ListItemString.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Strings.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.List_item_string>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemString>("data", Data);
         }
     }
 }

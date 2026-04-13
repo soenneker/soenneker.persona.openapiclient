@@ -98,11 +98,11 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections.Item
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Connection429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionPatchResponse?> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.Update_a_connect_connection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionItemRequestBuilder.ConnectionItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionPatchResponse?> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionItemRequestBuilder.ConnectionItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionPatchResponse> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.Update_a_connect_connection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionItemRequestBuilder.ConnectionItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionPatchResponse> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionItemRequestBuilder.ConnectionItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -146,11 +146,11 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Update_a_connect_connection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionItemRequestBuilder.ConnectionItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionItemRequestBuilder.ConnectionItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Update_a_connect_connection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionItemRequestBuilder.ConnectionItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionItemRequestBuilder.ConnectionItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -16,10 +16,10 @@ namespace Soenneker.Persona.OpenApiClient.Verification.DatabasePhoneCarriers.Ite
         /// <summary>A Phone Carrier Database Verification</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Verification_database_phone_carrier? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabasePhoneCarrier? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Verification_database_phone_carrier Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabasePhoneCarrier Data { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.Verification.DatabasePhoneCarriers.Ite
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Verification_database_phone_carrier>(global::Soenneker.Persona.OpenApiClient.Models.Verification_database_phone_carrier.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabasePhoneCarrier>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabasePhoneCarrier.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Verification.DatabasePhoneCarriers.Ite
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Verification_database_phone_carrier>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabasePhoneCarrier>("data", Data);
         }
     }
 }

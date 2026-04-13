@@ -16,10 +16,10 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Geolocations
         /// <summary>A Geolocation List Item</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.List_item_geolocation? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocation? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.List_item_geolocation Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocation Data { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Geolocations
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.List_item_geolocation>(global::Soenneker.Persona.OpenApiClient.Models.List_item_geolocation.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocation>(global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Geolocations
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.List_item_geolocation>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocation>("data", Data);
         }
     }
 }

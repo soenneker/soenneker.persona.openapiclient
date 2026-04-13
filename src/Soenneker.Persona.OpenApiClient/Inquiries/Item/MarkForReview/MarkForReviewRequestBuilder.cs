@@ -37,37 +37,37 @@ namespace Soenneker.Persona.OpenApiClient.Inquiries.Item.MarkForReview
         /// Marks an Inquiry for manual review. Inquiries that are alreadyapproved or declined cannot be marked for review.Note that this action will trigger any associated workflows and webhooks.Marking an inquiry for review will prevent further progress on the inquiry.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiries/mark-an-inquiry-for-review" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200409Error">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200422Error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200?> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.MarkForReview.MarkForReviewRequestBuilder.MarkForReviewRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200?> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.MarkForReview.MarkForReviewRequestBuilder.MarkForReviewRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.MarkForReview.MarkForReviewRequestBuilder.MarkForReviewRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.MarkForReview.MarkForReviewRequestBuilder.MarkForReviewRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200404Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200409Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200422Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200429Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.Mark_an_inquiry_for_review_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.MarkAnInquiryForReview200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Marks an Inquiry for manual review. Inquiries that are alreadyapproved or declined cannot be marked for review.Note that this action will trigger any associated workflows and webhooks.Marking an inquiry for review will prevent further progress on the inquiry.

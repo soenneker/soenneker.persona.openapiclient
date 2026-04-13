@@ -37,39 +37,39 @@ namespace Soenneker.Persona.OpenApiClient.Inquiries.Item.RemoveTag
         /// Removes an existing tag from an Inquiry.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiries/remove-tag" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200409Error">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200422Error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200?> PostAsync(global::Soenneker.Persona.OpenApiClient.Inquiries.Item.RemoveTag.RemoveTagPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.RemoveTag.RemoveTagRequestBuilder.RemoveTagRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200?> PostAsync(global::Soenneker.Persona.OpenApiClient.Inquiries.Item.RemoveTag.RemoveTagPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.RemoveTag.RemoveTagRequestBuilder.RemoveTagRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200> PostAsync(global::Soenneker.Persona.OpenApiClient.Inquiries.Item.RemoveTag.RemoveTagPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.RemoveTag.RemoveTagRequestBuilder.RemoveTagRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200> PostAsync(global::Soenneker.Persona.OpenApiClient.Inquiries.Item.RemoveTag.RemoveTagPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.RemoveTag.RemoveTagRequestBuilder.RemoveTagRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200404Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200409Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200422Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200429Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.Inquiries_remove_tag_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.InquiriesRemoveTag200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Removes an existing tag from an Inquiry.

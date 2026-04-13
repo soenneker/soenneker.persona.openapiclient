@@ -63,11 +63,11 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.DeviceFingerprints
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.DeviceFingerprints429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.DeviceFingerprints.DeviceFingerprintsPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_device_fingerprint_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.DeviceFingerprints.DeviceFingerprintsRequestBuilder.DeviceFingerprintsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.DeviceFingerprints.DeviceFingerprintsPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateADeviceFingerprintListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.DeviceFingerprints.DeviceFingerprintsRequestBuilder.DeviceFingerprintsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.DeviceFingerprints.DeviceFingerprintsPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_device_fingerprint_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.DeviceFingerprints.DeviceFingerprintsRequestBuilder.DeviceFingerprintsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.DeviceFingerprints.DeviceFingerprintsPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateADeviceFingerprintListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.DeviceFingerprints.DeviceFingerprintsRequestBuilder.DeviceFingerprintsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -92,11 +92,11 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.DeviceFingerprints
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Create_a_device_fingerprint_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.DeviceFingerprints.DeviceFingerprintsRequestBuilder.DeviceFingerprintsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateADeviceFingerprintListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.DeviceFingerprints.DeviceFingerprintsRequestBuilder.DeviceFingerprintsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Create_a_device_fingerprint_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.DeviceFingerprints.DeviceFingerprintsRequestBuilder.DeviceFingerprintsRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateADeviceFingerprintListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.DeviceFingerprints.DeviceFingerprintsRequestBuilder.DeviceFingerprintsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

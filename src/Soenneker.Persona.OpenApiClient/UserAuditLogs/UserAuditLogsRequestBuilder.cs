@@ -50,33 +50,33 @@ namespace Soenneker.Persona.OpenApiClient.UserAuditLogs
         /// &quot;Returns a list of your organization’s user audit logs for up to the most recent 6 months.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like user audit logs in Sandbox via API. Results are returned in reverse chronological order, with the most recently created objects first.&quot;
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/user-audit-logs/list-all-user-audit-logs" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.List_all_user_audit_logs_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllUserAuditLogs200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.List_all_user_audit_logs_200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.List_all_user_audit_logs_200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.List_all_user_audit_logs_200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.List_all_user_audit_logs_200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.List_all_user_audit_logs_200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllUserAuditLogs200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllUserAuditLogs200401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllUserAuditLogs200403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllUserAuditLogs200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllUserAuditLogs200429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.List_all_user_audit_logs_200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.UserAuditLogs.UserAuditLogsRequestBuilder.UserAuditLogsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllUserAuditLogs200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.UserAuditLogs.UserAuditLogsRequestBuilder.UserAuditLogsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.List_all_user_audit_logs_200> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.UserAuditLogs.UserAuditLogsRequestBuilder.UserAuditLogsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllUserAuditLogs200> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.UserAuditLogs.UserAuditLogsRequestBuilder.UserAuditLogsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.List_all_user_audit_logs_200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.List_all_user_audit_logs_200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.List_all_user_audit_logs_200403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.List_all_user_audit_logs_200404Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.List_all_user_audit_logs_200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.ListAllUserAuditLogs200400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.ListAllUserAuditLogs200401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ListAllUserAuditLogs200403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.ListAllUserAuditLogs200404Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.ListAllUserAuditLogs200429Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.List_all_user_audit_logs_200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.List_all_user_audit_logs_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllUserAuditLogs200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllUserAuditLogs200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Returns a list of your organization’s user audit logs for up to the most recent 6 months.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like user audit logs in Sandbox via API. Results are returned in reverse chronological order, with the most recently created objects first.&quot;

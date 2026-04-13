@@ -16,10 +16,10 @@ namespace Soenneker.Persona.OpenApiClient.List.Countries
         /// <summary>A Country List object</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Lists_countries? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListsCountries? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Lists_countries Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListsCountries Data { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.List.Countries
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Lists_countries>(global::Soenneker.Persona.OpenApiClient.Models.Lists_countries.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListsCountries>(global::Soenneker.Persona.OpenApiClient.Models.ListsCountries.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.List.Countries
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Lists_countries>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListsCountries>("data", Data);
         }
     }
 }

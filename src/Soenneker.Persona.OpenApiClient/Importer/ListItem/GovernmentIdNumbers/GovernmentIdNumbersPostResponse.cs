@@ -16,10 +16,10 @@ namespace Soenneker.Persona.OpenApiClient.Importer.ListItem.GovernmentIdNumbers
         /// <summary>An Importer for government ID number List Items</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Importer_list_item_government_id_number? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGovernmentIdNumber? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Importer_list_item_government_id_number Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGovernmentIdNumber Data { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.Importer.ListItem.GovernmentIdNumbers
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Importer_list_item_government_id_number>(global::Soenneker.Persona.OpenApiClient.Models.Importer_list_item_government_id_number.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGovernmentIdNumber>(global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGovernmentIdNumber.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Importer.ListItem.GovernmentIdNumbers
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Importer_list_item_government_id_number>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGovernmentIdNumber>("data", Data);
         }
     }
 }

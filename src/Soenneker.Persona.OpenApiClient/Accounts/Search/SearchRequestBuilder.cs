@@ -37,39 +37,39 @@ namespace Soenneker.Persona.OpenApiClient.Accounts.Search
         /// Search for accounts using a flexible query language.## Search vs. List EndpointsThe Search and List endpoints serve different purposes and have distinct performance characteristics.Use the **Search** endpoint (`POST /accounts/search`) when you need to perform complex queries with boolean logic (AND/OR/NOT), filter by custom fields or identifiers, or apply multiple conditions simultaneously. Search is optimized for flexible querying and is faster than paginating through all resources when looking for specific records.Use the **List** endpoint (`GET /accounts`) for simple listing with basic filters like reference ID.## Data FreshnessDo not use search for read-after-write flows because the data will not be immediately available to search.Under normal operating conditions, data is searchable within approximately 1 minute of creation or modification.Propagation of new or updated data could be delayed during an outage.For workflows that require immediate data availability after creating or updating an account, use the List Accounts endpoint instead.### Searchable AttributesThe following attributes can be used in query predicates:| Attribute | Description ||-----------|-------------|| `type` | Account type (e.g., `acttp_ABC123`) || `status` | Account status (e.g., `actst_ABC123`) || `created_at` | Account creation timestamp || `updated_at` | Account last updated timestamp || `identifiers.*` | Custom identifier (e.g., `identifiers.user_id`) || `fields.*` | Custom account field (e.g., `fields.age`) |**Note:** Custom fields (`fields.*`) must be configured as searchable on the Account Type to be queryable.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/accounts/search-accounts" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200409Error">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200422Error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Search_accounts body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Accounts.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Accounts.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Search_accounts body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Accounts.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Accounts.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200404Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200409Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200422Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200429Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.Search_accounts_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Search for accounts using a flexible query language.## Search vs. List EndpointsThe Search and List endpoints serve different purposes and have distinct performance characteristics.Use the **Search** endpoint (`POST /accounts/search`) when you need to perform complex queries with boolean logic (AND/OR/NOT), filter by custom fields or identifiers, or apply multiple conditions simultaneously. Search is optimized for flexible querying and is faster than paginating through all resources when looking for specific records.Use the **List** endpoint (`GET /accounts`) for simple listing with basic filters like reference ID.## Data FreshnessDo not use search for read-after-write flows because the data will not be immediately available to search.Under normal operating conditions, data is searchable within approximately 1 minute of creation or modification.Propagation of new or updated data could be delayed during an outage.For workflows that require immediate data availability after creating or updating an account, use the List Accounts endpoint instead.### Searchable AttributesThe following attributes can be used in query predicates:| Attribute | Description ||-----------|-------------|| `type` | Account type (e.g., `acttp_ABC123`) || `status` | Account status (e.g., `actst_ABC123`) || `created_at` | Account creation timestamp || `updated_at` | Account last updated timestamp || `identifiers.*` | Custom identifier (e.g., `identifiers.user_id`) || `fields.*` | Custom account field (e.g., `fields.age`) |**Note:** Custom fields (`fields.*`) must be configured as searchable on the Account Type to be queryable.
@@ -79,11 +79,11 @@ namespace Soenneker.Persona.OpenApiClient.Accounts.Search
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Search_accounts body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Accounts.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Accounts.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Search_accounts body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Accounts.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.SearchAccounts body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Accounts.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

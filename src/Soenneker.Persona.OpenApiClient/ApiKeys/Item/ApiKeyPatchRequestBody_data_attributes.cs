@@ -30,7 +30,7 @@ namespace Soenneker.Persona.OpenApiClient.ApiKeys.Item
         public string ApiKeyInflection { get; set; }
 #endif
         /// <summary>Server API version. More info on versioning can be found [here](https://docs.withpersona.com/versioning).</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.Api_version? ApiVersion { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiVersion? ApiVersion { get; set; }
         /// <summary>How soon any file access tokens returned in API responses expire. For more info see [Downloading Files](https://docs.withpersona.com/downloading-files).</summary>
         public int? FileAccessTokenExpiresIn { get; set; }
         /// <summary>IP addresses permitted for use by the API key.</summary>
@@ -85,7 +85,7 @@ namespace Soenneker.Persona.OpenApiClient.ApiKeys.Item
             {
                 { "api-attributes-blocklist", n => { ApiAttributesBlocklist = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "api-key-inflection", n => { ApiKeyInflection = n.GetStringValue(); } },
-                { "api-version", n => { ApiVersion = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.Api_version>(); } },
+                { "api-version", n => { ApiVersion = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ApiVersion>(); } },
                 { "file-access-token-expires-in", n => { FileAccessTokenExpiresIn = n.GetIntValue(); } },
                 { "ip-address-allowlist", n => { IpAddressAllowlist = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -102,7 +102,7 @@ namespace Soenneker.Persona.OpenApiClient.ApiKeys.Item
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("api-attributes-blocklist", ApiAttributesBlocklist);
             writer.WriteStringValue("api-key-inflection", ApiKeyInflection);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.Api_version>("api-version", ApiVersion);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ApiVersion>("api-version", ApiVersion);
             writer.WriteIntValue("file-access-token-expires-in", FileAccessTokenExpiresIn);
             writer.WriteCollectionOfPrimitiveValues<string>("ip-address-allowlist", IpAddressAllowlist);
             writer.WriteStringValue("name", Name);

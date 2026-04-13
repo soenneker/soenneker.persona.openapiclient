@@ -103,107 +103,107 @@ namespace Soenneker.Persona.OpenApiClient.Inquiries.Item
         /// Permanently deletes personally identifiable information (PII) for an Inquiry and all associated Verifications, Reports, or other Persona resources. The response indicates a successful redaction of the Inquiry. Redaction of the Inquiry&apos;s associated child objects are done asynchronously and may take some time before all associated child objects are fully redacted. **This action cannot be undone**.This endpoint can be used to comply with privacy regulations such as GDPR / CCPA or to enforce data privacy.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiries/redact-an-inquiry" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200409Error">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200422Error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200?> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200> DeleteAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200404Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200409Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200422Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200429Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.Redact_an_inquiry_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves the details of an existing Inquiry.In the [Embedded Flow](https://docs.withpersona.com/embedded-flow), the `inquiry-id` is the first parameter of the onStart callback. In the [Hosted Flow](https://docs.withpersona.com/hosted-flow), the `inquiry-id` is a query parameter in the onComplete callback.Template information will be found in `data.relationships.inquiry-template` if the inquiry is a Dynamic Flow inquiry, and in `data.relationships.template` if the inquiry is a Legacy 2.0 inquiry. For more information, see [Dynamic Flow vs. Legacy Templates](https://docs.withpersona.com/inquiry-templates#dynamic-flow-vs-legacy-templates).
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiries/retrieve-an-inquiry" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Retrieve_an_inquiry_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Retrieve_an_inquiry_200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Retrieve_an_inquiry_200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Retrieve_an_inquiry_200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Retrieve_an_inquiry_200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Retrieve_an_inquiry_200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Retrieve_an_inquiry_200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Retrieve_an_inquiry_200> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Retrieve_an_inquiry_200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Retrieve_an_inquiry_200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Retrieve_an_inquiry_200403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Retrieve_an_inquiry_200404Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Retrieve_an_inquiry_200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200404Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200429Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.Retrieve_an_inquiry_200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.Retrieve_an_inquiry_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Updates an existing Inquiry.Note that if you use webhooks, updates to inquiries that are not in progress can result in data getting out of sync. For example, updating a completed Inquiry will not cause your Inquiry completed webhook to retrigger.Inquiries represent a snapshot of data collected from an individual, so we generally do not recommend updating an Inquiry&apos;s data after the Inquiry has been finalized.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiries/update-an-inquiry" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200409Error">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200422Error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200?> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200?> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200404Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200409Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200422Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200429Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Permanently deletes personally identifiable information (PII) for an Inquiry and all associated Verifications, Reports, or other Persona resources. The response indicates a successful redaction of the Inquiry. Redaction of the Inquiry&apos;s associated child objects are done asynchronously and may take some time before all associated child objects are fully redacted. **This action cannot be undone**.This endpoint can be used to comply with privacy regulations such as GDPR / CCPA or to enforce data privacy.
@@ -251,11 +251,11 @@ namespace Soenneker.Persona.OpenApiClient.Inquiries.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Update_an_inquiry body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder.InquiryItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

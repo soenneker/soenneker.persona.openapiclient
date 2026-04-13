@@ -16,10 +16,10 @@ namespace Soenneker.Persona.OpenApiClient.List.BrowserFingerprints
         /// <summary>A Browser Fingerprint List object</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Lists_browser_fingerprints? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListsBrowserFingerprints? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Lists_browser_fingerprints Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListsBrowserFingerprints Data { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.List.BrowserFingerprints
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Lists_browser_fingerprints>(global::Soenneker.Persona.OpenApiClient.Models.Lists_browser_fingerprints.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListsBrowserFingerprints>(global::Soenneker.Persona.OpenApiClient.Models.ListsBrowserFingerprints.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.List.BrowserFingerprints
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Lists_browser_fingerprints>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListsBrowserFingerprints>("data", Data);
         }
     }
 }

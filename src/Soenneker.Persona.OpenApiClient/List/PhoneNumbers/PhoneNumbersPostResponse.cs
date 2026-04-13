@@ -16,10 +16,10 @@ namespace Soenneker.Persona.OpenApiClient.List.PhoneNumbers
         /// <summary>A Phone Number List object</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Lists_phone_numbers? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListsPhoneNumbers? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Lists_phone_numbers Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListsPhoneNumbers Data { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.List.PhoneNumbers
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Lists_phone_numbers>(global::Soenneker.Persona.OpenApiClient.Models.Lists_phone_numbers.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListsPhoneNumbers>(global::Soenneker.Persona.OpenApiClient.Models.ListsPhoneNumbers.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.List.PhoneNumbers
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Lists_phone_numbers>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListsPhoneNumbers>("data", Data);
         }
     }
 }

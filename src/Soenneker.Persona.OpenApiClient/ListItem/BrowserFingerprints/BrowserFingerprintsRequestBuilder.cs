@@ -63,11 +63,11 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BrowserFingerprints429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints.BrowserFingerprintsPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_browser_fingerprint_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints.BrowserFingerprintsRequestBuilder.BrowserFingerprintsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints.BrowserFingerprintsPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateABrowserFingerprintListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints.BrowserFingerprintsRequestBuilder.BrowserFingerprintsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints.BrowserFingerprintsPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Create_a_browser_fingerprint_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints.BrowserFingerprintsRequestBuilder.BrowserFingerprintsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints.BrowserFingerprintsPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateABrowserFingerprintListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints.BrowserFingerprintsRequestBuilder.BrowserFingerprintsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -92,11 +92,11 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Create_a_browser_fingerprint_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints.BrowserFingerprintsRequestBuilder.BrowserFingerprintsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateABrowserFingerprintListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints.BrowserFingerprintsRequestBuilder.BrowserFingerprintsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Create_a_browser_fingerprint_list_item body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints.BrowserFingerprintsRequestBuilder.BrowserFingerprintsRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateABrowserFingerprintListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints.BrowserFingerprintsRequestBuilder.BrowserFingerprintsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

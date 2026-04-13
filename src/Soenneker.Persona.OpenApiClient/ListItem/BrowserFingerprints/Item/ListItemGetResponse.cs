@@ -16,10 +16,10 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints.Item
         /// <summary>A Browser Fingerprint List Item</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.List_item_browser_fingerprint? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprint? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.List_item_browser_fingerprint Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprint Data { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.List_item_browser_fingerprint>(global::Soenneker.Persona.OpenApiClient.Models.List_item_browser_fingerprint.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprint>(global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprint.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.BrowserFingerprints.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.List_item_browser_fingerprint>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprint>("data", Data);
         }
     }
 }

@@ -37,39 +37,39 @@ namespace Soenneker.Persona.OpenApiClient.Cases.Item.AddObjects
         /// Adds Persona objects (such as inquiries, accounts, or reports) to a Case
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/cases/add-persona-objects" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200409Error">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200422Error">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Cases.Item.AddObjects.AddObjectsRequestBuilder.AddObjectsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Cases.Item.AddObjects.AddObjectsRequestBuilder.AddObjectsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Cases.Item.AddObjects.AddObjectsRequestBuilder.AddObjectsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Cases.Item.AddObjects.AddObjectsRequestBuilder.AddObjectsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200404Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200409Error.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200422Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200429Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Adds Persona objects (such as inquiries, accounts, or reports) to a Case
@@ -79,11 +79,11 @@ namespace Soenneker.Persona.OpenApiClient.Cases.Item.AddObjects
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Cases.Item.AddObjects.AddObjectsRequestBuilder.AddObjectsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Cases.Item.AddObjects.AddObjectsRequestBuilder.AddObjectsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Add_persona_objects body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Cases.Item.AddObjects.AddObjectsRequestBuilder.AddObjectsRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.AddPersonaObjects body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Cases.Item.AddObjects.AddObjectsRequestBuilder.AddObjectsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

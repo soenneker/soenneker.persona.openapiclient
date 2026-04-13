@@ -15,10 +15,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Import_an_accountmultipart_form_data_data? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ImportAnAccountmultipartFormDataData? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Import_an_accountmultipart_form_data_data Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ImportAnAccountmultipartFormDataData Data { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,7 +38,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Import_an_accountmultipart_form_data_data>(global::Soenneker.Persona.OpenApiClient.Models.Import_an_accountmultipart_form_data_data.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImportAnAccountmultipartFormDataData>(global::Soenneker.Persona.OpenApiClient.Models.ImportAnAccountmultipartFormDataData.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Import_an_accountmultipart_form_data_data>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImportAnAccountmultipartFormDataData>("data", Data);
         }
     }
 }

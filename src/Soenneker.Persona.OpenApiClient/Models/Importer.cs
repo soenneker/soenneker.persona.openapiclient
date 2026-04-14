@@ -11,10 +11,74 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// Fallback array item schema
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Importer : IAdditionalDataHolder, IParsable
+    public partial class Importer : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterAccount"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterAccount? ImporterAccount { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterAccount ImporterAccount { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemEmailAddress"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemEmailAddress? ImporterListItemEmailAddress { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemEmailAddress ImporterListItemEmailAddress { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemField"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemField? ImporterListItemField { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemField ImporterListItemField { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGeolocation"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGeolocation? ImporterListItemGeolocation { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGeolocation ImporterListItemGeolocation { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGovernmentIdNumber"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGovernmentIdNumber? ImporterListItemGovernmentIdNumber { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGovernmentIdNumber ImporterListItemGovernmentIdNumber { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemIpAddress"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemIpAddress? ImporterListItemIpAddress { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemIpAddress ImporterListItemIpAddress { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemName"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemName? ImporterListItemName { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemName ImporterListItemName { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemPhoneNumber"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemPhoneNumber? ImporterListItemPhoneNumber { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemPhoneNumber ImporterListItemPhoneNumber { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.Importer"/> and sets the default values.
         /// </summary>
@@ -30,7 +94,41 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.Importer CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.Importer();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Persona.OpenApiClient.Models.Importer();
+            if("ImporterAccount".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ImporterAccount = new global::Soenneker.Persona.OpenApiClient.Models.ImporterAccount();
+            }
+            else if("ImporterListItemEmailAddress".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ImporterListItemEmailAddress = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemEmailAddress();
+            }
+            else if("ImporterListItemField".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ImporterListItemField = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemField();
+            }
+            else if("ImporterListItemGeolocation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ImporterListItemGeolocation = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGeolocation();
+            }
+            else if("ImporterListItemGovernmentIdNumber".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ImporterListItemGovernmentIdNumber = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGovernmentIdNumber();
+            }
+            else if("ImporterListItemIpAddress".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ImporterListItemIpAddress = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemIpAddress();
+            }
+            else if("ImporterListItemName".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ImporterListItemName = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemName();
+            }
+            else if("ImporterListItemPhoneNumber".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ImporterListItemPhoneNumber = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemPhoneNumber();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,9 +136,39 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(ImporterAccount != null)
             {
-            };
+                return ImporterAccount.GetFieldDeserializers();
+            }
+            else if(ImporterListItemEmailAddress != null)
+            {
+                return ImporterListItemEmailAddress.GetFieldDeserializers();
+            }
+            else if(ImporterListItemField != null)
+            {
+                return ImporterListItemField.GetFieldDeserializers();
+            }
+            else if(ImporterListItemGeolocation != null)
+            {
+                return ImporterListItemGeolocation.GetFieldDeserializers();
+            }
+            else if(ImporterListItemGovernmentIdNumber != null)
+            {
+                return ImporterListItemGovernmentIdNumber.GetFieldDeserializers();
+            }
+            else if(ImporterListItemIpAddress != null)
+            {
+                return ImporterListItemIpAddress.GetFieldDeserializers();
+            }
+            else if(ImporterListItemName != null)
+            {
+                return ImporterListItemName.GetFieldDeserializers();
+            }
+            else if(ImporterListItemPhoneNumber != null)
+            {
+                return ImporterListItemPhoneNumber.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -49,6 +177,38 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            if(ImporterAccount != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterAccount>(null, ImporterAccount);
+            }
+            else if(ImporterListItemEmailAddress != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemEmailAddress>(null, ImporterListItemEmailAddress);
+            }
+            else if(ImporterListItemField != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemField>(null, ImporterListItemField);
+            }
+            else if(ImporterListItemGeolocation != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGeolocation>(null, ImporterListItemGeolocation);
+            }
+            else if(ImporterListItemGovernmentIdNumber != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGovernmentIdNumber>(null, ImporterListItemGovernmentIdNumber);
+            }
+            else if(ImporterListItemIpAddress != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemIpAddress>(null, ImporterListItemIpAddress);
+            }
+            else if(ImporterListItemName != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemName>(null, ImporterListItemName);
+            }
+            else if(ImporterListItemPhoneNumber != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemPhoneNumber>(null, ImporterListItemPhoneNumber);
+            }
             writer.WriteAdditionalData(AdditionalData);
         }
     }

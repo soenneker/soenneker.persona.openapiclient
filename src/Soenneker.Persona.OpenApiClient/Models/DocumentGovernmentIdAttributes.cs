@@ -58,10 +58,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The backPhoto property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.File_1? BackPhoto { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.FileObject? BackPhoto { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.File_1 BackPhoto { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.FileObject BackPhoto { get; set; }
 #endif
         /// <summary>The birthdate property</summary>
         public Date? Birthdate { get; set; }
@@ -104,10 +104,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The frontPhoto property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.File_1? FrontPhoto { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.FileObject? FrontPhoto { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.File_1 FrontPhoto { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.FileObject FrontPhoto { get; set; }
 #endif
         /// <summary>The height property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -238,10 +238,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The selfiePhoto property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.File_1? SelfiePhoto { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.FileObject? SelfiePhoto { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.File_1 SelfiePhoto { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.FileObject SelfiePhoto { get; set; }
 #endif
         /// <summary>The sex property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -305,7 +305,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "address-street-1", n => { AddressStreet1 = n.GetStringValue(); } },
                 { "address-street-2", n => { AddressStreet2 = n.GetStringValue(); } },
                 { "address-subdivision", n => { AddressSubdivision = n.GetStringValue(); } },
-                { "back-photo", n => { BackPhoto = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.File_1>(global::Soenneker.Persona.OpenApiClient.Models.File_1.CreateFromDiscriminatorValue); } },
+                { "back-photo", n => { BackPhoto = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue); } },
                 { "birthdate", n => { Birthdate = n.GetDateValue(); } },
                 { "birthplace", n => { Birthplace = n.GetStringValue(); } },
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
@@ -313,7 +313,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "document-number", n => { DocumentNumber = n.GetStringValue(); } },
                 { "endorsements", n => { Endorsements = n.GetStringValue(); } },
                 { "expiration-date", n => { ExpirationDate = n.GetDateValue(); } },
-                { "front-photo", n => { FrontPhoto = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.File_1>(global::Soenneker.Persona.OpenApiClient.Models.File_1.CreateFromDiscriminatorValue); } },
+                { "front-photo", n => { FrontPhoto = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue); } },
                 { "height", n => { Height = n.GetStringValue(); } },
                 { "id-class", n => { IdClass = n.GetStringValue(); } },
                 { "identification-number", n => { IdentificationNumber = n.GetStringValue(); } },
@@ -332,7 +332,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "processed-at", n => { ProcessedAt = n.GetDateTimeOffsetValue(); } },
                 { "processed-at-ts", n => { ProcessedAtTs = n.GetIntValue(); } },
                 { "restrictions", n => { Restrictions = n.GetStringValue(); } },
-                { "selfie-photo", n => { SelfiePhoto = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.File_1>(global::Soenneker.Persona.OpenApiClient.Models.File_1.CreateFromDiscriminatorValue); } },
+                { "selfie-photo", n => { SelfiePhoto = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue); } },
                 { "sex", n => { Sex = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "vehicle-class", n => { VehicleClass = n.GetStringValue(); } },
@@ -351,7 +351,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("address-street-1", AddressStreet1);
             writer.WriteStringValue("address-street-2", AddressStreet2);
             writer.WriteStringValue("address-subdivision", AddressSubdivision);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.File_1>("back-photo", BackPhoto);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("back-photo", BackPhoto);
             writer.WriteDateValue("birthdate", Birthdate);
             writer.WriteStringValue("birthplace", Birthplace);
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
@@ -359,7 +359,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("document-number", DocumentNumber);
             writer.WriteStringValue("endorsements", Endorsements);
             writer.WriteDateValue("expiration-date", ExpirationDate);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.File_1>("front-photo", FrontPhoto);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("front-photo", FrontPhoto);
             writer.WriteStringValue("height", Height);
             writer.WriteStringValue("id-class", IdClass);
             writer.WriteStringValue("identification-number", IdentificationNumber);
@@ -378,7 +378,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("processed-at", ProcessedAt);
             writer.WriteIntValue("processed-at-ts", ProcessedAtTs);
             writer.WriteStringValue("restrictions", Restrictions);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.File_1>("selfie-photo", SelfiePhoto);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("selfie-photo", SelfiePhoto);
             writer.WriteStringValue("sex", Sex);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("vehicle-class", VehicleClass);

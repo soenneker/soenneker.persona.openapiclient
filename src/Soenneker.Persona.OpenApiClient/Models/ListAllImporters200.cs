@@ -15,10 +15,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>An array of Importers</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Importer_1>? Data { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.Importer>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Importer_1> Data { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.Importer> Data { get; set; }
 #endif
         /// <summary>Excluded from the response by default. Will be an empty array when the `include` query parameter in the request was explicitly set to empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,7 +54,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Importer_1>(global::Soenneker.Persona.OpenApiClient.Models.Importer_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Importer>(global::Soenneker.Persona.OpenApiClient.Models.Importer.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Importers>(global::Soenneker.Persona.OpenApiClient.Models.Importers.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListAllImporters200_links>(global::Soenneker.Persona.OpenApiClient.Models.ListAllImporters200_links.CreateFromDiscriminatorValue); } },
             };
@@ -66,7 +66,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Importer_1>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Importer>("data", Data);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Importers>("included", Included);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListAllImporters200_links>("links", Links);
         }

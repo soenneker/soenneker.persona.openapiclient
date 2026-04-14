@@ -61,34 +61,34 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ExpireInquirySessions200.ExpireAll>("included", Included);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Device_1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry_1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Network_1"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Device"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Network"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ExpireAll : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Device_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Device"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.Device_1? Device1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Device? Device { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.Device_1 Device1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Device Device { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.Inquiry_1? Inquiry1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Inquiry? Inquiry { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.Inquiry_1 Inquiry1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Inquiry Inquiry { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Network_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Network"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.Network_1? Network1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Network? Network { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.Network_1 Network1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Network Network { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -99,9 +99,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.Persona.OpenApiClient.Models.ExpireInquirySessions200.ExpireAll();
-                result.Device1 = new global::Soenneker.Persona.OpenApiClient.Models.Device_1();
-                result.Inquiry1 = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry_1();
-                result.Network1 = new global::Soenneker.Persona.OpenApiClient.Models.Network_1();
+                result.Device = new global::Soenneker.Persona.OpenApiClient.Models.Device();
+                result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();
+                result.Network = new global::Soenneker.Persona.OpenApiClient.Models.Network();
                 return result;
             }
             /// <summary>
@@ -110,9 +110,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(Device1 != null || Inquiry1 != null || Network1 != null)
+                if(Device != null || Inquiry != null || Network != null)
                 {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(Device1, Inquiry1, Network1);
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(Device, Inquiry, Network);
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -123,7 +123,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Device_1>(null, Device1, Inquiry1, Network1);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Device>(null, Device, Inquiry, Network);
             }
         }
     }

@@ -15,10 +15,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>An Inquiry object</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Inquiry_1? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.Inquiry? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Inquiry_1 Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.Inquiry Data { get; set; }
 #endif
         /// <summary>The included property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,7 +54,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry_1>(global::Soenneker.Persona.OpenApiClient.Models.Inquiry_1.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry>(global::Soenneker.Persona.OpenApiClient.Models.Inquiry.CreateFromDiscriminatorValue); } },
                 { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200.Resume>(global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200.Resume.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200_meta>(global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200_meta.CreateFromDiscriminatorValue); } },
             };
@@ -66,23 +66,23 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry_1>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry>("data", Data);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200.Resume>("included", Included);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200_meta>("meta", Meta);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account_1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentIdNfc"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentMdoc"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquirySession"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersons"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRisk"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPerson"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSynthetic"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Selfie_1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Template_1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction_1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.User_1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationAamva"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabase"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsv"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabasePhoneCarrier"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerpro"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseStandard"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseTin"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDocument"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfc"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfie"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRun"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow_1"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentIdNfc"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentMdoc"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquirySession"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersons"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRisk"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPerson"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSynthetic"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Selfie"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Template"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.User"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationAamva"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabase"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsv"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabasePhoneCarrier"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerpro"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseStandard"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseTin"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDocument"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfc"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfie"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRun"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Resume : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.Account_1? Account1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Account? Account { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.Account_1 Account1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Account Account { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -276,37 +276,37 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
             public global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist ReportWatchlist { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Selfie_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Selfie"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.Selfie_1? Selfie1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Selfie? Selfie { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.Selfie_1 Selfie1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Selfie Selfie { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Template_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Template"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.Template_1? Template1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Template? Template { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.Template_1 Template1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Template Template { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.Transaction_1? Transaction1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Transaction? Transaction { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.Transaction_1 Transaction1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Transaction Transaction { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.User_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.User"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.User_1? User1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.User? User { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.User_1 User1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.User User { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationAamva"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -412,13 +412,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
             public global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfie VerificationSelfie { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.Workflow_1? Workflow1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Workflow? Workflow { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.Workflow_1 Workflow1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Workflow Workflow { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRun"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -437,7 +437,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200.Resume();
-                result.Account1 = new global::Soenneker.Persona.OpenApiClient.Models.Account_1();
+                result.Account = new global::Soenneker.Persona.OpenApiClient.Models.Account();
                 result.DocumentGeneric = new global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric();
                 result.DocumentGovernmentId = new global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentId();
                 result.DocumentGovernmentIdNfc = new global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentIdNfc();
@@ -462,10 +462,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 result.ReportSocialMedia = new global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMedia();
                 result.ReportSynthetic = new global::Soenneker.Persona.OpenApiClient.Models.ReportSynthetic();
                 result.ReportWatchlist = new global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist();
-                result.Selfie1 = new global::Soenneker.Persona.OpenApiClient.Models.Selfie_1();
-                result.Template1 = new global::Soenneker.Persona.OpenApiClient.Models.Template_1();
-                result.Transaction1 = new global::Soenneker.Persona.OpenApiClient.Models.Transaction_1();
-                result.User1 = new global::Soenneker.Persona.OpenApiClient.Models.User_1();
+                result.Selfie = new global::Soenneker.Persona.OpenApiClient.Models.Selfie();
+                result.Template = new global::Soenneker.Persona.OpenApiClient.Models.Template();
+                result.Transaction = new global::Soenneker.Persona.OpenApiClient.Models.Transaction();
+                result.User = new global::Soenneker.Persona.OpenApiClient.Models.User();
                 result.VerificationAamva = new global::Soenneker.Persona.OpenApiClient.Models.VerificationAamva();
                 result.VerificationDatabase = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabase();
                 result.VerificationDatabaseEcbsv = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsv();
@@ -479,7 +479,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 result.VerificationGovernmentIdNfc = new global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfc();
                 result.VerificationPhoneNumber = new global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumber();
                 result.VerificationSelfie = new global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfie();
-                result.Workflow1 = new global::Soenneker.Persona.OpenApiClient.Models.Workflow_1();
+                result.Workflow = new global::Soenneker.Persona.OpenApiClient.Models.Workflow();
                 result.WorkflowRun = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRun();
                 return result;
             }
@@ -489,9 +489,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(Account1 != null || DocumentGeneric != null || DocumentGovernmentId != null || DocumentGovernmentIdNfc != null || DocumentMdoc != null || InquirySession != null || InquiryTemplate != null || InquiryTemplateVersion != null || ReportAddressLookup != null || ReportAdverseMedia != null || ReportBusinessAdverseMedia != null || ReportBusinessAssociatedPersons != null || ReportBusinessLookup != null || ReportBusinessRegistrationsLookup != null || ReportBusinessWatchlist != null || ReportCryptoAddressWatchlist != null || ReportEmailAddress != null || ReportPhoneRisk != null || ReportPoliticallyExposedPerson != null || ReportProfile != null || ReportProfileNonAuthoritative != null || ReportSentilinkScores != null || ReportSocialMedia != null || ReportSynthetic != null || ReportWatchlist != null || Selfie1 != null || Template1 != null || Transaction1 != null || User1 != null || VerificationAamva != null || VerificationDatabase != null || VerificationDatabaseEcbsv != null || VerificationDatabasePhoneCarrier != null || VerificationDatabaseSerpro != null || VerificationDatabaseStandard != null || VerificationDatabaseTin != null || VerificationDocument != null || VerificationEmailAddress != null || VerificationGovernmentId != null || VerificationGovernmentIdNfc != null || VerificationPhoneNumber != null || VerificationSelfie != null || Workflow1 != null || WorkflowRun != null)
+                if(Account != null || DocumentGeneric != null || DocumentGovernmentId != null || DocumentGovernmentIdNfc != null || DocumentMdoc != null || InquirySession != null || InquiryTemplate != null || InquiryTemplateVersion != null || ReportAddressLookup != null || ReportAdverseMedia != null || ReportBusinessAdverseMedia != null || ReportBusinessAssociatedPersons != null || ReportBusinessLookup != null || ReportBusinessRegistrationsLookup != null || ReportBusinessWatchlist != null || ReportCryptoAddressWatchlist != null || ReportEmailAddress != null || ReportPhoneRisk != null || ReportPoliticallyExposedPerson != null || ReportProfile != null || ReportProfileNonAuthoritative != null || ReportSentilinkScores != null || ReportSocialMedia != null || ReportSynthetic != null || ReportWatchlist != null || Selfie != null || Template != null || Transaction != null || User != null || VerificationAamva != null || VerificationDatabase != null || VerificationDatabaseEcbsv != null || VerificationDatabasePhoneCarrier != null || VerificationDatabaseSerpro != null || VerificationDatabaseStandard != null || VerificationDatabaseTin != null || VerificationDocument != null || VerificationEmailAddress != null || VerificationGovernmentId != null || VerificationGovernmentIdNfc != null || VerificationPhoneNumber != null || VerificationSelfie != null || Workflow != null || WorkflowRun != null)
                 {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(Account1, DocumentGeneric, DocumentGovernmentId, DocumentGovernmentIdNfc, DocumentMdoc, InquirySession, InquiryTemplate, InquiryTemplateVersion, ReportAddressLookup, ReportAdverseMedia, ReportBusinessAdverseMedia, ReportBusinessAssociatedPersons, ReportBusinessLookup, ReportBusinessRegistrationsLookup, ReportBusinessWatchlist, ReportCryptoAddressWatchlist, ReportEmailAddress, ReportPhoneRisk, ReportPoliticallyExposedPerson, ReportProfile, ReportProfileNonAuthoritative, ReportSentilinkScores, ReportSocialMedia, ReportSynthetic, ReportWatchlist, Selfie1, Template1, Transaction1, User1, VerificationAamva, VerificationDatabase, VerificationDatabaseEcbsv, VerificationDatabasePhoneCarrier, VerificationDatabaseSerpro, VerificationDatabaseStandard, VerificationDatabaseTin, VerificationDocument, VerificationEmailAddress, VerificationGovernmentId, VerificationGovernmentIdNfc, VerificationPhoneNumber, VerificationSelfie, Workflow1, WorkflowRun);
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(Account, DocumentGeneric, DocumentGovernmentId, DocumentGovernmentIdNfc, DocumentMdoc, InquirySession, InquiryTemplate, InquiryTemplateVersion, ReportAddressLookup, ReportAdverseMedia, ReportBusinessAdverseMedia, ReportBusinessAssociatedPersons, ReportBusinessLookup, ReportBusinessRegistrationsLookup, ReportBusinessWatchlist, ReportCryptoAddressWatchlist, ReportEmailAddress, ReportPhoneRisk, ReportPoliticallyExposedPerson, ReportProfile, ReportProfileNonAuthoritative, ReportSentilinkScores, ReportSocialMedia, ReportSynthetic, ReportWatchlist, Selfie, Template, Transaction, User, VerificationAamva, VerificationDatabase, VerificationDatabaseEcbsv, VerificationDatabasePhoneCarrier, VerificationDatabaseSerpro, VerificationDatabaseStandard, VerificationDatabaseTin, VerificationDocument, VerificationEmailAddress, VerificationGovernmentId, VerificationGovernmentIdNfc, VerificationPhoneNumber, VerificationSelfie, Workflow, WorkflowRun);
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -502,7 +502,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account_1>(null, Account1, DocumentGeneric, DocumentGovernmentId, DocumentGovernmentIdNfc, DocumentMdoc, InquirySession, InquiryTemplate, InquiryTemplateVersion, ReportAddressLookup, ReportAdverseMedia, ReportBusinessAdverseMedia, ReportBusinessAssociatedPersons, ReportBusinessLookup, ReportBusinessRegistrationsLookup, ReportBusinessWatchlist, ReportCryptoAddressWatchlist, ReportEmailAddress, ReportPhoneRisk, ReportPoliticallyExposedPerson, ReportProfile, ReportProfileNonAuthoritative, ReportSentilinkScores, ReportSocialMedia, ReportSynthetic, ReportWatchlist, Selfie1, Template1, Transaction1, User1, VerificationAamva, VerificationDatabase, VerificationDatabaseEcbsv, VerificationDatabasePhoneCarrier, VerificationDatabaseSerpro, VerificationDatabaseStandard, VerificationDatabaseTin, VerificationDocument, VerificationEmailAddress, VerificationGovernmentId, VerificationGovernmentIdNfc, VerificationPhoneNumber, VerificationSelfie, Workflow1, WorkflowRun);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account>(null, Account, DocumentGeneric, DocumentGovernmentId, DocumentGovernmentIdNfc, DocumentMdoc, InquirySession, InquiryTemplate, InquiryTemplateVersion, ReportAddressLookup, ReportAdverseMedia, ReportBusinessAdverseMedia, ReportBusinessAssociatedPersons, ReportBusinessLookup, ReportBusinessRegistrationsLookup, ReportBusinessWatchlist, ReportCryptoAddressWatchlist, ReportEmailAddress, ReportPhoneRisk, ReportPoliticallyExposedPerson, ReportProfile, ReportProfileNonAuthoritative, ReportSentilinkScores, ReportSocialMedia, ReportSynthetic, ReportWatchlist, Selfie, Template, Transaction, User, VerificationAamva, VerificationDatabase, VerificationDatabaseEcbsv, VerificationDatabasePhoneCarrier, VerificationDatabaseSerpro, VerificationDatabaseStandard, VerificationDatabaseTin, VerificationDocument, VerificationEmailAddress, VerificationGovernmentId, VerificationGovernmentIdNfc, VerificationPhoneNumber, VerificationSelfie, Workflow, WorkflowRun);
             }
         }
     }

@@ -20,6 +20,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string DestinationId { get; set; }
 #endif
+        /// <summary>Optional list of field mappings to apply when importing source data.If a source field name matches the destination field name, it is copieddirectly. These mappings are applied for fields not already matched by name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_data_attributes_fieldMappings>? FieldMappings { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_data_attributes_fieldMappings> FieldMappings { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,6 +47,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "destination-id", n => { DestinationId = n.GetStringValue(); } },
+                { "field-mappings", n => { FieldMappings = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_data_attributes_fieldMappings>(global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_data_attributes_fieldMappings.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -49,6 +58,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("destination-id", DestinationId);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_data_attributes_fieldMappings>("field-mappings", FieldMappings);
         }
     }
 }

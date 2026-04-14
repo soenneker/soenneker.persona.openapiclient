@@ -12168,7 +12168,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/List_1"
+                      "$ref": "#/components/schemas/List"
                     }
                   },
                   "additionalProperties": false
@@ -12270,7 +12270,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/List_1"
+                      "$ref": "#/components/schemas/List"
                     }
                   },
                   "additionalProperties": false
@@ -13893,7 +13893,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/Transaction_1"
+                      "$ref": "#/components/schemas/Transaction"
                     }
                   },
                   "additionalProperties": false
@@ -13917,7 +13917,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/Transaction_1"
+                      "$ref": "#/components/schemas/Transaction"
                     }
                   },
                   "additionalProperties": false
@@ -14097,7 +14097,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/Transaction_1"
+                      "$ref": "#/components/schemas/Transaction"
                     }
                   },
                   "additionalProperties": false
@@ -14231,7 +14231,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/Transaction_1"
+                      "$ref": "#/components/schemas/Transaction"
                     },
                     "included": {
                       "type": "array",
@@ -14434,7 +14434,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/Transaction_1"
+                      "$ref": "#/components/schemas/Transaction"
                     }
                   },
                   "additionalProperties": false
@@ -14626,7 +14626,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/Transaction_1"
+                      "$ref": "#/components/schemas/Transaction"
                     }
                   },
                   "additionalProperties": false
@@ -14734,7 +14734,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/Transaction_1"
+                      "$ref": "#/components/schemas/Transaction"
                     }
                   },
                   "additionalProperties": false
@@ -14820,7 +14820,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/Transaction_1"
+                      "$ref": "#/components/schemas/Transaction"
                     }
                   },
                   "additionalProperties": false
@@ -16423,7 +16423,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/Verification_1"
+                      "$ref": "#/components/schemas/Verification"
                     }
                   },
                   "additionalProperties": false
@@ -16495,7 +16495,7 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/Verification_1"
+                      "$ref": "#/components/schemas/Verification"
                     }
                   },
                   "additionalProperties": false
@@ -17763,7 +17763,7 @@
         "additionalProperties": false,
         "description": "Server API version. More info on versioning can be found [here](https://docs.withpersona.com/versioning)."
       },
-      "File_1": {
+      "File": {
         "type": "object",
         "properties": {
           "filename": {
@@ -17778,7 +17778,7 @@
         },
         "nullable": true
       },
-      "Account_1": {
+      "Account": {
         "type": "object",
         "properties": {
           "type": {
@@ -17791,10 +17791,10 @@
             "type": "string"
           },
           "attributes": {
-            "$ref": "#/components/schemas/Account1Attributes"
+            "$ref": "#/components/schemas/AccountAttributes"
           },
           "relationships": {
-            "$ref": "#/components/schemas/Account1Relationships"
+            "$ref": "#/components/schemas/AccountRelationships"
           }
         },
         "additionalProperties": false,
@@ -17844,7 +17844,7 @@
           }
         }
       },
-      "Transaction_1": {
+      "Transaction": {
         "type": "object",
         "properties": {
           "id": {
@@ -17858,10 +17858,10 @@
             "type": "string"
           },
           "attributes": {
-            "$ref": "#/components/schemas/Transaction1Attributes"
+            "$ref": "#/components/schemas/TransactionAttributes"
           },
           "relationships": {
-            "$ref": "#/components/schemas/Transaction1Relationships"
+            "$ref": "#/components/schemas/TransactionRelationships"
           }
         },
         "additionalProperties": false
@@ -18029,7 +18029,7 @@
         "additionalProperties": false,
         "description": "An API Log object"
       },
-      "Case_1": {
+      "Case": {
         "type": "object",
         "properties": {
           "type": {
@@ -18042,10 +18042,10 @@
             "type": "string"
           },
           "attributes": {
-            "$ref": "#/components/schemas/Case1Attributes"
+            "$ref": "#/components/schemas/CaseAttributes"
           },
           "relationships": {
-            "$ref": "#/components/schemas/Case1Relationships"
+            "$ref": "#/components/schemas/CaseRelationships"
           }
         },
         "additionalProperties": false,
@@ -18111,7 +18111,7 @@
         "additionalProperties": false,
         "description": "A Case Queue object"
       },
-      "Inquiry_1": {
+      "Inquiry": {
         "required": [
           "type",
           "id",
@@ -18130,10 +18130,10 @@
             "type": "string"
           },
           "attributes": {
-            "$ref": "#/components/schemas/Inquiry1Attributes"
+            "$ref": "#/components/schemas/InquiryAttributes"
           },
           "relationships": {
-            "$ref": "#/components/schemas/Inquiry1Relationships"
+            "$ref": "#/components/schemas/InquiryRelationships"
           }
         },
         "additionalProperties": false,
@@ -19273,7 +19273,7 @@
           "type": "object",
           "anyOf": [
             {
-              "$ref": "#/components/schemas/Account_1"
+              "$ref": "#/components/schemas/Account"
             },
             {
               "$ref": "#/components/schemas/CaseComment"
@@ -19285,7 +19285,7 @@
               "$ref": "#/components/schemas/CaseQueue"
             },
             {
-              "$ref": "#/components/schemas/Inquiry_1"
+              "$ref": "#/components/schemas/Inquiry"
             },
             {
               "$ref": "#/components/schemas/ReportAddressLookup"
@@ -19339,7 +19339,7 @@
               "$ref": "#/components/schemas/ReportWatchlist"
             },
             {
-              "$ref": "#/components/schemas/Transaction_1"
+              "$ref": "#/components/schemas/Transaction"
             },
             {
               "$ref": "#/components/schemas/VerificationAamva"
@@ -19429,7 +19429,7 @@
           }
         }
       },
-      "Device_1": {
+      "Device": {
         "type": "object",
         "properties": {
           "type": {
@@ -19443,7 +19443,7 @@
             "description": "Unique identifier for this Device. Starts with \u0060dev_\u0060."
           },
           "attributes": {
-            "$ref": "#/components/schemas/Device1Attributes"
+            "$ref": "#/components/schemas/DeviceAttributes"
           }
         },
         "additionalProperties": false
@@ -19561,7 +19561,7 @@
         "additionalProperties": false,
         "description": "An Inquiry Template Version object"
       },
-      "Template_1": {
+      "Template": {
         "type": "object",
         "properties": {
           "type": {
@@ -19574,7 +19574,7 @@
             "type": "string"
           },
           "attributes": {
-            "$ref": "#/components/schemas/Template1Attributes"
+            "$ref": "#/components/schemas/TemplateAttributes"
           }
         },
         "additionalProperties": false,
@@ -19607,7 +19607,7 @@
           "type": "object",
           "anyOf": [
             {
-              "$ref": "#/components/schemas/Inquiry_1"
+              "$ref": "#/components/schemas/Inquiry"
             },
             {
               "$ref": "#/components/schemas/InquiryTemplate"
@@ -19616,10 +19616,10 @@
               "$ref": "#/components/schemas/InquiryTemplateVersion"
             },
             {
-              "$ref": "#/components/schemas/Template_1"
+              "$ref": "#/components/schemas/Template"
             },
             {
-              "$ref": "#/components/schemas/Transaction_1"
+              "$ref": "#/components/schemas/Transaction"
             },
             {
               "$ref": "#/components/schemas/DocumentFile"
@@ -19710,7 +19710,7 @@
         "additionalProperties": false,
         "description": "A Document Mdoc object"
       },
-      "Document_1": {
+      "Document": {
         "required": [
           "type"
         ],
@@ -19746,7 +19746,7 @@
           }
         }
       },
-      "Event_1": {
+      "Event": {
         "type": "object",
         "properties": {
           "type": {
@@ -19759,7 +19759,7 @@
             "type": "string"
           },
           "attributes": {
-            "$ref": "#/components/schemas/Event1Attributes"
+            "$ref": "#/components/schemas/EventAttributes"
           }
         },
         "additionalProperties": false,
@@ -19985,7 +19985,7 @@
         "additionalProperties": false,
         "description": "An Importer for phone number List Items"
       },
-      "Importer_1": {
+      "Importer": {
         "required": [
           "type"
         ],
@@ -20056,7 +20056,7 @@
         "description": "JSON key-value pairs of field name to field value. Schema is defined by your Inquiry Template.",
         "x-jsonschema-unevaluatedProperties": false
       },
-      "User_1": {
+      "User": {
         "type": "object",
         "properties": {
           "type": {
@@ -20069,13 +20069,13 @@
             "type": "string"
           },
           "attributes": {
-            "$ref": "#/components/schemas/User1Attributes"
+            "$ref": "#/components/schemas/UserAttributes"
           }
         },
         "additionalProperties": false,
         "description": "A User object"
       },
-      "Selfie_1": {
+      "Selfie": {
         "type": "object",
         "properties": {
           "type": {
@@ -20088,10 +20088,10 @@
             "description": "Unique identifier for this Selfie object. Starts with \u0060self_\u0060."
           },
           "attributes": {
-            "$ref": "#/components/schemas/Selfie1Attributes"
+            "$ref": "#/components/schemas/SelfieAttributes"
           },
           "relationships": {
-            "$ref": "#/components/schemas/Selfie1Relationships"
+            "$ref": "#/components/schemas/SelfieRelationships"
           }
         },
         "additionalProperties": false,
@@ -20137,7 +20137,7 @@
         "additionalProperties": false,
         "description": "A Workflow Deployment object"
       },
-      "Workflow_1": {
+      "Workflow": {
         "type": "object",
         "properties": {
           "type": {
@@ -20150,10 +20150,10 @@
             "type": "string"
           },
           "attributes": {
-            "$ref": "#/components/schemas/Workflow1Attributes"
+            "$ref": "#/components/schemas/WorkflowAttributes"
           },
           "relationships": {
-            "$ref": "#/components/schemas/Workflow1Relationships"
+            "$ref": "#/components/schemas/WorkflowRelationships"
           }
         },
         "additionalProperties": false,
@@ -20193,7 +20193,7 @@
           "type": "object",
           "anyOf": [
             {
-              "$ref": "#/components/schemas/Account_1"
+              "$ref": "#/components/schemas/Account"
             },
             {
               "$ref": "#/components/schemas/DocumentGeneric"
@@ -20208,7 +20208,7 @@
               "$ref": "#/components/schemas/DocumentMdoc"
             },
             {
-              "$ref": "#/components/schemas/User_1"
+              "$ref": "#/components/schemas/User"
             },
             {
               "$ref": "#/components/schemas/InquiryTemplate"
@@ -20217,7 +20217,7 @@
               "$ref": "#/components/schemas/InquiryTemplateVersion"
             },
             {
-              "$ref": "#/components/schemas/Template_1"
+              "$ref": "#/components/schemas/Template"
             },
             {
               "$ref": "#/components/schemas/ReportAddressLookup"
@@ -20271,13 +20271,13 @@
               "$ref": "#/components/schemas/ReportWatchlist"
             },
             {
-              "$ref": "#/components/schemas/Selfie_1"
+              "$ref": "#/components/schemas/Selfie"
             },
             {
               "$ref": "#/components/schemas/InquirySession"
             },
             {
-              "$ref": "#/components/schemas/Transaction_1"
+              "$ref": "#/components/schemas/Transaction"
             },
             {
               "$ref": "#/components/schemas/VerificationAamva"
@@ -20319,7 +20319,7 @@
               "$ref": "#/components/schemas/VerificationSelfie"
             },
             {
-              "$ref": "#/components/schemas/Workflow_1"
+              "$ref": "#/components/schemas/Workflow"
             },
             {
               "$ref": "#/components/schemas/WorkflowRun"
@@ -20430,7 +20430,7 @@
         },
         "additionalProperties": false
       },
-      "Network_1": {
+      "Network": {
         "type": "object",
         "properties": {
           "type": {
@@ -20444,7 +20444,7 @@
             "description": "Unique identifier for this Network. Starts with \u0060net_\u0060."
           },
           "attributes": {
-            "$ref": "#/components/schemas/Network1Attributes"
+            "$ref": "#/components/schemas/NetworkAttributes"
           }
         },
         "additionalProperties": false
@@ -20458,13 +20458,13 @@
           "type": "object",
           "anyOf": [
             {
-              "$ref": "#/components/schemas/Device_1"
+              "$ref": "#/components/schemas/Device"
             },
             {
-              "$ref": "#/components/schemas/Inquiry_1"
+              "$ref": "#/components/schemas/Inquiry"
             },
             {
-              "$ref": "#/components/schemas/Network_1"
+              "$ref": "#/components/schemas/Network"
             }
           ],
           "properties": {
@@ -21037,7 +21037,7 @@
         "additionalProperties": false,
         "description": "A Strings List object"
       },
-      "List_1": {
+      "List": {
         "required": [
           "type"
         ],
@@ -21106,7 +21106,7 @@
         "additionalProperties": false,
         "description": "The current rate limit for a resource."
       },
-      "Report_1": {
+      "Report": {
         "required": [
           "type"
         ],
@@ -21875,13 +21875,13 @@
           "type": "object",
           "anyOf": [
             {
-              "$ref": "#/components/schemas/Inquiry_1"
+              "$ref": "#/components/schemas/Inquiry"
             },
             {
-              "$ref": "#/components/schemas/Account_1"
+              "$ref": "#/components/schemas/Account"
             },
             {
-              "$ref": "#/components/schemas/Case_1"
+              "$ref": "#/components/schemas/Case"
             },
             {
               "$ref": "#/components/schemas/ReportTemplateAddressLookup"
@@ -21926,7 +21926,7 @@
               "$ref": "#/components/schemas/ReportTemplateWatchlist"
             },
             {
-              "$ref": "#/components/schemas/Transaction_1"
+              "$ref": "#/components/schemas/Transaction"
             }
           ],
           "properties": {
@@ -22239,7 +22239,7 @@
         },
         "additionalProperties": false
       },
-      "Verification_1": {
+      "Verification": {
         "required": [
           "type"
         ],
@@ -22311,7 +22311,7 @@
           }
         }
       },
-      "Webhook_1": {
+      "Webhook": {
         "type": "object",
         "properties": {
           "type": {
@@ -22324,7 +22324,7 @@
             "type": "string"
           },
           "attributes": {
-            "$ref": "#/components/schemas/Webhook1Attributes"
+            "$ref": "#/components/schemas/WebhookAttributes"
           }
         },
         "additionalProperties": false,
@@ -22701,16 +22701,16 @@
           "type": "object",
           "anyOf": [
             {
-              "$ref": "#/components/schemas/Workflow_1"
+              "$ref": "#/components/schemas/Workflow"
             },
             {
               "$ref": "#/components/schemas/WorkflowVersion"
             },
             {
-              "$ref": "#/components/schemas/Event_1"
+              "$ref": "#/components/schemas/Event"
             },
             {
-              "$ref": "#/components/schemas/User_1"
+              "$ref": "#/components/schemas/User"
             }
           ],
           "properties": {
@@ -22846,7 +22846,7 @@
         },
         "additionalProperties": false
       },
-      "Account1Attributes": {
+      "AccountAttributes": {
         "type": "object",
         "properties": {
           "reference-id": {
@@ -22870,7 +22870,7 @@
             "nullable": true
           },
           "fields": {
-            "$ref": "#/components/schemas/Account1AttributesFields"
+            "$ref": "#/components/schemas/AccountAttributesFields"
           },
           "tags": {
             "type": "array",
@@ -22885,11 +22885,11 @@
         },
         "additionalProperties": false
       },
-      "Account1Relationships": {
+      "AccountRelationships": {
         "type": "object",
         "properties": {
           "account-type": {
-            "$ref": "#/components/schemas/Account1RelationshipsAccountType"
+            "$ref": "#/components/schemas/AccountRelationshipsAccountType"
           }
         },
         "additionalProperties": false
@@ -22912,7 +22912,7 @@
         },
         "additionalProperties": false
       },
-      "Transaction1Attributes": {
+      "TransactionAttributes": {
         "type": "object",
         "properties": {
           "status": {
@@ -22944,20 +22944,20 @@
         },
         "additionalProperties": false
       },
-      "Transaction1Relationships": {
+      "TransactionRelationships": {
         "type": "object",
         "properties": {
           "reviewer": {
-            "$ref": "#/components/schemas/Transaction1RelationshipsReviewer"
+            "$ref": "#/components/schemas/TransactionRelationshipsReviewer"
           },
           "transaction-label": {
-            "$ref": "#/components/schemas/Transaction1RelationshipsTransactionLabel"
+            "$ref": "#/components/schemas/TransactionRelationshipsTransactionLabel"
           },
           "transaction-type": {
-            "$ref": "#/components/schemas/Transaction1RelationshipsTransactionType"
+            "$ref": "#/components/schemas/TransactionRelationshipsTransactionType"
           },
           "related-objects": {
-            "$ref": "#/components/schemas/Transaction1RelationshipsRelatedObjects"
+            "$ref": "#/components/schemas/TransactionRelationshipsRelatedObjects"
           }
         },
         "additionalProperties": false
@@ -23105,7 +23105,7 @@
         },
         "additionalProperties": false
       },
-      "Case1Attributes": {
+      "CaseAttributes": {
         "type": "object",
         "properties": {
           "status": {
@@ -23213,32 +23213,32 @@
         },
         "additionalProperties": false
       },
-      "Case1Relationships": {
+      "CaseRelationships": {
         "type": "object",
         "properties": {
           "accounts": {
-            "$ref": "#/components/schemas/Case1RelationshipsAccounts"
+            "$ref": "#/components/schemas/CaseRelationshipsAccounts"
           },
           "case-comments": {
-            "$ref": "#/components/schemas/Case1RelationshipsCaseComments"
+            "$ref": "#/components/schemas/CaseRelationshipsCaseComments"
           },
           "case-template": {
-            "$ref": "#/components/schemas/Case1RelationshipsCaseTemplate"
+            "$ref": "#/components/schemas/CaseRelationshipsCaseTemplate"
           },
           "case-queue": {
-            "$ref": "#/components/schemas/Case1RelationshipsCaseQueue"
+            "$ref": "#/components/schemas/CaseRelationshipsCaseQueue"
           },
           "inquiries": {
-            "$ref": "#/components/schemas/Case1RelationshipsInquiries"
+            "$ref": "#/components/schemas/CaseRelationshipsInquiries"
           },
           "reports": {
-            "$ref": "#/components/schemas/Case1RelationshipsReports"
+            "$ref": "#/components/schemas/CaseRelationshipsReports"
           },
           "verifications": {
-            "$ref": "#/components/schemas/Case1RelationshipsVerifications"
+            "$ref": "#/components/schemas/CaseRelationshipsVerifications"
           },
           "txns": {
-            "$ref": "#/components/schemas/Case1RelationshipsTxns"
+            "$ref": "#/components/schemas/CaseRelationshipsTxns"
           }
         },
         "additionalProperties": false
@@ -23337,7 +23337,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1Attributes": {
+      "InquiryAttributes": {
         "required": [
           "status",
           "reference-id",
@@ -23375,7 +23375,7 @@
             "nullable": true
           },
           "behaviors": {
-            "$ref": "#/components/schemas/Inquiry1AttributesBehaviors"
+            "$ref": "#/components/schemas/InquiryAttributesBehaviors"
           },
           "tags": {
             "type": "array",
@@ -23448,46 +23448,46 @@
             "nullable": true
           },
           "fields": {
-            "$ref": "#/components/schemas/Inquiry1AttributesFields"
+            "$ref": "#/components/schemas/InquiryAttributesFields"
           }
         },
         "additionalProperties": false
       },
-      "Inquiry1Relationships": {
+      "InquiryRelationships": {
         "type": "object",
         "properties": {
           "account": {
-            "$ref": "#/components/schemas/Inquiry1RelationshipsAccount"
+            "$ref": "#/components/schemas/InquiryRelationshipsAccount"
           },
           "documents": {
-            "$ref": "#/components/schemas/Inquiry1RelationshipsDocuments"
+            "$ref": "#/components/schemas/InquiryRelationshipsDocuments"
           },
           "template": {
-            "$ref": "#/components/schemas/Inquiry1RelationshipsTemplate"
+            "$ref": "#/components/schemas/InquiryRelationshipsTemplate"
           },
           "inquiry-template": {
-            "$ref": "#/components/schemas/Inquiry1RelationshipsInquiryTemplate"
+            "$ref": "#/components/schemas/InquiryRelationshipsInquiryTemplate"
           },
           "inquiry-template-version": {
-            "$ref": "#/components/schemas/Inquiry1RelationshipsInquiryTemplateVersion"
+            "$ref": "#/components/schemas/InquiryRelationshipsInquiryTemplateVersion"
           },
           "reports": {
-            "$ref": "#/components/schemas/Inquiry1RelationshipsReports"
+            "$ref": "#/components/schemas/InquiryRelationshipsReports"
           },
           "transaction": {
-            "$ref": "#/components/schemas/Inquiry1RelationshipsTransaction"
+            "$ref": "#/components/schemas/InquiryRelationshipsTransaction"
           },
           "reviewer": {
-            "$ref": "#/components/schemas/Inquiry1RelationshipsReviewer"
+            "$ref": "#/components/schemas/InquiryRelationshipsReviewer"
           },
           "selfies": {
-            "$ref": "#/components/schemas/Inquiry1RelationshipsSelfies"
+            "$ref": "#/components/schemas/InquiryRelationshipsSelfies"
           },
           "sessions": {
-            "$ref": "#/components/schemas/Inquiry1RelationshipsSessions"
+            "$ref": "#/components/schemas/InquiryRelationshipsSessions"
           },
           "verifications": {
-            "$ref": "#/components/schemas/Inquiry1RelationshipsVerifications"
+            "$ref": "#/components/schemas/InquiryRelationshipsVerifications"
           }
         },
         "additionalProperties": false
@@ -27256,14 +27256,14 @@
               "files": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/File_1"
+                  "$ref": "#/components/schemas/File"
                 },
                 "description": "The files uploaded to the associated document for processing."
               },
               "files-normalized": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/File_1"
+                  "$ref": "#/components/schemas/File"
                 }
               },
               "extraction-responses": {
@@ -27851,7 +27851,7 @@
         ],
         "x-jsonschema-unevaluatedProperties": false
       },
-      "Device1Attributes": {
+      "DeviceAttributes": {
         "type": "object",
         "properties": {
           "device-vendor-id": {
@@ -28015,14 +28015,14 @@
               "files": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/File_1"
+                  "$ref": "#/components/schemas/File"
                 },
                 "description": "The files uploaded to the document for processing."
               },
               "files-normalized": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/File_1"
+                  "$ref": "#/components/schemas/File"
                 }
               },
               "extraction-responses": {
@@ -28132,7 +28132,7 @@
         },
         "additionalProperties": false
       },
-      "Template1Attributes": {
+      "TemplateAttributes": {
         "type": "object",
         "properties": {
           "name": {
@@ -28155,7 +28155,7 @@
           "originals": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/File_1"
+              "$ref": "#/components/schemas/File"
             }
           }
         },
@@ -28171,13 +28171,13 @@
             "type": "object",
             "properties": {
               "front-photo": {
-                "$ref": "#/components/schemas/File_1"
+                "$ref": "#/components/schemas/File"
               },
               "back-photo": {
-                "$ref": "#/components/schemas/File_1"
+                "$ref": "#/components/schemas/File"
               },
               "selfie-photo": {
-                "$ref": "#/components/schemas/File_1"
+                "$ref": "#/components/schemas/File"
               },
               "id-class": {
                 "type": "string",
@@ -28301,14 +28301,14 @@
         ],
         "x-jsonschema-unevaluatedProperties": false
       },
-      "Event1Attributes": {
+      "EventAttributes": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string"
           },
           "payload": {
-            "$ref": "#/components/schemas/Event1AttributesPayload"
+            "$ref": "#/components/schemas/EventAttributesPayload"
           },
           "created-at": {
             "type": "string",
@@ -28396,7 +28396,7 @@
         },
         "additionalProperties": false
       },
-      "User1Attributes": {
+      "UserAttributes": {
         "type": "object",
         "properties": {
           "email-address": {
@@ -28411,7 +28411,7 @@
         },
         "additionalProperties": false
       },
-      "Selfie1Attributes": {
+      "SelfieAttributes": {
         "type": "object",
         "properties": {
           "status": {
@@ -28429,11 +28429,11 @@
         },
         "additionalProperties": false
       },
-      "Selfie1Relationships": {
+      "SelfieRelationships": {
         "type": "object",
         "properties": {
           "inquiry": {
-            "$ref": "#/components/schemas/Selfie1RelationshipsInquiry"
+            "$ref": "#/components/schemas/SelfieRelationshipsInquiry"
           }
         },
         "additionalProperties": false
@@ -28610,7 +28610,7 @@
         },
         "additionalProperties": false
       },
-      "Workflow1Attributes": {
+      "WorkflowAttributes": {
         "type": "object",
         "properties": {
           "status": {
@@ -28627,14 +28627,14 @@
         },
         "additionalProperties": false
       },
-      "Workflow1Relationships": {
+      "WorkflowRelationships": {
         "type": "object",
         "properties": {
           "latest-published-version": {
-            "$ref": "#/components/schemas/Workflow1RelationshipsLatestPublishedVersion"
+            "$ref": "#/components/schemas/WorkflowRelationshipsLatestPublishedVersion"
           },
           "active-deployment": {
-            "$ref": "#/components/schemas/Workflow1RelationshipsActiveDeployment"
+            "$ref": "#/components/schemas/WorkflowRelationshipsActiveDeployment"
           }
         },
         "additionalProperties": false
@@ -28695,7 +28695,7 @@
         },
         "additionalProperties": false
       },
-      "Network1Attributes": {
+      "NetworkAttributes": {
         "type": "object",
         "properties": {
           "created-at": {
@@ -30150,7 +30150,7 @@
         },
         "additionalProperties": false
       },
-      "Webhook1Attributes": {
+      "WebhookAttributes": {
         "type": "object",
         "properties": {
           "status": {
@@ -30463,43 +30463,43 @@
         },
         "additionalProperties": false
       },
-      "Account1AttributesFields": {
+      "AccountAttributesFields": {
         "type": "object",
         "properties": {
           "name": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsName"
+            "$ref": "#/components/schemas/AccountAttributesFieldsName"
           },
           "address": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsAddress"
+            "$ref": "#/components/schemas/AccountAttributesFieldsAddress"
           },
           "identification_numbers": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsIdentificationNumbers"
+            "$ref": "#/components/schemas/AccountAttributesFieldsIdentificationNumbers"
           },
           "birthdate": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsBirthdate"
+            "$ref": "#/components/schemas/AccountAttributesFieldsBirthdate"
           },
           "phone_number": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsPhoneNumber"
+            "$ref": "#/components/schemas/AccountAttributesFieldsPhoneNumber"
           },
           "email_address": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsEmailAddress"
+            "$ref": "#/components/schemas/AccountAttributesFieldsEmailAddress"
           },
           "selfie_photo": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsSelfiePhoto"
+            "$ref": "#/components/schemas/AccountAttributesFieldsSelfiePhoto"
           }
         },
         "description": "JSON key-value pairs of field name to field value. Exact schema depends on the configuration of the Account Type for this Account. Keys in \u0060fields\u0060 are **not** key inflected."
       },
-      "Account1RelationshipsAccountType": {
+      "AccountRelationshipsAccountType": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Account1RelationshipsAccountTypeData"
+            "$ref": "#/components/schemas/AccountRelationshipsAccountTypeData"
           }
         },
         "additionalProperties": false
       },
-      "Transaction1RelationshipsReviewer": {
+      "TransactionRelationshipsReviewer": {
         "type": "object",
         "properties": {
           "data": {
@@ -30519,7 +30519,7 @@
         "additionalProperties": false,
         "description": "The entity that reviewed the transaction"
       },
-      "Transaction1RelationshipsTransactionLabel": {
+      "TransactionRelationshipsTransactionLabel": {
         "type": "object",
         "properties": {
           "data": {
@@ -30541,16 +30541,16 @@
         },
         "additionalProperties": false
       },
-      "Transaction1RelationshipsTransactionType": {
+      "TransactionRelationshipsTransactionType": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Transaction1RelationshipsTransactionTypeData"
+            "$ref": "#/components/schemas/TransactionRelationshipsTransactionTypeData"
           }
         },
         "additionalProperties": false
       },
-      "Transaction1RelationshipsRelatedObjects": {
+      "TransactionRelationshipsRelatedObjects": {
         "type": "object",
         "properties": {
           "data": {
@@ -30672,7 +30672,7 @@
         },
         "additionalProperties": false
       },
-      "Case1RelationshipsAccounts": {
+      "CaseRelationshipsAccounts": {
         "type": "object",
         "properties": {
           "data": {
@@ -30696,7 +30696,7 @@
         },
         "additionalProperties": false
       },
-      "Case1RelationshipsCaseComments": {
+      "CaseRelationshipsCaseComments": {
         "type": "object",
         "properties": {
           "data": {
@@ -30720,16 +30720,16 @@
         },
         "additionalProperties": false
       },
-      "Case1RelationshipsCaseTemplate": {
+      "CaseRelationshipsCaseTemplate": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Case1RelationshipsCaseTemplateData"
+            "$ref": "#/components/schemas/CaseRelationshipsCaseTemplateData"
           }
         },
         "additionalProperties": false
       },
-      "Case1RelationshipsCaseQueue": {
+      "CaseRelationshipsCaseQueue": {
         "type": "object",
         "properties": {
           "data": {
@@ -30751,7 +30751,7 @@
         },
         "additionalProperties": false
       },
-      "Case1RelationshipsInquiries": {
+      "CaseRelationshipsInquiries": {
         "type": "object",
         "properties": {
           "data": {
@@ -30775,7 +30775,7 @@
         },
         "additionalProperties": false
       },
-      "Case1RelationshipsReports": {
+      "CaseRelationshipsReports": {
         "type": "object",
         "properties": {
           "data": {
@@ -30797,7 +30797,7 @@
         },
         "additionalProperties": false
       },
-      "Case1RelationshipsVerifications": {
+      "CaseRelationshipsVerifications": {
         "type": "object",
         "properties": {
           "data": {
@@ -30819,7 +30819,7 @@
         },
         "additionalProperties": false
       },
-      "Case1RelationshipsTxns": {
+      "CaseRelationshipsTxns": {
         "type": "object",
         "properties": {
           "data": {
@@ -30843,7 +30843,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1AttributesBehaviors": {
+      "InquiryAttributesBehaviors": {
         "type": "object",
         "properties": {
           "api-version-less-than-minimum-count": {
@@ -30953,52 +30953,52 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1AttributesFields": {
+      "InquiryAttributesFields": {
         "type": "object",
         "properties": {
           "name-first": {
-            "$ref": "#/components/schemas/Inquiry1AttributesFieldsNameFirst"
+            "$ref": "#/components/schemas/InquiryAttributesFieldsNameFirst"
           },
           "name-middle": {
-            "$ref": "#/components/schemas/Inquiry1AttributesFieldsNameMiddle"
+            "$ref": "#/components/schemas/InquiryAttributesFieldsNameMiddle"
           },
           "name-last": {
-            "$ref": "#/components/schemas/Inquiry1AttributesFieldsNameLast"
+            "$ref": "#/components/schemas/InquiryAttributesFieldsNameLast"
           },
           "address-street-1": {
-            "$ref": "#/components/schemas/Inquiry1AttributesFieldsAddressStreet1"
+            "$ref": "#/components/schemas/InquiryAttributesFieldsAddressStreet1"
           },
           "address-street-2": {
-            "$ref": "#/components/schemas/Inquiry1AttributesFieldsAddressStreet2"
+            "$ref": "#/components/schemas/InquiryAttributesFieldsAddressStreet2"
           },
           "address-city": {
-            "$ref": "#/components/schemas/Inquiry1AttributesFieldsAddressCity"
+            "$ref": "#/components/schemas/InquiryAttributesFieldsAddressCity"
           },
           "address-subdivision": {
-            "$ref": "#/components/schemas/Inquiry1AttributesFieldsAddressSubdivision"
+            "$ref": "#/components/schemas/InquiryAttributesFieldsAddressSubdivision"
           },
           "address-postal-code": {
-            "$ref": "#/components/schemas/Inquiry1AttributesFieldsAddressPostalCode"
+            "$ref": "#/components/schemas/InquiryAttributesFieldsAddressPostalCode"
           },
           "address-country-code": {
-            "$ref": "#/components/schemas/Inquiry1AttributesFieldsAddressCountryCode"
+            "$ref": "#/components/schemas/InquiryAttributesFieldsAddressCountryCode"
           },
           "birthdate": {
-            "$ref": "#/components/schemas/Inquiry1AttributesFieldsBirthdate"
+            "$ref": "#/components/schemas/InquiryAttributesFieldsBirthdate"
           },
           "email-address": {
-            "$ref": "#/components/schemas/Inquiry1AttributesFieldsEmailAddress"
+            "$ref": "#/components/schemas/InquiryAttributesFieldsEmailAddress"
           },
           "phone-number": {
-            "$ref": "#/components/schemas/Inquiry1AttributesFieldsPhoneNumber"
+            "$ref": "#/components/schemas/InquiryAttributesFieldsPhoneNumber"
           },
           "identification-number": {
-            "$ref": "#/components/schemas/Inquiry1AttributesFieldsIdentificationNumber"
+            "$ref": "#/components/schemas/InquiryAttributesFieldsIdentificationNumber"
           }
         },
         "description": "JSON key-value pairs of field name to field value. Exact schema depends on the configuration of the Inquiry template for this Inquiry. Keys in \u0060fields\u0060 are **not** key inflected."
       },
-      "Inquiry1RelationshipsAccount": {
+      "InquiryRelationshipsAccount": {
         "type": "object",
         "properties": {
           "data": {
@@ -31019,7 +31019,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1RelationshipsDocuments": {
+      "InquiryRelationshipsDocuments": {
         "type": "object",
         "properties": {
           "data": {
@@ -31041,7 +31041,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1RelationshipsTemplate": {
+      "InquiryRelationshipsTemplate": {
         "type": "object",
         "properties": {
           "data": {
@@ -31063,7 +31063,7 @@
         "additionalProperties": false,
         "description": "Only present for Legacy 2.0 inquiries"
       },
-      "Inquiry1RelationshipsInquiryTemplate": {
+      "InquiryRelationshipsInquiryTemplate": {
         "type": "object",
         "properties": {
           "data": {
@@ -31085,7 +31085,7 @@
         "additionalProperties": false,
         "description": "Only present for Dynamic Flow inquiries"
       },
-      "Inquiry1RelationshipsInquiryTemplateVersion": {
+      "InquiryRelationshipsInquiryTemplateVersion": {
         "type": "object",
         "properties": {
           "data": {
@@ -31107,7 +31107,7 @@
         "additionalProperties": false,
         "description": "Only present for Dynamic Flow inquiries"
       },
-      "Inquiry1RelationshipsReports": {
+      "InquiryRelationshipsReports": {
         "type": "object",
         "properties": {
           "data": {
@@ -31129,7 +31129,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1RelationshipsTransaction": {
+      "InquiryRelationshipsTransaction": {
         "type": "object",
         "properties": {
           "data": {
@@ -31150,7 +31150,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1RelationshipsReviewer": {
+      "InquiryRelationshipsReviewer": {
         "type": "object",
         "properties": {
           "data": {
@@ -31170,7 +31170,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1RelationshipsSelfies": {
+      "InquiryRelationshipsSelfies": {
         "type": "object",
         "properties": {
           "data": {
@@ -31192,7 +31192,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1RelationshipsSessions": {
+      "InquiryRelationshipsSessions": {
         "type": "object",
         "properties": {
           "data": {
@@ -31216,7 +31216,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1RelationshipsVerifications": {
+      "InquiryRelationshipsVerifications": {
         "type": "object",
         "properties": {
           "data": {
@@ -31642,11 +31642,11 @@
         },
         "additionalProperties": false
       },
-      "Event1AttributesPayload": {
+      "EventAttributesPayload": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Event1AttributesPayloadData"
+            "$ref": "#/components/schemas/EventAttributesPayloadData"
           }
         },
         "additionalProperties": false,
@@ -31676,11 +31676,11 @@
         },
         "additionalProperties": false
       },
-      "Selfie1RelationshipsInquiry": {
+      "SelfieRelationshipsInquiry": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Selfie1RelationshipsInquiryData"
+            "$ref": "#/components/schemas/SelfieRelationshipsInquiryData"
           }
         },
         "additionalProperties": false
@@ -31766,17 +31766,17 @@
         "additionalProperties": false,
         "description": "The deployment configuration containing version information"
       },
-      "Workflow1RelationshipsLatestPublishedVersion": {
+      "WorkflowRelationshipsLatestPublishedVersion": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Workflow1RelationshipsLatestPublishedVersionData"
+            "$ref": "#/components/schemas/WorkflowRelationshipsLatestPublishedVersionData"
           }
         },
         "additionalProperties": false,
         "description": "latest published version"
       },
-      "Workflow1RelationshipsActiveDeployment": {
+      "WorkflowRelationshipsActiveDeployment": {
         "type": "object",
         "properties": {
           "data": {
@@ -32181,31 +32181,31 @@
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsName": {
+      "AccountAttributesFieldsName": {
         "type": "object",
         "properties": {
           "type": {
             "type": "string"
           },
           "value": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsNameValue"
+            "$ref": "#/components/schemas/AccountAttributesFieldsNameValue"
           }
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsAddress": {
+      "AccountAttributesFieldsAddress": {
         "type": "object",
         "properties": {
           "type": {
             "type": "string"
           },
           "value": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsAddressValue"
+            "$ref": "#/components/schemas/AccountAttributesFieldsAddressValue"
           }
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsIdentificationNumbers": {
+      "AccountAttributesFieldsIdentificationNumbers": {
         "type": "object",
         "properties": {
           "type": {
@@ -32282,7 +32282,7 @@
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsBirthdate": {
+      "AccountAttributesFieldsBirthdate": {
         "type": "object",
         "properties": {
           "type": {
@@ -32295,7 +32295,7 @@
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsPhoneNumber": {
+      "AccountAttributesFieldsPhoneNumber": {
         "type": "object",
         "properties": {
           "type": {
@@ -32308,7 +32308,7 @@
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsEmailAddress": {
+      "AccountAttributesFieldsEmailAddress": {
         "type": "object",
         "properties": {
           "type": {
@@ -32321,7 +32321,7 @@
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsSelfiePhoto": {
+      "AccountAttributesFieldsSelfiePhoto": {
         "type": "object",
         "properties": {
           "type": {
@@ -32331,12 +32331,12 @@
             "type": "string"
           },
           "value": {
-            "$ref": "#/components/schemas/File_1"
+            "$ref": "#/components/schemas/File"
           }
         },
         "additionalProperties": false
       },
-      "Account1RelationshipsAccountTypeData": {
+      "AccountRelationshipsAccountTypeData": {
         "type": "object",
         "properties": {
           "id": {
@@ -32351,7 +32351,7 @@
         },
         "additionalProperties": false
       },
-      "Transaction1RelationshipsTransactionTypeData": {
+      "TransactionRelationshipsTransactionTypeData": {
         "type": "object",
         "properties": {
           "type": {
@@ -32499,7 +32499,7 @@
         },
         "additionalProperties": false
       },
-      "Case1RelationshipsCaseTemplateData": {
+      "CaseRelationshipsCaseTemplateData": {
         "type": "object",
         "properties": {
           "id": {
@@ -32514,7 +32514,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1AttributesFieldsNameFirst": {
+      "InquiryAttributesFieldsNameFirst": {
         "type": "object",
         "properties": {
           "type": {
@@ -32527,7 +32527,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1AttributesFieldsNameMiddle": {
+      "InquiryAttributesFieldsNameMiddle": {
         "type": "object",
         "properties": {
           "type": {
@@ -32540,7 +32540,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1AttributesFieldsNameLast": {
+      "InquiryAttributesFieldsNameLast": {
         "type": "object",
         "properties": {
           "type": {
@@ -32553,7 +32553,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1AttributesFieldsAddressStreet1": {
+      "InquiryAttributesFieldsAddressStreet1": {
         "type": "object",
         "properties": {
           "type": {
@@ -32566,7 +32566,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1AttributesFieldsAddressStreet2": {
+      "InquiryAttributesFieldsAddressStreet2": {
         "type": "object",
         "properties": {
           "type": {
@@ -32579,7 +32579,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1AttributesFieldsAddressCity": {
+      "InquiryAttributesFieldsAddressCity": {
         "type": "object",
         "properties": {
           "type": {
@@ -32593,7 +32593,7 @@
         "additionalProperties": false,
         "description": "City of residence address. Not all international addresses use this attribute."
       },
-      "Inquiry1AttributesFieldsAddressSubdivision": {
+      "InquiryAttributesFieldsAddressSubdivision": {
         "type": "object",
         "properties": {
           "type": {
@@ -32607,7 +32607,7 @@
         "additionalProperties": false,
         "description": "State or subdivision of residence address. In the US, this should be the unabbreviated name. Not all international addresses use this attribute."
       },
-      "Inquiry1AttributesFieldsAddressPostalCode": {
+      "InquiryAttributesFieldsAddressPostalCode": {
         "type": "object",
         "properties": {
           "type": {
@@ -32621,7 +32621,7 @@
         "additionalProperties": false,
         "description": "ZIP or postal code of residence address. Not all international addresses use this attribute."
       },
-      "Inquiry1AttributesFieldsAddressCountryCode": {
+      "InquiryAttributesFieldsAddressCountryCode": {
         "type": "object",
         "properties": {
           "type": {
@@ -32635,7 +32635,7 @@
         "additionalProperties": false,
         "description": "ISO 3166-1 alpha 2 country code."
       },
-      "Inquiry1AttributesFieldsBirthdate": {
+      "InquiryAttributesFieldsBirthdate": {
         "type": "object",
         "properties": {
           "type": {
@@ -32649,7 +32649,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1AttributesFieldsEmailAddress": {
+      "InquiryAttributesFieldsEmailAddress": {
         "type": "object",
         "properties": {
           "type": {
@@ -32662,7 +32662,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1AttributesFieldsPhoneNumber": {
+      "InquiryAttributesFieldsPhoneNumber": {
         "type": "object",
         "properties": {
           "type": {
@@ -32675,7 +32675,7 @@
         },
         "additionalProperties": false
       },
-      "Inquiry1AttributesFieldsIdentificationNumber": {
+      "InquiryAttributesFieldsIdentificationNumber": {
         "type": "object",
         "properties": {
           "type": {
@@ -32703,7 +32703,7 @@
         },
         "additionalProperties": false
       },
-      "Event1AttributesPayloadData": {
+      "EventAttributesPayloadData": {
         "type": "object",
         "properties": {
           "type": {
@@ -32722,7 +32722,7 @@
         },
         "additionalProperties": false
       },
-      "Selfie1RelationshipsInquiryData": {
+      "SelfieRelationshipsInquiryData": {
         "type": "object",
         "properties": {
           "id": {
@@ -32752,7 +32752,7 @@
         },
         "additionalProperties": false
       },
-      "Workflow1RelationshipsLatestPublishedVersionData": {
+      "WorkflowRelationshipsLatestPublishedVersionData": {
         "type": "object",
         "properties": {
           "type": {
@@ -33845,46 +33845,46 @@
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsNameValue": {
+      "AccountAttributesFieldsNameValue": {
         "type": "object",
         "properties": {
           "first": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsNameValueFirst"
+            "$ref": "#/components/schemas/AccountAttributesFieldsNameValueFirst"
           },
           "middle": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsNameValueMiddle"
+            "$ref": "#/components/schemas/AccountAttributesFieldsNameValueMiddle"
           },
           "last": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsNameValueLast"
+            "$ref": "#/components/schemas/AccountAttributesFieldsNameValueLast"
           }
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsAddressValue": {
+      "AccountAttributesFieldsAddressValue": {
         "type": "object",
         "properties": {
           "street_1": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsAddressValueStreet1"
+            "$ref": "#/components/schemas/AccountAttributesFieldsAddressValueStreet1"
           },
           "street_2": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsAddressValueStreet2"
+            "$ref": "#/components/schemas/AccountAttributesFieldsAddressValueStreet2"
           },
           "subdivision": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsAddressValueSubdivision"
+            "$ref": "#/components/schemas/AccountAttributesFieldsAddressValueSubdivision"
           },
           "city": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsAddressValueCity"
+            "$ref": "#/components/schemas/AccountAttributesFieldsAddressValueCity"
           },
           "postal_code": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsAddressValuePostalCode"
+            "$ref": "#/components/schemas/AccountAttributesFieldsAddressValuePostalCode"
           },
           "country_code": {
-            "$ref": "#/components/schemas/Account1AttributesFieldsAddressValueCountryCode"
+            "$ref": "#/components/schemas/AccountAttributesFieldsAddressValueCountryCode"
           }
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsNameValueFirst": {
+      "AccountAttributesFieldsNameValueFirst": {
         "type": "object",
         "properties": {
           "type": {
@@ -33897,7 +33897,7 @@
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsNameValueMiddle": {
+      "AccountAttributesFieldsNameValueMiddle": {
         "type": "object",
         "properties": {
           "type": {
@@ -33910,7 +33910,7 @@
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsNameValueLast": {
+      "AccountAttributesFieldsNameValueLast": {
         "type": "object",
         "properties": {
           "type": {
@@ -33923,7 +33923,7 @@
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsAddressValueStreet1": {
+      "AccountAttributesFieldsAddressValueStreet1": {
         "type": "object",
         "properties": {
           "type": {
@@ -33936,7 +33936,7 @@
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsAddressValueStreet2": {
+      "AccountAttributesFieldsAddressValueStreet2": {
         "type": "object",
         "properties": {
           "type": {
@@ -33949,7 +33949,7 @@
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsAddressValueSubdivision": {
+      "AccountAttributesFieldsAddressValueSubdivision": {
         "type": "object",
         "properties": {
           "type": {
@@ -33962,7 +33962,7 @@
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsAddressValueCity": {
+      "AccountAttributesFieldsAddressValueCity": {
         "type": "object",
         "properties": {
           "type": {
@@ -33975,7 +33975,7 @@
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsAddressValuePostalCode": {
+      "AccountAttributesFieldsAddressValuePostalCode": {
         "type": "object",
         "properties": {
           "type": {
@@ -33988,7 +33988,7 @@
         },
         "additionalProperties": false
       },
-      "Account1AttributesFieldsAddressValueCountryCode": {
+      "AccountAttributesFieldsAddressValueCountryCode": {
         "type": "object",
         "properties": {
           "type": {
@@ -34011,7 +34011,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Account_1"
+              "$ref": "#/components/schemas/Account"
             },
             "description": "An array of Accounts"
           },
@@ -34178,7 +34178,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Account_1"
+            "$ref": "#/components/schemas/Account"
           },
           "included": {
             "$ref": "#/components/schemas/AccountsIncludedObjects"
@@ -34193,7 +34193,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Account_1"
+            "$ref": "#/components/schemas/Account"
           },
           "included": {
             "$ref": "#/components/schemas/AccountsIncludedObjects"
@@ -34208,7 +34208,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Account_1"
+            "$ref": "#/components/schemas/Account"
           },
           "included": {
             "$ref": "#/components/schemas/AccountsIncludedObjects"
@@ -34223,7 +34223,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Account_1"
+            "$ref": "#/components/schemas/Account"
           },
           "included": {
             "$ref": "#/components/schemas/AccountsIncludedObjects"
@@ -34357,7 +34357,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Account_1"
+            "$ref": "#/components/schemas/Account"
           },
           "included": {
             "$ref": "#/components/schemas/AccountsIncludedObjects"
@@ -34395,7 +34395,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Account_1"
+            "$ref": "#/components/schemas/Account"
           },
           "included": {
             "$ref": "#/components/schemas/AccountsIncludedObjects"
@@ -34435,7 +34435,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Account_1"
+            "$ref": "#/components/schemas/Account"
           },
           "included": {
             "$ref": "#/components/schemas/AccountsIncludedObjects"
@@ -34456,10 +34456,10 @@
               "type": "object",
               "oneOf": [
                 {
-                  "$ref": "#/components/schemas/Account_1"
+                  "$ref": "#/components/schemas/Account"
                 },
                 {
-                  "$ref": "#/components/schemas/Transaction_1"
+                  "$ref": "#/components/schemas/Transaction"
                 }
               ],
               "x-jsonschema-unevaluatedProperties": false
@@ -34519,7 +34519,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Account_1"
+            "$ref": "#/components/schemas/Account"
           },
           "included": {
             "$ref": "#/components/schemas/AccountsIncludedObjects"
@@ -34563,7 +34563,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Account_1"
+            "$ref": "#/components/schemas/Account"
           },
           "included": {
             "$ref": "#/components/schemas/AccountsIncludedObjects"
@@ -34606,7 +34606,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Account_1"
+            "$ref": "#/components/schemas/Account"
           },
           "meta": {
             "required": [
@@ -34769,7 +34769,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Account_1"
+              "$ref": "#/components/schemas/Account"
             },
             "description": "An array of Accounts matching the search criteria"
           },
@@ -35172,6 +35172,30 @@
                     "type": "string",
                     "description": "The ID/token of the destination object to import the data into.\nOptional for Verification cloning - when omitted, a new verification is created.\n",
                     "example": "inq_DEF456"
+                  },
+                  "field-mappings": {
+                    "type": "array",
+                    "items": {
+                      "required": [
+                        "source-field-name",
+                        "destination-field-name"
+                      ],
+                      "type": "object",
+                      "properties": {
+                        "source-field-name": {
+                          "type": "string",
+                          "description": "The name of the field in the source object.",
+                          "example": "address_street_1"
+                        },
+                        "destination-field-name": {
+                          "type": "string",
+                          "description": "The name of the field in the destination object.",
+                          "example": "street_address"
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "description": "Optional list of field mappings to apply when importing source data.\nIf a source field name matches the destination field name, it is copied\ndirectly. These mappings are applied for fields not already matched by name.\n"
                   }
                 },
                 "additionalProperties": false
@@ -35260,7 +35284,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Case_1"
+              "$ref": "#/components/schemas/Case"
             },
             "description": "An array of Cases"
           },
@@ -35354,7 +35378,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Case_1"
+            "$ref": "#/components/schemas/Case"
           },
           "included": {
             "$ref": "#/components/schemas/CasesIncludedObjects"
@@ -35369,7 +35393,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Case_1"
+            "$ref": "#/components/schemas/Case"
           },
           "included": {
             "$ref": "#/components/schemas/CasesIncludedObjects"
@@ -35384,7 +35408,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Case_1"
+            "$ref": "#/components/schemas/Case"
           },
           "included": {
             "$ref": "#/components/schemas/CasesIncludedObjects"
@@ -35455,7 +35479,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Case_1"
+            "$ref": "#/components/schemas/Case"
           },
           "included": {
             "$ref": "#/components/schemas/CasesIncludedObjects"
@@ -35490,7 +35514,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Case_1"
+            "$ref": "#/components/schemas/Case"
           },
           "included": {
             "$ref": "#/components/schemas/CasesIncludedObjects"
@@ -35527,7 +35551,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Case_1"
+            "$ref": "#/components/schemas/Case"
           },
           "included": {
             "$ref": "#/components/schemas/CasesIncludedObjects"
@@ -35561,7 +35585,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Case_1"
+            "$ref": "#/components/schemas/Case"
           },
           "included": {
             "$ref": "#/components/schemas/CasesIncludedObjects"
@@ -35596,7 +35620,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Case_1"
+            "$ref": "#/components/schemas/Case"
           },
           "included": {
             "$ref": "#/components/schemas/CasesIncludedObjects"
@@ -35631,7 +35655,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Case_1"
+            "$ref": "#/components/schemas/Case"
           },
           "included": {
             "$ref": "#/components/schemas/CasesIncludedObjects"
@@ -35672,7 +35696,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Case_1"
+            "$ref": "#/components/schemas/Case"
           },
           "included": {
             "$ref": "#/components/schemas/CasesIncludedObjects"
@@ -35825,7 +35849,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Case_1"
+              "$ref": "#/components/schemas/Case"
             },
             "description": "An array of Cases matching the search criteria"
           },
@@ -35862,7 +35886,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Device_1"
+              "$ref": "#/components/schemas/Device"
             }
           },
           "links": {
@@ -35896,7 +35920,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Device_1"
+            "$ref": "#/components/schemas/Device"
           },
           "included": {
             "$ref": "#/components/schemas/EmptyIncludedObjects"
@@ -35941,7 +35965,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Document_1"
+            "$ref": "#/components/schemas/Document"
           },
           "included": {
             "$ref": "#/components/schemas/DocumentIncludedObjects"
@@ -35959,7 +35983,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Event_1"
+              "$ref": "#/components/schemas/Event"
             },
             "description": "An array of Events"
           },
@@ -35991,7 +36015,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Event_1"
+            "$ref": "#/components/schemas/Event"
           },
           "included": {
             "$ref": "#/components/schemas/EmptyIncludedObjects"
@@ -36065,7 +36089,7 @@
           "included": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Account_1"
+              "$ref": "#/components/schemas/Account"
             },
             "description": "Optional included resources, requested via the \u0060include\u0060 query parameter."
           }
@@ -36097,7 +36121,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Importer_1"
+              "$ref": "#/components/schemas/Importer"
             },
             "description": "An array of Importers"
           },
@@ -36132,7 +36156,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Importer_1"
+            "$ref": "#/components/schemas/Importer"
           },
           "included": {
             "$ref": "#/components/schemas/EmptyIncludedObjects"
@@ -36150,7 +36174,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Inquiry_1"
+              "$ref": "#/components/schemas/Inquiry"
             },
             "description": "An array of Inquiries"
           },
@@ -36330,7 +36354,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Inquiry_1"
+            "$ref": "#/components/schemas/Inquiry"
           },
           "included": {
             "$ref": "#/components/schemas/InquiryIncludedObjects"
@@ -36371,7 +36395,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Inquiry_1"
+            "$ref": "#/components/schemas/Inquiry"
           },
           "included": {
             "$ref": "#/components/schemas/InquiryIncludedObjects"
@@ -36386,7 +36410,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Inquiry_1"
+            "$ref": "#/components/schemas/Inquiry"
           },
           "included": {
             "$ref": "#/components/schemas/InquiryIncludedObjects"
@@ -36447,7 +36471,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Inquiry_1"
+            "$ref": "#/components/schemas/Inquiry"
           },
           "included": {
             "$ref": "#/components/schemas/InquiryIncludedObjects"
@@ -36462,7 +36486,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Inquiry_1"
+            "$ref": "#/components/schemas/Inquiry"
           },
           "included": {
             "$ref": "#/components/schemas/InquiryIncludedObjects"
@@ -36477,7 +36501,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Inquiry_1"
+            "$ref": "#/components/schemas/Inquiry"
           },
           "included": {
             "$ref": "#/components/schemas/InquiryIncludedObjects"
@@ -36492,7 +36516,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Inquiry_1"
+            "$ref": "#/components/schemas/Inquiry"
           },
           "included": {
             "$ref": "#/components/schemas/InquiryIncludedObjects"
@@ -36507,7 +36531,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Inquiry_1"
+            "$ref": "#/components/schemas/Inquiry"
           },
           "included": {
             "$ref": "#/components/schemas/InquiryIncludedObjects"
@@ -36522,7 +36546,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Inquiry_1"
+            "$ref": "#/components/schemas/Inquiry"
           },
           "included": {
             "$ref": "#/components/schemas/InquiryIncludedObjects"
@@ -36555,7 +36579,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Inquiry_1"
+            "$ref": "#/components/schemas/Inquiry"
           },
           "included": {
             "$ref": "#/components/schemas/InquiryIncludedObjects"
@@ -36590,7 +36614,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Inquiry_1"
+            "$ref": "#/components/schemas/Inquiry"
           },
           "included": {
             "$ref": "#/components/schemas/InquiryIncludedObjects"
@@ -36606,7 +36630,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Inquiry_1"
+            "$ref": "#/components/schemas/Inquiry"
           },
           "included": {
             "$ref": "#/components/schemas/InquiryIncludedObjects"
@@ -36657,7 +36681,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Inquiry_1"
+            "$ref": "#/components/schemas/Inquiry"
           },
           "included": {
             "$ref": "#/components/schemas/InquiryIncludedObjects"
@@ -36705,7 +36729,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Inquiry_1"
+            "$ref": "#/components/schemas/Inquiry"
           },
           "included": {
             "$ref": "#/components/schemas/InquiryIncludedObjects"
@@ -37447,7 +37471,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/List_1"
+              "$ref": "#/components/schemas/List"
             },
             "description": "An array of Lists"
           },
@@ -37574,7 +37598,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Report_1"
+              "$ref": "#/components/schemas/Report"
             }
           },
           "links": {
@@ -37687,7 +37711,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Report_1"
+            "$ref": "#/components/schemas/Report"
           },
           "included": {
             "$ref": "#/components/schemas/ReportsIncludedObjects"
@@ -37702,7 +37726,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Report_1"
+            "$ref": "#/components/schemas/Report"
           },
           "included": {
             "$ref": "#/components/schemas/ReportsIncludedObjects"
@@ -37717,7 +37741,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Report_1"
+            "$ref": "#/components/schemas/Report"
           },
           "included": {
             "$ref": "#/components/schemas/ReportsIncludedObjects"
@@ -37752,7 +37776,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Report_1"
+            "$ref": "#/components/schemas/Report"
           },
           "included": {
             "$ref": "#/components/schemas/ReportsIncludedObjects"
@@ -37800,7 +37824,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Report_1"
+            "$ref": "#/components/schemas/Report"
           },
           "included": {
             "$ref": "#/components/schemas/ReportsIncludedObjects"
@@ -37850,7 +37874,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Report_1"
+            "$ref": "#/components/schemas/Report"
           },
           "included": {
             "$ref": "#/components/schemas/ReportsIncludedObjects"
@@ -37889,7 +37913,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Report_1"
+            "$ref": "#/components/schemas/Report"
           },
           "included": {
             "$ref": "#/components/schemas/ReportsIncludedObjects"
@@ -37904,7 +37928,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Report_1"
+            "$ref": "#/components/schemas/Report"
           },
           "included": {
             "$ref": "#/components/schemas/ReportsIncludedObjects"
@@ -37919,7 +37943,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Report_1"
+            "$ref": "#/components/schemas/Report"
           },
           "included": {
             "$ref": "#/components/schemas/ReportsIncludedObjects"
@@ -37960,7 +37984,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Report_1"
+            "$ref": "#/components/schemas/Report"
           },
           "included": {
             "$ref": "#/components/schemas/ReportsIncludedObjects"
@@ -38020,7 +38044,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Transaction_1"
+              "$ref": "#/components/schemas/Transaction"
             }
           },
           "links": {
@@ -38090,7 +38114,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Transaction_1"
+            "$ref": "#/components/schemas/Transaction"
           },
           "included": {
             "type": "array",
@@ -38150,7 +38174,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Transaction_1"
+            "$ref": "#/components/schemas/Transaction"
           },
           "included": {
             "type": "array",
@@ -38241,7 +38265,7 @@
           "included": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/User_1"
+              "$ref": "#/components/schemas/User"
             },
             "description": "Objects that will be returned by default unless otherwise specified using the \u0060include\u0060 query parameter in the request."
           }
@@ -38260,7 +38284,7 @@
           "included": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/User_1"
+              "$ref": "#/components/schemas/User"
             },
             "description": "Objects that _may_ be returned if specified via the \u0060include\u0060 query parameter in the request."
           }
@@ -38281,7 +38305,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Webhook_1"
+              "$ref": "#/components/schemas/Webhook"
             },
             "description": "An array of Webhooks"
           },
@@ -38379,7 +38403,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Webhook_1"
+            "$ref": "#/components/schemas/Webhook"
           },
           "included": {
             "$ref": "#/components/schemas/EmptyIncludedObjects"
@@ -38394,7 +38418,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Webhook_1"
+            "$ref": "#/components/schemas/Webhook"
           },
           "included": {
             "$ref": "#/components/schemas/EmptyIncludedObjects"
@@ -38409,7 +38433,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Webhook_1"
+            "$ref": "#/components/schemas/Webhook"
           },
           "included": {
             "$ref": "#/components/schemas/EmptyIncludedObjects"
@@ -38424,7 +38448,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/Webhook_1"
+            "$ref": "#/components/schemas/Webhook"
           },
           "included": {
             "$ref": "#/components/schemas/EmptyIncludedObjects"

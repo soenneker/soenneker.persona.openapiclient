@@ -39,18 +39,18 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The files uploaded to the associated document for processing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.File_1>? Files { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.FileObject>? Files { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.File_1> Files { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.FileObject> Files { get; set; }
 #endif
         /// <summary>The filesNormalized property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.File_1>? FilesNormalized { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.FileObject>? FilesNormalized { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.File_1> FilesNormalized { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.FileObject> FilesNormalized { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -73,8 +73,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "document-type", n => { DocumentType = n.GetStringValue(); } },
                 { "extraction-responses", n => { ExtractionResponses = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Cases>(global::Soenneker.Persona.OpenApiClient.Models.Cases.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_fields>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_fields.CreateFromDiscriminatorValue); } },
-                { "files", n => { Files = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.File_1>(global::Soenneker.Persona.OpenApiClient.Models.File_1.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "files-normalized", n => { FilesNormalized = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.File_1>(global::Soenneker.Persona.OpenApiClient.Models.File_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "files", n => { Files = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "files-normalized", n => { FilesNormalized = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -88,8 +88,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("document-type", DocumentType);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Cases>("extraction-responses", ExtractionResponses);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_fields>("fields", Fields);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.File_1>("files", Files);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.File_1>("files-normalized", FilesNormalized);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("files", Files);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("files-normalized", FilesNormalized);
         }
     }
 }

@@ -61,7 +61,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.Document>("included", Included);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentFile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry_1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Template_1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction_1"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentFile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Template"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Document : IComposedTypeWrapper, IParsable
@@ -74,13 +74,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
             public global::Soenneker.Persona.OpenApiClient.Models.DocumentFile DocumentFile { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.Inquiry_1? Inquiry1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Inquiry? Inquiry { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.Inquiry_1 Inquiry1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Inquiry Inquiry { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -98,21 +98,21 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
             public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion InquiryTemplateVersion { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Template_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Template"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.Template_1? Template1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Template? Template { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.Template_1 Template1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Template Template { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.Transaction_1? Transaction1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Transaction? Transaction { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.Transaction_1 Transaction1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Transaction Transaction { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -124,11 +124,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.Document();
                 result.DocumentFile = new global::Soenneker.Persona.OpenApiClient.Models.DocumentFile();
-                result.Inquiry1 = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry_1();
+                result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();
                 result.InquiryTemplate = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate();
                 result.InquiryTemplateVersion = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion();
-                result.Template1 = new global::Soenneker.Persona.OpenApiClient.Models.Template_1();
-                result.Transaction1 = new global::Soenneker.Persona.OpenApiClient.Models.Transaction_1();
+                result.Template = new global::Soenneker.Persona.OpenApiClient.Models.Template();
+                result.Transaction = new global::Soenneker.Persona.OpenApiClient.Models.Transaction();
                 return result;
             }
             /// <summary>
@@ -137,9 +137,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(DocumentFile != null || Inquiry1 != null || InquiryTemplate != null || InquiryTemplateVersion != null || Template1 != null || Transaction1 != null)
+                if(DocumentFile != null || Inquiry != null || InquiryTemplate != null || InquiryTemplateVersion != null || Template != null || Transaction != null)
                 {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(DocumentFile, Inquiry1, InquiryTemplate, InquiryTemplateVersion, Template1, Transaction1);
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(DocumentFile, Inquiry, InquiryTemplate, InquiryTemplateVersion, Template, Transaction);
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -150,7 +150,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentFile>(null, DocumentFile, Inquiry1, InquiryTemplate, InquiryTemplateVersion, Template1, Transaction1);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentFile>(null, DocumentFile, Inquiry, InquiryTemplate, InquiryTemplateVersion, Template, Transaction);
             }
         }
     }

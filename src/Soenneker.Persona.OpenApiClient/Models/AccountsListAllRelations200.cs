@@ -61,26 +61,26 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountsListAllRelations200_links>("links", Links);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account_1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction_1"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AccountsListAllRelations200_data : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.Account_1? Account1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Account? Account { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.Account_1 Account1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Account Account { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.Transaction_1? Transaction1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Transaction? Transaction { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.Transaction_1 Transaction1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Transaction Transaction { get; set; }
 #endif
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
@@ -92,13 +92,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
                 var result = new global::Soenneker.Persona.OpenApiClient.Models.AccountsListAllRelations200.AccountsListAllRelations200_data();
-                if("Account_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                if("Account".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.Account1 = new global::Soenneker.Persona.OpenApiClient.Models.Account_1();
+                    result.Account = new global::Soenneker.Persona.OpenApiClient.Models.Account();
                 }
-                else if("Transaction_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("Transaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    result.Transaction1 = new global::Soenneker.Persona.OpenApiClient.Models.Transaction_1();
+                    result.Transaction = new global::Soenneker.Persona.OpenApiClient.Models.Transaction();
                 }
                 return result;
             }
@@ -108,13 +108,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(Account1 != null)
+                if(Account != null)
                 {
-                    return Account1.GetFieldDeserializers();
+                    return Account.GetFieldDeserializers();
                 }
-                else if(Transaction1 != null)
+                else if(Transaction != null)
                 {
-                    return Transaction1.GetFieldDeserializers();
+                    return Transaction.GetFieldDeserializers();
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -125,13 +125,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(Account1 != null)
+                if(Account != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account_1>(null, Account1);
+                    writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account>(null, Account);
                 }
-                else if(Transaction1 != null)
+                else if(Transaction != null)
                 {
-                    writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Transaction_1>(null, Transaction1);
+                    writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Transaction>(null, Transaction);
                 }
             }
         }

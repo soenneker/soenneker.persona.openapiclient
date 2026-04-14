@@ -61,34 +61,34 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.CreateAWorkflowRun200.Trigger>("included", Included);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Event_1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.User_1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersion"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow_1"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Event"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.User"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersion"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Trigger : IComposedTypeWrapper, IParsable
         {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Event_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Event"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.Event_1? Event1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Event? Event { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.Event_1 Event1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Event Event { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.User_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.User"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.User_1? User1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.User? User { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.User_1 User1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.User User { get; set; }
 #endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow_1"/></summary>
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            public global::Soenneker.Persona.OpenApiClient.Models.Workflow_1? Workflow1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Workflow? Workflow { get; set; }
 #nullable restore
 #else
-            public global::Soenneker.Persona.OpenApiClient.Models.Workflow_1 Workflow1 { get; set; }
+            public global::Soenneker.Persona.OpenApiClient.Models.Workflow Workflow { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersion"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -107,9 +107,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var result = new global::Soenneker.Persona.OpenApiClient.Models.CreateAWorkflowRun200.Trigger();
-                result.Event1 = new global::Soenneker.Persona.OpenApiClient.Models.Event_1();
-                result.User1 = new global::Soenneker.Persona.OpenApiClient.Models.User_1();
-                result.Workflow1 = new global::Soenneker.Persona.OpenApiClient.Models.Workflow_1();
+                result.Event = new global::Soenneker.Persona.OpenApiClient.Models.Event();
+                result.User = new global::Soenneker.Persona.OpenApiClient.Models.User();
+                result.Workflow = new global::Soenneker.Persona.OpenApiClient.Models.Workflow();
                 result.WorkflowVersion = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersion();
                 return result;
             }
@@ -119,9 +119,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(Event1 != null || User1 != null || Workflow1 != null || WorkflowVersion != null)
+                if(Event != null || User != null || Workflow != null || WorkflowVersion != null)
                 {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(Event1, User1, Workflow1, WorkflowVersion);
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(Event, User, Workflow, WorkflowVersion);
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -132,7 +132,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Event_1>(null, Event1, User1, Workflow1, WorkflowVersion);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Event>(null, Event, User, Workflow, WorkflowVersion);
             }
         }
     }

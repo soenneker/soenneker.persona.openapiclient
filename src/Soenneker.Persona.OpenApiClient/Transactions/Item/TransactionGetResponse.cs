@@ -16,10 +16,10 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.Transaction_1? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.Transaction? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.Transaction_1 Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.Transaction Data { get; set; }
 #endif
         /// <summary>The included property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,7 +47,7 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Transaction_1>(global::Soenneker.Persona.OpenApiClient.Models.Transaction_1.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Transaction>(global::Soenneker.Persona.OpenApiClient.Models.Transaction.CreateFromDiscriminatorValue); } },
                 { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Transactions.Item.TransactionGetResponse_included>(global::Soenneker.Persona.OpenApiClient.Transactions.Item.TransactionGetResponse_included.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -58,7 +58,7 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Transaction_1>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Transaction>("data", Data);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Transactions.Item.TransactionGetResponse_included>("included", Included);
         }
     }

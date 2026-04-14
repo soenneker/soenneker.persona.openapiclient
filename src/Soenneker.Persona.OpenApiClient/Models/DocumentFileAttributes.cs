@@ -31,10 +31,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The originals property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.File_1>? Originals { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.FileObject>? Originals { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.File_1> Originals { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.FileObject> Originals { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -56,7 +56,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "capture-method", n => { CaptureMethod = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "originals", n => { Originals = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.File_1>(global::Soenneker.Persona.OpenApiClient.Models.File_1.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "originals", n => { Originals = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("capture-method", CaptureMethod);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.File_1>("originals", Originals);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("originals", Originals);
         }
     }
 }

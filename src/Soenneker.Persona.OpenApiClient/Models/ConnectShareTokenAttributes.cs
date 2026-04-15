@@ -18,6 +18,16 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_direction? Direction { get; set; }
         /// <summary>When this share token expires</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
+        /// <summary>When this share token failed</summary>
+        public DateTimeOffset? FailedAt { get; set; }
+        /// <summary>The reason the share token failed. Possible values include source_not_found, source_redacted, import_failed, and unrecoverable_error.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FailureReason { get; set; }
+#nullable restore
+#else
+        public string FailureReason { get; set; }
+#endif
         /// <summary>When this share token started processing</summary>
         public DateTimeOffset? PendingAt { get; set; }
         /// <summary>When this share token was redeemed</summary>
@@ -53,6 +63,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_direction>(); } },
                 { "expires-at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
+                { "failed-at", n => { FailedAt = n.GetDateTimeOffsetValue(); } },
+                { "failure-reason", n => { FailureReason = n.GetStringValue(); } },
                 { "pending-at", n => { PendingAt = n.GetDateTimeOffsetValue(); } },
                 { "redeemed-at", n => { RedeemedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -69,6 +81,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_direction>("direction", Direction);
             writer.WriteDateTimeOffsetValue("expires-at", ExpiresAt);
+            writer.WriteDateTimeOffsetValue("failed-at", FailedAt);
+            writer.WriteStringValue("failure-reason", FailureReason);
             writer.WriteDateTimeOffsetValue("pending-at", PendingAt);
             writer.WriteDateTimeOffsetValue("redeemed-at", RedeemedAt);
             writer.WriteStringValue("status", Status);

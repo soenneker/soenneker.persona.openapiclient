@@ -9,34 +9,34 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class RedeemShareToken : IParsable
+    public partial class RedeemShareToken_meta_fieldMappings : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The data property</summary>
+        /// <summary>The name of the field in the destination object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_data? Data { get; set; }
+        public string? DestinationFieldName { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_data Data { get; set; }
+        public string DestinationFieldName { get; set; }
 #endif
-        /// <summary>The meta property</summary>
+        /// <summary>The name of the field in the source object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_meta? Meta { get; set; }
+        public string? SourceFieldName { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_meta Meta { get; set; }
+        public string SourceFieldName { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_meta_fieldMappings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_meta_fieldMappings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken();
+            return new global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_meta_fieldMappings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,8 +46,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_data>(global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_data.CreateFromDiscriminatorValue); } },
-                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_meta>(global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_meta.CreateFromDiscriminatorValue); } },
+                { "destination-field-name", n => { DestinationFieldName = n.GetStringValue(); } },
+                { "source-field-name", n => { SourceFieldName = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,8 +57,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_data>("data", Data);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_meta>("meta", Meta);
+            writer.WriteStringValue("destination-field-name", DestinationFieldName);
+            writer.WriteStringValue("source-field-name", SourceFieldName);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public partial class RedeemShareToken_data_attributes : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The ID/token of the destination object to import the data into.Optional for Verification cloning - when omitted, a new verification is created.</summary>
+        /// <summary>The ID/token of the destination object to import the data into.Optional for Verification cloning and Account redemption — when omitted,a new destination object is created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DestinationId { get; set; }

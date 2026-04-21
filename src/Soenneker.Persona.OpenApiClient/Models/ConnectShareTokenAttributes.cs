@@ -14,7 +14,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     {
         /// <summary>When this share token was created</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>Whether this share token is outbound (your organization is the source) or inbound (your organization is the destination)</summary>
+        /// <summary>Whether this share token is outbound (your organization is the source), inbound (your organization is the destination), or self (your organization is both source and destination in a self-connection)</summary>
         public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_direction? Direction { get; set; }
         /// <summary>When this share token expires</summary>
         public DateTimeOffset? ExpiresAt { get; set; }

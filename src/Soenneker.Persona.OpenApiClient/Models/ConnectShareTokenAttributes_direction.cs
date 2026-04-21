@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
-    /// <summary>Whether this share token is outbound (your organization is the source) or inbound (your organization is the destination)</summary>
+    /// <summary>Whether this share token is outbound (your organization is the source), inbound (your organization is the destination), or self (your organization is both source and destination in a self-connection)</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ConnectShareTokenAttributes_direction
     {
@@ -14,6 +14,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         [EnumMember(Value = "inbound")]
         #pragma warning disable CS1591
         Inbound,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "self")]
+        #pragma warning disable CS1591
+        Self,
         #pragma warning restore CS1591
     }
 }

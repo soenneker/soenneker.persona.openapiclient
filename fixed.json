@@ -35217,11 +35217,6 @@
                   "additionalProperties": false
                 },
                 "description": "Optional list of field mappings to apply when importing source data.\nIf a source field name matches the destination field name, it is copied\ndirectly. These mappings are applied for fields not already matched by name.\n"
-              },
-              "account-type-id": {
-                "type": "string",
-                "description": "The ID/token of the Account Type to use when creating a new Account\nduring redemption. Only applicable when the source is an Account and\nno destination-id is provided. If omitted, the destination organization\u0027s\ndefault account type is used.\n",
-                "example": "acttp_ABC123"
               }
             },
             "additionalProperties": false

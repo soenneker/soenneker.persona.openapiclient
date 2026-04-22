@@ -12,14 +12,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public partial class RedeemShareToken_meta : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The ID/token of the Account Type to use when creating a new Accountduring redemption. Only applicable when the source is an Account andno destination-id is provided. If omitted, the destination organization&apos;sdefault account type is used.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AccountTypeId { get; set; }
-#nullable restore
-#else
-        public string AccountTypeId { get; set; }
-#endif
         /// <summary>Optional list of field mappings to apply when importing source data.If a source field name matches the destination field name, it is copieddirectly. These mappings are applied for fields not already matched by name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -46,7 +38,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "account-type-id", n => { AccountTypeId = n.GetStringValue(); } },
                 { "field-mappings", n => { FieldMappings = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_meta_fieldMappings>(global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_meta_fieldMappings.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -57,7 +48,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("account-type-id", AccountTypeId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken_meta_fieldMappings>("field-mappings", FieldMappings);
         }
     }

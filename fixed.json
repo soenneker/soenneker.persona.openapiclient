@@ -35004,7 +35004,7 @@
                         "items": {
                           "type": "string"
                         },
-                        "description": "Array of scopes that define what access is granted through this connection. If not provided, defaults to [\u0022inquiry.read\u0022, \u0022account.read\u0022]."
+                        "description": "Array of scopes that define what access is granted through this connection. If not provided, defaults to [\u0022account.read\u0022, \u0022inquiry.read\u0022, \u0022verification.read\u0022]."
                       }
                     }
                   }
@@ -39903,8 +39903,9 @@
                 "source-organization-id": "org_ABC123",
                 "destination-organization-id": "org_XYZ789",
                 "scopes": [
+                  "account.read",
                   "inquiry.read",
-                  "account.read"
+                  "verification.read"
                 ],
                 "created-at": "2018-06-01T00:00:00.000Z",
                 "updated-at": "2018-06-01T00:00:00.000Z"
@@ -39918,8 +39919,9 @@
                 "source-organization-id": "org_XYZ789",
                 "destination-organization-id": "org_ABC123",
                 "scopes": [
+                  "account.read",
                   "inquiry.read",
-                  "account.read"
+                  "verification.read"
                 ],
                 "created-at": "2018-06-01T00:00:00.000Z",
                 "updated-at": "2018-06-01T00:00:00.000Z"
@@ -39936,7 +39938,7 @@
         "value": {
           "data": {
             "attributes": {
-              "destination-organization-id": "org_ABC123"
+              "destination-organization-id": "org_XYZ789"
             }
           }
         }
@@ -39951,8 +39953,9 @@
               "source-organization-id": "org_ABC123",
               "destination-organization-id": "org_XYZ789",
               "scopes": [
+                "account.read",
                 "inquiry.read",
-                "account.read"
+                "verification.read"
               ],
               "created-at": "2018-06-01T00:00:00.000Z",
               "updated-at": "2018-06-01T00:00:00.000Z"
@@ -39965,8 +39968,9 @@
           "data": {
             "attributes": {
               "scopes": [
+                "account.read",
                 "inquiry.read",
-                "account.read"
+                "verification.read"
               ]
             }
           }
@@ -39982,8 +39986,9 @@
               "source-organization-id": "org_ABC123",
               "destination-organization-id": "org_XYZ789",
               "scopes": [
+                "account.read",
                 "inquiry.read",
-                "account.read"
+                "verification.read"
               ],
               "created-at": "2018-06-01T00:00:00.000Z",
               "updated-at": "2018-06-01T00:00:00.000Z"

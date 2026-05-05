@@ -34,7 +34,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections.Item.Deactivate
         {
         }
         /// <summary>
-        /// Deactivates an active Connect Connection. This action prevents further access through the connection but maintains the connection record. Only active connections can be deactivated.
+        /// Deactivates a Connect Connection. Either the source or destination organization may deactivate a connection that is currently `pending` or `active`. Deactivation prevents further access through the connection but maintains the connection record. Connections that are already `inactive` cannot be deactivated again.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/connect/connections/deactivate-a-connect-connection" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.Deactivate.DeactivatePostResponse"/></returns>
@@ -70,7 +70,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections.Item.Deactivate
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.Deactivate.DeactivatePostResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.Deactivate.DeactivatePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Deactivates an active Connect Connection. This action prevents further access through the connection but maintains the connection record. Only active connections can be deactivated.
+        /// Deactivates a Connect Connection. Either the source or destination organization may deactivate a connection that is currently `pending` or `active`. Deactivation prevents further access through the connection but maintains the connection record. Connections that are already `inactive` cannot be deactivated again.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

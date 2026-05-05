@@ -34,7 +34,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections.Item.Reactivate
         {
         }
         /// <summary>
-        /// Reactivates an inactive Connection. This action restores access through the connection. Only inactive connections can be reactivated.
+        /// Reactivates an inactive Connection, returning it to the `pending` state. Only the source organization can reactivate a connection. Once reactivated, the destination organization must accept the connection again before it returns to the `active` state. Only inactive connections can be reactivated.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/connect/connections/reactivate-a-connect-connection" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.Reactivate.ReactivatePostResponse"/></returns>
@@ -70,7 +70,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections.Item.Reactivate
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.Reactivate.ReactivatePostResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.Reactivate.ReactivatePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Reactivates an inactive Connection. This action restores access through the connection. Only inactive connections can be reactivated.
+        /// Reactivates an inactive Connection, returning it to the `pending` state. Only the source organization can reactivate a connection. Once reactivated, the destination organization must accept the connection again before it returns to the `active` state. Only inactive connections can be reactivated.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

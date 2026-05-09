@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Persona.OpenApiClient.Inquiries.Item;
+using Soenneker.Persona.OpenApiClient.Inquiries.Search;
 using Soenneker.Persona.OpenApiClient.Models;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +19,11 @@ namespace Soenneker.Persona.OpenApiClient.Inquiries
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InquiriesRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The search property</summary>
+        public global::Soenneker.Persona.OpenApiClient.Inquiries.Search.SearchRequestBuilder Search
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.Inquiries.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Persona.OpenApiClient.inquiries.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Inquiries.Item.InquiryItemRequestBuilder"/></returns>

@@ -19,6 +19,78 @@
     }
   ],
   "paths": {
+    "/account-types/{account-type-id}": {
+      "get": {
+        "tags": [
+          "Account Types"
+        ],
+        "summary": "Retrieve an Account Type",
+        "description": "Retrieves the details of an existing Account Type, including its configured field schemas.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/account-types/retrieve-an-account-type"
+        },
+        "operationId": "retrieve-an-account-type",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "account-type-id",
+            "in": "path",
+            "description": "ID of the Account Type to retrieve.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This endpoint returns an Account Type object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetrieveAnAccountType200"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/account-type"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not-found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
     "/accounts": {
       "get": {
         "tags": [
@@ -2614,6 +2686,78 @@
                 "examples": {
                   "Success": {
                     "$ref": "#/components/examples/api-log"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not-found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
+    "/case-templates/{case-template-id}": {
+      "get": {
+        "tags": [
+          "Case Templates"
+        ],
+        "summary": "Retrieve a Case Template",
+        "description": "Retrieves the details of an existing Case Template, including its configured field schemas.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/case-templates/retrieve-a-case-template"
+        },
+        "operationId": "retrieve-a-case-template",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "case-template-id",
+            "in": "path",
+            "description": "ID of the Case Template to retrieve.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Case Template object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetrieveACaseTemplate200"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/case-template"
                   }
                 }
               }
@@ -17959,6 +18103,629 @@
         "additionalProperties": false,
         "description": "Server API version. More info on versioning can be found [here](https://docs.withpersona.com/versioning)."
       },
+      "FieldSchemaDefaultConfig": {
+        "type": "object",
+        "properties": {
+          "required": {
+            "type": "boolean"
+          },
+          "archived-at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "deactivated-at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "source-key-path": {
+            "type": "string",
+            "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
+            "nullable": true
+          }
+        },
+        "x-inheritable": true
+      },
+      "FieldSchema": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/FieldSchemaArray"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaBoolean"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaChoices"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaDate"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaDatetime"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaEmailAddress"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaFile"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaHash"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaInteger"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaMultiChoices"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaNumber"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaString"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaRelationDocumentGeneric"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaRelationDocumentGovernmentId"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaRelationDocumentGovernmentIdNfc"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaRelationDocumentMdoc"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaRelationDocumentQrCode"
+          },
+          {
+            "$ref": "#/components/schemas/FieldSchemaRelationSelfie"
+          }
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "FieldSchemaArray": "#/components/schemas/FieldSchemaArray",
+            "FieldSchemaBoolean": "#/components/schemas/FieldSchemaBoolean",
+            "FieldSchemaChoices": "#/components/schemas/FieldSchemaChoices",
+            "FieldSchemaDate": "#/components/schemas/FieldSchemaDate",
+            "FieldSchemaDatetime": "#/components/schemas/FieldSchemaDatetime",
+            "FieldSchemaEmailAddress": "#/components/schemas/FieldSchemaEmailAddress",
+            "FieldSchemaFile": "#/components/schemas/FieldSchemaFile",
+            "FieldSchemaHash": "#/components/schemas/FieldSchemaHash",
+            "FieldSchemaInteger": "#/components/schemas/FieldSchemaInteger",
+            "FieldSchemaMultiChoices": "#/components/schemas/FieldSchemaMultiChoices",
+            "FieldSchemaNumber": "#/components/schemas/FieldSchemaNumber",
+            "FieldSchemaString": "#/components/schemas/FieldSchemaString",
+            "FieldSchemaRelationDocumentGeneric": "#/components/schemas/FieldSchemaRelationDocumentGeneric",
+            "FieldSchemaRelationDocumentGovernmentId": "#/components/schemas/FieldSchemaRelationDocumentGovernmentId",
+            "FieldSchemaRelationDocumentGovernmentIdNfc": "#/components/schemas/FieldSchemaRelationDocumentGovernmentIdNfc",
+            "FieldSchemaRelationDocumentMdoc": "#/components/schemas/FieldSchemaRelationDocumentMdoc",
+            "FieldSchemaRelationDocumentQrCode": "#/components/schemas/FieldSchemaRelationDocumentQrCode",
+            "FieldSchemaRelationSelfie": "#/components/schemas/FieldSchemaRelationSelfie"
+          }
+        }
+      },
+      "FieldSchemaArray": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "array"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "$ref": "#/components/schemas/FieldSchemaArrayConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaBoolean": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "boolean"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+              },
+              {
+                "type": "object"
+              }
+            ],
+            "x-jsonschema-unevaluatedProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaChoices": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "choices"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "$ref": "#/components/schemas/FieldSchemaChoicesConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaDate": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "date"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "$ref": "#/components/schemas/FieldSchemaDateConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaDatetime": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "datetime"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+              },
+              {
+                "type": "object"
+              }
+            ],
+            "x-jsonschema-unevaluatedProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaEmailAddress": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "email-address"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+              },
+              {
+                "type": "object"
+              }
+            ],
+            "x-jsonschema-unevaluatedProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaFile": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "file"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "$ref": "#/components/schemas/FieldSchemaFileConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaHash": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "hash"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "$ref": "#/components/schemas/FieldSchemaHashConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaInteger": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "integer"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "$ref": "#/components/schemas/FieldSchemaIntegerConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaMultiChoices": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "multi-choices"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "$ref": "#/components/schemas/FieldSchemaMultiChoicesConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaNumber": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "number"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "$ref": "#/components/schemas/FieldSchemaNumberConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaString": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "string"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "$ref": "#/components/schemas/FieldSchemaStringConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaRelationDocumentGeneric": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "Field::Relation::Document::Generic"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+              },
+              {
+                "type": "object"
+              }
+            ],
+            "x-jsonschema-unevaluatedProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaRelationDocumentGovernmentId": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "Field::Relation::Document::GovernmentId"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+              },
+              {
+                "type": "object"
+              }
+            ],
+            "x-jsonschema-unevaluatedProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaRelationDocumentGovernmentIdNfc": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "Field::Relation::Document::GovernmentIdNfc"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+              },
+              {
+                "type": "object"
+              }
+            ],
+            "x-jsonschema-unevaluatedProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaRelationDocumentMdoc": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "Field::Relation::Document::Mdoc"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+              },
+              {
+                "type": "object"
+              }
+            ],
+            "x-jsonschema-unevaluatedProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaRelationDocumentQrCode": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "Field::Relation::Document::QrCode"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+              },
+              {
+                "type": "object"
+              }
+            ],
+            "x-jsonschema-unevaluatedProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaRelationSelfie": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "Field::Relation::Selfie"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "config": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+              },
+              {
+                "type": "object"
+              }
+            ],
+            "x-jsonschema-unevaluatedProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountType": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "account-type"
+            ],
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/AccountTypeAttributes"
+          },
+          "relationships": {
+            "$ref": "#/components/schemas/AccountTypeRelationships"
+          }
+        },
+        "additionalProperties": false,
+        "description": "An Account Type object"
+      },
+      "EmptyIncludedObjects": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "description": "Fallback array item schema"
+        },
+        "description": "Excluded from the response by default. Will be an empty array when the \u0060include\u0060 query parameter in the request was explicitly set to empty."
+      },
       "File": {
         "type": "object",
         "properties": {
@@ -17995,25 +18762,6 @@
         },
         "additionalProperties": false,
         "description": "An Account object.\n\nNote that \u0060fields\u0060 is **not** key inflected."
-      },
-      "AccountType": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "enum": [
-              "account-type"
-            ],
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/AccountTypeAttributes"
-          }
-        },
-        "additionalProperties": false,
-        "description": "An Account Type object"
       },
       "AccountsIncludedObjects": {
         "type": "array",
@@ -18135,14 +18883,6 @@
         "additionalProperties": false,
         "description": "An API Key resource"
       },
-      "EmptyIncludedObjects": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "description": "Fallback array item schema"
-        },
-        "description": "Excluded from the response by default. Will be an empty array when the \u0060include\u0060 query parameter in the request was explicitly set to empty."
-      },
       "ApiKeyWithValue": {
         "type": "object",
         "properties": {
@@ -18225,6 +18965,26 @@
         "additionalProperties": false,
         "description": "An API Log object"
       },
+      "CaseTemplate": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "case-template"
+            ],
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the Case Template"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/CaseTemplateAttributes"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Case Template object"
+      },
       "Case": {
         "type": "object",
         "properties": {
@@ -18266,26 +19026,6 @@
         },
         "additionalProperties": false,
         "description": "Comment on a Case object"
-      },
-      "CaseTemplate": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "enum": [
-              "case-template"
-            ],
-            "type": "string"
-          },
-          "id": {
-            "type": "string",
-            "description": "Unique identifier for the Case Template"
-          },
-          "attributes": {
-            "$ref": "#/components/schemas/CaseTemplateAttributes"
-          }
-        },
-        "additionalProperties": false,
-        "description": "A Case Template object"
       },
       "CaseQueue": {
         "type": "object",
@@ -23042,6 +23782,253 @@
         },
         "additionalProperties": false
       },
+      "FieldSchemaArrayConfig": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "item-schema": {
+                "$ref": "#/components/schemas/FieldSchema"
+              }
+            }
+          }
+        ],
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "FieldSchemaChoicesConfig": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "allow-empty": {
+                "type": "boolean",
+                "default": false
+              },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "FieldSchemaDateConfig": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "min-date": {
+                "type": "string",
+                "format": "date",
+                "nullable": true
+              },
+              "max-date": {
+                "type": "string",
+                "format": "date",
+                "nullable": true
+              }
+            }
+          }
+        ],
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "FieldSchemaFileConfig": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "max-file-size-bytes": {
+                "type": "integer",
+                "default": 10000000
+              },
+              "min-file-size-bytes": {
+                "type": "integer",
+                "default": 1
+              },
+              "supported-mime-types": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "default": [
+                  "image/jpg image/jpeg image/png image/heic image/heif image/tif image/tiff image/gif image/svg\u002Bxml application/pdf text/plain text/csv video/mp4 video/webm video/quicktime"
+                ]
+              }
+            }
+          }
+        ],
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "FieldSchemaHashConfig": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "ignore-unknown-keys": {
+                "type": "boolean",
+                "default": false
+              },
+              "item-schemas": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FieldSchema"
+                }
+              }
+            }
+          }
+        ],
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "FieldSchemaIntegerConfig": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              }
+            }
+          }
+        ],
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "FieldSchemaMultiChoicesConfig": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "allow-empty": {
+                "type": "boolean",
+                "default": false
+              },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "FieldSchemaNumberConfig": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "min": {
+                "type": "number"
+              },
+              "max": {
+                "type": "number"
+              }
+            }
+          }
+        ],
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "FieldSchemaStringConfig": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldSchemaDefaultConfig"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "max-char-length": {
+                "maximum": 1024,
+                "type": "integer",
+                "default": 255
+              },
+              "sanitize": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Possible values:\n- html\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+                  "default": []
+                }
+              }
+            }
+          }
+        ],
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "AccountTypeAttributes": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "created-at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated-at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "field-schemas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldSchema"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountTypeRelationships": {
+        "type": "object",
+        "properties": {
+          "account-statuses": {
+            "$ref": "#/components/schemas/AccountTypeRelationshipsAccountStatuses"
+          },
+          "default-account-status": {
+            "$ref": "#/components/schemas/AccountTypeRelationshipsDefaultAccountStatus"
+          }
+        },
+        "additionalProperties": false
+      },
       "AccountAttributes": {
         "type": "object",
         "properties": {
@@ -23086,24 +24073,6 @@
         "properties": {
           "account-type": {
             "$ref": "#/components/schemas/AccountRelationshipsAccountType"
-          }
-        },
-        "additionalProperties": false
-      },
-      "AccountTypeAttributes": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "created-at": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updated-at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -23312,6 +24281,48 @@
         },
         "additionalProperties": false
       },
+      "CaseTemplateAttributes": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Possible values:\n- active\n- archived\n\nDo not assume this is a static enumeration; Persona may add new values\nin the future without a versioned update."
+          },
+          "name": {
+            "type": "string"
+          },
+          "resolutions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "created-at": {
+            "type": "string",
+            "description": "The time the template was created",
+            "format": "date-time"
+          },
+          "updated-at": {
+            "type": "string",
+            "description": "The time the template was last updated",
+            "format": "date-time",
+            "nullable": true
+          },
+          "archived-at": {
+            "type": "string",
+            "description": "The time the template was archived",
+            "format": "date-time",
+            "nullable": true
+          },
+          "field-schemas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldSchema"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "CaseAttributes": {
         "type": "object",
         "properties": {
@@ -23474,42 +24485,6 @@
           "commenter-type": {
             "type": "string",
             "description": "The type of the commenter"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CaseTemplateAttributes": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string",
-            "description": "Possible values:\n- active\n- archived\n\nDo not assume this is a static enumeration; Persona may add new values\nin the future without a versioned update."
-          },
-          "name": {
-            "type": "string"
-          },
-          "resolutions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "created-at": {
-            "type": "string",
-            "description": "The time the template was created",
-            "format": "date-time"
-          },
-          "updated-at": {
-            "type": "string",
-            "description": "The time the template was last updated",
-            "format": "date-time",
-            "nullable": true
-          },
-          "archived-at": {
-            "type": "string",
-            "description": "The time the template was archived",
-            "format": "date-time",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -30672,6 +31647,52 @@
         },
         "additionalProperties": false
       },
+      "AccountTypeRelationshipsAccountStatuses": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "enum": [
+                    "account-status"
+                  ],
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountTypeRelationshipsDefaultAccountStatus": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "enum": [
+                  "account-status"
+                ],
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "AccountAttributesFields": {
         "type": "object",
         "properties": {
@@ -34100,6 +35121,21 @@
         },
         "additionalProperties": false
       },
+      "RetrieveAnAccountType200": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/AccountType"
+          },
+          "included": {
+            "$ref": "#/components/schemas/EmptyIncludedObjects"
+          }
+        },
+        "additionalProperties": false
+      },
       "ListAllAccounts200": {
         "required": [
           "data",
@@ -35372,6 +36408,21 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/ApiLog"
+          },
+          "included": {
+            "$ref": "#/components/schemas/EmptyIncludedObjects"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RetrieveACaseTemplate200": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CaseTemplate"
           },
           "included": {
             "$ref": "#/components/schemas/EmptyIncludedObjects"
@@ -39315,6 +40366,27 @@
           "$ref": "#/components/schemas/ApiVersion"
         }
       },
+      "include-query-parameter": {
+        "name": "include",
+        "in": "query",
+        "description": "A comma-separated list of relationship paths. This can be used to customize which related resources will be fully serialized in the \u0060included\u0060 key in the response. See [Serialization](https://docs.withpersona.com/serialization#inclusion-of-related-resources) for more details.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "fields-query-parameter": {
+        "name": "fields",
+        "in": "query",
+        "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+        "style": "deepObject",
+        "explode": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
       "pagination-query-params": {
         "name": "page",
         "in": "query",
@@ -39337,27 +40409,6 @@
             }
           },
           "additionalProperties": false
-        }
-      },
-      "fields-query-parameter": {
-        "name": "fields",
-        "in": "query",
-        "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
-        "style": "deepObject",
-        "explode": true,
-        "schema": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        }
-      },
-      "include-query-parameter": {
-        "name": "include",
-        "in": "query",
-        "description": "A comma-separated list of relationship paths. This can be used to customize which related resources will be fully serialized in the \u0060included\u0060 key in the response. See [Serialization](https://docs.withpersona.com/serialization#inclusion-of-related-resources) for more details.",
-        "schema": {
-          "type": "string"
         }
       },
       "persona-signature-header": {
@@ -39394,6 +40445,58 @@
       }
     },
     "examples": {
+      "account-type": {
+        "value": {
+          "data": {
+            "type": "account-type",
+            "id": "acttp_7X5W5w9GMtQntE6oPtKnj44c",
+            "attributes": {
+              "name": "User",
+              "created-at": "2022-11-09T00:22:59.828Z",
+              "updated-at": "2023-02-15T23:15:06.034Z",
+              "field-schemas": [
+                {
+                  "type": "string",
+                  "key": "name_first",
+                  "label": "Name First",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "string",
+                  "key": "name_last",
+                  "label": "Name Last",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "date",
+                  "key": "birthdate",
+                  "label": "Birthdate",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "min-date": null,
+                    "max-date": null
+                  }
+                }
+              ]
+            }
+          },
+          "included": []
+        }
+      },
       "account-list": {
         "value": {
           "data": [
@@ -40492,6 +41595,56 @@
               "created-at": "2023-09-20T20:20:03.485\u002B00:00"
             }
           }
+        }
+      },
+      "case-template": {
+        "value": {
+          "data": {
+            "type": "case-template",
+            "id": "ctmpl_yd2urRmjaCWcSSxqTSHvUcsn",
+            "attributes": {
+              "status": "active",
+              "name": "Standard Review",
+              "resolutions": [
+                "Approved",
+                "Declined"
+              ],
+              "created-at": "2021-03-25T07:04:16.667Z",
+              "updated-at": "2021-03-25T07:04:16.667Z",
+              "archived-at": null,
+              "field-schemas": [
+                {
+                  "type": "string",
+                  "key": "notes",
+                  "label": "Reviewer Notes",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "multi-choices",
+                  "key": "risk_tags",
+                  "label": "Risk Tags",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "allow-empty": true,
+                    "options": [
+                      "high_risk",
+                      "medium_risk",
+                      "low_risk"
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "included": []
         }
       },
       "create-case": {
@@ -52415,6 +53568,10 @@
       "description": "Interact with Persona Account objects"
     },
     {
+      "name": "Account Types",
+      "description": "Interact with Persona Account Type objects"
+    },
+    {
       "name": "API Keys",
       "description": "Interact with your organization\u0027s API keys"
     },
@@ -52425,6 +53582,10 @@
     {
       "name": "Cases",
       "description": "Interact with Persona Case objects"
+    },
+    {
+      "name": "Case Templates",
+      "description": "Interact with Persona Case Template objects"
     },
     {
       "name": "Connect",

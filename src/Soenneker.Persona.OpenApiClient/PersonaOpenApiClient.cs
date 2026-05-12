@@ -6,9 +6,11 @@ using Microsoft.Kiota.Serialization.Form;
 using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
+using Soenneker.Persona.OpenApiClient.AccountTypes;
 using Soenneker.Persona.OpenApiClient.Accounts;
 using Soenneker.Persona.OpenApiClient.ApiKeys;
 using Soenneker.Persona.OpenApiClient.ApiLogs;
+using Soenneker.Persona.OpenApiClient.CaseTemplates;
 using Soenneker.Persona.OpenApiClient.Cases;
 using Soenneker.Persona.OpenApiClient.Connect;
 using Soenneker.Persona.OpenApiClient.Devices;
@@ -51,6 +53,11 @@ namespace Soenneker.Persona.OpenApiClient
         {
             get => new global::Soenneker.Persona.OpenApiClient.Accounts.AccountsRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The accountTypes property</summary>
+        public global::Soenneker.Persona.OpenApiClient.AccountTypes.AccountTypesRequestBuilder AccountTypes
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.AccountTypes.AccountTypesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The apiKeys property</summary>
         public global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysRequestBuilder ApiKeys
         {
@@ -65,6 +72,11 @@ namespace Soenneker.Persona.OpenApiClient
         public global::Soenneker.Persona.OpenApiClient.Cases.CasesRequestBuilder Cases
         {
             get => new global::Soenneker.Persona.OpenApiClient.Cases.CasesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The caseTemplates property</summary>
+        public global::Soenneker.Persona.OpenApiClient.CaseTemplates.CaseTemplatesRequestBuilder CaseTemplates
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.CaseTemplates.CaseTemplatesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The connect property</summary>
         public global::Soenneker.Persona.OpenApiClient.Connect.ConnectRequestBuilder Connect

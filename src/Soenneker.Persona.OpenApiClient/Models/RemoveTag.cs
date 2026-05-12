@@ -30,6 +30,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>The relationships property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationships? Relationships { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationships Relationships { get; set; }
+#endif
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,6 +73,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountTypeAttributes>(global::Soenneker.Persona.OpenApiClient.Models.AccountTypeAttributes.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationships>(global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationships.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -77,6 +86,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountTypeAttributes>("attributes", Attributes);
             writer.WriteStringValue("id", Id);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationships>("relationships", Relationships);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

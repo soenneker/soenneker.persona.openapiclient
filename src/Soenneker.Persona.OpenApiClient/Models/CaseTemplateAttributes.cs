@@ -16,6 +16,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public DateTimeOffset? ArchivedAt { get; set; }
         /// <summary>The time the template was created</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>The fieldSchemas property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Persona.OpenApiClient.Models.FieldSchema>? FieldSchemas { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Persona.OpenApiClient.Models.FieldSchema> FieldSchemas { get; set; }
+#endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,6 +70,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "archived-at", n => { ArchivedAt = n.GetDateTimeOffsetValue(); } },
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "field-schemas", n => { FieldSchemas = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FieldSchema>(global::Soenneker.Persona.OpenApiClient.Models.FieldSchema.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "resolutions", n => { Resolutions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -77,6 +86,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("archived-at", ArchivedAt);
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FieldSchema>("field-schemas", FieldSchemas);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("resolutions", Resolutions);
             writer.WriteStringValue("status", Status);

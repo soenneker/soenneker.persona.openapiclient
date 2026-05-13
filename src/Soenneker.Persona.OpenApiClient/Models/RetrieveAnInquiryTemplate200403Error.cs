@@ -2,34 +2,36 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Persona.OpenApiClient.Models;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item
+namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class InquiryTemplateGetResponse : IParsable
+    public partial class RetrieveAnInquiryTemplate200403Error : ApiException, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>An Inquiry Template object</summary>
+        /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate? Data { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiryTemplate200403Error_errors>? Errors { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate Data { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiryTemplate200403Error_errors> Errors { get; set; }
 #endif
+        /// <summary>The primary error message.</summary>
+        public override string Message { get => base.Message; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiryTemplate200403Error"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiryTemplate200403Error CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateGetResponse();
+            return new global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiryTemplate200403Error();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -39,7 +41,7 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate.CreateFromDiscriminatorValue); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiryTemplate200403Error_errors>(global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiryTemplate200403Error_errors.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -49,7 +51,7 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiryTemplate200403Error_errors>("errors", Errors);
         }
     }
 }

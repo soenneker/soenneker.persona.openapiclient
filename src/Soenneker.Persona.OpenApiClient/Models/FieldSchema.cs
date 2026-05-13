@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaArray"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaBoolean"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaChoices"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDate"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDatetime"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaFile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaHash"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaInteger"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaMultiChoices"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGeneric"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGovernmentId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGovernmentIdNfc"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentMdoc"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentQrCode"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationSelfie"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaString"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaArray"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaBoolean"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaChoices"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDate"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDatetime"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaFile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaHash"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaInteger"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaMultiChoices"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelation"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaString"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FieldSchema : IComposedTypeWrapper, IParsable
@@ -101,53 +101,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaNumber FieldSchemaNumber { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGeneric"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelation"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGeneric? FieldSchemaRelationDocumentGeneric { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelation? FieldSchemaRelation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGeneric FieldSchemaRelationDocumentGeneric { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGovernmentId"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGovernmentId? FieldSchemaRelationDocumentGovernmentId { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGovernmentId FieldSchemaRelationDocumentGovernmentId { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGovernmentIdNfc"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGovernmentIdNfc? FieldSchemaRelationDocumentGovernmentIdNfc { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGovernmentIdNfc FieldSchemaRelationDocumentGovernmentIdNfc { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentMdoc"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentMdoc? FieldSchemaRelationDocumentMdoc { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentMdoc FieldSchemaRelationDocumentMdoc { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentQrCode"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentQrCode? FieldSchemaRelationDocumentQrCode { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentQrCode FieldSchemaRelationDocumentQrCode { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationSelfie"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationSelfie? FieldSchemaRelationSelfie { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationSelfie FieldSchemaRelationSelfie { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelation FieldSchemaRelation { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaString"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -177,12 +137,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             result.FieldSchemaInteger = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaInteger();
             result.FieldSchemaMultiChoices = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaMultiChoices();
             result.FieldSchemaNumber = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaNumber();
-            result.FieldSchemaRelationDocumentGeneric = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGeneric();
-            result.FieldSchemaRelationDocumentGovernmentId = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGovernmentId();
-            result.FieldSchemaRelationDocumentGovernmentIdNfc = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGovernmentIdNfc();
-            result.FieldSchemaRelationDocumentMdoc = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentMdoc();
-            result.FieldSchemaRelationDocumentQrCode = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentQrCode();
-            result.FieldSchemaRelationSelfie = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationSelfie();
+            result.FieldSchemaRelation = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelation();
             result.FieldSchemaString = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaString();
             return result;
         }
@@ -192,9 +147,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(FieldSchemaArray != null || FieldSchemaBoolean != null || FieldSchemaChoices != null || FieldSchemaDate != null || FieldSchemaDatetime != null || FieldSchemaEmailAddress != null || FieldSchemaFile != null || FieldSchemaHash != null || FieldSchemaInteger != null || FieldSchemaMultiChoices != null || FieldSchemaNumber != null || FieldSchemaRelationDocumentGeneric != null || FieldSchemaRelationDocumentGovernmentId != null || FieldSchemaRelationDocumentGovernmentIdNfc != null || FieldSchemaRelationDocumentMdoc != null || FieldSchemaRelationDocumentQrCode != null || FieldSchemaRelationSelfie != null || FieldSchemaString != null)
+            if(FieldSchemaArray != null || FieldSchemaBoolean != null || FieldSchemaChoices != null || FieldSchemaDate != null || FieldSchemaDatetime != null || FieldSchemaEmailAddress != null || FieldSchemaFile != null || FieldSchemaHash != null || FieldSchemaInteger != null || FieldSchemaMultiChoices != null || FieldSchemaNumber != null || FieldSchemaRelation != null || FieldSchemaString != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FieldSchemaArray, FieldSchemaBoolean, FieldSchemaChoices, FieldSchemaDate, FieldSchemaDatetime, FieldSchemaEmailAddress, FieldSchemaFile, FieldSchemaHash, FieldSchemaInteger, FieldSchemaMultiChoices, FieldSchemaNumber, FieldSchemaRelationDocumentGeneric, FieldSchemaRelationDocumentGovernmentId, FieldSchemaRelationDocumentGovernmentIdNfc, FieldSchemaRelationDocumentMdoc, FieldSchemaRelationDocumentQrCode, FieldSchemaRelationSelfie, FieldSchemaString);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FieldSchemaArray, FieldSchemaBoolean, FieldSchemaChoices, FieldSchemaDate, FieldSchemaDatetime, FieldSchemaEmailAddress, FieldSchemaFile, FieldSchemaHash, FieldSchemaInteger, FieldSchemaMultiChoices, FieldSchemaNumber, FieldSchemaRelation, FieldSchemaString);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -205,7 +160,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaArray>(null, FieldSchemaArray, FieldSchemaBoolean, FieldSchemaChoices, FieldSchemaDate, FieldSchemaDatetime, FieldSchemaEmailAddress, FieldSchemaFile, FieldSchemaHash, FieldSchemaInteger, FieldSchemaMultiChoices, FieldSchemaNumber, FieldSchemaRelationDocumentGeneric, FieldSchemaRelationDocumentGovernmentId, FieldSchemaRelationDocumentGovernmentIdNfc, FieldSchemaRelationDocumentMdoc, FieldSchemaRelationDocumentQrCode, FieldSchemaRelationSelfie, FieldSchemaString);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaArray>(null, FieldSchemaArray, FieldSchemaBoolean, FieldSchemaChoices, FieldSchemaDate, FieldSchemaDatetime, FieldSchemaEmailAddress, FieldSchemaFile, FieldSchemaHash, FieldSchemaInteger, FieldSchemaMultiChoices, FieldSchemaNumber, FieldSchemaRelation, FieldSchemaString);
         }
     }
 }

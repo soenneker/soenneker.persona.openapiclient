@@ -20,6 +20,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<string> EmbeddedFlowDomainAllowlist { get; set; }
 #endif
+        /// <summary>The fieldSchemas property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Persona.OpenApiClient.Models.FieldSchema>? FieldSchemas { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Persona.OpenApiClient.Models.FieldSchema> FieldSchemas { get; set; }
+#endif
         /// <summary>An allowlist that specifies the URI schemes for redirect after completion of a Hosted Flow.This can be used to implement deep linking for mobile integrations. If this list is empty,all URLs with the URI scheme http or https are allowed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,6 +79,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "embedded-flow-domain-allowlist", n => { EmbeddedFlowDomainAllowlist = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "field-schemas", n => { FieldSchemas = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FieldSchema>(global::Soenneker.Persona.OpenApiClient.Models.FieldSchema.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "hosted-flow-redirect-uri-schemes", n => { HostedFlowRedirectUriSchemes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "hosted-flow-subdomains", n => { HostedFlowSubdomains = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
@@ -85,6 +94,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("embedded-flow-domain-allowlist", EmbeddedFlowDomainAllowlist);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FieldSchema>("field-schemas", FieldSchemas);
             writer.WriteCollectionOfPrimitiveValues<string>("hosted-flow-redirect-uri-schemes", HostedFlowRedirectUriSchemes);
             writer.WriteCollectionOfPrimitiveValues<string>("hosted-flow-subdomains", HostedFlowSubdomains);
             writer.WriteStringValue("name", Name);

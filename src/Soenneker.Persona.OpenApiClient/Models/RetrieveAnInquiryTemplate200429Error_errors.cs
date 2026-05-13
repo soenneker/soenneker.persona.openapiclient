@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,28 +9,34 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class InquiryTemplate403Error : ApiException, IParsable
+    public partial class RetrieveAnInquiryTemplate200429Error_errors : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The errors property</summary>
+        /// <summary>The details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate403Error_errors>? Errors { get; set; }
+        public string? Details { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate403Error_errors> Errors { get; set; }
+        public string Details { get; set; }
 #endif
-        /// <summary>The primary error message.</summary>
-        public override string Message { get => base.Message; }
+        /// <summary>The title property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Title { get; set; }
+#nullable restore
+#else
+        public string Title { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate403Error"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiryTemplate200429Error_errors"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate403Error CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiryTemplate200429Error_errors CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate403Error();
+            return new global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiryTemplate200429Error_errors();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -41,7 +46,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate403Error_errors>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate403Error_errors.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "details", n => { Details = n.GetStringValue(); } },
+                { "title", n => { Title = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -51,7 +57,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate403Error_errors>("errors", Errors);
+            writer.WriteStringValue("details", Details);
+            writer.WriteStringValue("title", Title);
         }
     }
 }

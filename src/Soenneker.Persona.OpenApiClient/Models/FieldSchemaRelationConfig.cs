@@ -9,18 +9,26 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class FieldSchemaRelationDocumentGovernmentIdNfc_config : global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDefaultConfig, IParsable
+    public partial class FieldSchemaRelationConfig : global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDefaultConfig, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Customer-facing identifier for the specific Relation subtype this field points to — `document-generic`, `document-government-id`, `document-government-id-nfc`, `document-mdoc`, `document-qr-code`, or `selfie`. Use this on a future write API to specify which relation kind to create.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Target { get; set; }
+#nullable restore
+#else
+        public string Target { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGovernmentIdNfc_config"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationConfig"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGovernmentIdNfc_config CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationConfig CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationDocumentGovernmentIdNfc_config();
+            return new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationConfig();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -30,6 +38,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
+                { "target", n => { Target = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -40,6 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteStringValue("target", Target);
         }
     }
 }

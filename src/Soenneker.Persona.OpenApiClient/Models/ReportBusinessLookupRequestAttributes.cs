@@ -9,9 +9,19 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ReportBusinessLookupRequestAttributes : global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRequestAttributes, IParsable
+    public partial class ReportBusinessLookupRequestAttributes : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Account ID to associate with this Report.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AccountId { get; set; }
+#nullable restore
+#else
+        public string AccountId { get; set; }
+#endif
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The query property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,12 +30,36 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupRequestAttributes_query Query { get; set; }
 #endif
+        /// <summary>Reference ID to refer to an entity in your user model. This field is deprecated in favor of `meta.auto-create-account-reference-id`.</summary>
+        [Obsolete("")]
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReferenceId { get; set; }
+#nullable restore
+#else
+        public string ReferenceId { get; set; }
+#endif
+        /// <summary>ID of Verification Template. Starts with `rptp_`. You can find your Report Template IDs [here](https://app.withpersona.com/dashboard/report-templates).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReportTemplateId { get; set; }
+#nullable restore
+#else
+        public string ReportTemplateId { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupRequestAttributes"/> and sets the default values.
+        /// </summary>
+        public ReportBusinessLookupRequestAttributes()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupRequestAttributes"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupRequestAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupRequestAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupRequestAttributes();
@@ -34,22 +68,28 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "account-id", n => { AccountId = n.GetStringValue(); } },
                 { "query", n => { Query = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupRequestAttributes_query>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupRequestAttributes_query.CreateFromDiscriminatorValue); } },
+                { "reference-id", n => { ReferenceId = n.GetStringValue(); } },
+                { "report-template-id", n => { ReportTemplateId = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteStringValue("account-id", AccountId);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupRequestAttributes_query>("query", Query);
+            writer.WriteStringValue("reference-id", ReferenceId);
+            writer.WriteStringValue("report-template-id", ReportTemplateId);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

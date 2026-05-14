@@ -9,9 +9,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ReportAdverseMediaAttributes : global::Soenneker.Persona.OpenApiClient.Models.ReportSharedAttributes, IParsable
+    public partial class ReportAdverseMediaAttributes : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The input DOB in YYYY-MM-DD format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,6 +24,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>The birthdateYear property</summary>
         public int? BirthdateYear { get; set; }
+        /// <summary>The time the report completed processing in ISO 8601 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CompletedAt { get; set; }
+#nullable restore
+#else
+        public string CompletedAt { get; set; }
+#endif
         /// <summary>The input search country in alpha2 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,6 +40,16 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string CountryCode { get; set; }
 #endif
+        /// <summary>The time the report was created in ISO 8601 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CreatedAt { get; set; }
+#nullable restore
+#else
+        public string CreatedAt { get; set; }
+#endif
+        /// <summary>Whether or not the report matched</summary>
+        public bool? HasMatch { get; set; }
         /// <summary>The ignoreListEntity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -46,6 +66,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListMedia IgnoreListMedia { get; set; }
 #endif
+        /// <summary>Whether or not this report has been run more than once</summary>
+        public bool? IsContinuous { get; set; }
+        /// <summary>Whether or not this report is scheduled to run in the future</summary>
+        public bool? IsRecurring { get; set; }
         /// <summary>The input first name of the search individual</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,6 +94,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string NameMiddle { get; set; }
 #endif
+        /// <summary>The time the report was redacted in ISO 8601 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RedactedAt { get; set; }
+#nullable restore
+#else
+        public string RedactedAt { get; set; }
+#endif
         /// <summary>The sources that matched for the search</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,6 +109,30 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public List<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_relatedSources> RelatedSources { get; set; }
+#endif
+        /// <summary>The name of the report template version used for this report</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReportTemplateVersionName { get; set; }
+#nullable restore
+#else
+        public string ReportTemplateVersionName { get; set; }
+#endif
+        /// <summary>The status of the reportPossible values:- pending- ready- erroredDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
+        /// <summary>Tags on the report</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
 #endif
         /// <summary>The input combined term used for searching (first + middle + last name)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,11 +143,18 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public string Term { get; set; }
 #endif
         /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes"/> and sets the default values.
+        /// </summary>
+        public ReportAdverseMediaAttributes()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes();
@@ -100,19 +163,28 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
                 { "birthdate", n => { Birthdate = n.GetStringValue(); } },
                 { "birthdate-year", n => { BirthdateYear = n.GetIntValue(); } },
+                { "completed-at", n => { CompletedAt = n.GetStringValue(); } },
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
+                { "created-at", n => { CreatedAt = n.GetStringValue(); } },
+                { "has-match", n => { HasMatch = n.GetBoolValue(); } },
                 { "ignore-list-entity", n => { IgnoreListEntity = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListEntity>(global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListEntity.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "ignore-list-media", n => { IgnoreListMedia = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListMedia>(global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListMedia.CreateFromDiscriminatorValue); } },
+                { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
+                { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
                 { "name-first", n => { NameFirst = n.GetStringValue(); } },
                 { "name-last", n => { NameLast = n.GetStringValue(); } },
                 { "name-middle", n => { NameMiddle = n.GetStringValue(); } },
+                { "redacted-at", n => { RedactedAt = n.GetStringValue(); } },
                 { "related-sources", n => { RelatedSources = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_relatedSources>(global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_relatedSources.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "report-template-version-name", n => { ReportTemplateVersionName = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "term", n => { Term = n.GetStringValue(); } },
             };
         }
@@ -120,20 +192,29 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
             writer.WriteStringValue("birthdate", Birthdate);
             writer.WriteIntValue("birthdate-year", BirthdateYear);
+            writer.WriteStringValue("completed-at", CompletedAt);
             writer.WriteStringValue("country-code", CountryCode);
+            writer.WriteStringValue("created-at", CreatedAt);
+            writer.WriteBoolValue("has-match", HasMatch);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListEntity>("ignore-list-entity", IgnoreListEntity);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListMedia>("ignore-list-media", IgnoreListMedia);
+            writer.WriteBoolValue("is-continuous", IsContinuous);
+            writer.WriteBoolValue("is-recurring", IsRecurring);
             writer.WriteStringValue("name-first", NameFirst);
             writer.WriteStringValue("name-last", NameLast);
             writer.WriteStringValue("name-middle", NameMiddle);
+            writer.WriteStringValue("redacted-at", RedactedAt);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_relatedSources>("related-sources", RelatedSources);
+            writer.WriteStringValue("report-template-version-name", ReportTemplateVersionName);
+            writer.WriteStringValue("status", Status);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("term", Term);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

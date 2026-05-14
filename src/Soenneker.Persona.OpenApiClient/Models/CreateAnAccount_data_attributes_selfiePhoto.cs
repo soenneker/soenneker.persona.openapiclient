@@ -7,28 +7,29 @@ using System.IO;
 using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
+    /// <summary>
+    /// Selfie photo.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class UpdateAConnectConnection : IParsable
-    #pragma warning restore CS1591
+    public partial class CreateAnAccount_data_attributes_selfiePhoto : IParsable
     {
-        /// <summary>The data property</summary>
+        /// <summary>Selfie photo data, must be an image. Can also be provided as an uploaded file such as with multipart/form-data requests instead of this object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection_data? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CreateAnAccount_data_attributes_selfiePhoto_data? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection_data Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CreateAnAccount_data_attributes_selfiePhoto_data Data { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnAccount_data_attributes_selfiePhoto"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.CreateAnAccount_data_attributes_selfiePhoto CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection();
+            return new global::Soenneker.Persona.OpenApiClient.Models.CreateAnAccount_data_attributes_selfiePhoto();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection_data>(global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection_data.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CreateAnAccount_data_attributes_selfiePhoto_data>(global::Soenneker.Persona.OpenApiClient.Models.CreateAnAccount_data_attributes_selfiePhoto_data.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -48,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection_data>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CreateAnAccount_data_attributes_selfiePhoto_data>("data", Data);
         }
     }
 }

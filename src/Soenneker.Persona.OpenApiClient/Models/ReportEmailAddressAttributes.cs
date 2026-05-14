@@ -9,15 +9,33 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ReportEmailAddressAttributes : global::Soenneker.Persona.OpenApiClient.Models.ReportSharedAttributes, IParsable
+    public partial class ReportEmailAddressAttributes : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether email address user is 13 or older</summary>
         public bool? AgeEstimated13Plus { get; set; }
         /// <summary>Whether email address user is 16 or older</summary>
         public bool? AgeEstimated16Plus { get; set; }
         /// <summary>Whether email address user is 18 or older</summary>
         public bool? AgeEstimated18Plus { get; set; }
+        /// <summary>The time the report completed processing in ISO 8601 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CompletedAt { get; set; }
+#nullable restore
+#else
+        public string CompletedAt { get; set; }
+#endif
+        /// <summary>The time the report was created in ISO 8601 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CreatedAt { get; set; }
+#nullable restore
+#else
+        public string CreatedAt { get; set; }
+#endif
         /// <summary>The input email address of the search</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,12 +111,57 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string EmailReputation { get; set; }
 #endif
+        /// <summary>Whether or not the report matched</summary>
+        public bool? HasMatch { get; set; }
+        /// <summary>Whether or not this report has been run more than once</summary>
+        public bool? IsContinuous { get; set; }
+        /// <summary>Whether or not this report is scheduled to run in the future</summary>
+        public bool? IsRecurring { get; set; }
+        /// <summary>The time the report was redacted in ISO 8601 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RedactedAt { get; set; }
+#nullable restore
+#else
+        public string RedactedAt { get; set; }
+#endif
+        /// <summary>The name of the report template version used for this report</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReportTemplateVersionName { get; set; }
+#nullable restore
+#else
+        public string ReportTemplateVersionName { get; set; }
+#endif
+        /// <summary>The status of the reportPossible values:- pending- ready- erroredDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
+        /// <summary>Tags on the report</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddressAttributes"/> and sets the default values.
+        /// </summary>
+        public ReportEmailAddressAttributes()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddressAttributes"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddressAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddressAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddressAttributes();
@@ -107,13 +170,15 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
                 { "age-estimated-13-plus", n => { AgeEstimated13Plus = n.GetBoolValue(); } },
                 { "age-estimated-16-plus", n => { AgeEstimated16Plus = n.GetBoolValue(); } },
                 { "age-estimated-18-plus", n => { AgeEstimated18Plus = n.GetBoolValue(); } },
+                { "completed-at", n => { CompletedAt = n.GetStringValue(); } },
+                { "created-at", n => { CreatedAt = n.GetStringValue(); } },
                 { "email-address", n => { EmailAddress = n.GetStringValue(); } },
                 { "email-credentials-leaked", n => { EmailCredentialsLeaked = n.GetBoolValue(); } },
                 { "email-credentials-leaked-recent", n => { EmailCredentialsLeakedRecent = n.GetBoolValue(); } },
@@ -139,19 +204,27 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "email-malicious-activity-detected-recent", n => { EmailMaliciousActivityDetectedRecent = n.GetBoolValue(); } },
                 { "email-reference-count", n => { EmailReferenceCount = n.GetIntValue(); } },
                 { "email-reputation", n => { EmailReputation = n.GetStringValue(); } },
+                { "has-match", n => { HasMatch = n.GetBoolValue(); } },
+                { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
+                { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
+                { "redacted-at", n => { RedactedAt = n.GetStringValue(); } },
+                { "report-template-version-name", n => { ReportTemplateVersionName = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
             writer.WriteBoolValue("age-estimated-13-plus", AgeEstimated13Plus);
             writer.WriteBoolValue("age-estimated-16-plus", AgeEstimated16Plus);
             writer.WriteBoolValue("age-estimated-18-plus", AgeEstimated18Plus);
+            writer.WriteStringValue("completed-at", CompletedAt);
+            writer.WriteStringValue("created-at", CreatedAt);
             writer.WriteStringValue("email-address", EmailAddress);
             writer.WriteBoolValue("email-credentials-leaked", EmailCredentialsLeaked);
             writer.WriteBoolValue("email-credentials-leaked-recent", EmailCredentialsLeakedRecent);
@@ -177,6 +250,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteBoolValue("email-malicious-activity-detected-recent", EmailMaliciousActivityDetectedRecent);
             writer.WriteIntValue("email-reference-count", EmailReferenceCount);
             writer.WriteStringValue("email-reputation", EmailReputation);
+            writer.WriteBoolValue("has-match", HasMatch);
+            writer.WriteBoolValue("is-continuous", IsContinuous);
+            writer.WriteBoolValue("is-recurring", IsRecurring);
+            writer.WriteStringValue("redacted-at", RedactedAt);
+            writer.WriteStringValue("report-template-version-name", ReportTemplateVersionName);
+            writer.WriteStringValue("status", Status);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

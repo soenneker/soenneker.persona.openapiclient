@@ -23,10 +23,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The included property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.InquirySessions>? Included { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.ListAllInquirySessions200_included>? Included { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.InquirySessions> Included { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.ListAllInquirySessions200_included> Included { get; set; }
 #endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.InquirySession>(global::Soenneker.Persona.OpenApiClient.Models.InquirySession.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.InquirySessions>(global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.InquirySessions.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.ListAllInquirySessions200_included>(global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.ListAllInquirySessions200_included.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200_links>(global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200_links.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,14 +67,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.InquirySession>("data", Data);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.InquirySessions>("included", Included);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.ListAllInquirySessions200_included>("included", Included);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200_links>("links", Links);
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Device"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Network"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class InquirySessions : IComposedTypeWrapper, IParsable
+        public partial class ListAllInquirySessions200_included : IComposedTypeWrapper, IParsable
         {
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Device"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -103,12 +103,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.InquirySessions"/></returns>
+            /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.ListAllInquirySessions200_included"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.InquirySessions CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.ListAllInquirySessions200_included CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.InquirySessions();
+                var result = new global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.ListAllInquirySessions200_included();
                 result.Device = new global::Soenneker.Persona.OpenApiClient.Models.Device();
                 result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();
                 result.Network = new global::Soenneker.Persona.OpenApiClient.Models.Network();

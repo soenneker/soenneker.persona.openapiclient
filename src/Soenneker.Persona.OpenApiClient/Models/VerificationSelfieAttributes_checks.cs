@@ -9,16 +9,16 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class VerificationSharedAttributes_checks : IParsable
+    public partial class VerificationSelfieAttributes_checks : IParsable
     #pragma warning restore CS1591
     {
         /// <summary>This is a free-form object containing relevant metadata to the processing and result of the check.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributes_checks_metadata? Metadata { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_checks_metadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributes_checks_metadata Metadata { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_checks_metadata Metadata { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,12 +55,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributes_checks"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_checks"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributes_checks CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_checks CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributes_checks();
+            return new global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_checks();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,7 +70,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributes_checks_metadata>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributes_checks_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_checks_metadata>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_checks_metadata.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "reasons", n => { Reasons = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "requirement", n => { Requirement = n.GetStringValue(); } },
@@ -84,7 +84,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributes_checks_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_checks_metadata>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("reasons", Reasons);
             writer.WriteStringValue("requirement", Requirement);

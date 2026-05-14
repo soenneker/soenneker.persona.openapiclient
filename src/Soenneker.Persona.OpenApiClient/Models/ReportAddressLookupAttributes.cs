@@ -9,9 +9,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ReportAddressLookupAttributes : global::Soenneker.Persona.OpenApiClient.Models.ReportSharedAttributes, IParsable
+    public partial class ReportAddressLookupAttributes : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>City</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -172,6 +174,22 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string AnalysisSuiteLinkMatch { get; set; }
 #endif
+        /// <summary>The time the report completed processing in ISO 8601 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CompletedAt { get; set; }
+#nullable restore
+#else
+        public string CompletedAt { get; set; }
+#endif
+        /// <summary>The time the report was created in ISO 8601 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CreatedAt { get; set; }
+#nullable restore
+#else
+        public string CreatedAt { get; set; }
+#endif
         /// <summary>The errorMessage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -180,6 +198,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string ErrorMessage { get; set; }
 #endif
+        /// <summary>Whether or not the report matched</summary>
+        public bool? HasMatch { get; set; }
+        /// <summary>Whether or not this report has been run more than once</summary>
+        public bool? IsContinuous { get; set; }
+        /// <summary>Whether or not this report is scheduled to run in the future</summary>
+        public bool? IsRecurring { get; set; }
         /// <summary>The metadataBuildingDefaultIndicator property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -284,6 +308,22 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string MetadataZipType { get; set; }
 #endif
+        /// <summary>The time the report was redacted in ISO 8601 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RedactedAt { get; set; }
+#nullable restore
+#else
+        public string RedactedAt { get; set; }
+#endif
+        /// <summary>The name of the report template version used for this report</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReportTemplateVersionName { get; set; }
+#nullable restore
+#else
+        public string ReportTemplateVersionName { get; set; }
+#endif
         /// <summary>The resolvedAddressCity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -332,12 +372,35 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string ResolvedAddressSubdivision { get; set; }
 #endif
+        /// <summary>The status of the reportPossible values:- pending- ready- erroredDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
+        /// <summary>Tags on the report</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookupAttributes"/> and sets the default values.
+        /// </summary>
+        public ReportAddressLookupAttributes()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookupAttributes"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookupAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookupAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookupAttributes();
@@ -346,9 +409,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
                 { "address-city", n => { AddressCity = n.GetStringValue(); } },
                 { "address-postal-code", n => { AddressPostalCode = n.GetStringValue(); } },
@@ -370,7 +433,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "analysis-lacs-link-indicator", n => { AnalysisLacsLinkIndicator = n.GetStringValue(); } },
                 { "analysis-lacs-link-indicator-decoded", n => { AnalysisLacsLinkIndicatorDecoded = n.GetStringValue(); } },
                 { "analysis-suite-link-match", n => { AnalysisSuiteLinkMatch = n.GetStringValue(); } },
+                { "completed-at", n => { CompletedAt = n.GetStringValue(); } },
+                { "created-at", n => { CreatedAt = n.GetStringValue(); } },
                 { "error-message", n => { ErrorMessage = n.GetStringValue(); } },
+                { "has-match", n => { HasMatch = n.GetBoolValue(); } },
+                { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
+                { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
                 { "metadata-building-default-indicator", n => { MetadataBuildingDefaultIndicator = n.GetStringValue(); } },
                 { "metadata-carrier-route", n => { MetadataCarrierRoute = n.GetStringValue(); } },
                 { "metadata-carrier-route-type", n => { MetadataCarrierRouteType = n.GetStringValue(); } },
@@ -387,22 +455,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "metadata-time-zone", n => { MetadataTimeZone = n.GetStringValue(); } },
                 { "metadata-utc-offset", n => { MetadataUtcOffset = n.GetIntValue(); } },
                 { "metadata-zip-type", n => { MetadataZipType = n.GetStringValue(); } },
+                { "redacted-at", n => { RedactedAt = n.GetStringValue(); } },
+                { "report-template-version-name", n => { ReportTemplateVersionName = n.GetStringValue(); } },
                 { "resolved-address-city", n => { ResolvedAddressCity = n.GetStringValue(); } },
                 { "resolved-address-postal-code", n => { ResolvedAddressPostalCode = n.GetStringValue(); } },
                 { "resolved-address-street-1", n => { ResolvedAddressStreet1 = n.GetStringValue(); } },
                 { "resolved-address-street-2", n => { ResolvedAddressStreet2 = n.GetStringValue(); } },
                 { "resolved-address-subdivision", n => { ResolvedAddressSubdivision = n.GetStringValue(); } },
                 { "resolved-addressee", n => { ResolvedAddressee = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
             writer.WriteStringValue("address-city", AddressCity);
             writer.WriteStringValue("addressee", Addressee);
             writer.WriteStringValue("address-postal-code", AddressPostalCode);
@@ -423,7 +494,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("analysis-lacs-link-indicator", AnalysisLacsLinkIndicator);
             writer.WriteStringValue("analysis-lacs-link-indicator-decoded", AnalysisLacsLinkIndicatorDecoded);
             writer.WriteStringValue("analysis-suite-link-match", AnalysisSuiteLinkMatch);
+            writer.WriteStringValue("completed-at", CompletedAt);
+            writer.WriteStringValue("created-at", CreatedAt);
             writer.WriteStringValue("error-message", ErrorMessage);
+            writer.WriteBoolValue("has-match", HasMatch);
+            writer.WriteBoolValue("is-continuous", IsContinuous);
+            writer.WriteBoolValue("is-recurring", IsRecurring);
             writer.WriteStringValue("metadata-building-default-indicator", MetadataBuildingDefaultIndicator);
             writer.WriteStringValue("metadata-carrier-route", MetadataCarrierRoute);
             writer.WriteStringValue("metadata-carrier-route-type", MetadataCarrierRouteType);
@@ -440,12 +516,17 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("metadata-time-zone", MetadataTimeZone);
             writer.WriteIntValue("metadata-utc-offset", MetadataUtcOffset);
             writer.WriteStringValue("metadata-zip-type", MetadataZipType);
+            writer.WriteStringValue("redacted-at", RedactedAt);
+            writer.WriteStringValue("report-template-version-name", ReportTemplateVersionName);
             writer.WriteStringValue("resolved-address-city", ResolvedAddressCity);
             writer.WriteStringValue("resolved-addressee", ResolvedAddressee);
             writer.WriteStringValue("resolved-address-postal-code", ResolvedAddressPostalCode);
             writer.WriteStringValue("resolved-address-street-1", ResolvedAddressStreet1);
             writer.WriteStringValue("resolved-address-street-2", ResolvedAddressStreet2);
             writer.WriteStringValue("resolved-address-subdivision", ResolvedAddressSubdivision);
+            writer.WriteStringValue("status", Status);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -127,55 +127,55 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.Verification();
-            if("VerificationAamva".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("verification/aamva".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VerificationAamva = new global::Soenneker.Persona.OpenApiClient.Models.VerificationAamva();
             }
-            else if("VerificationDatabase".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("verification/database".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VerificationDatabase = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabase();
             }
-            else if("VerificationDatabaseEcbsv".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("verification/database-ecbsv".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VerificationDatabaseEcbsv = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsv();
             }
-            else if("VerificationDatabasePhoneCarrier".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("verification/database-phone-carrier".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VerificationDatabasePhoneCarrier = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabasePhoneCarrier();
             }
-            else if("VerificationDatabaseSerpro".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("verification/database-serpro".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VerificationDatabaseSerpro = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerpro();
             }
-            else if("VerificationDatabaseStandard".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("verification/database-standard".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VerificationDatabaseStandard = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseStandard();
             }
-            else if("VerificationDatabaseTin".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("verification/database-tin".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VerificationDatabaseTin = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseTin();
             }
-            else if("VerificationDocument".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("verification/document".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VerificationDocument = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDocument();
             }
-            else if("VerificationEmailAddress".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("verification/email-address".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VerificationEmailAddress = new global::Soenneker.Persona.OpenApiClient.Models.VerificationEmailAddress();
             }
-            else if("VerificationGovernmentId".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("verification/government-id".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VerificationGovernmentId = new global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentId();
             }
-            else if("VerificationGovernmentIdNfc".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("verification/government-id-nfc".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VerificationGovernmentIdNfc = new global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfc();
             }
-            else if("VerificationPhoneNumber".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("verification/phone-number".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VerificationPhoneNumber = new global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumber();
             }
-            else if("VerificationSelfie".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("verification/selfie".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.VerificationSelfie = new global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfie();
             }

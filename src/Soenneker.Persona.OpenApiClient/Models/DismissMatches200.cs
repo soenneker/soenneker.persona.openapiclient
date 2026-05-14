@@ -23,10 +23,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The included property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.Dismiss>? Included { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.DismissMatches200_included>? Included { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.Dismiss> Included { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.DismissMatches200_included> Included { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,7 +47,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Report>(global::Soenneker.Persona.OpenApiClient.Models.Report.CreateFromDiscriminatorValue); } },
-                { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.Dismiss>(global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.Dismiss.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.DismissMatches200_included>(global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.DismissMatches200_included.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,13 +58,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Report>("data", Data);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.Dismiss>("included", Included);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.DismissMatches200_included>("included", Included);
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Case"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateAddressLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateCryptoAddressWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplatePhoneRisk"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplatePoliticallyExposedPerson"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateProfile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateSentilinkScores"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateSocialMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateSynthetic"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Dismiss : IComposedTypeWrapper, IParsable
+        public partial class DismissMatches200_included : IComposedTypeWrapper, IParsable
         {
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -213,12 +213,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.Dismiss"/></returns>
+            /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.DismissMatches200_included"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.Dismiss CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.DismissMatches200_included CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.Dismiss();
+                var result = new global::Soenneker.Persona.OpenApiClient.Models.DismissMatches200.DismissMatches200_included();
                 result.Account = new global::Soenneker.Persona.OpenApiClient.Models.Account();
                 result.Case = new global::Soenneker.Persona.OpenApiClient.Models.Case();
                 result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();

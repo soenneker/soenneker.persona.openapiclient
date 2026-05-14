@@ -96,35 +96,35 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.Importer();
-            if("ImporterAccount".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("importer/account".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ImporterAccount = new global::Soenneker.Persona.OpenApiClient.Models.ImporterAccount();
             }
-            else if("ImporterListItemEmailAddress".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("importer/list-item/email-address".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ImporterListItemEmailAddress = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemEmailAddress();
             }
-            else if("ImporterListItemField".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("importer/list-item/field".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ImporterListItemField = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemField();
             }
-            else if("ImporterListItemGeolocation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("importer/list-item/geolocation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ImporterListItemGeolocation = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGeolocation();
             }
-            else if("ImporterListItemGovernmentIdNumber".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("importer/list-item/government-id-number".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ImporterListItemGovernmentIdNumber = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGovernmentIdNumber();
             }
-            else if("ImporterListItemIpAddress".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("importer/list-item/ip-address".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ImporterListItemIpAddress = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemIpAddress();
             }
-            else if("ImporterListItemName".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("importer/list-item/name".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ImporterListItemName = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemName();
             }
-            else if("ImporterListItemPhoneNumber".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("importer/list-item/phone-number".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ImporterListItemPhoneNumber = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemPhoneNumber();
             }

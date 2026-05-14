@@ -9,7 +9,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Accounts : IAdditionalDataHolder, IParsable
+    public partial class AccountsAddTag200_included : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -47,21 +47,21 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public string Type { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.Accounts"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.AccountsAddTag200_included"/> and sets the default values.
         /// </summary>
-        public Accounts()
+        public AccountsAddTag200_included()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Accounts"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.AccountsAddTag200_included"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.Accounts CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.AccountsAddTag200_included CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.Accounts();
+            return new global::Soenneker.Persona.OpenApiClient.Models.AccountsAddTag200_included();
         }
         /// <summary>
         /// The deserialization information for the current model

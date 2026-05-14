@@ -15,10 +15,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The history of runs and actions for a report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.History>? Data { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.ListReportHistory200_data>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.History> Data { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.ListReportHistory200_data> Data { get; set; }
 #endif
         /// <summary>Pagination links for navigating through the history</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,7 +46,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.History>(global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.History.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.ListReportHistory200_data>(global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.ListReportHistory200_data.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200_links>(global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200_links.CreateFromDiscriminatorValue); } },
             };
         }
@@ -57,14 +57,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.History>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.ListReportHistory200_data>("data", Data);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200_links>("links", Links);
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryDismiss"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryPause"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryResume"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryReview"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryRun"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class History : IComposedTypeWrapper, IParsable
+        public partial class ListReportHistory200_data : IComposedTypeWrapper, IParsable
         {
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryDismiss"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,30 +109,30 @@ namespace Soenneker.Persona.OpenApiClient.Models
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.History"/></returns>
+            /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.ListReportHistory200_data"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.History CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.ListReportHistory200_data CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-                var result = new global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.History();
-                if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                var result = new global::Soenneker.Persona.OpenApiClient.Models.ListReportHistory200.ListReportHistory200_data();
+                if("dismiss".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.ReportHistoryDismiss = new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryDismiss();
                 }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("pause".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.ReportHistoryPause = new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryPause();
                 }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("resume".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.ReportHistoryResume = new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryResume();
                 }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("review".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.ReportHistoryReview = new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryReview();
                 }
-                else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                else if("run".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.ReportHistoryRun = new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryRun();
                 }

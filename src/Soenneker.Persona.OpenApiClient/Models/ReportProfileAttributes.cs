@@ -10,9 +10,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ReportProfileAttributes : global::Soenneker.Persona.OpenApiClient.Models.ReportSharedAttributes, IParsable
+    public partial class ReportProfileAttributes : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>City of residence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,6 +73,24 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>Birthdate, must be in the format &quot;YYYY-MM-DD&quot;.</summary>
         public Date? Birthdate { get; set; }
+        /// <summary>The time the report completed processing in ISO 8601 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CompletedAt { get; set; }
+#nullable restore
+#else
+        public string CompletedAt { get; set; }
+#endif
+        /// <summary>The time the report was created in ISO 8601 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CreatedAt { get; set; }
+#nullable restore
+#else
+        public string CreatedAt { get; set; }
+#endif
+        /// <summary>Whether or not the report matched</summary>
+        public bool? HasMatch { get; set; }
         /// <summary>Detailed identity records which passed matching logic, if available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,6 +99,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_identityRecords> IdentityRecords { get; set; }
 #endif
+        /// <summary>Whether or not this report has been run more than once</summary>
+        public bool? IsContinuous { get; set; }
+        /// <summary>Whether or not this report is scheduled to run in the future</summary>
+        public bool? IsRecurring { get; set; }
         /// <summary>Given or first name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -111,6 +135,22 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string PhoneNumber { get; set; }
 #endif
+        /// <summary>The time the report was redacted in ISO 8601 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RedactedAt { get; set; }
+#nullable restore
+#else
+        public string RedactedAt { get; set; }
+#endif
+        /// <summary>The name of the report template version used for this report</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReportTemplateVersionName { get; set; }
+#nullable restore
+#else
+        public string ReportTemplateVersionName { get; set; }
+#endif
         /// <summary>Full social security number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -127,12 +167,35 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string SocialSecurityNumberLast4 { get; set; }
 #endif
+        /// <summary>The status of the reportPossible values:- pending- ready- erroredDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
+        /// <summary>Tags on the report</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes"/> and sets the default values.
+        /// </summary>
+        public ReportProfileAttributes()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes();
@@ -141,9 +204,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
                 { "address-city", n => { AddressCity = n.GetStringValue(); } },
                 { "address-postal-code", n => { AddressPostalCode = n.GetStringValue(); } },
@@ -153,23 +216,31 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "address-subdivision", n => { AddressSubdivision = n.GetStringValue(); } },
                 { "address-subdivision-abbr", n => { AddressSubdivisionAbbr = n.GetStringValue(); } },
                 { "birthdate", n => { Birthdate = n.GetDateValue(); } },
+                { "completed-at", n => { CompletedAt = n.GetStringValue(); } },
+                { "created-at", n => { CreatedAt = n.GetStringValue(); } },
+                { "has-match", n => { HasMatch = n.GetBoolValue(); } },
                 { "identity-records", n => { IdentityRecords = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_identityRecords>(global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_identityRecords.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
+                { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
                 { "name-first", n => { NameFirst = n.GetStringValue(); } },
                 { "name-last", n => { NameLast = n.GetStringValue(); } },
                 { "omitted-identity-records", n => { OmittedIdentityRecords = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_omittedIdentityRecords>(global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_omittedIdentityRecords.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "phone-number", n => { PhoneNumber = n.GetStringValue(); } },
+                { "redacted-at", n => { RedactedAt = n.GetStringValue(); } },
+                { "report-template-version-name", n => { ReportTemplateVersionName = n.GetStringValue(); } },
                 { "social-security-number", n => { SocialSecurityNumber = n.GetStringValue(); } },
                 { "social-security-number-last-4", n => { SocialSecurityNumberLast4 = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
             writer.WriteStringValue("address-city", AddressCity);
             writer.WriteStringValue("address-postal-code", AddressPostalCode);
             writer.WriteStringValue("address-postal-code-abbr", AddressPostalCodeAbbr);
@@ -178,13 +249,23 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("address-subdivision", AddressSubdivision);
             writer.WriteStringValue("address-subdivision-abbr", AddressSubdivisionAbbr);
             writer.WriteDateValue("birthdate", Birthdate);
+            writer.WriteStringValue("completed-at", CompletedAt);
+            writer.WriteStringValue("created-at", CreatedAt);
+            writer.WriteBoolValue("has-match", HasMatch);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_identityRecords>("identity-records", IdentityRecords);
+            writer.WriteBoolValue("is-continuous", IsContinuous);
+            writer.WriteBoolValue("is-recurring", IsRecurring);
             writer.WriteStringValue("name-first", NameFirst);
             writer.WriteStringValue("name-last", NameLast);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_omittedIdentityRecords>("omitted-identity-records", OmittedIdentityRecords);
             writer.WriteStringValue("phone-number", PhoneNumber);
+            writer.WriteStringValue("redacted-at", RedactedAt);
+            writer.WriteStringValue("report-template-version-name", ReportTemplateVersionName);
             writer.WriteStringValue("social-security-number", SocialSecurityNumber);
             writer.WriteStringValue("social-security-number-last-4", SocialSecurityNumberLast4);
+            writer.WriteStringValue("status", Status);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -23,10 +23,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The included property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.SetTags>? Included { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.AccountsSetAllTags200_included>? Included { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.SetTags> Included { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.AccountsSetAllTags200_included> Included { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,7 +47,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account>(global::Soenneker.Persona.OpenApiClient.Models.Account.CreateFromDiscriminatorValue); } },
-                { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.SetTags>(global::Soenneker.Persona.OpenApiClient.Models.SetTags.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.AccountsSetAllTags200_included>(global::Soenneker.Persona.OpenApiClient.Models.AccountsSetAllTags200_included.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account>("data", Data);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.SetTags>("included", Included);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.AccountsSetAllTags200_included>("included", Included);
         }
     }
 }

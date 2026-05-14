@@ -9,9 +9,19 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class VerificationDocumentRelationships : global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationships, IParsable
+    public partial class VerificationDocumentRelationships : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The accounts property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts? Accounts { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts Accounts { get; set; }
+#endif
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The document property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,12 +30,75 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentRelationships_document Document { get; set; }
 #endif
+        /// <summary>The inquiry linked to the verification</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry? Inquiry { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry Inquiry { get; set; }
+#endif
+        /// <summary>The inquiryTemplate property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate? InquiryTemplate { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate InquiryTemplate { get; set; }
+#endif
+        /// <summary>The inquiryTemplateVersion property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion? InquiryTemplateVersion { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion InquiryTemplateVersion { get; set; }
+#endif
+        /// <summary>The template property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTemplate? Template { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTemplate Template { get; set; }
+#endif
+        /// <summary>The transaction property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTransaction? Transaction { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTransaction Transaction { get; set; }
+#endif
+        /// <summary>The verificationTemplate property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplate? VerificationTemplate { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplate VerificationTemplate { get; set; }
+#endif
+        /// <summary>The verificationTemplateVersion property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplateVersion? VerificationTemplateVersion { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplateVersion VerificationTemplateVersion { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentRelationships"/> and sets the default values.
+        /// </summary>
+        public VerificationDocumentRelationships()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentRelationships"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentRelationships CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentRelationships CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentRelationships();
@@ -34,22 +107,38 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "accounts", n => { Accounts = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts.CreateFromDiscriminatorValue); } },
                 { "document", n => { Document = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentRelationships_document>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentRelationships_document.CreateFromDiscriminatorValue); } },
+                { "inquiry", n => { Inquiry = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry.CreateFromDiscriminatorValue); } },
+                { "inquiry-template", n => { InquiryTemplate = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate.CreateFromDiscriminatorValue); } },
+                { "inquiry-template-version", n => { InquiryTemplateVersion = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion.CreateFromDiscriminatorValue); } },
+                { "template", n => { Template = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTemplate>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTemplate.CreateFromDiscriminatorValue); } },
+                { "transaction", n => { Transaction = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTransaction>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTransaction.CreateFromDiscriminatorValue); } },
+                { "verification-template", n => { VerificationTemplate = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplate>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplate.CreateFromDiscriminatorValue); } },
+                { "verification-template-version", n => { VerificationTemplateVersion = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplateVersion>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplateVersion.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts>("accounts", Accounts);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentRelationships_document>("document", Document);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry>("inquiry", Inquiry);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate>("inquiry-template", InquiryTemplate);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion>("inquiry-template-version", InquiryTemplateVersion);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTemplate>("template", Template);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTransaction>("transaction", Transaction);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplate>("verification-template", VerificationTemplate);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplateVersion>("verification-template-version", VerificationTemplateVersion);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

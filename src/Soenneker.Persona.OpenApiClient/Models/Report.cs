@@ -159,71 +159,71 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.Report();
-            if("ReportAddressLookup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("report/address-lookup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportAddressLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookup();
             }
-            else if("ReportAdverseMedia".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/adverse-media".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportAdverseMedia = new global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMedia();
             }
-            else if("ReportBusinessAdverseMedia".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/business-adverse-media".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportBusinessAdverseMedia = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMedia();
             }
-            else if("ReportBusinessAssociatedPersons".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/business-associated-persons".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportBusinessAssociatedPersons = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersons();
             }
-            else if("ReportBusinessLookup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/business-lookup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportBusinessLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup();
             }
-            else if("ReportBusinessRegistrationsLookup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/business-registrations-lookup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportBusinessRegistrationsLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup();
             }
-            else if("ReportBusinessWatchlist".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/business-watchlist".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportBusinessWatchlist = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlist();
             }
-            else if("ReportCryptoAddressWatchlist".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/crypto-address-watchlist".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportCryptoAddressWatchlist = new global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlist();
             }
-            else if("ReportEmailAddress".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/email-address".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportEmailAddress = new global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddress();
             }
-            else if("ReportPhoneRisk".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/phone-number".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportPhoneRisk = new global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRisk();
             }
-            else if("ReportPoliticallyExposedPerson".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/politically-exposed-person".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportPoliticallyExposedPerson = new global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPerson();
             }
-            else if("ReportProfile".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/profile".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportProfile = new global::Soenneker.Persona.OpenApiClient.Models.ReportProfile();
             }
-            else if("ReportProfileNonAuthoritative".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/profile-non-authoritative".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportProfileNonAuthoritative = new global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative();
             }
-            else if("ReportSentilinkScores".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/integration/sentilink-scores".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportSentilinkScores = new global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores();
             }
-            else if("ReportSocialMedia".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/social-media".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportSocialMedia = new global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMedia();
             }
-            else if("ReportSynthetic".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/synthetic".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportSynthetic = new global::Soenneker.Persona.OpenApiClient.Models.ReportSynthetic();
             }
-            else if("ReportWatchlist".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("report/watchlist".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportWatchlist = new global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist();
             }

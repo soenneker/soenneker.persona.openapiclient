@@ -9,9 +9,33 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ReportPhoneRiskAttributes : global::Soenneker.Persona.OpenApiClient.Models.ReportSharedAttributes, IParsable
+    public partial class ReportPhoneRiskAttributes : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The time the report completed processing in ISO 8601 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CompletedAt { get; set; }
+#nullable restore
+#else
+        public string CompletedAt { get; set; }
+#endif
+        /// <summary>The time the report was created in ISO 8601 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CreatedAt { get; set; }
+#nullable restore
+#else
+        public string CreatedAt { get; set; }
+#endif
+        /// <summary>Whether or not the report matched</summary>
+        public bool? HasMatch { get; set; }
+        /// <summary>Whether or not this report has been run more than once</summary>
+        public bool? IsContinuous { get; set; }
+        /// <summary>Whether or not this report is scheduled to run in the future</summary>
+        public bool? IsRecurring { get; set; }
         /// <summary>The phoneCarrier property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,12 +86,51 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string PhoneType { get; set; }
 #endif
+        /// <summary>The time the report was redacted in ISO 8601 format</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RedactedAt { get; set; }
+#nullable restore
+#else
+        public string RedactedAt { get; set; }
+#endif
+        /// <summary>The name of the report template version used for this report</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReportTemplateVersionName { get; set; }
+#nullable restore
+#else
+        public string ReportTemplateVersionName { get; set; }
+#endif
+        /// <summary>The status of the reportPossible values:- pending- ready- erroredDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
+        /// <summary>Tags on the report</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRiskAttributes"/> and sets the default values.
+        /// </summary>
+        public ReportPhoneRiskAttributes()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRiskAttributes"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRiskAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRiskAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRiskAttributes();
@@ -76,10 +139,15 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "completed-at", n => { CompletedAt = n.GetStringValue(); } },
+                { "created-at", n => { CreatedAt = n.GetStringValue(); } },
+                { "has-match", n => { HasMatch = n.GetBoolValue(); } },
+                { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
+                { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
                 { "phone-carrier", n => { PhoneCarrier = n.GetStringValue(); } },
                 { "phone-number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "phone-risk-level", n => { PhoneRiskLevel = n.GetStringValue(); } },
@@ -87,16 +155,24 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "phone-risk-score", n => { PhoneRiskScore = n.GetIntValue(); } },
                 { "phone-risk-sim-swap", n => { PhoneRiskSimSwap = n.GetStringValue(); } },
                 { "phone-type", n => { PhoneType = n.GetStringValue(); } },
+                { "redacted-at", n => { RedactedAt = n.GetStringValue(); } },
+                { "report-template-version-name", n => { ReportTemplateVersionName = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteStringValue("completed-at", CompletedAt);
+            writer.WriteStringValue("created-at", CreatedAt);
+            writer.WriteBoolValue("has-match", HasMatch);
+            writer.WriteBoolValue("is-continuous", IsContinuous);
+            writer.WriteBoolValue("is-recurring", IsRecurring);
             writer.WriteStringValue("phone-carrier", PhoneCarrier);
             writer.WriteStringValue("phone-number", PhoneNumber);
             writer.WriteStringValue("phone-risk-level", PhoneRiskLevel);
@@ -104,6 +180,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteIntValue("phone-risk-score", PhoneRiskScore);
             writer.WriteStringValue("phone-risk-sim-swap", PhoneRiskSimSwap);
             writer.WriteStringValue("phone-type", PhoneType);
+            writer.WriteStringValue("redacted-at", RedactedAt);
+            writer.WriteStringValue("report-template-version-name", ReportTemplateVersionName);
+            writer.WriteStringValue("status", Status);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -23,10 +23,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Objects that _may_ be returned if specified via the `include` query parameter in the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.Document>? Included { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.RetrieveAGenericDocument200_included>? Included { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.Document> Included { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.RetrieveAGenericDocument200_included> Included { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,7 +47,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric>(global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric.CreateFromDiscriminatorValue); } },
-                { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.Document>(global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.Document.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.RetrieveAGenericDocument200_included>(global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.RetrieveAGenericDocument200_included.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,13 +58,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric>("data", Data);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.Document>("included", Included);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.RetrieveAGenericDocument200_included>("included", Included);
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentFile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Template"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Document : IComposedTypeWrapper, IParsable
+        public partial class RetrieveAGenericDocument200_included : IComposedTypeWrapper, IParsable
         {
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentFile"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -117,12 +117,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.Document"/></returns>
+            /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.RetrieveAGenericDocument200_included"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.Document CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.RetrieveAGenericDocument200_included CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.Document();
+                var result = new global::Soenneker.Persona.OpenApiClient.Models.RetrieveAGenericDocument200.RetrieveAGenericDocument200_included();
                 result.DocumentFile = new global::Soenneker.Persona.OpenApiClient.Models.DocumentFile();
                 result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();
                 result.InquiryTemplate = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate();

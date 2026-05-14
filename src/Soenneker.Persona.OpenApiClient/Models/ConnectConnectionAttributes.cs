@@ -22,14 +22,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string DestinationOrganizationId { get; set; }
 #endif
-        /// <summary>The scopes that define what access is granted through this connection</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<string>? Scopes { get; set; }
-#nullable restore
-#else
-        public List<string> Scopes { get; set; }
-#endif
         /// <summary>The organization that created and owns this connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,7 +60,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "destination-organization-id", n => { DestinationOrganizationId = n.GetStringValue(); } },
-                { "scopes", n => { Scopes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "source-organization-id", n => { SourceOrganizationId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -83,7 +74,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteStringValue("destination-organization-id", DestinationOrganizationId);
-            writer.WriteCollectionOfPrimitiveValues<string>("scopes", Scopes);
             writer.WriteStringValue("source-organization-id", SourceOrganizationId);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);

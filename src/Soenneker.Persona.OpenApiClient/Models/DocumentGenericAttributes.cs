@@ -9,9 +9,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class DocumentGenericAttributes : global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedAttributes, IParsable
+    public partial class DocumentGenericAttributes : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The createdAt property</summary>
+        public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The classification of the document if detected. If unable to be detected, this will be other.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,12 +64,31 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Kind { get; set; }
 #endif
+        /// <summary>The processedAt property</summary>
+        public DateTimeOffset? ProcessedAt { get; set; }
+        /// <summary>The processedAtTs property</summary>
+        public int? ProcessedAtTs { get; set; }
+        /// <summary>Possible values:- initiated- submitted- processed- erroredDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Status { get; set; }
+#nullable restore
+#else
+        public string Status { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributes"/> and sets the default values.
+        /// </summary>
+        public DocumentGenericAttributes()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributes"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributes();
@@ -74,32 +97,40 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "document-type", n => { DocumentType = n.GetStringValue(); } },
                 { "extraction-responses", n => { ExtractionResponses = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Document>(global::Soenneker.Persona.OpenApiClient.Models.Document.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributes_fields>(global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributes_fields.CreateFromDiscriminatorValue); } },
                 { "files", n => { Files = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "files-normalized", n => { FilesNormalized = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "kind", n => { Kind = n.GetStringValue(); } },
+                { "processed-at", n => { ProcessedAt = n.GetDateTimeOffsetValue(); } },
+                { "processed-at-ts", n => { ProcessedAtTs = n.GetIntValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteStringValue("document-type", DocumentType);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Document>("extraction-responses", ExtractionResponses);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributes_fields>("fields", Fields);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("files", Files);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("files-normalized", FilesNormalized);
             writer.WriteStringValue("kind", Kind);
+            writer.WriteDateTimeOffsetValue("processed-at", ProcessedAt);
+            writer.WriteIntValue("processed-at-ts", ProcessedAtTs);
+            writer.WriteStringValue("status", Status);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

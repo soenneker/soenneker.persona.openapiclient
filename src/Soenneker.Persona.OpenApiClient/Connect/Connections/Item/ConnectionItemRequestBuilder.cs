@@ -82,44 +82,6 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionGetResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates an existing Connect Connection.
-        /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/connect/connections/update-a-connect-connection" />
-        /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionPatchResponse"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Connection400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Connection401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Connection403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Connection404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Connection409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Connection422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Connection429Error">When receiving a 429 status code</exception>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionPatchResponse?> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionItemRequestBuilder.ConnectionItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionPatchResponse> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionItemRequestBuilder.ConnectionItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Connection400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Connection401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Connection403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Connection404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Connection409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Connection422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Connection429Error.CreateFromDiscriminatorValue },
-            };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionPatchResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionPatchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
         /// Retrieves the details of an existing Connect Connection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
@@ -139,28 +101,6 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections.Item
             return requestInfo;
         }
         /// <summary>
-        /// Updates an existing Connect Connection.
-        /// </summary>
-        /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionItemRequestBuilder.ConnectionItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
-        {
-#nullable restore
-#else
-        public RequestInformation ToPatchRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.UpdateAConnectConnection body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionItemRequestBuilder.ConnectionItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
-        {
-#endif
-            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
-            requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
-            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
-            return requestInfo;
-        }
-        /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionItemRequestBuilder"/></returns>
@@ -174,23 +114,6 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections.Item
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConnectionItemRequestBuilderGetQueryParameters 
-        {
-            /// <summary>Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("fields")]
-            public string? Fields { get; set; }
-#nullable restore
-#else
-            [QueryParameter("fields")]
-            public string Fields { get; set; }
-#endif
-        }
-        /// <summary>
-        /// Updates an existing Connect Connection.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ConnectionItemRequestBuilderPatchQueryParameters 
         {
             /// <summary>Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

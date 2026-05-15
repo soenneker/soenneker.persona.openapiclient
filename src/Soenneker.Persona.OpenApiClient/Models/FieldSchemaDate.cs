@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -20,6 +21,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDateConfig Config { get; set; }
 #endif
+        /// <summary>The defaultValue property</summary>
+        public Date? DefaultValue { get; set; }
         /// <summary>The key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,6 +60,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "config", n => { Config = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDateConfig>(global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDateConfig.CreateFromDiscriminatorValue); } },
+                { "default-value", n => { DefaultValue = n.GetDateValue(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDate_type>(); } },
@@ -70,6 +74,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDateConfig>("config", Config);
+            writer.WriteDateValue("default-value", DefaultValue);
             writer.WriteStringValue("key", Key);
             writer.WriteStringValue("label", Label);
             writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDate_type>("type", Type);

@@ -18013,6 +18013,16 @@
             "type": "string",
             "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
             "nullable": true
+          },
+          "redaction-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
+          "write-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
           }
         },
         "x-inheritable": true
@@ -18140,6 +18150,10 @@
             "type": "string",
             "nullable": true
           },
+          "default-value": {
+            "type": "boolean",
+            "nullable": true
+          },
           "config": {
             "type": "object",
             "allOf": [
@@ -18165,6 +18179,16 @@
                 "type": "string",
                 "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
                 "nullable": true
+              },
+              "redaction-policy": {
+                "type": "string",
+                "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+                "default": "none"
+              },
+              "write-policy": {
+                "type": "string",
+                "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+                "default": "none"
               }
             },
             "x-jsonschema-unevaluatedProperties": false
@@ -18186,6 +18210,11 @@
           },
           "label": {
             "type": "string",
+            "nullable": true
+          },
+          "default-value": {
+            "type": "string",
+            "description": "Must be one of the values in \u0060config.options\u0060, or null.",
             "nullable": true
           },
           "config": {
@@ -18210,6 +18239,11 @@
             "type": "string",
             "nullable": true
           },
+          "default-value": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
           "config": {
             "$ref": "#/components/schemas/FieldSchemaDateConfig"
           }
@@ -18230,6 +18264,11 @@
           },
           "label": {
             "type": "string",
+            "nullable": true
+          },
+          "default-value": {
+            "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "config": {
@@ -18257,6 +18296,16 @@
                 "type": "string",
                 "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
                 "nullable": true
+              },
+              "redaction-policy": {
+                "type": "string",
+                "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+                "default": "none"
+              },
+              "write-policy": {
+                "type": "string",
+                "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+                "default": "none"
               }
             },
             "x-jsonschema-unevaluatedProperties": false
@@ -18280,6 +18329,10 @@
             "type": "string",
             "nullable": true
           },
+          "default-value": {
+            "type": "string",
+            "nullable": true
+          },
           "config": {
             "type": "object",
             "allOf": [
@@ -18305,6 +18358,16 @@
                 "type": "string",
                 "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
                 "nullable": true
+              },
+              "redaction-policy": {
+                "type": "string",
+                "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+                "default": "none"
+              },
+              "write-policy": {
+                "type": "string",
+                "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+                "default": "none"
               }
             },
             "x-jsonschema-unevaluatedProperties": false
@@ -18372,6 +18435,10 @@
             "type": "string",
             "nullable": true
           },
+          "default-value": {
+            "type": "integer",
+            "nullable": true
+          },
           "config": {
             "$ref": "#/components/schemas/FieldSchemaIntegerConfig"
           }
@@ -18392,6 +18459,14 @@
           },
           "label": {
             "type": "string",
+            "nullable": true
+          },
+          "default-value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Each entry must be one of the values in \u0060config.options\u0060.",
             "nullable": true
           },
           "config": {
@@ -18416,6 +18491,10 @@
             "type": "string",
             "nullable": true
           },
+          "default-value": {
+            "type": "number",
+            "nullable": true
+          },
           "config": {
             "$ref": "#/components/schemas/FieldSchemaNumberConfig"
           }
@@ -18435,6 +18514,10 @@
             "type": "string"
           },
           "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "default-value": {
             "type": "string",
             "nullable": true
           },
@@ -23809,6 +23892,16 @@
             "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
             "nullable": true
           },
+          "redaction-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
+          "write-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
           "item-schema": {
             "$ref": "#/components/schemas/FieldSchema"
           }
@@ -23835,6 +23928,16 @@
             "type": "string",
             "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
             "nullable": true
+          },
+          "redaction-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
+          "write-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
           },
           "allow-empty": {
             "type": "boolean",
@@ -23870,6 +23973,16 @@
             "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
             "nullable": true
           },
+          "redaction-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
+          "write-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
           "min-date": {
             "type": "string",
             "format": "date",
@@ -23903,6 +24016,16 @@
             "type": "string",
             "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
             "nullable": true
+          },
+          "redaction-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
+          "write-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
           },
           "max-file-size-bytes": {
             "type": "integer",
@@ -23945,6 +24068,16 @@
             "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
             "nullable": true
           },
+          "redaction-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
+          "write-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
           "ignore-unknown-keys": {
             "type": "boolean",
             "default": false
@@ -23979,6 +24112,16 @@
             "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
             "nullable": true
           },
+          "redaction-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
+          "write-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
           "min": {
             "type": "number"
           },
@@ -24008,6 +24151,16 @@
             "type": "string",
             "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
             "nullable": true
+          },
+          "redaction-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
+          "write-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
           },
           "allow-empty": {
             "type": "boolean",
@@ -24043,6 +24196,16 @@
             "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
             "nullable": true
           },
+          "redaction-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
+          "write-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
           "min": {
             "type": "number"
           },
@@ -24072,6 +24235,16 @@
             "type": "string",
             "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
             "nullable": true
+          },
+          "redaction-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
+          "write-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
           },
           "max-char-length": {
             "maximum": 1024,
@@ -24109,6 +24282,16 @@
             "type": "string",
             "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
             "nullable": true
+          },
+          "redaction-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
+          "write-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
           },
           "target": {
             "type": "string",

@@ -20,6 +20,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaNumberConfig Config { get; set; }
 #endif
+        /// <summary>The defaultValue property</summary>
+        public double? DefaultValue { get; set; }
         /// <summary>The key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,6 +59,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "config", n => { Config = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaNumberConfig>(global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaNumberConfig.CreateFromDiscriminatorValue); } },
+                { "default-value", n => { DefaultValue = n.GetDoubleValue(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaNumber_type>(); } },
@@ -70,6 +73,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaNumberConfig>("config", Config);
+            writer.WriteDoubleValue("default-value", DefaultValue);
             writer.WriteStringValue("key", Key);
             writer.WriteStringValue("label", Label);
             writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaNumber_type>("type", Type);

@@ -20,6 +20,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaMultiChoicesConfig Config { get; set; }
 #endif
+        /// <summary>Each entry must be one of the values in `config.options`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? DefaultValue { get; set; }
+#nullable restore
+#else
+        public List<string> DefaultValue { get; set; }
+#endif
         /// <summary>The key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,6 +65,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "config", n => { Config = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaMultiChoicesConfig>(global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaMultiChoicesConfig.CreateFromDiscriminatorValue); } },
+                { "default-value", n => { DefaultValue = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaMultiChoices_type>(); } },
@@ -70,6 +79,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaMultiChoicesConfig>("config", Config);
+            writer.WriteCollectionOfPrimitiveValues<string>("default-value", DefaultValue);
             writer.WriteStringValue("key", Key);
             writer.WriteStringValue("label", Label);
             writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaMultiChoices_type>("type", Type);

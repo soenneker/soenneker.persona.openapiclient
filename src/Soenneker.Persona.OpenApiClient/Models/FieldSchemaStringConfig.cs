@@ -20,6 +20,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public DateTimeOffset? DeactivatedAt { get; set; }
         /// <summary>The maxCharLength property</summary>
         public int? MaxCharLength { get; set; }
+        /// <summary>Whether the field&apos;s value may be redacted on request.Possible values:- `none` — value is redactable- `never` — value is never redactedDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RedactionPolicy { get; set; }
+#nullable restore
+#else
+        public string RedactionPolicy { get; set; }
+#endif
         /// <summary>The required property</summary>
         public bool? Required { get; set; }
         /// <summary>The sanitize property</summary>
@@ -38,12 +46,22 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string SourceKeyPath { get; set; }
 #endif
+        /// <summary>Whether the field&apos;s value may be overwritten after it is first set.Possible values:- `none` — value may be overwritten on subsequent writes- `write_once` — subsequent writes are rejected once a value is setDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WritePolicy { get; set; }
+#nullable restore
+#else
+        public string WritePolicy { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaStringConfig"/> and sets the default values.
         /// </summary>
         public FieldSchemaStringConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            RedactionPolicy = "none";
+            WritePolicy = "none";
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -66,9 +84,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "archived-at", n => { ArchivedAt = n.GetDateTimeOffsetValue(); } },
                 { "deactivated-at", n => { DeactivatedAt = n.GetDateTimeOffsetValue(); } },
                 { "max-char-length", n => { MaxCharLength = n.GetIntValue(); } },
+                { "redaction-policy", n => { RedactionPolicy = n.GetStringValue(); } },
                 { "required", n => { Required = n.GetBoolValue(); } },
                 { "sanitize", n => { Sanitize = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "source-key-path", n => { SourceKeyPath = n.GetStringValue(); } },
+                { "write-policy", n => { WritePolicy = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -81,9 +101,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("archived-at", ArchivedAt);
             writer.WriteDateTimeOffsetValue("deactivated-at", DeactivatedAt);
             writer.WriteIntValue("max-char-length", MaxCharLength);
+            writer.WriteStringValue("redaction-policy", RedactionPolicy);
             writer.WriteBoolValue("required", Required);
             writer.WriteCollectionOfPrimitiveValues<string>("sanitize", Sanitize);
             writer.WriteStringValue("source-key-path", SourceKeyPath);
+            writer.WriteStringValue("write-policy", WritePolicy);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

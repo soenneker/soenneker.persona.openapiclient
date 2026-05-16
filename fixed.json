@@ -15136,6 +15136,74 @@
         }
       }
     },
+    "/transaction-types/{transaction-type-id}": {
+      "get": {
+        "tags": [
+          "Transaction Types"
+        ],
+        "summary": "Retrieve a Transaction Type",
+        "description": "Retrieves the details of an existing Transaction Type.",
+        "operationId": "retrieve-a-transaction-type",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "transaction-type-id",
+            "in": "path",
+            "description": "ID of the Transaction Type to retrieve.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Transaction Type object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetrieveATransactionType200"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/transaction-type"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not-found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
     "/user-audit-logs": {
       "get": {
         "tags": [
@@ -18061,6 +18129,9 @@
             "$ref": "#/components/schemas/FieldSchemaInteger"
           },
           {
+            "$ref": "#/components/schemas/FieldSchemaJson"
+          },
+          {
             "$ref": "#/components/schemas/FieldSchemaMultiChoices"
           },
           {
@@ -18092,6 +18163,7 @@
             "file": "#/components/schemas/FieldSchemaFile",
             "hash": "#/components/schemas/FieldSchemaHash",
             "integer": "#/components/schemas/FieldSchemaInteger",
+            "json": "#/components/schemas/FieldSchemaJson",
             "multi-choices": "#/components/schemas/FieldSchemaMultiChoices",
             "number": "#/components/schemas/FieldSchemaNumber",
             "string": "#/components/schemas/FieldSchemaString",
@@ -18105,6 +18177,7 @@
             "FieldSchemaFile": "#/components/schemas/FieldSchemaFile",
             "FieldSchemaHash": "#/components/schemas/FieldSchemaHash",
             "FieldSchemaInteger": "#/components/schemas/FieldSchemaInteger",
+            "FieldSchemaJson": "#/components/schemas/FieldSchemaJson",
             "FieldSchemaMultiChoices": "#/components/schemas/FieldSchemaMultiChoices",
             "FieldSchemaNumber": "#/components/schemas/FieldSchemaNumber",
             "FieldSchemaString": "#/components/schemas/FieldSchemaString",
@@ -18441,6 +18514,32 @@
           },
           "config": {
             "$ref": "#/components/schemas/FieldSchemaIntegerConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaJson": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "json"
+            ],
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "default-value": {
+            "description": "JSON-typed fields don\u0027t expose a default-value through this API (the\nstored value is a free-form JSON document; the default is \u0060null\u0060).",
+            "nullable": true
+          },
+          "config": {
+            "$ref": "#/components/schemas/FieldSchemaJsonConfig"
           }
         },
         "additionalProperties": false
@@ -23230,6 +23329,25 @@
         },
         "additionalProperties": false
       },
+      "TransactionType": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "transaction-type"
+            ],
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for this Transaction Type. Starts with \u0060txntp_\u0060."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/TransactionTypeAttributes"
+          }
+        },
+        "additionalProperties": false
+      },
       "UserAuditLog": {
         "type": "object",
         "properties": {
@@ -24127,6 +24245,44 @@
           },
           "max": {
             "type": "number"
+          }
+        },
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "FieldSchemaJsonConfig": {
+        "type": "object",
+        "properties": {
+          "required": {
+            "type": "boolean"
+          },
+          "archived-at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "deactivated-at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "source-key-path": {
+            "type": "string",
+            "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.",
+            "nullable": true
+          },
+          "redaction-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
+          "write-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
+          "json-schema": {
+            "type": "object",
+            "description": "A JSON Schema document (Draft 7 syntax) describing the shape of values\nstored in this field. Synthesized server-side by some verification\ntypes (e.g. \u0060government-id\u0060 writes a map of national identification\nnumbers); the schema is informational and may evolve without a\nversioned update."
           }
         },
         "x-jsonschema-unevaluatedProperties": false
@@ -33914,6 +34070,30 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransactionTypeAttributes": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "created-at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated-at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "field-schemas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldSchema"
+            }
           }
         },
         "additionalProperties": false
@@ -48176,6 +48356,21 @@
         },
         "additionalProperties": false
       },
+      "RetrieveATransactionType200": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/TransactionType"
+          },
+          "included": {
+            "$ref": "#/components/schemas/EmptyIncludedObjects"
+          }
+        },
+        "additionalProperties": false
+      },
       "ListAllUserAuditLogs200": {
         "required": [
           "data",
@@ -53163,6 +53358,224 @@
               }
             }
           ]
+        }
+      },
+      "transaction-type": {
+        "value": {
+          "data": {
+            "type": "transaction-type",
+            "id": "txntp_5jr7hePm1772FBVG28vpBghC",
+            "attributes": {
+              "name": "Transaction Type A",
+              "created-at": "2023-05-09T21:49:02.514Z",
+              "updated-at": "2024-01-12T23:17:50.627Z",
+              "field-schemas": [
+                {
+                  "type": "string",
+                  "key": "name_first",
+                  "label": "Name First",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "string",
+                  "key": "name_middle",
+                  "label": "Name Middle",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "string",
+                  "key": "name_last",
+                  "label": "Name Last",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "string",
+                  "key": "address_street_1",
+                  "label": "Address Street 1",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "string",
+                  "key": "address_street_2",
+                  "label": "Address Street 2",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "string",
+                  "key": "address_city",
+                  "label": "Address City",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "string",
+                  "key": "address_subdivision",
+                  "label": "Address Subdivision",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "string",
+                  "key": "address_postal_code",
+                  "label": "Address Postal Code",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "string",
+                  "key": "address_country_code",
+                  "label": "Address Country Code",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "date",
+                  "key": "birthdate",
+                  "label": "Birthdate",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "min-date": null,
+                    "max-date": null
+                  }
+                },
+                {
+                  "type": "string",
+                  "key": "email_address",
+                  "label": "Email Address",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "string",
+                  "key": "phone_number",
+                  "label": "Phone Number",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "string",
+                  "key": "identification_number",
+                  "label": "Identification Number",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "string",
+                  "key": "identification_class",
+                  "label": "Identification Class",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "string",
+                  "key": "selected_country_code",
+                  "label": "Selected Country Code",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "string",
+                  "key": "selected_id_class",
+                  "label": "Selected ID class",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "max-char-length": 255,
+                    "sanitize": []
+                  }
+                },
+                {
+                  "type": "relation-schema",
+                  "key": "current_government_id",
+                  "label": "Current Government ID",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "target": "document-government-id"
+                  }
+                }
+              ]
+            }
+          }
         }
       },
       "verification-aamva": {

@@ -29,6 +29,7 @@ using Soenneker.Persona.OpenApiClient.Lists;
 using Soenneker.Persona.OpenApiClient.Oauth;
 using Soenneker.Persona.OpenApiClient.RateLimits;
 using Soenneker.Persona.OpenApiClient.Reports;
+using Soenneker.Persona.OpenApiClient.TransactionTypes;
 using Soenneker.Persona.OpenApiClient.Transactions;
 using Soenneker.Persona.OpenApiClient.UserAuditLogs;
 using Soenneker.Persona.OpenApiClient.Verification;
@@ -167,6 +168,11 @@ namespace Soenneker.Persona.OpenApiClient
         public global::Soenneker.Persona.OpenApiClient.Transactions.TransactionsRequestBuilder Transactions
         {
             get => new global::Soenneker.Persona.OpenApiClient.Transactions.TransactionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The transactionTypes property</summary>
+        public global::Soenneker.Persona.OpenApiClient.TransactionTypes.TransactionTypesRequestBuilder TransactionTypes
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.TransactionTypes.TransactionTypesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The userAuditLogs property</summary>
         public global::Soenneker.Persona.OpenApiClient.UserAuditLogs.UserAuditLogsRequestBuilder UserAuditLogs

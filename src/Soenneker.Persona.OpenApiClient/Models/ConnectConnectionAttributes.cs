@@ -30,7 +30,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string SourceOrganizationId { get; set; }
 #endif
-        /// <summary>The current status of the connection</summary>
+        /// <summary>The current status of the connection. One of `pending`, `active`, or `inactive`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }

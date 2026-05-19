@@ -1694,7 +1694,7 @@
                 },
                 "destination-organization-id": {
                   "type": "string",
-                  "description": "Filter connections by authorized organization ID"
+                  "description": "Filter connections by destination organization ID \u2014 the organization authorized to access data through the connection."
                 }
               },
               "additionalProperties": false
@@ -1739,7 +1739,7 @@
           "Connect"
         ],
         "summary": "Create a Connection",
-        "description": "Creates a new Connection for your organization.",
+        "description": "Creates a new Connection from your organization to a destination organization in the \u0060pending\u0060 state. The destination organization must accept the connection before it transitions to \u0060active\u0060; share tokens cannot be redeemed through the connection until then. Connections cannot be deleted, but they can be deactivated and later reactivated to control access.",
         "externalDocs": {
           "description": "Full documentation for this API on the Persona website.",
           "url": "https://docs.withpersona.com/api-reference/connect/connections/create-a-connect-connection"
@@ -1824,8 +1824,8 @@
         "tags": [
           "Connect"
         ],
-        "summary": "Retrieve a Connect Connection",
-        "description": "Retrieves the details of an existing Connect Connection.",
+        "summary": "Retrieve a Connection",
+        "description": "Retrieves the details of an existing Connection.",
         "externalDocs": {
           "description": "Full documentation for this API on the Persona website.",
           "url": "https://docs.withpersona.com/api-reference/connect/connections/retrieve-a-connect-connection"
@@ -1861,7 +1861,7 @@
         ],
         "responses": {
           "200": {
-            "description": "This endpoint returns a Connect Connection.",
+            "description": "This endpoint returns a Connection.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1913,8 +1913,8 @@
         "tags": [
           "Connect"
         ],
-        "summary": "Deactivate a Connect Connection",
-        "description": "Deactivates a Connect Connection. Either the source or destination organization may deactivate a connection that is currently \u0060pending\u0060 or \u0060active\u0060. Deactivation prevents further access through the connection but maintains the connection record. Connections that are already \u0060inactive\u0060 cannot be deactivated again.",
+        "summary": "Deactivate a Connection",
+        "description": "Deactivates a Connection. Either the source or destination organization may deactivate a connection that is currently \u0060pending\u0060 or \u0060active\u0060. Deactivation prevents further access through the connection but maintains the connection record. Connections that are already \u0060inactive\u0060 cannot be deactivated again.",
         "externalDocs": {
           "description": "Full documentation for this API on the Persona website.",
           "url": "https://docs.withpersona.com/api-reference/connect/connections/deactivate-a-connect-connection"
@@ -1947,7 +1947,7 @@
         ],
         "responses": {
           "200": {
-            "description": "This endpoint returns a Connect Connection.",
+            "description": "This endpoint returns a Connection.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2122,16 +2122,11 @@
                 },
                 "status": {
                   "type": "string",
-                  "description": "Filter Share Tokens by status"
+                  "description": "Filter Share Tokens by status. One of \u0060created\u0060, \u0060pending\u0060, \u0060redeemed\u0060, \u0060expired\u0060, or \u0060failed\u0060."
                 },
                 "direction": {
-                  "enum": [
-                    "inbound",
-                    "outbound"
-                  ],
                   "type": "string",
-                  "additionalProperties": false,
-                  "description": "Filter Share Tokens by direction. Defaults to returning both inbound and outbound."
+                  "description": "Filter Share Tokens by direction. Defaults to returning both inbound and outbound. One of \u0060inbound\u0060 or \u0060outbound\u0060."
                 }
               },
               "additionalProperties": false
@@ -2288,7 +2283,10 @@
                 },
                 "examples": {
                   "Success": {
-                    "$ref": "#/components/examples/connect-share-token-no-relationships"
+                    "$ref": "#/components/examples/connect-share-token-redeemed"
+                  },
+                  "Failed": {
+                    "$ref": "#/components/examples/connect-share-token-failed"
                   }
                 }
               }
@@ -18876,6 +18874,405 @@
         "additionalProperties": false,
         "description": "A Connect Connection object.\n\nThis object represents a connection between organizations for sharing access to Persona objects."
       },
+      "SourceDataBase": {
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "type": "object",
+            "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+          }
+        },
+        "x-inheritable": true
+      },
+      "SourceDataPeekableAttribute": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "required": [
+              "visibility",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "visibility": {
+                "enum": [
+                  "full"
+                ],
+                "type": "string"
+              },
+              "value": {
+                "type": "object",
+                "description": "Raw attribute value as exposed by the source organization. Any JSON type."
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "required": [
+              "visibility",
+              "value"
+            ],
+            "type": "object",
+            "properties": {
+              "visibility": {
+                "enum": [
+                  "presence"
+                ],
+                "type": "string"
+              },
+              "value": {
+                "type": "boolean",
+                "description": "True if the underlying field on the source has a non-null value; false if it is null."
+              }
+            },
+            "additionalProperties": false
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "\u0022Wrapper for a single peekable attribute. \u0060visibility\u0060 discriminates between two cases:\n  - \u0060full\u0060: the source organization\u0027s PII-share configuration exposes the attribute\u0027s value;\n    \u0060value\u0060 holds the raw value (any JSON type).\n  - \u0060presence\u0060: the source organization exposes only the attribute\u0027s presence; \u0060value\u0060 is a\n    boolean indicating whether the underlying field has a non-null value on the source.\nIntegrators should branch on \u0060visibility\u0060 first, then read \u0060value\u0060 accordingly.\n\u0022",
+        "discriminator": {
+          "propertyName": "type"
+        },
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "SourceDataVerificationDatabase": {
+        "title": "Database Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "type": "object",
+            "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+          }
+        },
+        "description": "PII-filtered snapshot of a Database verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows \u2014\nsee \u0060Verification::Database\u0060 in the share-token PII filter for the current allowlist.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n",
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "SourceDataVerificationPhoneNumber": {
+        "title": "Phone Number Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "type": "object",
+            "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+          }
+        },
+        "description": "PII-filtered snapshot of a Phone Number verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows \u2014\nsee \u0060Verification::PhoneNumber\u0060 in the share-token PII filter for the current allowlist.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n",
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "SourceDataVerificationEmailAddress": {
+        "title": "Email Address Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "type": "object",
+            "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+          }
+        },
+        "description": "PII-filtered snapshot of an Email Address verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows \u2014\nsee \u0060Verification::EmailAddress\u0060 in the share-token PII filter for the current allowlist.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n",
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "SourceDataVerificationGovernmentId": {
+        "title": "Government ID Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "type": "object",
+            "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+          }
+        },
+        "description": "PII-filtered snapshot of a Government ID verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n",
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "SourceDataVerificationSelfie": {
+        "title": "Selfie Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "type": "object",
+            "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+          }
+        },
+        "description": "PII-filtered snapshot of a Selfie verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n",
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "SourceDataAccount": {
+        "title": "Account Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "type": "object",
+            "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+          }
+        },
+        "description": "PII-filtered snapshot of an Account source object. Carries the account\u0027s filtered scalar\nattributes under \u0060peekable-attributes\u0060, and the account\u0027s standard and custom user-space\nfields under \u0060peekable-attributes.fields\u0060.\n",
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "SourceDataRelatedObject": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabase"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationPhoneNumber"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationEmailAddress"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationGovernmentId"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationSelfie"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataAccount"
+          }
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "connect/source-data/verification/database": "#/components/schemas/SourceDataVerificationDatabase",
+            "connect/source-data/verification/phone-number": "#/components/schemas/SourceDataVerificationPhoneNumber",
+            "connect/source-data/verification/email-address": "#/components/schemas/SourceDataVerificationEmailAddress",
+            "connect/source-data/verification/government-id": "#/components/schemas/SourceDataVerificationGovernmentId",
+            "connect/source-data/verification/selfie": "#/components/schemas/SourceDataVerificationSelfie",
+            "connect/source-data/account": "#/components/schemas/SourceDataAccount",
+            "SourceDataVerificationDatabase": "#/components/schemas/SourceDataVerificationDatabase",
+            "SourceDataVerificationPhoneNumber": "#/components/schemas/SourceDataVerificationPhoneNumber",
+            "SourceDataVerificationEmailAddress": "#/components/schemas/SourceDataVerificationEmailAddress",
+            "SourceDataVerificationGovernmentId": "#/components/schemas/SourceDataVerificationGovernmentId",
+            "SourceDataVerificationSelfie": "#/components/schemas/SourceDataVerificationSelfie",
+            "SourceDataAccount": "#/components/schemas/SourceDataAccount"
+          }
+        }
+      },
+      "SourceDataInquiry": {
+        "title": "Inquiry Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "type": "object",
+            "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+          },
+          "related-objects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SourceDataRelatedObject"
+            },
+            "description": "Filtered snapshots of source objects related to this inquiry (e.g. attached\nverifications, the linked account). Each entry is itself a source-data envelope\ndiscriminated by its specific subtype.\n"
+          }
+        },
+        "description": "PII-filtered snapshot of an Inquiry source object. Carries the inquiry\u0027s filtered scalar\nattributes under \u0060peekable-attributes\u0060, the inquiry\u0027s standard and custom user-space fields\nunder \u0060peekable-attributes.fields\u0060, and filtered snapshots of related source objects\n(verifications, accounts, etc.) inline under \u0060related-objects\u0060.\n",
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "SourceDataTxn": {
+        "title": "Txn Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "type": "object",
+            "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+          }
+        },
+        "description": "PII-filtered snapshot of a Txn source object. Carries the txn\u0027s filtered scalar attributes\nunder \u0060peekable-attributes\u0060, and the txn\u0027s standard and custom user-space fields under\n\u0060peekable-attributes.fields\u0060.\n",
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "SourceData": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/SourceDataInquiry"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabase"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationPhoneNumber"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationEmailAddress"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataAccount"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataTxn"
+          }
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "A PII-filtered snapshot of a Share Token\u0027s source object. \u0060type\u0060 discriminates the underlying source-object type and dispatches to the matching per-subclass schema; see each subschema for shape details.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "connect/source-data/inquiry": "#/components/schemas/SourceDataInquiry",
+            "connect/source-data/verification/database": "#/components/schemas/SourceDataVerificationDatabase",
+            "connect/source-data/verification/phone-number": "#/components/schemas/SourceDataVerificationPhoneNumber",
+            "connect/source-data/verification/email-address": "#/components/schemas/SourceDataVerificationEmailAddress",
+            "connect/source-data/account": "#/components/schemas/SourceDataAccount",
+            "connect/source-data/txn": "#/components/schemas/SourceDataTxn",
+            "SourceDataInquiry": "#/components/schemas/SourceDataInquiry",
+            "SourceDataVerificationDatabase": "#/components/schemas/SourceDataVerificationDatabase",
+            "SourceDataVerificationPhoneNumber": "#/components/schemas/SourceDataVerificationPhoneNumber",
+            "SourceDataVerificationEmailAddress": "#/components/schemas/SourceDataVerificationEmailAddress",
+            "SourceDataAccount": "#/components/schemas/SourceDataAccount",
+            "SourceDataTxn": "#/components/schemas/SourceDataTxn"
+          }
+        }
+      },
       "ConnectShareToken": {
         "type": "object",
         "properties": {
@@ -24653,7 +25050,7 @@
         "properties": {
           "status": {
             "type": "string",
-            "description": "The current status of the connection"
+            "description": "The current status of the connection. One of \u0060pending\u0060, \u0060active\u0060, or \u0060inactive\u0060."
           },
           "destination-organization-id": {
             "type": "string",
@@ -24690,16 +25087,11 @@
         "properties": {
           "status": {
             "type": "string",
-            "description": "The status of the share token"
+            "description": "The status of the share token. One of \u0060created\u0060, \u0060pending\u0060, \u0060redeemed\u0060, \u0060expired\u0060, or \u0060failed\u0060."
           },
           "direction": {
-            "enum": [
-              "outbound",
-              "inbound"
-            ],
             "type": "string",
-            "additionalProperties": false,
-            "description": "Whether this share token is outbound (your organization is the source) or inbound (your organization is the destination)"
+            "description": "Whether this share token is outbound (your organization is the source) or inbound (your organization is the destination). One of \u0060outbound\u0060 or \u0060inbound\u0060."
           },
           "created-at": {
             "type": "string",
@@ -24737,8 +25129,18 @@
           },
           "failure-reason": {
             "type": "string",
-            "description": "The reason the share token failed. Possible values include source_not_found, source_redacted, import_failed, and unrecoverable_error.",
+            "description": "The reason the share token failed, if applicable. One of \u0060source_not_found\u0060, \u0060source_redacted\u0060, \u0060import_failed\u0060, or \u0060unrecoverable_error\u0060.",
             "nullable": true
+          },
+          "source-data": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SourceData"
+              }
+            ],
+            "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n",
+            "x-jsonschema-unevaluatedProperties": false
           }
         },
         "additionalProperties": false
@@ -39197,9 +39599,8 @@
                     "description": "The ID of the source resource (Account or Inquiry)"
                   },
                   "expires-in-seconds": {
-                    "minimum": 0,
                     "type": "integer",
-                    "description": "The number of seconds until the share token expires"
+                    "description": "The number of seconds from now until the share token expires. Must be between \u006060\u0060 (1 minute) and \u00601814400\u0060 (21 days). If omitted, defaults to 14 days."
                   }
                 },
                 "additionalProperties": false
@@ -50218,7 +50619,29 @@
                 "updated-at": "2023-08-17T23:18:13.000Z",
                 "pending-at": null,
                 "redeemed-at": null,
-                "expires-at": null
+                "expires-at": null,
+                "failed-at": null,
+                "failure-reason": null
+              },
+              "relationships": {
+                "creator": {
+                  "data": {
+                    "type": "api-key",
+                    "id": "api_ABC123"
+                  }
+                },
+                "source": {
+                  "data": {
+                    "type": "inquiry",
+                    "id": "inq_ABC123"
+                  }
+                },
+                "connection": {
+                  "data": {
+                    "type": "connect/connection",
+                    "id": "cxn_ABC123"
+                  }
+                }
               }
             },
             {
@@ -50228,10 +50651,26 @@
                 "status": "redeemed",
                 "direction": "inbound",
                 "created-at": "2023-08-17T23:18:13.000Z",
-                "updated-at": "2023-08-17T23:18:13.000Z",
-                "pending-at": "2023-08-17T23:18:13.000Z",
-                "redeemed-at": "2023-08-17T23:18:13.000Z",
-                "expires-at": null
+                "updated-at": "2023-08-17T23:30:15.000Z",
+                "pending-at": "2023-08-17T23:25:00.000Z",
+                "redeemed-at": "2023-08-17T23:30:15.000Z",
+                "expires-at": null,
+                "failed-at": null,
+                "failure-reason": null
+              },
+              "relationships": {
+                "destination": {
+                  "data": {
+                    "type": "inquiry",
+                    "id": "inq_XYZ789"
+                  }
+                },
+                "connection": {
+                  "data": {
+                    "type": "connect/connection",
+                    "id": "cxn_ABC123"
+                  }
+                }
               }
             }
           ],
@@ -50263,7 +50702,9 @@
               "updated-at": "2023-08-17T23:18:13.000Z",
               "pending-at": null,
               "redeemed-at": null,
-              "expires-at": null
+              "expires-at": null,
+              "failed-at": null,
+              "failure-reason": null
             },
             "relationships": {
               "creator": {
@@ -50288,47 +50729,6 @@
           }
         }
       },
-      "connect-share-token-no-relationships": {
-        "value": {
-          "data": {
-            "type": "connect/share-token",
-            "id": "cnst_ABC123",
-            "attributes": {
-              "status": "redeemed",
-              "created-at": "2023-08-17T23:18:13.000Z",
-              "updated-at": "2023-08-17T23:18:13.000Z",
-              "pending-at": "2023-08-17T23:18:13.000Z",
-              "redeemed-at": "2023-08-17T23:18:13.000Z",
-              "expires-at": null
-            }
-          }
-        }
-      },
-      "connect-share-token-expired": {
-        "value": {
-          "data": {
-            "type": "connect/share-token",
-            "id": "cnst_ABC123",
-            "attributes": {
-              "status": "expired",
-              "created-at": "2023-08-17T23:18:13.000Z",
-              "updated-at": "2023-08-17T23:18:13.000Z",
-              "pending-at": null,
-              "redeemed-at": null,
-              "expires-at": "2023-08-17T23:18:13.000Z"
-            }
-          }
-        }
-      },
-      "redeem-share-token": {
-        "value": {
-          "data": {
-            "attributes": {
-              "destination-id": "inq_XYZ789"
-            }
-          }
-        }
-      },
       "connect-share-token-redeemed": {
         "value": {
           "data": {
@@ -50338,10 +50738,12 @@
               "status": "redeemed",
               "direction": "inbound",
               "created-at": "2023-08-17T23:18:13.000Z",
-              "updated-at": "2023-08-17T23:18:13.000Z",
-              "pending-at": "2023-08-17T23:18:13.000Z",
-              "redeemed-at": "2023-08-17T23:18:13.000Z",
-              "expires-at": null
+              "updated-at": "2023-08-17T23:30:15.000Z",
+              "pending-at": "2023-08-17T23:25:00.000Z",
+              "redeemed-at": "2023-08-17T23:30:15.000Z",
+              "expires-at": null,
+              "failed-at": null,
+              "failure-reason": null
             },
             "relationships": {
               "destination": {
@@ -50356,6 +50758,87 @@
                   "id": "cxn_ABC123"
                 }
               }
+            }
+          }
+        }
+      },
+      "connect-share-token-failed": {
+        "value": {
+          "data": {
+            "type": "connect/share-token",
+            "id": "cnst_ABC123",
+            "attributes": {
+              "status": "failed",
+              "direction": "inbound",
+              "created-at": "2023-08-17T23:18:13.000Z",
+              "updated-at": "2023-08-17T23:35:20.000Z",
+              "pending-at": "2023-08-17T23:30:15.000Z",
+              "redeemed-at": null,
+              "expires-at": null,
+              "failed-at": "2023-08-17T23:35:20.000Z",
+              "failure-reason": "import_failed"
+            },
+            "relationships": {
+              "destination": {
+                "data": {
+                  "type": "inquiry",
+                  "id": "inq_XYZ789"
+                }
+              },
+              "connection": {
+                "data": {
+                  "type": "connect/connection",
+                  "id": "cxn_ABC123"
+                }
+              }
+            }
+          }
+        }
+      },
+      "connect-share-token-expired": {
+        "value": {
+          "data": {
+            "type": "connect/share-token",
+            "id": "cnst_ABC123",
+            "attributes": {
+              "status": "expired",
+              "direction": "outbound",
+              "created-at": "2023-08-17T23:18:13.000Z",
+              "updated-at": "2023-08-18T23:18:13.000Z",
+              "pending-at": null,
+              "redeemed-at": null,
+              "expires-at": "2023-08-18T23:18:13.000Z",
+              "failed-at": null,
+              "failure-reason": null
+            },
+            "relationships": {
+              "creator": {
+                "data": {
+                  "type": "api-key",
+                  "id": "api_ABC123"
+                }
+              },
+              "source": {
+                "data": {
+                  "type": "inquiry",
+                  "id": "inq_ABC123"
+                }
+              },
+              "connection": {
+                "data": {
+                  "type": "connect/connection",
+                  "id": "cxn_ABC123"
+                }
+              }
+            }
+          }
+        }
+      },
+      "redeem-share-token": {
+        "value": {
+          "data": {
+            "attributes": {
+              "destination-id": "inq_XYZ789"
             }
           }
         }
@@ -62733,6 +63216,10 @@
     {
       "name": "Transactions",
       "description": "Interact with Persona Transaction objects"
+    },
+    {
+      "name": "Transaction Types",
+      "description": "Interact with Persona Transaction Type objects"
     },
     {
       "name": "User Audit Logs",

@@ -14,13 +14,19 @@ namespace Soenneker.Persona.OpenApiClient.Models
     {
         /// <summary>When this share token was created</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>Whether this share token is outbound (your organization is the source) or inbound (your organization is the destination)</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_direction? Direction { get; set; }
+        /// <summary>Whether this share token is outbound (your organization is the source) or inbound (your organization is the destination). One of `outbound` or `inbound`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Direction { get; set; }
+#nullable restore
+#else
+        public string Direction { get; set; }
+#endif
         /// <summary>When this share token expires</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
         /// <summary>When this share token failed</summary>
         public DateTimeOffset? FailedAt { get; set; }
-        /// <summary>The reason the share token failed. Possible values include source_not_found, source_redacted, import_failed, and unrecoverable_error.</summary>
+        /// <summary>The reason the share token failed, if applicable. One of `source_not_found`, `source_redacted`, `import_failed`, or `unrecoverable_error`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FailureReason { get; set; }
@@ -32,7 +38,15 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public DateTimeOffset? PendingAt { get; set; }
         /// <summary>When this share token was redeemed</summary>
         public DateTimeOffset? RedeemedAt { get; set; }
-        /// <summary>The status of the share token</summary>
+        /// <summary>PII-filtered snapshot of the share token&apos;s source object.Present only when `peek-source-data=true` was passed on theshow endpoint, the caller is the destination organization, andthe destination organization has access to the source datapeek capability. Omitted from list responses.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_sourceData? SourceData { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_sourceData SourceData { get; set; }
+#endif
+        /// <summary>The status of the share token. One of `created`, `pending`, `redeemed`, `expired`, or `failed`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }
@@ -61,12 +75,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_direction>(); } },
+                { "direction", n => { Direction = n.GetStringValue(); } },
                 { "expires-at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "failed-at", n => { FailedAt = n.GetDateTimeOffsetValue(); } },
                 { "failure-reason", n => { FailureReason = n.GetStringValue(); } },
                 { "pending-at", n => { PendingAt = n.GetDateTimeOffsetValue(); } },
                 { "redeemed-at", n => { RedeemedAt = n.GetDateTimeOffsetValue(); } },
+                { "source-data", n => { SourceData = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_sourceData>(global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_sourceData.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -79,12 +94,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_direction>("direction", Direction);
+            writer.WriteStringValue("direction", Direction);
             writer.WriteDateTimeOffsetValue("expires-at", ExpiresAt);
             writer.WriteDateTimeOffsetValue("failed-at", FailedAt);
             writer.WriteStringValue("failure-reason", FailureReason);
             writer.WriteDateTimeOffsetValue("pending-at", PendingAt);
             writer.WriteDateTimeOffsetValue("redeemed-at", RedeemedAt);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_sourceData>("source-data", SourceData);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);
         }

@@ -7,29 +7,30 @@ using System.IO;
 using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
+    /// <summary>
+    /// Bag of source-object attributes exposed to the destination organization per the sourceorganization&apos;s PII-share configuration. Each scalar entry (e.g. `status`, `country-code`,`id-class`) is a `{visibility, value}` wrapper; see `source-data-peekable-attribute.yaml`.Inquiry, Account, and Txn subtypes additionally expose a nested `fields` sub-bucketcontaining standard and custom user-space fields (e.g. `name-first`, `birthdate`, org-definedfields); verification subtypes do not. The source object&apos;s `status` (when applicable to thesubtype) appears here as a peekable attribute, not as a top-level scalar. Entries strippedentirely by the configuration are omitted from the bag. The concrete shape — includingwhich subtypes expose `fields` — is declared per-subtype.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class Inquiries_structuredResults : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class SourceDataVerificationDatabase_peekableAttributes : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiries_structuredResults"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase_peekableAttributes"/> and sets the default values.
         /// </summary>
-        public Inquiries_structuredResults()
+        public SourceDataVerificationDatabase_peekableAttributes()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiries_structuredResults"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase_peekableAttributes"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.Inquiries_structuredResults CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase_peekableAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.Inquiries_structuredResults();
+            return new global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase_peekableAttributes();
         }
         /// <summary>
         /// The deserialization information for the current model

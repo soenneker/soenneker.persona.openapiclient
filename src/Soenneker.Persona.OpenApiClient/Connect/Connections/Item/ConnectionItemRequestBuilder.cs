@@ -46,7 +46,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections.Item
         {
         }
         /// <summary>
-        /// Retrieves the details of an existing Connect Connection.
+        /// Retrieves the details of an existing Connection.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/connect/connections/retrieve-a-connect-connection" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionGetResponse"/></returns>
@@ -82,7 +82,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionGetResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the details of an existing Connect Connection.
+        /// Retrieves the details of an existing Connection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -110,7 +110,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections.Item
             return new global::Soenneker.Persona.OpenApiClient.Connect.Connections.Item.ConnectionItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves the details of an existing Connect Connection.
+        /// Retrieves the details of an existing Connection.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConnectionItemRequestBuilderGetQueryParameters 

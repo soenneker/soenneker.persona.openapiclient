@@ -79,7 +79,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllConnectConnections200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllConnectConnections200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new Connection for your organization.
+        /// Creates a new Connection from your organization to a destination organization in the `pending` state. The destination organization must accept the connection before it transitions to `active`; share tokens cannot be redeemed through the connection until then. Connections cannot be deleted, but they can be deactivated and later reactivated to control access.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/connect/connections/create-a-connect-connection" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Connect.Connections.ConnectionsPostResponse"/></returns>
@@ -134,7 +134,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new Connection for your organization.
+        /// Creates a new Connection from your organization to a destination organization in the `pending` state. The destination organization must accept the connection before it transitions to `active`; share tokens cannot be redeemed through the connection until then. Connections cannot be deleted, but they can be deactivated and later reactivated to control access.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -200,7 +200,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.Connections
 #endif
         }
         /// <summary>
-        /// Creates a new Connection for your organization.
+        /// Creates a new Connection from your organization to a destination organization in the `pending` state. The destination organization must accept the connection before it transitions to `active`; share tokens cannot be redeemed through the connection until then. Connections cannot be deleted, but they can be deactivated and later reactivated to control access.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ConnectionsRequestBuilderPostQueryParameters 

@@ -22,7 +22,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>The number of seconds from now until the share token expires. Must be between `60` (1 minute) and `1814400` (21 days). If omitted, defaults to 14 days.</summary>
         public int? ExpiresInSeconds { get; set; }
-        /// <summary>The ID of the source resource (Account or Inquiry)</summary>
+        /// <summary>The ID of the source object. Sources can be Accounts, Inquiries, or Transactions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SourceId { get; set; }

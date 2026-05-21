@@ -28,7 +28,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsCreator Creator { get; set; }
 #endif
-        /// <summary>The destination property</summary>
+        /// <summary>The destination object the data was imported into. Destinations can be Accounts, Inquiries, or Transactions. `null` until the Share Token is redeemed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsDestination? Destination { get; set; }
@@ -36,7 +36,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsDestination Destination { get; set; }
 #endif
-        /// <summary>The source property</summary>
+        /// <summary>The source object the data is shared from. Sources can be Accounts, Inquiries, or Transactions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsSource? Source { get; set; }

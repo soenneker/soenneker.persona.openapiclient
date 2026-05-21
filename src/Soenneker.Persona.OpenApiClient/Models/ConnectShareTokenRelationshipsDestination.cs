@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
+    /// <summary>
+    /// The destination object the data was imported into. Destinations can be Accounts, Inquiries, or Transactions. `null` until the Share Token is redeemed.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class ConnectShareTokenRelationshipsDestination : IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

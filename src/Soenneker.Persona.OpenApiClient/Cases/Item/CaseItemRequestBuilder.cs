@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Persona.OpenApiClient.Cases.Item.AddObjects;
 using Soenneker.Persona.OpenApiClient.Cases.Item.AddTag;
 using Soenneker.Persona.OpenApiClient.Cases.Item.Assign;
+using Soenneker.Persona.OpenApiClient.Cases.Item.RemoveObjects;
 using Soenneker.Persona.OpenApiClient.Cases.Item.RemoveTag;
 using Soenneker.Persona.OpenApiClient.Cases.Item.SetStatus;
 using Soenneker.Persona.OpenApiClient.Cases.Item.SetTags;
@@ -37,6 +38,11 @@ namespace Soenneker.Persona.OpenApiClient.Cases.Item
         public global::Soenneker.Persona.OpenApiClient.Cases.Item.Assign.AssignRequestBuilder Assign
         {
             get => new global::Soenneker.Persona.OpenApiClient.Cases.Item.Assign.AssignRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The removeObjects property</summary>
+        public global::Soenneker.Persona.OpenApiClient.Cases.Item.RemoveObjects.RemoveObjectsRequestBuilder RemoveObjects
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.Cases.Item.RemoveObjects.RemoveObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The removeTag property</summary>
         public global::Soenneker.Persona.OpenApiClient.Cases.Item.RemoveTag.RemoveTagRequestBuilder RemoveTag

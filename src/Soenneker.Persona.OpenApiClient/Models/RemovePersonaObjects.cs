@@ -7,30 +7,28 @@ using System.IO;
 using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
-    /// <summary>
-    /// This is a free-form object containing potentially helpful metadata on the extraction result.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Cases_results_metadata : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class RemovePersonaObjects : IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.Cases_results_metadata"/> and sets the default values.
-        /// </summary>
-        public Cases_results_metadata()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>The meta property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.RemovePersonaObjects_meta? Meta { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.RemovePersonaObjects_meta Meta { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Cases_results_metadata"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RemovePersonaObjects"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.Cases_results_metadata CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.RemovePersonaObjects CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.Cases_results_metadata();
+            return new global::Soenneker.Persona.OpenApiClient.Models.RemovePersonaObjects();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,6 +38,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RemovePersonaObjects_meta>(global::Soenneker.Persona.OpenApiClient.Models.RemovePersonaObjects_meta.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,7 +48,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RemovePersonaObjects_meta>("meta", Meta);
         }
     }
 }

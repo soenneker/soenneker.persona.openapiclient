@@ -3602,6 +3602,158 @@
         }
       }
     },
+    "/cases/{case-id}/remove-objects": {
+      "post": {
+        "tags": [
+          "Cases"
+        ],
+        "summary": "Remove Persona objects from a Case",
+        "description": "Removes Persona objects (such as inquiries, accounts, or reports) from a Case. This operation is idempotent \u2014 removing an object that is not attached succeeds without modifying the case.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/cases/remove-persona-objects"
+        },
+        "operationId": "remove-persona-objects",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "case-id",
+            "in": "path",
+            "description": "ID of the case to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemovePersonaObjects"
+              },
+              "examples": {
+                "Success": {
+                  "$ref": "#/components/examples/remove-objects"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Case object and (optionally) its related objects in \u0060included\u0060.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemovePersonaObjects200"
+                },
+                "examples": {
+                  "Success": {
+                    "value": {
+                      "data": {
+                        "type": "case",
+                        "id": "case_3maVhdLzdGftRZCvxfqazVL1",
+                        "attributes": {
+                          "status": "resolved",
+                          "name": "WATC-16",
+                          "resolution": "Escalated",
+                          "created-at": "2021-06-30T20:37:18.678Z",
+                          "updated-at": "2021-08-26T18:24:19.695Z",
+                          "assigned-at": null,
+                          "resolved-at": "2021-08-26T18:24:19.000Z",
+                          "redacted-at": null,
+                          "sla-expires-at": null,
+                          "creator-id": "wfl_yKynZZiuPz1R5qm9JFyBnnLB",
+                          "creator-type": "workflow-run",
+                          "assignee-id": null,
+                          "assigner-id": null,
+                          "assigner-type": null,
+                          "resolver-id": null,
+                          "resolver-type": null,
+                          "updater-id": null,
+                          "updater-type": null,
+                          "tags": [],
+                          "fields": {},
+                          "attachments": []
+                        },
+                        "relationships": {
+                          "case-queue": {
+                            "data": {
+                              "type": "case-queue",
+                              "id": "cqueue_7JRbkcdbx9fTossK98NJvRZcmk1"
+                            }
+                          },
+                          "case-template": {
+                            "data": {
+                              "type": "case-template",
+                              "id": "ctmpl_6HheND7s14a2o7fg33iHqhg7"
+                            }
+                          },
+                          "case-comments": {
+                            "data": []
+                          },
+                          "accounts": {
+                            "data": []
+                          },
+                          "inquiries": {
+                            "data": []
+                          },
+                          "reports": {
+                            "data": []
+                          },
+                          "verifications": {
+                            "data": []
+                          },
+                          "txns": {
+                            "data": []
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
     "/cases/{case-id}/assign": {
       "post": {
         "tags": [
@@ -41014,6 +41166,203 @@
         },
         "additionalProperties": false
       },
+      "RemovePersonaObjects": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "type": "object",
+            "properties": {
+              "object-ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Array of Persona object IDs to detach from this case. The following object types are supported- accounts, documents, graph queries, inquiries, reports, report runs, sars, transactions, and, verifications. Detaching an object that is not currently attached is a no-op.",
+                "nullable": true
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "RemovePersonaObjects200": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Case"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "required": [
+                "type"
+              ],
+              "type": "object",
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Account"
+                },
+                {
+                  "$ref": "#/components/schemas/CaseComment"
+                },
+                {
+                  "$ref": "#/components/schemas/CaseTemplate"
+                },
+                {
+                  "$ref": "#/components/schemas/CaseQueue"
+                },
+                {
+                  "$ref": "#/components/schemas/Inquiry"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportAddressLookup"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportAdverseMedia"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportBusinessAdverseMedia"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportBusinessAssociatedPersons"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportBusinessLookup"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportBusinessRegistrationsLookup"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportBusinessWatchlist"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportCryptoAddressWatchlist"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportEmailAddress"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportPhoneRisk"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportPoliticallyExposedPerson"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportProfile"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportProfileNonAuthoritative"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportSentilinkScores"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportSocialMedia"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportSynthetic"
+                },
+                {
+                  "$ref": "#/components/schemas/ReportWatchlist"
+                },
+                {
+                  "$ref": "#/components/schemas/Transaction"
+                },
+                {
+                  "$ref": "#/components/schemas/VerificationAamva"
+                },
+                {
+                  "$ref": "#/components/schemas/VerificationDatabase"
+                },
+                {
+                  "$ref": "#/components/schemas/VerificationDatabaseEcbsv"
+                },
+                {
+                  "$ref": "#/components/schemas/VerificationDatabasePhoneCarrier"
+                },
+                {
+                  "$ref": "#/components/schemas/VerificationDatabaseSerpro"
+                },
+                {
+                  "$ref": "#/components/schemas/VerificationDatabaseStandard"
+                },
+                {
+                  "$ref": "#/components/schemas/VerificationDatabaseTin"
+                },
+                {
+                  "$ref": "#/components/schemas/VerificationDocument"
+                },
+                {
+                  "$ref": "#/components/schemas/VerificationEmailAddress"
+                },
+                {
+                  "$ref": "#/components/schemas/VerificationGovernmentId"
+                },
+                {
+                  "$ref": "#/components/schemas/VerificationGovernmentIdNfc"
+                },
+                {
+                  "$ref": "#/components/schemas/VerificationPhoneNumber"
+                },
+                {
+                  "$ref": "#/components/schemas/VerificationSelfie"
+                }
+              ],
+              "properties": {
+                "type": {
+                  "type": "string"
+                }
+              },
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "account": "#/components/schemas/Account",
+                  "case-comment": "#/components/schemas/CaseComment",
+                  "case-template": "#/components/schemas/CaseTemplate",
+                  "case-queue": "#/components/schemas/CaseQueue",
+                  "inquiry": "#/components/schemas/Inquiry",
+                  "report/address-lookup": "#/components/schemas/ReportAddressLookup",
+                  "report/adverse-media": "#/components/schemas/ReportAdverseMedia",
+                  "report/business-adverse-media": "#/components/schemas/ReportBusinessAdverseMedia",
+                  "report/business-associated-persons": "#/components/schemas/ReportBusinessAssociatedPersons",
+                  "report/business-registrations-lookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
+                  "report/business-lookup": "#/components/schemas/ReportBusinessLookup",
+                  "report/business-watchlist": "#/components/schemas/ReportBusinessWatchlist",
+                  "report/crypto-address-watchlist": "#/components/schemas/ReportCryptoAddressWatchlist",
+                  "report/email-address": "#/components/schemas/ReportEmailAddress",
+                  "report/phone-number": "#/components/schemas/ReportPhoneRisk",
+                  "report/politically-exposed-person": "#/components/schemas/ReportPoliticallyExposedPerson",
+                  "report/profile": "#/components/schemas/ReportProfile",
+                  "report/profile-non-authoritative": "#/components/schemas/ReportProfileNonAuthoritative",
+                  "report/integration/sentilink-scores": "#/components/schemas/ReportSentilinkScores",
+                  "report/social-media": "#/components/schemas/ReportSocialMedia",
+                  "report/synthetic": "#/components/schemas/ReportSynthetic",
+                  "report/watchlist": "#/components/schemas/ReportWatchlist",
+                  "transaction": "#/components/schemas/Transaction",
+                  "verification/aamva": "#/components/schemas/VerificationAamva",
+                  "verification/database": "#/components/schemas/VerificationDatabase",
+                  "verification/database-ecbsv": "#/components/schemas/VerificationDatabaseEcbsv",
+                  "verification/database-phone-carrier": "#/components/schemas/VerificationDatabasePhoneCarrier",
+                  "verification/database-serpro": "#/components/schemas/VerificationDatabaseSerpro",
+                  "verification/database-standard": "#/components/schemas/VerificationDatabaseStandard",
+                  "verification/database-tin": "#/components/schemas/VerificationDatabaseTin",
+                  "verification/document": "#/components/schemas/VerificationDocument",
+                  "verification/email-address": "#/components/schemas/VerificationEmailAddress",
+                  "verification/government-id": "#/components/schemas/VerificationGovernmentId",
+                  "verification/government-id-nfc": "#/components/schemas/VerificationGovernmentIdNfc",
+                  "verification/phone-number": "#/components/schemas/VerificationPhoneNumber",
+                  "verification/selfie": "#/components/schemas/VerificationSelfie"
+                }
+              }
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "AssignACase": {
         "required": [
           "meta"
@@ -50998,6 +51347,16 @@
           }
         }
       },
+      "remove-objects": {
+        "value": {
+          "meta": {
+            "object-ids": [
+              "inq_eGK41TM6GjcZgdcoox7x8Hh0",
+              "rep_PN3xspEwWCWWRp1eGpedaSNj"
+            ]
+          }
+        }
+      },
       "assign-case": {
         "value": {
           "meta": {
@@ -60562,6 +60921,158 @@
                 ]
               },
               "created-at": "2024-02-15T23:48:17.732Z"
+            }
+          }
+        }
+      },
+      "inquiry-started-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_o9byQRbjygu76Jbtea9wuJ1boP7a",
+            "attributes": {
+              "name": "inquiry.started",
+              "payload": {
+                "data": {
+                  "type": "inquiry",
+                  "id": "inq_zEx4jL84ShbUyuwX6AzPSqt6",
+                  "attributes": {
+                    "status": "pending",
+                    "reference-id": null,
+                    "note": null,
+                    "behaviors": {},
+                    "tags": [],
+                    "creator": "creator@withpersona.com",
+                    "reviewer-comment": null,
+                    "created-at": "2026-05-26T19:06:45.000Z",
+                    "started-at": "2026-05-26T19:07:01.000Z",
+                    "expires-at": "2026-05-27T19:07:01.000Z",
+                    "completed-at": null,
+                    "failed-at": null,
+                    "marked-for-review-at": null,
+                    "decisioned-at": null,
+                    "expired-at": null,
+                    "redacted-at": null,
+                    "updated-at": "2026-05-26T19:07:01.000Z",
+                    "previous-step-name": "start",
+                    "next-step-name": "verification_government_id",
+                    "fields": {
+                      "name-first": {
+                        "type": "string",
+                        "value": "Jane"
+                      },
+                      "name-middle": {
+                        "type": "string",
+                        "value": "Marie"
+                      },
+                      "name-last": {
+                        "type": "string",
+                        "value": "Doe"
+                      },
+                      "address-street-1": {
+                        "type": "string",
+                        "value": "123 Main St"
+                      },
+                      "address-street-2": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "address-city": {
+                        "type": "string",
+                        "value": "San Francisco"
+                      },
+                      "address-subdivision": {
+                        "type": "string",
+                        "value": "California"
+                      },
+                      "address-postal-code": {
+                        "type": "string",
+                        "value": "94111"
+                      },
+                      "address-country-code": {
+                        "type": "string",
+                        "value": "US"
+                      },
+                      "birthdate": {
+                        "type": "date",
+                        "value": "1995-09-08"
+                      },
+                      "email-address": {
+                        "type": "string",
+                        "value": "jane@doe.com"
+                      },
+                      "phone-number": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "identification-number": {
+                        "type": "string",
+                        "value": null
+                      }
+                    }
+                  },
+                  "relationships": {
+                    "account": {
+                      "data": {
+                        "type": "account",
+                        "id": "act_n2uq9eKMboaCQzu9ALWYcVdN"
+                      }
+                    },
+                    "template": {
+                      "data": {}
+                    },
+                    "inquiry-template": {
+                      "data": {
+                        "type": "inquiry-template",
+                        "id": "itmpl_p8ANAJy9iqadm2buF2xcVgqH"
+                      }
+                    },
+                    "inquiry-template-version": {
+                      "data": {
+                        "type": "inquiry-template-version",
+                        "id": "itmplv_iXhqfNWqwYLAWs9G8Fm8hPfo"
+                      }
+                    },
+                    "reviewer": {
+                      "data": {}
+                    },
+                    "reports": {
+                      "data": []
+                    },
+                    "verifications": {
+                      "data": []
+                    },
+                    "sessions": {
+                      "data": []
+                    },
+                    "documents": {
+                      "data": []
+                    },
+                    "selfies": {
+                      "data": []
+                    }
+                  }
+                },
+                "included": [
+                  {
+                    "type": "inquiry-template",
+                    "id": "itmpl_p8ANAJy9iqadm2buF2xcVgqH",
+                    "attributes": {
+                      "status": "active",
+                      "name": "Government ID \u002B Selfie"
+                    },
+                    "relationships": {
+                      "latest-published-version": {
+                        "data": {
+                          "type": "inquiry-template-version",
+                          "id": "itmplv_iXhqfNWqwYLAWs9G8Fm8hPfo"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "created-at": "2026-05-26T19:07:01.732Z"
             }
           }
         }

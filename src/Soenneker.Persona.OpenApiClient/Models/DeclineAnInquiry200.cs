@@ -61,7 +61,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DeclineAnInquiry200.DeclineAnInquiry200_included>("included", Included);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentIdNfc"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentMdoc"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquirySession"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersons"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRisk"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPerson"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSynthetic"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Selfie"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Template"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.User"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationAamva"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabase"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsv"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabasePhoneCarrier"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerpro"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseStandard"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseTin"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDocument"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfc"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfie"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRun"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentIdNfc"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentMdoc"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquirySession"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersons"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRisk"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPerson"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSynthetic"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Selfie"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Template"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.User"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationAamva"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationBankPennydrop"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationBrandAsset"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationBusinessWebsite"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationCertificateKorea"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationCreditCard"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabase"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseAadhaar"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseBusiness"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseBusinessFootprint"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsv"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabasePhoneCarrier"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerpro"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseStandard"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseTin"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseVatNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdConnectId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdEDoApp"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdFinnishTrustNetwork"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdFranceIdentite"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdGeneric"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdIdin"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdItsMe"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdKcbCreditCard"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdMitId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdOneId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdPhilsys"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerpro"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSingpass"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSwedishBankId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdUkSharecode"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdWorldId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDocument"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfc"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScan"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationMdoc"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationPersonaFffInquiry"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumberSilentNetworkAuthentication"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationQesInfocert"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfie"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationVerifiableCredential"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRun"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DeclineAnInquiry200_included : IComposedTypeWrapper, IParsable
@@ -306,6 +306,46 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
             public global::Soenneker.Persona.OpenApiClient.Models.VerificationAamva VerificationAamva { get; set; }
 #endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationBankPennydrop"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationBankPennydrop? VerificationBankPennydrop { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationBankPennydrop VerificationBankPennydrop { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationBrandAsset"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationBrandAsset? VerificationBrandAsset { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationBrandAsset VerificationBrandAsset { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationBusinessWebsite"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationBusinessWebsite? VerificationBusinessWebsite { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationBusinessWebsite VerificationBusinessWebsite { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationCertificateKorea"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationCertificateKorea? VerificationCertificateKorea { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationCertificateKorea VerificationCertificateKorea { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationCreditCard"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationCreditCard? VerificationCreditCard { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationCreditCard VerificationCreditCard { get; set; }
+#endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabase"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -313,6 +353,30 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
             public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabase VerificationDatabase { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseAadhaar"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseAadhaar? VerificationDatabaseAadhaar { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseAadhaar VerificationDatabaseAadhaar { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseBusiness"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseBusiness? VerificationDatabaseBusiness { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseBusiness VerificationDatabaseBusiness { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseBusinessFootprint"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseBusinessFootprint? VerificationDatabaseBusinessFootprint { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseBusinessFootprint VerificationDatabaseBusinessFootprint { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsv"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -354,6 +418,142 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
             public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseTin VerificationDatabaseTin { get; set; }
 #endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseVatNumber"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseVatNumber? VerificationDatabaseVatNumber { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseVatNumber VerificationDatabaseVatNumber { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdConnectId"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdConnectId? VerificationDigitalIdConnectId { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdConnectId VerificationDigitalIdConnectId { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdEDoApp"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdEDoApp? VerificationDigitalIdEDoApp { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdEDoApp VerificationDigitalIdEDoApp { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdFinnishTrustNetwork"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdFinnishTrustNetwork? VerificationDigitalIdFinnishTrustNetwork { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdFinnishTrustNetwork VerificationDigitalIdFinnishTrustNetwork { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdFranceIdentite"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdFranceIdentite? VerificationDigitalIdFranceIdentite { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdFranceIdentite VerificationDigitalIdFranceIdentite { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdGeneric"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdGeneric? VerificationDigitalIdGeneric { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdGeneric VerificationDigitalIdGeneric { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdIdin"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdIdin? VerificationDigitalIdIdin { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdIdin VerificationDigitalIdIdin { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdItsMe"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdItsMe? VerificationDigitalIdItsMe { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdItsMe VerificationDigitalIdItsMe { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdKcbCreditCard"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdKcbCreditCard? VerificationDigitalIdKcbCreditCard { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdKcbCreditCard VerificationDigitalIdKcbCreditCard { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdMitId"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdMitId? VerificationDigitalIdMitId { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdMitId VerificationDigitalIdMitId { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdOneId"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdOneId? VerificationDigitalIdOneId { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdOneId VerificationDigitalIdOneId { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdPhilsys"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdPhilsys? VerificationDigitalIdPhilsys { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdPhilsys VerificationDigitalIdPhilsys { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerpro"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerpro? VerificationDigitalIdSerpro { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerpro VerificationDigitalIdSerpro { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSingpass"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSingpass? VerificationDigitalIdSingpass { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSingpass VerificationDigitalIdSingpass { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSwedishBankId"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSwedishBankId? VerificationDigitalIdSwedishBankId { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSwedishBankId VerificationDigitalIdSwedishBankId { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdUkSharecode"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdUkSharecode? VerificationDigitalIdUkSharecode { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdUkSharecode VerificationDigitalIdUkSharecode { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdWorldId"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdWorldId? VerificationDigitalIdWorldId { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdWorldId VerificationDigitalIdWorldId { get; set; }
+#endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationDocument"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -386,6 +586,30 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
             public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfc VerificationGovernmentIdNfc { get; set; }
 #endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScan"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScan? VerificationJpMyNumberNfcScan { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScan VerificationJpMyNumberNfcScan { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationMdoc"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationMdoc? VerificationMdoc { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationMdoc VerificationMdoc { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationPersonaFffInquiry"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationPersonaFffInquiry? VerificationPersonaFffInquiry { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationPersonaFffInquiry VerificationPersonaFffInquiry { get; set; }
+#endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumber"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -394,6 +618,22 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
             public global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumber VerificationPhoneNumber { get; set; }
 #endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumberSilentNetworkAuthentication"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumberSilentNetworkAuthentication? VerificationPhoneNumberSilentNetworkAuthentication { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumberSilentNetworkAuthentication VerificationPhoneNumberSilentNetworkAuthentication { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationQesInfocert"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationQesInfocert? VerificationQesInfocert { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationQesInfocert VerificationQesInfocert { get; set; }
+#endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfie"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -401,6 +641,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
             public global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfie VerificationSelfie { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationVerifiableCredential"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationVerifiableCredential? VerificationVerifiableCredential { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Persona.OpenApiClient.Models.VerificationVerifiableCredential VerificationVerifiableCredential { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -457,18 +705,49 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 result.Transaction = new global::Soenneker.Persona.OpenApiClient.Models.Transaction();
                 result.User = new global::Soenneker.Persona.OpenApiClient.Models.User();
                 result.VerificationAamva = new global::Soenneker.Persona.OpenApiClient.Models.VerificationAamva();
+                result.VerificationBankPennydrop = new global::Soenneker.Persona.OpenApiClient.Models.VerificationBankPennydrop();
+                result.VerificationBrandAsset = new global::Soenneker.Persona.OpenApiClient.Models.VerificationBrandAsset();
+                result.VerificationBusinessWebsite = new global::Soenneker.Persona.OpenApiClient.Models.VerificationBusinessWebsite();
+                result.VerificationCertificateKorea = new global::Soenneker.Persona.OpenApiClient.Models.VerificationCertificateKorea();
+                result.VerificationCreditCard = new global::Soenneker.Persona.OpenApiClient.Models.VerificationCreditCard();
                 result.VerificationDatabase = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabase();
+                result.VerificationDatabaseAadhaar = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseAadhaar();
+                result.VerificationDatabaseBusiness = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseBusiness();
+                result.VerificationDatabaseBusinessFootprint = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseBusinessFootprint();
                 result.VerificationDatabaseEcbsv = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsv();
                 result.VerificationDatabasePhoneCarrier = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabasePhoneCarrier();
                 result.VerificationDatabaseSerpro = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerpro();
                 result.VerificationDatabaseStandard = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseStandard();
                 result.VerificationDatabaseTin = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseTin();
+                result.VerificationDatabaseVatNumber = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseVatNumber();
+                result.VerificationDigitalIdConnectId = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdConnectId();
+                result.VerificationDigitalIdEDoApp = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdEDoApp();
+                result.VerificationDigitalIdFinnishTrustNetwork = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdFinnishTrustNetwork();
+                result.VerificationDigitalIdFranceIdentite = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdFranceIdentite();
+                result.VerificationDigitalIdGeneric = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdGeneric();
+                result.VerificationDigitalIdIdin = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdIdin();
+                result.VerificationDigitalIdItsMe = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdItsMe();
+                result.VerificationDigitalIdKcbCreditCard = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdKcbCreditCard();
+                result.VerificationDigitalIdMitId = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdMitId();
+                result.VerificationDigitalIdOneId = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdOneId();
+                result.VerificationDigitalIdPhilsys = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdPhilsys();
+                result.VerificationDigitalIdSerpro = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerpro();
+                result.VerificationDigitalIdSingpass = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSingpass();
+                result.VerificationDigitalIdSwedishBankId = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSwedishBankId();
+                result.VerificationDigitalIdUkSharecode = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdUkSharecode();
+                result.VerificationDigitalIdWorldId = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdWorldId();
                 result.VerificationDocument = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDocument();
                 result.VerificationEmailAddress = new global::Soenneker.Persona.OpenApiClient.Models.VerificationEmailAddress();
                 result.VerificationGovernmentId = new global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentId();
                 result.VerificationGovernmentIdNfc = new global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfc();
+                result.VerificationJpMyNumberNfcScan = new global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScan();
+                result.VerificationMdoc = new global::Soenneker.Persona.OpenApiClient.Models.VerificationMdoc();
+                result.VerificationPersonaFffInquiry = new global::Soenneker.Persona.OpenApiClient.Models.VerificationPersonaFffInquiry();
                 result.VerificationPhoneNumber = new global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumber();
+                result.VerificationPhoneNumberSilentNetworkAuthentication = new global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumberSilentNetworkAuthentication();
+                result.VerificationQesInfocert = new global::Soenneker.Persona.OpenApiClient.Models.VerificationQesInfocert();
                 result.VerificationSelfie = new global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfie();
+                result.VerificationVerifiableCredential = new global::Soenneker.Persona.OpenApiClient.Models.VerificationVerifiableCredential();
                 result.Workflow = new global::Soenneker.Persona.OpenApiClient.Models.Workflow();
                 result.WorkflowRun = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRun();
                 return result;
@@ -479,9 +758,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
             /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
             public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
             {
-                if(Account != null || DocumentGeneric != null || DocumentGovernmentId != null || DocumentGovernmentIdNfc != null || DocumentMdoc != null || InquirySession != null || InquiryTemplate != null || InquiryTemplateVersion != null || ReportAddressLookup != null || ReportAdverseMedia != null || ReportBusinessAdverseMedia != null || ReportBusinessAssociatedPersons != null || ReportBusinessLookup != null || ReportBusinessRegistrationsLookup != null || ReportBusinessWatchlist != null || ReportCryptoAddressWatchlist != null || ReportEmailAddress != null || ReportPhoneRisk != null || ReportPoliticallyExposedPerson != null || ReportProfile != null || ReportProfileNonAuthoritative != null || ReportSentilinkScores != null || ReportSocialMedia != null || ReportSynthetic != null || ReportWatchlist != null || Selfie != null || Template != null || Transaction != null || User != null || VerificationAamva != null || VerificationDatabase != null || VerificationDatabaseEcbsv != null || VerificationDatabasePhoneCarrier != null || VerificationDatabaseSerpro != null || VerificationDatabaseStandard != null || VerificationDatabaseTin != null || VerificationDocument != null || VerificationEmailAddress != null || VerificationGovernmentId != null || VerificationGovernmentIdNfc != null || VerificationPhoneNumber != null || VerificationSelfie != null || Workflow != null || WorkflowRun != null)
+                if(Account != null || DocumentGeneric != null || DocumentGovernmentId != null || DocumentGovernmentIdNfc != null || DocumentMdoc != null || InquirySession != null || InquiryTemplate != null || InquiryTemplateVersion != null || ReportAddressLookup != null || ReportAdverseMedia != null || ReportBusinessAdverseMedia != null || ReportBusinessAssociatedPersons != null || ReportBusinessLookup != null || ReportBusinessRegistrationsLookup != null || ReportBusinessWatchlist != null || ReportCryptoAddressWatchlist != null || ReportEmailAddress != null || ReportPhoneRisk != null || ReportPoliticallyExposedPerson != null || ReportProfile != null || ReportProfileNonAuthoritative != null || ReportSentilinkScores != null || ReportSocialMedia != null || ReportSynthetic != null || ReportWatchlist != null || Selfie != null || Template != null || Transaction != null || User != null || VerificationAamva != null || VerificationBankPennydrop != null || VerificationBrandAsset != null || VerificationBusinessWebsite != null || VerificationCertificateKorea != null || VerificationCreditCard != null || VerificationDatabase != null || VerificationDatabaseAadhaar != null || VerificationDatabaseBusiness != null || VerificationDatabaseBusinessFootprint != null || VerificationDatabaseEcbsv != null || VerificationDatabasePhoneCarrier != null || VerificationDatabaseSerpro != null || VerificationDatabaseStandard != null || VerificationDatabaseTin != null || VerificationDatabaseVatNumber != null || VerificationDigitalIdConnectId != null || VerificationDigitalIdEDoApp != null || VerificationDigitalIdFinnishTrustNetwork != null || VerificationDigitalIdFranceIdentite != null || VerificationDigitalIdGeneric != null || VerificationDigitalIdIdin != null || VerificationDigitalIdItsMe != null || VerificationDigitalIdKcbCreditCard != null || VerificationDigitalIdMitId != null || VerificationDigitalIdOneId != null || VerificationDigitalIdPhilsys != null || VerificationDigitalIdSerpro != null || VerificationDigitalIdSingpass != null || VerificationDigitalIdSwedishBankId != null || VerificationDigitalIdUkSharecode != null || VerificationDigitalIdWorldId != null || VerificationDocument != null || VerificationEmailAddress != null || VerificationGovernmentId != null || VerificationGovernmentIdNfc != null || VerificationJpMyNumberNfcScan != null || VerificationMdoc != null || VerificationPersonaFffInquiry != null || VerificationPhoneNumber != null || VerificationPhoneNumberSilentNetworkAuthentication != null || VerificationQesInfocert != null || VerificationSelfie != null || VerificationVerifiableCredential != null || Workflow != null || WorkflowRun != null)
                 {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(Account, DocumentGeneric, DocumentGovernmentId, DocumentGovernmentIdNfc, DocumentMdoc, InquirySession, InquiryTemplate, InquiryTemplateVersion, ReportAddressLookup, ReportAdverseMedia, ReportBusinessAdverseMedia, ReportBusinessAssociatedPersons, ReportBusinessLookup, ReportBusinessRegistrationsLookup, ReportBusinessWatchlist, ReportCryptoAddressWatchlist, ReportEmailAddress, ReportPhoneRisk, ReportPoliticallyExposedPerson, ReportProfile, ReportProfileNonAuthoritative, ReportSentilinkScores, ReportSocialMedia, ReportSynthetic, ReportWatchlist, Selfie, Template, Transaction, User, VerificationAamva, VerificationDatabase, VerificationDatabaseEcbsv, VerificationDatabasePhoneCarrier, VerificationDatabaseSerpro, VerificationDatabaseStandard, VerificationDatabaseTin, VerificationDocument, VerificationEmailAddress, VerificationGovernmentId, VerificationGovernmentIdNfc, VerificationPhoneNumber, VerificationSelfie, Workflow, WorkflowRun);
+                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(Account, DocumentGeneric, DocumentGovernmentId, DocumentGovernmentIdNfc, DocumentMdoc, InquirySession, InquiryTemplate, InquiryTemplateVersion, ReportAddressLookup, ReportAdverseMedia, ReportBusinessAdverseMedia, ReportBusinessAssociatedPersons, ReportBusinessLookup, ReportBusinessRegistrationsLookup, ReportBusinessWatchlist, ReportCryptoAddressWatchlist, ReportEmailAddress, ReportPhoneRisk, ReportPoliticallyExposedPerson, ReportProfile, ReportProfileNonAuthoritative, ReportSentilinkScores, ReportSocialMedia, ReportSynthetic, ReportWatchlist, Selfie, Template, Transaction, User, VerificationAamva, VerificationBankPennydrop, VerificationBrandAsset, VerificationBusinessWebsite, VerificationCertificateKorea, VerificationCreditCard, VerificationDatabase, VerificationDatabaseAadhaar, VerificationDatabaseBusiness, VerificationDatabaseBusinessFootprint, VerificationDatabaseEcbsv, VerificationDatabasePhoneCarrier, VerificationDatabaseSerpro, VerificationDatabaseStandard, VerificationDatabaseTin, VerificationDatabaseVatNumber, VerificationDigitalIdConnectId, VerificationDigitalIdEDoApp, VerificationDigitalIdFinnishTrustNetwork, VerificationDigitalIdFranceIdentite, VerificationDigitalIdGeneric, VerificationDigitalIdIdin, VerificationDigitalIdItsMe, VerificationDigitalIdKcbCreditCard, VerificationDigitalIdMitId, VerificationDigitalIdOneId, VerificationDigitalIdPhilsys, VerificationDigitalIdSerpro, VerificationDigitalIdSingpass, VerificationDigitalIdSwedishBankId, VerificationDigitalIdUkSharecode, VerificationDigitalIdWorldId, VerificationDocument, VerificationEmailAddress, VerificationGovernmentId, VerificationGovernmentIdNfc, VerificationJpMyNumberNfcScan, VerificationMdoc, VerificationPersonaFffInquiry, VerificationPhoneNumber, VerificationPhoneNumberSilentNetworkAuthentication, VerificationQesInfocert, VerificationSelfie, VerificationVerifiableCredential, Workflow, WorkflowRun);
                 }
                 return new Dictionary<string, Action<IParseNode>>();
             }
@@ -492,7 +771,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             public virtual void Serialize(ISerializationWriter writer)
             {
                 if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account>(null, Account, DocumentGeneric, DocumentGovernmentId, DocumentGovernmentIdNfc, DocumentMdoc, InquirySession, InquiryTemplate, InquiryTemplateVersion, ReportAddressLookup, ReportAdverseMedia, ReportBusinessAdverseMedia, ReportBusinessAssociatedPersons, ReportBusinessLookup, ReportBusinessRegistrationsLookup, ReportBusinessWatchlist, ReportCryptoAddressWatchlist, ReportEmailAddress, ReportPhoneRisk, ReportPoliticallyExposedPerson, ReportProfile, ReportProfileNonAuthoritative, ReportSentilinkScores, ReportSocialMedia, ReportSynthetic, ReportWatchlist, Selfie, Template, Transaction, User, VerificationAamva, VerificationDatabase, VerificationDatabaseEcbsv, VerificationDatabasePhoneCarrier, VerificationDatabaseSerpro, VerificationDatabaseStandard, VerificationDatabaseTin, VerificationDocument, VerificationEmailAddress, VerificationGovernmentId, VerificationGovernmentIdNfc, VerificationPhoneNumber, VerificationSelfie, Workflow, WorkflowRun);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account>(null, Account, DocumentGeneric, DocumentGovernmentId, DocumentGovernmentIdNfc, DocumentMdoc, InquirySession, InquiryTemplate, InquiryTemplateVersion, ReportAddressLookup, ReportAdverseMedia, ReportBusinessAdverseMedia, ReportBusinessAssociatedPersons, ReportBusinessLookup, ReportBusinessRegistrationsLookup, ReportBusinessWatchlist, ReportCryptoAddressWatchlist, ReportEmailAddress, ReportPhoneRisk, ReportPoliticallyExposedPerson, ReportProfile, ReportProfileNonAuthoritative, ReportSentilinkScores, ReportSocialMedia, ReportSynthetic, ReportWatchlist, Selfie, Template, Transaction, User, VerificationAamva, VerificationBankPennydrop, VerificationBrandAsset, VerificationBusinessWebsite, VerificationCertificateKorea, VerificationCreditCard, VerificationDatabase, VerificationDatabaseAadhaar, VerificationDatabaseBusiness, VerificationDatabaseBusinessFootprint, VerificationDatabaseEcbsv, VerificationDatabasePhoneCarrier, VerificationDatabaseSerpro, VerificationDatabaseStandard, VerificationDatabaseTin, VerificationDatabaseVatNumber, VerificationDigitalIdConnectId, VerificationDigitalIdEDoApp, VerificationDigitalIdFinnishTrustNetwork, VerificationDigitalIdFranceIdentite, VerificationDigitalIdGeneric, VerificationDigitalIdIdin, VerificationDigitalIdItsMe, VerificationDigitalIdKcbCreditCard, VerificationDigitalIdMitId, VerificationDigitalIdOneId, VerificationDigitalIdPhilsys, VerificationDigitalIdSerpro, VerificationDigitalIdSingpass, VerificationDigitalIdSwedishBankId, VerificationDigitalIdUkSharecode, VerificationDigitalIdWorldId, VerificationDocument, VerificationEmailAddress, VerificationGovernmentId, VerificationGovernmentIdNfc, VerificationJpMyNumberNfcScan, VerificationMdoc, VerificationPersonaFffInquiry, VerificationPhoneNumber, VerificationPhoneNumberSilentNetworkAuthentication, VerificationQesInfocert, VerificationSelfie, VerificationVerifiableCredential, Workflow, WorkflowRun);
             }
         }
     }

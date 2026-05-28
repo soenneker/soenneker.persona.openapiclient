@@ -79,33 +79,33 @@ namespace Soenneker.Persona.OpenApiClient.Verifications.Item
         /// Retrieves the details of an existing Verification.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/verifications/retrieve-a-verification" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Verifications.Item.VerificationGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAVerification200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Verification400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Verification401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Verification403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Verification404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Verification429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAVerification200400Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAVerification200401Error">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAVerification200403Error">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAVerification200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAVerification200429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Verifications.Item.VerificationGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Verifications.Item.VerificationItemRequestBuilder.VerificationItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAVerification200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Verifications.Item.VerificationItemRequestBuilder.VerificationItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Verifications.Item.VerificationGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Verifications.Item.VerificationItemRequestBuilder.VerificationItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAVerification200> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Verifications.Item.VerificationItemRequestBuilder.VerificationItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Verification400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Verification401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Verification403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Verification404Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Verification429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.RetrieveAVerification200400Error.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.RetrieveAVerification200401Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.RetrieveAVerification200403Error.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.RetrieveAVerification200404Error.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.RetrieveAVerification200429Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Verifications.Item.VerificationGetResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Verifications.Item.VerificationGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAVerification200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.RetrieveAVerification200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Permanently deletes personally identifiable information (PII) for a Verification. **This action cannot be undone**. This endpoint can be used to comply with privacy regulations such as GDPR / CCPA or to enforce data privacy.

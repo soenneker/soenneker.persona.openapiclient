@@ -107,7 +107,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>The time the verification was redacted in ISO 8601 format</summary>
         public DateTimeOffset? RedactedAt { get; set; }
-        /// <summary>The status of the verificationPossible values:- initiated- submitted- passed- failed- requires_retry- canceled- confirmedDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
+        /// <summary>The status of the verificationPossible values:- initiated- submitted- tentatively_passed (only for `verification/document` and `verification/qes-infocert`)- tentatively_failed (only for `verification/database-business` and `verification/database-business-footprint`)- passed- failed- requires_retry- skipped- canceled- confirmed (only for `verification/email-address` and `verification/phone-number`)Do not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }

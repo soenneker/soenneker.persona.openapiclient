@@ -49,10 +49,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>A list of extractions resulting from processing the uploaded documents corresponding to the document&apos;s extraction configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Inquiries>? ExtractionResponses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.Cases>? ExtractionResponses { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Inquiries> ExtractionResponses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.Cases> ExtractionResponses { get; set; }
 #endif
         /// <summary>JSON key-value pairs of field name to field value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -80,7 +80,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>The time the verification was redacted in ISO 8601 format</summary>
         public DateTimeOffset? RedactedAt { get; set; }
-        /// <summary>The status of the verificationPossible values:- initiated- submitted- passed- failed- requires_retry- canceled- confirmedDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
+        /// <summary>The status of the verificationPossible values:- initiated- submitted- tentatively_passed (only for `verification/document` and `verification/qes-infocert`)- tentatively_failed (only for `verification/database-business` and `verification/database-business-footprint`)- passed- failed- requires_retry- skipped- canceled- confirmed (only for `verification/email-address` and `verification/phone-number`)Do not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }
@@ -132,7 +132,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created-at-ts", n => { CreatedAtTs = n.GetIntValue(); } },
                 { "document-type", n => { DocumentType = n.GetStringValue(); } },
-                { "extraction-responses", n => { ExtractionResponses = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Inquiries>(global::Soenneker.Persona.OpenApiClient.Models.Inquiries.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "extraction-responses", n => { ExtractionResponses = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Cases>(global::Soenneker.Persona.OpenApiClient.Models.Cases.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_fields>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_fields.CreateFromDiscriminatorValue); } },
                 { "files", n => { Files = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "files-normalized", n => { FilesNormalized = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -157,7 +157,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteIntValue("created-at-ts", CreatedAtTs);
             writer.WriteStringValue("document-type", DocumentType);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Inquiries>("extraction-responses", ExtractionResponses);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Cases>("extraction-responses", ExtractionResponses);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_fields>("fields", Fields);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("files", Files);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("files-normalized", FilesNormalized);

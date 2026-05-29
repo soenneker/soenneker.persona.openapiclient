@@ -38,7 +38,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public DateTimeOffset? ExpiredAt { get; set; }
         /// <summary>The expiresAt property</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
-        /// <summary>The failedAt property</summary>
+        /// <summary>Set when an Inquiry transitions to `failed`. Not typically set on `declined` Inquiries — those carry `completed-at` from the transition that preceded the decision.</summary>
         public DateTimeOffset? FailedAt { get; set; }
         /// <summary>JSON key-value pairs of field name to field value. Exact schema depends on the configuration of the Inquiry template for this Inquiry. Keys in `fields` are **not** key inflected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

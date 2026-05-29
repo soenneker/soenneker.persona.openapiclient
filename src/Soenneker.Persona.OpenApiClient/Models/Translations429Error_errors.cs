@@ -7,29 +7,36 @@ using System.IO;
 using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
-    /// <summary>
-    /// &quot;Actor that decisioned the Inquiry. `data` is `null` while the Inquiry has not been decisioned. Once decisioned, `data.type` and `data.id` identify the reviewer: - `user` + `user_*` — a dashboard user reviewed and decisioned the Inquiry. - `workflow` + `wfl_*` — Workflows 1.0 auto-decisioned the Inquiry. - `workflow-run` + `wfr_*` — Workflows 2.0 auto-decisioned the Inquiry  (the dominant case in automation-heavy organizations).&quot;
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class InquiryRelationshipsReviewer : IParsable
+    #pragma warning disable CS1591
+    public partial class Translations429Error_errors : IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>The data property</summary>
+        /// <summary>The details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer_data? Data { get; set; }
+        public string? Details { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer_data Data { get; set; }
+        public string Details { get; set; }
+#endif
+        /// <summary>The title property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Title { get; set; }
+#nullable restore
+#else
+        public string Title { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Translations429Error_errors"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.Translations429Error_errors CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer();
+            return new global::Soenneker.Persona.OpenApiClient.Models.Translations429Error_errors();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -39,7 +46,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer_data>(global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer_data.CreateFromDiscriminatorValue); } },
+                { "details", n => { Details = n.GetStringValue(); } },
+                { "title", n => { Title = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -49,7 +57,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer_data>("data", Data);
+            writer.WriteStringValue("details", Details);
+            writer.WriteStringValue("title", Title);
         }
     }
 }

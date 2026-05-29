@@ -2271,6 +2271,15 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "peek-source-data",
+            "in": "query",
+            "description": "When \u0060true\u0060, the caller is the destination organization, and the destination organization\nhas access to the source data peek capability, the response\u0027s\n\u0060data.attributes.source-data\u0060 carries a PII-filtered source-data envelope. Defaults to\n\u0060false\u0060; omitted from list responses regardless.\n",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
           }
         ],
         "responses": {
@@ -2303,6 +2312,9 @@
           },
           "404": {
             "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
           },
           "429": {
             "$ref": "#/components/responses/too-many-requests"
@@ -8517,6 +8529,254 @@
           },
           "404": {
             "$ref": "#/components/responses/not-found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
+    "/inquiry-templates/{inquiry-template-id}/translations": {
+      "get": {
+        "tags": [
+          "Inquiry Templates"
+        ],
+        "summary": "Retrieve Inquiry Template Translations",
+        "description": "\u0022Retrieves the translations for an Inquiry Template as a JSON:API resource.\n\nThe export uses the latest draft version if one exists, otherwise falls back to the latest published version.\n\nNote: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.\u0022",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/inquiry-templates/retrieve-inquiry-template-translations"
+        },
+        "operationId": "retrieve-inquiry-template-translations",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "inquiry-template-id",
+            "in": "path",
+            "description": "Inquiry Template ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This endpoint returns an Inquiry Template Translations object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetrieveInquiryTemplateTranslations200"
+                },
+                "examples": {
+                  "Success": {
+                    "value": {
+                      "data": {
+                        "type": "inquiry-template-translations",
+                        "id": "itmplv_HAVumeSgCxWxhVb8tTRjaiUB",
+                        "attributes": {
+                          "translations": [
+                            {
+                              "step": "start",
+                              "step-display-name": "Start",
+                              "component": "title",
+                              "attribute-name": "text",
+                              "locale-values": [
+                                {
+                                  "locale": "en-US",
+                                  "value": "Getting started"
+                                },
+                                {
+                                  "locale": "fr",
+                                  "value": "Commencer"
+                                },
+                                {
+                                  "locale": "es-MX",
+                                  "value": "Empezar"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not-found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Inquiry Templates"
+        ],
+        "summary": "Import Inquiry Template Translations",
+        "description": "\u0022Imports translations for an Inquiry Template. Supports partial updates \u2014 translation rows not included in the request body are left unchanged.\n\nIf a draft version already exists, translations are applied to it. If no draft exists, a new draft is created from the latest published version before importing. The draft is never automatically published \u2014 publishing is always a manual step in the dashboard.\n\nNote: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.\u0022",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/inquiry-templates/import-inquiry-template-translations"
+        },
+        "operationId": "import-inquiry-template-translations",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "inquiry-template-id",
+            "in": "path",
+            "description": "Inquiry Template ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImportInquiryTemplateTranslations"
+              },
+              "examples": {
+                "Import translations": {
+                  "value": {
+                    "data": {
+                      "attributes": {
+                        "translations": [
+                          {
+                            "step": "start",
+                            "step-display-name": "Start",
+                            "component": "title",
+                            "attribute-name": "text",
+                            "locale-values": [
+                              {
+                                "locale": "en-US",
+                                "value": "Getting started"
+                              },
+                              {
+                                "locale": "fr",
+                                "value": "Commencer"
+                              },
+                              {
+                                "locale": "es-MX",
+                                "value": "Empezar"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "This endpoint returns the updated Inquiry Template Version object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "data"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/InquiryTemplateVersion"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "examples": {
+                  "Success": {
+                    "value": {
+                      "data": {
+                        "type": "inquiry-template-version",
+                        "id": "itmplv_HAVumeSgCxWxhVb8tTRjaiUB",
+                        "attributes": {
+                          "name-display": "Collect Government ID",
+                          "status": "draft",
+                          "enabled-locales": [
+                            "en-US"
+                          ],
+                          "created-at": "2023-01-05T00:00:00.000Z",
+                          "updated-at": "2023-01-05T00:00:00.000Z",
+                          "published-at": null,
+                          "theme": {}
+                        },
+                        "relationships": {
+                          "inquiry-template": {
+                            "data": {
+                              "type": "inquiry-template",
+                              "id": "itmpl_srQQ2Ui2gvNY353u65vD61gr"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "$ref": "#/components/responses/unprocessable-entity"
           },
           "429": {
             "$ref": "#/components/responses/too-many-requests"
@@ -27478,6 +27738,7 @@
           },
           "failed-at": {
             "type": "string",
+            "description": "Set when an Inquiry transitions to \u0060failed\u0060. Not typically set on \u0060declined\u0060 Inquiries \u2014 those carry \u0060completed-at\u0060 from the transition that preceded the decision.",
             "format": "date-time",
             "nullable": true
           },
@@ -40827,14 +41088,15 @@
               },
               "type": {
                 "type": "string",
-                "description": "Will be either \u0060user\u0060, \u0060workflow\u0060, or \u0060workflow-run\u0060.",
+                "description": "One of \u0060user\u0060, \u0060workflow\u0060, or \u0060workflow-run\u0060.",
                 "x-polymorphic": true
               }
             },
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "\u0022Actor that decisioned the Inquiry. \u0060data\u0060 is \u0060null\u0060 while the Inquiry has not been decisioned. Once decisioned, \u0060data.type\u0060 and \u0060data.id\u0060 identify the reviewer: - \u0060user\u0060 \u002B \u0060user_*\u0060 \u2014 a dashboard user reviewed and decisioned the Inquiry. - \u0060workflow\u0060 \u002B \u0060wfl_*\u0060 \u2014 Workflows 1.0 auto-decisioned the Inquiry. - \u0060workflow-run\u0060 \u002B \u0060wfr_*\u0060 \u2014 Workflows 2.0 auto-decisioned the Inquiry\n  (the dominant case in automation-heavy organizations).\u0022"
       },
       "InquiryRelationshipsSelfies": {
         "type": "object",
@@ -53795,6 +54057,167 @@
                 }
               }
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "RetrieveInquiryTemplateTranslations200": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "required": [
+              "type",
+              "id",
+              "attributes"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "enum": [
+                  "inquiry-template-translations"
+                ],
+                "type": "string"
+              },
+              "id": {
+                "type": "string",
+                "description": "The token of the Inquiry Template Version the translations were retrieved from."
+              },
+              "attributes": {
+                "required": [
+                  "translations"
+                ],
+                "type": "object",
+                "properties": {
+                  "translations": {
+                    "type": "array",
+                    "items": {
+                      "required": [
+                        "step",
+                        "step-display-name",
+                        "component",
+                        "attribute-name",
+                        "locale-values"
+                      ],
+                      "type": "object",
+                      "properties": {
+                        "step": {
+                          "type": "string"
+                        },
+                        "step-display-name": {
+                          "type": "string"
+                        },
+                        "component": {
+                          "type": "string"
+                        },
+                        "attribute-name": {
+                          "type": "string"
+                        },
+                        "locale-values": {
+                          "type": "array",
+                          "items": {
+                            "required": [
+                              "locale",
+                              "value"
+                            ],
+                            "type": "object",
+                            "properties": {
+                              "locale": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string",
+                                "nullable": true
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "ImportInquiryTemplateTranslations": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "required": [
+              "attributes"
+            ],
+            "type": "object",
+            "properties": {
+              "attributes": {
+                "required": [
+                  "translations"
+                ],
+                "type": "object",
+                "properties": {
+                  "translations": {
+                    "type": "array",
+                    "items": {
+                      "required": [
+                        "step",
+                        "component",
+                        "attribute-name",
+                        "locale-values"
+                      ],
+                      "type": "object",
+                      "properties": {
+                        "step": {
+                          "type": "string"
+                        },
+                        "step-display-name": {
+                          "type": "string"
+                        },
+                        "component": {
+                          "type": "string"
+                        },
+                        "attribute-name": {
+                          "type": "string"
+                        },
+                        "locale-values": {
+                          "type": "array",
+                          "items": {
+                            "required": [
+                              "locale",
+                              "value"
+                            ],
+                            "type": "object",
+                            "properties": {
+                              "locale": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string",
+                                "nullable": true
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
           }
         },
         "additionalProperties": false
@@ -68211,82 +68634,34 @@
         "value": {
           "data": {
             "type": "event",
-            "id": "evt_o9byQRbjygu76Jbtea9wuJ1boP7a",
+            "id": "evt_aBcDeFgHiJkLmNoPqRsTuVwX",
             "attributes": {
               "name": "inquiry.created",
               "payload": {
                 "data": {
                   "type": "inquiry",
-                  "id": "inq_zEx4jL84ShbUyuwX6AzPSqt6",
+                  "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ",
                   "attributes": {
                     "status": "created",
-                    "reference-id": "abc-123",
+                    "reference-id": null,
                     "note": null,
                     "behaviors": {},
                     "tags": [],
-                    "creator": "creator@withpersona.com",
+                    "creator": "creator@example.com",
                     "reviewer-comment": null,
-                    "created-at": "2023-03-29T19:06:45.000Z",
-                    "started-at": "2023-03-30T19:07:01.000Z",
-                    "expires-at": "2023-03-31T19:07:01.000Z",
+                    "created-at": "2024-03-15T18:30:00.000Z",
+                    "updated-at": "2024-03-15T18:30:00.000Z",
+                    "started-at": null,
+                    "expires-at": "2024-03-16T18:30:00.000Z",
                     "completed-at": null,
                     "failed-at": null,
                     "marked-for-review-at": null,
                     "decisioned-at": null,
                     "expired-at": null,
                     "redacted-at": null,
-                    "updated-at": "2023-03-30T19:07:01.000Z",
-                    "previous-step-name": "start",
-                    "next-step-name": "verification_document",
+                    "previous-step-name": null,
+                    "next-step-name": "start",
                     "fields": {
-                      "name-first": {
-                        "type": "string",
-                        "value": "Jane"
-                      },
-                      "name-middle": {
-                        "type": "string",
-                        "value": "Marie"
-                      },
-                      "name-last": {
-                        "type": "string",
-                        "value": "Doe"
-                      },
-                      "address-street-1": {
-                        "type": "string",
-                        "value": "123 Main St"
-                      },
-                      "address-street-2": {
-                        "type": "string",
-                        "value": null
-                      },
-                      "address-city": {
-                        "type": "string",
-                        "value": "San Francisco"
-                      },
-                      "address-subdivision": {
-                        "type": "string",
-                        "value": "California"
-                      },
-                      "address-postal-code": {
-                        "type": "string",
-                        "value": "94111"
-                      },
-                      "address-country-code": {
-                        "type": "string",
-                        "value": "US"
-                      },
-                      "birthdate": {
-                        "type": "date",
-                        "value": "1995-09-08"
-                      },
-                      "email-address": {
-                        "type": "string",
-                        "value": "jane@doe.com"
-                      },
-                      "phone-number": {
-                        "type": "string",
-                        "value": null
-                      },
                       "identification-number": {
                         "type": "string",
                         "value": null
@@ -68295,39 +68670,34 @@
                   },
                   "relationships": {
                     "account": {
-                      "data": {
-                        "type": "account",
-                        "id": "act_n2uq9eKMboaCQzu9ALWYcVdN"
-                      }
+                      "data": null
                     },
                     "template": {
-                      "data": {}
+                      "data": null
                     },
                     "inquiry-template": {
                       "data": {
                         "type": "inquiry-template",
-                        "id": "itmpl_p8ANAJy9iqadm2buF2xcVgqH"
+                        "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
                       }
                     },
                     "inquiry-template-version": {
                       "data": {
                         "type": "inquiry-template-version",
-                        "id": "itmplv_iXhqfNWqwYLAWs9G8Fm8hPfo"
+                        "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
                       }
                     },
+                    "transaction": {
+                      "data": null
+                    },
                     "reviewer": {
-                      "data": {}
+                      "data": null
                     },
                     "reports": {
                       "data": []
                     },
                     "verifications": {
-                      "data": [
-                        {
-                          "type": "verification/database",
-                          "id": "ver_uHDiwtcx3htjajvEaeMjPQcE"
-                        }
-                      ]
+                      "data": []
                     },
                     "sessions": {
                       "data": []
@@ -68342,64 +68712,40 @@
                 },
                 "included": [
                   {
-                    "type": "inquiry-session",
-                    "id": "iqse_ABC123",
-                    "attributes": {
-                      "status": "expired",
-                      "created-at": "2023-07-25T04:15:20.000Z",
-                      "started-at": "2023-07-25T05:14:50.000Z",
-                      "expired-at": "2023-07-26T05:14:50.000Z",
-                      "ip-address": "127.0.0.1",
-                      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
-                      "os-name": "Mac",
-                      "os-full-version": "10.15.7",
-                      "device-type": "desktop",
-                      "device-name": null,
-                      "browser-name": "Chrome",
-                      "browser-full-version": "115.0.0.0",
-                      "mobile-sdk-name": null,
-                      "mobile-sdk-full-version": null,
-                      "device-handoff-method": null,
-                      "is-proxy": false,
-                      "is-tor": false,
-                      "is-datacenter": false,
-                      "is-vpn": false,
-                      "threat-level": "low",
-                      "country-code": "US",
-                      "country-name": "United States",
-                      "region-code": "CA",
-                      "region-name": "California",
-                      "latitude": 37.7688,
-                      "longitude": -122.262
-                    },
-                    "relationships": {
-                      "inquiry": {
-                        "data": {
-                          "type": "inquiry",
-                          "id": "inq_ABC123"
-                        }
-                      }
-                    }
-                  },
-                  {
                     "type": "inquiry-template",
-                    "id": "itmpl_ABC123",
+                    "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc",
                     "attributes": {
                       "status": "active",
-                      "name": "Twilio Desktop"
+                      "name": "Example KYC Template"
                     },
                     "relationships": {
                       "latest-published-version": {
                         "data": {
                           "type": "inquiry-template-version",
-                          "id": "itmplv_ABC123"
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-template-version",
+                    "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA",
+                    "attributes": {
+                      "status": "published",
+                      "name-display": "Example KYC Flow"
+                    },
+                    "relationships": {
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
                         }
                       }
                     }
                   }
                 ]
               },
-              "created-at": "2024-02-15T23:48:17.732Z"
+              "created-at": "2024-03-15T18:30:00.000Z"
             }
           }
         }
@@ -68408,31 +68754,31 @@
         "value": {
           "data": {
             "type": "event",
-            "id": "evt_o9byQRbjygu76Jbtea9wuJ1boP7a",
+            "id": "evt_bCdEfGhIjKlMnOpQrStUvWxY",
             "attributes": {
               "name": "inquiry.started",
               "payload": {
                 "data": {
                   "type": "inquiry",
-                  "id": "inq_zEx4jL84ShbUyuwX6AzPSqt6",
+                  "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ",
                   "attributes": {
                     "status": "pending",
                     "reference-id": null,
                     "note": null,
                     "behaviors": {},
                     "tags": [],
-                    "creator": "creator@withpersona.com",
+                    "creator": "creator@example.com",
                     "reviewer-comment": null,
-                    "created-at": "2026-05-26T19:06:45.000Z",
-                    "started-at": "2026-05-26T19:07:01.000Z",
-                    "expires-at": "2026-05-27T19:07:01.000Z",
+                    "created-at": "2024-03-15T18:30:00.000Z",
+                    "updated-at": "2024-03-15T18:31:00.000Z",
+                    "started-at": "2024-03-15T18:31:00.000Z",
+                    "expires-at": "2024-03-16T18:30:00.000Z",
                     "completed-at": null,
                     "failed-at": null,
                     "marked-for-review-at": null,
                     "decisioned-at": null,
                     "expired-at": null,
                     "redacted-at": null,
-                    "updated-at": "2026-05-26T19:07:01.000Z",
                     "previous-step-name": "start",
                     "next-step-name": "verification_government_id",
                     "fields": {
@@ -68478,7 +68824,7 @@
                       },
                       "email-address": {
                         "type": "string",
-                        "value": "jane@doe.com"
+                        "value": "jane@example.com"
                       },
                       "phone-number": {
                         "type": "string",
@@ -68492,28 +68838,28 @@
                   },
                   "relationships": {
                     "account": {
-                      "data": {
-                        "type": "account",
-                        "id": "act_n2uq9eKMboaCQzu9ALWYcVdN"
-                      }
+                      "data": null
                     },
                     "template": {
-                      "data": {}
+                      "data": null
                     },
                     "inquiry-template": {
                       "data": {
                         "type": "inquiry-template",
-                        "id": "itmpl_p8ANAJy9iqadm2buF2xcVgqH"
+                        "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
                       }
                     },
                     "inquiry-template-version": {
                       "data": {
                         "type": "inquiry-template-version",
-                        "id": "itmplv_iXhqfNWqwYLAWs9G8Fm8hPfo"
+                        "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
                       }
                     },
+                    "transaction": {
+                      "data": null
+                    },
                     "reviewer": {
-                      "data": {}
+                      "data": null
                     },
                     "reports": {
                       "data": []
@@ -68522,7 +68868,12 @@
                       "data": []
                     },
                     "sessions": {
-                      "data": []
+                      "data": [
+                        {
+                          "type": "inquiry-session",
+                          "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF"
+                        }
+                      ]
                     },
                     "documents": {
                       "data": []
@@ -68535,23 +68886,79 @@
                 "included": [
                   {
                     "type": "inquiry-template",
-                    "id": "itmpl_p8ANAJy9iqadm2buF2xcVgqH",
+                    "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc",
                     "attributes": {
                       "status": "active",
-                      "name": "Government ID \u002B Selfie"
+                      "name": "Example KYC Template"
                     },
                     "relationships": {
                       "latest-published-version": {
                         "data": {
                           "type": "inquiry-template-version",
-                          "id": "itmplv_iXhqfNWqwYLAWs9G8Fm8hPfo"
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-template-version",
+                    "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA",
+                    "attributes": {
+                      "status": "published",
+                      "name-display": "Example KYC Flow"
+                    },
+                    "relationships": {
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-session",
+                    "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF",
+                    "attributes": {
+                      "status": "active",
+                      "created-at": "2024-03-15T18:31:00.000Z",
+                      "started-at": "2024-03-15T18:31:00.000Z",
+                      "expired-at": null,
+                      "ip-address": "192.0.2.4",
+                      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+                      "os-name": "Mac",
+                      "os-full-version": "10.15.7",
+                      "device-type": "desktop",
+                      "device-name": null,
+                      "browser-name": "Chrome",
+                      "browser-full-version": "115.0.0.0",
+                      "mobile-sdk-name": null,
+                      "mobile-sdk-full-version": null,
+                      "device-handoff-method": null,
+                      "is-proxy": false,
+                      "is-tor": false,
+                      "is-datacenter": false,
+                      "is-vpn": false,
+                      "threat-level": "low",
+                      "country-code": "US",
+                      "country-name": "United States",
+                      "region-code": "CA",
+                      "region-name": "California",
+                      "latitude": 37.7749,
+                      "longitude": -122.4194
+                    },
+                    "relationships": {
+                      "inquiry": {
+                        "data": {
+                          "type": "inquiry",
+                          "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ"
                         }
                       }
                     }
                   }
                 ]
               },
-              "created-at": "2026-05-26T19:07:01.732Z"
+              "created-at": "2024-03-15T18:31:00.100Z"
             }
           }
         }
@@ -68560,82 +68967,34 @@
         "value": {
           "data": {
             "type": "event",
-            "id": "evt_o9byQRbjygu76Jbtea9wuJ1boP7a",
+            "id": "evt_fGhIjKlMnOpQrStUvWxYzAbC",
             "attributes": {
               "name": "inquiry.expired",
               "payload": {
                 "data": {
                   "type": "inquiry",
-                  "id": "inq_zEx4jL84ShbUyuwX6AzPSqt6",
+                  "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ",
                   "attributes": {
                     "status": "expired",
-                    "reference-id": "abc-123",
+                    "reference-id": null,
                     "note": null,
                     "behaviors": {},
                     "tags": [],
-                    "creator": "creator@withpersona.com",
+                    "creator": "creator@example.com",
                     "reviewer-comment": null,
-                    "created-at": "2023-03-29T19:06:45.000Z",
-                    "started-at": "2023-03-30T19:07:01.000Z",
+                    "created-at": "2024-03-15T18:30:00.000Z",
+                    "updated-at": "2024-03-16T18:30:00.000Z",
+                    "started-at": null,
                     "expires-at": null,
                     "completed-at": null,
                     "failed-at": null,
                     "marked-for-review-at": null,
                     "decisioned-at": null,
-                    "expired-at": null,
+                    "expired-at": "2024-03-16T18:30:00.000Z",
                     "redacted-at": null,
-                    "updated-at": "2023-03-30T19:07:01.000Z",
-                    "previous-step-name": "start",
-                    "next-step-name": "verification_document",
+                    "previous-step-name": null,
+                    "next-step-name": "start",
                     "fields": {
-                      "name-first": {
-                        "type": "string",
-                        "value": "Jane"
-                      },
-                      "name-middle": {
-                        "type": "string",
-                        "value": "Marie"
-                      },
-                      "name-last": {
-                        "type": "string",
-                        "value": "Doe"
-                      },
-                      "address-street-1": {
-                        "type": "string",
-                        "value": "123 Main St"
-                      },
-                      "address-street-2": {
-                        "type": "string",
-                        "value": null
-                      },
-                      "address-city": {
-                        "type": "string",
-                        "value": "San Francisco"
-                      },
-                      "address-subdivision": {
-                        "type": "string",
-                        "value": "California"
-                      },
-                      "address-postal-code": {
-                        "type": "string",
-                        "value": "94111"
-                      },
-                      "address-country-code": {
-                        "type": "string",
-                        "value": "US"
-                      },
-                      "birthdate": {
-                        "type": "date",
-                        "value": "1995-09-08"
-                      },
-                      "email-address": {
-                        "type": "string",
-                        "value": "jane@doe.com"
-                      },
-                      "phone-number": {
-                        "type": "string",
-                        "value": null
-                      },
                       "identification-number": {
                         "type": "string",
                         "value": null
@@ -68644,39 +69003,34 @@
                   },
                   "relationships": {
                     "account": {
-                      "data": {
-                        "type": "account",
-                        "id": "act_n2uq9eKMboaCQzu9ALWYcVdN"
-                      }
+                      "data": null
                     },
                     "template": {
-                      "data": {}
+                      "data": null
                     },
                     "inquiry-template": {
                       "data": {
                         "type": "inquiry-template",
-                        "id": "itmpl_p8ANAJy9iqadm2buF2xcVgqH"
+                        "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
                       }
                     },
                     "inquiry-template-version": {
                       "data": {
                         "type": "inquiry-template-version",
-                        "id": "itmplv_iXhqfNWqwYLAWs9G8Fm8hPfo"
+                        "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
                       }
                     },
+                    "transaction": {
+                      "data": null
+                    },
                     "reviewer": {
-                      "data": {}
+                      "data": null
                     },
                     "reports": {
                       "data": []
                     },
                     "verifications": {
-                      "data": [
-                        {
-                          "type": "verification/database",
-                          "id": "ver_uHDiwtcx3htjajvEaeMjPQcE"
-                        }
-                      ]
+                      "data": []
                     },
                     "sessions": {
                       "data": []
@@ -68691,64 +69045,40 @@
                 },
                 "included": [
                   {
-                    "type": "inquiry-session",
-                    "id": "iqse_ABC123",
-                    "attributes": {
-                      "status": "expired",
-                      "created-at": "2023-07-25T04:15:20.000Z",
-                      "started-at": "2023-07-25T05:14:50.000Z",
-                      "expired-at": "2023-07-26T05:14:50.000Z",
-                      "ip-address": "127.0.0.1",
-                      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
-                      "os-name": "Mac",
-                      "os-full-version": "10.15.7",
-                      "device-type": "desktop",
-                      "device-name": null,
-                      "browser-name": "Chrome",
-                      "browser-full-version": "115.0.0.0",
-                      "mobile-sdk-name": null,
-                      "mobile-sdk-full-version": null,
-                      "device-handoff-method": null,
-                      "is-proxy": false,
-                      "is-tor": false,
-                      "is-datacenter": false,
-                      "is-vpn": false,
-                      "threat-level": "low",
-                      "country-code": "US",
-                      "country-name": "United States",
-                      "region-code": "CA",
-                      "region-name": "California",
-                      "latitude": 37.7688,
-                      "longitude": -122.262
-                    },
-                    "relationships": {
-                      "inquiry": {
-                        "data": {
-                          "type": "inquiry",
-                          "id": "inq_ABC123"
-                        }
-                      }
-                    }
-                  },
-                  {
                     "type": "inquiry-template",
-                    "id": "itmpl_ABC123",
+                    "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc",
                     "attributes": {
                       "status": "active",
-                      "name": "Twilio Desktop"
+                      "name": "Example KYC Template"
                     },
                     "relationships": {
                       "latest-published-version": {
                         "data": {
                           "type": "inquiry-template-version",
-                          "id": "itmplv_ABC123"
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-template-version",
+                    "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA",
+                    "attributes": {
+                      "status": "published",
+                      "name-display": "Example KYC Flow"
+                    },
+                    "relationships": {
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
                         }
                       }
                     }
                   }
                 ]
               },
-              "created-at": "2024-02-15T23:48:17.732Z"
+              "created-at": "2024-03-16T18:30:00.100Z"
             }
           }
         }
@@ -68757,33 +69087,33 @@
         "value": {
           "data": {
             "type": "event",
-            "id": "evt_o9byQRbjygu76Jbtea9wuJ1boP7a",
+            "id": "evt_dEfGhIjKlMnOpQrStUvWxYzA",
             "attributes": {
               "name": "inquiry.completed",
               "payload": {
                 "data": {
                   "type": "inquiry",
-                  "id": "inq_zEx4jL84ShbUyuwX6AzPSqt6",
+                  "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ",
                   "attributes": {
                     "status": "completed",
-                    "reference-id": "abc-123",
+                    "reference-id": null,
                     "note": null,
                     "behaviors": {},
                     "tags": [],
-                    "creator": "creator@withpersona.com",
+                    "creator": "creator@example.com",
                     "reviewer-comment": null,
-                    "created-at": "2023-03-29T19:06:45.000Z",
-                    "started-at": "2023-03-30T19:07:01.000Z",
-                    "updated-at": "2023-03-30T19:07:01.000Z",
+                    "created-at": "2024-03-15T18:30:00.000Z",
+                    "updated-at": "2024-03-15T18:35:00.000Z",
+                    "started-at": "2024-03-15T18:31:00.000Z",
                     "expires-at": null,
-                    "completed-at": null,
+                    "completed-at": "2024-03-15T18:35:00.000Z",
                     "failed-at": null,
                     "marked-for-review-at": null,
                     "decisioned-at": null,
                     "expired-at": null,
                     "redacted-at": null,
-                    "previous-step-name": "start",
-                    "next-step-name": "verification_document",
+                    "previous-step-name": "verification_selfie",
+                    "next-step-name": "success",
                     "fields": {
                       "name-first": {
                         "type": "string",
@@ -68827,7 +69157,7 @@
                       },
                       "email-address": {
                         "type": "string",
-                        "value": "jane@doe.com"
+                        "value": "jane@example.com"
                       },
                       "phone-number": {
                         "type": "string",
@@ -68843,26 +69173,29 @@
                     "account": {
                       "data": {
                         "type": "account",
-                        "id": "act_n2uq9eKMboaCQzu9ALWYcVdN"
+                        "id": "act_fJ8mQpDLrYvNcBzWk5HsAxRy"
                       }
                     },
                     "template": {
-                      "data": {}
+                      "data": null
                     },
                     "inquiry-template": {
                       "data": {
                         "type": "inquiry-template",
-                        "id": "itmpl_p8ANAJy9iqadm2buF2xcVgqH"
+                        "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
                       }
                     },
                     "inquiry-template-version": {
                       "data": {
                         "type": "inquiry-template-version",
-                        "id": "itmplv_iXhqfNWqwYLAWs9G8Fm8hPfo"
+                        "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
                       }
                     },
+                    "transaction": {
+                      "data": null
+                    },
                     "reviewer": {
-                      "data": {}
+                      "data": null
                     },
                     "reports": {
                       "data": []
@@ -68870,13 +69203,18 @@
                     "verifications": {
                       "data": [
                         {
-                          "type": "verification/database",
-                          "id": "ver_uHDiwtcx3htjajvEaeMjPQcE"
+                          "type": "verification/government-id",
+                          "id": "ver_X3kHmRqV9YpZ2nBwL5tGdJcE"
                         }
                       ]
                     },
                     "sessions": {
-                      "data": []
+                      "data": [
+                        {
+                          "type": "inquiry-session",
+                          "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF"
+                        }
+                      ]
                     },
                     "documents": {
                       "data": []
@@ -68888,14 +69226,46 @@
                 },
                 "included": [
                   {
+                    "type": "inquiry-template",
+                    "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc",
+                    "attributes": {
+                      "status": "active",
+                      "name": "Example KYC Template"
+                    },
+                    "relationships": {
+                      "latest-published-version": {
+                        "data": {
+                          "type": "inquiry-template-version",
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-template-version",
+                    "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA",
+                    "attributes": {
+                      "status": "published",
+                      "name-display": "Example KYC Flow"
+                    },
+                    "relationships": {
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                        }
+                      }
+                    }
+                  },
+                  {
                     "type": "inquiry-session",
-                    "id": "iqse_ABC123",
+                    "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF",
                     "attributes": {
                       "status": "expired",
-                      "created-at": "2023-07-25T04:15:20.000Z",
-                      "started-at": "2023-07-25T05:14:50.000Z",
-                      "expired-at": "2023-07-26T05:14:50.000Z",
-                      "ip-address": "127.0.0.1",
+                      "created-at": "2024-03-15T18:31:00.000Z",
+                      "started-at": "2024-03-15T18:31:00.000Z",
+                      "expired-at": "2024-03-15T18:35:00.000Z",
+                      "ip-address": "192.0.2.4",
                       "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
                       "os-name": "Mac",
                       "os-full-version": "10.15.7",
@@ -68915,37 +69285,21 @@
                       "country-name": "United States",
                       "region-code": "CA",
                       "region-name": "California",
-                      "latitude": 37.7688,
-                      "longitude": -122.262
+                      "latitude": 37.7749,
+                      "longitude": -122.4194
                     },
                     "relationships": {
                       "inquiry": {
                         "data": {
                           "type": "inquiry",
-                          "id": "inq_ABC123"
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "type": "inquiry-template",
-                    "id": "itmpl_ABC123",
-                    "attributes": {
-                      "status": "active",
-                      "name": "Twilio Desktop"
-                    },
-                    "relationships": {
-                      "latest-published-version": {
-                        "data": {
-                          "type": "inquiry-template-version",
-                          "id": "itmplv_ABC123"
+                          "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ"
                         }
                       }
                     }
                   }
                 ]
               },
-              "created-at": "2024-02-15T23:48:17.732Z"
+              "created-at": "2024-03-15T18:35:00.100Z"
             }
           }
         }
@@ -68954,33 +69308,33 @@
         "value": {
           "data": {
             "type": "event",
-            "id": "evt_o9byQRbjygu76Jbtea9wuJ1boP7a",
+            "id": "evt_eFgHiJkLmNoPqRsTuVwXyZaB",
             "attributes": {
               "name": "inquiry.failed",
               "payload": {
                 "data": {
                   "type": "inquiry",
-                  "id": "inq_zEx4jL84ShbUyuwX6AzPSqt6",
+                  "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ",
                   "attributes": {
                     "status": "failed",
-                    "reference-id": "abc-123",
+                    "reference-id": null,
                     "note": null,
                     "behaviors": {},
                     "tags": [],
-                    "creator": "creator@withpersona.com",
+                    "creator": "creator@example.com",
                     "reviewer-comment": null,
-                    "created-at": "2023-03-29T19:06:45.000Z",
-                    "started-at": "2023-03-30T19:07:01.000Z",
+                    "created-at": "2024-03-15T18:30:00.000Z",
+                    "updated-at": "2024-03-15T18:33:00.000Z",
+                    "started-at": "2024-03-15T18:31:00.000Z",
                     "expires-at": null,
                     "completed-at": null,
-                    "failed-at": null,
+                    "failed-at": "2024-03-15T18:33:00.000Z",
                     "marked-for-review-at": null,
                     "decisioned-at": null,
                     "expired-at": null,
                     "redacted-at": null,
-                    "updated-at": "2023-03-30T19:07:01.000Z",
-                    "previous-step-name": "start",
-                    "next-step-name": "verification_document",
+                    "previous-step-name": "verification_government_id",
+                    "next-step-name": "failure",
                     "fields": {
                       "name-first": {
                         "type": "string",
@@ -69024,7 +69378,7 @@
                       },
                       "email-address": {
                         "type": "string",
-                        "value": "jane@doe.com"
+                        "value": "jane@example.com"
                       },
                       "phone-number": {
                         "type": "string",
@@ -69040,26 +69394,29 @@
                     "account": {
                       "data": {
                         "type": "account",
-                        "id": "act_n2uq9eKMboaCQzu9ALWYcVdN"
+                        "id": "act_fJ8mQpDLrYvNcBzWk5HsAxRy"
                       }
                     },
                     "template": {
-                      "data": {}
+                      "data": null
                     },
                     "inquiry-template": {
                       "data": {
                         "type": "inquiry-template",
-                        "id": "itmpl_p8ANAJy9iqadm2buF2xcVgqH"
+                        "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
                       }
                     },
                     "inquiry-template-version": {
                       "data": {
                         "type": "inquiry-template-version",
-                        "id": "itmplv_iXhqfNWqwYLAWs9G8Fm8hPfo"
+                        "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
                       }
                     },
+                    "transaction": {
+                      "data": null
+                    },
                     "reviewer": {
-                      "data": {}
+                      "data": null
                     },
                     "reports": {
                       "data": []
@@ -69067,13 +69424,18 @@
                     "verifications": {
                       "data": [
                         {
-                          "type": "verification/database",
-                          "id": "ver_uHDiwtcx3htjajvEaeMjPQcE"
+                          "type": "verification/government-id",
+                          "id": "ver_X3kHmRqV9YpZ2nBwL5tGdJcE"
                         }
                       ]
                     },
                     "sessions": {
-                      "data": []
+                      "data": [
+                        {
+                          "type": "inquiry-session",
+                          "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF"
+                        }
+                      ]
                     },
                     "documents": {
                       "data": []
@@ -69085,14 +69447,46 @@
                 },
                 "included": [
                   {
+                    "type": "inquiry-template",
+                    "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc",
+                    "attributes": {
+                      "status": "active",
+                      "name": "Example KYC Template"
+                    },
+                    "relationships": {
+                      "latest-published-version": {
+                        "data": {
+                          "type": "inquiry-template-version",
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-template-version",
+                    "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA",
+                    "attributes": {
+                      "status": "published",
+                      "name-display": "Example KYC Flow"
+                    },
+                    "relationships": {
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                        }
+                      }
+                    }
+                  },
+                  {
                     "type": "inquiry-session",
-                    "id": "iqse_ABC123",
+                    "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF",
                     "attributes": {
                       "status": "expired",
-                      "created-at": "2023-07-25T04:15:20.000Z",
-                      "started-at": "2023-07-25T05:14:50.000Z",
-                      "expired-at": "2023-07-26T05:14:50.000Z",
-                      "ip-address": "127.0.0.1",
+                      "created-at": "2024-03-15T18:31:00.000Z",
+                      "started-at": "2024-03-15T18:31:00.000Z",
+                      "expired-at": "2024-03-15T18:33:00.000Z",
+                      "ip-address": "192.0.2.4",
                       "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
                       "os-name": "Mac",
                       "os-full-version": "10.15.7",
@@ -69112,37 +69506,21 @@
                       "country-name": "United States",
                       "region-code": "CA",
                       "region-name": "California",
-                      "latitude": 37.7688,
-                      "longitude": -122.262
+                      "latitude": 37.7749,
+                      "longitude": -122.4194
                     },
                     "relationships": {
                       "inquiry": {
                         "data": {
                           "type": "inquiry",
-                          "id": "inq_ABC123"
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "type": "inquiry-template",
-                    "id": "itmpl_ABC123",
-                    "attributes": {
-                      "status": "active",
-                      "name": "Twilio Desktop"
-                    },
-                    "relationships": {
-                      "latest-published-version": {
-                        "data": {
-                          "type": "inquiry-template-version",
-                          "id": "itmplv_ABC123"
+                          "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ"
                         }
                       }
                     }
                   }
                 ]
               },
-              "created-at": "2024-02-15T23:48:17.732Z"
+              "created-at": "2024-03-15T18:33:00.100Z"
             }
           }
         }
@@ -69151,33 +69529,33 @@
         "value": {
           "data": {
             "type": "event",
-            "id": "evt_o9byQRbjygu76Jbtea9wuJ1boP7a",
+            "id": "evt_gHiJkLmNoPqRsTuVwXyZaBcD",
             "attributes": {
               "name": "inquiry.marked-for-review",
               "payload": {
                 "data": {
                   "type": "inquiry",
-                  "id": "inq_zEx4jL84ShbUyuwX6AzPSqt6",
+                  "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ",
                   "attributes": {
                     "status": "needs_review",
-                    "reference-id": "abc-123",
+                    "reference-id": null,
                     "note": null,
                     "behaviors": {},
                     "tags": [],
-                    "creator": "creator@withpersona.com",
+                    "creator": "creator@example.com",
                     "reviewer-comment": null,
-                    "created-at": "2023-03-29T19:06:45.000Z",
-                    "started-at": "2023-03-30T19:07:01.000Z",
+                    "created-at": "2024-03-15T18:30:00.000Z",
+                    "updated-at": "2024-03-15T18:34:00.000Z",
+                    "started-at": "2024-03-15T18:31:00.000Z",
                     "expires-at": null,
                     "completed-at": null,
                     "failed-at": null,
-                    "marked-for-review-at": null,
+                    "marked-for-review-at": "2024-03-15T18:34:00.000Z",
                     "decisioned-at": null,
                     "expired-at": null,
                     "redacted-at": null,
-                    "updated-at": "2023-03-30T19:07:01.000Z",
-                    "previous-step-name": "start",
-                    "next-step-name": "verification_document",
+                    "previous-step-name": "verification_government_id",
+                    "next-step-name": "review",
                     "fields": {
                       "name-first": {
                         "type": "string",
@@ -69221,7 +69599,7 @@
                       },
                       "email-address": {
                         "type": "string",
-                        "value": "jane@doe.com"
+                        "value": "jane@example.com"
                       },
                       "phone-number": {
                         "type": "string",
@@ -69237,26 +69615,29 @@
                     "account": {
                       "data": {
                         "type": "account",
-                        "id": "act_n2uq9eKMboaCQzu9ALWYcVdN"
+                        "id": "act_fJ8mQpDLrYvNcBzWk5HsAxRy"
                       }
                     },
                     "template": {
-                      "data": {}
+                      "data": null
                     },
                     "inquiry-template": {
                       "data": {
                         "type": "inquiry-template",
-                        "id": "itmpl_p8ANAJy9iqadm2buF2xcVgqH"
+                        "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
                       }
                     },
                     "inquiry-template-version": {
                       "data": {
                         "type": "inquiry-template-version",
-                        "id": "itmplv_iXhqfNWqwYLAWs9G8Fm8hPfo"
+                        "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
                       }
                     },
+                    "transaction": {
+                      "data": null
+                    },
                     "reviewer": {
-                      "data": {}
+                      "data": null
                     },
                     "reports": {
                       "data": []
@@ -69264,13 +69645,18 @@
                     "verifications": {
                       "data": [
                         {
-                          "type": "verification/database",
-                          "id": "ver_uHDiwtcx3htjajvEaeMjPQcE"
+                          "type": "verification/government-id",
+                          "id": "ver_X3kHmRqV9YpZ2nBwL5tGdJcE"
                         }
                       ]
                     },
                     "sessions": {
-                      "data": []
+                      "data": [
+                        {
+                          "type": "inquiry-session",
+                          "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF"
+                        }
+                      ]
                     },
                     "documents": {
                       "data": []
@@ -69282,14 +69668,46 @@
                 },
                 "included": [
                   {
+                    "type": "inquiry-template",
+                    "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc",
+                    "attributes": {
+                      "status": "active",
+                      "name": "Example KYC Template"
+                    },
+                    "relationships": {
+                      "latest-published-version": {
+                        "data": {
+                          "type": "inquiry-template-version",
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-template-version",
+                    "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA",
+                    "attributes": {
+                      "status": "published",
+                      "name-display": "Example KYC Flow"
+                    },
+                    "relationships": {
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                        }
+                      }
+                    }
+                  },
+                  {
                     "type": "inquiry-session",
-                    "id": "iqse_ABC123",
+                    "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF",
                     "attributes": {
                       "status": "expired",
-                      "created-at": "2023-07-25T04:15:20.000Z",
-                      "started-at": "2023-07-25T05:14:50.000Z",
-                      "expired-at": "2023-07-26T05:14:50.000Z",
-                      "ip-address": "127.0.0.1",
+                      "created-at": "2024-03-15T18:31:00.000Z",
+                      "started-at": "2024-03-15T18:31:00.000Z",
+                      "expired-at": "2024-03-15T18:34:00.000Z",
+                      "ip-address": "192.0.2.4",
                       "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
                       "os-name": "Mac",
                       "os-full-version": "10.15.7",
@@ -69309,37 +69727,21 @@
                       "country-name": "United States",
                       "region-code": "CA",
                       "region-name": "California",
-                      "latitude": 37.7688,
-                      "longitude": -122.262
+                      "latitude": 37.7749,
+                      "longitude": -122.4194
                     },
                     "relationships": {
                       "inquiry": {
                         "data": {
                           "type": "inquiry",
-                          "id": "inq_ABC123"
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "type": "inquiry-template",
-                    "id": "itmpl_ABC123",
-                    "attributes": {
-                      "status": "active",
-                      "name": "Twilio Desktop"
-                    },
-                    "relationships": {
-                      "latest-published-version": {
-                        "data": {
-                          "type": "inquiry-template-version",
-                          "id": "itmplv_ABC123"
+                          "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ"
                         }
                       }
                     }
                   }
                 ]
               },
-              "created-at": "2024-02-15T23:48:17.732Z"
+              "created-at": "2024-03-15T18:34:00.100Z"
             }
           }
         }
@@ -69348,33 +69750,33 @@
         "value": {
           "data": {
             "type": "event",
-            "id": "evt_o9byQRbjygu76Jbtea9wuJ1boP7a",
+            "id": "evt_hIjKlMnOpQrStUvWxYzAbCdE",
             "attributes": {
               "name": "inquiry.approved",
               "payload": {
                 "data": {
                   "type": "inquiry",
-                  "id": "inq_zEx4jL84ShbUyuwX6AzPSqt6",
+                  "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ",
                   "attributes": {
                     "status": "approved",
-                    "reference-id": "abc-123",
+                    "reference-id": null,
                     "note": null,
                     "behaviors": {},
                     "tags": [],
-                    "creator": "creator@withpersona.com",
+                    "creator": "creator@example.com",
                     "reviewer-comment": null,
-                    "created-at": "2023-03-29T19:06:45.000Z",
-                    "started-at": "2023-03-30T19:07:01.000Z",
+                    "created-at": "2024-03-15T18:30:00.000Z",
+                    "updated-at": "2024-03-15T18:35:00.000Z",
+                    "started-at": "2024-03-15T18:31:00.000Z",
                     "expires-at": null,
                     "completed-at": null,
                     "failed-at": null,
                     "marked-for-review-at": null,
-                    "decisioned-at": null,
+                    "decisioned-at": "2024-03-15T18:35:00.000Z",
                     "expired-at": null,
                     "redacted-at": null,
-                    "updated-at": "2023-03-30T19:07:01.000Z",
-                    "previous-step-name": "start",
-                    "next-step-name": "verification_document",
+                    "previous-step-name": "verification_selfie",
+                    "next-step-name": "success",
                     "fields": {
                       "name-first": {
                         "type": "string",
@@ -69418,7 +69820,7 @@
                       },
                       "email-address": {
                         "type": "string",
-                        "value": "jane@doe.com"
+                        "value": "jane@example.com"
                       },
                       "phone-number": {
                         "type": "string",
@@ -69434,26 +69836,32 @@
                     "account": {
                       "data": {
                         "type": "account",
-                        "id": "act_n2uq9eKMboaCQzu9ALWYcVdN"
+                        "id": "act_fJ8mQpDLrYvNcBzWk5HsAxRy"
                       }
                     },
                     "template": {
-                      "data": {}
+                      "data": null
                     },
                     "inquiry-template": {
                       "data": {
                         "type": "inquiry-template",
-                        "id": "itmpl_p8ANAJy9iqadm2buF2xcVgqH"
+                        "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
                       }
                     },
                     "inquiry-template-version": {
                       "data": {
                         "type": "inquiry-template-version",
-                        "id": "itmplv_iXhqfNWqwYLAWs9G8Fm8hPfo"
+                        "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
                       }
                     },
+                    "transaction": {
+                      "data": null
+                    },
                     "reviewer": {
-                      "data": {}
+                      "data": {
+                        "type": "workflow-run",
+                        "id": "wfr_M7vXNqRpL3kBzW4tYcHdJgFs"
+                      }
                     },
                     "reports": {
                       "data": []
@@ -69461,13 +69869,18 @@
                     "verifications": {
                       "data": [
                         {
-                          "type": "verification/database",
-                          "id": "ver_uHDiwtcx3htjajvEaeMjPQcE"
+                          "type": "verification/government-id",
+                          "id": "ver_X3kHmRqV9YpZ2nBwL5tGdJcE"
                         }
                       ]
                     },
                     "sessions": {
-                      "data": []
+                      "data": [
+                        {
+                          "type": "inquiry-session",
+                          "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF"
+                        }
+                      ]
                     },
                     "documents": {
                       "data": []
@@ -69479,14 +69892,46 @@
                 },
                 "included": [
                   {
+                    "type": "inquiry-template",
+                    "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc",
+                    "attributes": {
+                      "status": "active",
+                      "name": "Example KYC Template"
+                    },
+                    "relationships": {
+                      "latest-published-version": {
+                        "data": {
+                          "type": "inquiry-template-version",
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-template-version",
+                    "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA",
+                    "attributes": {
+                      "status": "published",
+                      "name-display": "Example KYC Flow"
+                    },
+                    "relationships": {
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                        }
+                      }
+                    }
+                  },
+                  {
                     "type": "inquiry-session",
-                    "id": "iqse_ABC123",
+                    "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF",
                     "attributes": {
                       "status": "expired",
-                      "created-at": "2023-07-25T04:15:20.000Z",
-                      "started-at": "2023-07-25T05:14:50.000Z",
-                      "expired-at": "2023-07-26T05:14:50.000Z",
-                      "ip-address": "127.0.0.1",
+                      "created-at": "2024-03-15T18:31:00.000Z",
+                      "started-at": "2024-03-15T18:31:00.000Z",
+                      "expired-at": "2024-03-15T18:35:00.000Z",
+                      "ip-address": "192.0.2.4",
                       "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
                       "os-name": "Mac",
                       "os-full-version": "10.15.7",
@@ -69506,37 +69951,21 @@
                       "country-name": "United States",
                       "region-code": "CA",
                       "region-name": "California",
-                      "latitude": 37.7688,
-                      "longitude": -122.262
+                      "latitude": 37.7749,
+                      "longitude": -122.4194
                     },
                     "relationships": {
                       "inquiry": {
                         "data": {
                           "type": "inquiry",
-                          "id": "inq_ABC123"
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "type": "inquiry-template",
-                    "id": "itmpl_ABC123",
-                    "attributes": {
-                      "status": "active",
-                      "name": "Twilio Desktop"
-                    },
-                    "relationships": {
-                      "latest-published-version": {
-                        "data": {
-                          "type": "inquiry-template-version",
-                          "id": "itmplv_ABC123"
+                          "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ"
                         }
                       }
                     }
                   }
                 ]
               },
-              "created-at": "2024-02-15T23:48:17.732Z"
+              "created-at": "2024-03-15T18:35:00.100Z"
             }
           }
         }
@@ -69545,33 +69974,33 @@
         "value": {
           "data": {
             "type": "event",
-            "id": "evt_o9byQRbjygu76Jbtea9wuJ1boP7a",
+            "id": "evt_iJkLmNoPqRsTuVwXyZaBcDeF",
             "attributes": {
               "name": "inquiry.declined",
               "payload": {
                 "data": {
                   "type": "inquiry",
-                  "id": "inq_zEx4jL84ShbUyuwX6AzPSqt6",
+                  "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ",
                   "attributes": {
                     "status": "declined",
-                    "reference-id": "abc-123",
+                    "reference-id": null,
                     "note": null,
                     "behaviors": {},
                     "tags": [],
-                    "creator": "creator@withpersona.com",
+                    "creator": "creator@example.com",
                     "reviewer-comment": null,
-                    "created-at": "2023-03-29T19:06:45.000Z",
-                    "started-at": "2023-03-30T19:07:01.000Z",
+                    "created-at": "2024-03-15T18:30:00.000Z",
+                    "updated-at": "2024-03-15T18:35:04.000Z",
+                    "started-at": "2024-03-15T18:31:00.000Z",
                     "expires-at": null,
-                    "completed-at": null,
+                    "completed-at": "2024-03-15T18:34:00.000Z",
                     "failed-at": null,
                     "marked-for-review-at": null,
-                    "decisioned-at": null,
+                    "decisioned-at": "2024-03-15T18:35:04.000Z",
                     "expired-at": null,
                     "redacted-at": null,
-                    "updated-at": "2023-03-30T19:07:01.000Z",
-                    "previous-step-name": "start",
-                    "next-step-name": "verification_document",
+                    "previous-step-name": "verification_government_id",
+                    "next-step-name": "failure",
                     "fields": {
                       "name-first": {
                         "type": "string",
@@ -69615,7 +70044,7 @@
                       },
                       "email-address": {
                         "type": "string",
-                        "value": "jane@doe.com"
+                        "value": "jane@example.com"
                       },
                       "phone-number": {
                         "type": "string",
@@ -69631,26 +70060,32 @@
                     "account": {
                       "data": {
                         "type": "account",
-                        "id": "act_n2uq9eKMboaCQzu9ALWYcVdN"
+                        "id": "act_fJ8mQpDLrYvNcBzWk5HsAxRy"
                       }
                     },
                     "template": {
-                      "data": {}
+                      "data": null
                     },
                     "inquiry-template": {
                       "data": {
                         "type": "inquiry-template",
-                        "id": "itmpl_p8ANAJy9iqadm2buF2xcVgqH"
+                        "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
                       }
                     },
                     "inquiry-template-version": {
                       "data": {
                         "type": "inquiry-template-version",
-                        "id": "itmplv_iXhqfNWqwYLAWs9G8Fm8hPfo"
+                        "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
                       }
                     },
+                    "transaction": {
+                      "data": null
+                    },
                     "reviewer": {
-                      "data": {}
+                      "data": {
+                        "type": "workflow-run",
+                        "id": "wfr_M7vXNqRpL3kBzW4tYcHdJgFs"
+                      }
                     },
                     "reports": {
                       "data": []
@@ -69658,13 +70093,18 @@
                     "verifications": {
                       "data": [
                         {
-                          "type": "verification/database",
-                          "id": "ver_uHDiwtcx3htjajvEaeMjPQcE"
+                          "type": "verification/government-id",
+                          "id": "ver_X3kHmRqV9YpZ2nBwL5tGdJcE"
                         }
                       ]
                     },
                     "sessions": {
-                      "data": []
+                      "data": [
+                        {
+                          "type": "inquiry-session",
+                          "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF"
+                        }
+                      ]
                     },
                     "documents": {
                       "data": []
@@ -69676,14 +70116,46 @@
                 },
                 "included": [
                   {
+                    "type": "inquiry-template",
+                    "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc",
+                    "attributes": {
+                      "status": "active",
+                      "name": "Example KYC Template"
+                    },
+                    "relationships": {
+                      "latest-published-version": {
+                        "data": {
+                          "type": "inquiry-template-version",
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-template-version",
+                    "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA",
+                    "attributes": {
+                      "status": "published",
+                      "name-display": "Example KYC Flow"
+                    },
+                    "relationships": {
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                        }
+                      }
+                    }
+                  },
+                  {
                     "type": "inquiry-session",
-                    "id": "iqse_ABC123",
+                    "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF",
                     "attributes": {
                       "status": "expired",
-                      "created-at": "2023-07-25T04:15:20.000Z",
-                      "started-at": "2023-07-25T05:14:50.000Z",
-                      "expired-at": "2023-07-26T05:14:50.000Z",
-                      "ip-address": "127.0.0.1",
+                      "created-at": "2024-03-15T18:31:00.000Z",
+                      "started-at": "2024-03-15T18:31:00.000Z",
+                      "expired-at": "2024-03-15T18:35:00.000Z",
+                      "ip-address": "192.0.2.4",
                       "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
                       "os-name": "Mac",
                       "os-full-version": "10.15.7",
@@ -69703,37 +70175,21 @@
                       "country-name": "United States",
                       "region-code": "CA",
                       "region-name": "California",
-                      "latitude": 37.7688,
-                      "longitude": -122.262
+                      "latitude": 37.7749,
+                      "longitude": -122.4194
                     },
                     "relationships": {
                       "inquiry": {
                         "data": {
                           "type": "inquiry",
-                          "id": "inq_ABC123"
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "type": "inquiry-template",
-                    "id": "itmpl_ABC123",
-                    "attributes": {
-                      "status": "active",
-                      "name": "Twilio Desktop"
-                    },
-                    "relationships": {
-                      "latest-published-version": {
-                        "data": {
-                          "type": "inquiry-template-version",
-                          "id": "itmplv_ABC123"
+                          "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ"
                         }
                       }
                     }
                   }
                 ]
               },
-              "created-at": "2024-02-15T23:48:17.732Z"
+              "created-at": "2024-03-15T18:35:04.100Z"
             }
           }
         }
@@ -69742,33 +70198,33 @@
         "value": {
           "data": {
             "type": "event",
-            "id": "evt_o9byQRbjygu76Jbtea9wuJ1boP7a",
+            "id": "evt_cDeFgHiJkLmNoPqRsTuVwXyZ",
             "attributes": {
               "name": "inquiry.transitioned",
               "payload": {
                 "data": {
                   "type": "inquiry",
-                  "id": "inq_zEx4jL84ShbUyuwX6AzPSqt6",
+                  "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ",
                   "attributes": {
                     "status": "pending",
-                    "reference-id": "abc-123",
+                    "reference-id": null,
                     "note": null,
                     "behaviors": {},
                     "tags": [],
-                    "creator": "creator@withpersona.com",
+                    "creator": "creator@example.com",
                     "reviewer-comment": null,
-                    "created-at": "2023-03-29T19:06:45.000Z",
-                    "started-at": "2023-03-30T19:07:01.000Z",
-                    "expires-at": "2023-03-31T19:07:01.000Z",
+                    "created-at": "2024-03-15T18:30:00.000Z",
+                    "updated-at": "2024-03-15T18:32:00.000Z",
+                    "started-at": "2024-03-15T18:31:00.000Z",
+                    "expires-at": "2024-03-16T18:30:00.000Z",
                     "completed-at": null,
                     "failed-at": null,
                     "marked-for-review-at": null,
                     "decisioned-at": null,
                     "expired-at": null,
                     "redacted-at": null,
-                    "updated-at": "2023-03-30T19:07:01.000Z",
-                    "previous-step-name": "start",
-                    "next-step-name": "verification_document",
+                    "previous-step-name": "verification_government_id",
+                    "next-step-name": "verification_selfie",
                     "fields": {
                       "name-first": {
                         "type": "string",
@@ -69812,7 +70268,7 @@
                       },
                       "email-address": {
                         "type": "string",
-                        "value": "jane@doe.com"
+                        "value": "jane@example.com"
                       },
                       "phone-number": {
                         "type": "string",
@@ -69826,28 +70282,28 @@
                   },
                   "relationships": {
                     "account": {
-                      "data": {
-                        "type": "account",
-                        "id": "act_n2uq9eKMboaCQzu9ALWYcVdN"
-                      }
+                      "data": null
                     },
                     "template": {
-                      "data": {}
+                      "data": null
                     },
                     "inquiry-template": {
                       "data": {
                         "type": "inquiry-template",
-                        "id": "itmpl_p8ANAJy9iqadm2buF2xcVgqH"
+                        "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
                       }
                     },
                     "inquiry-template-version": {
                       "data": {
                         "type": "inquiry-template-version",
-                        "id": "itmplv_iXhqfNWqwYLAWs9G8Fm8hPfo"
+                        "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
                       }
                     },
+                    "transaction": {
+                      "data": null
+                    },
                     "reviewer": {
-                      "data": {}
+                      "data": null
                     },
                     "reports": {
                       "data": []
@@ -69855,13 +70311,18 @@
                     "verifications": {
                       "data": [
                         {
-                          "type": "verification/database",
-                          "id": "ver_uHDiwtcx3htjajvEaeMjPQcE"
+                          "type": "verification/government-id",
+                          "id": "ver_X3kHmRqV9YpZ2nBwL5tGdJcE"
                         }
                       ]
                     },
                     "sessions": {
-                      "data": []
+                      "data": [
+                        {
+                          "type": "inquiry-session",
+                          "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF"
+                        }
+                      ]
                     },
                     "documents": {
                       "data": []
@@ -69873,14 +70334,46 @@
                 },
                 "included": [
                   {
-                    "type": "inquiry-session",
-                    "id": "iqse_ABC123",
+                    "type": "inquiry-template",
+                    "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc",
                     "attributes": {
-                      "status": "expired",
-                      "created-at": "2023-07-25T04:15:20.000Z",
-                      "started-at": "2023-07-25T05:14:50.000Z",
-                      "expired-at": "2023-07-26T05:14:50.000Z",
-                      "ip-address": "127.0.0.1",
+                      "status": "active",
+                      "name": "Example KYC Template"
+                    },
+                    "relationships": {
+                      "latest-published-version": {
+                        "data": {
+                          "type": "inquiry-template-version",
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-template-version",
+                    "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA",
+                    "attributes": {
+                      "status": "published",
+                      "name-display": "Example KYC Flow"
+                    },
+                    "relationships": {
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-session",
+                    "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF",
+                    "attributes": {
+                      "status": "active",
+                      "created-at": "2024-03-15T18:31:00.000Z",
+                      "started-at": "2024-03-15T18:31:00.000Z",
+                      "expired-at": null,
+                      "ip-address": "192.0.2.4",
                       "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
                       "os-name": "Mac",
                       "os-full-version": "10.15.7",
@@ -69900,37 +70393,862 @@
                       "country-name": "United States",
                       "region-code": "CA",
                       "region-name": "California",
-                      "latitude": 37.7688,
-                      "longitude": -122.262
+                      "latitude": 37.7749,
+                      "longitude": -122.4194
                     },
                     "relationships": {
                       "inquiry": {
                         "data": {
                           "type": "inquiry",
-                          "id": "inq_ABC123"
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "type": "inquiry-template",
-                    "id": "itmpl_ABC123",
-                    "attributes": {
-                      "status": "active",
-                      "name": "Twilio Desktop"
-                    },
-                    "relationships": {
-                      "latest-published-version": {
-                        "data": {
-                          "type": "inquiry-template-version",
-                          "id": "itmplv_ABC123"
+                          "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ"
                         }
                       }
                     }
                   }
                 ]
               },
-              "created-at": "2024-02-15T23:48:17.732Z"
+              "created-at": "2024-03-15T18:32:00.100Z"
+            }
+          }
+        }
+      },
+      "inquiry-redacted-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_jKlMnOpQrStUvWxYzAbCdEfG",
+            "attributes": {
+              "name": "inquiry.redacted",
+              "payload": {
+                "data": {
+                  "type": "inquiry",
+                  "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ",
+                  "attributes": {
+                    "status": "approved",
+                    "reference-id": null,
+                    "note": null,
+                    "behaviors": {},
+                    "tags": [],
+                    "creator": "creator@example.com",
+                    "reviewer-comment": null,
+                    "created-at": "2024-03-15T18:30:00.000Z",
+                    "updated-at": "2024-09-15T00:00:00.000Z",
+                    "started-at": "2024-03-15T18:31:00.000Z",
+                    "expires-at": null,
+                    "completed-at": null,
+                    "failed-at": null,
+                    "marked-for-review-at": null,
+                    "decisioned-at": "2024-03-15T18:35:00.000Z",
+                    "expired-at": null,
+                    "redacted-at": "2024-09-15T00:00:00.000Z",
+                    "previous-step-name": "verification_selfie",
+                    "next-step-name": "success",
+                    "fields": {
+                      "name-first": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "name-last": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "birthdate": {
+                        "type": "date",
+                        "value": null
+                      },
+                      "address-street-1": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "address-city": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "address-subdivision": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "address-postal-code": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "address-country-code": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "email-address": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "phone-number": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "identification-number": {
+                        "type": "string",
+                        "value": null
+                      }
+                    }
+                  },
+                  "relationships": {
+                    "account": {
+                      "data": {
+                        "type": "account",
+                        "id": "act_fJ8mQpDLrYvNcBzWk5HsAxRy"
+                      }
+                    },
+                    "template": {
+                      "data": null
+                    },
+                    "inquiry-template": {
+                      "data": {
+                        "type": "inquiry-template",
+                        "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                      }
+                    },
+                    "inquiry-template-version": {
+                      "data": {
+                        "type": "inquiry-template-version",
+                        "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                      }
+                    },
+                    "transaction": {
+                      "data": null
+                    },
+                    "reviewer": {
+                      "data": {
+                        "type": "workflow-run",
+                        "id": "wfr_M7vXNqRpL3kBzW4tYcHdJgFs"
+                      }
+                    },
+                    "reports": {
+                      "data": []
+                    },
+                    "verifications": {
+                      "data": [
+                        {
+                          "type": "verification/government-id",
+                          "id": "ver_X3kHmRqV9YpZ2nBwL5tGdJcE"
+                        }
+                      ]
+                    },
+                    "sessions": {
+                      "data": []
+                    },
+                    "documents": {
+                      "data": []
+                    },
+                    "selfies": {
+                      "data": []
+                    }
+                  }
+                },
+                "included": [
+                  {
+                    "type": "inquiry-template",
+                    "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc",
+                    "attributes": {
+                      "status": "active",
+                      "name": "Example KYC Template"
+                    },
+                    "relationships": {
+                      "latest-published-version": {
+                        "data": {
+                          "type": "inquiry-template-version",
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-template-version",
+                    "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA",
+                    "attributes": {
+                      "status": "published",
+                      "name-display": "Example KYC Flow"
+                    },
+                    "relationships": {
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "created-at": "2024-09-15T00:00:00.100Z"
+            }
+          }
+        }
+      },
+      "inquiry-reusable-persona-created-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_kLmNoPqRsTuVwXyZaBcDeFgH",
+            "attributes": {
+              "name": "inquiry.reusable-persona-created",
+              "payload": {
+                "data": {
+                  "type": "inquiry",
+                  "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ",
+                  "attributes": {
+                    "status": "approved",
+                    "reference-id": null,
+                    "note": null,
+                    "behaviors": {},
+                    "tags": [],
+                    "creator": "creator@example.com",
+                    "reviewer-comment": null,
+                    "created-at": "2024-03-15T18:30:00.000Z",
+                    "updated-at": "2024-03-15T18:35:00.000Z",
+                    "started-at": "2024-03-15T18:31:00.000Z",
+                    "expires-at": null,
+                    "completed-at": null,
+                    "failed-at": null,
+                    "marked-for-review-at": null,
+                    "decisioned-at": "2024-03-15T18:35:00.000Z",
+                    "expired-at": null,
+                    "redacted-at": null,
+                    "previous-step-name": "verification_selfie",
+                    "next-step-name": "success",
+                    "fields": {
+                      "name-first": {
+                        "type": "string",
+                        "value": "Jane"
+                      },
+                      "name-middle": {
+                        "type": "string",
+                        "value": "Marie"
+                      },
+                      "name-last": {
+                        "type": "string",
+                        "value": "Doe"
+                      },
+                      "address-street-1": {
+                        "type": "string",
+                        "value": "123 Main St"
+                      },
+                      "address-street-2": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "address-city": {
+                        "type": "string",
+                        "value": "San Francisco"
+                      },
+                      "address-subdivision": {
+                        "type": "string",
+                        "value": "California"
+                      },
+                      "address-postal-code": {
+                        "type": "string",
+                        "value": "94111"
+                      },
+                      "address-country-code": {
+                        "type": "string",
+                        "value": "US"
+                      },
+                      "birthdate": {
+                        "type": "date",
+                        "value": "1995-09-08"
+                      },
+                      "email-address": {
+                        "type": "string",
+                        "value": "jane@example.com"
+                      },
+                      "phone-number": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "identification-number": {
+                        "type": "string",
+                        "value": null
+                      }
+                    }
+                  },
+                  "relationships": {
+                    "account": {
+                      "data": {
+                        "type": "account",
+                        "id": "act_fJ8mQpDLrYvNcBzWk5HsAxRy"
+                      }
+                    },
+                    "template": {
+                      "data": null
+                    },
+                    "inquiry-template": {
+                      "data": {
+                        "type": "inquiry-template",
+                        "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                      }
+                    },
+                    "inquiry-template-version": {
+                      "data": {
+                        "type": "inquiry-template-version",
+                        "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                      }
+                    },
+                    "transaction": {
+                      "data": null
+                    },
+                    "reviewer": {
+                      "data": {
+                        "type": "workflow-run",
+                        "id": "wfr_M7vXNqRpL3kBzW4tYcHdJgFs"
+                      }
+                    },
+                    "reports": {
+                      "data": []
+                    },
+                    "verifications": {
+                      "data": [
+                        {
+                          "type": "verification/government-id",
+                          "id": "ver_X3kHmRqV9YpZ2nBwL5tGdJcE"
+                        }
+                      ]
+                    },
+                    "sessions": {
+                      "data": [
+                        {
+                          "type": "inquiry-session",
+                          "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF"
+                        }
+                      ]
+                    },
+                    "documents": {
+                      "data": []
+                    },
+                    "selfies": {
+                      "data": []
+                    }
+                  }
+                },
+                "included": [
+                  {
+                    "type": "inquiry-template",
+                    "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc",
+                    "attributes": {
+                      "status": "active",
+                      "name": "Example KYC Template"
+                    },
+                    "relationships": {
+                      "latest-published-version": {
+                        "data": {
+                          "type": "inquiry-template-version",
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-template-version",
+                    "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA",
+                    "attributes": {
+                      "status": "published",
+                      "name-display": "Example KYC Flow"
+                    },
+                    "relationships": {
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-session",
+                    "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF",
+                    "attributes": {
+                      "status": "expired",
+                      "created-at": "2024-03-15T18:31:00.000Z",
+                      "started-at": "2024-03-15T18:31:00.000Z",
+                      "expired-at": "2024-03-15T18:35:00.000Z",
+                      "ip-address": "192.0.2.4",
+                      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+                      "os-name": "Mac",
+                      "os-full-version": "10.15.7",
+                      "device-type": "desktop",
+                      "device-name": null,
+                      "browser-name": "Chrome",
+                      "browser-full-version": "115.0.0.0",
+                      "mobile-sdk-name": null,
+                      "mobile-sdk-full-version": null,
+                      "device-handoff-method": null,
+                      "is-proxy": false,
+                      "is-tor": false,
+                      "is-datacenter": false,
+                      "is-vpn": false,
+                      "threat-level": "low",
+                      "country-code": "US",
+                      "country-name": "United States",
+                      "region-code": "CA",
+                      "region-name": "California",
+                      "latitude": 37.7749,
+                      "longitude": -122.4194
+                    },
+                    "relationships": {
+                      "inquiry": {
+                        "data": {
+                          "type": "inquiry",
+                          "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "created-at": "2024-03-15T18:35:01.100Z"
+            }
+          }
+        }
+      },
+      "inquiry-reusable-persona-used-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_lMnOpQrStUvWxYzAbCdEfGhI",
+            "attributes": {
+              "name": "inquiry.reusable-persona-used",
+              "payload": {
+                "data": {
+                  "type": "inquiry",
+                  "id": "inq_qR5sT7vXNwJpZkLcBdFmYhGe",
+                  "attributes": {
+                    "status": "approved",
+                    "reference-id": null,
+                    "note": null,
+                    "behaviors": {},
+                    "tags": [],
+                    "creator": "creator@example.com",
+                    "reviewer-comment": null,
+                    "created-at": "2024-08-22T14:00:00.000Z",
+                    "updated-at": "2024-08-22T14:00:20.000Z",
+                    "started-at": "2024-08-22T14:00:10.000Z",
+                    "expires-at": null,
+                    "completed-at": null,
+                    "failed-at": null,
+                    "marked-for-review-at": null,
+                    "decisioned-at": "2024-08-22T14:00:20.000Z",
+                    "expired-at": null,
+                    "redacted-at": null,
+                    "previous-step-name": "reusable_persona_match",
+                    "next-step-name": "success",
+                    "fields": {
+                      "name-first": {
+                        "type": "string",
+                        "value": "Jane"
+                      },
+                      "name-middle": {
+                        "type": "string",
+                        "value": "Marie"
+                      },
+                      "name-last": {
+                        "type": "string",
+                        "value": "Doe"
+                      },
+                      "address-street-1": {
+                        "type": "string",
+                        "value": "123 Main St"
+                      },
+                      "address-street-2": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "address-city": {
+                        "type": "string",
+                        "value": "San Francisco"
+                      },
+                      "address-subdivision": {
+                        "type": "string",
+                        "value": "California"
+                      },
+                      "address-postal-code": {
+                        "type": "string",
+                        "value": "94111"
+                      },
+                      "address-country-code": {
+                        "type": "string",
+                        "value": "US"
+                      },
+                      "birthdate": {
+                        "type": "date",
+                        "value": "1995-09-08"
+                      },
+                      "email-address": {
+                        "type": "string",
+                        "value": "jane@example.com"
+                      },
+                      "phone-number": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "identification-number": {
+                        "type": "string",
+                        "value": null
+                      }
+                    }
+                  },
+                  "relationships": {
+                    "account": {
+                      "data": {
+                        "type": "account",
+                        "id": "act_fJ8mQpDLrYvNcBzWk5HsAxRy"
+                      }
+                    },
+                    "template": {
+                      "data": null
+                    },
+                    "inquiry-template": {
+                      "data": {
+                        "type": "inquiry-template",
+                        "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                      }
+                    },
+                    "inquiry-template-version": {
+                      "data": {
+                        "type": "inquiry-template-version",
+                        "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                      }
+                    },
+                    "transaction": {
+                      "data": null
+                    },
+                    "reviewer": {
+                      "data": {
+                        "type": "workflow-run",
+                        "id": "wfr_M7vXNqRpL3kBzW4tYcHdJgFs"
+                      }
+                    },
+                    "reports": {
+                      "data": []
+                    },
+                    "verifications": {
+                      "data": []
+                    },
+                    "sessions": {
+                      "data": [
+                        {
+                          "type": "inquiry-session",
+                          "id": "iqse_TvW9bXcKpRyZmJ4LnQsHfDvN"
+                        }
+                      ]
+                    },
+                    "documents": {
+                      "data": []
+                    },
+                    "selfies": {
+                      "data": []
+                    }
+                  }
+                },
+                "included": [
+                  {
+                    "type": "inquiry-template",
+                    "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc",
+                    "attributes": {
+                      "status": "active",
+                      "name": "Example KYC Template"
+                    },
+                    "relationships": {
+                      "latest-published-version": {
+                        "data": {
+                          "type": "inquiry-template-version",
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-template-version",
+                    "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA",
+                    "attributes": {
+                      "status": "published",
+                      "name-display": "Example KYC Flow"
+                    },
+                    "relationships": {
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-session",
+                    "id": "iqse_TvW9bXcKpRyZmJ4LnQsHfDvN",
+                    "attributes": {
+                      "status": "expired",
+                      "created-at": "2024-08-22T14:00:10.000Z",
+                      "started-at": "2024-08-22T14:00:10.000Z",
+                      "expired-at": "2024-08-22T14:00:20.000Z",
+                      "ip-address": "192.0.2.4",
+                      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+                      "os-name": "Mac",
+                      "os-full-version": "10.15.7",
+                      "device-type": "desktop",
+                      "device-name": null,
+                      "browser-name": "Chrome",
+                      "browser-full-version": "115.0.0.0",
+                      "mobile-sdk-name": null,
+                      "mobile-sdk-full-version": null,
+                      "device-handoff-method": null,
+                      "is-proxy": false,
+                      "is-tor": false,
+                      "is-datacenter": false,
+                      "is-vpn": false,
+                      "threat-level": "low",
+                      "country-code": "US",
+                      "country-name": "United States",
+                      "region-code": "CA",
+                      "region-name": "California",
+                      "latitude": 37.7749,
+                      "longitude": -122.4194
+                    },
+                    "relationships": {
+                      "inquiry": {
+                        "data": {
+                          "type": "inquiry",
+                          "id": "inq_qR5sT7vXNwJpZkLcBdFmYhGe"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "created-at": "2024-08-22T14:00:20.100Z"
+            }
+          }
+        }
+      },
+      "inquiry-updated-tags-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_mNoPqRsTuVwXyZaBcDeFgHiJ",
+            "attributes": {
+              "name": "inquiry.updated-tags",
+              "payload": {
+                "data": {
+                  "type": "inquiry",
+                  "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ",
+                  "attributes": {
+                    "status": "approved",
+                    "reference-id": null,
+                    "note": null,
+                    "behaviors": {},
+                    "tags": [
+                      "high_value_customer",
+                      "manual_review_complete"
+                    ],
+                    "creator": "creator@example.com",
+                    "reviewer-comment": null,
+                    "created-at": "2024-03-15T18:30:00.000Z",
+                    "updated-at": "2024-03-16T09:15:00.000Z",
+                    "started-at": "2024-03-15T18:31:00.000Z",
+                    "expires-at": null,
+                    "completed-at": null,
+                    "failed-at": null,
+                    "marked-for-review-at": null,
+                    "decisioned-at": "2024-03-15T18:35:00.000Z",
+                    "expired-at": null,
+                    "redacted-at": null,
+                    "previous-step-name": "verification_selfie",
+                    "next-step-name": "success",
+                    "fields": {
+                      "name-first": {
+                        "type": "string",
+                        "value": "Jane"
+                      },
+                      "name-middle": {
+                        "type": "string",
+                        "value": "Marie"
+                      },
+                      "name-last": {
+                        "type": "string",
+                        "value": "Doe"
+                      },
+                      "address-street-1": {
+                        "type": "string",
+                        "value": "123 Main St"
+                      },
+                      "address-street-2": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "address-city": {
+                        "type": "string",
+                        "value": "San Francisco"
+                      },
+                      "address-subdivision": {
+                        "type": "string",
+                        "value": "California"
+                      },
+                      "address-postal-code": {
+                        "type": "string",
+                        "value": "94111"
+                      },
+                      "address-country-code": {
+                        "type": "string",
+                        "value": "US"
+                      },
+                      "birthdate": {
+                        "type": "date",
+                        "value": "1995-09-08"
+                      },
+                      "email-address": {
+                        "type": "string",
+                        "value": "jane@example.com"
+                      },
+                      "phone-number": {
+                        "type": "string",
+                        "value": null
+                      },
+                      "identification-number": {
+                        "type": "string",
+                        "value": null
+                      }
+                    }
+                  },
+                  "relationships": {
+                    "account": {
+                      "data": {
+                        "type": "account",
+                        "id": "act_fJ8mQpDLrYvNcBzWk5HsAxRy"
+                      }
+                    },
+                    "template": {
+                      "data": null
+                    },
+                    "inquiry-template": {
+                      "data": {
+                        "type": "inquiry-template",
+                        "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                      }
+                    },
+                    "inquiry-template-version": {
+                      "data": {
+                        "type": "inquiry-template-version",
+                        "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                      }
+                    },
+                    "transaction": {
+                      "data": null
+                    },
+                    "reviewer": {
+                      "data": {
+                        "type": "workflow-run",
+                        "id": "wfr_M7vXNqRpL3kBzW4tYcHdJgFs"
+                      }
+                    },
+                    "reports": {
+                      "data": []
+                    },
+                    "verifications": {
+                      "data": [
+                        {
+                          "type": "verification/government-id",
+                          "id": "ver_X3kHmRqV9YpZ2nBwL5tGdJcE"
+                        }
+                      ]
+                    },
+                    "sessions": {
+                      "data": [
+                        {
+                          "type": "inquiry-session",
+                          "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF"
+                        }
+                      ]
+                    },
+                    "documents": {
+                      "data": []
+                    },
+                    "selfies": {
+                      "data": []
+                    }
+                  }
+                },
+                "included": [
+                  {
+                    "type": "inquiry-template",
+                    "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc",
+                    "attributes": {
+                      "status": "active",
+                      "name": "Example KYC Template"
+                    },
+                    "relationships": {
+                      "latest-published-version": {
+                        "data": {
+                          "type": "inquiry-template-version",
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-template-version",
+                    "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA",
+                    "attributes": {
+                      "status": "published",
+                      "name-display": "Example KYC Flow"
+                    },
+                    "relationships": {
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "inquiry-session",
+                    "id": "iqse_NkPwRtQv5xB8cYm2L4jZdHsF",
+                    "attributes": {
+                      "status": "expired",
+                      "created-at": "2024-03-15T18:31:00.000Z",
+                      "started-at": "2024-03-15T18:31:00.000Z",
+                      "expired-at": "2024-03-15T18:35:00.000Z",
+                      "ip-address": "192.0.2.4",
+                      "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+                      "os-name": "Mac",
+                      "os-full-version": "10.15.7",
+                      "device-type": "desktop",
+                      "device-name": null,
+                      "browser-name": "Chrome",
+                      "browser-full-version": "115.0.0.0",
+                      "mobile-sdk-name": null,
+                      "mobile-sdk-full-version": null,
+                      "device-handoff-method": null,
+                      "is-proxy": false,
+                      "is-tor": false,
+                      "is-datacenter": false,
+                      "is-vpn": false,
+                      "threat-level": "low",
+                      "country-code": "US",
+                      "country-name": "United States",
+                      "region-code": "CA",
+                      "region-name": "California",
+                      "latitude": 37.7749,
+                      "longitude": -122.4194
+                    },
+                    "relationships": {
+                      "inquiry": {
+                        "data": {
+                          "type": "inquiry",
+                          "id": "inq_kT4xVnR2bPmYwL9sTgD3cExZ"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "created-at": "2024-03-16T09:15:00.100Z"
             }
           }
         }
@@ -72096,6 +73414,298 @@
                 "included": []
               },
               "created-at": "2024-02-16T15:12:47.732Z"
+            }
+          }
+        }
+      },
+      "workflow-run-created-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_62Ax9zhSjpkngkHWdgdETqLWGV8k",
+            "attributes": {
+              "name": "workflow-run.created",
+              "payload": {
+                "data": {
+                  "type": "workflow-run",
+                  "id": "wfr_GVocwJmMpw6viz29eijVoc5rit7u",
+                  "attributes": {
+                    "status": "in_progress",
+                    "created-at": "2025-09-10T20:42:28.032Z",
+                    "completed-at": null
+                  },
+                  "relationships": {
+                    "creator": {
+                      "data": {
+                        "type": "event",
+                        "id": "evt_3VghhbvDc7UuUNT8uZrqZjsk"
+                      }
+                    },
+                    "workflow": {
+                      "data": {
+                        "type": "workflow",
+                        "id": "wfl_6DHtVFHizt77UZt8XX4yt9Hp"
+                      }
+                    },
+                    "workflow-version": {
+                      "data": {
+                        "type": "workflow-version",
+                        "id": "wfv_2mmawjLXMzWs91uz9oKhp4Wy"
+                      }
+                    }
+                  },
+                  "meta": {
+                    "processing-time-seconds": null
+                  }
+                },
+                "included": [
+                  {
+                    "type": "workflow",
+                    "id": "wfl_6DHtVFHizt77UZt8XX4yt9Hp",
+                    "attributes": {
+                      "name": "KYC Review Workflow",
+                      "status": "running",
+                      "created-at": "2023-11-01T12:00:00.000Z"
+                    },
+                    "relationships": {
+                      "latest-published-version": {
+                        "data": {
+                          "type": "workflow-version",
+                          "id": "wfv_2mmawjLXMzWs91uz9oKhp4Wy"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "workflow-version",
+                    "id": "wfv_2mmawjLXMzWs91uz9oKhp4Wy",
+                    "attributes": {
+                      "description": "Initial published version",
+                      "status": "published",
+                      "created-at": "2023-11-01T12:05:00.000Z"
+                    },
+                    "relationships": {
+                      "workflow": {
+                        "data": {
+                          "type": "workflow",
+                          "id": "wfl_6DHtVFHizt77UZt8XX4yt9Hp"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "event",
+                    "id": "evt_3VghhbvDc7UuUNT8uZrqZjsk",
+                    "attributes": {
+                      "name": "inquiry.completed",
+                      "payload": {
+                        "data": {
+                          "type": "inquiry",
+                          "id": "inq_3VghhbvDc7UuUNT8uZrqZjsk",
+                          "attributes": {},
+                          "relationships": {}
+                        }
+                      },
+                      "created-at": "2025-09-10T20:42:27.500Z",
+                      "context": {}
+                    }
+                  }
+                ]
+              },
+              "created-at": "2025-09-10T20:42:28.100Z",
+              "context": {}
+            }
+          }
+        }
+      },
+      "workflow-run-errored-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_b9kfWbmzixpGLSo7qZmEaWFREWiL",
+            "attributes": {
+              "name": "workflow-run.errored",
+              "payload": {
+                "data": {
+                  "type": "workflow-run",
+                  "id": "wfr_85ZjhktrgWeQx6FEb9sGfvyPNFWz",
+                  "attributes": {
+                    "status": "errored",
+                    "created-at": "2025-11-15T13:32:31.172Z",
+                    "completed-at": null
+                  },
+                  "relationships": {
+                    "creator": {
+                      "data": {
+                        "type": "event",
+                        "id": "evt_3VghhbvDc7UuUNT8uZrqZjsk"
+                      }
+                    },
+                    "workflow": {
+                      "data": {
+                        "type": "workflow",
+                        "id": "wfl_p6YpUH4NhqVf8n4ducnoPSVa"
+                      }
+                    },
+                    "workflow-version": {
+                      "data": {
+                        "type": "workflow-version",
+                        "id": "wfv_744igEoBXwB7UG2eFt994aUEcziK"
+                      }
+                    }
+                  },
+                  "meta": {
+                    "processing-time-seconds": null
+                  }
+                },
+                "included": [
+                  {
+                    "type": "workflow",
+                    "id": "wfl_p6YpUH4NhqVf8n4ducnoPSVa",
+                    "attributes": {
+                      "name": "KYC Review Workflow",
+                      "status": "running",
+                      "created-at": "2023-11-01T12:00:00.000Z"
+                    },
+                    "relationships": {
+                      "latest-published-version": {
+                        "data": {
+                          "type": "workflow-version",
+                          "id": "wfv_744igEoBXwB7UG2eFt994aUEcziK"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "workflow-version",
+                    "id": "wfv_744igEoBXwB7UG2eFt994aUEcziK",
+                    "attributes": {
+                      "description": "Initial published version",
+                      "status": "published",
+                      "created-at": "2023-11-01T12:05:00.000Z"
+                    },
+                    "relationships": {
+                      "workflow": {
+                        "data": {
+                          "type": "workflow",
+                          "id": "wfl_p6YpUH4NhqVf8n4ducnoPSVa"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "event",
+                    "id": "evt_3VghhbvDc7UuUNT8uZrqZjsk",
+                    "attributes": {
+                      "name": "inquiry.completed",
+                      "payload": {
+                        "data": {
+                          "type": "inquiry",
+                          "id": "inq_3VghhbvDc7UuUNT8uZrqZjsk",
+                          "attributes": {},
+                          "relationships": {}
+                        }
+                      },
+                      "created-at": "2025-11-15T13:32:30.500Z",
+                      "context": {}
+                    }
+                  }
+                ]
+              },
+              "created-at": "2025-11-15T13:32:35.000Z",
+              "context": {}
+            }
+          }
+        }
+      },
+      "workflow-run-resumed-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_9NuK6zXpT4dRoAyO1vUkF5eG",
+            "attributes": {
+              "name": "workflow-run.resumed",
+              "payload": {
+                "data": {
+                  "type": "workflow-run",
+                  "id": "wfr_85ZjhktrgWeQx6FEb9sGfvyPNFWz",
+                  "attributes": {
+                    "status": "in_progress",
+                    "created-at": "2025-11-15T13:32:31.172Z",
+                    "completed-at": null
+                  },
+                  "relationships": {
+                    "creator": {
+                      "data": {
+                        "type": "user",
+                        "id": "user_3VghhbvDc7UuUNT8uZrqZjsk"
+                      }
+                    },
+                    "workflow": {
+                      "data": {
+                        "type": "workflow",
+                        "id": "wfl_p6YpUH4NhqVf8n4ducnoPSVa"
+                      }
+                    },
+                    "workflow-version": {
+                      "data": {
+                        "type": "workflow-version",
+                        "id": "wfv_744igEoBXwB7UG2eFt994aUEcziK"
+                      }
+                    }
+                  },
+                  "meta": {
+                    "processing-time-seconds": null
+                  }
+                },
+                "included": [
+                  {
+                    "type": "workflow",
+                    "id": "wfl_p6YpUH4NhqVf8n4ducnoPSVa",
+                    "attributes": {
+                      "name": "KYC Review Workflow",
+                      "status": "running",
+                      "created-at": "2023-11-01T12:00:00.000Z"
+                    },
+                    "relationships": {
+                      "latest-published-version": {
+                        "data": {
+                          "type": "workflow-version",
+                          "id": "wfv_744igEoBXwB7UG2eFt994aUEcziK"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "workflow-version",
+                    "id": "wfv_744igEoBXwB7UG2eFt994aUEcziK",
+                    "attributes": {
+                      "description": "Initial published version",
+                      "status": "published",
+                      "created-at": "2023-11-01T12:05:00.000Z"
+                    },
+                    "relationships": {
+                      "workflow": {
+                        "data": {
+                          "type": "workflow",
+                          "id": "wfl_p6YpUH4NhqVf8n4ducnoPSVa"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "user",
+                    "id": "user_3VghhbvDc7UuUNT8uZrqZjsk",
+                    "attributes": {
+                      "email-address": "jane@example.com",
+                      "name-first": "Jane",
+                      "name-last": "Doe"
+                    }
+                  }
+                ]
+              },
+              "created-at": "2025-11-16T10:05:00.000Z",
+              "context": {}
             }
           }
         }

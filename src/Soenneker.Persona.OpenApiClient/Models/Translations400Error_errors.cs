@@ -9,43 +9,42 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class InquiryRelationshipsReviewer_data : IAdditionalDataHolder, IParsable
+    public partial class Translations400Error_errors : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The id property</summary>
+        /// <summary>The details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public string? Details { get; set; }
 #nullable restore
 #else
-        public string Id { get; set; }
+        public string Details { get; set; }
 #endif
-        /// <summary>One of `user`, `workflow`, or `workflow-run`.</summary>
+        /// <summary>Additional metadata about the error</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.Translations400Error_errors_meta? Meta { get; set; }
 #nullable restore
 #else
-        public string Type { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.Translations400Error_errors_meta Meta { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer_data"/> and sets the default values.
-        /// </summary>
-        public InquiryRelationshipsReviewer_data()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>Bad Request</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Title { get; set; }
+#nullable restore
+#else
+        public string Title { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer_data"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.Translations400Error_errors"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer_data CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.Translations400Error_errors CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer_data();
+            return new global::Soenneker.Persona.OpenApiClient.Models.Translations400Error_errors();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +54,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "id", n => { Id = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "details", n => { Details = n.GetStringValue(); } },
+                { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Translations400Error_errors_meta>(global::Soenneker.Persona.OpenApiClient.Models.Translations400Error_errors_meta.CreateFromDiscriminatorValue); } },
+                { "title", n => { Title = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -66,9 +66,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteStringValue("details", Details);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Translations400Error_errors_meta>("meta", Meta);
+            writer.WriteStringValue("title", Title);
         }
     }
 }

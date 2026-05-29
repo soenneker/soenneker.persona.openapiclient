@@ -52,7 +52,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReports Reports { get; set; }
 #endif
-        /// <summary>The reviewer property</summary>
+        /// <summary>&quot;Actor that decisioned the Inquiry. `data` is `null` while the Inquiry has not been decisioned. Once decisioned, `data.type` and `data.id` identify the reviewer: - `user` + `user_*` — a dashboard user reviewed and decisioned the Inquiry. - `workflow` + `wfl_*` — Workflows 1.0 auto-decisioned the Inquiry. - `workflow-run` + `wfr_*` — Workflows 2.0 auto-decisioned the Inquiry  (the dominant case in automation-heavy organizations).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer? Reviewer { get; set; }

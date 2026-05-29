@@ -34,7 +34,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.ShareTokens.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ShareTokenItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/connect/share-tokens/{share%2Dtoken%2Did}{?fields*,include*}", pathParameters)
+        public ShareTokenItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/connect/share-tokens/{share%2Dtoken%2Did}{?fields*,include*,peek%2Dsource%2Ddata*}", pathParameters)
         {
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.ShareTokens.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ShareTokenItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/connect/share-tokens/{share%2Dtoken%2Did}{?fields*,include*}", rawUrl)
+        public ShareTokenItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/connect/share-tokens/{share%2Dtoken%2Did}{?fields*,include*,peek%2Dsource%2Ddata*}", rawUrl)
         {
         }
         /// <summary>
@@ -55,6 +55,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.ShareTokens.Item
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAShareToken200401Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAShareToken200403Error">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAShareToken200404Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAShareToken200409Error">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAShareToken200429Error">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,6 +73,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.ShareTokens.Item
                 { "401", global::Soenneker.Persona.OpenApiClient.Models.RetrieveAShareToken200401Error.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Persona.OpenApiClient.Models.RetrieveAShareToken200403Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Persona.OpenApiClient.Models.RetrieveAShareToken200404Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.RetrieveAShareToken200409Error.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.RetrieveAShareToken200429Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAShareToken200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.RetrieveAShareToken200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
@@ -130,6 +132,9 @@ namespace Soenneker.Persona.OpenApiClient.Connect.ShareTokens.Item
             [QueryParameter("include")]
             public string Include { get; set; }
 #endif
+            /// <summary>When `true`, the caller is the destination organization, and the destination organizationhas access to the source data peek capability, the response&apos;s`data.attributes.source-data` carries a PII-filtered source-data envelope. Defaults to`false`; omitted from list responses regardless.</summary>
+            [QueryParameter("peek%2Dsource%2Ddata")]
+            public bool? PeekSourceData { get; set; }
         }
     }
 }

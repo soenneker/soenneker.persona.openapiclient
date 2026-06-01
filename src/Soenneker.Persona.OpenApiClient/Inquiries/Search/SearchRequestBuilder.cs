@@ -37,39 +37,39 @@ namespace Soenneker.Persona.OpenApiClient.Inquiries.Search
         /// Search for inquiries using a flexible query language.## Search vs. List EndpointsThe Search and List endpoints serve different purposes and have distinct performance characteristics.Use the **Search** endpoint (`POST /inquiries/search`) when you need to perform complex queries with boolean logic (AND/OR/NOT), filter on multiple statuses simultaneously, or apply multiple conditions at once. Search is optimized for flexible querying and is faster than paginating through all resources when looking for specific records.Use the **List** endpoint (`GET /inquiries`) for simple listing with basic filters like reference ID.## Data FreshnessDo not use search for read-after-write flows because the data will not be immediately available to search.Under normal operating conditions, data is searchable within approximately 1 minute of creation or modification.Propagation of new or updated data could be delayed during an outage.For workflows that require immediate data availability after creating or updating an inquiry, use the List Inquiries endpoint instead.### Searchable AttributesThe following attributes can be used in query predicates:| Attribute | Description ||-----------|-------------|| `status` | Inquiry status (e.g., `pending`, `completed`, `approved`, `declined`) || `created_at` | Inquiry creation timestamp || `updated_at` | Inquiry last updated timestamp || `reference_id` | Reference ID associated with the inquiry&apos;s account || `inquiry_template_id` | Inquiry template ID (e.g., `itmpl_ABC123`) |
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiries/search-inquiries" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200Response?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.SearchInquiriesRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200Response> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.SearchInquiriesRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Search for inquiries using a flexible query language.## Search vs. List EndpointsThe Search and List endpoints serve different purposes and have distinct performance characteristics.Use the **Search** endpoint (`POST /inquiries/search`) when you need to perform complex queries with boolean logic (AND/OR/NOT), filter on multiple statuses simultaneously, or apply multiple conditions at once. Search is optimized for flexible querying and is faster than paginating through all resources when looking for specific records.Use the **List** endpoint (`GET /inquiries`) for simple listing with basic filters like reference ID.## Data FreshnessDo not use search for read-after-write flows because the data will not be immediately available to search.Under normal operating conditions, data is searchable within approximately 1 minute of creation or modification.Propagation of new or updated data could be delayed during an outage.For workflows that require immediate data availability after creating or updating an inquiry, use the List Inquiries endpoint instead.### Searchable AttributesThe following attributes can be used in query predicates:| Attribute | Description ||-----------|-------------|| `status` | Inquiry status (e.g., `pending`, `completed`, `approved`, `declined`) || `created_at` | Inquiry creation timestamp || `updated_at` | Inquiry last updated timestamp || `reference_id` | Reference ID associated with the inquiry&apos;s account || `inquiry_template_id` | Inquiry template ID (e.g., `itmpl_ABC123`) |
@@ -79,11 +79,11 @@ namespace Soenneker.Persona.OpenApiClient.Inquiries.Search
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.SearchInquiriesRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.SearchInquiries body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.SearchInquiriesRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Search.SearchRequestBuilder.SearchRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -20,14 +20,14 @@ namespace Soenneker.Persona.OpenApiClient.WorkflowRuns
     {
         /// <summary>Gets an item from the Soenneker.Persona.OpenApiClient.workflowRuns.item collection</summary>
         /// <param name="position">Workflow Run&apos;s ID (starts with &quot;wfr_&quot;)</param>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.WorkflowRuns.Item.WorkflowRunItemRequestBuilder"/></returns>
-        public global::Soenneker.Persona.OpenApiClient.WorkflowRuns.Item.WorkflowRunItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.WorkflowRuns.Item.WithWorkflowRunItemRequestBuilder"/></returns>
+        public global::Soenneker.Persona.OpenApiClient.WorkflowRuns.Item.WithWorkflowRunItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("workflow%2Drun%2Did", position);
-                return new global::Soenneker.Persona.OpenApiClient.WorkflowRuns.Item.WorkflowRunItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("workflowRunId", position);
+                return new global::Soenneker.Persona.OpenApiClient.WorkflowRuns.Item.WithWorkflowRunItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -50,31 +50,31 @@ namespace Soenneker.Persona.OpenApiClient.WorkflowRuns
         /// Returns a list of your environment&apos;s workflow runs. Results are returned in reverse chronological order, with the most recently created objects first.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/workflow-runs/list-all-workflow-runs" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.WorkflowRuns.WorkflowRunsRequestBuilder.WorkflowRunsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.WorkflowRuns.WorkflowRunsRequestBuilder.WorkflowRunsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.WorkflowRuns.WorkflowRunsRequestBuilder.WorkflowRunsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.WorkflowRuns.WorkflowRunsRequestBuilder.WorkflowRunsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200403Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your environment&apos;s workflow runs. Results are returned in reverse chronological order, with the most recently created objects first.

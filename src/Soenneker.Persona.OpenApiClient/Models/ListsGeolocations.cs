@@ -16,10 +16,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The attributes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocations_attributes? Attributes { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocationsAttributes? Attributes { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocations_attributes Attributes { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocationsAttributes Attributes { get; set; }
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,7 +57,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocations_attributes>(global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocations_attributes.CreateFromDiscriminatorValue); } },
+                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocationsAttributes>(global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocationsAttributes.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocationsRelationships>(global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocationsRelationships.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocations_type>(); } },
@@ -70,7 +70,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocations_attributes>("attributes", Attributes);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocationsAttributes>("attributes", Attributes);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocationsRelationships>("relationships", Relationships);
             writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocations_type>("type", Type);

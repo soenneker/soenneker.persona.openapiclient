@@ -35,10 +35,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The ignoreList property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributes_ignoreList>? IgnoreList { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItem>? IgnoreList { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributes_ignoreList> IgnoreList { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItem> IgnoreList { get; set; }
 #endif
         /// <summary>Whether or not this report has been run more than once</summary>
         public bool? IsContinuous { get; set; }
@@ -47,10 +47,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The query property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributes_query? Query { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2Query? Query { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributes_query Query { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2Query Query { get; set; }
 #endif
         /// <summary>The time the report was redacted in ISO 8601 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,10 +71,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributes_result>? Result { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2ResultItem>? Result { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributes_result> Result { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2ResultItem> Result { get; set; }
 #endif
         /// <summary>The status of the reportPossible values:- pending- ready- erroredDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -120,13 +120,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "completed-at", n => { CompletedAt = n.GetStringValue(); } },
                 { "created-at", n => { CreatedAt = n.GetStringValue(); } },
                 { "has-match", n => { HasMatch = n.GetBoolValue(); } },
-                { "ignore-list", n => { IgnoreList = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributes_ignoreList>(global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributes_ignoreList.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "ignore-list", n => { IgnoreList = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
                 { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
-                { "query", n => { Query = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributes_query>(global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributes_query.CreateFromDiscriminatorValue); } },
+                { "query", n => { Query = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2Query>(global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2Query.CreateFromDiscriminatorValue); } },
                 { "redacted-at", n => { RedactedAt = n.GetStringValue(); } },
                 { "report-template-version-name", n => { ReportTemplateVersionName = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributes_result>(global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributes_result.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "result", n => { Result = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2ResultItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2ResultItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
@@ -141,13 +141,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("completed-at", CompletedAt);
             writer.WriteStringValue("created-at", CreatedAt);
             writer.WriteBoolValue("has-match", HasMatch);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributes_ignoreList>("ignore-list", IgnoreList);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItem>("ignore-list", IgnoreList);
             writer.WriteBoolValue("is-continuous", IsContinuous);
             writer.WriteBoolValue("is-recurring", IsRecurring);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributes_query>("query", Query);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2Query>("query", Query);
             writer.WriteStringValue("redacted-at", RedactedAt);
             writer.WriteStringValue("report-template-version-name", ReportTemplateVersionName);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributes_result>("result", Result);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2ResultItem>("result", Result);
             writer.WriteStringValue("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteAdditionalData(AdditionalData);

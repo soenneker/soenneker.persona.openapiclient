@@ -15,10 +15,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Risk signals surfaced to enterprise customers. Specific keys are notenumerated in the public spec and may be added or removed over time.Contact your Persona account team for more information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributes_behaviors? Behaviors { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesBehaviors? Behaviors { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributes_behaviors Behaviors { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesBehaviors Behaviors { get; set; }
 #endif
         /// <summary>The completedAt property</summary>
         public DateTimeOffset? CompletedAt { get; set; }
@@ -130,7 +130,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "behaviors", n => { Behaviors = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributes_behaviors>(global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributes_behaviors.CreateFromDiscriminatorValue); } },
+                { "behaviors", n => { Behaviors = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesBehaviors>(global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesBehaviors.CreateFromDiscriminatorValue); } },
                 { "completed-at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "creator", n => { Creator = n.GetStringValue(); } },
@@ -159,7 +159,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributes_behaviors>("behaviors", Behaviors);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesBehaviors>("behaviors", Behaviors);
             writer.WriteDateTimeOffsetValue("completed-at", CompletedAt);
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteStringValue("creator", Creator);

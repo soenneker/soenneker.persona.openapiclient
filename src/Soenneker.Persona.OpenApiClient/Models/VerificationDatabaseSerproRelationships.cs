@@ -49,10 +49,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The selfie linked to the Verification</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerproRelationships_selfie? Selfie { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerproRelationshipsAllOf2Selfie? Selfie { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerproRelationships_selfie Selfie { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerproRelationshipsAllOf2Selfie Selfie { get; set; }
 #endif
         /// <summary>The template property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -115,7 +115,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "inquiry", n => { Inquiry = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry.CreateFromDiscriminatorValue); } },
                 { "inquiry-template", n => { InquiryTemplate = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate.CreateFromDiscriminatorValue); } },
                 { "inquiry-template-version", n => { InquiryTemplateVersion = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion.CreateFromDiscriminatorValue); } },
-                { "selfie", n => { Selfie = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerproRelationships_selfie>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerproRelationships_selfie.CreateFromDiscriminatorValue); } },
+                { "selfie", n => { Selfie = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerproRelationshipsAllOf2Selfie>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerproRelationshipsAllOf2Selfie.CreateFromDiscriminatorValue); } },
                 { "template", n => { Template = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTemplate>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTemplate.CreateFromDiscriminatorValue); } },
                 { "transaction", n => { Transaction = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTransaction>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTransaction.CreateFromDiscriminatorValue); } },
                 { "verification-template", n => { VerificationTemplate = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplate>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplate.CreateFromDiscriminatorValue); } },
@@ -133,7 +133,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry>("inquiry", Inquiry);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate>("inquiry-template", InquiryTemplate);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion>("inquiry-template-version", InquiryTemplateVersion);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerproRelationships_selfie>("selfie", Selfie);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerproRelationshipsAllOf2Selfie>("selfie", Selfie);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTemplate>("template", Template);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTransaction>("transaction", Transaction);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplate>("verification-template", VerificationTemplate);

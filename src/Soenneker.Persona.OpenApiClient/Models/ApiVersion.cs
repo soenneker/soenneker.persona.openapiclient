@@ -9,35 +9,35 @@ namespace Soenneker.Persona.OpenApiClient.Models
     {
         [EnumMember(Value = "2025-12-08")]
         #pragma warning disable CS1591
-        TwoZeroTwoFiveOneTwoZeroEight,
+        Value20251208,
         #pragma warning restore CS1591
         [EnumMember(Value = "2025-10-27")]
         #pragma warning disable CS1591
-        TwoZeroTwoFiveOneZeroTwoSeven,
+        Value20251027,
         #pragma warning restore CS1591
         [EnumMember(Value = "2023-01-05")]
         #pragma warning disable CS1591
-        TwoZeroTwoThreeZeroOneZeroFive,
+        Value20230105,
         #pragma warning restore CS1591
         [EnumMember(Value = "2022-09-01")]
         #pragma warning disable CS1591
-        TwoZeroTwoTwoZeroNineZeroOne,
+        Value20220901,
         #pragma warning restore CS1591
         [EnumMember(Value = "2021-08-18")]
         #pragma warning disable CS1591
-        TwoZeroTwoOneZeroEightOneEight,
+        Value20210818,
         #pragma warning restore CS1591
         [EnumMember(Value = "2021-07-05")]
         #pragma warning disable CS1591
-        TwoZeroTwoOneZeroSevenZeroFive,
+        Value20210705,
         #pragma warning restore CS1591
         [EnumMember(Value = "2021-02-21")]
         #pragma warning disable CS1591
-        TwoZeroTwoOneZeroTwoTwoOne,
+        Value20210221,
         #pragma warning restore CS1591
         [EnumMember(Value = "2020-05-18")]
         #pragma warning disable CS1591
-        TwoZeroTwoZeroZeroFiveOneEight,
+        Value20200518,
         #pragma warning restore CS1591
     }
 }

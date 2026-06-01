@@ -37,37 +37,37 @@ namespace Soenneker.Persona.OpenApiClient.Importer.Accounts
         /// Bulk import accounts by uploading a CSV file.Each row should be the details for a new account. The columns we allow are:  - reference_id  - name_first  - name_middle  - name_last  - birthdate  - social_security_number  - tags
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/importers/import-an-account" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Importer.Accounts.AccountsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImportAnAccount201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Accounts400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Accounts401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Accounts403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Accounts409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Accounts422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Accounts429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Importer.Accounts.AccountsPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Import_an_accountmultipart_form_data body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.Accounts.AccountsRequestBuilder.AccountsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ImportAnAccount201Response?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.ImportAnAccountFormDataRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.Accounts.AccountsRequestBuilder.AccountsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Importer.Accounts.AccountsPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.Import_an_accountmultipart_form_data body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.Accounts.AccountsRequestBuilder.AccountsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ImportAnAccount201Response> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.ImportAnAccountFormDataRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.Accounts.AccountsRequestBuilder.AccountsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Accounts400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Accounts401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Accounts403Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Accounts409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Accounts422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Accounts429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Importer.Accounts.AccountsPostResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Importer.Accounts.AccountsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ImportAnAccount201Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ImportAnAccount201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Bulk import accounts by uploading a CSV file.Each row should be the details for a new account. The columns we allow are:  - reference_id  - name_first  - name_middle  - name_last  - birthdate  - social_security_number  - tags
@@ -77,11 +77,11 @@ namespace Soenneker.Persona.OpenApiClient.Importer.Accounts
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Import_an_accountmultipart_form_data body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.Accounts.AccountsRequestBuilder.AccountsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.ImportAnAccountFormDataRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.Accounts.AccountsRequestBuilder.AccountsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.Import_an_accountmultipart_form_data body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.Accounts.AccountsRequestBuilder.AccountsRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.ImportAnAccountFormDataRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.Accounts.AccountsRequestBuilder.AccountsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -17,14 +17,14 @@ namespace Soenneker.Persona.OpenApiClient.TransactionTypes
     {
         /// <summary>Gets an item from the Soenneker.Persona.OpenApiClient.transactionTypes.item collection</summary>
         /// <param name="position">ID of the Transaction Type to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.TransactionTypes.Item.TransactionTypeItemRequestBuilder"/></returns>
-        public global::Soenneker.Persona.OpenApiClient.TransactionTypes.Item.TransactionTypeItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.TransactionTypes.Item.WithTransactionTypeItemRequestBuilder"/></returns>
+        public global::Soenneker.Persona.OpenApiClient.TransactionTypes.Item.WithTransactionTypeItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("transaction%2Dtype%2Did", position);
-                return new global::Soenneker.Persona.OpenApiClient.TransactionTypes.Item.TransactionTypeItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("transactionTypeId", position);
+                return new global::Soenneker.Persona.OpenApiClient.TransactionTypes.Item.WithTransactionTypeItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

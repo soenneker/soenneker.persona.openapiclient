@@ -27,10 +27,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The searchLists property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateWatchlistAttributes_searchLists>? SearchLists { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateWatchlistAttributesAllOf2SearchListsItem>? SearchLists { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateWatchlistAttributes_searchLists> SearchLists { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateWatchlistAttributesAllOf2SearchListsItem> SearchLists { get; set; }
 #endif
         /// <summary>The updatedAt property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -61,7 +61,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "search-lists", n => { SearchLists = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateWatchlistAttributes_searchLists>(global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateWatchlistAttributes_searchLists.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "search-lists", n => { SearchLists = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateWatchlistAttributesAllOf2SearchListsItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateWatchlistAttributesAllOf2SearchListsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -74,7 +74,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateWatchlistAttributes_searchLists>("search-lists", SearchLists);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateWatchlistAttributesAllOf2SearchListsItem>("search-lists", SearchLists);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -17,10 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>JSON key-value pairs of field name to field value. Exact schema depends on the configuration of the Transaction Type for this Transaction. Keys in `fields` are **not** key inflected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributes_fields? Fields { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributesFieldsProperty? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributes_fields Fields { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributesFieldsProperty Fields { get; set; }
 #endif
         /// <summary>The referenceId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,7 +67,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributes_fields>(global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributes_fields.CreateFromDiscriminatorValue); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributesFieldsProperty>(global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributesFieldsProperty.CreateFromDiscriminatorValue); } },
                 { "reference-id", n => { ReferenceId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -82,7 +82,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributes_fields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributesFieldsProperty>("fields", Fields);
             writer.WriteStringValue("reference-id", ReferenceId);
             writer.WriteStringValue("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);

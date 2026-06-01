@@ -8,50 +8,50 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember5"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf5"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf6"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListItemPhoneNumberRelationshipsCreatorData : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember1? ListItemPhoneNumberRelationshipsCreatorDataMember1 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf2? ListItemPhoneNumberRelationshipsCreatorDataOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember1 ListItemPhoneNumberRelationshipsCreatorDataMember1 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf2 ListItemPhoneNumberRelationshipsCreatorDataOneOf2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember2? ListItemPhoneNumberRelationshipsCreatorDataMember2 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf3? ListItemPhoneNumberRelationshipsCreatorDataOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember2 ListItemPhoneNumberRelationshipsCreatorDataMember2 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf3 ListItemPhoneNumberRelationshipsCreatorDataOneOf3 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember3"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember3? ListItemPhoneNumberRelationshipsCreatorDataMember3 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf4? ListItemPhoneNumberRelationshipsCreatorDataOneOf4 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember3 ListItemPhoneNumberRelationshipsCreatorDataMember3 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf4 ListItemPhoneNumberRelationshipsCreatorDataOneOf4 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember4"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf5"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember4? ListItemPhoneNumberRelationshipsCreatorDataMember4 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf5? ListItemPhoneNumberRelationshipsCreatorDataOneOf5 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember4 ListItemPhoneNumberRelationshipsCreatorDataMember4 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf5 ListItemPhoneNumberRelationshipsCreatorDataOneOf5 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember5"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf6"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember5? ListItemPhoneNumberRelationshipsCreatorDataMember5 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf6? ListItemPhoneNumberRelationshipsCreatorDataOneOf6 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember5 ListItemPhoneNumberRelationshipsCreatorDataMember5 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf6 ListItemPhoneNumberRelationshipsCreatorDataOneOf6 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -63,25 +63,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorData();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ListItemPhoneNumberRelationshipsCreatorDataOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemPhoneNumberRelationshipsCreatorDataMember1 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember1();
+                result.ListItemPhoneNumberRelationshipsCreatorDataOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf2();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemPhoneNumberRelationshipsCreatorDataOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemPhoneNumberRelationshipsCreatorDataMember2 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember2();
+                result.ListItemPhoneNumberRelationshipsCreatorDataOneOf3 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf3();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemPhoneNumberRelationshipsCreatorDataOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemPhoneNumberRelationshipsCreatorDataMember3 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember3();
+                result.ListItemPhoneNumberRelationshipsCreatorDataOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf4();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemPhoneNumberRelationshipsCreatorDataOneOf5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemPhoneNumberRelationshipsCreatorDataMember4 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember4();
+                result.ListItemPhoneNumberRelationshipsCreatorDataOneOf5 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf5();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemPhoneNumberRelationshipsCreatorDataOneOf6".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemPhoneNumberRelationshipsCreatorDataMember5 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember5();
+                result.ListItemPhoneNumberRelationshipsCreatorDataOneOf6 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf6();
             }
             return result;
         }
@@ -91,25 +91,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ListItemPhoneNumberRelationshipsCreatorDataMember1 != null)
+            if(ListItemPhoneNumberRelationshipsCreatorDataOneOf2 != null)
             {
-                return ListItemPhoneNumberRelationshipsCreatorDataMember1.GetFieldDeserializers();
+                return ListItemPhoneNumberRelationshipsCreatorDataOneOf2.GetFieldDeserializers();
             }
-            else if(ListItemPhoneNumberRelationshipsCreatorDataMember2 != null)
+            else if(ListItemPhoneNumberRelationshipsCreatorDataOneOf3 != null)
             {
-                return ListItemPhoneNumberRelationshipsCreatorDataMember2.GetFieldDeserializers();
+                return ListItemPhoneNumberRelationshipsCreatorDataOneOf3.GetFieldDeserializers();
             }
-            else if(ListItemPhoneNumberRelationshipsCreatorDataMember3 != null)
+            else if(ListItemPhoneNumberRelationshipsCreatorDataOneOf4 != null)
             {
-                return ListItemPhoneNumberRelationshipsCreatorDataMember3.GetFieldDeserializers();
+                return ListItemPhoneNumberRelationshipsCreatorDataOneOf4.GetFieldDeserializers();
             }
-            else if(ListItemPhoneNumberRelationshipsCreatorDataMember4 != null)
+            else if(ListItemPhoneNumberRelationshipsCreatorDataOneOf5 != null)
             {
-                return ListItemPhoneNumberRelationshipsCreatorDataMember4.GetFieldDeserializers();
+                return ListItemPhoneNumberRelationshipsCreatorDataOneOf5.GetFieldDeserializers();
             }
-            else if(ListItemPhoneNumberRelationshipsCreatorDataMember5 != null)
+            else if(ListItemPhoneNumberRelationshipsCreatorDataOneOf6 != null)
             {
-                return ListItemPhoneNumberRelationshipsCreatorDataMember5.GetFieldDeserializers();
+                return ListItemPhoneNumberRelationshipsCreatorDataOneOf6.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -120,25 +120,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ListItemPhoneNumberRelationshipsCreatorDataMember1 != null)
+            if(ListItemPhoneNumberRelationshipsCreatorDataOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember1>(null, ListItemPhoneNumberRelationshipsCreatorDataMember1);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf2>(null, ListItemPhoneNumberRelationshipsCreatorDataOneOf2);
             }
-            else if(ListItemPhoneNumberRelationshipsCreatorDataMember2 != null)
+            else if(ListItemPhoneNumberRelationshipsCreatorDataOneOf3 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember2>(null, ListItemPhoneNumberRelationshipsCreatorDataMember2);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf3>(null, ListItemPhoneNumberRelationshipsCreatorDataOneOf3);
             }
-            else if(ListItemPhoneNumberRelationshipsCreatorDataMember3 != null)
+            else if(ListItemPhoneNumberRelationshipsCreatorDataOneOf4 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember3>(null, ListItemPhoneNumberRelationshipsCreatorDataMember3);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf4>(null, ListItemPhoneNumberRelationshipsCreatorDataOneOf4);
             }
-            else if(ListItemPhoneNumberRelationshipsCreatorDataMember4 != null)
+            else if(ListItemPhoneNumberRelationshipsCreatorDataOneOf5 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember4>(null, ListItemPhoneNumberRelationshipsCreatorDataMember4);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf5>(null, ListItemPhoneNumberRelationshipsCreatorDataOneOf5);
             }
-            else if(ListItemPhoneNumberRelationshipsCreatorDataMember5 != null)
+            else if(ListItemPhoneNumberRelationshipsCreatorDataOneOf6 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataMember5>(null, ListItemPhoneNumberRelationshipsCreatorDataMember5);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemPhoneNumberRelationshipsCreatorDataOneOf6>(null, ListItemPhoneNumberRelationshipsCreatorDataOneOf6);
             }
         }
     }

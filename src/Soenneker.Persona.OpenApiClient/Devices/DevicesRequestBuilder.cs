@@ -20,14 +20,14 @@ namespace Soenneker.Persona.OpenApiClient.Devices
     {
         /// <summary>Gets an item from the Soenneker.Persona.OpenApiClient.devices.item collection</summary>
         /// <param name="position">Device ID</param>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Devices.Item.DeviceItemRequestBuilder"/></returns>
-        public global::Soenneker.Persona.OpenApiClient.Devices.Item.DeviceItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Devices.Item.WithDeviceItemRequestBuilder"/></returns>
+        public global::Soenneker.Persona.OpenApiClient.Devices.Item.WithDeviceItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("device%2Did", position);
-                return new global::Soenneker.Persona.OpenApiClient.Devices.Item.DeviceItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("deviceId", position);
+                return new global::Soenneker.Persona.OpenApiClient.Devices.Item.WithDeviceItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -50,31 +50,31 @@ namespace Soenneker.Persona.OpenApiClient.Devices
         /// Retrieves a list of Devices. Results are returned in reverse chronological order, with the most recently created objects first.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/devices/list-all-devices" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Devices.DevicesRequestBuilder.DevicesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Devices.DevicesRequestBuilder.DevicesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Devices.DevicesRequestBuilder.DevicesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Devices.DevicesRequestBuilder.DevicesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200403Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a list of Devices. Results are returned in reverse chronological order, with the most recently created objects first.

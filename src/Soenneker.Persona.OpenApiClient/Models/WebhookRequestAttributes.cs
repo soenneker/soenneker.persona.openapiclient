@@ -21,7 +21,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public List<string> ApiAttributesBlocklist { get; set; }
 #endif
         /// <summary>Default key inflection for attribute keys in incoming webhook requests. For more info see the [Key Inflection docs](https://docs.withpersona.com/key-inflection).</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributes_apiKeyInflection? ApiKeyInflection { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesApiKeyInflection? ApiKeyInflection { get; set; }
         /// <summary>Server API version. More info on versioning can be found [here](https://docs.withpersona.com/versioning).</summary>
         public global::Soenneker.Persona.OpenApiClient.Models.ApiVersion? ApiVersion { get; set; }
         /// <summary>Custom HTTP headers to include in webhook requests. For more info see [Webhook Custom HTTP Headers](https://docs.withpersona.com/webhook-custom-http-headers).</summary>
@@ -43,10 +43,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Supported events that you want to receive webhooks for. Set `*` to enable all events. Descriptions of all events can be found [here](https://docs.withpersona.com/events). Retrieve Events for your organization using the [Events API](https://docs.withpersona.com/api-reference/events/list-all-events).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributes_enabledEvents?>? EnabledEvents { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesEnabledEventsItem?>? EnabledEvents { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributes_enabledEvents?> EnabledEvents { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesEnabledEventsItem?> EnabledEvents { get; set; }
 #endif
         /// <summary>How soon any file access tokens in webhook requests expire. For more info see [Downloading Files](https://docs.withpersona.com/downloading-files).</summary>
         public int? FileAccessTokenExpiresIn { get; set; }
@@ -79,7 +79,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// </summary>
         public WebhookRequestAttributes()
         {
-            ApiKeyInflection = global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributes_apiKeyInflection.Kebab;
+            ApiKeyInflection = global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesApiKeyInflection.Kebab;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -100,11 +100,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "api-attributes-blocklist", n => { ApiAttributesBlocklist = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "api-key-inflection", n => { ApiKeyInflection = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributes_apiKeyInflection>(); } },
+                { "api-key-inflection", n => { ApiKeyInflection = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesApiKeyInflection>(); } },
                 { "api-version", n => { ApiVersion = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ApiVersion>(); } },
                 { "custom-http-headers", n => { CustomHttpHeaders = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesCustomHttpHeaders>(global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesCustomHttpHeaders.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "enabled-events", n => { EnabledEvents = n.GetCollectionOfEnumValues<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributes_enabledEvents>()?.AsList(); } },
+                { "enabled-events", n => { EnabledEvents = n.GetCollectionOfEnumValues<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesEnabledEventsItem>()?.AsList(); } },
                 { "file-access-token-expires-in", n => { FileAccessTokenExpiresIn = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "payload-filter", n => { PayloadFilter = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesPayloadFilter>(global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesPayloadFilter.CreateFromDiscriminatorValue); } },
@@ -119,11 +119,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("api-attributes-blocklist", ApiAttributesBlocklist);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributes_apiKeyInflection>("api-key-inflection", ApiKeyInflection);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesApiKeyInflection>("api-key-inflection", ApiKeyInflection);
             writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ApiVersion>("api-version", ApiVersion);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesCustomHttpHeaders>("custom-http-headers", CustomHttpHeaders);
             writer.WriteStringValue("description", Description);
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributes_enabledEvents>("enabled-events", EnabledEvents);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesEnabledEventsItem>("enabled-events", EnabledEvents);
             writer.WriteIntValue("file-access-token-expires-in", FileAccessTokenExpiresIn);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesPayloadFilter>("payload-filter", PayloadFilter);

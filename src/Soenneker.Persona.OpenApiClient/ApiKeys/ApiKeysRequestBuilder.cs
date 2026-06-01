@@ -20,14 +20,14 @@ namespace Soenneker.Persona.OpenApiClient.ApiKeys
     {
         /// <summary>Gets an item from the Soenneker.Persona.OpenApiClient.apiKeys.item collection</summary>
         /// <param name="position">API key&apos;s ID (starts with &quot;api_&quot;)</param>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.ApiKeys.Item.ApiKeyItemRequestBuilder"/></returns>
-        public global::Soenneker.Persona.OpenApiClient.ApiKeys.Item.ApiKeyItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.ApiKeys.Item.WithApiKeyItemRequestBuilder"/></returns>
+        public global::Soenneker.Persona.OpenApiClient.ApiKeys.Item.WithApiKeyItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("api%2Dkey%2Did", position);
-                return new global::Soenneker.Persona.OpenApiClient.ApiKeys.Item.ApiKeyItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("apiKeyId", position);
+                return new global::Soenneker.Persona.OpenApiClient.ApiKeys.Item.WithApiKeyItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -50,67 +50,67 @@ namespace Soenneker.Persona.OpenApiClient.ApiKeys
         /// Returns a list of your organization&apos;s API keys. Results are returned in reverse chronological order, with the most recently created objects first.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/api-keys/list-all-api-keys" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysRequestBuilder.ApiKeysRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysRequestBuilder.ApiKeysRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysRequestBuilder.ApiKeysRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysRequestBuilder.ApiKeysRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200403Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllApiKeys200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new API key with response defaults and permissions.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/api-keys/create-an-api-key" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201?> PostAsync(global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysRequestBuilder.ApiKeysRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201Response?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateApiKeyRequestRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysRequestBuilder.ApiKeysRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201> PostAsync(global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysRequestBuilder.ApiKeysRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201Response> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateApiKeyRequestRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysRequestBuilder.ApiKeysRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201403Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.CreateAnApiKey201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your organization&apos;s API keys. Results are returned in reverse chronological order, with the most recently created objects first.
@@ -139,11 +139,11 @@ namespace Soenneker.Persona.OpenApiClient.ApiKeys
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysRequestBuilder.ApiKeysRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateApiKeyRequestRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysRequestBuilder.ApiKeysRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysRequestBuilder.ApiKeysRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateApiKeyRequestRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ApiKeys.ApiKeysRequestBuilder.ApiKeysRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

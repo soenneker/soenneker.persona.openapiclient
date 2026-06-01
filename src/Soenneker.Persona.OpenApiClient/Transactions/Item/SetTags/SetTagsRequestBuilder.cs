@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags
 {
     /// <summary>
-    /// Builds and executes requests for operations under \transactions\{transaction-id}\set-tags
+    /// Builds and executes requests for operations under \transactions\{transactionId}\set-tags
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SetTagsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SetTagsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/transactions/{transaction%2Did}/set-tags{?fields*,include*}", pathParameters)
+        public SetTagsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/transactions/{transactionId}/set-tags{?fields*,include*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,46 +30,46 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SetTagsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/transactions/{transaction%2Did}/set-tags{?fields*,include*}", rawUrl)
+        public SetTagsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/transactions/{transactionId}/set-tags{?fields*,include*}", rawUrl)
         {
         }
         /// <summary>
         /// Set the list of tags on a transaction. Remove all tags on the transaction that don&apos;t appear on the list. Add all tags on the transaction from the list.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/transactions/set-tags" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags.SetTagsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.TransactionsSetTags200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SetTags400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SetTags401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SetTags403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SetTags404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SetTags409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SetTags422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.SetTags429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags.SetTagsPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.TransactionsSetTags body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags.SetTagsRequestBuilder.SetTagsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.TransactionsSetTags200Response?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.TransactionsSetTagsRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags.SetTagsRequestBuilder.SetTagsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags.SetTagsPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.TransactionsSetTags body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags.SetTagsRequestBuilder.SetTagsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.TransactionsSetTags200Response> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.TransactionsSetTagsRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags.SetTagsRequestBuilder.SetTagsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.SetTags400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.SetTags401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.SetTags403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.SetTags404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.SetTags409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.SetTags422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.SetTags429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags.SetTagsPostResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags.SetTagsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.TransactionsSetTags200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.TransactionsSetTags200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Set the list of tags on a transaction. Remove all tags on the transaction that don&apos;t appear on the list. Add all tags on the transaction from the list.
@@ -79,11 +79,11 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.TransactionsSetTags body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags.SetTagsRequestBuilder.SetTagsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.TransactionsSetTagsRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags.SetTagsRequestBuilder.SetTagsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.TransactionsSetTags body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags.SetTagsRequestBuilder.SetTagsRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.TransactionsSetTagsRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags.SetTagsRequestBuilder.SetTagsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

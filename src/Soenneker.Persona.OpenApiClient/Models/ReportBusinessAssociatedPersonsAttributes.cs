@@ -17,10 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>List of persons associated with the business</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributes_associatedPersons>? AssociatedPersons { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItem>? AssociatedPersons { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributes_associatedPersons> AssociatedPersons { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItem> AssociatedPersons { get; set; }
 #endif
         /// <summary>The time the report completed processing in ISO 8601 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,10 +47,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The query property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributes_query? Query { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2Query? Query { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributes_query Query { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2Query Query { get; set; }
 #endif
         /// <summary>The time the report was redacted in ISO 8601 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,13 +109,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "associated-persons", n => { AssociatedPersons = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributes_associatedPersons>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributes_associatedPersons.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "associated-persons", n => { AssociatedPersons = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completed-at", n => { CompletedAt = n.GetStringValue(); } },
                 { "created-at", n => { CreatedAt = n.GetStringValue(); } },
                 { "has-match", n => { HasMatch = n.GetBoolValue(); } },
                 { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
                 { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
-                { "query", n => { Query = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributes_query>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributes_query.CreateFromDiscriminatorValue); } },
+                { "query", n => { Query = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2Query>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2Query.CreateFromDiscriminatorValue); } },
                 { "redacted-at", n => { RedactedAt = n.GetStringValue(); } },
                 { "report-template-version-name", n => { ReportTemplateVersionName = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -129,13 +129,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributes_associatedPersons>("associated-persons", AssociatedPersons);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItem>("associated-persons", AssociatedPersons);
             writer.WriteStringValue("completed-at", CompletedAt);
             writer.WriteStringValue("created-at", CreatedAt);
             writer.WriteBoolValue("has-match", HasMatch);
             writer.WriteBoolValue("is-continuous", IsContinuous);
             writer.WriteBoolValue("is-recurring", IsRecurring);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributes_query>("query", Query);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2Query>("query", Query);
             writer.WriteStringValue("redacted-at", RedactedAt);
             writer.WriteStringValue("report-template-version-name", ReportTemplateVersionName);
             writer.WriteStringValue("status", Status);

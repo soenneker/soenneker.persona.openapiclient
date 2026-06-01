@@ -21,7 +21,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public global::Soenneker.Persona.OpenApiClient.Models.CreateVerificationActionData Data { get; set; }
 #endif
         /// <summary>The type of simulate action. See [valid actions](https://docs.withpersona.com/integration-testing#creating-verification-with-status).</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.CreateVerificationAction_type? Type { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CreateVerificationActionType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CreateVerificationActionData>(global::Soenneker.Persona.OpenApiClient.Models.CreateVerificationActionData.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.CreateVerificationAction_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.CreateVerificationActionType>(); } },
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CreateVerificationActionData>("data", Data);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.CreateVerificationAction_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.CreateVerificationActionType>("type", Type);
         }
     }
 }

@@ -17,14 +17,14 @@ namespace Soenneker.Persona.OpenApiClient.Workflows
     {
         /// <summary>Gets an item from the Soenneker.Persona.OpenApiClient.workflows.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Workflows.Item.WorkflowItemRequestBuilder"/></returns>
-        public global::Soenneker.Persona.OpenApiClient.Workflows.Item.WorkflowItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Workflows.Item.WithWorkflowItemRequestBuilder"/></returns>
+        public global::Soenneker.Persona.OpenApiClient.Workflows.Item.WithWorkflowItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("workflow%2Did", position);
-                return new global::Soenneker.Persona.OpenApiClient.Workflows.Item.WorkflowItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("workflowId", position);
+                return new global::Soenneker.Persona.OpenApiClient.Workflows.Item.WithWorkflowItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

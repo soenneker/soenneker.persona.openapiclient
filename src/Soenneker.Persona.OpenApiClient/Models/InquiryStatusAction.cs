@@ -13,7 +13,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The type of simulate action. See [valid actions](https://docs.withpersona.com/integration-testing#inquiry-status).</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryStatusAction_type? Type { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryStatusActionType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -32,7 +32,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryStatusAction_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryStatusActionType>(); } },
             };
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryStatusAction_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryStatusActionType>("type", Type);
         }
     }
 }

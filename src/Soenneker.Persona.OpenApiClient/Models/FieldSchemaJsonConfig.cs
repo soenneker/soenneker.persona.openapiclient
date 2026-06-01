@@ -21,10 +21,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>A JSON Schema document (Draft 7 syntax) describing the shape of valuesstored in this field. Synthesized server-side by some verificationtypes (e.g. `government-id` writes a map of national identificationnumbers); the schema is informational and may evolve without aversioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaJsonConfig_jsonSchema? JsonSchema { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaJsonConfigJsonSchema? JsonSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaJsonConfig_jsonSchema JsonSchema { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaJsonConfigJsonSchema JsonSchema { get; set; }
 #endif
         /// <summary>Whether the field&apos;s value may be redacted on request.Possible values:- `none` — value is redactable- `never` — value is never redactedDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,7 +81,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "archived-at", n => { ArchivedAt = n.GetDateTimeOffsetValue(); } },
                 { "deactivated-at", n => { DeactivatedAt = n.GetDateTimeOffsetValue(); } },
-                { "json-schema", n => { JsonSchema = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaJsonConfig_jsonSchema>(global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaJsonConfig_jsonSchema.CreateFromDiscriminatorValue); } },
+                { "json-schema", n => { JsonSchema = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaJsonConfigJsonSchema>(global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaJsonConfigJsonSchema.CreateFromDiscriminatorValue); } },
                 { "redaction-policy", n => { RedactionPolicy = n.GetStringValue(); } },
                 { "required", n => { Required = n.GetBoolValue(); } },
                 { "source-key-path", n => { SourceKeyPath = n.GetStringValue(); } },
@@ -97,7 +97,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("archived-at", ArchivedAt);
             writer.WriteDateTimeOffsetValue("deactivated-at", DeactivatedAt);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaJsonConfig_jsonSchema>("json-schema", JsonSchema);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaJsonConfigJsonSchema>("json-schema", JsonSchema);
             writer.WriteStringValue("redaction-policy", RedactionPolicy);
             writer.WriteBoolValue("required", Required);
             writer.WriteStringValue("source-key-path", SourceKeyPath);

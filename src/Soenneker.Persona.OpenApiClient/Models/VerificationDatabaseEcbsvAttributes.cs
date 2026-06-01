@@ -20,10 +20,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsvAttributes_checks>? Checks { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>? Checks { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsvAttributes_checks> Checks { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem> Checks { get; set; }
 #endif
         /// <summary>The time the verification was completed in ISO 8601 format</summary>
         public DateTimeOffset? CompletedAt { get; set; }
@@ -131,7 +131,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "birthdate", n => { Birthdate = n.GetDateValue(); } },
-                { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsvAttributes_checks>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsvAttributes_checks.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completed-at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "completed-at-ts", n => { CompletedAtTs = n.GetIntValue(); } },
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
@@ -158,7 +158,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateValue("birthdate", Birthdate);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsvAttributes_checks>("checks", Checks);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>("checks", Checks);
             writer.WriteDateTimeOffsetValue("completed-at", CompletedAt);
             writer.WriteIntValue("completed-at-ts", CompletedAtTs);
             writer.WriteStringValue("country-code", CountryCode);

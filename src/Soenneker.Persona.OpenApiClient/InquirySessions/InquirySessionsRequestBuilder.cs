@@ -26,14 +26,14 @@ namespace Soenneker.Persona.OpenApiClient.InquirySessions
         }
         /// <summary>Gets an item from the Soenneker.Persona.OpenApiClient.inquirySessions.item collection</summary>
         /// <param name="position">Inquiry Session ID</param>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.InquirySessions.Item.InquirySessionItemRequestBuilder"/></returns>
-        public global::Soenneker.Persona.OpenApiClient.InquirySessions.Item.InquirySessionItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.InquirySessions.Item.WithInquirySessionItemRequestBuilder"/></returns>
+        public global::Soenneker.Persona.OpenApiClient.InquirySessions.Item.WithInquirySessionItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("inquiry%2Dsession%2Did", position);
-                return new global::Soenneker.Persona.OpenApiClient.InquirySessions.Item.InquirySessionItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("inquirySessionId", position);
+                return new global::Soenneker.Persona.OpenApiClient.InquirySessions.Item.WithInquirySessionItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -56,69 +56,69 @@ namespace Soenneker.Persona.OpenApiClient.InquirySessions
         /// Retrieves a list of Inquiry Sessions. Results are returned in reverse chronological order, with the most recently created objects first.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiry-sessions/list-all-inquiry-sessions" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.InquirySessionsRequestBuilder.InquirySessionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.InquirySessionsRequestBuilder.InquirySessionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.InquirySessionsRequestBuilder.InquirySessionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.InquirySessionsRequestBuilder.InquirySessionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200403Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllInquirySessions200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new Inquiry Session. By default, we only allow up to 25 sessions per Inquiry.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiry-sessions/create-an-inquiry-session" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.InquirySessionsRequestBuilder.InquirySessionsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201Response?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySessionRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.InquirySessionsRequestBuilder.InquirySessionsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.InquirySessionsRequestBuilder.InquirySessionsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201Response> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySessionRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.InquirySessionsRequestBuilder.InquirySessionsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieves a list of Inquiry Sessions. Results are returned in reverse chronological order, with the most recently created objects first.
@@ -147,11 +147,11 @@ namespace Soenneker.Persona.OpenApiClient.InquirySessions
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.InquirySessionsRequestBuilder.InquirySessionsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySessionRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.InquirySessionsRequestBuilder.InquirySessionsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySession body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.InquirySessionsRequestBuilder.InquirySessionsRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquirySessionRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquirySessions.InquirySessionsRequestBuilder.InquirySessionsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

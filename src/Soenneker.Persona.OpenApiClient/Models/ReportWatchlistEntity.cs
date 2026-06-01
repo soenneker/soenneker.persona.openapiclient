@@ -24,10 +24,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The birthdate of the entity</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistEntity_birthdates>? Birthdates { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistEntityBirthdatesItem>? Birthdates { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistEntity_birthdates> Birthdates { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistEntityBirthdatesItem> Birthdates { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "alias-type", n => { AliasType = n.GetStringValue(); } },
-                { "birthdates", n => { Birthdates = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistEntity_birthdates>(global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistEntity_birthdates.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "birthdates", n => { Birthdates = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistEntityBirthdatesItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistEntityBirthdatesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
         }
@@ -68,7 +68,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("alias-type", AliasType);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistEntity_birthdates>("birthdates", Birthdates);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistEntityBirthdatesItem>("birthdates", Birthdates);
             writer.WriteStringValue("name", Name);
         }
     }

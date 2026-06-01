@@ -33,10 +33,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Detailed information about matches found on fitness and probity lists.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes_fitnessProbityList>? FitnessProbityList { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2FitnessProbityListItem>? FitnessProbityList { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes_fitnessProbityList> FitnessProbityList { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2FitnessProbityListItem> FitnessProbityList { get; set; }
 #endif
         /// <summary>Whether or not the report matched</summary>
         public bool? HasMatch { get; set; }
@@ -71,10 +71,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Detailed information about matches found on sanction lists.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes_sanctionList>? SanctionList { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2SanctionListItem>? SanctionList { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes_sanctionList> SanctionList { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2SanctionListItem> SanctionList { get; set; }
 #endif
         /// <summary>The status of the reportPossible values:- pending- ready- erroredDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,10 +95,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Detailed information about matches found on warning lists.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes_warningList>? WarningList { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2WarningListItem>? WarningList { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes_warningList> WarningList { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2WarningListItem> WarningList { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes"/> and sets the default values.
@@ -127,17 +127,17 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "completed-at", n => { CompletedAt = n.GetStringValue(); } },
                 { "created-at", n => { CreatedAt = n.GetStringValue(); } },
-                { "fitness-probity-list", n => { FitnessProbityList = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes_fitnessProbityList>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes_fitnessProbityList.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "fitness-probity-list", n => { FitnessProbityList = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2FitnessProbityListItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2FitnessProbityListItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has-match", n => { HasMatch = n.GetBoolValue(); } },
                 { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
                 { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
                 { "matched-lists", n => { MatchedLists = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "redacted-at", n => { RedactedAt = n.GetStringValue(); } },
                 { "report-template-version-name", n => { ReportTemplateVersionName = n.GetStringValue(); } },
-                { "sanction-list", n => { SanctionList = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes_sanctionList>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes_sanctionList.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "sanction-list", n => { SanctionList = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2SanctionListItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2SanctionListItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "warning-list", n => { WarningList = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes_warningList>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes_warningList.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "warning-list", n => { WarningList = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2WarningListItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2WarningListItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -149,17 +149,17 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("completed-at", CompletedAt);
             writer.WriteStringValue("created-at", CreatedAt);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes_fitnessProbityList>("fitness-probity-list", FitnessProbityList);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2FitnessProbityListItem>("fitness-probity-list", FitnessProbityList);
             writer.WriteBoolValue("has-match", HasMatch);
             writer.WriteBoolValue("is-continuous", IsContinuous);
             writer.WriteBoolValue("is-recurring", IsRecurring);
             writer.WriteCollectionOfPrimitiveValues<string>("matched-lists", MatchedLists);
             writer.WriteStringValue("redacted-at", RedactedAt);
             writer.WriteStringValue("report-template-version-name", ReportTemplateVersionName);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes_sanctionList>("sanction-list", SanctionList);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2SanctionListItem>("sanction-list", SanctionList);
             writer.WriteStringValue("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributes_warningList>("warning-list", WarningList);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2WarningListItem>("warning-list", WarningList);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

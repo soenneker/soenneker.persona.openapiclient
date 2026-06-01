@@ -94,10 +94,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Detailed identity records which passed matching logic, if available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_identityRecords>? IdentityRecords { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2IdentityRecordsItem>? IdentityRecords { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_identityRecords> IdentityRecords { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2IdentityRecordsItem> IdentityRecords { get; set; }
 #endif
         /// <summary>Whether or not this report has been run more than once</summary>
         public bool? IsContinuous { get; set; }
@@ -122,10 +122,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Detailed identity records which did not pass matching logic, if available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_omittedIdentityRecords>? OmittedIdentityRecords { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItem>? OmittedIdentityRecords { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_omittedIdentityRecords> OmittedIdentityRecords { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItem> OmittedIdentityRecords { get; set; }
 #endif
         /// <summary>Phone number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -219,12 +219,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "completed-at", n => { CompletedAt = n.GetStringValue(); } },
                 { "created-at", n => { CreatedAt = n.GetStringValue(); } },
                 { "has-match", n => { HasMatch = n.GetBoolValue(); } },
-                { "identity-records", n => { IdentityRecords = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_identityRecords>(global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_identityRecords.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "identity-records", n => { IdentityRecords = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2IdentityRecordsItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2IdentityRecordsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
                 { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
                 { "name-first", n => { NameFirst = n.GetStringValue(); } },
                 { "name-last", n => { NameLast = n.GetStringValue(); } },
-                { "omitted-identity-records", n => { OmittedIdentityRecords = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_omittedIdentityRecords>(global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_omittedIdentityRecords.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "omitted-identity-records", n => { OmittedIdentityRecords = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "phone-number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "redacted-at", n => { RedactedAt = n.GetStringValue(); } },
                 { "report-template-version-name", n => { ReportTemplateVersionName = n.GetStringValue(); } },
@@ -252,12 +252,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("completed-at", CompletedAt);
             writer.WriteStringValue("created-at", CreatedAt);
             writer.WriteBoolValue("has-match", HasMatch);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_identityRecords>("identity-records", IdentityRecords);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2IdentityRecordsItem>("identity-records", IdentityRecords);
             writer.WriteBoolValue("is-continuous", IsContinuous);
             writer.WriteBoolValue("is-recurring", IsRecurring);
             writer.WriteStringValue("name-first", NameFirst);
             writer.WriteStringValue("name-last", NameLast);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributes_omittedIdentityRecords>("omitted-identity-records", OmittedIdentityRecords);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItem>("omitted-identity-records", OmittedIdentityRecords);
             writer.WriteStringValue("phone-number", PhoneNumber);
             writer.WriteStringValue("redacted-at", RedactedAt);
             writer.WriteStringValue("report-template-version-name", ReportTemplateVersionName);

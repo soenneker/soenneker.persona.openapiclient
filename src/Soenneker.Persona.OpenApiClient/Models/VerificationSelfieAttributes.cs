@@ -25,10 +25,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The centerPhotoFaceCoordinates property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_centerPhotoFaceCoordinates? CenterPhotoFaceCoordinates { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributesAllOf2CenterPhotoFaceCoordinates? CenterPhotoFaceCoordinates { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_centerPhotoFaceCoordinates CenterPhotoFaceCoordinates { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributesAllOf2CenterPhotoFaceCoordinates CenterPhotoFaceCoordinates { get; set; }
 #endif
         /// <summary>The centerPhotoUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,10 +41,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_checks>? Checks { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>? Checks { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_checks> Checks { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem> Checks { get; set; }
 #endif
         /// <summary>The time the verification was completed in ISO 8601 format</summary>
         public DateTimeOffset? CompletedAt { get; set; }
@@ -85,10 +85,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The photoUrls property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_photoUrls>? PhotoUrls { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributesAllOf2PhotoUrlsItem>? PhotoUrls { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_photoUrls> PhotoUrls { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributesAllOf2PhotoUrlsItem> PhotoUrls { get; set; }
 #endif
         /// <summary>The time the verification was redacted in ISO 8601 format</summary>
         public DateTimeOffset? RedactedAt { get; set; }
@@ -158,9 +158,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "capture-method", n => { CaptureMethod = n.GetStringValue(); } },
-                { "center-photo-face-coordinates", n => { CenterPhotoFaceCoordinates = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_centerPhotoFaceCoordinates>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_centerPhotoFaceCoordinates.CreateFromDiscriminatorValue); } },
+                { "center-photo-face-coordinates", n => { CenterPhotoFaceCoordinates = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributesAllOf2CenterPhotoFaceCoordinates>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributesAllOf2CenterPhotoFaceCoordinates.CreateFromDiscriminatorValue); } },
                 { "center-photo-url", n => { CenterPhotoUrl = n.GetStringValue(); } },
-                { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_checks>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_checks.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completed-at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "completed-at-ts", n => { CompletedAtTs = n.GetIntValue(); } },
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
@@ -170,7 +170,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "entity-confidence-reasons", n => { EntityConfidenceReasons = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "from-reusable-persona", n => { FromReusablePersona = n.GetBoolValue(); } },
                 { "left-photo-url", n => { LeftPhotoUrl = n.GetStringValue(); } },
-                { "photo-urls", n => { PhotoUrls = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_photoUrls>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_photoUrls.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "photo-urls", n => { PhotoUrls = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributesAllOf2PhotoUrlsItem>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributesAllOf2PhotoUrlsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
                 { "right-photo-url", n => { RightPhotoUrl = n.GetStringValue(); } },
                 { "selfie-similarity-score-left", n => { SelfieSimilarityScoreLeft = n.GetDoubleValue(); } },
@@ -190,9 +190,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("capture-method", CaptureMethod);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_centerPhotoFaceCoordinates>("center-photo-face-coordinates", CenterPhotoFaceCoordinates);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributesAllOf2CenterPhotoFaceCoordinates>("center-photo-face-coordinates", CenterPhotoFaceCoordinates);
             writer.WriteStringValue("center-photo-url", CenterPhotoUrl);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_checks>("checks", Checks);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>("checks", Checks);
             writer.WriteDateTimeOffsetValue("completed-at", CompletedAt);
             writer.WriteIntValue("completed-at-ts", CompletedAtTs);
             writer.WriteStringValue("country-code", CountryCode);
@@ -202,7 +202,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("entity-confidence-reasons", EntityConfidenceReasons);
             writer.WriteBoolValue("from-reusable-persona", FromReusablePersona);
             writer.WriteStringValue("left-photo-url", LeftPhotoUrl);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributes_photoUrls>("photo-urls", PhotoUrls);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributesAllOf2PhotoUrlsItem>("photo-urls", PhotoUrls);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
             writer.WriteStringValue("right-photo-url", RightPhotoUrl);
             writer.WriteDoubleValue("selfie-similarity-score-left", SelfieSimilarityScoreLeft);

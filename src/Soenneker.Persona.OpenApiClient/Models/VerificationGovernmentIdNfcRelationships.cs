@@ -25,10 +25,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The document property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfcRelationships_document? Document { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfcRelationshipsAllOf2Document? Document { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfcRelationships_document Document { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfcRelationshipsAllOf2Document Document { get; set; }
 #endif
         /// <summary>The inquiry linked to the verification</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -112,7 +112,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "accounts", n => { Accounts = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts.CreateFromDiscriminatorValue); } },
-                { "document", n => { Document = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfcRelationships_document>(global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfcRelationships_document.CreateFromDiscriminatorValue); } },
+                { "document", n => { Document = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfcRelationshipsAllOf2Document>(global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfcRelationshipsAllOf2Document.CreateFromDiscriminatorValue); } },
                 { "inquiry", n => { Inquiry = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry.CreateFromDiscriminatorValue); } },
                 { "inquiry-template", n => { InquiryTemplate = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate.CreateFromDiscriminatorValue); } },
                 { "inquiry-template-version", n => { InquiryTemplateVersion = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion.CreateFromDiscriminatorValue); } },
@@ -130,7 +130,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts>("accounts", Accounts);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfcRelationships_document>("document", Document);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfcRelationshipsAllOf2Document>("document", Document);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry>("inquiry", Inquiry);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate>("inquiry-template", InquiryTemplate);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion>("inquiry-template-version", InquiryTemplateVersion);

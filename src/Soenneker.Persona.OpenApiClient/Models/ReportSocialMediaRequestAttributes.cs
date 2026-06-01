@@ -25,10 +25,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Requires `phone-number` or `email-address` or `name-first`, `name-last`, `address-city`, and `address-subdivision`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMediaRequestAttributes_query? Query { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMediaRequestAttributesAllOf2Query? Query { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMediaRequestAttributes_query Query { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMediaRequestAttributesAllOf2Query Query { get; set; }
 #endif
         /// <summary>Reference ID to refer to an entity in your user model. This field is deprecated in favor of `meta.auto-create-account-reference-id`.</summary>
         [Obsolete("")]
@@ -73,7 +73,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "account-id", n => { AccountId = n.GetStringValue(); } },
-                { "query", n => { Query = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMediaRequestAttributes_query>(global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMediaRequestAttributes_query.CreateFromDiscriminatorValue); } },
+                { "query", n => { Query = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMediaRequestAttributesAllOf2Query>(global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMediaRequestAttributesAllOf2Query.CreateFromDiscriminatorValue); } },
                 { "reference-id", n => { ReferenceId = n.GetStringValue(); } },
                 { "report-template-id", n => { ReportTemplateId = n.GetStringValue(); } },
             };
@@ -86,7 +86,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("account-id", AccountId);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMediaRequestAttributes_query>("query", Query);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMediaRequestAttributesAllOf2Query>("query", Query);
             writer.WriteStringValue("reference-id", ReferenceId);
             writer.WriteStringValue("report-template-id", ReportTemplateId);
             writer.WriteAdditionalData(AdditionalData);

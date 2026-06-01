@@ -20,14 +20,14 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates
     {
         /// <summary>Gets an item from the Soenneker.Persona.OpenApiClient.inquiryTemplates.item collection</summary>
         /// <param name="position">Inquiry Template ID</param>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateItemRequestBuilder"/></returns>
-        public global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.WithInquiryTemplateItemRequestBuilder"/></returns>
+        public global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.WithInquiryTemplateItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("inquiry%2Dtemplate%2Did", position);
-                return new global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.InquiryTemplateItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("inquiryTemplateId", position);
+                return new global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.WithInquiryTemplateItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -50,31 +50,31 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates
         /// &quot;Retrieves a list of your organization&apos;s Inquiry Templates.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API. Results are returned in reverse chronological order, with the most recently created objects first.&quot;
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiry-templates/list-all-inquiry-templates" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.InquiryTemplatesRequestBuilder.InquiryTemplatesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.InquiryTemplatesRequestBuilder.InquiryTemplatesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.InquiryTemplatesRequestBuilder.InquiryTemplatesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.InquiryTemplatesRequestBuilder.InquiryTemplatesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200403Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Retrieves a list of your organization&apos;s Inquiry Templates.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API. Results are returned in reverse chronological order, with the most recently created objects first.&quot;

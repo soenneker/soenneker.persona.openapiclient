@@ -23,10 +23,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbers_value>? Value { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItem>? Value { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbers_value> Value { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItem> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,7 +47,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "type", n => { Type = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbers_value>(global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbers_value.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItem>(global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("type", Type);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbers_value>("value", Value);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItem>("value", Value);
         }
     }
 }

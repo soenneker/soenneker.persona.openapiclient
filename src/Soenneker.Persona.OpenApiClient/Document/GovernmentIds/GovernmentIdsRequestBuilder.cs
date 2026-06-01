@@ -17,14 +17,14 @@ namespace Soenneker.Persona.OpenApiClient.Document.GovernmentIds
     {
         /// <summary>Gets an item from the Soenneker.Persona.OpenApiClient.document.governmentIds.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentItemRequestBuilder"/></returns>
-        public global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.WithDocumentItemRequestBuilder"/></returns>
+        public global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.WithDocumentItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("document%2Did", position);
-                return new global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.DocumentItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("documentId", position);
+                return new global::Soenneker.Persona.OpenApiClient.Document.GovernmentIds.Item.WithDocumentItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

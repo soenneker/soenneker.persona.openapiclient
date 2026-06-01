@@ -15,10 +15,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaBoolean_config? Config { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaBooleanConfig? Config { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaBoolean_config Config { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaBooleanConfig Config { get; set; }
 #endif
         /// <summary>The defaultValue property</summary>
         public bool? DefaultValue { get; set; }
@@ -58,7 +58,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "config", n => { Config = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaBoolean_config>(global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaBoolean_config.CreateFromDiscriminatorValue); } },
+                { "config", n => { Config = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaBooleanConfig>(global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaBooleanConfig.CreateFromDiscriminatorValue); } },
                 { "default-value", n => { DefaultValue = n.GetBoolValue(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
@@ -72,7 +72,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaBoolean_config>("config", Config);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaBooleanConfig>("config", Config);
             writer.WriteBoolValue("default-value", DefaultValue);
             writer.WriteStringValue("key", Key);
             writer.WriteStringValue("label", Label);

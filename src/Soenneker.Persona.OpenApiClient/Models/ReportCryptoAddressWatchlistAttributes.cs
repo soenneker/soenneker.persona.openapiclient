@@ -39,10 +39,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The query property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributes_query? Query { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2Query? Query { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributes_query Query { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2Query Query { get; set; }
 #endif
         /// <summary>The time the report was redacted in ISO 8601 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,10 +63,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributes_result>? Result { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItem>? Result { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributes_result> Result { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItem> Result { get; set; }
 #endif
         /// <summary>The status of the reportPossible values:- pending- ready- erroredDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -114,10 +114,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "has-match", n => { HasMatch = n.GetBoolValue(); } },
                 { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
                 { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
-                { "query", n => { Query = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributes_query>(global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributes_query.CreateFromDiscriminatorValue); } },
+                { "query", n => { Query = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2Query>(global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2Query.CreateFromDiscriminatorValue); } },
                 { "redacted-at", n => { RedactedAt = n.GetStringValue(); } },
                 { "report-template-version-name", n => { ReportTemplateVersionName = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributes_result>(global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributes_result.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "result", n => { Result = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
@@ -134,10 +134,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteBoolValue("has-match", HasMatch);
             writer.WriteBoolValue("is-continuous", IsContinuous);
             writer.WriteBoolValue("is-recurring", IsRecurring);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributes_query>("query", Query);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2Query>("query", Query);
             writer.WriteStringValue("redacted-at", RedactedAt);
             writer.WriteStringValue("report-template-version-name", ReportTemplateVersionName);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributes_result>("result", Result);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItem>("result", Result);
             writer.WriteStringValue("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteAdditionalData(AdditionalData);

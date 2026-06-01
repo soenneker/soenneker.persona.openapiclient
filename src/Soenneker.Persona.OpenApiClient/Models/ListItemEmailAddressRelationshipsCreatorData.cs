@@ -8,50 +8,50 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember5"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf5"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf6"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListItemEmailAddressRelationshipsCreatorData : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember1? ListItemEmailAddressRelationshipsCreatorDataMember1 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf2? ListItemEmailAddressRelationshipsCreatorDataOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember1 ListItemEmailAddressRelationshipsCreatorDataMember1 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf2 ListItemEmailAddressRelationshipsCreatorDataOneOf2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember2? ListItemEmailAddressRelationshipsCreatorDataMember2 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf3? ListItemEmailAddressRelationshipsCreatorDataOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember2 ListItemEmailAddressRelationshipsCreatorDataMember2 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf3 ListItemEmailAddressRelationshipsCreatorDataOneOf3 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember3"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember3? ListItemEmailAddressRelationshipsCreatorDataMember3 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf4? ListItemEmailAddressRelationshipsCreatorDataOneOf4 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember3 ListItemEmailAddressRelationshipsCreatorDataMember3 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf4 ListItemEmailAddressRelationshipsCreatorDataOneOf4 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember4"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf5"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember4? ListItemEmailAddressRelationshipsCreatorDataMember4 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf5? ListItemEmailAddressRelationshipsCreatorDataOneOf5 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember4 ListItemEmailAddressRelationshipsCreatorDataMember4 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf5 ListItemEmailAddressRelationshipsCreatorDataOneOf5 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember5"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf6"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember5? ListItemEmailAddressRelationshipsCreatorDataMember5 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf6? ListItemEmailAddressRelationshipsCreatorDataOneOf6 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember5 ListItemEmailAddressRelationshipsCreatorDataMember5 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf6 ListItemEmailAddressRelationshipsCreatorDataOneOf6 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -63,25 +63,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorData();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ListItemEmailAddressRelationshipsCreatorDataOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemEmailAddressRelationshipsCreatorDataMember1 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember1();
+                result.ListItemEmailAddressRelationshipsCreatorDataOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf2();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemEmailAddressRelationshipsCreatorDataOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemEmailAddressRelationshipsCreatorDataMember2 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember2();
+                result.ListItemEmailAddressRelationshipsCreatorDataOneOf3 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf3();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemEmailAddressRelationshipsCreatorDataOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemEmailAddressRelationshipsCreatorDataMember3 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember3();
+                result.ListItemEmailAddressRelationshipsCreatorDataOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf4();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemEmailAddressRelationshipsCreatorDataOneOf5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemEmailAddressRelationshipsCreatorDataMember4 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember4();
+                result.ListItemEmailAddressRelationshipsCreatorDataOneOf5 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf5();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemEmailAddressRelationshipsCreatorDataOneOf6".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemEmailAddressRelationshipsCreatorDataMember5 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember5();
+                result.ListItemEmailAddressRelationshipsCreatorDataOneOf6 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf6();
             }
             return result;
         }
@@ -91,25 +91,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ListItemEmailAddressRelationshipsCreatorDataMember1 != null)
+            if(ListItemEmailAddressRelationshipsCreatorDataOneOf2 != null)
             {
-                return ListItemEmailAddressRelationshipsCreatorDataMember1.GetFieldDeserializers();
+                return ListItemEmailAddressRelationshipsCreatorDataOneOf2.GetFieldDeserializers();
             }
-            else if(ListItemEmailAddressRelationshipsCreatorDataMember2 != null)
+            else if(ListItemEmailAddressRelationshipsCreatorDataOneOf3 != null)
             {
-                return ListItemEmailAddressRelationshipsCreatorDataMember2.GetFieldDeserializers();
+                return ListItemEmailAddressRelationshipsCreatorDataOneOf3.GetFieldDeserializers();
             }
-            else if(ListItemEmailAddressRelationshipsCreatorDataMember3 != null)
+            else if(ListItemEmailAddressRelationshipsCreatorDataOneOf4 != null)
             {
-                return ListItemEmailAddressRelationshipsCreatorDataMember3.GetFieldDeserializers();
+                return ListItemEmailAddressRelationshipsCreatorDataOneOf4.GetFieldDeserializers();
             }
-            else if(ListItemEmailAddressRelationshipsCreatorDataMember4 != null)
+            else if(ListItemEmailAddressRelationshipsCreatorDataOneOf5 != null)
             {
-                return ListItemEmailAddressRelationshipsCreatorDataMember4.GetFieldDeserializers();
+                return ListItemEmailAddressRelationshipsCreatorDataOneOf5.GetFieldDeserializers();
             }
-            else if(ListItemEmailAddressRelationshipsCreatorDataMember5 != null)
+            else if(ListItemEmailAddressRelationshipsCreatorDataOneOf6 != null)
             {
-                return ListItemEmailAddressRelationshipsCreatorDataMember5.GetFieldDeserializers();
+                return ListItemEmailAddressRelationshipsCreatorDataOneOf6.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -120,25 +120,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ListItemEmailAddressRelationshipsCreatorDataMember1 != null)
+            if(ListItemEmailAddressRelationshipsCreatorDataOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember1>(null, ListItemEmailAddressRelationshipsCreatorDataMember1);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf2>(null, ListItemEmailAddressRelationshipsCreatorDataOneOf2);
             }
-            else if(ListItemEmailAddressRelationshipsCreatorDataMember2 != null)
+            else if(ListItemEmailAddressRelationshipsCreatorDataOneOf3 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember2>(null, ListItemEmailAddressRelationshipsCreatorDataMember2);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf3>(null, ListItemEmailAddressRelationshipsCreatorDataOneOf3);
             }
-            else if(ListItemEmailAddressRelationshipsCreatorDataMember3 != null)
+            else if(ListItemEmailAddressRelationshipsCreatorDataOneOf4 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember3>(null, ListItemEmailAddressRelationshipsCreatorDataMember3);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf4>(null, ListItemEmailAddressRelationshipsCreatorDataOneOf4);
             }
-            else if(ListItemEmailAddressRelationshipsCreatorDataMember4 != null)
+            else if(ListItemEmailAddressRelationshipsCreatorDataOneOf5 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember4>(null, ListItemEmailAddressRelationshipsCreatorDataMember4);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf5>(null, ListItemEmailAddressRelationshipsCreatorDataOneOf5);
             }
-            else if(ListItemEmailAddressRelationshipsCreatorDataMember5 != null)
+            else if(ListItemEmailAddressRelationshipsCreatorDataOneOf6 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember5>(null, ListItemEmailAddressRelationshipsCreatorDataMember5);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf6>(null, ListItemEmailAddressRelationshipsCreatorDataOneOf6);
             }
         }
     }

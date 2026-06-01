@@ -28,10 +28,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributes_checks>? Checks { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>? Checks { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributes_checks> Checks { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem> Checks { get; set; }
 #endif
         /// <summary>The time the verification was completed in ISO 8601 format</summary>
         public DateTimeOffset? CompletedAt { get; set; }
@@ -54,10 +54,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Face image extracted from the NFC card, when present.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributes_faceImage? FaceImage { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage? FaceImage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributes_faceImage FaceImage { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage FaceImage { get; set; }
 #endif
         /// <summary>The gender property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -148,14 +148,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "address", n => { Address = n.GetStringValue(); } },
                 { "birthdate", n => { Birthdate = n.GetDateValue(); } },
-                { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributes_checks>(global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributes_checks.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completed-at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "completed-at-ts", n => { CompletedAtTs = n.GetIntValue(); } },
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created-at-ts", n => { CreatedAtTs = n.GetIntValue(); } },
                 { "expiration-date", n => { ExpirationDate = n.GetDateValue(); } },
-                { "face-image", n => { FaceImage = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributes_faceImage>(global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributes_faceImage.CreateFromDiscriminatorValue); } },
+                { "face-image", n => { FaceImage = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage>(global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage.CreateFromDiscriminatorValue); } },
                 { "gender", n => { Gender = n.GetStringValue(); } },
                 { "kana-name", n => { KanaName = n.GetStringValue(); } },
                 { "license-number", n => { LicenseNumber = n.GetStringValue(); } },
@@ -177,14 +177,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("address", Address);
             writer.WriteDateValue("birthdate", Birthdate);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributes_checks>("checks", Checks);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>("checks", Checks);
             writer.WriteDateTimeOffsetValue("completed-at", CompletedAt);
             writer.WriteIntValue("completed-at-ts", CompletedAtTs);
             writer.WriteStringValue("country-code", CountryCode);
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteIntValue("created-at-ts", CreatedAtTs);
             writer.WriteDateValue("expiration-date", ExpirationDate);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributes_faceImage>("face-image", FaceImage);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage>("face-image", FaceImage);
             writer.WriteStringValue("gender", Gender);
             writer.WriteStringValue("kana-name", KanaName);
             writer.WriteStringValue("license-number", LicenseNumber);

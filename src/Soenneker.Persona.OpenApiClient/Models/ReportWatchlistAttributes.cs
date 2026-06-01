@@ -51,10 +51,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The ignoreList property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributes_ignoreList>? IgnoreList { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributesAllOf2IgnoreListItem>? IgnoreList { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributes_ignoreList> IgnoreList { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributesAllOf2IgnoreListItem> IgnoreList { get; set; }
 #endif
         /// <summary>Whether or not this report has been run more than once</summary>
         public bool? IsContinuous { get; set; }
@@ -63,10 +63,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Lists that matched from the search input</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributes_matchedLists>? MatchedLists { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributesAllOf2MatchedListsItem>? MatchedLists { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributes_matchedLists> MatchedLists { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributesAllOf2MatchedListsItem> MatchedLists { get; set; }
 #endif
         /// <summary>The input first name of the search individual</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -162,10 +162,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
                 { "created-at", n => { CreatedAt = n.GetStringValue(); } },
                 { "has-match", n => { HasMatch = n.GetBoolValue(); } },
-                { "ignore-list", n => { IgnoreList = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributes_ignoreList>(global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributes_ignoreList.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "ignore-list", n => { IgnoreList = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributesAllOf2IgnoreListItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributesAllOf2IgnoreListItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
                 { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
-                { "matched-lists", n => { MatchedLists = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributes_matchedLists>(global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributes_matchedLists.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "matched-lists", n => { MatchedLists = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributesAllOf2MatchedListsItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributesAllOf2MatchedListsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name-first", n => { NameFirst = n.GetStringValue(); } },
                 { "name-last", n => { NameLast = n.GetStringValue(); } },
                 { "name-middle", n => { NameMiddle = n.GetStringValue(); } },
@@ -188,10 +188,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("country-code", CountryCode);
             writer.WriteStringValue("created-at", CreatedAt);
             writer.WriteBoolValue("has-match", HasMatch);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributes_ignoreList>("ignore-list", IgnoreList);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributesAllOf2IgnoreListItem>("ignore-list", IgnoreList);
             writer.WriteBoolValue("is-continuous", IsContinuous);
             writer.WriteBoolValue("is-recurring", IsRecurring);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributes_matchedLists>("matched-lists", MatchedLists);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistAttributesAllOf2MatchedListsItem>("matched-lists", MatchedLists);
             writer.WriteStringValue("name-first", NameFirst);
             writer.WriteStringValue("name-last", NameLast);
             writer.WriteStringValue("name-middle", NameMiddle);

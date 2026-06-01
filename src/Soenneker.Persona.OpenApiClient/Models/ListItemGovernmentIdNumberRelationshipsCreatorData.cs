@@ -8,50 +8,50 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember5"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf5"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf6"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListItemGovernmentIdNumberRelationshipsCreatorData : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember1? ListItemGovernmentIdNumberRelationshipsCreatorDataMember1 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf2? ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember1 ListItemGovernmentIdNumberRelationshipsCreatorDataMember1 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf2 ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember2? ListItemGovernmentIdNumberRelationshipsCreatorDataMember2 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf3? ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember2 ListItemGovernmentIdNumberRelationshipsCreatorDataMember2 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf3 ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf3 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember3"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember3? ListItemGovernmentIdNumberRelationshipsCreatorDataMember3 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf4? ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf4 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember3 ListItemGovernmentIdNumberRelationshipsCreatorDataMember3 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf4 ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf4 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember4"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf5"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember4? ListItemGovernmentIdNumberRelationshipsCreatorDataMember4 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf5? ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf5 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember4 ListItemGovernmentIdNumberRelationshipsCreatorDataMember4 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf5 ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf5 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember5"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf6"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember5? ListItemGovernmentIdNumberRelationshipsCreatorDataMember5 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf6? ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf6 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember5 ListItemGovernmentIdNumberRelationshipsCreatorDataMember5 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf6 ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf6 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -63,25 +63,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorData();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemGovernmentIdNumberRelationshipsCreatorDataMember1 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember1();
+                result.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf2();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemGovernmentIdNumberRelationshipsCreatorDataMember2 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember2();
+                result.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf3 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf3();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemGovernmentIdNumberRelationshipsCreatorDataMember3 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember3();
+                result.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf4();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemGovernmentIdNumberRelationshipsCreatorDataMember4 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember4();
+                result.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf5 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf5();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf6".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemGovernmentIdNumberRelationshipsCreatorDataMember5 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember5();
+                result.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf6 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf6();
             }
             return result;
         }
@@ -91,25 +91,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ListItemGovernmentIdNumberRelationshipsCreatorDataMember1 != null)
+            if(ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf2 != null)
             {
-                return ListItemGovernmentIdNumberRelationshipsCreatorDataMember1.GetFieldDeserializers();
+                return ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf2.GetFieldDeserializers();
             }
-            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataMember2 != null)
+            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf3 != null)
             {
-                return ListItemGovernmentIdNumberRelationshipsCreatorDataMember2.GetFieldDeserializers();
+                return ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf3.GetFieldDeserializers();
             }
-            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataMember3 != null)
+            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf4 != null)
             {
-                return ListItemGovernmentIdNumberRelationshipsCreatorDataMember3.GetFieldDeserializers();
+                return ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf4.GetFieldDeserializers();
             }
-            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataMember4 != null)
+            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf5 != null)
             {
-                return ListItemGovernmentIdNumberRelationshipsCreatorDataMember4.GetFieldDeserializers();
+                return ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf5.GetFieldDeserializers();
             }
-            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataMember5 != null)
+            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf6 != null)
             {
-                return ListItemGovernmentIdNumberRelationshipsCreatorDataMember5.GetFieldDeserializers();
+                return ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf6.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -120,25 +120,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ListItemGovernmentIdNumberRelationshipsCreatorDataMember1 != null)
+            if(ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember1>(null, ListItemGovernmentIdNumberRelationshipsCreatorDataMember1);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf2>(null, ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf2);
             }
-            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataMember2 != null)
+            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf3 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember2>(null, ListItemGovernmentIdNumberRelationshipsCreatorDataMember2);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf3>(null, ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf3);
             }
-            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataMember3 != null)
+            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf4 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember3>(null, ListItemGovernmentIdNumberRelationshipsCreatorDataMember3);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf4>(null, ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf4);
             }
-            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataMember4 != null)
+            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf5 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember4>(null, ListItemGovernmentIdNumberRelationshipsCreatorDataMember4);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf5>(null, ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf5);
             }
-            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataMember5 != null)
+            else if(ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf6 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataMember5>(null, ListItemGovernmentIdNumberRelationshipsCreatorDataMember5);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf6>(null, ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf6);
             }
         }
     }

@@ -8,50 +8,50 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember5"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf5"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf6"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListItemGeolocationRelationshipsCreatorData : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember1? ListItemGeolocationRelationshipsCreatorDataMember1 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf2? ListItemGeolocationRelationshipsCreatorDataOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember1 ListItemGeolocationRelationshipsCreatorDataMember1 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf2 ListItemGeolocationRelationshipsCreatorDataOneOf2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember2? ListItemGeolocationRelationshipsCreatorDataMember2 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf3? ListItemGeolocationRelationshipsCreatorDataOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember2 ListItemGeolocationRelationshipsCreatorDataMember2 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf3 ListItemGeolocationRelationshipsCreatorDataOneOf3 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember3"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember3? ListItemGeolocationRelationshipsCreatorDataMember3 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf4? ListItemGeolocationRelationshipsCreatorDataOneOf4 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember3 ListItemGeolocationRelationshipsCreatorDataMember3 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf4 ListItemGeolocationRelationshipsCreatorDataOneOf4 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember4"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf5"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember4? ListItemGeolocationRelationshipsCreatorDataMember4 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf5? ListItemGeolocationRelationshipsCreatorDataOneOf5 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember4 ListItemGeolocationRelationshipsCreatorDataMember4 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf5 ListItemGeolocationRelationshipsCreatorDataOneOf5 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember5"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf6"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember5? ListItemGeolocationRelationshipsCreatorDataMember5 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf6? ListItemGeolocationRelationshipsCreatorDataOneOf6 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember5 ListItemGeolocationRelationshipsCreatorDataMember5 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf6 ListItemGeolocationRelationshipsCreatorDataOneOf6 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -63,25 +63,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorData();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ListItemGeolocationRelationshipsCreatorDataOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemGeolocationRelationshipsCreatorDataMember1 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember1();
+                result.ListItemGeolocationRelationshipsCreatorDataOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf2();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemGeolocationRelationshipsCreatorDataOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemGeolocationRelationshipsCreatorDataMember2 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember2();
+                result.ListItemGeolocationRelationshipsCreatorDataOneOf3 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf3();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemGeolocationRelationshipsCreatorDataOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemGeolocationRelationshipsCreatorDataMember3 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember3();
+                result.ListItemGeolocationRelationshipsCreatorDataOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf4();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemGeolocationRelationshipsCreatorDataOneOf5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemGeolocationRelationshipsCreatorDataMember4 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember4();
+                result.ListItemGeolocationRelationshipsCreatorDataOneOf5 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf5();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemGeolocationRelationshipsCreatorDataOneOf6".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemGeolocationRelationshipsCreatorDataMember5 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember5();
+                result.ListItemGeolocationRelationshipsCreatorDataOneOf6 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf6();
             }
             return result;
         }
@@ -91,25 +91,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ListItemGeolocationRelationshipsCreatorDataMember1 != null)
+            if(ListItemGeolocationRelationshipsCreatorDataOneOf2 != null)
             {
-                return ListItemGeolocationRelationshipsCreatorDataMember1.GetFieldDeserializers();
+                return ListItemGeolocationRelationshipsCreatorDataOneOf2.GetFieldDeserializers();
             }
-            else if(ListItemGeolocationRelationshipsCreatorDataMember2 != null)
+            else if(ListItemGeolocationRelationshipsCreatorDataOneOf3 != null)
             {
-                return ListItemGeolocationRelationshipsCreatorDataMember2.GetFieldDeserializers();
+                return ListItemGeolocationRelationshipsCreatorDataOneOf3.GetFieldDeserializers();
             }
-            else if(ListItemGeolocationRelationshipsCreatorDataMember3 != null)
+            else if(ListItemGeolocationRelationshipsCreatorDataOneOf4 != null)
             {
-                return ListItemGeolocationRelationshipsCreatorDataMember3.GetFieldDeserializers();
+                return ListItemGeolocationRelationshipsCreatorDataOneOf4.GetFieldDeserializers();
             }
-            else if(ListItemGeolocationRelationshipsCreatorDataMember4 != null)
+            else if(ListItemGeolocationRelationshipsCreatorDataOneOf5 != null)
             {
-                return ListItemGeolocationRelationshipsCreatorDataMember4.GetFieldDeserializers();
+                return ListItemGeolocationRelationshipsCreatorDataOneOf5.GetFieldDeserializers();
             }
-            else if(ListItemGeolocationRelationshipsCreatorDataMember5 != null)
+            else if(ListItemGeolocationRelationshipsCreatorDataOneOf6 != null)
             {
-                return ListItemGeolocationRelationshipsCreatorDataMember5.GetFieldDeserializers();
+                return ListItemGeolocationRelationshipsCreatorDataOneOf6.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -120,25 +120,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ListItemGeolocationRelationshipsCreatorDataMember1 != null)
+            if(ListItemGeolocationRelationshipsCreatorDataOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember1>(null, ListItemGeolocationRelationshipsCreatorDataMember1);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf2>(null, ListItemGeolocationRelationshipsCreatorDataOneOf2);
             }
-            else if(ListItemGeolocationRelationshipsCreatorDataMember2 != null)
+            else if(ListItemGeolocationRelationshipsCreatorDataOneOf3 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember2>(null, ListItemGeolocationRelationshipsCreatorDataMember2);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf3>(null, ListItemGeolocationRelationshipsCreatorDataOneOf3);
             }
-            else if(ListItemGeolocationRelationshipsCreatorDataMember3 != null)
+            else if(ListItemGeolocationRelationshipsCreatorDataOneOf4 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember3>(null, ListItemGeolocationRelationshipsCreatorDataMember3);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf4>(null, ListItemGeolocationRelationshipsCreatorDataOneOf4);
             }
-            else if(ListItemGeolocationRelationshipsCreatorDataMember4 != null)
+            else if(ListItemGeolocationRelationshipsCreatorDataOneOf5 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember4>(null, ListItemGeolocationRelationshipsCreatorDataMember4);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf5>(null, ListItemGeolocationRelationshipsCreatorDataOneOf5);
             }
-            else if(ListItemGeolocationRelationshipsCreatorDataMember5 != null)
+            else if(ListItemGeolocationRelationshipsCreatorDataOneOf6 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember5>(null, ListItemGeolocationRelationshipsCreatorDataMember5);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf6>(null, ListItemGeolocationRelationshipsCreatorDataOneOf6);
             }
         }
     }

@@ -41,10 +41,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>PII-filtered snapshot of the share token&apos;s source object.Present only when `peek-source-data=true` was passed on theshow endpoint, the caller is the destination organization, andthe destination organization has access to the source datapeek capability. Omitted from list responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_sourceData? SourceData { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributesSourceData? SourceData { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_sourceData SourceData { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributesSourceData SourceData { get; set; }
 #endif
         /// <summary>The status of the share token. One of `created`, `pending`, `redeemed`, `expired`, or `failed`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,7 +81,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "failure-reason", n => { FailureReason = n.GetStringValue(); } },
                 { "pending-at", n => { PendingAt = n.GetDateTimeOffsetValue(); } },
                 { "redeemed-at", n => { RedeemedAt = n.GetDateTimeOffsetValue(); } },
-                { "source-data", n => { SourceData = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_sourceData>(global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_sourceData.CreateFromDiscriminatorValue); } },
+                { "source-data", n => { SourceData = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributesSourceData>(global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributesSourceData.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -100,7 +100,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("failure-reason", FailureReason);
             writer.WriteDateTimeOffsetValue("pending-at", PendingAt);
             writer.WriteDateTimeOffsetValue("redeemed-at", RedeemedAt);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes_sourceData>("source-data", SourceData);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributesSourceData>("source-data", SourceData);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);
         }

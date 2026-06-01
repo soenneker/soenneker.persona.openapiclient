@@ -20,14 +20,14 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Names
     {
         /// <summary>Gets an item from the Soenneker.Persona.OpenApiClient.listItem.names.item collection</summary>
         /// <param name="position">ID of list item to archive.</param>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.ListItem.Names.Item.ListItemItemRequestBuilder"/></returns>
-        public global::Soenneker.Persona.OpenApiClient.ListItem.Names.Item.ListItemItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.ListItem.Names.Item.WithListItemItemRequestBuilder"/></returns>
+        public global::Soenneker.Persona.OpenApiClient.ListItem.Names.Item.WithListItemItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("list%2Ditem%2Did", position);
-                return new global::Soenneker.Persona.OpenApiClient.ListItem.Names.Item.ListItemItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("listItemId", position);
+                return new global::Soenneker.Persona.OpenApiClient.ListItem.Names.Item.WithListItemItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -50,39 +50,39 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Names
         /// Create a new item in a list.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/list-items/create-a-name-list-item" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.ListItem.Names.NamesPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateANameListItem201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Names400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Names401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Names403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Names404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Names409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Names422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Names429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Names.NamesPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateANameListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Names.NamesRequestBuilder.NamesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateANameListItem201Response?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateANameListItemRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Names.NamesRequestBuilder.NamesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.ListItem.Names.NamesPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateANameListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Names.NamesRequestBuilder.NamesRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateANameListItem201Response> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateANameListItemRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Names.NamesRequestBuilder.NamesRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Names400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Names401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Names403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Names404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Names409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Names422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Names429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.ListItem.Names.NamesPostResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.ListItem.Names.NamesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.CreateANameListItem201Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.CreateANameListItem201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a new item in a list.
@@ -92,11 +92,11 @@ namespace Soenneker.Persona.OpenApiClient.ListItem.Names
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateANameListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Names.NamesRequestBuilder.NamesRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateANameListItemRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Names.NamesRequestBuilder.NamesRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateANameListItem body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Names.NamesRequestBuilder.NamesRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateANameListItemRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ListItem.Names.NamesRequestBuilder.NamesRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

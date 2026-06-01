@@ -27,18 +27,18 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>A list of extractions resulting from processing the uploaded documents corresponding to the document&apos;s extraction configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Document>? ExtractionResponses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItem>? ExtractionResponses { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Document> ExtractionResponses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItem> ExtractionResponses { get; set; }
 #endif
         /// <summary>JSON key-value pairs of field name to field value. Exact schema depends on the configuration of your template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributes_fields? Fields { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributesFields? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributes_fields Fields { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributesFields Fields { get; set; }
 #endif
         /// <summary>The files uploaded to the document for processing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -103,8 +103,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "document-type", n => { DocumentType = n.GetStringValue(); } },
-                { "extraction-responses", n => { ExtractionResponses = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Document>(global::Soenneker.Persona.OpenApiClient.Models.Document.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributes_fields>(global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributes_fields.CreateFromDiscriminatorValue); } },
+                { "extraction-responses", n => { ExtractionResponses = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItem>(global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributesFields>(global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributesFields.CreateFromDiscriminatorValue); } },
                 { "files", n => { Files = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "files-normalized", n => { FilesNormalized = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "kind", n => { Kind = n.GetStringValue(); } },
@@ -122,8 +122,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteStringValue("document-type", DocumentType);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Document>("extraction-responses", ExtractionResponses);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributes_fields>("fields", Fields);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItem>("extraction-responses", ExtractionResponses);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentGenericAttributesFields>("fields", Fields);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("files", Files);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("files-normalized", FilesNormalized);
             writer.WriteStringValue("kind", Kind);

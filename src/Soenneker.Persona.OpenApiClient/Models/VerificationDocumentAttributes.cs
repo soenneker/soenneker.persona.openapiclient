@@ -17,10 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_checks>? Checks { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>? Checks { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_checks> Checks { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem> Checks { get; set; }
 #endif
         /// <summary>The time the verification was completed in ISO 8601 format</summary>
         public DateTimeOffset? CompletedAt { get; set; }
@@ -49,18 +49,18 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>A list of extractions resulting from processing the uploaded documents corresponding to the document&apos;s extraction configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Cases>? ExtractionResponses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItem>? ExtractionResponses { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Cases> ExtractionResponses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItem> ExtractionResponses { get; set; }
 #endif
         /// <summary>JSON key-value pairs of field name to field value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_fields? Fields { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributesFields? Fields { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_fields Fields { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributesFields Fields { get; set; }
 #endif
         /// <summary>The files uploaded to the associated document for processing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -125,15 +125,15 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_checks>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_checks.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completed-at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "completed-at-ts", n => { CompletedAtTs = n.GetIntValue(); } },
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created-at-ts", n => { CreatedAtTs = n.GetIntValue(); } },
                 { "document-type", n => { DocumentType = n.GetStringValue(); } },
-                { "extraction-responses", n => { ExtractionResponses = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Cases>(global::Soenneker.Persona.OpenApiClient.Models.Cases.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_fields>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_fields.CreateFromDiscriminatorValue); } },
+                { "extraction-responses", n => { ExtractionResponses = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItem>(global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributesFields>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributesFields.CreateFromDiscriminatorValue); } },
                 { "files", n => { Files = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "files-normalized", n => { FilesNormalized = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
@@ -150,15 +150,15 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_checks>("checks", Checks);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>("checks", Checks);
             writer.WriteDateTimeOffsetValue("completed-at", CompletedAt);
             writer.WriteIntValue("completed-at-ts", CompletedAtTs);
             writer.WriteStringValue("country-code", CountryCode);
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteIntValue("created-at-ts", CreatedAtTs);
             writer.WriteStringValue("document-type", DocumentType);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Cases>("extraction-responses", ExtractionResponses);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributes_fields>("fields", Fields);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItem>("extraction-responses", ExtractionResponses);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDocumentAttributesFields>("fields", Fields);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("files", Files);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("files-normalized", FilesNormalized);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);

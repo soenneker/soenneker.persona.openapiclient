@@ -17,14 +17,14 @@ namespace Soenneker.Persona.OpenApiClient.CaseTemplates
     {
         /// <summary>Gets an item from the Soenneker.Persona.OpenApiClient.caseTemplates.item collection</summary>
         /// <param name="position">ID of the Case Template to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.CaseTemplates.Item.CaseTemplateItemRequestBuilder"/></returns>
-        public global::Soenneker.Persona.OpenApiClient.CaseTemplates.Item.CaseTemplateItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.CaseTemplates.Item.WithCaseTemplateItemRequestBuilder"/></returns>
+        public global::Soenneker.Persona.OpenApiClient.CaseTemplates.Item.WithCaseTemplateItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("case%2Dtemplate%2Did", position);
-                return new global::Soenneker.Persona.OpenApiClient.CaseTemplates.Item.CaseTemplateItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("caseTemplateId", position);
+                return new global::Soenneker.Persona.OpenApiClient.CaseTemplates.Item.WithCaseTemplateItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

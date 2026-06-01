@@ -15,10 +15,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The config property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaEmailAddress_config? Config { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaEmailAddressConfig? Config { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaEmailAddress_config Config { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaEmailAddressConfig Config { get; set; }
 #endif
         /// <summary>The defaultValue property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,7 +64,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "config", n => { Config = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaEmailAddress_config>(global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaEmailAddress_config.CreateFromDiscriminatorValue); } },
+                { "config", n => { Config = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaEmailAddressConfig>(global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaEmailAddressConfig.CreateFromDiscriminatorValue); } },
                 { "default-value", n => { DefaultValue = n.GetStringValue(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
@@ -78,7 +78,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaEmailAddress_config>("config", Config);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaEmailAddressConfig>("config", Config);
             writer.WriteStringValue("default-value", DefaultValue);
             writer.WriteStringValue("key", Key);
             writer.WriteStringValue("label", Label);

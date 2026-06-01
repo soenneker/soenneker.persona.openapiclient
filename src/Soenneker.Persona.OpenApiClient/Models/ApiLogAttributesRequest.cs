@@ -15,10 +15,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The GET params of the request. Schema depends on the API called.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest_getParams? GetParams { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestGetParamsProperty? GetParams { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest_getParams GetParams { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestGetParamsProperty GetParams { get; set; }
 #endif
         /// <summary>The headers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,10 +55,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The POST params of the request. Schema depends on the API called.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest_postParams? PostParams { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestPostParamsProperty? PostParams { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest_postParams PostParams { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestPostParamsProperty PostParams { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -78,12 +78,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "get-params", n => { GetParams = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest_getParams>(global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest_getParams.CreateFromDiscriminatorValue); } },
+                { "get-params", n => { GetParams = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestGetParamsProperty>(global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestGetParamsProperty.CreateFromDiscriminatorValue); } },
                 { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestHeaders>(global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestHeaders.CreateFromDiscriminatorValue); } },
                 { "ip-address", n => { IpAddress = n.GetStringValue(); } },
                 { "method", n => { Method = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
-                { "post-params", n => { PostParams = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest_postParams>(global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest_postParams.CreateFromDiscriminatorValue); } },
+                { "post-params", n => { PostParams = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestPostParamsProperty>(global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestPostParamsProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -93,12 +93,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest_getParams>("get-params", GetParams);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestGetParamsProperty>("get-params", GetParams);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestHeaders>("headers", Headers);
             writer.WriteStringValue("ip-address", IpAddress);
             writer.WriteStringValue("method", Method);
             writer.WriteStringValue("path", Path);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest_postParams>("post-params", PostParams);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestPostParamsProperty>("post-params", PostParams);
         }
     }
 }

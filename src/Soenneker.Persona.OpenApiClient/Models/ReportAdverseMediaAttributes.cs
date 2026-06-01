@@ -53,18 +53,18 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The ignoreListEntity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListEntity>? IgnoreListEntity { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributesIgnoreListEntityItem>? IgnoreListEntity { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListEntity> IgnoreListEntity { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributesIgnoreListEntityItem> IgnoreListEntity { get; set; }
 #endif
         /// <summary>The ignoreListMedia property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListMedia? IgnoreListMedia { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributesIgnoreListMedia? IgnoreListMedia { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListMedia IgnoreListMedia { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributesIgnoreListMedia IgnoreListMedia { get; set; }
 #endif
         /// <summary>Whether or not this report has been run more than once</summary>
         public bool? IsContinuous { get; set; }
@@ -105,10 +105,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The sources that matched for the search</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_relatedSources>? RelatedSources { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributesAllOf2RelatedSourcesItem>? RelatedSources { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_relatedSources> RelatedSources { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributesAllOf2RelatedSourcesItem> RelatedSources { get; set; }
 #endif
         /// <summary>The name of the report template version used for this report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -173,15 +173,15 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
                 { "created-at", n => { CreatedAt = n.GetStringValue(); } },
                 { "has-match", n => { HasMatch = n.GetBoolValue(); } },
-                { "ignore-list-entity", n => { IgnoreListEntity = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListEntity>(global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListEntity.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "ignore-list-media", n => { IgnoreListMedia = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListMedia>(global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListMedia.CreateFromDiscriminatorValue); } },
+                { "ignore-list-entity", n => { IgnoreListEntity = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributesIgnoreListEntityItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributesIgnoreListEntityItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "ignore-list-media", n => { IgnoreListMedia = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributesIgnoreListMedia>(global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributesIgnoreListMedia.CreateFromDiscriminatorValue); } },
                 { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
                 { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
                 { "name-first", n => { NameFirst = n.GetStringValue(); } },
                 { "name-last", n => { NameLast = n.GetStringValue(); } },
                 { "name-middle", n => { NameMiddle = n.GetStringValue(); } },
                 { "redacted-at", n => { RedactedAt = n.GetStringValue(); } },
-                { "related-sources", n => { RelatedSources = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_relatedSources>(global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_relatedSources.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "related-sources", n => { RelatedSources = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributesAllOf2RelatedSourcesItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributesAllOf2RelatedSourcesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "report-template-version-name", n => { ReportTemplateVersionName = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -201,15 +201,15 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("country-code", CountryCode);
             writer.WriteStringValue("created-at", CreatedAt);
             writer.WriteBoolValue("has-match", HasMatch);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListEntity>("ignore-list-entity", IgnoreListEntity);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_ignoreListMedia>("ignore-list-media", IgnoreListMedia);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributesIgnoreListEntityItem>("ignore-list-entity", IgnoreListEntity);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributesIgnoreListMedia>("ignore-list-media", IgnoreListMedia);
             writer.WriteBoolValue("is-continuous", IsContinuous);
             writer.WriteBoolValue("is-recurring", IsRecurring);
             writer.WriteStringValue("name-first", NameFirst);
             writer.WriteStringValue("name-last", NameLast);
             writer.WriteStringValue("name-middle", NameMiddle);
             writer.WriteStringValue("redacted-at", RedactedAt);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributes_relatedSources>("related-sources", RelatedSources);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaAttributesAllOf2RelatedSourcesItem>("related-sources", RelatedSources);
             writer.WriteStringValue("report-template-version-name", ReportTemplateVersionName);
             writer.WriteStringValue("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);

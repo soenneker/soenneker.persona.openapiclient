@@ -20,10 +20,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributes_checks>? Checks { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>? Checks { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributes_checks> Checks { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem> Checks { get; set; }
 #endif
         /// <summary>The time the verification was completed in ISO 8601 format</summary>
         public DateTimeOffset? CompletedAt { get; set; }
@@ -72,10 +72,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>QR code attachment returned by SERPRO, if present.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributes_qrCodeAttachment? QrCodeAttachment { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributesAllOf2QrCodeAttachment? QrCodeAttachment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributes_qrCodeAttachment QrCodeAttachment { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributesAllOf2QrCodeAttachment QrCodeAttachment { get; set; }
 #endif
         /// <summary>The time the verification was redacted in ISO 8601 format</summary>
         public DateTimeOffset? RedactedAt { get; set; }
@@ -153,7 +153,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "birthdate", n => { Birthdate = n.GetDateValue(); } },
-                { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributes_checks>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributes_checks.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completed-at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "completed-at-ts", n => { CompletedAtTs = n.GetIntValue(); } },
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
@@ -164,7 +164,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "identification-number", n => { IdentificationNumber = n.GetStringValue(); } },
                 { "issue-date", n => { IssueDate = n.GetDateValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "qr-code-attachment", n => { QrCodeAttachment = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributes_qrCodeAttachment>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributes_qrCodeAttachment.CreateFromDiscriminatorValue); } },
+                { "qr-code-attachment", n => { QrCodeAttachment = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributesAllOf2QrCodeAttachment>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributesAllOf2QrCodeAttachment.CreateFromDiscriminatorValue); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
                 { "selfie-compare-image-url", n => { SelfieCompareImageUrl = n.GetStringValue(); } },
                 { "selfie-comparison-error-code", n => { SelfieComparisonErrorCode = n.GetStringValue(); } },
@@ -185,7 +185,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateValue("birthdate", Birthdate);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributes_checks>("checks", Checks);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>("checks", Checks);
             writer.WriteDateTimeOffsetValue("completed-at", CompletedAt);
             writer.WriteIntValue("completed-at-ts", CompletedAtTs);
             writer.WriteStringValue("country-code", CountryCode);
@@ -196,7 +196,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("identification-number", IdentificationNumber);
             writer.WriteDateValue("issue-date", IssueDate);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributes_qrCodeAttachment>("qr-code-attachment", QrCodeAttachment);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributesAllOf2QrCodeAttachment>("qr-code-attachment", QrCodeAttachment);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
             writer.WriteStringValue("selfie-compare-image-url", SelfieCompareImageUrl);
             writer.WriteStringValue("selfie-comparison-error-code", SelfieComparisonErrorCode);

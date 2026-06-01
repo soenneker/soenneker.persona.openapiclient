@@ -37,37 +37,37 @@ namespace Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses
         /// Bulk import email address List Items by uploading a CSV file.Each row should be the details for a new List Item. The columns we allow are:  - value  - match_type (either &apos;email_address&apos; or &apos;domain&apos;)A match_type of &apos;email_address&apos; will need to match the entire email address of an individual, while a match_type of &apos;domain&apos; will match on the email address domain of an individual (i.e. all email addresses with domain &apos;gmail.com&apos;).
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/importers/import-email-address-lists" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImportEmailAddressLists201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.EmailAddresses400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.EmailAddresses401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.EmailAddresses403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.EmailAddresses409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.EmailAddresses422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.EmailAddresses429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ImportEmailAddressLists201Response?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.ListItemImporterCsvRequestRequestFormData body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ImportEmailAddressLists201Response> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.ListItemImporterCsvRequestRequestFormData body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.EmailAddresses400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.EmailAddresses401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.EmailAddresses403Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.EmailAddresses409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.EmailAddresses422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.EmailAddresses429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesPostResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ImportEmailAddressLists201Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ImportEmailAddressLists201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Bulk import email address List Items by uploading a CSV file.Each row should be the details for a new List Item. The columns we allow are:  - value  - match_type (either &apos;email_address&apos; or &apos;domain&apos;)A match_type of &apos;email_address&apos; will need to match the entire email address of an individual, while a match_type of &apos;domain&apos; will match on the email address domain of an individual (i.e. all email addresses with domain &apos;gmail.com&apos;).
@@ -77,11 +77,11 @@ namespace Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.ListItemImporterCsvRequestRequestFormData body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesPostRequestBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.ListItemImporterCsvRequestRequestFormData body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

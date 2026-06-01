@@ -17,14 +17,14 @@ namespace Soenneker.Persona.OpenApiClient.AccountTypes
     {
         /// <summary>Gets an item from the Soenneker.Persona.OpenApiClient.accountTypes.item collection</summary>
         /// <param name="position">ID of the Account Type to retrieve.</param>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.AccountTypes.Item.AccountTypeItemRequestBuilder"/></returns>
-        public global::Soenneker.Persona.OpenApiClient.AccountTypes.Item.AccountTypeItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.AccountTypes.Item.WithAccountTypeItemRequestBuilder"/></returns>
+        public global::Soenneker.Persona.OpenApiClient.AccountTypes.Item.WithAccountTypeItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("account%2Dtype%2Did", position);
-                return new global::Soenneker.Persona.OpenApiClient.AccountTypes.Item.AccountTypeItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("accountTypeId", position);
+                return new global::Soenneker.Persona.OpenApiClient.AccountTypes.Item.WithAccountTypeItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

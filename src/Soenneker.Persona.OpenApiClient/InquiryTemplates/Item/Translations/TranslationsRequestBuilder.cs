@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations
 {
     /// <summary>
-    /// Builds and executes requests for operations under \inquiry-templates\{inquiry-template-id}\translations
+    /// Builds and executes requests for operations under \inquiry-templates\{inquiryTemplateId}\translations
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TranslationsRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TranslationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/inquiry-templates/{inquiry%2Dtemplate%2Did}/translations{?fields*,include*}", pathParameters)
+        public TranslationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/inquiry-templates/{inquiryTemplateId}/translations{?fields*,include*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,78 +30,78 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TranslationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/inquiry-templates/{inquiry%2Dtemplate%2Did}/translations{?fields*,include*}", rawUrl)
+        public TranslationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/inquiry-templates/{inquiryTemplateId}/translations{?fields*,include*}", rawUrl)
         {
         }
         /// <summary>
         /// &quot;Retrieves the translations for an Inquiry Template as a JSON:API resource.The export uses the latest draft version if one exists, otherwise falls back to the latest published version.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.&quot;
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiry-templates/retrieve-inquiry-template-translations" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsRequestBuilder.TranslationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsRequestBuilder.TranslationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsRequestBuilder.TranslationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsRequestBuilder.TranslationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200404Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Imports translations for an Inquiry Template. Supports partial updates — translation rows not included in the request body are left unchanged.If a draft version already exists, translations are applied to it. If no draft exists, a new draft is created from the latest published version before importing. The draft is never automatically published — publishing is always a manual step in the dashboard.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.&quot;
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiry-templates/import-inquiry-template-translations" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslations200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Translations400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Translations401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Translations403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Translations404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Translations409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Translations422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.Translations429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsPostResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslations body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsRequestBuilder.TranslationsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslations200Response?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslationsRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsRequestBuilder.TranslationsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsPostResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslations body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsRequestBuilder.TranslationsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslations200Response> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslationsRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsRequestBuilder.TranslationsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.Translations400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.Translations401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.Translations403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.Translations404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.Translations409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.Translations422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.Translations429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsPostResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslations200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslations200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Retrieves the translations for an Inquiry Template as a JSON:API resource.The export uses the latest draft version if one exists, otherwise falls back to the latest published version.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.&quot;
@@ -130,11 +130,11 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslations body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsRequestBuilder.TranslationsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslationsRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsRequestBuilder.TranslationsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslations body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsRequestBuilder.TranslationsRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslationsRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsRequestBuilder.TranslationsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

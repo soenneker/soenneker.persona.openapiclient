@@ -17,14 +17,14 @@ namespace Soenneker.Persona.OpenApiClient.Verification.Databases
     {
         /// <summary>Gets an item from the Soenneker.Persona.OpenApiClient.verification.databases.item collection</summary>
         /// <param name="position">ID of Verification to retrieve</param>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Verification.Databases.Item.VerificationItemRequestBuilder"/></returns>
-        public global::Soenneker.Persona.OpenApiClient.Verification.Databases.Item.VerificationItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Verification.Databases.Item.WithVerificationItemRequestBuilder"/></returns>
+        public global::Soenneker.Persona.OpenApiClient.Verification.Databases.Item.WithVerificationItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("verification%2Did", position);
-                return new global::Soenneker.Persona.OpenApiClient.Verification.Databases.Item.VerificationItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("verificationId", position);
+                return new global::Soenneker.Persona.OpenApiClient.Verification.Databases.Item.WithVerificationItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

@@ -8,42 +8,42 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember4"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListItemDeviceFingerprintRelationshipsCreatorData : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember1? ListItemDeviceFingerprintRelationshipsCreatorDataMember1 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2? ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember1 ListItemDeviceFingerprintRelationshipsCreatorDataMember1 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2 ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember2? ListItemDeviceFingerprintRelationshipsCreatorDataMember2 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3? ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember2 ListItemDeviceFingerprintRelationshipsCreatorDataMember2 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3 ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember3"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember3? ListItemDeviceFingerprintRelationshipsCreatorDataMember3 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4? ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember3 ListItemDeviceFingerprintRelationshipsCreatorDataMember3 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4 ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember4"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember4? ListItemDeviceFingerprintRelationshipsCreatorDataMember4 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5? ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember4 ListItemDeviceFingerprintRelationshipsCreatorDataMember4 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5 ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -55,21 +55,21 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorData();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemDeviceFingerprintRelationshipsCreatorDataMember1 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember1();
+                result.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemDeviceFingerprintRelationshipsCreatorDataMember2 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember2();
+                result.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemDeviceFingerprintRelationshipsCreatorDataMember3 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember3();
+                result.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemDeviceFingerprintRelationshipsCreatorDataMember4 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember4();
+                result.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5();
             }
             return result;
         }
@@ -79,21 +79,21 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ListItemDeviceFingerprintRelationshipsCreatorDataMember1 != null)
+            if(ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2 != null)
             {
-                return ListItemDeviceFingerprintRelationshipsCreatorDataMember1.GetFieldDeserializers();
+                return ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2.GetFieldDeserializers();
             }
-            else if(ListItemDeviceFingerprintRelationshipsCreatorDataMember2 != null)
+            else if(ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3 != null)
             {
-                return ListItemDeviceFingerprintRelationshipsCreatorDataMember2.GetFieldDeserializers();
+                return ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3.GetFieldDeserializers();
             }
-            else if(ListItemDeviceFingerprintRelationshipsCreatorDataMember3 != null)
+            else if(ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4 != null)
             {
-                return ListItemDeviceFingerprintRelationshipsCreatorDataMember3.GetFieldDeserializers();
+                return ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4.GetFieldDeserializers();
             }
-            else if(ListItemDeviceFingerprintRelationshipsCreatorDataMember4 != null)
+            else if(ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5 != null)
             {
-                return ListItemDeviceFingerprintRelationshipsCreatorDataMember4.GetFieldDeserializers();
+                return ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -104,21 +104,21 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ListItemDeviceFingerprintRelationshipsCreatorDataMember1 != null)
+            if(ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember1>(null, ListItemDeviceFingerprintRelationshipsCreatorDataMember1);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2>(null, ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2);
             }
-            else if(ListItemDeviceFingerprintRelationshipsCreatorDataMember2 != null)
+            else if(ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember2>(null, ListItemDeviceFingerprintRelationshipsCreatorDataMember2);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3>(null, ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3);
             }
-            else if(ListItemDeviceFingerprintRelationshipsCreatorDataMember3 != null)
+            else if(ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember3>(null, ListItemDeviceFingerprintRelationshipsCreatorDataMember3);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4>(null, ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4);
             }
-            else if(ListItemDeviceFingerprintRelationshipsCreatorDataMember4 != null)
+            else if(ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember4>(null, ListItemDeviceFingerprintRelationshipsCreatorDataMember4);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5>(null, ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5);
             }
         }
     }

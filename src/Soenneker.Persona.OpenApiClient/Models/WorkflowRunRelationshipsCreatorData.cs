@@ -8,34 +8,34 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember3"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf4"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowRunRelationshipsCreatorData : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember1"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember1? WorkflowRunRelationshipsCreatorDataMember1 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf2? WorkflowRunRelationshipsCreatorDataOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember1 WorkflowRunRelationshipsCreatorDataMember1 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf2 WorkflowRunRelationshipsCreatorDataOneOf2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember2? WorkflowRunRelationshipsCreatorDataMember2 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf3? WorkflowRunRelationshipsCreatorDataOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember2 WorkflowRunRelationshipsCreatorDataMember2 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf3 WorkflowRunRelationshipsCreatorDataOneOf3 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember3"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember3? WorkflowRunRelationshipsCreatorDataMember3 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf4? WorkflowRunRelationshipsCreatorDataOneOf4 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember3 WorkflowRunRelationshipsCreatorDataMember3 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf4 WorkflowRunRelationshipsCreatorDataOneOf4 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,17 +47,17 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorData();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("WorkflowRunRelationshipsCreatorDataOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WorkflowRunRelationshipsCreatorDataMember1 = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember1();
+                result.WorkflowRunRelationshipsCreatorDataOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf2();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("WorkflowRunRelationshipsCreatorDataOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WorkflowRunRelationshipsCreatorDataMember2 = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember2();
+                result.WorkflowRunRelationshipsCreatorDataOneOf3 = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf3();
             }
-            else if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("WorkflowRunRelationshipsCreatorDataOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WorkflowRunRelationshipsCreatorDataMember3 = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember3();
+                result.WorkflowRunRelationshipsCreatorDataOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf4();
             }
             return result;
         }
@@ -67,17 +67,17 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(WorkflowRunRelationshipsCreatorDataMember1 != null)
+            if(WorkflowRunRelationshipsCreatorDataOneOf2 != null)
             {
-                return WorkflowRunRelationshipsCreatorDataMember1.GetFieldDeserializers();
+                return WorkflowRunRelationshipsCreatorDataOneOf2.GetFieldDeserializers();
             }
-            else if(WorkflowRunRelationshipsCreatorDataMember2 != null)
+            else if(WorkflowRunRelationshipsCreatorDataOneOf3 != null)
             {
-                return WorkflowRunRelationshipsCreatorDataMember2.GetFieldDeserializers();
+                return WorkflowRunRelationshipsCreatorDataOneOf3.GetFieldDeserializers();
             }
-            else if(WorkflowRunRelationshipsCreatorDataMember3 != null)
+            else if(WorkflowRunRelationshipsCreatorDataOneOf4 != null)
             {
-                return WorkflowRunRelationshipsCreatorDataMember3.GetFieldDeserializers();
+                return WorkflowRunRelationshipsCreatorDataOneOf4.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -88,17 +88,17 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(WorkflowRunRelationshipsCreatorDataMember1 != null)
+            if(WorkflowRunRelationshipsCreatorDataOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember1>(null, WorkflowRunRelationshipsCreatorDataMember1);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf2>(null, WorkflowRunRelationshipsCreatorDataOneOf2);
             }
-            else if(WorkflowRunRelationshipsCreatorDataMember2 != null)
+            else if(WorkflowRunRelationshipsCreatorDataOneOf3 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember2>(null, WorkflowRunRelationshipsCreatorDataMember2);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf3>(null, WorkflowRunRelationshipsCreatorDataOneOf3);
             }
-            else if(WorkflowRunRelationshipsCreatorDataMember3 != null)
+            else if(WorkflowRunRelationshipsCreatorDataOneOf4 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember3>(null, WorkflowRunRelationshipsCreatorDataMember3);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf4>(null, WorkflowRunRelationshipsCreatorDataOneOf4);
             }
         }
     }

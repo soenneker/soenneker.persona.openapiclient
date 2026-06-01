@@ -26,10 +26,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Bag of source-object attributes exposed to the destination organization per the sourceorganization&apos;s PII-share configuration. Each scalar entry (e.g. `status`, `country-code`,`id-class`) is a `{visibility, value}` wrapper; see `source-data-peekable-attribute.yaml`.Inquiry, Account, and Txn subtypes additionally expose a nested `fields` sub-bucketcontaining standard and custom user-space fields (e.g. `name-first`, `birthdate`, org-definedfields); verification subtypes do not. The source object&apos;s `status` (when applicable to thesubtype) appears here as a peekable attribute, not as a top-level scalar. Entries strippedentirely by the configuration are omitted from the bag. The concrete shape — includingwhich subtypes expose `fields` — is declared per-subtype.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase_peekableAttributes? PeekableAttributes { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabasePeekableAttributes? PeekableAttributes { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase_peekableAttributes PeekableAttributes { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabasePeekableAttributes PeekableAttributes { get; set; }
 #endif
         /// <summary>Discriminator for the source-object type. Subtypes constrain this to a specific value via `const`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +65,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "peekable-attributes", n => { PeekableAttributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase_peekableAttributes>(global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase_peekableAttributes.CreateFromDiscriminatorValue); } },
+                { "peekable-attributes", n => { PeekableAttributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabasePeekableAttributes>(global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabasePeekableAttributes.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -77,7 +77,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase_peekableAttributes>("peekable-attributes", PeekableAttributes);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabasePeekableAttributes>("peekable-attributes", PeekableAttributes);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

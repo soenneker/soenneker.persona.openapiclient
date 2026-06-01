@@ -16,10 +16,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The versions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeploymentAttributesConfiguration_versions>? Versions { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeploymentAttributesConfigurationVersionsItem>? Versions { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeploymentAttributesConfiguration_versions> Versions { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeploymentAttributesConfigurationVersionsItem> Versions { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "versions", n => { Versions = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeploymentAttributesConfiguration_versions>(global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeploymentAttributesConfiguration_versions.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "versions", n => { Versions = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeploymentAttributesConfigurationVersionsItem>(global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeploymentAttributesConfigurationVersionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeploymentAttributesConfiguration_versions>("versions", Versions);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeploymentAttributesConfigurationVersionsItem>("versions", Versions);
         }
     }
 }

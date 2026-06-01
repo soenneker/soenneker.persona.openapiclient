@@ -12,7 +12,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Inquiries.Item.Resume
 {
     /// <summary>
-    /// Builds and executes requests for operations under \inquiries\{inquiry-id}\resume
+    /// Builds and executes requests for operations under \inquiries\{inquiryId}\resume
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ResumeRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Soenneker.Persona.OpenApiClient.Inquiries.Item.Resume
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ResumeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/inquiries/{inquiry%2Did}/resume{?fields*,include*}", pathParameters)
+        public ResumeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/inquiries/{inquiryId}/resume{?fields*,include*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,44 +30,44 @@ namespace Soenneker.Persona.OpenApiClient.Inquiries.Item.Resume
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ResumeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/inquiries/{inquiry%2Did}/resume{?fields*,include*}", rawUrl)
+        public ResumeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/inquiries/{inquiryId}/resume{?fields*,include*}", rawUrl)
         {
         }
         /// <summary>
         /// Creates a session token that is returned as `meta.session-token`. If the inquiry&apos;s status is `expired`, changes the status to `pending`. The `session-token` must be included when loading the inquiry flow if the inquiry&apos;s status is `pending`.This endpoint will error if the inquiry is redacted.This endpoint first tries to reuse any existing valid unused [sessions](https://docs.withpersona.com/inquiry-sessions). If none exist, a new session is created.For more information, see [Resuming Inquiries](https://docs.withpersona.com/resuming-inquiries).
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiries/resume-an-inquiry" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200401Error">When receiving a 401 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200403Error">When receiving a 403 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200409Error">When receiving a 409 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200429Error">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200?> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.Resume.ResumeRequestBuilder.ResumeRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200Response?> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.Resume.ResumeRequestBuilder.ResumeRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.Resume.ResumeRequestBuilder.ResumeRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200Response> PostAsync(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Inquiries.Item.Resume.ResumeRequestBuilder.ResumeRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200400Error.CreateFromDiscriminatorValue },
-                { "401", global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200401Error.CreateFromDiscriminatorValue },
-                { "403", global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200403Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200404Error.CreateFromDiscriminatorValue },
-                { "409", global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200409Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200422Error.CreateFromDiscriminatorValue },
-                { "429", global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200429Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ResumeAnInquiry200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a session token that is returned as `meta.session-token`. If the inquiry&apos;s status is `expired`, changes the status to `pending`. The `session-token` must be included when loading the inquiry flow if the inquiry&apos;s status is `pending`.This endpoint will error if the inquiry is redacted.This endpoint first tries to reuse any existing valid unused [sessions](https://docs.withpersona.com/inquiry-sessions). If none exist, a new session is created.For more information, see [Resuming Inquiries](https://docs.withpersona.com/resuming-inquiries).

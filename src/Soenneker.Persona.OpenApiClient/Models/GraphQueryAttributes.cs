@@ -31,28 +31,28 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The nodes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributes_nodes>? Nodes { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesNodesItem>? Nodes { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributes_nodes> Nodes { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesNodesItem> Nodes { get; set; }
 #endif
         /// <summary>Dynamic query parameters</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributes_params? Params { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesParamsProperty? Params { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributes_params Params { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesParamsProperty Params { get; set; }
 #endif
         /// <summary>This will be set to the time when the graph query results were redacted.In this case, nodes will also be an empty array.</summary>
         public DateTimeOffset? RedactedAt { get; set; }
         /// <summary>The stats property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributes_stats? Stats { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesStatsProperty? Stats { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributes_stats Stats { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesStatsProperty Stats { get; set; }
 #endif
         /// <summary>Possible values:- submitted- completed- errored- cancelled- timed_outDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,10 +87,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "errored-at", n => { ErroredAt = n.GetDateTimeOffsetValue(); } },
                 { "explorer-url", n => { ExplorerUrl = n.GetStringValue(); } },
                 { "node-limit-reached", n => { NodeLimitReached = n.GetBoolValue(); } },
-                { "nodes", n => { Nodes = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributes_nodes>(global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributes_nodes.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "params", n => { Params = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributes_params>(global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributes_params.CreateFromDiscriminatorValue); } },
+                { "nodes", n => { Nodes = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesNodesItem>(global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesNodesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "params", n => { Params = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesParamsProperty>(global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesParamsProperty.CreateFromDiscriminatorValue); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
-                { "stats", n => { Stats = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributes_stats>(global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributes_stats.CreateFromDiscriminatorValue); } },
+                { "stats", n => { Stats = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesStatsProperty>(global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesStatsProperty.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -107,10 +107,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("errored-at", ErroredAt);
             writer.WriteStringValue("explorer-url", ExplorerUrl);
             writer.WriteBoolValue("node-limit-reached", NodeLimitReached);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributes_nodes>("nodes", Nodes);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributes_params>("params", Params);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesNodesItem>("nodes", Nodes);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesParamsProperty>("params", Params);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributes_stats>("stats", Stats);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesStatsProperty>("stats", Stats);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);
         }

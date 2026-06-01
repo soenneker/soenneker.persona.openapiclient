@@ -15,10 +15,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ListsStringsRelationshipsListItems_data>? Data { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ListsStringsRelationshipsListItemsDataItemProperty>? Data { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ListsStringsRelationshipsListItems_data> Data { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ListsStringsRelationshipsListItemsDataItemProperty> Data { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,7 +38,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ListsStringsRelationshipsListItems_data>(global::Soenneker.Persona.OpenApiClient.Models.ListsStringsRelationshipsListItems_data.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ListsStringsRelationshipsListItemsDataItemProperty>(global::Soenneker.Persona.OpenApiClient.Models.ListsStringsRelationshipsListItemsDataItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ListsStringsRelationshipsListItems_data>("data", Data);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ListsStringsRelationshipsListItemsDataItemProperty>("data", Data);
         }
     }
 }

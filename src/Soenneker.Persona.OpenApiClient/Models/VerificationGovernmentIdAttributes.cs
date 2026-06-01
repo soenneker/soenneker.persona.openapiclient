@@ -89,10 +89,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributes_checks>? Checks { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>? Checks { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributes_checks> Checks { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem> Checks { get; set; }
 #endif
         /// <summary>The time the verification was completed in ISO 8601 format</summary>
         public DateTimeOffset? CompletedAt { get; set; }
@@ -285,10 +285,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The photoUrls property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributes_photoUrls>? PhotoUrls { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2PhotoUrlsItem>? PhotoUrls { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributes_photoUrls> PhotoUrls { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2PhotoUrlsItem> PhotoUrls { get; set; }
 #endif
         /// <summary>The time the verification was redacted in ISO 8601 format</summary>
         public DateTimeOffset? RedactedAt { get; set; }
@@ -303,10 +303,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The selfiePhoto property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributes_selfiePhoto? SelfiePhoto { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2SelfiePhoto? SelfiePhoto { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributes_selfiePhoto SelfiePhoto { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2SelfiePhoto SelfiePhoto { get; set; }
 #endif
         /// <summary>The selfiePhotoUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -402,7 +402,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "birthdate", n => { Birthdate = n.GetStringValue(); } },
                 { "birthplace", n => { Birthplace = n.GetStringValue(); } },
                 { "capture-method", n => { CaptureMethod = n.GetStringValue(); } },
-                { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributes_checks>(global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributes_checks.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completed-at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "completed-at-ts", n => { CompletedAtTs = n.GetIntValue(); } },
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
@@ -431,10 +431,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "native-name-last", n => { NativeNameLast = n.GetStringValue(); } },
                 { "native-name-middle", n => { NativeNameMiddle = n.GetStringValue(); } },
                 { "native-name-title", n => { NativeNameTitle = n.GetStringValue(); } },
-                { "photo-urls", n => { PhotoUrls = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributes_photoUrls>(global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributes_photoUrls.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "photo-urls", n => { PhotoUrls = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2PhotoUrlsItem>(global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2PhotoUrlsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
                 { "restrictions", n => { Restrictions = n.GetStringValue(); } },
-                { "selfie-photo", n => { SelfiePhoto = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributes_selfiePhoto>(global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributes_selfiePhoto.CreateFromDiscriminatorValue); } },
+                { "selfie-photo", n => { SelfiePhoto = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2SelfiePhoto>(global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2SelfiePhoto.CreateFromDiscriminatorValue); } },
                 { "selfie-photo-url", n => { SelfiePhotoUrl = n.GetStringValue(); } },
                 { "sex", n => { Sex = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -462,7 +462,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("birthdate", Birthdate);
             writer.WriteStringValue("birthplace", Birthplace);
             writer.WriteStringValue("capture-method", CaptureMethod);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributes_checks>("checks", Checks);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>("checks", Checks);
             writer.WriteDateTimeOffsetValue("completed-at", CompletedAt);
             writer.WriteIntValue("completed-at-ts", CompletedAtTs);
             writer.WriteStringValue("country-code", CountryCode);
@@ -491,10 +491,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("native-name-last", NativeNameLast);
             writer.WriteStringValue("native-name-middle", NativeNameMiddle);
             writer.WriteStringValue("native-name-title", NativeNameTitle);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributes_photoUrls>("photo-urls", PhotoUrls);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2PhotoUrlsItem>("photo-urls", PhotoUrls);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
             writer.WriteStringValue("restrictions", Restrictions);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributes_selfiePhoto>("selfie-photo", SelfiePhoto);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2SelfiePhoto>("selfie-photo", SelfiePhoto);
             writer.WriteStringValue("selfie-photo-url", SelfiePhotoUrl);
             writer.WriteStringValue("sex", Sex);
             writer.WriteStringValue("status", Status);

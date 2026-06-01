@@ -8,13 +8,11 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Fallback array item schema
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterAccount"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemField"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGeolocation"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGovernmentIdNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemIpAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemName"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemPhoneNumber"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Importer : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
+    public partial class Importer : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterAccount"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,13 +77,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemPhoneNumber ImporterListItemPhoneNumber { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.Importer"/> and sets the default values.
-        /// </summary>
-        public Importer()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -209,7 +200,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemPhoneNumber>(null, ImporterListItemPhoneNumber);
             }
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

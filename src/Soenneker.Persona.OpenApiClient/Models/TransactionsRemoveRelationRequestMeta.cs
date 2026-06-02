@@ -9,30 +9,34 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SelfieAttributes : IParsable
+    public partial class TransactionsRemoveRelationRequestMeta : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The createdAt property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>Timestamp when the Selfie finished processing. `null` until the Selfie reaches the `processed` or `errored` status.</summary>
-        public DateTimeOffset? ProcessedAt { get; set; }
-        /// <summary>Possible values:- initiated- submitted- processed- erroredDo not assume this is a static enumeration; Persona may add new valuesin the future without a versioned update.</summary>
+        /// <summary>Key of the relation schema to remove.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get; set; }
+        public string? RelationSchemaKey { get; set; }
 #nullable restore
 #else
-        public string Status { get; set; }
+        public string RelationSchemaKey { get; set; }
+#endif
+        /// <summary>ID of the target Account or Transaction to unrelate.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TargetObjectId { get; set; }
+#nullable restore
+#else
+        public string TargetObjectId { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.SelfieAttributes"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.TransactionsRemoveRelationRequestMeta"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.SelfieAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.TransactionsRemoveRelationRequestMeta CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.SelfieAttributes();
+            return new global::Soenneker.Persona.OpenApiClient.Models.TransactionsRemoveRelationRequestMeta();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -42,9 +46,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "processed-at", n => { ProcessedAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetStringValue(); } },
+                { "relation-schema-key", n => { RelationSchemaKey = n.GetStringValue(); } },
+                { "target-object-id", n => { TargetObjectId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -54,9 +57,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
-            writer.WriteDateTimeOffsetValue("processed-at", ProcessedAt);
-            writer.WriteStringValue("status", Status);
+            writer.WriteStringValue("relation-schema-key", RelationSchemaKey);
+            writer.WriteStringValue("target-object-id", TargetObjectId);
         }
     }
 }

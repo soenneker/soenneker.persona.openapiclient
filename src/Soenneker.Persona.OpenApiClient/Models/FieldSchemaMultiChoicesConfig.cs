@@ -20,6 +20,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public DateTimeOffset? ArchivedAt { get; set; }
         /// <summary>The deactivatedAt property</summary>
         public DateTimeOffset? DeactivatedAt { get; set; }
+        /// <summary>Display labels for each value in `options`, in the same order.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? OptionLabels { get; set; }
+#nullable restore
+#else
+        public List<string> OptionLabels { get; set; }
+#endif
         /// <summary>The options property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,6 +92,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "allow-empty", n => { AllowEmpty = n.GetBoolValue(); } },
                 { "archived-at", n => { ArchivedAt = n.GetDateTimeOffsetValue(); } },
                 { "deactivated-at", n => { DeactivatedAt = n.GetDateTimeOffsetValue(); } },
+                { "option-labels", n => { OptionLabels = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "options", n => { Options = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "redaction-policy", n => { RedactionPolicy = n.GetStringValue(); } },
                 { "required", n => { Required = n.GetBoolValue(); } },
@@ -101,6 +110,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteBoolValue("allow-empty", AllowEmpty);
             writer.WriteDateTimeOffsetValue("archived-at", ArchivedAt);
             writer.WriteDateTimeOffsetValue("deactivated-at", DeactivatedAt);
+            writer.WriteCollectionOfPrimitiveValues<string>("option-labels", OptionLabels);
             writer.WriteCollectionOfPrimitiveValues<string>("options", Options);
             writer.WriteStringValue("redaction-policy", RedactionPolicy);
             writer.WriteBoolValue("required", Required);

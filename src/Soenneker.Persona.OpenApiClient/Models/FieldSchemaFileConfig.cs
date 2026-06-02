@@ -22,6 +22,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public int? MaxFileSizeBytes { get; set; }
         /// <summary>The minFileSizeBytes property</summary>
         public int? MinFileSizeBytes { get; set; }
+        /// <summary>Whether the document page-count limits are enforced.</summary>
+        public bool? PageCountLimitEnabled { get; set; }
+        /// <summary>Maximum allowed page count when `page-count-limit-enabled` is true.</summary>
+        public int? PageCountMax { get; set; }
+        /// <summary>Minimum allowed page count when `page-count-limit-enabled` is true.</summary>
+        public int? PageCountMin { get; set; }
         /// <summary>Whether the field&apos;s value may be redacted on request.Possible values:- `none` — value is redactable- `never` — value is never redactedDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -87,6 +93,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "deactivated-at", n => { DeactivatedAt = n.GetDateTimeOffsetValue(); } },
                 { "max-file-size-bytes", n => { MaxFileSizeBytes = n.GetIntValue(); } },
                 { "min-file-size-bytes", n => { MinFileSizeBytes = n.GetIntValue(); } },
+                { "page-count-limit-enabled", n => { PageCountLimitEnabled = n.GetBoolValue(); } },
+                { "page-count-max", n => { PageCountMax = n.GetIntValue(); } },
+                { "page-count-min", n => { PageCountMin = n.GetIntValue(); } },
                 { "redaction-policy", n => { RedactionPolicy = n.GetStringValue(); } },
                 { "required", n => { Required = n.GetBoolValue(); } },
                 { "source-key-path", n => { SourceKeyPath = n.GetStringValue(); } },
@@ -105,6 +114,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("deactivated-at", DeactivatedAt);
             writer.WriteIntValue("max-file-size-bytes", MaxFileSizeBytes);
             writer.WriteIntValue("min-file-size-bytes", MinFileSizeBytes);
+            writer.WriteBoolValue("page-count-limit-enabled", PageCountLimitEnabled);
+            writer.WriteIntValue("page-count-max", PageCountMax);
+            writer.WriteIntValue("page-count-min", PageCountMin);
             writer.WriteStringValue("redaction-policy", RedactionPolicy);
             writer.WriteBoolValue("required", Required);
             writer.WriteStringValue("source-key-path", SourceKeyPath);

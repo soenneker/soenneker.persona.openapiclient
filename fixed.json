@@ -488,6 +488,97 @@
         }
       }
     },
+    "/accounts/{accountId}/add-relation": {
+      "post": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Add a relation to an Account",
+        "description": "Adds a relation from an Account to a target Account or Transaction",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/accounts/add-relation"
+        },
+        "operationId": "AccountsAddRelation",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountsAddRelationRequest"
+              },
+              "examples": {
+                "Success": {
+                  "$ref": "#/components/examples/set-relation"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "This endpoint returns an Account object and (optionally) its related objects in \u0060included\u0060.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountsAddRelation200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/account"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
     "/accounts/{accountId}/add-tag": {
       "post": {
         "tags": [
@@ -747,6 +838,97 @@
                 "examples": {
                   "Success": {
                     "$ref": "#/components/examples/account-list"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
+    "/accounts/{accountId}/remove-relation": {
+      "post": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Remove a relation from an Account",
+        "description": "Removes a relation from an Account to a target Account or Transaction.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/accounts/remove-relation"
+        },
+        "operationId": "AccountsRemoveRelation",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountsRemoveRelationRequest"
+              },
+              "examples": {
+                "Success": {
+                  "$ref": "#/components/examples/set-relation"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "This endpoint returns an Account object and (optionally) its related objects in \u0060included\u0060.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountsRemoveRelation200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/account"
                   }
                 }
               }
@@ -14426,6 +14608,103 @@
         }
       }
     },
+    "/transactions/{transactionId}/add-relation": {
+      "post": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Add relation to Transaction",
+        "description": "Adds a relation between this Transaction and a target Account or Transaction using a relation schema key. No effect if the relation already exists.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/transactions/add-relation"
+        },
+        "operationId": "TransactionsAddRelation",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "transactionId",
+            "in": "path",
+            "description": "ID of the transaction to add the relation to.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransactionsAddRelationRequest"
+              },
+              "examples": {
+                "Example": {
+                  "value": {
+                    "meta": {
+                      "relation-schema-key": "parent-of",
+                      "target-object-id": "act_ABC123"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Transaction object and (optionally) its related objects in \u0060included\u0060.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionsAddRelation200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/transaction"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
     "/transactions/{transactionId}/add-tag": {
       "post": {
         "tags": [
@@ -14580,6 +14859,103 @@
                 "examples": {
                   "Success": {
                     "$ref": "#/components/examples/transaction-with-label"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
+    "/transactions/{transactionId}/remove-relation": {
+      "post": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Remove relation from Transaction",
+        "description": "Removes a relation between this Transaction and a target Account or Transaction. No effect if the relation does not exist.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/transactions/remove-relation"
+        },
+        "operationId": "TransactionsRemoveRelation",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "transactionId",
+            "in": "path",
+            "description": "ID of the transaction to remove the relation from.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransactionsRemoveRelationRequest"
+              },
+              "examples": {
+                "Example": {
+                  "value": {
+                    "meta": {
+                      "relation-schema-key": "parent-of",
+                      "target-object-id": "act_ABC123"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Transaction object and (optionally) its related objects in \u0060included\u0060.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionsRemoveRelation200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/transaction"
                   }
                 }
               }
@@ -25505,6 +25881,13 @@
           "$ref": "#/components/schemas/ImporterPipelineRunsIncludedObjectsItem"
         }
       },
+      "SelfieIncludedObjects": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/SelfieIncludedObjectsItem"
+        },
+        "description": "Objects referenced in \u0060payload.data.relationships\u0060 may be provided in \u0060included\u0060 when related-object inclusion is enabled for the webhook subscription. When inclusion is not enabled, the \u0060included\u0060 key is omitted."
+      },
       "ImportAnAccountFormDataRequest": {
         "required": [
           "data"
@@ -25819,6 +26202,13 @@
             "items": {
               "type": "string"
             }
+          },
+          "option-labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Display labels for each value in \u0060options\u0060, in the same order."
           }
         },
         "x-jsonschema-unevaluatedProperties": false
@@ -25992,6 +26382,21 @@
             "default": [
               "image/jpg image/jpeg image/png image/heic image/heif image/tif image/tiff image/gif image/svg\u002Bxml application/pdf text/plain text/csv video/mp4 video/webm video/quicktime"
             ]
+          },
+          "page-count-limit-enabled": {
+            "type": "boolean",
+            "description": "Whether the document page-count limits are enforced.",
+            "default": false
+          },
+          "page-count-min": {
+            "type": "integer",
+            "description": "Minimum allowed page count when \u0060page-count-limit-enabled\u0060 is true.",
+            "nullable": true
+          },
+          "page-count-max": {
+            "type": "integer",
+            "description": "Maximum allowed page count when \u0060page-count-limit-enabled\u0060 is true.",
+            "nullable": true
           }
         },
         "x-jsonschema-unevaluatedProperties": false
@@ -26157,6 +26562,13 @@
             "items": {
               "type": "string"
             }
+          },
+          "option-labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Display labels for each value in \u0060options\u0060, in the same order."
           }
         },
         "x-jsonschema-unevaluatedProperties": false
@@ -36146,6 +36558,31 @@
           }
         }
       },
+      "SelfieIncludedObjectsItem": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/Inquiry"
+          }
+        ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "inquiry": "#/components/schemas/Inquiry",
+            "Inquiry": "#/components/schemas/Inquiry"
+          }
+        }
+      },
       "FieldSchemaArrayConfigAllOf2": {
         "type": "object",
         "properties": {
@@ -36166,6 +36603,13 @@
             "items": {
               "type": "string"
             }
+          },
+          "option-labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Display labels for each value in \u0060options\u0060, in the same order."
           }
         }
       },
@@ -36203,6 +36647,21 @@
             "default": [
               "image/jpg image/jpeg image/png image/heic image/heif image/tif image/tiff image/gif image/svg\u002Bxml application/pdf text/plain text/csv video/mp4 video/webm video/quicktime"
             ]
+          },
+          "page-count-limit-enabled": {
+            "type": "boolean",
+            "description": "Whether the document page-count limits are enforced.",
+            "default": false
+          },
+          "page-count-min": {
+            "type": "integer",
+            "description": "Minimum allowed page count when \u0060page-count-limit-enabled\u0060 is true.",
+            "nullable": true
+          },
+          "page-count-max": {
+            "type": "integer",
+            "description": "Maximum allowed page count when \u0060page-count-limit-enabled\u0060 is true.",
+            "nullable": true
           }
         }
       },
@@ -36252,6 +36711,13 @@
             "items": {
               "type": "string"
             }
+          },
+          "option-labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Display labels for each value in \u0060options\u0060, in the same order."
           }
         }
       },
@@ -41680,7 +42146,9 @@
           },
           "processed-at": {
             "type": "string",
-            "format": "date-time"
+            "description": "Timestamp when the Selfie finished processing. \u0060null\u0060 until the Selfie reaches the \u0060processed\u0060 or \u0060errored\u0060 status.",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -49826,6 +50294,36 @@
         },
         "additionalProperties": false
       },
+      "AccountsAddRelationRequest": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/AccountsAddRelationRequestMeta"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountsAddRelation200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Account"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccountsIncludedObjectsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "AccountsAddTagRequest": {
         "required": [
           "meta"
@@ -49902,6 +50400,36 @@
           },
           "links": {
             "$ref": "#/components/schemas/AccountsListAllRelations200ResponseLinks"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountsRemoveRelationRequest": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/AccountsRemoveRelationRequestMeta"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountsRemoveRelation200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Account"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccountsIncludedObjectsItem"
+            }
           }
         },
         "additionalProperties": false
@@ -52103,6 +52631,18 @@
         },
         "additionalProperties": false
       },
+      "TransactionsAddRelationRequest": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/TransactionsAddRelationRequestMeta"
+          }
+        },
+        "additionalProperties": false
+      },
       "TransactionsAddTagRequest": {
         "type": "object",
         "properties": {
@@ -52135,6 +52675,18 @@
             "items": {
               "$ref": "#/components/schemas/TransactionLabel"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransactionsRemoveRelationRequest": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/TransactionsRemoveRelationRequestMeta"
           }
         },
         "additionalProperties": false
@@ -53234,7 +53786,31 @@
         },
         "additionalProperties": false
       },
+      "TransactionsAddRelation200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Transaction"
+          }
+        },
+        "additionalProperties": false
+      },
       "TransactionsAddTag200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Transaction"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransactionsRemoveRelation200Response": {
         "required": [
           "data"
         ],
@@ -53874,6 +54450,24 @@
         },
         "additionalProperties": false
       },
+      "AccountsAddRelationRequestMeta": {
+        "required": [
+          "relation-schema-key",
+          "target-object-id"
+        ],
+        "type": "object",
+        "properties": {
+          "relation-schema-key": {
+            "type": "string",
+            "description": "Key of the relation schema to add."
+          },
+          "target-object-id": {
+            "type": "string",
+            "description": "ID of the target Account or Transaction to relate to."
+          }
+        },
+        "additionalProperties": false
+      },
       "AccountsAddTagRequestMeta": {
         "type": "object",
         "properties": {
@@ -53920,6 +54514,24 @@
             "type": "string",
             "description": "URL pointing to the next page of data, or null if on the last page.",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountsRemoveRelationRequestMeta": {
+        "required": [
+          "relation-schema-key",
+          "target-object-id"
+        ],
+        "type": "object",
+        "properties": {
+          "relation-schema-key": {
+            "type": "string",
+            "description": "Key of the relation schema to remove."
+          },
+          "target-object-id": {
+            "type": "string",
+            "description": "ID of the target Account or Transaction to unrelate."
           }
         },
         "additionalProperties": false
@@ -55319,6 +55931,24 @@
         },
         "additionalProperties": false
       },
+      "TransactionsAddRelationRequestMeta": {
+        "required": [
+          "relation-schema-key",
+          "target-object-id"
+        ],
+        "type": "object",
+        "properties": {
+          "relation-schema-key": {
+            "type": "string",
+            "description": "Key of the relation schema to add."
+          },
+          "target-object-id": {
+            "type": "string",
+            "description": "ID of the target Account or Transaction to relate to."
+          }
+        },
+        "additionalProperties": false
+      },
       "TransactionsAddTagRequestMeta": {
         "type": "object",
         "properties": {
@@ -55345,6 +55975,24 @@
           },
           "model-version": {
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransactionsRemoveRelationRequestMeta": {
+        "required": [
+          "relation-schema-key",
+          "target-object-id"
+        ],
+        "type": "object",
+        "properties": {
+          "relation-schema-key": {
+            "type": "string",
+            "description": "Key of the relation schema to remove."
+          },
+          "target-object-id": {
+            "type": "string",
+            "description": "ID of the target Account or Transaction to unrelate."
           }
         },
         "additionalProperties": false
@@ -58601,6 +59249,14 @@
                 }
               }
             }
+          }
+        }
+      },
+      "set-relation": {
+        "value": {
+          "meta": {
+            "relation-schema-key": "beneficial_owners",
+            "target-object-id": "act_ABC123"
           }
         }
       },
@@ -64370,6 +65026,56 @@
           }
         }
       },
+      "account-consolidated-with-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_6vXpL9sJ2cH5dQzT8mWnK3rB",
+            "attributes": {
+              "name": "account.consolidated-with",
+              "payload": {
+                "data": {
+                  "type": "account",
+                  "id": "act_9yGqWZ8jK4pN2dR7sVxL3bTm",
+                  "attributes": {
+                    "reference-id": "customer-1090",
+                    "account-type-name": "User",
+                    "created-at": "2023-11-20T08:00:00.000Z",
+                    "updated-at": "2024-02-15T23:48:10.000Z",
+                    "redacted-at": null,
+                    "fields": {
+                      "name": {
+                        "type": "hash",
+                        "value": {
+                          "first": {
+                            "type": "string",
+                            "value": "Taylor"
+                          },
+                          "middle": {
+                            "type": "string",
+                            "value": null
+                          },
+                          "last": {
+                            "type": "string",
+                            "value": "Quinn"
+                          }
+                        }
+                      },
+                      "email_address": {
+                        "type": "string",
+                        "value": "taylor.quinn@example.com"
+                      }
+                    },
+                    "tags": [],
+                    "account-status": "Approved"
+                  }
+                }
+              },
+              "created-at": "2024-02-15T23:48:17.732Z"
+            }
+          }
+        }
+      },
       "account-tag-added-webhook-body": {
         "value": {
           "data": {
@@ -64662,6 +65368,300 @@
                 }
               },
               "created-at": "2024-02-15T23:48:17.732Z"
+            }
+          }
+        }
+      },
+      "account-added-relation-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_ArYe9fEGrjzDnWs3DhTZRdGi",
+            "attributes": {
+              "name": "account.added-relation",
+              "payload": {
+                "data": {
+                  "type": "account",
+                  "id": "act_ArYe9fESV7LHXdGqHDJuJPwQ",
+                  "attributes": {
+                    "reference-id": "customer-2274",
+                    "account-type-name": "Individual",
+                    "created-at": "2024-04-10T19:10:02.000Z",
+                    "updated-at": "2024-04-10T19:10:02.000Z",
+                    "redacted-at": null,
+                    "fields": {
+                      "name": {
+                        "type": "hash",
+                        "value": {
+                          "first": {
+                            "type": "string",
+                            "value": "Morgan"
+                          },
+                          "middle": {
+                            "type": "string",
+                            "value": null
+                          },
+                          "last": {
+                            "type": "string",
+                            "value": "Avery"
+                          }
+                        }
+                      },
+                      "email_address": {
+                        "type": "string",
+                        "value": "morgan.avery@example.com"
+                      }
+                    },
+                    "tags": [],
+                    "account-status": "Default"
+                  }
+                }
+              },
+              "context": {
+                "relation-schema-key": "business",
+                "target-account-id": "act_8GV2ULqZ5VHURTJtYjGjV8nU",
+                "target-txn-id": null
+              },
+              "created-at": "2024-04-10T19:10:03.089Z"
+            }
+          }
+        }
+      },
+      "account-removed-relation-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_AQMVkV1FLwBaCNjTzRmjoSov",
+            "attributes": {
+              "name": "account.removed-relation",
+              "payload": {
+                "data": {
+                  "type": "account",
+                  "id": "act_wbk4s6zfyboAmDYvyMpwVf6F",
+                  "attributes": {
+                    "reference-id": "customer-2274",
+                    "account-type-name": "Individual",
+                    "created-at": "2024-04-10T19:10:02.000Z",
+                    "updated-at": "2024-05-22T10:40:00.000Z",
+                    "redacted-at": null,
+                    "fields": {
+                      "name": {
+                        "type": "hash",
+                        "value": {
+                          "first": {
+                            "type": "string",
+                            "value": "Morgan"
+                          },
+                          "middle": {
+                            "type": "string",
+                            "value": null
+                          },
+                          "last": {
+                            "type": "string",
+                            "value": "Avery"
+                          }
+                        }
+                      },
+                      "email_address": {
+                        "type": "string",
+                        "value": "morgan.avery@example.com"
+                      }
+                    },
+                    "tags": [],
+                    "account-status": "Default"
+                  }
+                }
+              },
+              "context": {
+                "relation-schema-key": "business",
+                "target-account-id": "act_8GV2ULqZ5VHURTJtYjGjV8nU",
+                "target-txn-id": null
+              },
+              "created-at": "2024-05-22T10:40:13.043Z"
+            }
+          }
+        }
+      },
+      "account-status-updated-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_3KqH4xVnR2bPmYwL9sTgD3cE",
+            "attributes": {
+              "name": "account.status-updated",
+              "payload": {
+                "data": {
+                  "type": "account",
+                  "id": "act_7sVxL3bTm9yGqWZ8jK4pN2dR",
+                  "attributes": {
+                    "reference-id": "customer-4821",
+                    "account-type-name": "User",
+                    "created-at": "2024-02-01T10:15:30.000Z",
+                    "updated-at": "2024-02-15T23:48:10.000Z",
+                    "redacted-at": null,
+                    "fields": {
+                      "name": {
+                        "type": "hash",
+                        "value": {
+                          "first": {
+                            "type": "string",
+                            "value": "Jordan"
+                          },
+                          "middle": {
+                            "type": "string",
+                            "value": null
+                          },
+                          "last": {
+                            "type": "string",
+                            "value": "Rivera"
+                          }
+                        }
+                      },
+                      "email_address": {
+                        "type": "string",
+                        "value": "jordan.rivera@example.com"
+                      }
+                    },
+                    "tags": [
+                      "vip"
+                    ],
+                    "account-status": "Approved"
+                  }
+                }
+              },
+              "created-at": "2024-02-15T23:48:17.732Z"
+            }
+          }
+        }
+      },
+      "account-updated-fields-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_5dQzT8mWnK3rB6vXpL9sJ2cH",
+            "attributes": {
+              "name": "account.updated-fields",
+              "payload": {
+                "data": {
+                  "type": "account",
+                  "id": "act_2dR7sVxL3bTm9yGqWZ8jK4pN",
+                  "attributes": {
+                    "reference-id": "customer-4821",
+                    "account-type-name": "User",
+                    "created-at": "2024-02-01T10:15:30.000Z",
+                    "updated-at": "2024-03-04T18:02:55.000Z",
+                    "redacted-at": null,
+                    "fields": {
+                      "name": {
+                        "type": "hash",
+                        "value": {
+                          "first": {
+                            "type": "string",
+                            "value": "Jordan"
+                          },
+                          "middle": {
+                            "type": "string",
+                            "value": null
+                          },
+                          "last": {
+                            "type": "string",
+                            "value": "Rivera"
+                          }
+                        }
+                      },
+                      "address": {
+                        "type": "hash",
+                        "value": {
+                          "street_1": {
+                            "type": "string",
+                            "value": "500 Market St"
+                          },
+                          "street_2": {
+                            "type": "string",
+                            "value": null
+                          },
+                          "subdivision": {
+                            "type": "string",
+                            "value": "California"
+                          },
+                          "city": {
+                            "type": "string",
+                            "value": "San Francisco"
+                          },
+                          "postal_code": {
+                            "type": "string",
+                            "value": "94105"
+                          },
+                          "country_code": {
+                            "type": "string",
+                            "value": "US"
+                          }
+                        }
+                      },
+                      "email_address": {
+                        "type": "string",
+                        "value": "jordan.rivera@example.com"
+                      }
+                    },
+                    "tags": [],
+                    "account-status": "Approved"
+                  }
+                }
+              },
+              "created-at": "2024-03-04T18:03:01.118Z"
+            }
+          }
+        }
+      },
+      "account-updated-tags-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_8mWnK3rB6vXpL9sJ2cH5dQzT",
+            "attributes": {
+              "name": "account.updated-tags",
+              "payload": {
+                "data": {
+                  "type": "account",
+                  "id": "act_4pN2dR7sVxL3bTm9yGqWZ8jK",
+                  "attributes": {
+                    "reference-id": "customer-4821",
+                    "account-type-name": "User",
+                    "created-at": "2024-02-01T10:15:30.000Z",
+                    "updated-at": "2024-03-11T09:25:04.000Z",
+                    "redacted-at": null,
+                    "fields": {
+                      "name": {
+                        "type": "hash",
+                        "value": {
+                          "first": {
+                            "type": "string",
+                            "value": "Jordan"
+                          },
+                          "middle": {
+                            "type": "string",
+                            "value": null
+                          },
+                          "last": {
+                            "type": "string",
+                            "value": "Rivera"
+                          }
+                        }
+                      },
+                      "email_address": {
+                        "type": "string",
+                        "value": "jordan.rivera@example.com"
+                      }
+                    },
+                    "tags": [
+                      "vip",
+                      "manual-review"
+                    ],
+                    "account-status": "Approved"
+                  }
+                }
+              },
+              "created-at": "2024-03-11T09:25:04.231Z"
             }
           }
         }
@@ -72799,6 +73799,426 @@
                 ]
               },
               "created-at": "2024-01-15T10:00:00.732Z"
+            }
+          }
+        }
+      },
+      "selfie-created-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_3KqH4xVnR2bPmYwL9sTgD7cE",
+            "attributes": {
+              "name": "selfie.created",
+              "payload": {
+                "data": {
+                  "type": "selfie/profile-and-center",
+                  "id": "self_C8dHpYxLm3Rq7NwTzKvBgF2s",
+                  "attributes": {
+                    "status": "initiated",
+                    "created-at": "2024-02-15T23:45:01.000Z",
+                    "processed-at": null
+                  },
+                  "relationships": {
+                    "inquiry": {
+                      "data": {
+                        "type": "inquiry",
+                        "id": "inq_7HmRpYxLn4Qw9NvTzKdBgF3c"
+                      }
+                    }
+                  }
+                },
+                "included": [
+                  {
+                    "type": "inquiry",
+                    "id": "inq_7HmRpYxLn4Qw9NvTzKdBgF3c",
+                    "attributes": {
+                      "status": "pending",
+                      "reference-id": null,
+                      "note": null,
+                      "behaviors": {},
+                      "tags": [],
+                      "creator": "jane@doe.com",
+                      "reviewer-comment": null,
+                      "created-at": "2024-02-15T23:45:01.000Z",
+                      "updated-at": "2024-02-15T23:45:01.000Z",
+                      "started-at": "2024-02-15T23:45:01.000Z",
+                      "expires-at": null,
+                      "completed-at": null,
+                      "failed-at": null,
+                      "marked-for-review-at": null,
+                      "decisioned-at": null,
+                      "expired-at": null,
+                      "redacted-at": null,
+                      "previous-step-name": "start",
+                      "next-step-name": "verification_selfie",
+                      "fields": {}
+                    },
+                    "relationships": {
+                      "account": {
+                        "data": {
+                          "type": "account",
+                          "id": "act_n2uq9eKMboaCQzu9ALWYcVdN"
+                        }
+                      },
+                      "template": {
+                        "data": null
+                      },
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                        }
+                      },
+                      "inquiry-template-version": {
+                        "data": {
+                          "type": "inquiry-template-version",
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      },
+                      "reviewer": {
+                        "data": {}
+                      },
+                      "reports": {
+                        "data": []
+                      },
+                      "verifications": {
+                        "data": []
+                      },
+                      "sessions": {
+                        "data": []
+                      },
+                      "documents": {
+                        "data": []
+                      },
+                      "selfies": {
+                        "data": [
+                          {
+                            "type": "selfie/profile-and-center",
+                            "id": "self_C8dHpYxLm3Rq7NwTzKvBgF2s"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "created-at": "2024-02-15T23:45:01.100Z"
+            }
+          }
+        }
+      },
+      "selfie-submitted-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_5MpJ6zWoT4dRnZyN1vUiF9eG",
+            "attributes": {
+              "name": "selfie.submitted",
+              "payload": {
+                "data": {
+                  "type": "selfie/profile-and-center",
+                  "id": "self_C8dHpYxLm3Rq7NwTzKvBgF2s",
+                  "attributes": {
+                    "status": "submitted",
+                    "created-at": "2024-02-15T23:45:01.000Z",
+                    "processed-at": null
+                  },
+                  "relationships": {
+                    "inquiry": {
+                      "data": {
+                        "type": "inquiry",
+                        "id": "inq_7HmRpYxLn4Qw9NvTzKdBgF3c"
+                      }
+                    }
+                  }
+                },
+                "included": [
+                  {
+                    "type": "inquiry",
+                    "id": "inq_7HmRpYxLn4Qw9NvTzKdBgF3c",
+                    "attributes": {
+                      "status": "pending",
+                      "reference-id": null,
+                      "note": null,
+                      "behaviors": {},
+                      "tags": [],
+                      "creator": "jane@doe.com",
+                      "reviewer-comment": null,
+                      "created-at": "2024-02-15T23:45:01.000Z",
+                      "updated-at": "2024-02-15T23:45:02.000Z",
+                      "started-at": "2024-02-15T23:45:01.000Z",
+                      "expires-at": null,
+                      "completed-at": null,
+                      "failed-at": null,
+                      "marked-for-review-at": null,
+                      "decisioned-at": null,
+                      "expired-at": null,
+                      "redacted-at": null,
+                      "previous-step-name": "start",
+                      "next-step-name": "verification_selfie",
+                      "fields": {}
+                    },
+                    "relationships": {
+                      "account": {
+                        "data": {
+                          "type": "account",
+                          "id": "act_n2uq9eKMboaCQzu9ALWYcVdN"
+                        }
+                      },
+                      "template": {
+                        "data": null
+                      },
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                        }
+                      },
+                      "inquiry-template-version": {
+                        "data": {
+                          "type": "inquiry-template-version",
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      },
+                      "reviewer": {
+                        "data": {}
+                      },
+                      "reports": {
+                        "data": []
+                      },
+                      "verifications": {
+                        "data": []
+                      },
+                      "sessions": {
+                        "data": []
+                      },
+                      "documents": {
+                        "data": []
+                      },
+                      "selfies": {
+                        "data": [
+                          {
+                            "type": "selfie/profile-and-center",
+                            "id": "self_C8dHpYxLm3Rq7NwTzKvBgF2s"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "created-at": "2024-02-15T23:45:02.500Z"
+            }
+          }
+        }
+      },
+      "selfie-processed-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_7NrL8bYqV6fToBzP3xWkH1gI",
+            "attributes": {
+              "name": "selfie.processed",
+              "payload": {
+                "data": {
+                  "type": "selfie/profile-and-center",
+                  "id": "self_C8dHpYxLm3Rq7NwTzKvBgF2s",
+                  "attributes": {
+                    "status": "processed",
+                    "created-at": "2024-02-15T23:45:01.000Z",
+                    "processed-at": "2024-02-15T23:45:04.000Z"
+                  },
+                  "relationships": {
+                    "inquiry": {
+                      "data": {
+                        "type": "inquiry",
+                        "id": "inq_7HmRpYxLn4Qw9NvTzKdBgF3c"
+                      }
+                    }
+                  }
+                },
+                "included": [
+                  {
+                    "type": "inquiry",
+                    "id": "inq_7HmRpYxLn4Qw9NvTzKdBgF3c",
+                    "attributes": {
+                      "status": "pending",
+                      "reference-id": null,
+                      "note": null,
+                      "behaviors": {},
+                      "tags": [],
+                      "creator": "jane@doe.com",
+                      "reviewer-comment": null,
+                      "created-at": "2024-02-15T23:45:01.000Z",
+                      "updated-at": "2024-02-15T23:45:04.000Z",
+                      "started-at": "2024-02-15T23:45:01.000Z",
+                      "expires-at": null,
+                      "completed-at": null,
+                      "failed-at": null,
+                      "marked-for-review-at": null,
+                      "decisioned-at": null,
+                      "expired-at": null,
+                      "redacted-at": null,
+                      "previous-step-name": "start",
+                      "next-step-name": "verification_selfie",
+                      "fields": {}
+                    },
+                    "relationships": {
+                      "account": {
+                        "data": {
+                          "type": "account",
+                          "id": "act_n2uq9eKMboaCQzu9ALWYcVdN"
+                        }
+                      },
+                      "template": {
+                        "data": null
+                      },
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                        }
+                      },
+                      "inquiry-template-version": {
+                        "data": {
+                          "type": "inquiry-template-version",
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      },
+                      "reviewer": {
+                        "data": {}
+                      },
+                      "reports": {
+                        "data": []
+                      },
+                      "verifications": {
+                        "data": []
+                      },
+                      "sessions": {
+                        "data": []
+                      },
+                      "documents": {
+                        "data": []
+                      },
+                      "selfies": {
+                        "data": [
+                          {
+                            "type": "selfie/profile-and-center",
+                            "id": "self_C8dHpYxLm3Rq7NwTzKvBgF2s"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "created-at": "2024-02-15T23:45:04.100Z"
+            }
+          }
+        }
+      },
+      "selfie-errored-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_9PtM0dArX8hVqDcR5zYmJ3iK",
+            "attributes": {
+              "name": "selfie.errored",
+              "payload": {
+                "data": {
+                  "type": "selfie/profile-and-center",
+                  "id": "self_C8dHpYxLm3Rq7NwTzKvBgF2s",
+                  "attributes": {
+                    "status": "errored",
+                    "created-at": "2024-02-15T23:45:01.000Z",
+                    "processed-at": "2024-02-15T23:45:04.000Z"
+                  },
+                  "relationships": {
+                    "inquiry": {
+                      "data": {
+                        "type": "inquiry",
+                        "id": "inq_7HmRpYxLn4Qw9NvTzKdBgF3c"
+                      }
+                    }
+                  }
+                },
+                "included": [
+                  {
+                    "type": "inquiry",
+                    "id": "inq_7HmRpYxLn4Qw9NvTzKdBgF3c",
+                    "attributes": {
+                      "status": "pending",
+                      "reference-id": null,
+                      "note": null,
+                      "behaviors": {},
+                      "tags": [],
+                      "creator": "jane@doe.com",
+                      "reviewer-comment": null,
+                      "created-at": "2024-02-15T23:45:01.000Z",
+                      "updated-at": "2024-02-15T23:45:04.000Z",
+                      "started-at": "2024-02-15T23:45:01.000Z",
+                      "expires-at": null,
+                      "completed-at": null,
+                      "failed-at": null,
+                      "marked-for-review-at": null,
+                      "decisioned-at": null,
+                      "expired-at": null,
+                      "redacted-at": null,
+                      "previous-step-name": "start",
+                      "next-step-name": "verification_selfie",
+                      "fields": {}
+                    },
+                    "relationships": {
+                      "account": {
+                        "data": {
+                          "type": "account",
+                          "id": "act_n2uq9eKMboaCQzu9ALWYcVdN"
+                        }
+                      },
+                      "template": {
+                        "data": null
+                      },
+                      "inquiry-template": {
+                        "data": {
+                          "type": "inquiry-template",
+                          "id": "itmpl_AbN9KvR4LmT2WqYxPdHsZgFc"
+                        }
+                      },
+                      "inquiry-template-version": {
+                        "data": {
+                          "type": "inquiry-template-version",
+                          "id": "itmplv_LqX3jYwK7HnRpZmCvBdF8RtA"
+                        }
+                      },
+                      "reviewer": {
+                        "data": {}
+                      },
+                      "reports": {
+                        "data": []
+                      },
+                      "verifications": {
+                        "data": []
+                      },
+                      "sessions": {
+                        "data": []
+                      },
+                      "documents": {
+                        "data": []
+                      },
+                      "selfies": {
+                        "data": [
+                          {
+                            "type": "selfie/profile-and-center",
+                            "id": "self_C8dHpYxLm3Rq7NwTzKvBgF2s"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "created-at": "2024-02-15T23:45:04.100Z"
             }
           }
         }

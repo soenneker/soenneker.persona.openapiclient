@@ -4,9 +4,11 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Persona.OpenApiClient.Models;
+using Soenneker.Persona.OpenApiClient.Transactions.Item.AddRelation;
 using Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag;
 using Soenneker.Persona.OpenApiClient.Transactions.Item.Label;
 using Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics;
+using Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveRelation;
 using Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag;
 using Soenneker.Persona.OpenApiClient.Transactions.Item.SetTags;
 using System.Collections.Generic;
@@ -22,6 +24,11 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithTransactionItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The addRelation property</summary>
+        public global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddRelation.AddRelationRequestBuilder AddRelation
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddRelation.AddRelationRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The addTag property</summary>
         public global::Soenneker.Persona.OpenApiClient.Transactions.Item.AddTag.AddTagRequestBuilder AddTag
         {
@@ -36,6 +43,11 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item
         public global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsRequestBuilder RedactBiometrics
         {
             get => new global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The removeRelation property</summary>
+        public global::Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveRelation.RemoveRelationRequestBuilder RemoveRelation
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveRelation.RemoveRelationRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The removeTag property</summary>
         public global::Soenneker.Persona.OpenApiClient.Transactions.Item.RemoveTag.RemoveTagRequestBuilder RemoveTag

@@ -44,6 +44,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public ListItemGeolocationAttributes()
         {
             AdditionalData = new Dictionary<string, object>();
+            Latitude = 0;
+            Longitude = 0;
+            MatchCount = 0;
+            RadiusMeters = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

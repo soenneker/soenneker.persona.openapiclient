@@ -30,6 +30,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public VerificationGovernmentIdNfcAttributesAllOf2SelfiePhoto()
         {
             AdditionalData = new Dictionary<string, object>();
+            ByteSize = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

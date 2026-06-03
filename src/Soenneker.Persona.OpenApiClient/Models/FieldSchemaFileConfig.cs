@@ -68,6 +68,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public FieldSchemaFileConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            MaxFileSizeBytes = 10000000;
+            MinFileSizeBytes = 1;
+            PageCountLimitEnabled = false;
             RedactionPolicy = "none";
             WritePolicy = "none";
         }

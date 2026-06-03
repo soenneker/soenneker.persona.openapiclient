@@ -68,6 +68,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public FieldSchemaChoicesConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            AllowEmpty = false;
             RedactionPolicy = "none";
             WritePolicy = "none";
         }

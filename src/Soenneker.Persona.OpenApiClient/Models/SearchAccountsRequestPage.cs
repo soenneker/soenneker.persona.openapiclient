@@ -32,6 +32,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Number of results to return per page</summary>
         public int? Size { get; set; }
         /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestPage"/> and sets the default values.
+        /// </summary>
+        public SearchAccountsRequestPage()
+        {
+            Size = 10;
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestPage"/></returns>

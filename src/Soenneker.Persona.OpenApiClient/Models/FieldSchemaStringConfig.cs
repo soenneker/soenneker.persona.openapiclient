@@ -60,6 +60,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public FieldSchemaStringConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            MaxCharLength = 255;
             RedactionPolicy = "none";
             WritePolicy = "none";
         }

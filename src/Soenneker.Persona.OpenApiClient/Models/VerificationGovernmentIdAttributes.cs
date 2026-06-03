@@ -374,6 +374,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public VerificationGovernmentIdAttributes()
         {
             AdditionalData = new Dictionary<string, object>();
+            EntityConfidenceScore = 0;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -39,6 +39,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public string TokenType { get; set; }
 #endif
         /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAccessToken201Response"/> and sets the default values.
+        /// </summary>
+        public CreateAccessToken201Response()
+        {
+            ExpiresIn = 0;
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAccessToken201Response"/></returns>

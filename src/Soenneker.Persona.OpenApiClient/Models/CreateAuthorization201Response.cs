@@ -23,6 +23,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Number of seconds until the authorization code expires.</summary>
         public int? ExpiresIn { get; set; }
         /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAuthorization201Response"/> and sets the default values.
+        /// </summary>
+        public CreateAuthorization201Response()
+        {
+            ExpiresIn = 0;
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAuthorization201Response"/></returns>

@@ -60,6 +60,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public FieldSchemaHashConfig()
         {
             AdditionalData = new Dictionary<string, object>();
+            IgnoreUnknownKeys = false;
             RedactionPolicy = "none";
             WritePolicy = "none";
         }

@@ -15,6 +15,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>If true, the query will run synchronously and results will be returned in the response. If false, the query will run asynchronously and you will have to poll for results.</summary>
         public bool? RunSync { get; set; }
         /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestMeta"/> and sets the default values.
+        /// </summary>
+        public CreateAGraphQueryRequestMeta()
+        {
+            RunSync = false;
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestMeta"/></returns>

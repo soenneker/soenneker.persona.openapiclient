@@ -37,6 +37,15 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The successfulCount property</summary>
         public int? SuccessfulCount { get; set; }
         /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterSharedAttributes"/> and sets the default values.
+        /// </summary>
+        public ImporterSharedAttributes()
+        {
+            DuplicateCount = 0;
+            ErrorCount = 0;
+            SuccessfulCount = 0;
+        }
+        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterSharedAttributes"/></returns>

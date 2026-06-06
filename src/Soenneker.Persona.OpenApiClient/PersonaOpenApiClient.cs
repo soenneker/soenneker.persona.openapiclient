@@ -27,7 +27,9 @@ using Soenneker.Persona.OpenApiClient.List;
 using Soenneker.Persona.OpenApiClient.ListItem;
 using Soenneker.Persona.OpenApiClient.Lists;
 using Soenneker.Persona.OpenApiClient.Oauth;
+using Soenneker.Persona.OpenApiClient.PrivacyPasses;
 using Soenneker.Persona.OpenApiClient.RateLimits;
+using Soenneker.Persona.OpenApiClient.Relays;
 using Soenneker.Persona.OpenApiClient.Reports;
 using Soenneker.Persona.OpenApiClient.TransactionTypes;
 using Soenneker.Persona.OpenApiClient.Transactions;
@@ -154,10 +156,20 @@ namespace Soenneker.Persona.OpenApiClient
         {
             get => new global::Soenneker.Persona.OpenApiClient.Oauth.OauthRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The privacyPasses property</summary>
+        public global::Soenneker.Persona.OpenApiClient.PrivacyPasses.PrivacyPassesRequestBuilder PrivacyPasses
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.PrivacyPasses.PrivacyPassesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The rateLimits property</summary>
         public global::Soenneker.Persona.OpenApiClient.RateLimits.RateLimitsRequestBuilder RateLimits
         {
             get => new global::Soenneker.Persona.OpenApiClient.RateLimits.RateLimitsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The relays property</summary>
+        public global::Soenneker.Persona.OpenApiClient.Relays.RelaysRequestBuilder Relays
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.Relays.RelaysRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The reports property</summary>
         public global::Soenneker.Persona.OpenApiClient.Reports.ReportsRequestBuilder Reports

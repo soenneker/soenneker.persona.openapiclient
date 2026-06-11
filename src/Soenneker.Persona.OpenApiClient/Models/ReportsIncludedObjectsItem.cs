@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.CaseType"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateAddressLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateCryptoAddressWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplatePhoneRisk"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplatePoliticallyExposedPerson"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateProfile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateSentilinkScores"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateSocialMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateSynthetic"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.CaseType"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateAddressLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessAssociatedPersons"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessRegistrationsLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateCryptoAddressWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplatePhoneRisk"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplatePoliticallyExposedPerson"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateProfile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateSentilinkScores"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateSocialMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateSynthetic"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReportsIncludedObjectsItem : IComposedTypeWrapper, IParsable
@@ -61,6 +61,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessAdverseMedia ReportTemplateBusinessAdverseMedia { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessAssociatedPersons"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessAssociatedPersons? ReportTemplateBusinessAssociatedPersons { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessAssociatedPersons ReportTemplateBusinessAssociatedPersons { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessLookup"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,6 +76,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessLookup ReportTemplateBusinessLookup { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessRegistrationsLookup"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessRegistrationsLookup? ReportTemplateBusinessRegistrationsLookup { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessRegistrationsLookup ReportTemplateBusinessRegistrationsLookup { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessWatchlist"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -172,7 +188,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
             result.ReportTemplateAddressLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateAddressLookup();
             result.ReportTemplateAdverseMedia = new global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateAdverseMedia();
             result.ReportTemplateBusinessAdverseMedia = new global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessAdverseMedia();
+            result.ReportTemplateBusinessAssociatedPersons = new global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessAssociatedPersons();
             result.ReportTemplateBusinessLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessLookup();
+            result.ReportTemplateBusinessRegistrationsLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessRegistrationsLookup();
             result.ReportTemplateBusinessWatchlist = new global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessWatchlist();
             result.ReportTemplateCryptoAddressWatchlist = new global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateCryptoAddressWatchlist();
             result.ReportTemplateEmailAddress = new global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateEmailAddress();
@@ -192,9 +210,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(Account != null || CaseType != null || Inquiry != null || ReportTemplateAddressLookup != null || ReportTemplateAdverseMedia != null || ReportTemplateBusinessAdverseMedia != null || ReportTemplateBusinessLookup != null || ReportTemplateBusinessWatchlist != null || ReportTemplateCryptoAddressWatchlist != null || ReportTemplateEmailAddress != null || ReportTemplatePhoneRisk != null || ReportTemplatePoliticallyExposedPerson != null || ReportTemplateProfile != null || ReportTemplateSentilinkScores != null || ReportTemplateSocialMedia != null || ReportTemplateSynthetic != null || ReportTemplateWatchlist != null || Transaction != null)
+            if(Account != null || CaseType != null || Inquiry != null || ReportTemplateAddressLookup != null || ReportTemplateAdverseMedia != null || ReportTemplateBusinessAdverseMedia != null || ReportTemplateBusinessAssociatedPersons != null || ReportTemplateBusinessLookup != null || ReportTemplateBusinessRegistrationsLookup != null || ReportTemplateBusinessWatchlist != null || ReportTemplateCryptoAddressWatchlist != null || ReportTemplateEmailAddress != null || ReportTemplatePhoneRisk != null || ReportTemplatePoliticallyExposedPerson != null || ReportTemplateProfile != null || ReportTemplateSentilinkScores != null || ReportTemplateSocialMedia != null || ReportTemplateSynthetic != null || ReportTemplateWatchlist != null || Transaction != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(Account, CaseType, Inquiry, ReportTemplateAddressLookup, ReportTemplateAdverseMedia, ReportTemplateBusinessAdverseMedia, ReportTemplateBusinessLookup, ReportTemplateBusinessWatchlist, ReportTemplateCryptoAddressWatchlist, ReportTemplateEmailAddress, ReportTemplatePhoneRisk, ReportTemplatePoliticallyExposedPerson, ReportTemplateProfile, ReportTemplateSentilinkScores, ReportTemplateSocialMedia, ReportTemplateSynthetic, ReportTemplateWatchlist, Transaction);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(Account, CaseType, Inquiry, ReportTemplateAddressLookup, ReportTemplateAdverseMedia, ReportTemplateBusinessAdverseMedia, ReportTemplateBusinessAssociatedPersons, ReportTemplateBusinessLookup, ReportTemplateBusinessRegistrationsLookup, ReportTemplateBusinessWatchlist, ReportTemplateCryptoAddressWatchlist, ReportTemplateEmailAddress, ReportTemplatePhoneRisk, ReportTemplatePoliticallyExposedPerson, ReportTemplateProfile, ReportTemplateSentilinkScores, ReportTemplateSocialMedia, ReportTemplateSynthetic, ReportTemplateWatchlist, Transaction);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -205,7 +223,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account>(null, Account, CaseType, Inquiry, ReportTemplateAddressLookup, ReportTemplateAdverseMedia, ReportTemplateBusinessAdverseMedia, ReportTemplateBusinessLookup, ReportTemplateBusinessWatchlist, ReportTemplateCryptoAddressWatchlist, ReportTemplateEmailAddress, ReportTemplatePhoneRisk, ReportTemplatePoliticallyExposedPerson, ReportTemplateProfile, ReportTemplateSentilinkScores, ReportTemplateSocialMedia, ReportTemplateSynthetic, ReportTemplateWatchlist, Transaction);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account>(null, Account, CaseType, Inquiry, ReportTemplateAddressLookup, ReportTemplateAdverseMedia, ReportTemplateBusinessAdverseMedia, ReportTemplateBusinessAssociatedPersons, ReportTemplateBusinessLookup, ReportTemplateBusinessRegistrationsLookup, ReportTemplateBusinessWatchlist, ReportTemplateCryptoAddressWatchlist, ReportTemplateEmailAddress, ReportTemplatePhoneRisk, ReportTemplatePoliticallyExposedPerson, ReportTemplateProfile, ReportTemplateSentilinkScores, ReportTemplateSocialMedia, ReportTemplateSynthetic, ReportTemplateWatchlist, Transaction);
         }
     }
 }

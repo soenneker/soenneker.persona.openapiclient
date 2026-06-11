@@ -5,12 +5,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum ReportTemplatePhoneRisk_type
+    public enum ReportTemplateBusinessRegistrationsLookup_type
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "report-template/phone-number")]
+        [EnumMember(Value = "report-template/business-registrations-lookup")]
         #pragma warning disable CS1591
-        ReportTemplatePhoneNumber,
+        ReportTemplateBusinessRegistrationsLookup,
         #pragma warning restore CS1591
     }
 }

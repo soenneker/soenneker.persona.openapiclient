@@ -28569,6 +28569,24 @@
             "nullable": true,
             "example": "Rogers Communications Canada Inc."
           },
+          "phone-city": {
+            "type": "string",
+            "description": "City associated with the phone number location.",
+            "nullable": true,
+            "example": "Toronto"
+          },
+          "phone-subdivision": {
+            "type": "string",
+            "description": "State or region associated with the phone number location.",
+            "nullable": true,
+            "example": "ON"
+          },
+          "phone-country-code": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha-2 country code associated with the phone number location.",
+            "nullable": true,
+            "example": "CA"
+          },
           "phone-risk-level": {
             "type": "string",
             "description": "Assessment of the phone number\u0027s risk (low - high)",
@@ -37804,6 +37822,24 @@
             "type": "string",
             "nullable": true,
             "example": "Rogers Communications Canada Inc."
+          },
+          "phone-city": {
+            "type": "string",
+            "description": "City associated with the phone number location.",
+            "nullable": true,
+            "example": "Toronto"
+          },
+          "phone-subdivision": {
+            "type": "string",
+            "description": "State or region associated with the phone number location.",
+            "nullable": true,
+            "example": "ON"
+          },
+          "phone-country-code": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha-2 country code associated with the phone number location.",
+            "nullable": true,
+            "example": "CA"
           },
           "phone-risk-level": {
             "type": "string",

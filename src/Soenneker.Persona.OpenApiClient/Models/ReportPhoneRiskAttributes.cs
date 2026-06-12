@@ -44,6 +44,22 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string PhoneCarrier { get; set; }
 #endif
+        /// <summary>City associated with the phone number location.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PhoneCity { get; set; }
+#nullable restore
+#else
+        public string PhoneCity { get; set; }
+#endif
+        /// <summary>ISO 3166-1 alpha-2 country code associated with the phone number location.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PhoneCountryCode { get; set; }
+#nullable restore
+#else
+        public string PhoneCountryCode { get; set; }
+#endif
         /// <summary>The input phone number of the search</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,6 +93,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public string PhoneRiskSimSwap { get; set; }
+#endif
+        /// <summary>State or region associated with the phone number location.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PhoneSubdivision { get; set; }
+#nullable restore
+#else
+        public string PhoneSubdivision { get; set; }
 #endif
         /// <summary>Possible values:- FIXED_LINE- MOBILE- PREPAID- TOLL_FREE- VOIP- PAGER- PAYPHONE- INVALID- RESTRICTED_PREMIUM- PERSONAL- VOICEMAIL- OTHERDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -149,11 +173,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
                 { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
                 { "phone-carrier", n => { PhoneCarrier = n.GetStringValue(); } },
+                { "phone-city", n => { PhoneCity = n.GetStringValue(); } },
+                { "phone-country-code", n => { PhoneCountryCode = n.GetStringValue(); } },
                 { "phone-number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "phone-risk-level", n => { PhoneRiskLevel = n.GetStringValue(); } },
                 { "phone-risk-recommendation", n => { PhoneRiskRecommendation = n.GetStringValue(); } },
                 { "phone-risk-score", n => { PhoneRiskScore = n.GetIntValue(); } },
                 { "phone-risk-sim-swap", n => { PhoneRiskSimSwap = n.GetStringValue(); } },
+                { "phone-subdivision", n => { PhoneSubdivision = n.GetStringValue(); } },
                 { "phone-type", n => { PhoneType = n.GetStringValue(); } },
                 { "redacted-at", n => { RedactedAt = n.GetStringValue(); } },
                 { "report-template-version-name", n => { ReportTemplateVersionName = n.GetStringValue(); } },
@@ -174,11 +201,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteBoolValue("is-continuous", IsContinuous);
             writer.WriteBoolValue("is-recurring", IsRecurring);
             writer.WriteStringValue("phone-carrier", PhoneCarrier);
+            writer.WriteStringValue("phone-city", PhoneCity);
+            writer.WriteStringValue("phone-country-code", PhoneCountryCode);
             writer.WriteStringValue("phone-number", PhoneNumber);
             writer.WriteStringValue("phone-risk-level", PhoneRiskLevel);
             writer.WriteStringValue("phone-risk-recommendation", PhoneRiskRecommendation);
             writer.WriteIntValue("phone-risk-score", PhoneRiskScore);
             writer.WriteStringValue("phone-risk-sim-swap", PhoneRiskSimSwap);
+            writer.WriteStringValue("phone-subdivision", PhoneSubdivision);
             writer.WriteStringValue("phone-type", PhoneType);
             writer.WriteStringValue("redacted-at", RedactedAt);
             writer.WriteStringValue("report-template-version-name", ReportTemplateVersionName);

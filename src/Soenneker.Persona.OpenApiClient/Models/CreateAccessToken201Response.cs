@@ -22,7 +22,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>Number of seconds until the access token expires.</summary>
         public int? ExpiresIn { get; set; }
-        /// <summary>&quot;Space-separated list of granted permissions. Format varies by grant type: for client_credentials, bare permission names (e.g. inquiry.read account.read); for authorization_code, permission:object pairs (e.g. inquiry.read:inq_xxx). Empty string when no permissions are granted.&quot;</summary>
+        /// <summary>Space-separated list of &apos;permission:object&apos; combinations (i.e. `inquiry.read:inq_uX7kRTiBxsJ1sZqPLAsjdP9j verification.read:ver_ynYuWdrjwwjiHJ2rgHfSoHeT`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Scope { get; set; }
@@ -31,7 +31,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public string Scope { get; set; }
 #endif
         /// <summary>The tokenType property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.CreateAccessToken201ResponseTokenType? TokenType { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TokenType { get; set; }
+#nullable restore
+#else
+        public string TokenType { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAccessToken201Response"/> and sets the default values.
         /// </summary>
@@ -60,7 +66,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "access-token", n => { AccessToken = n.GetStringValue(); } },
                 { "expires-in", n => { ExpiresIn = n.GetIntValue(); } },
                 { "scope", n => { Scope = n.GetStringValue(); } },
-                { "token-type", n => { TokenType = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.CreateAccessToken201ResponseTokenType>(); } },
+                { "token-type", n => { TokenType = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -73,7 +79,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("access-token", AccessToken);
             writer.WriteIntValue("expires-in", ExpiresIn);
             writer.WriteStringValue("scope", Scope);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.CreateAccessToken201ResponseTokenType>("token-type", TokenType);
+            writer.WriteStringValue("token-type", TokenType);
         }
     }
 }

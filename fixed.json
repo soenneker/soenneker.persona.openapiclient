@@ -12716,7 +12716,7 @@
           "OAuth"
         ],
         "summary": "Create Access Token",
-        "description": "\u0022Exchange a credential for an access token. Supports two grant types:\n- \u0060authorization_code\u0060: Exchange an authorization code for an access token\n  (cross-org data sharing).\n- \u0060client_credentials\u0060: Exchange a signed JWT assertion (\u0060private_key_jwt\u0060)\n  for a short-lived access token (machine-to-machine auth, RFC 7523).\u0022",
+        "description": "Creates an access token using an authorization code.",
         "externalDocs": {
           "description": "Full documentation for this API on the Persona website.",
           "url": "https://docs.withpersona.com/api-reference/oauth/create-access-token"
@@ -12751,22 +12751,12 @@
                   "$ref": "#/components/schemas/CreateAccessToken201Response"
                 },
                 "examples": {
-                  "AuthorizationCode": {
-                    "summary": "authorization_code grant response",
+                  "Created": {
                     "value": {
-                      "access-token": "persona_access_token_AbCdEfGhIjKlMnOpQrStUvWxYz01234567",
+                      "access-token": "persona_access_token_d8b7f084-385f-4ff0-930e-1580ccefa16d",
                       "token-type": "bearer",
                       "expires-in": 3599,
-                      "scope": "inquiry.read:inq_AbCdEfGhIjKlMnOpQrStUvWxYz01234567"
-                    }
-                  },
-                  "Created": {
-                    "summary": "client_credentials grant response",
-                    "value": {
-                      "access-token": "oat_AbCdEfGhIjKlMnOpQrStUvWxYz01234567",
-                      "token-type": "Bearer",
-                      "expires-in": 900,
-                      "scope": "inquiry.read account.read"
+                      "scope": "inquiry.read:inq_uX7kRTiBxsJ1sZqPLAsjdP9j inquiry.read:inq_1Uy5ruZb5yZy4zX21KesbtfK"
                     }
                   }
                 }
@@ -52685,27 +52675,22 @@
       },
       "CreateAccessTokenXWwwFormUrlencodedRequest": {
         "required": [
-          "type"
+          "code",
+          "grant-type"
         ],
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode"
-          },
-          {
-            "$ref": "#/components/schemas/CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials"
-          }
-        ],
         "properties": {
-          "type": {
+          "code": {
             "type": "string",
-            "description": "Union discriminator"
+            "description": "Authorization Code"
+          },
+          "grant-type": {
+            "type": "string",
+            "description": "Must be set to \u0027authorization_code\u0027",
+            "default": "authorization_code"
           }
         },
-        "discriminator": {
-          "propertyName": "type"
-        },
-        "x-jsonschema-unevaluatedProperties": false
+        "additionalProperties": false
       },
       "CreateAccessToken201Response": {
         "required": [
@@ -52727,10 +52712,10 @@
           },
           "scope": {
             "type": "string",
-            "description": "\u0022Space-separated list of granted permissions. Format varies by grant type: for client_credentials, bare permission names (e.g. inquiry.read account.read); for authorization_code, permission:object pairs (e.g. inquiry.read:inq_xxx). Empty string when no permissions are granted.\u0022"
+            "description": "Space-separated list of \u0027permission:object\u0027 combinations (i.e. \u0060inquiry.read:inq_uX7kRTiBxsJ1sZqPLAsjdP9j verification.read:ver_ynYuWdrjwwjiHJ2rgHfSoHeT\u0060"
           },
           "token-type": {
-            "$ref": "#/components/schemas/CreateAccessToken201ResponseTokenType"
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -54667,56 +54652,6 @@
         "description": "Value to compare against",
         "x-jsonschema-unevaluatedProperties": false,
         "x-inheritable": true
-      },
-      "CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode": {
-        "title": "authorization_code",
-        "required": [
-          "code",
-          "grant-type"
-        ],
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "string",
-            "description": "Authorization Code"
-          },
-          "grant-type": {
-            "type": "string",
-            "description": "Must be set to \u0027authorization_code\u0027",
-            "default": "authorization_code"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Exchange an authorization code for an access token."
-      },
-      "CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials": {
-        "title": "client_credentials",
-        "required": [
-          "grant_type",
-          "client_assertion_type",
-          "client_assertion"
-        ],
-        "type": "object",
-        "properties": {
-          "grant_type": {
-            "type": "string",
-            "description": "Must be set to \u0027client_credentials\u0027"
-          },
-          "client_assertion_type": {
-            "type": "string",
-            "description": "Must be \u0027urn:ietf:params:oauth:client-assertion-type:jwt-bearer\u0027"
-          },
-          "client_assertion": {
-            "type": "string",
-            "description": "\u0022A signed JWT (RS256 or ES256) with claims: iss, sub (both set to the client_id), aud (the token endpoint URL), jti, iat, and exp (max 5 minutes from now).\u0022"
-          },
-          "scope": {
-            "type": "string",
-            "description": "Optional space-separated list of permissions to request. Must be a subset of the OAuth client\u0027s registered permissions. Defaults to all client permissions if omitted."
-          }
-        },
-        "additionalProperties": false,
-        "description": "\u0022Exchange a signed JWT assertion for a short-lived access token. The JWT must be signed with the private key corresponding to the public key registered on the OAuth client. Note: parameter names follow OAuth RFC 6749/7523 conventions (snake_case) rather than the Persona API default (kebab-case).\u0022"
       },
       "CreateAReportRequestData": {
         "type": "object",
@@ -59149,24 +59084,6 @@
             {
               "value": "snake",
               "name": "Snake"
-            }
-          ]
-        }
-      },
-      "CreateAccessToken201ResponseTokenType": {
-        "enum": [
-          "bearer",
-          "Bearer"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "CreateAccessToken201ResponseTokenType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "bearer",
-              "name": "Bearer1"
             }
           ]
         }

@@ -7,28 +7,34 @@ using System.IO;
 using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
-    /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials"/>
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateAccessTokenXWwwFormUrlencodedRequest : IComposedTypeWrapper, IParsable
+    #pragma warning disable CS1591
+    public partial class CreateAccessTokenXWwwFormUrlencodedRequest : IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode"/></summary>
+        /// <summary>Authorization Code</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode? CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode { get; set; }
+        public string? Code { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode { get; set; }
+        public string Code { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials"/></summary>
+        /// <summary>Must be set to &apos;authorization_code&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials? CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials { get; set; }
+        public string? GrantType { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials { get; set; }
+        public string GrantType { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequest"/> and sets the default values.
+        /// </summary>
+        public CreateAccessTokenXWwwFormUrlencodedRequest()
+        {
+            GrantType = "authorization_code";
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,17 +43,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-            var result = new global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequest();
-            if("CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode = new global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode();
-            }
-            else if("CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials = new global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials();
-            }
-            return result;
+            return new global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,15 +51,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode.GetFieldDeserializers();
-            }
-            else if(CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials != null)
-            {
-                return CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "code", n => { Code = n.GetStringValue(); } },
+                { "grant-type", n => { GrantType = n.GetStringValue(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -72,14 +64,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode>(null, CreateAccessTokenXWwwFormUrlencodedRequestAuthorizationCode);
-            }
-            else if(CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials>(null, CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials);
-            }
+            writer.WriteStringValue("code", Code);
+            writer.WriteStringValue("grant-type", GrantType);
         }
     }
 }

@@ -20,14 +20,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<global::Soenneker.Persona.OpenApiClient.Models.Importer> Data { get; set; }
 #endif
-        /// <summary>Excluded from the response by default. Will be an empty array when the `include` query parameter in the request was explicitly set to empty.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Importers>? Included { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Importers> Included { get; set; }
-#endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,7 +47,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Importer>(global::Soenneker.Persona.OpenApiClient.Models.Importer.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Importers>(global::Soenneker.Persona.OpenApiClient.Models.Importers.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListAllImporters200ResponseLinks>(global::Soenneker.Persona.OpenApiClient.Models.ListAllImporters200ResponseLinks.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,7 +58,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Importer>("data", Data);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Importers>("included", Included);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListAllImporters200ResponseLinks>("links", Links);
         }
     }

@@ -20,14 +20,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<global::Soenneker.Persona.OpenApiClient.Models.Device> Data { get; set; }
 #endif
-        /// <summary>Excluded from the response by default. Will be an empty array when the `include` query parameter in the request was explicitly set to empty.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Devices>? Included { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.Devices> Included { get; set; }
-#endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,7 +47,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Device>(global::Soenneker.Persona.OpenApiClient.Models.Device.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Devices>(global::Soenneker.Persona.OpenApiClient.Models.Devices.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200ResponseLinks>(global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200ResponseLinks.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,7 +58,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Device>("data", Data);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.Devices>("included", Included);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListAllDevices200ResponseLinks>("links", Links);
         }
     }

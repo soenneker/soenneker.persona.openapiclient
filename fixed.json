@@ -48085,6 +48085,9 @@
       },
       "ReportPoliticallyExposedPersonAttributesAllOf2ResultItemSources": {
         "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ReportPoliticallyExposedPersonAttributesAllOf2ResultItemSourcesAdditionalProperties"
+        },
         "description": "A map of the sources that matched by entity"
       },
       "ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItemMatch": {
@@ -50182,6 +50185,25 @@
         },
         "additionalProperties": false
       },
+      "ReportPoliticallyExposedPersonAttributesAllOf2ResultItemSourcesAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The URL of the source.",
+            "format": "uri"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the source."
+          },
+          "flag-code": {
+            "type": "string",
+            "description": "The flag code of the source country."
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItemMatchPositionsItem": {
         "type": "object",
         "properties": {
@@ -50994,9 +51016,6 @@
           },
           "links": {
             "$ref": "#/components/schemas/ListAllApiKeys200ResponseLinks"
-          },
-          "included": {
-            "$ref": "#/components/schemas/EmptyIncludedObjects"
           }
         },
         "additionalProperties": false
@@ -51133,9 +51152,6 @@
           },
           "links": {
             "$ref": "#/components/schemas/ListAllShareTokens200ResponseLinks"
-          },
-          "included": {
-            "$ref": "#/components/schemas/EmptyIncludedObjects"
           }
         },
         "additionalProperties": false
@@ -51240,9 +51256,6 @@
           },
           "links": {
             "$ref": "#/components/schemas/ListAllApiLogs200ResponseLinks"
-          },
-          "included": {
-            "$ref": "#/components/schemas/EmptyIncludedObjects"
           }
         },
         "additionalProperties": false
@@ -51290,12 +51303,6 @@
               "$ref": "#/components/schemas/CaseType"
             },
             "description": "An array of Cases"
-          },
-          "included": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CasesIncludedObjectsItem"
-            }
           },
           "links": {
             "$ref": "#/components/schemas/ListAllCases200ResponseLinks"
@@ -51644,9 +51651,6 @@
           },
           "links": {
             "$ref": "#/components/schemas/ListAllDevices200ResponseLinks"
-          },
-          "included": {
-            "$ref": "#/components/schemas/EmptyIncludedObjects"
           }
         },
         "additionalProperties": false
@@ -51823,9 +51827,6 @@
           },
           "links": {
             "$ref": "#/components/schemas/ListAllImporters200ResponseLinks"
-          },
-          "included": {
-            "$ref": "#/components/schemas/EmptyIncludedObjects"
           }
         },
         "additionalProperties": false
@@ -52235,12 +52236,6 @@
               "$ref": "#/components/schemas/InquirySession"
             }
           },
-          "included": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/InquirySessionsIncludedObjectsItem"
-            }
-          },
           "links": {
             "$ref": "#/components/schemas/ListAllInquirySessions200ResponseLinks"
           }
@@ -52375,12 +52370,6 @@
               "$ref": "#/components/schemas/InquiryTemplate"
             },
             "description": "An array of Inquiry Templates"
-          },
-          "included": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/InquiryTemplateIncludedObjectsItem"
-            }
           },
           "links": {
             "$ref": "#/components/schemas/ListAllInquiryTemplates200ResponseLinks"
@@ -53551,9 +53540,6 @@
           },
           "links": {
             "$ref": "#/components/schemas/ListAllWorkflowRuns200ResponseLinks"
-          },
-          "included": {
-            "$ref": "#/components/schemas/EmptyIncludedObjects"
           }
         },
         "additionalProperties": false
@@ -54872,6 +54858,9 @@
       },
       "ReportPoliticallyExposedPersonAttributesAllOf2ResultItemSourcesProperty": {
         "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/ReportPoliticallyExposedPersonAttributesAllOf2ResultItemSourcesAdditionalProperties"
+        },
         "description": "A map of the sources that matched by entity"
       },
       "VerificationGovernmentIdNfcAttributesAllOf2ChecksItemMetadataProperty": {

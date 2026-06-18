@@ -20,14 +20,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate> Data { get; set; }
 #endif
-        /// <summary>The included property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateIncludedObjectsItem>? Included { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateIncludedObjectsItem> Included { get; set; }
-#endif
         /// <summary>The links property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,7 +47,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateIncludedObjectsItem>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateIncludedObjectsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "links", n => { Links = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200ResponseLinks>(global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200ResponseLinks.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,7 +58,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate>("data", Data);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateIncludedObjectsItem>("included", Included);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200ResponseLinks>("links", Links);
         }
     }

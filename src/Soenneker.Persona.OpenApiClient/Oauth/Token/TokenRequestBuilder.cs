@@ -34,7 +34,7 @@ namespace Soenneker.Persona.OpenApiClient.Oauth.Token
         {
         }
         /// <summary>
-        /// Creates an access token using an authorization code.
+        /// &quot;Exchange a credential for an access token. Supports two grant types:- `authorization_code`: Exchange an authorization code for an access token  (cross-org data sharing).- `client_credentials`: Exchange a signed JWT assertion (`private_key_jwt`)  for a short-lived access token (machine-to-machine auth, RFC 7523).&quot;
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/oauth/create-access-token" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAccessToken201Response"/></returns>
@@ -72,7 +72,7 @@ namespace Soenneker.Persona.OpenApiClient.Oauth.Token
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.CreateAccessToken201Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.CreateAccessToken201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates an access token using an authorization code.
+        /// &quot;Exchange a credential for an access token. Supports two grant types:- `authorization_code`: Exchange an authorization code for an access token  (cross-org data sharing).- `client_credentials`: Exchange a signed JWT assertion (`private_key_jwt`)  for a short-lived access token (machine-to-machine auth, RFC 7523).&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

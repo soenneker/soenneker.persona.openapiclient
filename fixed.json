@@ -59214,6 +59214,26 @@
     "responses": {
       "bad-request": {
         "description": "The request was unacceptable, often due to invalid parameters.",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/rate-limit-limit"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/rate-limit-remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/rate-limit-reset"
+          },
+          "Request-Id": {
+            "$ref": "#/components/headers/request-id"
+          },
+          "Persona-Environment-Id": {
+            "$ref": "#/components/headers/persona-environment-id"
+          },
+          "Persona-Organization-Id": {
+            "$ref": "#/components/headers/persona-organization-id"
+          }
+        },
         "content": {
           "application/json": {
             "schema": {
@@ -59257,6 +59277,26 @@
       },
       "forbidden": {
         "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/rate-limit-limit"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/rate-limit-remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/rate-limit-reset"
+          },
+          "Request-Id": {
+            "$ref": "#/components/headers/request-id"
+          },
+          "Persona-Environment-Id": {
+            "$ref": "#/components/headers/persona-environment-id"
+          },
+          "Persona-Organization-Id": {
+            "$ref": "#/components/headers/persona-organization-id"
+          }
+        },
         "content": {
           "application/json": {
             "schema": {
@@ -59279,6 +59319,26 @@
       },
       "not-found": {
         "description": "The requested resource doesn\u2019t exist.",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/rate-limit-limit"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/rate-limit-remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/rate-limit-reset"
+          },
+          "Request-Id": {
+            "$ref": "#/components/headers/request-id"
+          },
+          "Persona-Environment-Id": {
+            "$ref": "#/components/headers/persona-environment-id"
+          },
+          "Persona-Organization-Id": {
+            "$ref": "#/components/headers/persona-organization-id"
+          }
+        },
         "content": {
           "application/json": {
             "schema": {
@@ -59300,6 +59360,26 @@
       },
       "too-many-requests": {
         "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/rate-limit-limit"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/rate-limit-remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/rate-limit-reset"
+          },
+          "Request-Id": {
+            "$ref": "#/components/headers/request-id"
+          },
+          "Persona-Environment-Id": {
+            "$ref": "#/components/headers/persona-environment-id"
+          },
+          "Persona-Organization-Id": {
+            "$ref": "#/components/headers/persona-organization-id"
+          }
+        },
         "content": {
           "application/json": {
             "schema": {
@@ -59322,6 +59402,26 @@
       },
       "conflict": {
         "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/rate-limit-limit"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/rate-limit-remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/rate-limit-reset"
+          },
+          "Request-Id": {
+            "$ref": "#/components/headers/request-id"
+          },
+          "Persona-Environment-Id": {
+            "$ref": "#/components/headers/persona-environment-id"
+          },
+          "Persona-Organization-Id": {
+            "$ref": "#/components/headers/persona-organization-id"
+          }
+        },
         "content": {
           "application/json": {
             "schema": {
@@ -59344,6 +59444,26 @@
       },
       "unprocessable-entity": {
         "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/rate-limit-limit"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/rate-limit-remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/rate-limit-reset"
+          },
+          "Request-Id": {
+            "$ref": "#/components/headers/request-id"
+          },
+          "Persona-Environment-Id": {
+            "$ref": "#/components/headers/persona-environment-id"
+          },
+          "Persona-Organization-Id": {
+            "$ref": "#/components/headers/persona-organization-id"
+          }
+        },
         "content": {
           "application/json": {
             "schema": {
@@ -59366,6 +59486,26 @@
       },
       "service-unavailable": {
         "description": "Something went wrong on Persona\u2019s end. These are rare.",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/rate-limit-limit"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/rate-limit-remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/rate-limit-reset"
+          },
+          "Request-Id": {
+            "$ref": "#/components/headers/request-id"
+          },
+          "Persona-Environment-Id": {
+            "$ref": "#/components/headers/persona-environment-id"
+          },
+          "Persona-Organization-Id": {
+            "$ref": "#/components/headers/persona-organization-id"
+          }
+        },
         "content": {
           "application/json": {
             "schema": {
@@ -59387,6 +59527,26 @@
       },
       "request-timeout": {
         "description": "Something went wrong on Persona\u2019s end.",
+        "headers": {
+          "RateLimit-Limit": {
+            "$ref": "#/components/headers/rate-limit-limit"
+          },
+          "RateLimit-Remaining": {
+            "$ref": "#/components/headers/rate-limit-remaining"
+          },
+          "RateLimit-Reset": {
+            "$ref": "#/components/headers/rate-limit-reset"
+          },
+          "Request-Id": {
+            "$ref": "#/components/headers/request-id"
+          },
+          "Persona-Environment-Id": {
+            "$ref": "#/components/headers/persona-environment-id"
+          },
+          "Persona-Organization-Id": {
+            "$ref": "#/components/headers/persona-organization-id"
+          }
+        },
         "content": {
           "application/json": {
             "schema": {
@@ -79761,6 +79921,44 @@
               "$ref": "#/components/schemas/InquiriesReviewRequestRequest"
             }
           }
+        }
+      }
+    },
+    "headers": {
+      "rate-limit-limit": {
+        "description": "The maximum number of requests permitted in the current rate limit window for the API key used to authenticate the request. Returned on every authenticated response.",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "rate-limit-remaining": {
+        "description": "The number of requests remaining in the current rate limit window for the API key used to authenticate the request. Returned on every authenticated response.",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "rate-limit-reset": {
+        "description": "The number of seconds until the current rate limit window resets. Returned on every authenticated response.",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "request-id": {
+        "description": "The unique identifier of the API log entry that recorded this request. Starts with \u0060req_\u0060. Include this value when reaching out to Persona support. Present on every authenticated response, including error responses.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "persona-environment-id": {
+        "description": "The token of the Persona environment that handled the request. Returned on every authenticated response, including most error responses.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "persona-organization-id": {
+        "description": "The token of the Persona organization that handled the request. Returned on every authenticated response, including most error responses.",
+        "schema": {
+          "type": "string"
         }
       }
     },

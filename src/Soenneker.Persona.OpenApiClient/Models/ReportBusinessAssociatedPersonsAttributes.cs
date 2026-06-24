@@ -44,6 +44,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public bool? IsContinuous { get; set; }
         /// <summary>Whether or not this report is scheduled to run in the future</summary>
         public bool? IsRecurring { get; set; }
+        /// <summary>Ownership information for the business</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformation? OwnershipInformation { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformation OwnershipInformation { get; set; }
+#endif
         /// <summary>The query property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -115,6 +123,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "has-match", n => { HasMatch = n.GetBoolValue(); } },
                 { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
                 { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
+                { "ownership-information", n => { OwnershipInformation = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformation>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformation.CreateFromDiscriminatorValue); } },
                 { "query", n => { Query = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2Query>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2Query.CreateFromDiscriminatorValue); } },
                 { "redacted-at", n => { RedactedAt = n.GetStringValue(); } },
                 { "report-template-version-name", n => { ReportTemplateVersionName = n.GetStringValue(); } },
@@ -135,6 +144,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteBoolValue("has-match", HasMatch);
             writer.WriteBoolValue("is-continuous", IsContinuous);
             writer.WriteBoolValue("is-recurring", IsRecurring);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformation>("ownership-information", OwnershipInformation);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2Query>("query", Query);
             writer.WriteStringValue("redacted-at", RedactedAt);
             writer.WriteStringValue("report-template-version-name", ReportTemplateVersionName);

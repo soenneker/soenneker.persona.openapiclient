@@ -27917,7 +27917,8 @@
       "ReportBusinessAssociatedPersonsAttributes": {
         "required": [
           "query",
-          "associated-persons"
+          "associated-persons",
+          "ownership-information"
         ],
         "type": "object",
         "properties": {
@@ -27976,6 +27977,9 @@
               "$ref": "#/components/schemas/ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItem"
             },
             "description": "List of persons associated with the business"
+          },
+          "ownership-information": {
+            "$ref": "#/components/schemas/ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformation"
           }
         },
         "x-jsonschema-unevaluatedProperties": false
@@ -37499,7 +37503,8 @@
       "ReportBusinessAssociatedPersonsAttributesAllOf2": {
         "required": [
           "query",
-          "associated-persons"
+          "associated-persons",
+          "ownership-information"
         ],
         "type": "object",
         "properties": {
@@ -37512,6 +37517,9 @@
               "$ref": "#/components/schemas/ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItem"
             },
             "description": "List of persons associated with the business"
+          },
+          "ownership-information": {
+            "$ref": "#/components/schemas/ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformation"
           }
         }
       },
@@ -43970,6 +43978,23 @@
         },
         "additionalProperties": false
       },
+      "ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformation": {
+        "required": [
+          "owners"
+        ],
+        "type": "object",
+        "properties": {
+          "owners": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItem"
+            },
+            "description": "List of owners. Empty when no ownership data is available."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Ownership information for the business"
+      },
       "ReportBusinessRegistrationsLookupAttributesAllOf2Query": {
         "required": [
           "address-country-code"
@@ -47755,6 +47780,44 @@
         },
         "additionalProperties": false
       },
+      "ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItem": {
+        "required": [
+          "type",
+          "name",
+          "birthdate",
+          "address",
+          "roles"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Whether the owner is a person or a business. One of \u0060person\u0060 or \u0060business\u0060, or null when the source does not specify.",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "The owner\u0027s name",
+            "nullable": true
+          },
+          "birthdate": {
+            "type": "string",
+            "description": "ISO 8601 partial date (YYYY-MM-DD, YYYY-MM, or YYYY), depending on the precision the source provided",
+            "nullable": true
+          },
+          "address": {
+            "$ref": "#/components/schemas/ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemAddress"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemRolesItem"
+            },
+            "description": "The owner\u0027s roles in the business"
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItem": {
         "type": "object",
         "properties": {
@@ -50054,6 +50117,51 @@
         },
         "additionalProperties": false
       },
+      "ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemAddress": {
+        "type": "object",
+        "properties": {
+          "street-1": {
+            "type": "string",
+            "nullable": true
+          },
+          "street-2": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "subdivision": {
+            "type": "string",
+            "nullable": true
+          },
+          "postal-code": {
+            "type": "string",
+            "nullable": true
+          },
+          "country-code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "nullable": true
+      },
+      "ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemRolesItem": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Human-readable description of the role",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemRolesItemData"
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemStatus": {
         "type": "object",
         "properties": {
@@ -50391,6 +50499,11 @@
       },
       "EventTypeAttributesPayloadDataRelationships": {
         "type": "object"
+      },
+      "ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemRolesItemData": {
+        "type": "object",
+        "description": "Source-specific structured details about the role",
+        "nullable": true
       },
       "ReportWatchlistAttributesAllOf2IgnoreListItemMatchEntitiesItemBirthdatesItem": {
         "type": "object",
@@ -75215,7 +75328,34 @@
                     "query": {
                       "address-country-code": "US"
                     },
-                    "associated-persons": []
+                    "associated-persons": [],
+                    "ownership-information": {
+                      "owners": [
+                        {
+                          "type": "person",
+                          "name": "Jane Doe",
+                          "birthdate": "1980-05",
+                          "address": {
+                            "street-1": "123 Main St",
+                            "street-2": null,
+                            "city": "San Francisco",
+                            "subdivision": "CA",
+                            "postal-code": "94105",
+                            "country-code": "US"
+                          },
+                          "roles": [
+                            {
+                              "description": "Ownership of 75-100% shares",
+                              "data": {
+                                "key": "ownership-of-shares-75-to-100-percent",
+                                "lower-bound": 75,
+                                "upper-bound": 100
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
                   },
                   "relationships": {
                     "inquiry": {
@@ -75268,7 +75408,10 @@
                     "query": {
                       "address-country-code": "US"
                     },
-                    "associated-persons": []
+                    "associated-persons": [],
+                    "ownership-information": {
+                      "owners": []
+                    }
                   },
                   "relationships": {
                     "inquiry": {

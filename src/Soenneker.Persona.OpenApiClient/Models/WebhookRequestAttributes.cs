@@ -50,6 +50,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>How soon any file access tokens in webhook requests expire. For more info see [Downloading Files](https://docs.withpersona.com/downloading-files).</summary>
         public int? FileAccessTokenExpiresIn { get; set; }
+        /// <summary>&quot;Controls which related objects appear in the `included` array of webhook payloads. The default is `include_none`. When `state` is `custom`, `event-types` configures which related objects to include per event type: event types you are subscribed to (via `enabled-events`) but do not list are excluded, and event types you list but are not subscribed to are dropped on save. A `custom` config whose event types are all `[\&quot;*\&quot;]` is equivalent to, and is normalized to, `include_all`.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist? IncludedAllowlist { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist IncludedAllowlist { get; set; }
+#endif
         /// <summary>A name for remembering webhook</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -106,6 +114,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "enabled-events", n => { EnabledEvents = n.GetCollectionOfEnumValues<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesEnabledEventsItem>()?.AsList(); } },
                 { "file-access-token-expires-in", n => { FileAccessTokenExpiresIn = n.GetIntValue(); } },
+                { "included-allowlist", n => { IncludedAllowlist = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist>(global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "payload-filter", n => { PayloadFilter = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesPayloadFilter>(global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesPayloadFilter.CreateFromDiscriminatorValue); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -125,6 +134,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesEnabledEventsItem>("enabled-events", EnabledEvents);
             writer.WriteIntValue("file-access-token-expires-in", FileAccessTokenExpiresIn);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist>("included-allowlist", IncludedAllowlist);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesPayloadFilter>("payload-filter", PayloadFilter);
             writer.WriteStringValue("url", Url);

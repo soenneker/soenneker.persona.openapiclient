@@ -50,6 +50,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>The fileAccessTokenExpiresIn property</summary>
         public int? FileAccessTokenExpiresIn { get; set; }
+        /// <summary>The includedAllowlist property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesIncludedAllowlist? IncludedAllowlist { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesIncludedAllowlist IncludedAllowlist { get; set; }
+#endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -107,6 +115,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "enabled-events", n => { EnabledEvents = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "file-access-token-expires-in", n => { FileAccessTokenExpiresIn = n.GetIntValue(); } },
+                { "included-allowlist", n => { IncludedAllowlist = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesIncludedAllowlist>(global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesIncludedAllowlist.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "payload-filter", n => { PayloadFilter = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesPayloadFilter>(global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesPayloadFilter.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -127,6 +136,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfPrimitiveValues<string>("enabled-events", EnabledEvents);
             writer.WriteIntValue("file-access-token-expires-in", FileAccessTokenExpiresIn);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesIncludedAllowlist>("included-allowlist", IncludedAllowlist);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesPayloadFilter>("payload-filter", PayloadFilter);
             writer.WriteStringValue("status", Status);

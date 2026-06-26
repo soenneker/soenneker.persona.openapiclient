@@ -25996,6 +25996,39 @@
           "$ref": "#/components/schemas/VerificationIncludedObjectsItem"
         }
       },
+      "IncludedAllowlist": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/IncludedAllowlistIncludeAll"
+          },
+          {
+            "$ref": "#/components/schemas/IncludedAllowlistIncludeNone"
+          },
+          {
+            "$ref": "#/components/schemas/IncludedAllowlistCustom"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "\u0022Controls which related objects appear in the \u0060included\u0060 array of webhook payloads. The default is \u0060include_none\u0060. When \u0060state\u0060 is \u0060custom\u0060, \u0060event-types\u0060 configures which related objects to include per event type: event types you are subscribed to (via \u0060enabled-events\u0060) but do not list are excluded, and event types you list but are not subscribed to are dropped on save. A \u0060custom\u0060 config whose event types are all \u0060[\\\u0022*\\\u0022]\u0060 is equivalent to, and is normalized to, \u0060include_all\u0060.\u0022",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "IncludedAllowlistIncludeAll": "#/components/schemas/IncludedAllowlistIncludeAll",
+            "IncludedAllowlistIncludeNone": "#/components/schemas/IncludedAllowlistIncludeNone",
+            "IncludedAllowlistCustom": "#/components/schemas/IncludedAllowlistCustom"
+          }
+        },
+        "x-jsonschema-unevaluatedProperties": false
+      },
       "Webhook": {
         "type": "object",
         "properties": {
@@ -26068,6 +26101,9 @@
           },
           "payload-filter": {
             "$ref": "#/components/schemas/WebhookRequestAttributesPayloadFilter"
+          },
+          "included-allowlist": {
+            "$ref": "#/components/schemas/IncludedAllowlist"
           },
           "custom-http-headers": {
             "$ref": "#/components/schemas/WebhookRequestAttributesCustomHttpHeaders"
@@ -36915,6 +36951,147 @@
           }
         }
       },
+      "IncludedAllowlistIncludeAll": {
+        "title": "Include all",
+        "required": [
+          "state"
+        ],
+        "type": "object",
+        "properties": {
+          "state": {
+            "enum": [
+              "include_all"
+            ],
+            "type": "string",
+            "description": "Include all related objects for every subscribed event type.",
+            "x-ms-enum": {
+              "name": "State",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "include_all",
+                  "name": "IncludeAll"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "IncludedAllowlistIncludeNone": {
+        "title": "Include none",
+        "required": [
+          "state"
+        ],
+        "type": "object",
+        "properties": {
+          "state": {
+            "enum": [
+              "include_none"
+            ],
+            "type": "string",
+            "description": "Include no related objects (the default).",
+            "x-ms-enum": {
+              "name": "State",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "include_none",
+                  "name": "IncludeNone"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "IncludedAllowlistCustom": {
+        "title": "Custom",
+        "required": [
+          "state",
+          "event-types"
+        ],
+        "type": "object",
+        "properties": {
+          "state": {
+            "enum": [
+              "custom"
+            ],
+            "type": "string",
+            "description": "Configure included related objects per event type via \u0060event-types\u0060.",
+            "x-ms-enum": {
+              "name": "State",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "custom",
+                  "name": "Custom"
+                }
+              ]
+            }
+          },
+          "event-types": {
+            "maxItems": 200,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IncludedAllowlistCustomEventTypesItem"
+            },
+            "description": "Per-event-type include configuration. At most one entry per event type."
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookAttributesIncludedAllowlist": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/IncludedAllowlist"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "nullable": true,
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "IncludedAllowlist": "#/components/schemas/IncludedAllowlist"
+          }
+        },
+        "x-jsonschema-unevaluatedProperties": false
+      },
+      "WebhookWithSecretAttributesIncludedAllowlist": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/IncludedAllowlist"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "nullable": true,
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "IncludedAllowlist": "#/components/schemas/IncludedAllowlist"
+          }
+        },
+        "x-jsonschema-unevaluatedProperties": false
+      },
       "WorkflowRunIncludedObjectsItem": {
         "required": [
           "type"
@@ -41700,6 +41877,11 @@
           "created-at": {
             "type": "string",
             "format": "date-time"
+          },
+          "redacted-at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -43277,6 +43459,9 @@
           "payload-filter": {
             "$ref": "#/components/schemas/WebhookAttributesPayloadFilter"
           },
+          "included-allowlist": {
+            "$ref": "#/components/schemas/WebhookAttributesIncludedAllowlist"
+          },
           "created-at": {
             "type": "string",
             "format": "date-time"
@@ -43367,6 +43552,9 @@
           },
           "payload-filter": {
             "$ref": "#/components/schemas/WebhookWithSecretAttributesPayloadFilter"
+          },
+          "included-allowlist": {
+            "$ref": "#/components/schemas/WebhookWithSecretAttributesIncludedAllowlist"
           },
           "created-at": {
             "type": "string",
@@ -43791,6 +43979,28 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/SourceDataPeekableAttribute"
         }
+      },
+      "IncludedAllowlistCustomEventTypesItem": {
+        "required": [
+          "event-type",
+          "relationships"
+        ],
+        "type": "object",
+        "properties": {
+          "event-type": {
+            "type": "string",
+            "description": "Event type identifier (e.g. \u0060inquiry\u0060, \u0060account\u0060)."
+          },
+          "relationships": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Related object names to include for this event type, or \u0060[\u0022*\u0022]\u0060 to include all related objects. \u0060\u0022*\u0022\u0060 cannot be combined with named relationships."
+          }
+        },
+        "additionalProperties": false
       },
       "FieldSchemaJsonConfigAllOf2JsonSchema": {
         "type": "object",
@@ -60947,7 +61157,8 @@
                     "Vary": "Accept"
                   }
                 },
-                "created-at": "2023-09-20T20:20:03.485\u002B00:00"
+                "created-at": "2023-09-20T20:20:03.485\u002B00:00",
+                "redacted-at": null
               }
             }
           ],
@@ -60991,7 +61202,8 @@
                   "Vary": "Accept"
                 }
               },
-              "created-at": "2023-09-20T20:20:03.485\u002B00:00"
+              "created-at": "2023-09-20T20:20:03.485\u002B00:00",
+              "redacted-at": null
             }
           }
         }
@@ -64965,7 +65177,10 @@
               "enabled-events": [
                 "account.created",
                 "verification.created"
-              ]
+              ],
+              "included-allowlist": {
+                "state": "include_all"
+              }
             }
           }
         }
@@ -65008,6 +65223,9 @@
                   }
                 }
               },
+              "included-allowlist": {
+                "state": "include_all"
+              },
               "created-at": "2023-08-17T23:18:13.000Z"
             }
           }
@@ -65043,6 +65261,9 @@
                     }
                   }
                 }
+              },
+              "included-allowlist": {
+                "state": "include_all"
               },
               "created-at": "2023-08-17T23:18:13.000Z"
             }

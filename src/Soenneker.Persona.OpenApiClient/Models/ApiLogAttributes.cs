@@ -14,6 +14,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
     {
         /// <summary>The createdAt property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>The redactedAt property</summary>
+        public DateTimeOffset? RedactedAt { get; set; }
         /// <summary>The request property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,6 +51,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
                 { "request", n => { Request = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest>(global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest.CreateFromDiscriminatorValue); } },
                 { "response", n => { Response = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesResponse>(global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesResponse.CreateFromDiscriminatorValue); } },
             };
@@ -61,6 +64,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
+            writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest>("request", Request);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesResponse>("response", Response);
         }

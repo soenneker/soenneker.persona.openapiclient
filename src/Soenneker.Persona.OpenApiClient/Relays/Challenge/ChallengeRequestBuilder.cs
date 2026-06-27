@@ -4,75 +4,57 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Persona.OpenApiClient.Models;
-using Soenneker.Persona.OpenApiClient.Relays.Challenge;
-using Soenneker.Persona.OpenApiClient.Relays.Item;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace Soenneker.Persona.OpenApiClient.Relays
+namespace Soenneker.Persona.OpenApiClient.Relays.Challenge
 {
     /// <summary>
-    /// Builds and executes requests for operations under \relays
+    /// Builds and executes requests for operations under \relays\challenge
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class RelaysRequestBuilder : BaseRequestBuilder
+    public partial class ChallengeRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The challenge property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Relays.Challenge.ChallengeRequestBuilder Challenge
-        {
-            get => new global::Soenneker.Persona.OpenApiClient.Relays.Challenge.ChallengeRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>Gets an item from the Soenneker.Persona.OpenApiClient.relays.item collection</summary>
-        /// <param name="position">The public Relay token returned by `POST /relays`.</param>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Relays.Item.WithRelayTokenItemRequestBuilder"/></returns>
-        public global::Soenneker.Persona.OpenApiClient.Relays.Item.WithRelayTokenItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("relayToken", position);
-                return new global::Soenneker.Persona.OpenApiClient.Relays.Item.WithRelayTokenItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Relays.RelaysRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Relays.Challenge.ChallengeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RelaysRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/relays", pathParameters)
+        public ChallengeRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/relays/challenge", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Relays.RelaysRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Relays.Challenge.ChallengeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RelaysRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/relays", rawUrl)
+        public ChallengeRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/relays/challenge", rawUrl)
         {
         }
         /// <summary>
-        /// Creates a new Relay.
-        /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/relay/create-a-relay" />
+        /// Requests a Privacy Pass challenge for a claim type. The challenge materials returned here are used to obtain a Privacy Pass token, which is then redeemable to read claims from Relays with the same claim type.
+        /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/relay/request-a-relay-challenge" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateARelay201Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallenge200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateARelay201Response?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateARelayRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallenge200Response?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallengeRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateARelay201Response> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateARelayRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallenge200Response> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallengeRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -82,25 +64,26 @@ namespace Soenneker.Persona.OpenApiClient.Relays
                 { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.CreateARelay201Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.CreateARelay201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallenge200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallenge200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new Relay.
+        /// Requests a Privacy Pass challenge for a claim type. The challenge materials returned here are used to obtain a Privacy Pass token, which is then redeemable to read claims from Relays with the same claim type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateARelayRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallengeRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.CreateARelayRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallengeRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -113,11 +96,11 @@ namespace Soenneker.Persona.OpenApiClient.Relays
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Relays.RelaysRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Relays.Challenge.ChallengeRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Soenneker.Persona.OpenApiClient.Relays.RelaysRequestBuilder WithUrl(string rawUrl)
+        public global::Soenneker.Persona.OpenApiClient.Relays.Challenge.ChallengeRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Soenneker.Persona.OpenApiClient.Relays.RelaysRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Soenneker.Persona.OpenApiClient.Relays.Challenge.ChallengeRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

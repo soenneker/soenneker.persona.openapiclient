@@ -9,34 +9,42 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class CreateARelayRequest : IParsable
+    public partial class RequestARelayChallenge200Response : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Possible values:- live_human_presence- age_over18_germany- age_over18_united_kingdom- age_over18_verified- age_over18_france- age_over18_italy- age_over18_brazil- age_over18_australia- age_over16_australia- age_over21_verifiedDo not assume this is a static enumeration; Persona may add new claimtypes in the future without a versioned update.</summary>
+        /// <summary>base64url-encoded PrivateToken challenge object (RFC 9577). Pass this to the Privacy Pass issuance flow to obtain a token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClaimType { get; set; }
+        public string? Challenge { get; set; }
 #nullable restore
 #else
-        public string ClaimType { get; set; }
+        public string Challenge { get; set; }
 #endif
-        /// <summary>RSA public key (PEM-encoded, 2048-4096 bits). When non-null, claim payloads returned by subsequent reads will be encrypted with RSA OAEP. Pass `null` to receive unencrypted claim payloads.</summary>
+        /// <summary>base64url-encoded DER public key used to issue the token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EncryptionKeyPem { get; set; }
+        public string? TokenKey { get; set; }
 #nullable restore
 #else
-        public string EncryptionKeyPem { get; set; }
+        public string TokenKey { get; set; }
+#endif
+        /// <summary>hex-encoded SHA-256 of `token-key`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TokenKeyId { get; set; }
+#nullable restore
+#else
+        public string TokenKeyId { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateARelayRequest"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallenge200Response"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.CreateARelayRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallenge200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.CreateARelayRequest();
+            return new global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallenge200Response();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,8 +54,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "claim-type", n => { ClaimType = n.GetStringValue(); } },
-                { "encryption-key-pem", n => { EncryptionKeyPem = n.GetStringValue(); } },
+                { "challenge", n => { Challenge = n.GetStringValue(); } },
+                { "token-key", n => { TokenKey = n.GetStringValue(); } },
+                { "token-key-id", n => { TokenKeyId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,8 +66,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("claim-type", ClaimType);
-            writer.WriteStringValue("encryption-key-pem", EncryptionKeyPem);
+            writer.WriteStringValue("challenge", Challenge);
+            writer.WriteStringValue("token-key", TokenKey);
+            writer.WriteStringValue("token-key-id", TokenKeyId);
         }
     }
 }

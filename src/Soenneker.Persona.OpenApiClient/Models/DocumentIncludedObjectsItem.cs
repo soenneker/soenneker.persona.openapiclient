@@ -69,13 +69,32 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.DocumentIncludedObjectsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.DocumentIncludedObjectsItem();
-            result.DocumentFile = new global::Soenneker.Persona.OpenApiClient.Models.DocumentFile();
-            result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();
-            result.InquiryTemplate = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate();
-            result.InquiryTemplateVersion = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion();
-            result.Template = new global::Soenneker.Persona.OpenApiClient.Models.Template();
-            result.Transaction = new global::Soenneker.Persona.OpenApiClient.Models.Transaction();
+            if("document-file".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.DocumentFile = new global::Soenneker.Persona.OpenApiClient.Models.DocumentFile();
+            }
+            else if("inquiry".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();
+            }
+            else if("inquiry-template".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.InquiryTemplate = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate();
+            }
+            else if("inquiry-template-version".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.InquiryTemplateVersion = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion();
+            }
+            else if("template".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Template = new global::Soenneker.Persona.OpenApiClient.Models.Template();
+            }
+            else if("transaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Transaction = new global::Soenneker.Persona.OpenApiClient.Models.Transaction();
+            }
             return result;
         }
         /// <summary>
@@ -84,9 +103,29 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(DocumentFile != null || Inquiry != null || InquiryTemplate != null || InquiryTemplateVersion != null || Template != null || Transaction != null)
+            if(DocumentFile != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(DocumentFile, Inquiry, InquiryTemplate, InquiryTemplateVersion, Template, Transaction);
+                return DocumentFile.GetFieldDeserializers();
+            }
+            else if(Inquiry != null)
+            {
+                return Inquiry.GetFieldDeserializers();
+            }
+            else if(InquiryTemplate != null)
+            {
+                return InquiryTemplate.GetFieldDeserializers();
+            }
+            else if(InquiryTemplateVersion != null)
+            {
+                return InquiryTemplateVersion.GetFieldDeserializers();
+            }
+            else if(Template != null)
+            {
+                return Template.GetFieldDeserializers();
+            }
+            else if(Transaction != null)
+            {
+                return Transaction.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -97,7 +136,30 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentFile>(null, DocumentFile, Inquiry, InquiryTemplate, InquiryTemplateVersion, Template, Transaction);
+            if(DocumentFile != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentFile>(null, DocumentFile);
+            }
+            else if(Inquiry != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry>(null, Inquiry);
+            }
+            else if(InquiryTemplate != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate>(null, InquiryTemplate);
+            }
+            else if(InquiryTemplateVersion != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion>(null, InquiryTemplateVersion);
+            }
+            else if(Template != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Template>(null, Template);
+            }
+            else if(Transaction != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Transaction>(null, Transaction);
+            }
         }
     }
 }

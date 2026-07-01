@@ -309,43 +309,152 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.CasesIncludedObjectsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.CasesIncludedObjectsItem();
-            result.Account = new global::Soenneker.Persona.OpenApiClient.Models.Account();
-            result.CaseComment = new global::Soenneker.Persona.OpenApiClient.Models.CaseComment();
-            result.CaseQueue = new global::Soenneker.Persona.OpenApiClient.Models.CaseQueue();
-            result.CaseTemplate = new global::Soenneker.Persona.OpenApiClient.Models.CaseTemplate();
-            result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();
-            result.ReportAddressLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookup();
-            result.ReportAdverseMedia = new global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMedia();
-            result.ReportBusinessAdverseMedia = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMedia();
-            result.ReportBusinessAssociatedPersons = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersons();
-            result.ReportBusinessLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup();
-            result.ReportBusinessRegistrationsLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup();
-            result.ReportBusinessWatchlist = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlist();
-            result.ReportCryptoAddressWatchlist = new global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlist();
-            result.ReportEmailAddress = new global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddress();
-            result.ReportPhoneRisk = new global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRisk();
-            result.ReportPoliticallyExposedPerson = new global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPerson();
-            result.ReportProfile = new global::Soenneker.Persona.OpenApiClient.Models.ReportProfile();
-            result.ReportProfileNonAuthoritative = new global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative();
-            result.ReportSentilinkScores = new global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores();
-            result.ReportSocialMedia = new global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMedia();
-            result.ReportSynthetic = new global::Soenneker.Persona.OpenApiClient.Models.ReportSynthetic();
-            result.ReportWatchlist = new global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist();
-            result.Transaction = new global::Soenneker.Persona.OpenApiClient.Models.Transaction();
-            result.VerificationAamva = new global::Soenneker.Persona.OpenApiClient.Models.VerificationAamva();
-            result.VerificationDatabase = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabase();
-            result.VerificationDatabaseEcbsv = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsv();
-            result.VerificationDatabasePhoneCarrier = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabasePhoneCarrier();
-            result.VerificationDatabaseSerpro = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerpro();
-            result.VerificationDatabaseStandard = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseStandard();
-            result.VerificationDatabaseTin = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseTin();
-            result.VerificationDocument = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDocument();
-            result.VerificationEmailAddress = new global::Soenneker.Persona.OpenApiClient.Models.VerificationEmailAddress();
-            result.VerificationGovernmentId = new global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentId();
-            result.VerificationGovernmentIdNfc = new global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfc();
-            result.VerificationPhoneNumber = new global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumber();
-            result.VerificationSelfie = new global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfie();
+            if("account".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Account = new global::Soenneker.Persona.OpenApiClient.Models.Account();
+            }
+            else if("case-comment".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CaseComment = new global::Soenneker.Persona.OpenApiClient.Models.CaseComment();
+            }
+            else if("case-queue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CaseQueue = new global::Soenneker.Persona.OpenApiClient.Models.CaseQueue();
+            }
+            else if("case-template".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CaseTemplate = new global::Soenneker.Persona.OpenApiClient.Models.CaseTemplate();
+            }
+            else if("inquiry".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();
+            }
+            else if("report/address-lookup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportAddressLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookup();
+            }
+            else if("report/adverse-media".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportAdverseMedia = new global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMedia();
+            }
+            else if("report/business-adverse-media".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportBusinessAdverseMedia = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMedia();
+            }
+            else if("report/business-associated-persons".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportBusinessAssociatedPersons = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersons();
+            }
+            else if("report/business-lookup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportBusinessLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup();
+            }
+            else if("report/business-registrations-lookup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportBusinessRegistrationsLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup();
+            }
+            else if("report/business-watchlist".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportBusinessWatchlist = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlist();
+            }
+            else if("report/crypto-address-watchlist".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportCryptoAddressWatchlist = new global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlist();
+            }
+            else if("report/email-address".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportEmailAddress = new global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddress();
+            }
+            else if("report/phone-number".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportPhoneRisk = new global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRisk();
+            }
+            else if("report/politically-exposed-person".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportPoliticallyExposedPerson = new global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPerson();
+            }
+            else if("report/profile".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportProfile = new global::Soenneker.Persona.OpenApiClient.Models.ReportProfile();
+            }
+            else if("report/profile-non-authoritative".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportProfileNonAuthoritative = new global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative();
+            }
+            else if("report/integration/sentilink-scores".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportSentilinkScores = new global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores();
+            }
+            else if("report/social-media".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportSocialMedia = new global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMedia();
+            }
+            else if("report/synthetic".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportSynthetic = new global::Soenneker.Persona.OpenApiClient.Models.ReportSynthetic();
+            }
+            else if("report/watchlist".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportWatchlist = new global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist();
+            }
+            else if("transaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Transaction = new global::Soenneker.Persona.OpenApiClient.Models.Transaction();
+            }
+            else if("verification/aamva".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VerificationAamva = new global::Soenneker.Persona.OpenApiClient.Models.VerificationAamva();
+            }
+            else if("verification/database".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VerificationDatabase = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabase();
+            }
+            else if("verification/database-ecbsv".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VerificationDatabaseEcbsv = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsv();
+            }
+            else if("verification/database-phone-carrier".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VerificationDatabasePhoneCarrier = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabasePhoneCarrier();
+            }
+            else if("verification/database-serpro".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VerificationDatabaseSerpro = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerpro();
+            }
+            else if("verification/database-standard".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VerificationDatabaseStandard = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseStandard();
+            }
+            else if("verification/database-tin".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VerificationDatabaseTin = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseTin();
+            }
+            else if("verification/document".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VerificationDocument = new global::Soenneker.Persona.OpenApiClient.Models.VerificationDocument();
+            }
+            else if("verification/email-address".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VerificationEmailAddress = new global::Soenneker.Persona.OpenApiClient.Models.VerificationEmailAddress();
+            }
+            else if("verification/government-id".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VerificationGovernmentId = new global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentId();
+            }
+            else if("verification/government-id-nfc".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VerificationGovernmentIdNfc = new global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfc();
+            }
+            else if("verification/phone-number".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VerificationPhoneNumber = new global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumber();
+            }
+            else if("verification/selfie".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VerificationSelfie = new global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfie();
+            }
             return result;
         }
         /// <summary>
@@ -354,9 +463,149 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(Account != null || CaseComment != null || CaseQueue != null || CaseTemplate != null || Inquiry != null || ReportAddressLookup != null || ReportAdverseMedia != null || ReportBusinessAdverseMedia != null || ReportBusinessAssociatedPersons != null || ReportBusinessLookup != null || ReportBusinessRegistrationsLookup != null || ReportBusinessWatchlist != null || ReportCryptoAddressWatchlist != null || ReportEmailAddress != null || ReportPhoneRisk != null || ReportPoliticallyExposedPerson != null || ReportProfile != null || ReportProfileNonAuthoritative != null || ReportSentilinkScores != null || ReportSocialMedia != null || ReportSynthetic != null || ReportWatchlist != null || Transaction != null || VerificationAamva != null || VerificationDatabase != null || VerificationDatabaseEcbsv != null || VerificationDatabasePhoneCarrier != null || VerificationDatabaseSerpro != null || VerificationDatabaseStandard != null || VerificationDatabaseTin != null || VerificationDocument != null || VerificationEmailAddress != null || VerificationGovernmentId != null || VerificationGovernmentIdNfc != null || VerificationPhoneNumber != null || VerificationSelfie != null)
+            if(Account != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(Account, CaseComment, CaseQueue, CaseTemplate, Inquiry, ReportAddressLookup, ReportAdverseMedia, ReportBusinessAdverseMedia, ReportBusinessAssociatedPersons, ReportBusinessLookup, ReportBusinessRegistrationsLookup, ReportBusinessWatchlist, ReportCryptoAddressWatchlist, ReportEmailAddress, ReportPhoneRisk, ReportPoliticallyExposedPerson, ReportProfile, ReportProfileNonAuthoritative, ReportSentilinkScores, ReportSocialMedia, ReportSynthetic, ReportWatchlist, Transaction, VerificationAamva, VerificationDatabase, VerificationDatabaseEcbsv, VerificationDatabasePhoneCarrier, VerificationDatabaseSerpro, VerificationDatabaseStandard, VerificationDatabaseTin, VerificationDocument, VerificationEmailAddress, VerificationGovernmentId, VerificationGovernmentIdNfc, VerificationPhoneNumber, VerificationSelfie);
+                return Account.GetFieldDeserializers();
+            }
+            else if(CaseComment != null)
+            {
+                return CaseComment.GetFieldDeserializers();
+            }
+            else if(CaseQueue != null)
+            {
+                return CaseQueue.GetFieldDeserializers();
+            }
+            else if(CaseTemplate != null)
+            {
+                return CaseTemplate.GetFieldDeserializers();
+            }
+            else if(Inquiry != null)
+            {
+                return Inquiry.GetFieldDeserializers();
+            }
+            else if(ReportAddressLookup != null)
+            {
+                return ReportAddressLookup.GetFieldDeserializers();
+            }
+            else if(ReportAdverseMedia != null)
+            {
+                return ReportAdverseMedia.GetFieldDeserializers();
+            }
+            else if(ReportBusinessAdverseMedia != null)
+            {
+                return ReportBusinessAdverseMedia.GetFieldDeserializers();
+            }
+            else if(ReportBusinessAssociatedPersons != null)
+            {
+                return ReportBusinessAssociatedPersons.GetFieldDeserializers();
+            }
+            else if(ReportBusinessLookup != null)
+            {
+                return ReportBusinessLookup.GetFieldDeserializers();
+            }
+            else if(ReportBusinessRegistrationsLookup != null)
+            {
+                return ReportBusinessRegistrationsLookup.GetFieldDeserializers();
+            }
+            else if(ReportBusinessWatchlist != null)
+            {
+                return ReportBusinessWatchlist.GetFieldDeserializers();
+            }
+            else if(ReportCryptoAddressWatchlist != null)
+            {
+                return ReportCryptoAddressWatchlist.GetFieldDeserializers();
+            }
+            else if(ReportEmailAddress != null)
+            {
+                return ReportEmailAddress.GetFieldDeserializers();
+            }
+            else if(ReportPhoneRisk != null)
+            {
+                return ReportPhoneRisk.GetFieldDeserializers();
+            }
+            else if(ReportPoliticallyExposedPerson != null)
+            {
+                return ReportPoliticallyExposedPerson.GetFieldDeserializers();
+            }
+            else if(ReportProfile != null)
+            {
+                return ReportProfile.GetFieldDeserializers();
+            }
+            else if(ReportProfileNonAuthoritative != null)
+            {
+                return ReportProfileNonAuthoritative.GetFieldDeserializers();
+            }
+            else if(ReportSentilinkScores != null)
+            {
+                return ReportSentilinkScores.GetFieldDeserializers();
+            }
+            else if(ReportSocialMedia != null)
+            {
+                return ReportSocialMedia.GetFieldDeserializers();
+            }
+            else if(ReportSynthetic != null)
+            {
+                return ReportSynthetic.GetFieldDeserializers();
+            }
+            else if(ReportWatchlist != null)
+            {
+                return ReportWatchlist.GetFieldDeserializers();
+            }
+            else if(Transaction != null)
+            {
+                return Transaction.GetFieldDeserializers();
+            }
+            else if(VerificationAamva != null)
+            {
+                return VerificationAamva.GetFieldDeserializers();
+            }
+            else if(VerificationDatabase != null)
+            {
+                return VerificationDatabase.GetFieldDeserializers();
+            }
+            else if(VerificationDatabaseEcbsv != null)
+            {
+                return VerificationDatabaseEcbsv.GetFieldDeserializers();
+            }
+            else if(VerificationDatabasePhoneCarrier != null)
+            {
+                return VerificationDatabasePhoneCarrier.GetFieldDeserializers();
+            }
+            else if(VerificationDatabaseSerpro != null)
+            {
+                return VerificationDatabaseSerpro.GetFieldDeserializers();
+            }
+            else if(VerificationDatabaseStandard != null)
+            {
+                return VerificationDatabaseStandard.GetFieldDeserializers();
+            }
+            else if(VerificationDatabaseTin != null)
+            {
+                return VerificationDatabaseTin.GetFieldDeserializers();
+            }
+            else if(VerificationDocument != null)
+            {
+                return VerificationDocument.GetFieldDeserializers();
+            }
+            else if(VerificationEmailAddress != null)
+            {
+                return VerificationEmailAddress.GetFieldDeserializers();
+            }
+            else if(VerificationGovernmentId != null)
+            {
+                return VerificationGovernmentId.GetFieldDeserializers();
+            }
+            else if(VerificationGovernmentIdNfc != null)
+            {
+                return VerificationGovernmentIdNfc.GetFieldDeserializers();
+            }
+            else if(VerificationPhoneNumber != null)
+            {
+                return VerificationPhoneNumber.GetFieldDeserializers();
+            }
+            else if(VerificationSelfie != null)
+            {
+                return VerificationSelfie.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -367,7 +616,150 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account>(null, Account, CaseComment, CaseQueue, CaseTemplate, Inquiry, ReportAddressLookup, ReportAdverseMedia, ReportBusinessAdverseMedia, ReportBusinessAssociatedPersons, ReportBusinessLookup, ReportBusinessRegistrationsLookup, ReportBusinessWatchlist, ReportCryptoAddressWatchlist, ReportEmailAddress, ReportPhoneRisk, ReportPoliticallyExposedPerson, ReportProfile, ReportProfileNonAuthoritative, ReportSentilinkScores, ReportSocialMedia, ReportSynthetic, ReportWatchlist, Transaction, VerificationAamva, VerificationDatabase, VerificationDatabaseEcbsv, VerificationDatabasePhoneCarrier, VerificationDatabaseSerpro, VerificationDatabaseStandard, VerificationDatabaseTin, VerificationDocument, VerificationEmailAddress, VerificationGovernmentId, VerificationGovernmentIdNfc, VerificationPhoneNumber, VerificationSelfie);
+            if(Account != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account>(null, Account);
+            }
+            else if(CaseComment != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CaseComment>(null, CaseComment);
+            }
+            else if(CaseQueue != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CaseQueue>(null, CaseQueue);
+            }
+            else if(CaseTemplate != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CaseTemplate>(null, CaseTemplate);
+            }
+            else if(Inquiry != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry>(null, Inquiry);
+            }
+            else if(ReportAddressLookup != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookup>(null, ReportAddressLookup);
+            }
+            else if(ReportAdverseMedia != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMedia>(null, ReportAdverseMedia);
+            }
+            else if(ReportBusinessAdverseMedia != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMedia>(null, ReportBusinessAdverseMedia);
+            }
+            else if(ReportBusinessAssociatedPersons != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersons>(null, ReportBusinessAssociatedPersons);
+            }
+            else if(ReportBusinessLookup != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup>(null, ReportBusinessLookup);
+            }
+            else if(ReportBusinessRegistrationsLookup != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup>(null, ReportBusinessRegistrationsLookup);
+            }
+            else if(ReportBusinessWatchlist != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlist>(null, ReportBusinessWatchlist);
+            }
+            else if(ReportCryptoAddressWatchlist != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlist>(null, ReportCryptoAddressWatchlist);
+            }
+            else if(ReportEmailAddress != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddress>(null, ReportEmailAddress);
+            }
+            else if(ReportPhoneRisk != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRisk>(null, ReportPhoneRisk);
+            }
+            else if(ReportPoliticallyExposedPerson != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPerson>(null, ReportPoliticallyExposedPerson);
+            }
+            else if(ReportProfile != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportProfile>(null, ReportProfile);
+            }
+            else if(ReportProfileNonAuthoritative != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative>(null, ReportProfileNonAuthoritative);
+            }
+            else if(ReportSentilinkScores != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores>(null, ReportSentilinkScores);
+            }
+            else if(ReportSocialMedia != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMedia>(null, ReportSocialMedia);
+            }
+            else if(ReportSynthetic != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSynthetic>(null, ReportSynthetic);
+            }
+            else if(ReportWatchlist != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist>(null, ReportWatchlist);
+            }
+            else if(Transaction != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Transaction>(null, Transaction);
+            }
+            else if(VerificationAamva != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationAamva>(null, VerificationAamva);
+            }
+            else if(VerificationDatabase != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabase>(null, VerificationDatabase);
+            }
+            else if(VerificationDatabaseEcbsv != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseEcbsv>(null, VerificationDatabaseEcbsv);
+            }
+            else if(VerificationDatabasePhoneCarrier != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabasePhoneCarrier>(null, VerificationDatabasePhoneCarrier);
+            }
+            else if(VerificationDatabaseSerpro != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseSerpro>(null, VerificationDatabaseSerpro);
+            }
+            else if(VerificationDatabaseStandard != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseStandard>(null, VerificationDatabaseStandard);
+            }
+            else if(VerificationDatabaseTin != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDatabaseTin>(null, VerificationDatabaseTin);
+            }
+            else if(VerificationDocument != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDocument>(null, VerificationDocument);
+            }
+            else if(VerificationEmailAddress != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationEmailAddress>(null, VerificationEmailAddress);
+            }
+            else if(VerificationGovernmentId != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentId>(null, VerificationGovernmentId);
+            }
+            else if(VerificationGovernmentIdNfc != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdNfc>(null, VerificationGovernmentIdNfc);
+            }
+            else if(VerificationPhoneNumber != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationPhoneNumber>(null, VerificationPhoneNumber);
+            }
+            else if(VerificationSelfie != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfie>(null, VerificationSelfie);
+            }
         }
     }
 }

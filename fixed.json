@@ -26115,6 +26115,35 @@
         },
         "x-jsonschema-unevaluatedProperties": false
       },
+      "RelationshipAllowlist": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/RelationshipAllowlistIncludeAll"
+          },
+          {
+            "$ref": "#/components/schemas/RelationshipAllowlistIncludeNone"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "Controls whether relationships are serialized in webhook payload objects. The default is \u0060include_all\u0060. The object shape leaves room for future granular relationship configuration.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "RelationshipAllowlistIncludeAll": "#/components/schemas/RelationshipAllowlistIncludeAll",
+            "RelationshipAllowlistIncludeNone": "#/components/schemas/RelationshipAllowlistIncludeNone"
+          }
+        },
+        "x-jsonschema-unevaluatedProperties": false
+      },
       "Webhook": {
         "type": "object",
         "properties": {
@@ -26190,6 +26219,9 @@
           },
           "included-allowlist": {
             "$ref": "#/components/schemas/IncludedAllowlist"
+          },
+          "relationship-allowlist": {
+            "$ref": "#/components/schemas/RelationshipAllowlist"
           },
           "custom-http-headers": {
             "$ref": "#/components/schemas/WebhookRequestAttributesCustomHttpHeaders"
@@ -27215,7 +27247,7 @@
           "type"
         ],
         "type": "object",
-        "anyOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/AccountType"
           }
@@ -31185,7 +31217,7 @@
           "type"
         ],
         "type": "object",
-        "anyOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/Account"
           },
@@ -31435,7 +31467,7 @@
           "type"
         ],
         "type": "object",
-        "anyOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/Inquiry"
           },
@@ -34860,7 +34892,7 @@
           "type"
         ],
         "type": "object",
-        "anyOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/Account"
           },
@@ -35257,7 +35289,7 @@
           "type"
         ],
         "type": "object",
-        "anyOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/Device"
           },
@@ -35292,7 +35324,7 @@
           "type"
         ],
         "type": "object",
-        "anyOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/InquiryTemplateVersion"
           }
@@ -36711,7 +36743,7 @@
           "type"
         ],
         "type": "object",
-        "anyOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/Inquiry"
           },
@@ -36876,7 +36908,7 @@
           "type"
         ],
         "type": "object",
-        "anyOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/Account"
           },
@@ -37128,6 +37160,60 @@
         },
         "additionalProperties": false
       },
+      "RelationshipAllowlistIncludeAll": {
+        "title": "Include all",
+        "required": [
+          "state"
+        ],
+        "type": "object",
+        "properties": {
+          "state": {
+            "enum": [
+              "include_all"
+            ],
+            "type": "string",
+            "description": "Include relationship linkages in webhook payload objects.",
+            "x-ms-enum": {
+              "name": "State",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "include_all",
+                  "name": "IncludeAll"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelationshipAllowlistIncludeNone": {
+        "title": "Include none",
+        "required": [
+          "state"
+        ],
+        "type": "object",
+        "properties": {
+          "state": {
+            "enum": [
+              "include_none"
+            ],
+            "type": "string",
+            "description": "Omit relationship linkages from webhook payload objects.",
+            "x-ms-enum": {
+              "name": "State",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "include_none",
+                  "name": "IncludeNone"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "WebhookAttributesIncludedAllowlist": {
         "required": [
           "type"
@@ -37183,7 +37269,7 @@
           "type"
         ],
         "type": "object",
-        "anyOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/Workflow"
           },
@@ -37223,7 +37309,7 @@
           "type"
         ],
         "type": "object",
-        "anyOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/ImporterPipeline"
           }
@@ -37248,7 +37334,7 @@
           "type"
         ],
         "type": "object",
-        "anyOf": [
+        "oneOf": [
           {
             "$ref": "#/components/schemas/Inquiry"
           }
@@ -43548,6 +43634,9 @@
           "included-allowlist": {
             "$ref": "#/components/schemas/WebhookAttributesIncludedAllowlist"
           },
+          "relationship-allowlist": {
+            "$ref": "#/components/schemas/RelationshipAllowlist"
+          },
           "created-at": {
             "type": "string",
             "format": "date-time"
@@ -43641,6 +43730,9 @@
           },
           "included-allowlist": {
             "$ref": "#/components/schemas/WebhookWithSecretAttributesIncludedAllowlist"
+          },
+          "relationship-allowlist": {
+            "$ref": "#/components/schemas/RelationshipAllowlist"
           },
           "created-at": {
             "type": "string",
@@ -65303,6 +65395,9 @@
               ],
               "included-allowlist": {
                 "state": "include_all"
+              },
+              "relationship-allowlist": {
+                "state": "include_all"
               }
             }
           }
@@ -65349,6 +65444,9 @@
               "included-allowlist": {
                 "state": "include_all"
               },
+              "relationship-allowlist": {
+                "state": "include_all"
+              },
               "created-at": "2023-08-17T23:18:13.000Z"
             }
           }
@@ -65388,6 +65486,9 @@
               "included-allowlist": {
                 "state": "include_all"
               },
+              "relationship-allowlist": {
+                "state": "include_all"
+              },
               "created-at": "2023-08-17T23:18:13.000Z"
             }
           }
@@ -65424,6 +65525,12 @@
                   }
                 }
               },
+              "included-allowlist": {
+                "state": "include_all"
+              },
+              "relationship-allowlist": {
+                "state": "include_all"
+              },
               "created-at": "2023-08-17T23:18:13.000Z"
             }
           }
@@ -65459,6 +65566,12 @@
                     }
                   }
                 }
+              },
+              "included-allowlist": {
+                "state": "include_all"
+              },
+              "relationship-allowlist": {
+                "state": "include_all"
               },
               "created-at": "2023-08-17T23:18:13.000Z"
             }
@@ -65511,6 +65624,12 @@
                     }
                   }
                 }
+              },
+              "included-allowlist": {
+                "state": "include_all"
+              },
+              "relationship-allowlist": {
+                "state": "include_all"
               },
               "created-at": "2023-08-17T23:18:13.000Z"
             }

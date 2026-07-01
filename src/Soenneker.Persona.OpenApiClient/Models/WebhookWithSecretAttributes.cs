@@ -74,6 +74,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesPayloadFilter PayloadFilter { get; set; }
 #endif
+        /// <summary>Controls whether relationships are serialized in webhook payload objects. The default is `include_all`. The object shape leaves room for future granular relationship configuration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist? RelationshipAllowlist { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist RelationshipAllowlist { get; set; }
+#endif
         /// <summary>secret is deprecated in favor of secrets</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -134,6 +142,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "included-allowlist", n => { IncludedAllowlist = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesIncludedAllowlist>(global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesIncludedAllowlist.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "payload-filter", n => { PayloadFilter = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesPayloadFilter>(global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesPayloadFilter.CreateFromDiscriminatorValue); } },
+                { "relationship-allowlist", n => { RelationshipAllowlist = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist>(global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist.CreateFromDiscriminatorValue); } },
                 { "secret", n => { Secret = n.GetStringValue(); } },
                 { "secrets", n => { Secrets = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesSecretsItem>(global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesSecretsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -157,6 +166,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesIncludedAllowlist>("included-allowlist", IncludedAllowlist);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesPayloadFilter>("payload-filter", PayloadFilter);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist>("relationship-allowlist", RelationshipAllowlist);
             writer.WriteStringValue("secret", Secret);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesSecretsItem>("secrets", Secrets);
             writer.WriteStringValue("status", Status);

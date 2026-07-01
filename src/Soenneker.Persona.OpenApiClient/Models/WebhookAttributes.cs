@@ -74,6 +74,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesPayloadFilter PayloadFilter { get; set; }
 #endif
+        /// <summary>Controls whether relationships are serialized in webhook payload objects. The default is `include_all`. The object shape leaves room for future granular relationship configuration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist? RelationshipAllowlist { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist RelationshipAllowlist { get; set; }
+#endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -118,6 +126,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "included-allowlist", n => { IncludedAllowlist = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesIncludedAllowlist>(global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesIncludedAllowlist.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "payload-filter", n => { PayloadFilter = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesPayloadFilter>(global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesPayloadFilter.CreateFromDiscriminatorValue); } },
+                { "relationship-allowlist", n => { RelationshipAllowlist = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist>(global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -139,6 +148,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesIncludedAllowlist>("included-allowlist", IncludedAllowlist);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesPayloadFilter>("payload-filter", PayloadFilter);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist>("relationship-allowlist", RelationshipAllowlist);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("url", Url);
         }

@@ -117,19 +117,56 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.VerificationIncludedObjectsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.VerificationIncludedObjectsItem();
-            result.Account = new global::Soenneker.Persona.OpenApiClient.Models.Account();
-            result.DocumentGeneric = new global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric();
-            result.DocumentGovernmentId = new global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentId();
-            result.DocumentGovernmentIdNfc = new global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentIdNfc();
-            result.DocumentMdoc = new global::Soenneker.Persona.OpenApiClient.Models.DocumentMdoc();
-            result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();
-            result.InquiryTemplate = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate();
-            result.InquiryTemplateVersion = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion();
-            result.Template = new global::Soenneker.Persona.OpenApiClient.Models.Template();
-            result.Transaction = new global::Soenneker.Persona.OpenApiClient.Models.Transaction();
-            result.VerificationTemplate = new global::Soenneker.Persona.OpenApiClient.Models.VerificationTemplate();
-            result.VerificationTemplateVersion = new global::Soenneker.Persona.OpenApiClient.Models.VerificationTemplateVersion();
+            if("account".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Account = new global::Soenneker.Persona.OpenApiClient.Models.Account();
+            }
+            else if("document/generic".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.DocumentGeneric = new global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric();
+            }
+            else if("document/government-id".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.DocumentGovernmentId = new global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentId();
+            }
+            else if("document/government-id-nfc".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.DocumentGovernmentIdNfc = new global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentIdNfc();
+            }
+            else if("document/mdoc".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.DocumentMdoc = new global::Soenneker.Persona.OpenApiClient.Models.DocumentMdoc();
+            }
+            else if("inquiry".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();
+            }
+            else if("inquiry-template".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.InquiryTemplate = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate();
+            }
+            else if("inquiry-template-version".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.InquiryTemplateVersion = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion();
+            }
+            else if("template".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Template = new global::Soenneker.Persona.OpenApiClient.Models.Template();
+            }
+            else if("transaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Transaction = new global::Soenneker.Persona.OpenApiClient.Models.Transaction();
+            }
+            else if("verification-template/aamva".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VerificationTemplate = new global::Soenneker.Persona.OpenApiClient.Models.VerificationTemplate();
+            }
+            else if("verification-template-version/aamva".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.VerificationTemplateVersion = new global::Soenneker.Persona.OpenApiClient.Models.VerificationTemplateVersion();
+            }
             return result;
         }
         /// <summary>
@@ -138,9 +175,53 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(Account != null || DocumentGeneric != null || DocumentGovernmentId != null || DocumentGovernmentIdNfc != null || DocumentMdoc != null || Inquiry != null || InquiryTemplate != null || InquiryTemplateVersion != null || Template != null || Transaction != null || VerificationTemplate != null || VerificationTemplateVersion != null)
+            if(Account != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(Account, DocumentGeneric, DocumentGovernmentId, DocumentGovernmentIdNfc, DocumentMdoc, Inquiry, InquiryTemplate, InquiryTemplateVersion, Template, Transaction, VerificationTemplate, VerificationTemplateVersion);
+                return Account.GetFieldDeserializers();
+            }
+            else if(DocumentGeneric != null)
+            {
+                return DocumentGeneric.GetFieldDeserializers();
+            }
+            else if(DocumentGovernmentId != null)
+            {
+                return DocumentGovernmentId.GetFieldDeserializers();
+            }
+            else if(DocumentGovernmentIdNfc != null)
+            {
+                return DocumentGovernmentIdNfc.GetFieldDeserializers();
+            }
+            else if(DocumentMdoc != null)
+            {
+                return DocumentMdoc.GetFieldDeserializers();
+            }
+            else if(Inquiry != null)
+            {
+                return Inquiry.GetFieldDeserializers();
+            }
+            else if(InquiryTemplate != null)
+            {
+                return InquiryTemplate.GetFieldDeserializers();
+            }
+            else if(InquiryTemplateVersion != null)
+            {
+                return InquiryTemplateVersion.GetFieldDeserializers();
+            }
+            else if(Template != null)
+            {
+                return Template.GetFieldDeserializers();
+            }
+            else if(Transaction != null)
+            {
+                return Transaction.GetFieldDeserializers();
+            }
+            else if(VerificationTemplate != null)
+            {
+                return VerificationTemplate.GetFieldDeserializers();
+            }
+            else if(VerificationTemplateVersion != null)
+            {
+                return VerificationTemplateVersion.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -151,7 +232,54 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account>(null, Account, DocumentGeneric, DocumentGovernmentId, DocumentGovernmentIdNfc, DocumentMdoc, Inquiry, InquiryTemplate, InquiryTemplateVersion, Template, Transaction, VerificationTemplate, VerificationTemplateVersion);
+            if(Account != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account>(null, Account);
+            }
+            else if(DocumentGeneric != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric>(null, DocumentGeneric);
+            }
+            else if(DocumentGovernmentId != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentId>(null, DocumentGovernmentId);
+            }
+            else if(DocumentGovernmentIdNfc != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentIdNfc>(null, DocumentGovernmentIdNfc);
+            }
+            else if(DocumentMdoc != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentMdoc>(null, DocumentMdoc);
+            }
+            else if(Inquiry != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry>(null, Inquiry);
+            }
+            else if(InquiryTemplate != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate>(null, InquiryTemplate);
+            }
+            else if(InquiryTemplateVersion != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion>(null, InquiryTemplateVersion);
+            }
+            else if(Template != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Template>(null, Template);
+            }
+            else if(Transaction != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Transaction>(null, Transaction);
+            }
+            else if(VerificationTemplate != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationTemplate>(null, VerificationTemplate);
+            }
+            else if(VerificationTemplateVersion != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationTemplateVersion>(null, VerificationTemplateVersion);
+            }
         }
     }
 }

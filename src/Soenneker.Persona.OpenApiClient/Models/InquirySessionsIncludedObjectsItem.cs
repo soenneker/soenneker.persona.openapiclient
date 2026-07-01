@@ -45,10 +45,20 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.InquirySessionsIncludedObjectsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.InquirySessionsIncludedObjectsItem();
-            result.Device = new global::Soenneker.Persona.OpenApiClient.Models.Device();
-            result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();
-            result.Network = new global::Soenneker.Persona.OpenApiClient.Models.Network();
+            if("device".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Device = new global::Soenneker.Persona.OpenApiClient.Models.Device();
+            }
+            else if("inquiry".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();
+            }
+            else if("network".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Network = new global::Soenneker.Persona.OpenApiClient.Models.Network();
+            }
             return result;
         }
         /// <summary>
@@ -57,9 +67,17 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(Device != null || Inquiry != null || Network != null)
+            if(Device != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(Device, Inquiry, Network);
+                return Device.GetFieldDeserializers();
+            }
+            else if(Inquiry != null)
+            {
+                return Inquiry.GetFieldDeserializers();
+            }
+            else if(Network != null)
+            {
+                return Network.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -70,7 +88,18 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Device>(null, Device, Inquiry, Network);
+            if(Device != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Device>(null, Device);
+            }
+            else if(Inquiry != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry>(null, Inquiry);
+            }
+            else if(Network != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Network>(null, Network);
+            }
         }
     }
 }

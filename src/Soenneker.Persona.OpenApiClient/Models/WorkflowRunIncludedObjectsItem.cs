@@ -53,11 +53,24 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItem();
-            result.EventType = new global::Soenneker.Persona.OpenApiClient.Models.EventType();
-            result.User = new global::Soenneker.Persona.OpenApiClient.Models.User();
-            result.Workflow = new global::Soenneker.Persona.OpenApiClient.Models.Workflow();
-            result.WorkflowVersion = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersion();
+            if("event".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.EventType = new global::Soenneker.Persona.OpenApiClient.Models.EventType();
+            }
+            else if("user".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.User = new global::Soenneker.Persona.OpenApiClient.Models.User();
+            }
+            else if("workflow".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.Workflow = new global::Soenneker.Persona.OpenApiClient.Models.Workflow();
+            }
+            else if("workflow-version".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.WorkflowVersion = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersion();
+            }
             return result;
         }
         /// <summary>
@@ -66,9 +79,21 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(EventType != null || User != null || Workflow != null || WorkflowVersion != null)
+            if(EventType != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(EventType, User, Workflow, WorkflowVersion);
+                return EventType.GetFieldDeserializers();
+            }
+            else if(User != null)
+            {
+                return User.GetFieldDeserializers();
+            }
+            else if(Workflow != null)
+            {
+                return Workflow.GetFieldDeserializers();
+            }
+            else if(WorkflowVersion != null)
+            {
+                return WorkflowVersion.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -79,7 +104,22 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.EventType>(null, EventType, User, Workflow, WorkflowVersion);
+            if(EventType != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.EventType>(null, EventType);
+            }
+            else if(User != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.User>(null, User);
+            }
+            else if(Workflow != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Workflow>(null, Workflow);
+            }
+            else if(WorkflowVersion != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersion>(null, WorkflowVersion);
+            }
         }
     }
 }

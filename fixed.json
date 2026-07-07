@@ -26669,11 +26669,6 @@
       },
       "FieldSchemaBooleanConfig": {
         "type": "object",
-        "allOf": [
-          {
-            "type": "object"
-          }
-        ],
         "properties": {
           "required": {
             "type": "boolean"
@@ -26803,11 +26798,6 @@
       },
       "FieldSchemaDatetimeConfig": {
         "type": "object",
-        "allOf": [
-          {
-            "type": "object"
-          }
-        ],
         "properties": {
           "required": {
             "type": "boolean"
@@ -26842,11 +26832,6 @@
       },
       "FieldSchemaEmailAddressConfig": {
         "type": "object",
-        "allOf": [
-          {
-            "type": "object"
-          }
-        ],
         "properties": {
           "required": {
             "type": "boolean"
@@ -59660,7 +59645,6 @@
         "type": "string",
         "additionalProperties": false,
         "description": "Default key inflection for attribute keys in incoming webhook requests. For more info see the [Key Inflection docs](https://docs.withpersona.com/key-inflection).",
-        "default": "kebab",
         "x-ms-enum": {
           "name": "WebhookRequestAttributesApiKeyInflection",
           "modelAsString": false,

@@ -1526,7 +1526,7 @@
           "API Keys"
         ],
         "summary": "Retrieve an API key",
-        "description": "Retrieves the information for an existing API key, including its value.",
+        "description": "Retrieves the information for an existing API key. The plaintext value is only returned when creating or cloning an API key.",
         "externalDocs": {
           "description": "Full documentation for this API on the Persona website.",
           "url": "https://docs.withpersona.com/api-reference/api-keys/retrieve-an-api-key"
@@ -1568,7 +1568,7 @@
                 },
                 "examples": {
                   "Success": {
-                    "$ref": "#/components/examples/api-key-with-value"
+                    "$ref": "#/components/examples/api-key"
                   }
                 }
               }
@@ -51538,7 +51538,7 @@
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/ApiKeyWithValue"
+            "$ref": "#/components/schemas/ApiKey"
           },
           "included": {
             "$ref": "#/components/schemas/EmptyIncludedObjects"

@@ -15,10 +15,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>An API Key resource</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiKeyWithValue? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiKey? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiKeyWithValue Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiKey Data { get; set; }
 #endif
         /// <summary>Excluded from the response by default. Will be an empty array when the `include` query parameter in the request was explicitly set to empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,7 +46,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiKeyWithValue>(global::Soenneker.Persona.OpenApiClient.Models.ApiKeyWithValue.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiKey>(global::Soenneker.Persona.OpenApiClient.Models.ApiKey.CreateFromDiscriminatorValue); } },
                 { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WithApiKey>(global::Soenneker.Persona.OpenApiClient.Models.WithApiKey.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -57,7 +57,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiKeyWithValue>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiKey>("data", Data);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WithApiKey>("included", Included);
         }
     }

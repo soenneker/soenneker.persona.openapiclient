@@ -46,7 +46,7 @@ namespace Soenneker.Persona.OpenApiClient.ApiKeys.Item
         {
         }
         /// <summary>
-        /// Retrieves the information for an existing API key, including its value.
+        /// Retrieves the information for an existing API key. The plaintext value is only returned when creating or cloning an API key.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/api-keys/retrieve-an-api-key" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnApiKey200Response"/></returns>
@@ -114,7 +114,7 @@ namespace Soenneker.Persona.OpenApiClient.ApiKeys.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.UpdateAnApiKey200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.UpdateAnApiKey200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves the information for an existing API key, including its value.
+        /// Retrieves the information for an existing API key. The plaintext value is only returned when creating or cloning an API key.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -164,7 +164,7 @@ namespace Soenneker.Persona.OpenApiClient.ApiKeys.Item
             return new global::Soenneker.Persona.OpenApiClient.ApiKeys.Item.WithApiKeyItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves the information for an existing API key, including its value.
+        /// Retrieves the information for an existing API key. The plaintext value is only returned when creating or cloning an API key.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithApiKeyItemRequestBuilderGetQueryParameters 

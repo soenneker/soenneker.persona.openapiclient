@@ -8,11 +8,19 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf5"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf6"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf5"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf6"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListItemEmailAddressRelationshipsCreatorData : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember1? ListItemEmailAddressRelationshipsCreatorDataMember1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember1 ListItemEmailAddressRelationshipsCreatorDataMember1 { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,7 +99,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ListItemEmailAddressRelationshipsCreatorDataOneOf2 != null)
+            if(ListItemEmailAddressRelationshipsCreatorDataMember1 != null)
+            {
+                return ListItemEmailAddressRelationshipsCreatorDataMember1.GetFieldDeserializers();
+            }
+            else if(ListItemEmailAddressRelationshipsCreatorDataOneOf2 != null)
             {
                 return ListItemEmailAddressRelationshipsCreatorDataOneOf2.GetFieldDeserializers();
             }
@@ -120,7 +132,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ListItemEmailAddressRelationshipsCreatorDataOneOf2 != null)
+            if(ListItemEmailAddressRelationshipsCreatorDataMember1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataMember1>(null, ListItemEmailAddressRelationshipsCreatorDataMember1);
+            }
+            else if(ListItemEmailAddressRelationshipsCreatorDataOneOf2 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf2>(null, ListItemEmailAddressRelationshipsCreatorDataOneOf2);
             }

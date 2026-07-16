@@ -8,11 +8,19 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf5"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListItemDeviceFingerprintRelationshipsCreatorData : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember1? ListItemDeviceFingerprintRelationshipsCreatorDataMember1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember1 ListItemDeviceFingerprintRelationshipsCreatorDataMember1 { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,7 +87,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2 != null)
+            if(ListItemDeviceFingerprintRelationshipsCreatorDataMember1 != null)
+            {
+                return ListItemDeviceFingerprintRelationshipsCreatorDataMember1.GetFieldDeserializers();
+            }
+            else if(ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2 != null)
             {
                 return ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2.GetFieldDeserializers();
             }
@@ -104,7 +116,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2 != null)
+            if(ListItemDeviceFingerprintRelationshipsCreatorDataMember1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataMember1>(null, ListItemDeviceFingerprintRelationshipsCreatorDataMember1);
+            }
+            else if(ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2>(null, ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2);
             }

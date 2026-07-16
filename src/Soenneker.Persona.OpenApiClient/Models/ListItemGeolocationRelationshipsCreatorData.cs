@@ -8,11 +8,19 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf5"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf6"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf5"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf6"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListItemGeolocationRelationshipsCreatorData : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember1? ListItemGeolocationRelationshipsCreatorDataMember1 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember1 ListItemGeolocationRelationshipsCreatorDataMember1 { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,7 +99,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ListItemGeolocationRelationshipsCreatorDataOneOf2 != null)
+            if(ListItemGeolocationRelationshipsCreatorDataMember1 != null)
+            {
+                return ListItemGeolocationRelationshipsCreatorDataMember1.GetFieldDeserializers();
+            }
+            else if(ListItemGeolocationRelationshipsCreatorDataOneOf2 != null)
             {
                 return ListItemGeolocationRelationshipsCreatorDataOneOf2.GetFieldDeserializers();
             }
@@ -120,7 +132,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(ListItemGeolocationRelationshipsCreatorDataOneOf2 != null)
+            if(ListItemGeolocationRelationshipsCreatorDataMember1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataMember1>(null, ListItemGeolocationRelationshipsCreatorDataMember1);
+            }
+            else if(ListItemGeolocationRelationshipsCreatorDataOneOf2 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemGeolocationRelationshipsCreatorDataOneOf2>(null, ListItemGeolocationRelationshipsCreatorDataOneOf2);
             }

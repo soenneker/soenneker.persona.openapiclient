@@ -12,7 +12,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// JSON key-value pairs of field name to field value. Schema is defined by your Inquiry Template.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class InquiryFields : IAdditionalDataHolder, IParsable
+    public partial class CreateAnInquiryRequestDataAttributesFields : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -107,21 +107,21 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryFields"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestDataAttributesFields"/> and sets the default values.
         /// </summary>
-        public InquiryFields()
+        public CreateAnInquiryRequestDataAttributesFields()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryFields"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestDataAttributesFields"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.InquiryFields CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestDataAttributesFields CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.InquiryFields();
+            return new global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestDataAttributesFields();
         }
         /// <summary>
         /// The deserialization information for the current model

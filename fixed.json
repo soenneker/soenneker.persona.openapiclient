@@ -17349,6 +17349,160 @@
         }
       }
     },
+    "/verifications/{verificationId}/investigation-lock": {
+      "post": {
+        "tags": [
+          "Verifications"
+        ],
+        "summary": "Investigation Lock a Verification",
+        "description": "Locks a Verification from redaction while it is under investigation. While locked, redaction requests for the Verification will be rejected.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/verifications/investigation-lock-a-verification"
+        },
+        "operationId": "InvestigationLockAVerification",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "verificationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Verification object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationLockAVerification200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/verification-retrieve"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
+    "/verifications/{verificationId}/investigation-unlock": {
+      "post": {
+        "tags": [
+          "Verifications"
+        ],
+        "summary": "Investigation Unlock a Verification",
+        "description": "Unlocks a Verification that was previously locked from redaction during an investigation.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/verifications/investigation-unlock-a-verification"
+        },
+        "operationId": "InvestigationUnlockAVerification",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "verificationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Verification object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationUnlockAVerification200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/verification-retrieve"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
     "/webhooks": {
       "get": {
         "tags": [
@@ -18980,8 +19134,10 @@
             "nullable": true
           },
           "default-value": {
-            "description": "JSON-typed fields don\u0027t expose a default-value through this API (the\nstored value is a free-form JSON document; the default is \u0060null\u0060).",
-            "nullable": true
+            "enum": [
+              null
+            ],
+            "description": "JSON-typed fields don\u0027t expose a default-value through this API (the\nstored value is a free-form JSON document; the default is \u0060null\u0060)."
           },
           "config": {
             "$ref": "#/components/schemas/FieldSchemaJsonConfig"
@@ -22332,6 +22488,26 @@
         },
         "additionalProperties": false,
         "description": "A Brand Asset Verification"
+      },
+      "BusinessWebsiteExtractedIdentityRecord": {
+        "title": "Business Website Extracted Identity Record",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "The extracted value \u2014 for example a business name, address, phone number, or email address.",
+            "nullable": true,
+            "example": "Example Inc"
+          },
+          "source": {
+            "type": "string",
+            "description": "The URL of the website page the value was extracted from.",
+            "nullable": true,
+            "example": "https://example.com"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A single identity detail extracted from the business website, with the page it was found on."
       },
       "VerificationBusinessWebsite": {
         "title": "Business Website Verification",
@@ -31910,6 +32086,9 @@
             "type": "string",
             "description": "The website URL being verified.",
             "nullable": true
+          },
+          "extracted-identity": {
+            "$ref": "#/components/schemas/VerificationBusinessWebsiteAttributesAllOf2ExtractedIdentity"
           }
         },
         "x-jsonschema-unevaluatedProperties": false
@@ -34821,6 +35000,11 @@
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/WorkflowDeployment"
           }
         ],
@@ -34830,7 +35014,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -34845,6 +35028,11 @@
         ],
         "type": "object",
         "oneOf": [
+          {
+            "enum": [
+              null
+            ]
+          },
           {
             "$ref": "#/components/schemas/WorkflowRunRelationshipsCreatorDataOneOf2"
           },
@@ -34861,7 +35049,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35372,6 +35559,11 @@
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2"
           },
           {
@@ -35390,7 +35582,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35446,6 +35637,11 @@
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/ListItemCountryRelationshipsCreatorDataOneOf2"
           },
           {
@@ -35464,7 +35660,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35519,6 +35714,11 @@
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/ListItemDeviceFingerprintRelationshipsCreatorDataOneOf2"
           },
           {
@@ -35537,7 +35737,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35595,6 +35794,11 @@
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/ListItemEmailAddressRelationshipsCreatorDataOneOf2"
           },
           {
@@ -35616,7 +35820,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35672,6 +35875,11 @@
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/ListItemFieldRelationshipsCreatorDataOneOf2"
           },
           {
@@ -35690,7 +35898,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35754,6 +35961,11 @@
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/ListItemGeolocationRelationshipsCreatorDataOneOf2"
           },
           {
@@ -35775,7 +35987,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35834,6 +36045,11 @@
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/ListItemGovernmentIdNumberRelationshipsCreatorDataOneOf2"
           },
           {
@@ -35855,7 +36071,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35911,6 +36126,11 @@
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/ListItemIpAddressRelationshipsCreatorDataOneOf2"
           },
           {
@@ -35932,7 +36152,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -35991,6 +36210,11 @@
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/ListItemNameRelationshipsCreatorDataOneOf2"
           },
           {
@@ -36012,7 +36236,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -36068,6 +36291,11 @@
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/ListItemPhoneNumberRelationshipsCreatorDataOneOf2"
           },
           {
@@ -36089,7 +36317,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -36145,6 +36372,11 @@
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/ListItemStringRelationshipsCreatorDataOneOf2"
           },
           {
@@ -36163,7 +36395,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -37206,6 +37437,11 @@
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/IncludedAllowlist"
           }
         ],
@@ -37215,7 +37451,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -37231,6 +37466,11 @@
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/IncludedAllowlist"
           }
         ],
@@ -37240,7 +37480,6 @@
             "description": "Union discriminator"
           }
         },
-        "nullable": true,
         "discriminator": {
           "propertyName": "type",
           "mapping": {
@@ -39307,6 +39546,9 @@
             "type": "string",
             "description": "The website URL being verified.",
             "nullable": true
+          },
+          "extracted-identity": {
+            "$ref": "#/components/schemas/VerificationBusinessWebsiteAttributesAllOf2ExtractedIdentity"
           }
         }
       },
@@ -45400,6 +45642,45 @@
       "DocumentGenericAttributesAllOf2Fields": {
         "type": "object",
         "description": "JSON key-value pairs of field name to field value. Exact schema depends on the configuration of your template."
+      },
+      "VerificationBusinessWebsiteAttributesAllOf2ExtractedIdentity": {
+        "type": "object",
+        "properties": {
+          "business-names": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BusinessWebsiteExtractedIdentityRecord"
+            },
+            "description": "Business names extracted from the website.",
+            "nullable": true
+          },
+          "addresses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BusinessWebsiteExtractedIdentityRecord"
+            },
+            "description": "Addresses extracted from the website.",
+            "nullable": true
+          },
+          "phone-numbers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BusinessWebsiteExtractedIdentityRecord"
+            },
+            "description": "Phone numbers extracted from the website.",
+            "nullable": true
+          },
+          "emails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BusinessWebsiteExtractedIdentityRecord"
+            },
+            "description": "Email addresses extracted from the website.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Identity details extracted from the website. Each list is null when the verification has not finished processing or has been redacted."
       },
       "VerificationDigitalIdSerproAttributesAllOf2QrCodeAttachment": {
         "type": "object",
@@ -53844,6 +54125,42 @@
         "type": "string",
         "format": "binary"
       },
+      "InvestigationLockAVerification200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Verification"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VerificationIncludedObjectsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "InvestigationUnlockAVerification200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Verification"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VerificationIncludedObjectsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "ListAllWebhooks200Response": {
         "required": [
           "data",
@@ -55130,22 +55447,30 @@
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/InquiryFields"
           }
         ],
         "description": "JSON key-value pairs of field name to field value. Schema is defined by your Inquiry Template.",
-        "nullable": true,
         "x-jsonschema-unevaluatedProperties": false
       },
       "UpdateAnInquiryRequestDataAttributesFields": {
         "type": "object",
         "oneOf": [
           {
+            "enum": [
+              null
+            ]
+          },
+          {
             "$ref": "#/components/schemas/InquiryFields"
           }
         ],
         "description": "JSON key-value pairs of field name to field value. Schema is defined by your Inquiry Template.",
-        "nullable": true,
         "x-jsonschema-unevaluatedProperties": false
       },
       "InquiriesPerformSimulateActionsRequestMetaSimulateActionsItem": {

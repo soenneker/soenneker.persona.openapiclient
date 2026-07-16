@@ -4,6 +4,8 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Persona.OpenApiClient.Models;
+using Soenneker.Persona.OpenApiClient.Verifications.Item.InvestigationLock;
+using Soenneker.Persona.OpenApiClient.Verifications.Item.InvestigationUnlock;
 using Soenneker.Persona.OpenApiClient.Verifications.Item.Print;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +20,16 @@ namespace Soenneker.Persona.OpenApiClient.Verifications.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithVerificationItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The investigationLock property</summary>
+        public global::Soenneker.Persona.OpenApiClient.Verifications.Item.InvestigationLock.InvestigationLockRequestBuilder InvestigationLock
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.Verifications.Item.InvestigationLock.InvestigationLockRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The investigationUnlock property</summary>
+        public global::Soenneker.Persona.OpenApiClient.Verifications.Item.InvestigationUnlock.InvestigationUnlockRequestBuilder InvestigationUnlock
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.Verifications.Item.InvestigationUnlock.InvestigationUnlockRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The print property</summary>
         public global::Soenneker.Persona.OpenApiClient.Verifications.Item.Print.PrintRequestBuilder Print
         {

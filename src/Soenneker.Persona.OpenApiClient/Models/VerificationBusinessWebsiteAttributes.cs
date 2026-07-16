@@ -38,6 +38,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The time the verification was created in Unix timestamp format</summary>
         public int? CreatedAtTs { get; set; }
+        /// <summary>Identity details extracted from the website. Each list is null when the verification has not finished processing or has been redacted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationBusinessWebsiteAttributesAllOf2ExtractedIdentity? ExtractedIdentity { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationBusinessWebsiteAttributesAllOf2ExtractedIdentity ExtractedIdentity { get; set; }
+#endif
         /// <summary>The time the verification was redacted in ISO 8601 format</summary>
         public DateTimeOffset? RedactedAt { get; set; }
         /// <summary>The status of the verificationPossible values:- initiated- submitted- tentatively_passed (only for `verification/document` and `verification/qes-infocert`)- tentatively_failed (only for `verification/database-business` and `verification/database-business-footprint`)- passed- failed- requires_retry- skipped- canceled- confirmed (only for `verification/email-address` and `verification/phone-number`)Do not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
@@ -99,6 +107,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created-at-ts", n => { CreatedAtTs = n.GetIntValue(); } },
+                { "extracted-identity", n => { ExtractedIdentity = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationBusinessWebsiteAttributesAllOf2ExtractedIdentity>(global::Soenneker.Persona.OpenApiClient.Models.VerificationBusinessWebsiteAttributesAllOf2ExtractedIdentity.CreateFromDiscriminatorValue); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "submitted-at", n => { SubmittedAt = n.GetDateTimeOffsetValue(); } },
@@ -120,6 +129,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("country-code", CountryCode);
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteIntValue("created-at-ts", CreatedAtTs);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationBusinessWebsiteAttributesAllOf2ExtractedIdentity>("extracted-identity", ExtractedIdentity);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("submitted-at", SubmittedAt);

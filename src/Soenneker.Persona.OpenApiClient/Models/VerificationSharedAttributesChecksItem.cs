@@ -28,7 +28,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>If applicable, reasons are the list of reasons explaining why the check failed or is not applicable.</summary>
+        /// <summary>If applicable, reasons are the list of reasons explaining why the check failed or is not applicable. For some checks, `reasons` is the primary signal carrying the underlying detection results. For example, `business_website_malicious_website_detection` surfaces its IPQS and Google Web Risk signals here (e.g. `malware`, `phishing`, `spam-source`) rather than in `metadata`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Reasons { get; set; }

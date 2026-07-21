@@ -38,6 +38,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public DateTimeOffset? PendingAt { get; set; }
         /// <summary>When this share token was redeemed</summary>
         public DateTimeOffset? RedeemedAt { get; set; }
+        /// <summary>How this share token was redeemed, set when redemption is initiated.One of `clone` (destination created from source data) or `hydrate`(redeemed into an existing destination). Null until redemption starts.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RedeemMode { get; set; }
+#nullable restore
+#else
+        public string RedeemMode { get; set; }
+#endif
         /// <summary>PII-filtered snapshot of the share token&apos;s source object.Present only when `peek-source-data=true` was passed on theshow endpoint, the caller is the destination organization, andthe destination organization has access to the source datapeek capability. Omitted from list responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -80,6 +88,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "failed-at", n => { FailedAt = n.GetDateTimeOffsetValue(); } },
                 { "failure-reason", n => { FailureReason = n.GetStringValue(); } },
                 { "pending-at", n => { PendingAt = n.GetDateTimeOffsetValue(); } },
+                { "redeem-mode", n => { RedeemMode = n.GetStringValue(); } },
                 { "redeemed-at", n => { RedeemedAt = n.GetDateTimeOffsetValue(); } },
                 { "source-data", n => { SourceData = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributesSourceData>(global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributesSourceData.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -100,6 +109,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("failure-reason", FailureReason);
             writer.WriteDateTimeOffsetValue("pending-at", PendingAt);
             writer.WriteDateTimeOffsetValue("redeemed-at", RedeemedAt);
+            writer.WriteStringValue("redeem-mode", RedeemMode);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributesSourceData>("source-data", SourceData);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);

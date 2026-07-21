@@ -22,14 +22,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem> Checks { get; set; }
 #endif
-        /// <summary>The verification code or token returned by the provider.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Code { get; set; }
-#nullable restore
-#else
-        public string Code { get; set; }
-#endif
         /// <summary>The time the verification was completed in ISO 8601 format</summary>
         public DateTimeOffset? CompletedAt { get; set; }
         /// <summary>The time the verification was completed in Unix timestamp format</summary>
@@ -102,7 +94,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "code", n => { Code = n.GetStringValue(); } },
                 { "completed-at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "completed-at-ts", n => { CompletedAtTs = n.GetIntValue(); } },
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
@@ -124,7 +115,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>("checks", Checks);
-            writer.WriteStringValue("code", Code);
             writer.WriteDateTimeOffsetValue("completed-at", CompletedAt);
             writer.WriteIntValue("completed-at-ts", CompletedAtTs);
             writer.WriteStringValue("country-code", CountryCode);

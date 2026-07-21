@@ -34561,6 +34561,11 @@
             "type": "string",
             "nullable": true
           },
+          "identification-number": {
+            "type": "string",
+            "description": "Identification number on the scanned card \u2014 the driver\u0027s license number (DL operations) or residence card number (res_read).",
+            "nullable": true
+          },
           "kana-name": {
             "type": "string",
             "nullable": true
@@ -34808,11 +34813,6 @@
           "phone-number": {
             "type": "string",
             "description": "The phone number being verified.",
-            "nullable": true
-          },
-          "code": {
-            "type": "string",
-            "description": "The verification code or token returned by the provider.",
             "nullable": true
           }
         },
@@ -40383,6 +40383,11 @@
             "type": "string",
             "nullable": true
           },
+          "identification-number": {
+            "type": "string",
+            "description": "Identification number on the scanned card \u2014 the driver\u0027s license number (DL operations) or residence card number (res_read).",
+            "nullable": true
+          },
           "kana-name": {
             "type": "string",
             "nullable": true
@@ -40418,11 +40423,6 @@
           "phone-number": {
             "type": "string",
             "description": "The phone number being verified.",
-            "nullable": true
-          },
-          "code": {
-            "type": "string",
-            "description": "The verification code or token returned by the provider.",
             "nullable": true
           }
         }
@@ -42241,6 +42241,11 @@
           "failure-reason": {
             "type": "string",
             "description": "The reason the share token failed, if applicable. One of \u0060source_not_found\u0060, \u0060source_redacted\u0060, \u0060import_failed\u0060, or \u0060unrecoverable_error\u0060.",
+            "nullable": true
+          },
+          "redeem-mode": {
+            "type": "string",
+            "description": "How this share token was redeemed, set when redemption is initiated.\nOne of \u0060clone\u0060 (destination created from source data) or \u0060hydrate\u0060\n(redeemed into an existing destination). Null until redemption starts.\n",
             "nullable": true
           },
           "source-data": {
@@ -61427,7 +61432,8 @@
                 "redeemed-at": null,
                 "expires-at": null,
                 "failed-at": null,
-                "failure-reason": null
+                "failure-reason": null,
+                "redeem-mode": null
               },
               "relationships": {
                 "creator": {
@@ -61462,7 +61468,8 @@
                 "redeemed-at": "2023-08-17T23:30:15.000Z",
                 "expires-at": null,
                 "failed-at": null,
-                "failure-reason": null
+                "failure-reason": null,
+                "redeem-mode": "hydrate"
               },
               "relationships": {
                 "destination": {
@@ -61510,7 +61517,8 @@
               "redeemed-at": null,
               "expires-at": null,
               "failed-at": null,
-              "failure-reason": null
+              "failure-reason": null,
+              "redeem-mode": null
             },
             "relationships": {
               "creator": {
@@ -61549,7 +61557,8 @@
               "redeemed-at": "2023-08-17T23:30:15.000Z",
               "expires-at": null,
               "failed-at": null,
-              "failure-reason": null
+              "failure-reason": null,
+              "redeem-mode": "hydrate"
             },
             "relationships": {
               "destination": {
@@ -61582,7 +61591,8 @@
               "redeemed-at": null,
               "expires-at": null,
               "failed-at": "2023-08-17T23:35:20.000Z",
-              "failure-reason": "import_failed"
+              "failure-reason": "import_failed",
+              "redeem-mode": "hydrate"
             },
             "relationships": {
               "destination": {
@@ -61615,7 +61625,8 @@
               "redeemed-at": null,
               "expires-at": "2023-08-18T23:18:13.000Z",
               "failed-at": null,
-              "failure-reason": null
+              "failure-reason": null,
+              "redeem-mode": null
             },
             "relationships": {
               "creator": {

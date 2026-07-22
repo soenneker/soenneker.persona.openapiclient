@@ -34559,7 +34559,9 @@
           },
           "gender": {
             "type": "string",
-            "nullable": true
+            "description": "Deprecated in favor of \u0060sex\u0060",
+            "nullable": true,
+            "deprecated": true
           },
           "identification-number": {
             "type": "string",
@@ -34576,6 +34578,11 @@
           },
           "name-full": {
             "type": "string",
+            "nullable": true
+          },
+          "sex": {
+            "type": "string",
+            "description": "Extracted sex designation from the scanned card.",
             "nullable": true
           }
         },
@@ -34660,6 +34667,81 @@
           "name-last": {
             "type": "string",
             "description": "Family or last name.",
+            "nullable": true
+          },
+          "birthdate": {
+            "type": "string",
+            "description": "Date of birth.",
+            "nullable": true
+          },
+          "address-street": {
+            "type": "string",
+            "description": "Street address of residence.",
+            "nullable": true
+          },
+          "address-city": {
+            "type": "string",
+            "description": "City of residence address.",
+            "nullable": true
+          },
+          "address-state": {
+            "type": "string",
+            "description": "State or subdivision of residence address.",
+            "nullable": true
+          },
+          "address-postal-code": {
+            "type": "string",
+            "description": "ZIP or postal code of residence address.",
+            "nullable": true
+          },
+          "address-country-code": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha 2 country code of the residence address.",
+            "nullable": true
+          },
+          "issuing-authority": {
+            "type": "string",
+            "description": "The authority that issued the document.",
+            "nullable": true
+          },
+          "issuing-jurisdiction": {
+            "type": "string",
+            "description": "The jurisdiction that issued the document.",
+            "nullable": true
+          },
+          "issuing-country": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha 2 country code of the issuing country.",
+            "nullable": true
+          },
+          "nationality": {
+            "type": "string",
+            "description": "Nationality of the holder.",
+            "nullable": true
+          },
+          "expiration-date": {
+            "type": "string",
+            "description": "The expiration date of the document.",
+            "nullable": true
+          },
+          "identification-number": {
+            "type": "string",
+            "description": "The document or identification number.",
+            "nullable": true
+          },
+          "age-in-years": {
+            "type": "integer",
+            "description": "Age of the holder.",
+            "nullable": true
+          },
+          "meets-minimum-age": {
+            "type": "boolean",
+            "description": "Whether the holder meets a minimum age requirement.",
+            "nullable": true
+          },
+          "validated-issuer-key": {
+            "type": "string",
+            "description": "The trusted organization that issued the document credentials.",
             "nullable": true
           }
         },
@@ -40381,7 +40463,9 @@
           },
           "gender": {
             "type": "string",
-            "nullable": true
+            "description": "Deprecated in favor of \u0060sex\u0060",
+            "nullable": true,
+            "deprecated": true
           },
           "identification-number": {
             "type": "string",
@@ -40399,6 +40483,11 @@
           "name-full": {
             "type": "string",
             "nullable": true
+          },
+          "sex": {
+            "type": "string",
+            "description": "Extracted sex designation from the scanned card.",
+            "nullable": true
           }
         }
       },
@@ -40413,6 +40502,81 @@
           "name-last": {
             "type": "string",
             "description": "Family or last name.",
+            "nullable": true
+          },
+          "birthdate": {
+            "type": "string",
+            "description": "Date of birth.",
+            "nullable": true
+          },
+          "address-street": {
+            "type": "string",
+            "description": "Street address of residence.",
+            "nullable": true
+          },
+          "address-city": {
+            "type": "string",
+            "description": "City of residence address.",
+            "nullable": true
+          },
+          "address-state": {
+            "type": "string",
+            "description": "State or subdivision of residence address.",
+            "nullable": true
+          },
+          "address-postal-code": {
+            "type": "string",
+            "description": "ZIP or postal code of residence address.",
+            "nullable": true
+          },
+          "address-country-code": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha 2 country code of the residence address.",
+            "nullable": true
+          },
+          "issuing-authority": {
+            "type": "string",
+            "description": "The authority that issued the document.",
+            "nullable": true
+          },
+          "issuing-jurisdiction": {
+            "type": "string",
+            "description": "The jurisdiction that issued the document.",
+            "nullable": true
+          },
+          "issuing-country": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha 2 country code of the issuing country.",
+            "nullable": true
+          },
+          "nationality": {
+            "type": "string",
+            "description": "Nationality of the holder.",
+            "nullable": true
+          },
+          "expiration-date": {
+            "type": "string",
+            "description": "The expiration date of the document.",
+            "nullable": true
+          },
+          "identification-number": {
+            "type": "string",
+            "description": "The document or identification number.",
+            "nullable": true
+          },
+          "age-in-years": {
+            "type": "integer",
+            "description": "Age of the holder.",
+            "nullable": true
+          },
+          "meets-minimum-age": {
+            "type": "boolean",
+            "description": "Whether the holder meets a minimum age requirement.",
+            "nullable": true
+          },
+          "validated-issuer-key": {
+            "type": "string",
+            "description": "The trusted organization that issued the document credentials.",
             "nullable": true
           }
         }

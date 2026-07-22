@@ -59,7 +59,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage FaceImage { get; set; }
 #endif
-        /// <summary>The gender property</summary>
+        /// <summary>Deprecated in favor of `sex`</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Gender { get; set; }
@@ -109,6 +110,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>The time the verification was redacted in ISO 8601 format</summary>
         public DateTimeOffset? RedactedAt { get; set; }
+        /// <summary>Extracted sex designation from the scanned card.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Sex { get; set; }
+#nullable restore
+#else
+        public string Sex { get; set; }
+#endif
         /// <summary>The status of the verificationPossible values:- initiated- submitted- tentatively_passed (only for `verification/document` and `verification/qes-infocert`)- tentatively_failed (only for `verification/database-business` and `verification/database-business-footprint`)- passed- failed- requires_retry- skipped- canceled- confirmed (only for `verification/email-address` and `verification/phone-number`)Do not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -171,6 +180,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "name-full", n => { NameFull = n.GetStringValue(); } },
                 { "operation", n => { Operation = n.GetStringValue(); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
+                { "sex", n => { Sex = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "submitted-at", n => { SubmittedAt = n.GetDateTimeOffsetValue(); } },
                 { "submitted-at-ts", n => { SubmittedAtTs = n.GetIntValue(); } },
@@ -201,6 +211,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("name-full", NameFull);
             writer.WriteStringValue("operation", Operation);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
+            writer.WriteStringValue("sex", Sex);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("submitted-at", SubmittedAt);
             writer.WriteIntValue("submitted-at-ts", SubmittedAtTs);

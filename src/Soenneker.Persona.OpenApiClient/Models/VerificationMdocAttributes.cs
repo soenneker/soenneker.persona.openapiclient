@@ -14,6 +14,56 @@ namespace Soenneker.Persona.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>City of residence address.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AddressCity { get; set; }
+#nullable restore
+#else
+        public string AddressCity { get; set; }
+#endif
+        /// <summary>ISO 3166-1 alpha 2 country code of the residence address.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AddressCountryCode { get; set; }
+#nullable restore
+#else
+        public string AddressCountryCode { get; set; }
+#endif
+        /// <summary>ZIP or postal code of residence address.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AddressPostalCode { get; set; }
+#nullable restore
+#else
+        public string AddressPostalCode { get; set; }
+#endif
+        /// <summary>State or subdivision of residence address.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AddressState { get; set; }
+#nullable restore
+#else
+        public string AddressState { get; set; }
+#endif
+        /// <summary>Street address of residence.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AddressStreet { get; set; }
+#nullable restore
+#else
+        public string AddressStreet { get; set; }
+#endif
+        /// <summary>Age of the holder.</summary>
+        public int? AgeInYears { get; set; }
+        /// <summary>Date of birth.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Birthdate { get; set; }
+#nullable restore
+#else
+        public string Birthdate { get; set; }
+#endif
         /// <summary>The checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +88,48 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The time the verification was created in Unix timestamp format</summary>
         public int? CreatedAtTs { get; set; }
+        /// <summary>The expiration date of the document.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExpirationDate { get; set; }
+#nullable restore
+#else
+        public string ExpirationDate { get; set; }
+#endif
+        /// <summary>The document or identification number.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IdentificationNumber { get; set; }
+#nullable restore
+#else
+        public string IdentificationNumber { get; set; }
+#endif
+        /// <summary>The authority that issued the document.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IssuingAuthority { get; set; }
+#nullable restore
+#else
+        public string IssuingAuthority { get; set; }
+#endif
+        /// <summary>ISO 3166-1 alpha 2 country code of the issuing country.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IssuingCountry { get; set; }
+#nullable restore
+#else
+        public string IssuingCountry { get; set; }
+#endif
+        /// <summary>The jurisdiction that issued the document.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IssuingJurisdiction { get; set; }
+#nullable restore
+#else
+        public string IssuingJurisdiction { get; set; }
+#endif
+        /// <summary>Whether the holder meets a minimum age requirement.</summary>
+        public bool? MeetsMinimumAge { get; set; }
         /// <summary>Given or first name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,6 +145,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public string NameLast { get; set; }
+#endif
+        /// <summary>Nationality of the holder.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Nationality { get; set; }
+#nullable restore
+#else
+        public string Nationality { get; set; }
 #endif
         /// <summary>The time the verification was redacted in ISO 8601 format</summary>
         public DateTimeOffset? RedactedAt { get; set; }
@@ -75,6 +175,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public List<string> Tags { get; set; }
+#endif
+        /// <summary>The trusted organization that issued the document credentials.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ValidatedIssuerKey { get; set; }
+#nullable restore
+#else
+        public string ValidatedIssuerKey { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationMdocAttributes"/> and sets the default values.
@@ -101,19 +209,34 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "address-city", n => { AddressCity = n.GetStringValue(); } },
+                { "address-country-code", n => { AddressCountryCode = n.GetStringValue(); } },
+                { "address-postal-code", n => { AddressPostalCode = n.GetStringValue(); } },
+                { "address-state", n => { AddressState = n.GetStringValue(); } },
+                { "address-street", n => { AddressStreet = n.GetStringValue(); } },
+                { "age-in-years", n => { AgeInYears = n.GetIntValue(); } },
+                { "birthdate", n => { Birthdate = n.GetStringValue(); } },
                 { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completed-at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "completed-at-ts", n => { CompletedAtTs = n.GetIntValue(); } },
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created-at-ts", n => { CreatedAtTs = n.GetIntValue(); } },
+                { "expiration-date", n => { ExpirationDate = n.GetStringValue(); } },
+                { "identification-number", n => { IdentificationNumber = n.GetStringValue(); } },
+                { "issuing-authority", n => { IssuingAuthority = n.GetStringValue(); } },
+                { "issuing-country", n => { IssuingCountry = n.GetStringValue(); } },
+                { "issuing-jurisdiction", n => { IssuingJurisdiction = n.GetStringValue(); } },
+                { "meets-minimum-age", n => { MeetsMinimumAge = n.GetBoolValue(); } },
                 { "name-first", n => { NameFirst = n.GetStringValue(); } },
                 { "name-last", n => { NameLast = n.GetStringValue(); } },
+                { "nationality", n => { Nationality = n.GetStringValue(); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "submitted-at", n => { SubmittedAt = n.GetDateTimeOffsetValue(); } },
                 { "submitted-at-ts", n => { SubmittedAtTs = n.GetIntValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "validated-issuer-key", n => { ValidatedIssuerKey = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -123,19 +246,34 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("address-city", AddressCity);
+            writer.WriteStringValue("address-country-code", AddressCountryCode);
+            writer.WriteStringValue("address-postal-code", AddressPostalCode);
+            writer.WriteStringValue("address-state", AddressState);
+            writer.WriteStringValue("address-street", AddressStreet);
+            writer.WriteIntValue("age-in-years", AgeInYears);
+            writer.WriteStringValue("birthdate", Birthdate);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>("checks", Checks);
             writer.WriteDateTimeOffsetValue("completed-at", CompletedAt);
             writer.WriteIntValue("completed-at-ts", CompletedAtTs);
             writer.WriteStringValue("country-code", CountryCode);
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteIntValue("created-at-ts", CreatedAtTs);
+            writer.WriteStringValue("expiration-date", ExpirationDate);
+            writer.WriteStringValue("identification-number", IdentificationNumber);
+            writer.WriteStringValue("issuing-authority", IssuingAuthority);
+            writer.WriteStringValue("issuing-country", IssuingCountry);
+            writer.WriteStringValue("issuing-jurisdiction", IssuingJurisdiction);
+            writer.WriteBoolValue("meets-minimum-age", MeetsMinimumAge);
             writer.WriteStringValue("name-first", NameFirst);
             writer.WriteStringValue("name-last", NameLast);
+            writer.WriteStringValue("nationality", Nationality);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("submitted-at", SubmittedAt);
             writer.WriteIntValue("submitted-at-ts", SubmittedAtTs);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            writer.WriteStringValue("validated-issuer-key", ValidatedIssuerKey);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

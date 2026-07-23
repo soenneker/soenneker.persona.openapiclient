@@ -68,6 +68,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Gender { get; set; }
 #endif
+        /// <summary>Persona-standard document class of the scanned card, derived from the scan operation (e.g. &quot;myn&quot; for My Number card, &quot;dl&quot; for driver&apos;s license, &quot;rp&quot; for residence card).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IdentificationClass { get; set; }
+#nullable restore
+#else
+        public string IdentificationClass { get; set; }
+#endif
         /// <summary>Identification number on the scanned card — the driver&apos;s license number (DL operations) or residence card number (res_read).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -174,6 +182,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "expiration-date", n => { ExpirationDate = n.GetDateValue(); } },
                 { "face-image", n => { FaceImage = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage>(global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage.CreateFromDiscriminatorValue); } },
                 { "gender", n => { Gender = n.GetStringValue(); } },
+                { "identification-class", n => { IdentificationClass = n.GetStringValue(); } },
                 { "identification-number", n => { IdentificationNumber = n.GetStringValue(); } },
                 { "kana-name", n => { KanaName = n.GetStringValue(); } },
                 { "license-number", n => { LicenseNumber = n.GetStringValue(); } },
@@ -205,6 +214,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateValue("expiration-date", ExpirationDate);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage>("face-image", FaceImage);
             writer.WriteStringValue("gender", Gender);
+            writer.WriteStringValue("identification-class", IdentificationClass);
             writer.WriteStringValue("identification-number", IdentificationNumber);
             writer.WriteStringValue("kana-name", KanaName);
             writer.WriteStringValue("license-number", LicenseNumber);

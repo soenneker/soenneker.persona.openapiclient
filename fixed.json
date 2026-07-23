@@ -34563,6 +34563,11 @@
             "nullable": true,
             "deprecated": true
           },
+          "identification-class": {
+            "type": "string",
+            "description": "Persona-standard document class of the scanned card, derived from the scan operation (e.g. \u0022myn\u0022 for My Number card, \u0022dl\u0022 for driver\u0027s license, \u0022rp\u0022 for residence card).",
+            "nullable": true
+          },
           "identification-number": {
             "type": "string",
             "description": "Identification number on the scanned card \u2014 the driver\u0027s license number (DL operations) or residence card number (res_read).",
@@ -40466,6 +40471,11 @@
             "description": "Deprecated in favor of \u0060sex\u0060",
             "nullable": true,
             "deprecated": true
+          },
+          "identification-class": {
+            "type": "string",
+            "description": "Persona-standard document class of the scanned card, derived from the scan operation (e.g. \u0022myn\u0022 for My Number card, \u0022dl\u0022 for driver\u0027s license, \u0022rp\u0022 for residence card).",
+            "nullable": true
           },
           "identification-number": {
             "type": "string",

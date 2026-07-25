@@ -19738,6 +19738,31 @@
         "description": "PII-filtered snapshot of a Selfie verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n",
         "x-jsonschema-unevaluatedProperties": false
       },
+      "SourceDataVerificationDocument": {
+        "title": "Document Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationDocumentPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Document verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n",
+        "x-jsonschema-unevaluatedProperties": false
+      },
       "SourceDataAccount": {
         "title": "Account Source Data",
         "required": [
@@ -19785,6 +19810,9 @@
             "$ref": "#/components/schemas/SourceDataVerificationSelfie"
           },
           {
+            "$ref": "#/components/schemas/SourceDataVerificationDocument"
+          },
+          {
             "$ref": "#/components/schemas/SourceDataAccount"
           }
         ],
@@ -19803,12 +19831,14 @@
             "connect/source-data/verification/email-address": "#/components/schemas/SourceDataVerificationEmailAddress",
             "connect/source-data/verification/government-id": "#/components/schemas/SourceDataVerificationGovernmentId",
             "connect/source-data/verification/selfie": "#/components/schemas/SourceDataVerificationSelfie",
+            "connect/source-data/verification/document": "#/components/schemas/SourceDataVerificationDocument",
             "connect/source-data/account": "#/components/schemas/SourceDataAccount",
             "SourceDataVerificationDatabase": "#/components/schemas/SourceDataVerificationDatabase",
             "SourceDataVerificationPhoneNumber": "#/components/schemas/SourceDataVerificationPhoneNumber",
             "SourceDataVerificationEmailAddress": "#/components/schemas/SourceDataVerificationEmailAddress",
             "SourceDataVerificationGovernmentId": "#/components/schemas/SourceDataVerificationGovernmentId",
             "SourceDataVerificationSelfie": "#/components/schemas/SourceDataVerificationSelfie",
+            "SourceDataVerificationDocument": "#/components/schemas/SourceDataVerificationDocument",
             "SourceDataAccount": "#/components/schemas/SourceDataAccount"
           }
         }
@@ -27683,6 +27713,33 @@
           }
         }
       },
+      "SourceDataVerificationDocumentAllOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "connect/source-data/verification/document"
+            ],
+            "type": "string",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "connect/source-data/verification/document",
+                  "name": "ConnectSourceDataVerificationDocument"
+                }
+              ]
+            }
+          },
+          "id": {
+            "type": "string"
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationDocumentAllOf2PeekableAttributesProperty"
+          }
+        }
+      },
       "SourceDataAccountAllOf2": {
         "type": "object",
         "properties": {
@@ -34557,6 +34614,9 @@
           "face-image": {
             "$ref": "#/components/schemas/VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage"
           },
+          "selfie-photo": {
+            "$ref": "#/components/schemas/VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto"
+          },
           "gender": {
             "type": "string",
             "description": "Deprecated in favor of \u0060sex\u0060",
@@ -40466,6 +40526,9 @@
           "face-image": {
             "$ref": "#/components/schemas/VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage"
           },
+          "selfie-photo": {
+            "$ref": "#/components/schemas/VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto"
+          },
           "gender": {
             "type": "string",
             "description": "Deprecated in favor of \u0060sex\u0060",
@@ -44534,6 +44597,12 @@
           "$ref": "#/components/schemas/SourceDataPeekableAttribute"
         }
       },
+      "SourceDataVerificationDocumentAllOf2PeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
       "SourceDataAccountAllOf2PeekableAttributes": {
         "type": "object",
         "properties": {
@@ -45871,7 +45940,22 @@
       },
       "VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage": {
         "type": "object",
-        "description": "Face image extracted from the NFC card, when present.",
+        "description": "Face image extracted from the NFC card, when present. Deprecated in favor of \u0060selfie-photo\u0060.",
+        "nullable": true,
+        "deprecated": true
+      },
+      "VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto": {
+        "type": "object",
+        "properties": {
+          "byte-size": {
+            "type": "integer",
+            "default": 0
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "description": "Portrait photo of the bearer extracted from the NFC card, when present.",
         "nullable": true
       },
       "ReportAddressLookupRequestAttributesAllOf2Query": {
@@ -55806,6 +55890,10 @@
         "type": "object",
         "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
       },
+      "SourceDataVerificationDocumentPeekableAttributes": {
+        "type": "object",
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
       "SourceDataAccountPeekableAttributes": {
         "type": "object",
         "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
@@ -55851,6 +55939,12 @@
         }
       },
       "SourceDataVerificationSelfieAllOf2PeekableAttributesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataVerificationDocumentAllOf2PeekableAttributesProperty": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/SourceDataPeekableAttribute"

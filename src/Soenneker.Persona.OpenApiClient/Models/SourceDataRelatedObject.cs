@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataAccount"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationGovernmentId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationPhoneNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationSelfie"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataAccount"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDocument"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationGovernmentId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationPhoneNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationSelfie"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SourceDataRelatedObject : IComposedTypeWrapper, IParsable
@@ -28,6 +28,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase SourceDataVerificationDatabase { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDocument"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDocument? SourceDataVerificationDocument { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDocument SourceDataVerificationDocument { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationEmailAddress"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,6 +87,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 result.SourceDataVerificationDatabase = new global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase();
             }
+            else if("connect/source-data/verification/document".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SourceDataVerificationDocument = new global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDocument();
+            }
             else if("connect/source-data/verification/email-address".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SourceDataVerificationEmailAddress = new global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationEmailAddress();
@@ -110,6 +122,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if(SourceDataVerificationDatabase != null)
             {
                 return SourceDataVerificationDatabase.GetFieldDeserializers();
+            }
+            else if(SourceDataVerificationDocument != null)
+            {
+                return SourceDataVerificationDocument.GetFieldDeserializers();
             }
             else if(SourceDataVerificationEmailAddress != null)
             {
@@ -143,6 +159,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if(SourceDataVerificationDatabase != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase>(null, SourceDataVerificationDatabase);
+            }
+            else if(SourceDataVerificationDocument != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDocument>(null, SourceDataVerificationDocument);
             }
             else if(SourceDataVerificationEmailAddress != null)
             {

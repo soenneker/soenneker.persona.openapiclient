@@ -51,7 +51,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public int? CreatedAtTs { get; set; }
         /// <summary>The expirationDate property</summary>
         public Date? ExpirationDate { get; set; }
-        /// <summary>Face image extracted from the NFC card, when present.</summary>
+        /// <summary>Face image extracted from the NFC card, when present. Deprecated in favor of `selfie-photo`.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage? FaceImage { get; set; }
@@ -118,6 +119,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>The time the verification was redacted in ISO 8601 format</summary>
         public DateTimeOffset? RedactedAt { get; set; }
+        /// <summary>Portrait photo of the bearer extracted from the NFC card, when present.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto? SelfiePhoto { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto SelfiePhoto { get; set; }
+#endif
         /// <summary>Extracted sex designation from the scanned card.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -189,6 +198,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "name-full", n => { NameFull = n.GetStringValue(); } },
                 { "operation", n => { Operation = n.GetStringValue(); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
+                { "selfie-photo", n => { SelfiePhoto = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto>(global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto.CreateFromDiscriminatorValue); } },
                 { "sex", n => { Sex = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "submitted-at", n => { SubmittedAt = n.GetDateTimeOffsetValue(); } },
@@ -221,6 +231,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("name-full", NameFull);
             writer.WriteStringValue("operation", Operation);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto>("selfie-photo", SelfiePhoto);
             writer.WriteStringValue("sex", Sex);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("submitted-at", SubmittedAt);

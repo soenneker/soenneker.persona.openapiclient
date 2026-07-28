@@ -93,7 +93,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string KanaName { get; set; }
 #endif
-        /// <summary>The licenseNumber property</summary>
+        /// <summary>Identification number scanned from drivers license. Deprecated in favor of identification-number.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LicenseNumber { get; set; }

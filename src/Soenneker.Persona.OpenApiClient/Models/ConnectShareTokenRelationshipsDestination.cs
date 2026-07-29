@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// The destination object the data was imported into. Destinations can be Accounts, Inquiries, or Transactions. `null` until the Share Token is redeemed.
+    /// The destination object associated with redemption. For hydration, this is the objectspecified by `destination-id`. For cloning, no destination is set until Persona createsthe destination object.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConnectShareTokenRelationshipsDestination : IParsable

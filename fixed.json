@@ -2314,7 +2314,7 @@
           "Connect"
         ],
         "summary": "Create a Share Token",
-        "description": "Creates a new Share Token with the specified connection and source.",
+        "description": "Creates a new Share Token with the specified connection and source. Share Tokens can be created from Accounts, Inquiries, Transactions, or Verifications.",
         "externalDocs": {
           "description": "Full documentation for this API on the Persona website.",
           "url": "https://docs.withpersona.com/api-reference/share-tokens/create-a-share-token"
@@ -2548,7 +2548,7 @@
           "Connect"
         ],
         "summary": "Redeem a Share Token",
-        "description": "Redeems a Share Token by importing the source data into the specified destination. The destination must be in a valid state to accept the imported data.",
+        "description": "Initiates redemption of a Share Token in one of two modes:\n\n- **Clone:** Omit \u0060data.attributes.destination-id\u0060 to create a new object from the source.\n  Inquiry and Verification Share Tokens can be cloned.\n- **Hydrate:** Provide \u0060data.attributes.destination-id\u0060 to import source data into an existing\n  object. Account, Transaction, and Inquiry Share Tokens can hydrate an existing Account,\n  Transaction, or Inquiry.\n\nRedemption is asynchronous. A successful request returns the Share Token with a \u0060pending\u0060\nstatus while Persona processes the import.\n",
         "operationId": "RedeemShareToken",
         "parameters": [
           {
@@ -2583,8 +2583,11 @@
                 "$ref": "#/components/schemas/RedeemShareTokenRequest"
               },
               "examples": {
-                "Success": {
-                  "$ref": "#/components/examples/redeem-share-token"
+                "CloneObject": {
+                  "$ref": "#/components/examples/redeem-share-token-clone-object"
+                },
+                "HydrateObject": {
+                  "$ref": "#/components/examples/redeem-share-token-hydrate-object"
                 }
               }
             }
@@ -2592,15 +2595,18 @@
         },
         "responses": {
           "202": {
-            "description": "Share Token has been successfully redeemed.",
+            "description": "Share Token redemption has been initiated and is processing.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/RedeemShareToken202Response"
                 },
                 "examples": {
-                  "Success": {
-                    "$ref": "#/components/examples/connect-share-token-redeemed"
+                  "CloneObject": {
+                    "$ref": "#/components/examples/connect-share-token-clone-object-pending"
+                  },
+                  "HydrateObject": {
+                    "$ref": "#/components/examples/connect-share-token-hydrate-object-pending"
                   }
                 }
               }
@@ -42486,7 +42492,7 @@
           },
           "redeem-mode": {
             "type": "string",
-            "description": "How this share token was redeemed, set when redemption is initiated.\nOne of \u0060clone\u0060 (destination created from source data) or \u0060hydrate\u0060\n(redeemed into an existing destination). Null until redemption starts.\n",
+            "description": "How this Share Token was redeemed. Set to \u0060hydrate\u0060 when \u0060destination-id\u0060 is provided\nor \u0060clone\u0060 when \u0060destination-id\u0060 is omitted. Null until redemption is initiated.\n",
             "nullable": true
           },
           "source-data": {
@@ -46704,7 +46710,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "The source object the data is shared from. Sources can be Accounts, Inquiries, or Transactions."
+        "description": "The object from which the shared data originated."
       },
       "ConnectShareTokenRelationshipsDestination": {
         "type": "object",
@@ -46714,7 +46720,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "The destination object the data was imported into. Destinations can be Accounts, Inquiries, or Transactions. \u0060null\u0060 until the Share Token is redeemed."
+        "description": "The destination object associated with redemption. For hydration, this is the object\nspecified by \u0060destination-id\u0060. For cloning, no destination is set until Persona creates\nthe destination object.\n"
       },
       "ApiLogAttributesRequest": {
         "type": "object",
@@ -56510,7 +56516,7 @@
             "items": {
               "$ref": "#/components/schemas/RedeemShareTokenRequestMetaFieldMappingsItem"
             },
-            "description": "Optional list of field mappings to apply when importing source data.\nIf a source field name matches the destination field name, it is copied\ndirectly. These mappings are applied for fields not already matched by name.\n"
+            "description": "Optional list of field mappings to apply when hydrating an existing destination.\nIf a source field name matches the destination field name, it is copied directly.\nThese mappings are applied for fields not already matched by name. Field mappings\nare not used when cloning; omit them from clone requests.\n"
           }
         },
         "additionalProperties": false
@@ -58074,7 +58080,7 @@
           },
           "source-id": {
             "type": "string",
-            "description": "The ID of the source object. Sources can be Accounts, Inquiries, or Transactions."
+            "description": "The ID of the object to share."
           },
           "expires-in-seconds": {
             "type": "integer",
@@ -58088,7 +58094,7 @@
         "properties": {
           "destination-id": {
             "type": "string",
-            "description": "The ID of the destination object. Destinations can be Accounts, Inquiries, or Transactions.\n",
+            "description": "The ID of the existing destination object to hydrate. Omit this field, or\nthe entire request body, to clone the source into a new destination object.\n",
             "example": "inq_DEF456"
           }
         },
@@ -61923,11 +61929,91 @@
           }
         }
       },
-      "redeem-share-token": {
+      "redeem-share-token-clone-object": {
+        "summary": "Clone an object",
+        "description": "Omit \u0060destination-id\u0060 to create a new object from the Share Token source.",
+        "value": {
+          "data": {
+            "attributes": {}
+          }
+        }
+      },
+      "redeem-share-token-hydrate-object": {
+        "summary": "Hydrate an object",
+        "description": "Provide \u0060destination-id\u0060 to import data into an existing destination object.",
         "value": {
           "data": {
             "attributes": {
               "destination-id": "inq_XYZ789"
+            }
+          }
+        }
+      },
+      "connect-share-token-clone-object-pending": {
+        "summary": "Clone an object",
+        "description": "The Share Token is pending while Persona creates the new object. The destination is available after cloning completes.",
+        "value": {
+          "data": {
+            "type": "connect/share-token",
+            "id": "cnst_ABC123",
+            "attributes": {
+              "status": "pending",
+              "direction": "inbound",
+              "created-at": "2023-08-17T23:18:13.000Z",
+              "updated-at": "2023-08-17T23:25:00.000Z",
+              "pending-at": "2023-08-17T23:25:00.000Z",
+              "redeemed-at": null,
+              "expires-at": null,
+              "failed-at": null,
+              "failure-reason": null,
+              "redeem-mode": "clone"
+            },
+            "relationships": {
+              "destination": {
+                "data": null
+              },
+              "connection": {
+                "data": {
+                  "type": "connect/connection",
+                  "id": "cxn_ABC123"
+                }
+              }
+            }
+          }
+        }
+      },
+      "connect-share-token-hydrate-object-pending": {
+        "summary": "Hydrate an object",
+        "description": "The Share Token is pending while Persona imports the source data into an existing object. This example hydrates an Inquiry.",
+        "value": {
+          "data": {
+            "type": "connect/share-token",
+            "id": "cnst_DEF456",
+            "attributes": {
+              "status": "pending",
+              "direction": "inbound",
+              "created-at": "2023-08-17T23:18:13.000Z",
+              "updated-at": "2023-08-17T23:25:00.000Z",
+              "pending-at": "2023-08-17T23:25:00.000Z",
+              "redeemed-at": null,
+              "expires-at": null,
+              "failed-at": null,
+              "failure-reason": null,
+              "redeem-mode": "hydrate"
+            },
+            "relationships": {
+              "destination": {
+                "data": {
+                  "type": "inquiry",
+                  "id": "inq_XYZ789"
+                }
+              },
+              "connection": {
+                "data": {
+                  "type": "connect/connection",
+                  "id": "cxn_ABC123"
+                }
+              }
             }
           }
         }

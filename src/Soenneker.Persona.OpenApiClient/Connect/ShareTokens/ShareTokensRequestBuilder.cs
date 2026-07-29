@@ -77,7 +77,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.ShareTokens
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllShareTokens200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllShareTokens200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new Share Token with the specified connection and source.
+        /// Creates a new Share Token with the specified connection and source. Share Tokens can be created from Accounts, Inquiries, Transactions, or Verifications.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/share-tokens/create-a-share-token" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAShareToken201Response"/></returns>
@@ -132,7 +132,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.ShareTokens
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new Share Token with the specified connection and source.
+        /// Creates a new Share Token with the specified connection and source. Share Tokens can be created from Accounts, Inquiries, Transactions, or Verifications.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -198,7 +198,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.ShareTokens
 #endif
         }
         /// <summary>
-        /// Creates a new Share Token with the specified connection and source.
+        /// Creates a new Share Token with the specified connection and source. Share Tokens can be created from Accounts, Inquiries, Transactions, or Verifications.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ShareTokensRequestBuilderPostQueryParameters 

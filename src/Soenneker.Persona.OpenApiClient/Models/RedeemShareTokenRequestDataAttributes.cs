@@ -12,7 +12,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public partial class RedeemShareTokenRequestDataAttributes : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The ID of the destination object. Destinations can be Accounts, Inquiries, or Transactions.</summary>
+        /// <summary>The ID of the existing destination object to hydrate. Omit this field, orthe entire request body, to clone the source into a new destination object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DestinationId { get; set; }

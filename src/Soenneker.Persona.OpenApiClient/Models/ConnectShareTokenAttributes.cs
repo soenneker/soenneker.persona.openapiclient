@@ -38,7 +38,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public DateTimeOffset? PendingAt { get; set; }
         /// <summary>When this share token was redeemed</summary>
         public DateTimeOffset? RedeemedAt { get; set; }
-        /// <summary>How this share token was redeemed, set when redemption is initiated.One of `clone` (destination created from source data) or `hydrate`(redeemed into an existing destination). Null until redemption starts.</summary>
+        /// <summary>How this Share Token was redeemed. Set to `hydrate` when `destination-id` is providedor `clone` when `destination-id` is omitted. Null until redemption is initiated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RedeemMode { get; set; }

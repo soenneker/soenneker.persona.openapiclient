@@ -12,7 +12,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public partial class RedeemShareTokenRequestMeta : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Optional list of field mappings to apply when importing source data.If a source field name matches the destination field name, it is copieddirectly. These mappings are applied for fields not already matched by name.</summary>
+        /// <summary>Optional list of field mappings to apply when hydrating an existing destination.If a source field name matches the destination field name, it is copied directly.These mappings are applied for fields not already matched by name. Field mappingsare not used when cloning; omit them from clone requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMetaFieldMappingsItem>? FieldMappings { get; set; }

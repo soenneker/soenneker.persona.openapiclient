@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// The source object the data is shared from. Sources can be Accounts, Inquiries, or Transactions.
+    /// The object from which the shared data originated.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConnectShareTokenRelationshipsSource : IParsable

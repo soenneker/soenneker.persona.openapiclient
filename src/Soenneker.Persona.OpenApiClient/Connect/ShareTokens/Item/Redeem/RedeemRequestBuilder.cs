@@ -34,7 +34,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.ShareTokens.Item.Redeem
         {
         }
         /// <summary>
-        /// Redeems a Share Token by importing the source data into the specified destination. The destination must be in a valid state to accept the imported data.
+        /// Initiates redemption of a Share Token in one of two modes:- **Clone:** Omit `data.attributes.destination-id` to create a new object from the source.  Inquiry and Verification Share Tokens can be cloned.- **Hydrate:** Provide `data.attributes.destination-id` to import source data into an existing  object. Account, Transaction, and Inquiry Share Tokens can hydrate an existing Account,  Transaction, or Inquiry.Redemption is asynchronous. A successful request returns the Share Token with a `pending`status while Persona processes the import.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken202Response"/></returns>
         /// <param name="body">The request body</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.ShareTokens.Item.Redeem
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken202Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.RedeemShareToken202Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Redeems a Share Token by importing the source data into the specified destination. The destination must be in a valid state to accept the imported data.
+        /// Initiates redemption of a Share Token in one of two modes:- **Clone:** Omit `data.attributes.destination-id` to create a new object from the source.  Inquiry and Verification Share Tokens can be cloned.- **Hydrate:** Provide `data.attributes.destination-id` to import source data into an existing  object. Account, Transaction, and Inquiry Share Tokens can hydrate an existing Account,  Transaction, or Inquiry.Redemption is asynchronous. A successful request returns the Share Token with a `pending`status while Persona processes the import.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -102,7 +102,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.ShareTokens.Item.Redeem
             return new global::Soenneker.Persona.OpenApiClient.Connect.ShareTokens.Item.Redeem.RedeemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Redeems a Share Token by importing the source data into the specified destination. The destination must be in a valid state to accept the imported data.
+        /// Initiates redemption of a Share Token in one of two modes:- **Clone:** Omit `data.attributes.destination-id` to create a new object from the source.  Inquiry and Verification Share Tokens can be cloned.- **Hydrate:** Provide `data.attributes.destination-id` to import source data into an existing  object. Account, Transaction, and Inquiry Share Tokens can hydrate an existing Account,  Transaction, or Inquiry.Redemption is asynchronous. A successful request returns the Share Token with a `pending`status while Persona processes the import.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RedeemRequestBuilderPostQueryParameters 

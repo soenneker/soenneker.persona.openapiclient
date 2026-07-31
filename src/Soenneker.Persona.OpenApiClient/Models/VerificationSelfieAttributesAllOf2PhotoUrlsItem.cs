@@ -14,6 +14,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
     {
         /// <summary>The byteSize property</summary>
         public int? ByteSize { get; set; }
+        /// <summary>The filename property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Filename { get; set; }
+#nullable restore
+#else
+        public string Filename { get; set; }
+#endif
         /// <summary>Possible values:- left_photo- center_photo- right_photoDo not assume this is a static enumeration; Persona may addnew values in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,6 +64,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "byte-size", n => { ByteSize = n.GetIntValue(); } },
+                { "filename", n => { Filename = n.GetStringValue(); } },
                 { "page", n => { Page = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -68,6 +77,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("byte-size", ByteSize);
+            writer.WriteStringValue("filename", Filename);
             writer.WriteStringValue("page", Page);
             writer.WriteStringValue("url", Url);
         }

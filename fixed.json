@@ -7341,7 +7341,7 @@
             "content": {
               "application/pdf": {
                 "schema": {
-                  "$ref": "#/components/schemas/PrintAnInquiryPdf200ResponseResponsePdf"
+                  "$ref": "#/components/schemas/PrintAnInquiryPdf200PdfResponseSchema"
                 }
               }
             }
@@ -14063,7 +14063,7 @@
             "content": {
               "application/pdf": {
                 "schema": {
-                  "$ref": "#/components/schemas/PrintReportPdf200ResponseResponsePdf"
+                  "$ref": "#/components/schemas/PrintReportPdf200PdfResponseSchema"
                 }
               }
             }
@@ -17059,7 +17059,8 @@
                             {
                               "page": "left_photo",
                               "url": "https://files.withpersona.com/...",
-                              "byte-size": 316802
+                              "byte-size": 316802,
+                              "filename": "selfie_left.jpg"
                             }
                           ],
                           "video-url": "https://files.withpersona.com/...",
@@ -17335,7 +17336,7 @@
             "content": {
               "application/pdf": {
                 "schema": {
-                  "$ref": "#/components/schemas/PrintAVerificationAsPdf200ResponseResponsePdf"
+                  "$ref": "#/components/schemas/PrintAVerificationAsPdf200PdfResponseSchema"
                 }
               }
             }
@@ -45750,6 +45751,9 @@
             "type": "integer",
             "default": 0
           },
+          "filename": {
+            "type": "string"
+          },
           "normalized-url": {
             "type": "string"
           },
@@ -45774,6 +45778,9 @@
           "byte-size": {
             "type": "integer",
             "default": 0
+          },
+          "filename": {
+            "type": "string"
           },
           "url": {
             "type": "string"
@@ -45888,6 +45895,10 @@
             "type": "integer",
             "default": 0,
             "example": 316802
+          },
+          "filename": {
+            "type": "string",
+            "example": "selfie_center.jpg"
           },
           "page": {
             "type": "string",
@@ -53140,7 +53151,7 @@
         },
         "additionalProperties": false
       },
-      "PrintAnInquiryPdf200Response": {
+      "PrintAnInquiryPdf200PdfResponse": {
         "type": "string",
         "format": "binary"
       },
@@ -54089,7 +54100,7 @@
         },
         "additionalProperties": false
       },
-      "PrintReportPdf200Response": {
+      "PrintReportPdf200PdfResponse": {
         "type": "string",
         "format": "binary"
       },
@@ -54397,7 +54408,7 @@
         },
         "additionalProperties": false
       },
-      "PrintAVerificationAsPdf200Response": {
+      "PrintAVerificationAsPdf200PdfResponse": {
         "type": "string",
         "format": "binary"
       },
@@ -54811,7 +54822,7 @@
         },
         "additionalProperties": false
       },
-      "PrintAnInquiryPdf200ResponseResponsePdf": {
+      "PrintAnInquiryPdf200PdfResponseSchema": {
         "type": "string",
         "format": "binary"
       },
@@ -55371,7 +55382,7 @@
         },
         "additionalProperties": false
       },
-      "PrintReportPdf200ResponseResponsePdf": {
+      "PrintReportPdf200PdfResponseSchema": {
         "type": "string",
         "format": "binary"
       },
@@ -55669,7 +55680,7 @@
         },
         "additionalProperties": false
       },
-      "PrintAVerificationAsPdf200ResponseResponsePdf": {
+      "PrintAVerificationAsPdf200PdfResponseSchema": {
         "type": "string",
         "format": "binary"
       },
@@ -65830,12 +65841,14 @@
                   "original-urls": [
                     "https://files.withpersona.com/id-front.jpg?access_token=ACCESS_TOKEN"
                   ],
-                  "byte-size": 2849115
+                  "byte-size": 2849115,
+                  "filename": "id-front.jpg"
                 }
               ],
               "selfie-photo": {
                 "url": "https://files.withpersona.com/selfie-photo.jpg?access_token=ACCESS_TOKEN",
-                "byte-size": 201105
+                "byte-size": 201105,
+                "filename": "selfie-photo.jpg"
               },
               "selfie-photo-url": "https://files.withpersona.com/selfie-photo.jpg?access_token=ACCESS_TOKEN",
               "video-url": null,

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.CaseType"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateAddressLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessAssociatedPersons"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessRegistrationsLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateCryptoAddressWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplatePhoneRisk"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplatePoliticallyExposedPerson"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateProfile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateSentilinkScores"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateSocialMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateSynthetic"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateAddressLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessAssociatedPersons"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessRegistrationsLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateBusinessWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateCryptoAddressWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplatePhoneRisk"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplatePoliticallyExposedPerson"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateProfile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateSentilinkScores"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateSocialMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateSynthetic"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Transaction"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReportsIncludedObjectsItem : IComposedTypeWrapper, IParsable
@@ -20,14 +20,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.Account Account { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.CaseType"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseType? CaseType { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseType CaseType { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Inquiry"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -187,10 +179,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 result.Account = new global::Soenneker.Persona.OpenApiClient.Models.Account();
             }
-            else if("case".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.CaseType = new global::Soenneker.Persona.OpenApiClient.Models.CaseType();
-            }
             else if("inquiry".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();
@@ -274,10 +262,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(Account != null)
             {
                 return Account.GetFieldDeserializers();
-            }
-            else if(CaseType != null)
-            {
-                return CaseType.GetFieldDeserializers();
             }
             else if(Inquiry != null)
             {
@@ -363,10 +347,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(Account != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account>(null, Account);
-            }
-            else if(CaseType != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CaseType>(null, CaseType);
             }
             else if(Inquiry != null)
             {

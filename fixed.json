@@ -37126,9 +37126,6 @@
             "$ref": "#/components/schemas/Account"
           },
           {
-            "$ref": "#/components/schemas/CaseType"
-          },
-          {
             "$ref": "#/components/schemas/ReportTemplateAddressLookup"
           },
           {
@@ -37192,7 +37189,6 @@
           "mapping": {
             "inquiry": "#/components/schemas/Inquiry",
             "account": "#/components/schemas/Account",
-            "case": "#/components/schemas/CaseType",
             "report-template/address-lookup": "#/components/schemas/ReportTemplateAddressLookup",
             "report-template/adverse-media": "#/components/schemas/ReportTemplateAdverseMedia",
             "report-template/business-adverse-media": "#/components/schemas/ReportTemplateBusinessAdverseMedia",
@@ -37212,7 +37208,6 @@
             "transaction": "#/components/schemas/Transaction",
             "Inquiry": "#/components/schemas/Inquiry",
             "Account": "#/components/schemas/Account",
-            "CaseType": "#/components/schemas/CaseType",
             "ReportTemplateAddressLookup": "#/components/schemas/ReportTemplateAddressLookup",
             "ReportTemplateAdverseMedia": "#/components/schemas/ReportTemplateAdverseMedia",
             "ReportTemplateBusinessAdverseMedia": "#/components/schemas/ReportTemplateBusinessAdverseMedia",

@@ -14,6 +14,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
     {
         /// <summary>The createdAt property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>A description of the changes in this version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Description { get; set; }
+#nullable restore
+#else
+        public string Description { get; set; }
+#endif
         /// <summary>The enabledLocales property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,6 +30,16 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<string> EnabledLocales { get; set; }
 #endif
+        /// <summary>The email address of the User who last updated this version.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LastUpdater { get; set; }
+#nullable restore
+#else
+        public string LastUpdater { get; set; }
+#endif
+        /// <summary>Whether this is the Inquiry Template&apos;s current live published version.</summary>
+        public bool? Live { get; set; }
         /// <summary>The nameDisplay property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,7 +87,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
                 { "enabled-locales", n => { EnabledLocales = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "last-updater", n => { LastUpdater = n.GetStringValue(); } },
+                { "live", n => { Live = n.GetBoolValue(); } },
                 { "name-display", n => { NameDisplay = n.GetStringValue(); } },
                 { "published-at", n => { PublishedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -85,7 +106,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
+            writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfPrimitiveValues<string>("enabled-locales", EnabledLocales);
+            writer.WriteStringValue("last-updater", LastUpdater);
+            writer.WriteBoolValue("live", Live);
             writer.WriteStringValue("name-display", NameDisplay);
             writer.WriteDateTimeOffsetValue("published-at", PublishedAt);
             writer.WriteStringValue("status", Status);

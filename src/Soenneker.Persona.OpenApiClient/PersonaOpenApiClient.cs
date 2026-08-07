@@ -22,6 +22,7 @@ using Soenneker.Persona.OpenApiClient.Importer;
 using Soenneker.Persona.OpenApiClient.Importers;
 using Soenneker.Persona.OpenApiClient.Inquiries;
 using Soenneker.Persona.OpenApiClient.InquirySessions;
+using Soenneker.Persona.OpenApiClient.InquiryTemplateVersions;
 using Soenneker.Persona.OpenApiClient.InquiryTemplates;
 using Soenneker.Persona.OpenApiClient.List;
 using Soenneker.Persona.OpenApiClient.ListItem;
@@ -135,6 +136,11 @@ namespace Soenneker.Persona.OpenApiClient
         public global::Soenneker.Persona.OpenApiClient.InquiryTemplates.InquiryTemplatesRequestBuilder InquiryTemplates
         {
             get => new global::Soenneker.Persona.OpenApiClient.InquiryTemplates.InquiryTemplatesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The inquiryTemplateVersions property</summary>
+        public global::Soenneker.Persona.OpenApiClient.InquiryTemplateVersions.InquiryTemplateVersionsRequestBuilder InquiryTemplateVersions
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.InquiryTemplateVersions.InquiryTemplateVersionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The list property</summary>
         public global::Soenneker.Persona.OpenApiClient.List.ListRequestBuilder List

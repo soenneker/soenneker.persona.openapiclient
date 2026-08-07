@@ -8498,6 +8498,89 @@
         }
       }
     },
+    "/inquiry-template-versions": {
+      "get": {
+        "tags": [
+          "Inquiry Templates"
+        ],
+        "summary": "List all Inquiry Template Versions",
+        "description": "Retrieves the published versions and current draft version of an Inquiry Template.\n\nUse a production API key and provide the Inquiry Template ID in \u0060filter[inquiry-template-id]\u0060. For security reasons, Inquiry Template Versions are not available in Sandbox.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/inquiry-template-versions/list-all-inquiry-template-versions"
+        },
+        "operationId": "ListAllInquiryTemplateVersions",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-query-params"
+          },
+          {
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": true,
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "required": [
+                "inquiry-template-id"
+              ],
+              "type": "object",
+              "properties": {
+                "inquiry-template-id": {
+                  "type": "string",
+                  "description": "The Inquiry Template ID to list versions for."
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a collection of Inquiry Template Version objects.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAllInquiryTemplateVersions200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/inquiry-template-version-list"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/not-found"
+          },
+          "429": {
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
     "/inquiry-templates": {
       "get": {
         "tags": [
@@ -8821,7 +8904,10 @@
                         "id": "itmplv_HAVumeSgCxWxhVb8tTRjaiUB",
                         "attributes": {
                           "name-display": "Collect Government ID",
+                          "description": "Add Spanish translations",
                           "status": "draft",
+                          "live": false,
+                          "last-updater": "taylor@example.com",
                           "enabled-locales": [
                             "en-US"
                           ],
@@ -43242,9 +43328,23 @@
             "type": "string",
             "nullable": true
           },
+          "description": {
+            "type": "string",
+            "description": "A description of the changes in this version.",
+            "nullable": true
+          },
           "status": {
             "type": "string",
             "description": "Possible values:\n- published\n- draft\n\nDo not assume this is a static enumeration; Persona may add new values\nin the future without a versioned update."
+          },
+          "live": {
+            "type": "boolean",
+            "description": "Whether this is the Inquiry Template\u0027s current live published version."
+          },
+          "last-updater": {
+            "type": "string",
+            "description": "The email address of the User who last updated this version.",
+            "nullable": true
           },
           "enabled-locales": {
             "type": "array",
@@ -53416,6 +53516,26 @@
         },
         "additionalProperties": false
       },
+      "ListAllInquiryTemplateVersions200Response": {
+        "required": [
+          "data",
+          "links"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InquiryTemplateVersion"
+            },
+            "description": "An array of Inquiry Template Versions"
+          },
+          "links": {
+            "$ref": "#/components/schemas/ListAllInquiryTemplateVersions200ResponseLinks"
+          }
+        },
+        "additionalProperties": false
+      },
       "ListAllInquiryTemplates200Response": {
         "required": [
           "data",
@@ -57218,6 +57338,24 @@
           },
           "one-time-link-short": {
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListAllInquiryTemplateVersions200ResponseLinks": {
+        "required": [
+          "prev",
+          "next"
+        ],
+        "type": "object",
+        "properties": {
+          "prev": {
+            "type": "string",
+            "nullable": true
+          },
+          "next": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -63608,6 +63746,94 @@
                 }
               }
             }
+          }
+        }
+      },
+      "inquiry-template-version-list": {
+        "value": {
+          "data": [
+            {
+              "type": "inquiry-template-version",
+              "id": "itmplv_DRAFT123",
+              "attributes": {
+                "name-display": "Collect Government ID",
+                "description": "Test reusable persona support",
+                "status": "draft",
+                "live": false,
+                "last-updater": "taylor@example.com",
+                "enabled-locales": [
+                  "en-US"
+                ],
+                "created-at": "2026-03-27T18:29:41.000Z",
+                "updated-at": "2026-03-27T18:31:05.000Z",
+                "published-at": null,
+                "theme": {}
+              },
+              "relationships": {
+                "inquiry-template": {
+                  "data": {
+                    "type": "inquiry-template",
+                    "id": "itmpl_ABC123"
+                  }
+                }
+              }
+            },
+            {
+              "type": "inquiry-template-version",
+              "id": "itmplv_LIVE123",
+              "attributes": {
+                "name-display": "Collect Government ID",
+                "description": "Add reusable persona support",
+                "status": "published",
+                "live": true,
+                "last-updater": "alex@example.com",
+                "enabled-locales": [
+                  "en-US"
+                ],
+                "created-at": "2026-03-26T18:22:59.828Z",
+                "updated-at": "2026-03-26T18:29:41.000Z",
+                "published-at": "2026-03-26T18:29:41.000Z",
+                "theme": {}
+              },
+              "relationships": {
+                "inquiry-template": {
+                  "data": {
+                    "type": "inquiry-template",
+                    "id": "itmpl_ABC123"
+                  }
+                }
+              }
+            },
+            {
+              "type": "inquiry-template-version",
+              "id": "itmplv_PREVIOUS123",
+              "attributes": {
+                "name-display": "Collect Government ID",
+                "description": "Initial production version",
+                "status": "published",
+                "live": false,
+                "last-updater": null,
+                "enabled-locales": [
+                  "en-US"
+                ],
+                "created-at": "2026-03-20T18:22:59.828Z",
+                "updated-at": "2026-03-20T18:29:41.000Z",
+                "published-at": "2026-03-20T18:29:41.000Z",
+                "theme": {}
+              },
+              "relationships": {
+                "inquiry-template": {
+                  "data": {
+                    "type": "inquiry-template",
+                    "id": "itmpl_ABC123"
+                  }
+                }
+              }
+            }
+          ],
+          "links": {
+            "prev": null,
+            "next": null
           }
         }
       },

@@ -34286,8 +34286,18 @@
             "type": "string",
             "nullable": true
           },
+          "nationality-description": {
+            "type": "string",
+            "description": "The individual\u0027s nationality as described by Singpass. Singpass codes follow ICA\u0027s legacy list rather than ISO 3166-1, so this description is the only reliable source for the readable value.",
+            "nullable": true
+          },
           "birth-country": {
             "type": "string",
+            "nullable": true
+          },
+          "birth-country-description": {
+            "type": "string",
+            "description": "The name of the individual\u0027s country of birth as described by Singpass. Singpass codes follow ICA\u0027s legacy list rather than ISO 3166-1, so this description is the only reliable source for the country name.",
             "nullable": true
           },
           "residential-status": {
@@ -34322,6 +34332,11 @@
           },
           "address-country-code": {
             "type": "string",
+            "nullable": true
+          },
+          "address-country-description": {
+            "type": "string",
+            "description": "The country name of the individual\u0027s registered address as described by Singpass. Singpass codes follow ICA\u0027s legacy list rather than ISO 3166-1, so this description is the only reliable source for the country name.",
             "nullable": true
           }
         },
@@ -40476,8 +40491,18 @@
             "type": "string",
             "nullable": true
           },
+          "nationality-description": {
+            "type": "string",
+            "description": "The individual\u0027s nationality as described by Singpass. Singpass codes follow ICA\u0027s legacy list rather than ISO 3166-1, so this description is the only reliable source for the readable value.",
+            "nullable": true
+          },
           "birth-country": {
             "type": "string",
+            "nullable": true
+          },
+          "birth-country-description": {
+            "type": "string",
+            "description": "The name of the individual\u0027s country of birth as described by Singpass. Singpass codes follow ICA\u0027s legacy list rather than ISO 3166-1, so this description is the only reliable source for the country name.",
             "nullable": true
           },
           "residential-status": {
@@ -40512,6 +40537,11 @@
           },
           "address-country-code": {
             "type": "string",
+            "nullable": true
+          },
+          "address-country-description": {
+            "type": "string",
+            "description": "The country name of the individual\u0027s registered address as described by Singpass. Singpass codes follow ICA\u0027s legacy list rather than ISO 3166-1, so this description is the only reliable source for the country name.",
             "nullable": true
           }
         }

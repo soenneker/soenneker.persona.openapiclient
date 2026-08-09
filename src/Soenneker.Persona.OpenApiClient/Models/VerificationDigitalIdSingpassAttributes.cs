@@ -23,6 +23,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string AddressCountryCode { get; set; }
 #endif
+        /// <summary>The country name of the individual&apos;s registered address as described by Singpass. Singpass codes follow ICA&apos;s legacy list rather than ISO 3166-1, so this description is the only reliable source for the country name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AddressCountryDescription { get; set; }
+#nullable restore
+#else
+        public string AddressCountryDescription { get; set; }
+#endif
         /// <summary>The addressPostalCode property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,6 +70,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public string BirthCountry { get; set; }
+#endif
+        /// <summary>The name of the individual&apos;s country of birth as described by Singpass. Singpass codes follow ICA&apos;s legacy list rather than ISO 3166-1, so this description is the only reliable source for the country name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? BirthCountryDescription { get; set; }
+#nullable restore
+#else
+        public string BirthCountryDescription { get; set; }
 #endif
         /// <summary>The birthdate property</summary>
         public Date? Birthdate { get; set; }
@@ -144,6 +160,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public string Nationality { get; set; }
+#endif
+        /// <summary>The individual&apos;s nationality as described by Singpass. Singpass codes follow ICA&apos;s legacy list rather than ISO 3166-1, so this description is the only reliable source for the readable value.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NationalityDescription { get; set; }
+#nullable restore
+#else
+        public string NationalityDescription { get; set; }
 #endif
         /// <summary>The passExpiryDate property</summary>
         public Date? PassExpiryDate { get; set; }
@@ -243,11 +267,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "address-country-code", n => { AddressCountryCode = n.GetStringValue(); } },
+                { "address-country-description", n => { AddressCountryDescription = n.GetStringValue(); } },
                 { "address-postal-code", n => { AddressPostalCode = n.GetStringValue(); } },
                 { "address-street-1", n => { AddressStreet1 = n.GetStringValue(); } },
                 { "address-street-2", n => { AddressStreet2 = n.GetStringValue(); } },
                 { "alias-name", n => { AliasName = n.GetStringValue(); } },
                 { "birth-country", n => { BirthCountry = n.GetStringValue(); } },
+                { "birth-country-description", n => { BirthCountryDescription = n.GetStringValue(); } },
                 { "birthdate", n => { Birthdate = n.GetDateValue(); } },
                 { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completed-at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
@@ -262,6 +288,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "married-name", n => { MarriedName = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "nationality", n => { Nationality = n.GetStringValue(); } },
+                { "nationality-description", n => { NationalityDescription = n.GetStringValue(); } },
                 { "pass-expiry-date", n => { PassExpiryDate = n.GetDateValue(); } },
                 { "pass-status", n => { PassStatus = n.GetStringValue(); } },
                 { "pass-type", n => { PassType = n.GetStringValue(); } },
@@ -284,11 +311,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("address-country-code", AddressCountryCode);
+            writer.WriteStringValue("address-country-description", AddressCountryDescription);
             writer.WriteStringValue("address-postal-code", AddressPostalCode);
             writer.WriteStringValue("address-street-1", AddressStreet1);
             writer.WriteStringValue("address-street-2", AddressStreet2);
             writer.WriteStringValue("alias-name", AliasName);
             writer.WriteStringValue("birth-country", BirthCountry);
+            writer.WriteStringValue("birth-country-description", BirthCountryDescription);
             writer.WriteDateValue("birthdate", Birthdate);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>("checks", Checks);
             writer.WriteDateTimeOffsetValue("completed-at", CompletedAt);
@@ -303,6 +332,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("married-name", MarriedName);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("nationality", Nationality);
+            writer.WriteStringValue("nationality-description", NationalityDescription);
             writer.WriteDateValue("pass-expiry-date", PassExpiryDate);
             writer.WriteStringValue("pass-status", PassStatus);
             writer.WriteStringValue("pass-type", PassType);

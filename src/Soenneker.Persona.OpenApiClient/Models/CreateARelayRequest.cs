@@ -28,6 +28,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string EncryptionKeyPem { get; set; }
 #endif
+        /// <summary>When true, the Relay is created in a sandbox environment and uses the sandbox Privacy Pass namespace; sandbox passes are only redeemable against sandbox Relays. When omitted or false, the Relay is created in a production environment and uses the claim-type namespace.</summary>
+        public bool? Sandbox { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -48,6 +50,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "claim-type", n => { ClaimType = n.GetStringValue(); } },
                 { "encryption-key-pem", n => { EncryptionKeyPem = n.GetStringValue(); } },
+                { "sandbox", n => { Sandbox = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -59,6 +62,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("claim-type", ClaimType);
             writer.WriteStringValue("encryption-key-pem", EncryptionKeyPem);
+            writer.WriteBoolValue("sandbox", Sandbox);
         }
     }
 }

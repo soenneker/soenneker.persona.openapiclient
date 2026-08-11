@@ -53969,6 +53969,10 @@
             "type": "string",
             "description": "RSA public key (PEM-encoded, 2048-4096 bits). When non-null, claim payloads returned by subsequent reads will be encrypted with RSA OAEP. Pass \u0060null\u0060 to receive unencrypted claim payloads.",
             "nullable": true
+          },
+          "sandbox": {
+            "type": "boolean",
+            "description": "When true, the Relay is created in a sandbox environment and uses the sandbox Privacy Pass namespace; sandbox passes are only redeemable against sandbox Relays. When omitted or false, the Relay is created in a production environment and uses the claim-type namespace."
           }
         },
         "additionalProperties": false
@@ -54005,6 +54009,10 @@
           "claim-type": {
             "type": "string",
             "description": "Possible values:\n- live_human_presence\n- age_over18_germany\n- age_over18_united_kingdom\n- age_over18_verified\n- age_over18_france\n- age_over18_italy\n- age_over18_brazil\n- age_over18_australia\n- age_over16_australia\n- age_over21_verified\n\nDo not assume this is a static enumeration; Persona may add new claim\ntypes in the future without a versioned update."
+          },
+          "sandbox": {
+            "type": "boolean",
+            "description": "When true, Persona issues a sandbox-namespace challenge, redeemable only against sandbox Relays. When omitted or false, Persona issues a challenge for the claim-type namespace."
           }
         },
         "additionalProperties": false

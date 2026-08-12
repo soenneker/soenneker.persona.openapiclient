@@ -21,6 +21,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemAddressesItem> Addresses { get; set; }
 #endif
+        /// <summary>The document enrichment status (`pending`, `completed`, or `errored`). Null when document enrichment was not requested for this registry record.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DocumentsStatus { get; set; }
+#nullable restore
+#else
+        public string DocumentsStatus { get; set; }
+#endif
         /// <summary>Official registration number</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,6 +106,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "addresses", n => { Addresses = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemAddressesItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemAddressesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "documents-status", n => { DocumentsStatus = n.GetStringValue(); } },
                 { "file-number", n => { FileNumber = n.GetStringValue(); } },
                 { "issue-date", n => { IssueDate = n.GetDateValue(); } },
                 { "issuing-authority", n => { IssuingAuthority = n.GetStringValue(); } },
@@ -116,6 +125,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemAddressesItem>("addresses", Addresses);
+            writer.WriteStringValue("documents-status", DocumentsStatus);
             writer.WriteStringValue("file-number", FileNumber);
             writer.WriteDateValue("issue-date", IssueDate);
             writer.WriteStringValue("issuing-authority", IssuingAuthority);

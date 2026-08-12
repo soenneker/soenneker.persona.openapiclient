@@ -48905,6 +48905,11 @@
             "type": "string",
             "description": "Official registration number"
           },
+          "documents-status": {
+            "type": "string",
+            "description": "The document enrichment status (\u0060pending\u0060, \u0060completed\u0060, or \u0060errored\u0060). Null when document enrichment was not requested for this registry record.",
+            "nullable": true
+          },
           "registered-name": {
             "type": "string",
             "description": "Official registered business name"

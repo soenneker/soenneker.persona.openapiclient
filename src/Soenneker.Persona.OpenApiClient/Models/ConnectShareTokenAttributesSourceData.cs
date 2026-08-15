@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<global::Soenneker.Persona.OpenApiClient.Models.SourceDataRelatedObject> RelatedObjects { get; set; }
 #endif
-        /// <summary>Union discriminator</summary>
+        /// <summary>Discriminator for the source-object type. Subtypes constrain this to a specific value via `const`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Type { get; set; }

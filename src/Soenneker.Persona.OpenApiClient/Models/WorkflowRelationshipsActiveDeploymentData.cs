@@ -37,7 +37,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeploymentData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeploymentData();
             if("WorkflowDeployment".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {

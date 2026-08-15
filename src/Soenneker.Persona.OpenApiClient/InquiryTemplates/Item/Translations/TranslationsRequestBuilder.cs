@@ -34,7 +34,7 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations
         {
         }
         /// <summary>
-        /// &quot;Retrieves the translations for an Inquiry Template as a JSON:API resource.The export uses the latest draft version if one exists, otherwise falls back to the latest published version.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.&quot;
+        /// Retrieves the translations for an Inquiry Template as a JSON:API resource.The export uses the latest draft version if one exists, otherwise falls back to the latest published version.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiry-templates/retrieve-inquiry-template-translations" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200Response"/></returns>
@@ -66,7 +66,7 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Imports translations for an Inquiry Template. Supports partial updates — translation rows not included in the request body are left unchanged.If a draft version already exists, translations are applied to it. If no draft exists, a new draft is created from the latest published version before importing. The draft is never automatically published — publishing is always a manual step in the dashboard.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.&quot;
+        /// Imports translations for an Inquiry Template. Supports partial updates — translation rows not included in the request body are left unchanged.If a draft version already exists, translations are applied to it. If no draft exists, a new draft is created from the latest published version before importing. The draft is never automatically published — publishing is always a manual step in the dashboard.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiry-templates/import-inquiry-template-translations" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslations200Response"/></returns>
@@ -104,7 +104,7 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslations200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ImportInquiryTemplateTranslations200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Retrieves the translations for an Inquiry Template as a JSON:API resource.The export uses the latest draft version if one exists, otherwise falls back to the latest published version.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.&quot;
+        /// Retrieves the translations for an Inquiry Template as a JSON:API resource.The export uses the latest draft version if one exists, otherwise falls back to the latest published version.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -123,7 +123,7 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations
             return requestInfo;
         }
         /// <summary>
-        /// &quot;Imports translations for an Inquiry Template. Supports partial updates — translation rows not included in the request body are left unchanged.If a draft version already exists, translations are applied to it. If no draft exists, a new draft is created from the latest published version before importing. The draft is never automatically published — publishing is always a manual step in the dashboard.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.&quot;
+        /// Imports translations for an Inquiry Template. Supports partial updates — translation rows not included in the request body are left unchanged.If a draft version already exists, translations are applied to it. If no draft exists, a new draft is created from the latest published version before importing. The draft is never automatically published — publishing is always a manual step in the dashboard.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -154,7 +154,7 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations
             return new global::Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations.TranslationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Retrieves the translations for an Inquiry Template as a JSON:API resource.The export uses the latest draft version if one exists, otherwise falls back to the latest published version.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.&quot;
+        /// Retrieves the translations for an Inquiry Template as a JSON:API resource.The export uses the latest draft version if one exists, otherwise falls back to the latest published version.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TranslationsRequestBuilderGetQueryParameters 
@@ -181,7 +181,7 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates.Item.Translations
 #endif
         }
         /// <summary>
-        /// &quot;Imports translations for an Inquiry Template. Supports partial updates — translation rows not included in the request body are left unchanged.If a draft version already exists, translations are applied to it. If no draft exists, a new draft is created from the latest published version before importing. The draft is never automatically published — publishing is always a manual step in the dashboard.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.&quot;
+        /// Imports translations for an Inquiry Template. Supports partial updates — translation rows not included in the request body are left unchanged.If a draft version already exists, translations are applied to it. If no draft exists, a new draft is created from the latest published version before importing. The draft is never automatically published — publishing is always a manual step in the dashboard.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TranslationsRequestBuilderPostQueryParameters 

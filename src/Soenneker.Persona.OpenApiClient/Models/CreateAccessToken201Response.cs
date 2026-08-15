@@ -22,7 +22,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>Number of seconds until the access token expires.</summary>
         public int? ExpiresIn { get; set; }
-        /// <summary>&quot;Space-separated list of granted permissions. Format varies by grant type: for client_credentials, bare permission names (e.g. inquiry.read account.read); for authorization_code, permission:object pairs (e.g. inquiry.read:inq_xxx). Empty string when no permissions are granted.&quot;</summary>
+        /// <summary>Space-separated list of granted permissions. Format varies by grant type: for client_credentials, bare permission names (e.g. inquiry.read account.read); for authorization_code, permission:object pairs (e.g. inquiry.read:inq_xxx). Empty string when no permissions are granted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Scope { get; set; }

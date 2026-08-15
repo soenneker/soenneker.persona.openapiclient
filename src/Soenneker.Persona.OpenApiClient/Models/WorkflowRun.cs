@@ -46,13 +46,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationships Relationships { get; set; }
 #endif
         /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -75,7 +69,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunMeta>(global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunMeta.CreateFromDiscriminatorValue); } },
                 { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationships>(global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationships.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunType>(); } },
             };
         }
         /// <summary>
@@ -89,7 +83,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunMeta>("meta", Meta);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationships>("relationships", Relationships);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunType>("type", Type);
         }
     }
 }

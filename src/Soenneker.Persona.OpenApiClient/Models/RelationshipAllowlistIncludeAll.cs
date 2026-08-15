@@ -12,14 +12,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public partial class RelationshipAllowlistIncludeAll : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Include relationship linkages in webhook payload objects.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? State { get; set; }
-#nullable restore
-#else
-        public string State { get; set; }
-#endif
+        /// <summary>Include all related objects for every subscribed event type.</summary>
+        public global::Soenneker.Persona.OpenApiClient.Models.IncludeAllState? State { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -38,7 +32,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "state", n => { State = n.GetStringValue(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.IncludeAllState>(); } },
             };
         }
         /// <summary>
@@ -48,7 +42,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("state", State);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.IncludeAllState>("state", State);
         }
     }
 }

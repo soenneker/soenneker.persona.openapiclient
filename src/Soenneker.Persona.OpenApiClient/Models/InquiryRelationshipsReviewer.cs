@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Actor that decisioned the Inquiry. `data` is `null` while the Inquiry has not been decisioned. Once decisioned, `data.type` and `data.id` identify the reviewer: - `user` + `user_*` — a dashboard user reviewed and decisioned the Inquiry. - `workflow` + `wfl_*` — Workflows 1.0 auto-decisioned the Inquiry. - `workflow-run` + `wfr_*` — Workflows 2.0 auto-decisioned the Inquiry  (the dominant case in automation-heavy organizations).&quot;
+    /// Actor that decisioned the Inquiry. `data` is `null` while the Inquiry has not been decisioned. Once decisioned, `data.type` and `data.id` identify the reviewer: - `user` + `user_*` — a dashboard user reviewed and decisioned the Inquiry. - `workflow` + `wfl_*` — Workflows 1.0 auto-decisioned the Inquiry. - `workflow-run` + `wfr_*` — Workflows 2.0 auto-decisioned the Inquiry  (the dominant case in automation-heavy organizations).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InquiryRelationshipsReviewer : IParsable

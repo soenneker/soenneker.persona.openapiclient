@@ -21,7 +21,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Attribute { get; set; }
 #endif
-        /// <summary>&quot;Sort direction. Possible values: asc (ascending), desc (descending).&quot;</summary>
+        /// <summary>Sort direction. Possible values: asc (ascending), desc (descending).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Direction { get; set; }

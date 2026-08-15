@@ -37,13 +37,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public string Label { get; set; }
 #endif
         /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.Persona.OpenApiClient.Models.RelationSchemaType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -65,7 +59,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "config", n => { Config = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationConfig>(global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationConfig.CreateFromDiscriminatorValue); } },
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.RelationSchemaType>(); } },
             };
         }
         /// <summary>
@@ -78,7 +72,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelationConfig>("config", Config);
             writer.WriteStringValue("key", Key);
             writer.WriteStringValue("label", Label);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.RelationSchemaType>("type", Type);
         }
     }
 }

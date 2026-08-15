@@ -47,7 +47,7 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates
         {
         }
         /// <summary>
-        /// &quot;Retrieves a list of your organization&apos;s Inquiry Templates.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API. Results are returned in reverse chronological order, with the most recently created objects first.&quot;
+        /// Retrieves a list of your organization&apos;s Inquiry Templates.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API. Results are returned in reverse chronological order, with the most recently created objects first.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/inquiry-templates/list-all-inquiry-templates" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200Response"/></returns>
@@ -77,7 +77,7 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllInquiryTemplates200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Retrieves a list of your organization&apos;s Inquiry Templates.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API. Results are returned in reverse chronological order, with the most recently created objects first.&quot;
+        /// Retrieves a list of your organization&apos;s Inquiry Templates.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API. Results are returned in reverse chronological order, with the most recently created objects first.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -105,7 +105,7 @@ namespace Soenneker.Persona.OpenApiClient.InquiryTemplates
             return new global::Soenneker.Persona.OpenApiClient.InquiryTemplates.InquiryTemplatesRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Retrieves a list of your organization&apos;s Inquiry Templates.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API. Results are returned in reverse chronological order, with the most recently created objects first.&quot;
+        /// Retrieves a list of your organization&apos;s Inquiry Templates.Note: You must use a production API key to access this endpoint. For security reasons, we do not expose organization-level resources like Inquiry Templates in Sandbox via API. Results are returned in reverse chronological order, with the most recently created objects first.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class InquiryTemplatesRequestBuilderGetQueryParameters 

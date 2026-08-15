@@ -21,13 +21,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public List<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem> EventTypes { get; set; }
 #endif
         /// <summary>Configure included related objects per event type via `event-types`.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? State { get; set; }
-#nullable restore
-#else
-        public string State { get; set; }
-#endif
+        public global::Soenneker.Persona.OpenApiClient.Models.CustomState? State { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -47,7 +41,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "event-types", n => { EventTypes = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem>(global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "state", n => { State = n.GetStringValue(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.CustomState>(); } },
             };
         }
         /// <summary>
@@ -58,7 +52,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem>("event-types", EventTypes);
-            writer.WriteStringValue("state", State);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.CustomState>("state", State);
         }
     }
 }

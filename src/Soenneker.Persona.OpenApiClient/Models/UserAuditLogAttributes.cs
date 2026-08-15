@@ -22,7 +22,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>The createdAt property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>&quot;The GET params of the request. Schema depends on the action taken. Note: For large payloads, the value may appear as [FILTERED] to indicate redaction or truncation.&quot;</summary>
+        /// <summary>The GET params of the request. Schema depends on the action taken. Note: For large payloads, the value may appear as [FILTERED] to indicate redaction or truncation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? GetParams { get; set; }
@@ -62,7 +62,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Path { get; set; }
 #endif
-        /// <summary>&quot;The POST params of the request. Schema depends on the action taken. Note: For large payloads, the value may appear as [FILTERED] to indicate redaction or truncation.&quot;</summary>
+        /// <summary>The POST params of the request. Schema depends on the action taken. Note: For large payloads, the value may appear as [FILTERED] to indicate redaction or truncation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PostParams { get; set; }

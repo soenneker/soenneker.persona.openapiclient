@@ -50,7 +50,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>How soon any file access tokens in webhook requests expire. For more info see [Downloading Files](https://docs.withpersona.com/downloading-files).</summary>
         public int? FileAccessTokenExpiresIn { get; set; }
-        /// <summary>&quot;Controls which related objects appear in the `included` array of webhook payloads. The default is `include_none`. When `state` is `custom`, `event-types` configures which related objects to include per event type: event types you are subscribed to (via `enabled-events`) but do not list are excluded, and event types you list but are not subscribed to are dropped on save. A `custom` config whose event types are all `[\&quot;*\&quot;]` is equivalent to, and is normalized to, `include_all`.&quot;</summary>
+        /// <summary>Controls which related objects appear in the `included` array of webhook payloads. The default is `include_none`. When `state` is `custom`, `event-types` configures which related objects to include per event type: event types you are subscribed to (via `enabled-events`) but do not list are excluded, and event types you list but are not subscribed to are dropped on save. A `custom` config whose event types are all `[&quot;*&quot;]` is equivalent to, and is normalized to, `include_all`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist? IncludedAllowlist { get; set; }

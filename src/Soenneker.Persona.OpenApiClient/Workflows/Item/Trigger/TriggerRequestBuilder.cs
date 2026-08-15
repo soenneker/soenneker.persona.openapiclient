@@ -34,7 +34,7 @@ namespace Soenneker.Persona.OpenApiClient.Workflows.Item.Trigger
         {
         }
         /// <summary>
-        /// &quot;Creates a new Workflow Run.Note: The payload is arbitrary and defined by the Workflow version trigger schema.&quot;
+        /// Creates a new Workflow Run.Note: The payload is arbitrary and defined by the Workflow version trigger schema.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/workflow-runs/create-a-workflow-run" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAWorkflowRun200Response"/></returns>
@@ -72,7 +72,7 @@ namespace Soenneker.Persona.OpenApiClient.Workflows.Item.Trigger
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.CreateAWorkflowRun200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.CreateAWorkflowRun200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Creates a new Workflow Run.Note: The payload is arbitrary and defined by the Workflow version trigger schema.&quot;
+        /// Creates a new Workflow Run.Note: The payload is arbitrary and defined by the Workflow version trigger schema.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -103,7 +103,7 @@ namespace Soenneker.Persona.OpenApiClient.Workflows.Item.Trigger
             return new global::Soenneker.Persona.OpenApiClient.Workflows.Item.Trigger.TriggerRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Creates a new Workflow Run.Note: The payload is arbitrary and defined by the Workflow version trigger schema.&quot;
+        /// Creates a new Workflow Run.Note: The payload is arbitrary and defined by the Workflow version trigger schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class TriggerRequestBuilderPostQueryParameters 

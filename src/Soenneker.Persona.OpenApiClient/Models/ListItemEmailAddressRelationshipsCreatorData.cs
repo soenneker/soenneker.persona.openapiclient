@@ -69,7 +69,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorData();
             if("ListItemEmailAddressRelationshipsCreatorDataOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {

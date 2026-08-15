@@ -38,13 +38,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public global::Soenneker.Persona.OpenApiClient.Models.ListItemNameRelationships Relationships { get; set; }
 #endif
         /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemNameType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -66,7 +60,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemNameAttributes>(global::Soenneker.Persona.OpenApiClient.Models.ListItemNameAttributes.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemNameRelationships>(global::Soenneker.Persona.OpenApiClient.Models.ListItemNameRelationships.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemNameType>(); } },
             };
         }
         /// <summary>
@@ -79,7 +73,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemNameAttributes>("attributes", Attributes);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemNameRelationships>("relationships", Relationships);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemNameType>("type", Type);
         }
     }
 }

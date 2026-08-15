@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Controls which related objects appear in the `included` array of webhook payloads. The default is `include_none`. When `state` is `custom`, `event-types` configures which related objects to include per event type: event types you are subscribed to (via `enabled-events`) but do not list are excluded, and event types you list but are not subscribed to are dropped on save. A `custom` config whose event types are all `[\&quot;*\&quot;]` is equivalent to, and is normalized to, `include_all`.&quot;
+    /// Controls which related objects appear in the `included` array of webhook payloads. The default is `include_none`. When `state` is `custom`, `event-types` configures which related objects to include per event type: event types you are subscribed to (via `enabled-events`) but do not list are excluded, and event types you list but are not subscribed to are dropped on save. A `custom` config whose event types are all `[&quot;*&quot;]` is equivalent to, and is normalized to, `include_all`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class IncludedAllowlist : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
@@ -48,21 +48,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistIncludeNone IncludedAllowlistIncludeNone { get; set; }
 #endif
         /// <summary>Include all related objects for every subscribed event type.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? State { get; set; }
-#nullable restore
-#else
-        public string State { get; set; }
-#endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.Persona.OpenApiClient.Models.IncludeAllState? State { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist"/> and sets the default values.
         /// </summary>
@@ -78,7 +64,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist();
             if("IncludedAllowlistCustom".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -92,13 +78,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 result.IncludedAllowlistIncludeNone = new global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistIncludeNone();
             }
-            else if(parseNode.GetStringValue() is string stateValue)
+            else if(parseNode.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.IncludeAllState>() is global::Soenneker.Persona.OpenApiClient.Models.IncludeAllState stateValue)
             {
                 result.State = stateValue;
-            }
-            else if(parseNode.GetStringValue() is string typeValue)
-            {
-                result.Type = typeValue;
             }
             else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem>(global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem> eventTypesValue)
             {
@@ -147,11 +129,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             }
             else if(State != null)
             {
-                writer.WriteStringValue(null, State);
-            }
-            else if(Type != null)
-            {
-                writer.WriteStringValue(null, Type);
+                writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.IncludeAllState>(null, State);
             }
             else if(EventTypes != null)
             {

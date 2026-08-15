@@ -20,7 +20,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.SearchInquiriesRequestPage Page { get; set; }
 #endif
-        /// <summary>&quot;Search query using boolean logic (AND/OR/NOT) and comparison operators.Supports predicates with operators: eq (equal), gt (greater than), gte (greater than or equal),lt (less than), lte (less than or equal).&quot;</summary>
+        /// <summary>Search query using boolean logic (AND/OR/NOT) and comparison operators.Supports predicates with operators: eq (equal), gt (greater than), gte (greater than or equal),lt (less than), lte (less than or equal).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.SearchInquiriesRequestQuery? Query { get; set; }

@@ -13,13 +13,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.Persona.OpenApiClient.Models.FileType? Type { get; set; }
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -46,7 +40,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.FileType>(); } },
                 { "value", n => { Value = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue); } },
             };
         }
@@ -57,7 +51,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.FileType>("type", Type);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("value", Value);
         }
     }

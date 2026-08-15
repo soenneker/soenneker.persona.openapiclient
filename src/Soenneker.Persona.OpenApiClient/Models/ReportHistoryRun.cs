@@ -37,13 +37,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The date the report is scheduled to run on</summary>
         public Date? ScheduledDate { get; set; }
         /// <summary>The type of history entry</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public global::Soenneker.Persona.OpenApiClient.Models.RunType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -67,7 +61,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "matches", n => { Matches = n.GetIntValue(); } },
                 { "run-type", n => { RunType = n.GetStringValue(); } },
                 { "scheduled-date", n => { ScheduledDate = n.GetDateValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.RunType>(); } },
             };
         }
         /// <summary>
@@ -82,7 +76,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteIntValue("matches", Matches);
             writer.WriteStringValue("run-type", RunType);
             writer.WriteDateValue("scheduled-date", ScheduledDate);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.RunType>("type", Type);
         }
     }
 }

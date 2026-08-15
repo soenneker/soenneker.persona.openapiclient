@@ -5,12 +5,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum RateLimitType
+    public enum ReportTemplateBusinessLookupType
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "rate-limit/api")]
+        [EnumMember(Value = "report-template/business-lookup")]
         #pragma warning disable CS1591
-        RateLimitApi,
+        ReportTemplateBusinessLookup,
         #pragma warning restore CS1591
     }
 }

@@ -2,117 +2,33 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// JSON key-value pairs of field name to field value. Schema is defined by your Inquiry Template.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestDataAttributesFieldsMember1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryFields"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateAnInquiryRequestDataAttributesFields : IAdditionalDataHolder, IParsable
+    public partial class CreateAnInquiryRequestDataAttributesFields : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>City of residence address. Not all international addresses use this attribute.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestDataAttributesFieldsMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AddressCity { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestDataAttributesFieldsMember1? CreateAnInquiryRequestDataAttributesFieldsMember1 { get; set; }
 #nullable restore
 #else
-        public string AddressCity { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestDataAttributesFieldsMember1 CreateAnInquiryRequestDataAttributesFieldsMember1 { get; set; }
 #endif
-        /// <summary>optional</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryFields"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AddressCountryCode { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryFields? InquiryFields { get; set; }
 #nullable restore
 #else
-        public string AddressCountryCode { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryFields InquiryFields { get; set; }
 #endif
-        /// <summary>ZIP or postal code of residence address. Not all international addresses use this attribute.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AddressPostalCode { get; set; }
-#nullable restore
-#else
-        public string AddressPostalCode { get; set; }
-#endif
-        /// <summary>Street name of residence address.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AddressStreet1 { get; set; }
-#nullable restore
-#else
-        public string AddressStreet1 { get; set; }
-#endif
-        /// <summary>Extension of residence address, usually apartment or suite number.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AddressStreet2 { get; set; }
-#nullable restore
-#else
-        public string AddressStreet2 { get; set; }
-#endif
-        /// <summary>State or subdivision of residence address. In the US, this should be the unabbreviated name. Not all international addresses use this attribute.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AddressSubdivision { get; set; }
-#nullable restore
-#else
-        public string AddressSubdivision { get; set; }
-#endif
-        /// <summary>Birthdate, must be in the format &quot;YYYY-MM-DD&quot;.</summary>
-        public Date? Birthdate { get; set; }
-        /// <summary>Email address.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? EmailAddress { get; set; }
-#nullable restore
-#else
-        public string EmailAddress { get; set; }
-#endif
-        /// <summary>Given or first name.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? NameFirst { get; set; }
-#nullable restore
-#else
-        public string NameFirst { get; set; }
-#endif
-        /// <summary>Family or last name.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? NameLast { get; set; }
-#nullable restore
-#else
-        public string NameLast { get; set; }
-#endif
-        /// <summary>Middle name.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? NameMiddle { get; set; }
-#nullable restore
-#else
-        public string NameMiddle { get; set; }
-#endif
-        /// <summary>Phone number.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PhoneNumber { get; set; }
-#nullable restore
-#else
-        public string PhoneNumber { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestDataAttributesFields"/> and sets the default values.
-        /// </summary>
-        public CreateAnInquiryRequestDataAttributesFields()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -121,7 +37,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestDataAttributesFields CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestDataAttributesFields();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestDataAttributesFields();
+            if("InquiryFields".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.InquiryFields = new global::Soenneker.Persona.OpenApiClient.Models.InquiryFields();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -129,21 +51,15 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(CreateAnInquiryRequestDataAttributesFieldsMember1 != null)
             {
-                { "address-city", n => { AddressCity = n.GetStringValue(); } },
-                { "address-country-code", n => { AddressCountryCode = n.GetStringValue(); } },
-                { "address-postal-code", n => { AddressPostalCode = n.GetStringValue(); } },
-                { "address-street-1", n => { AddressStreet1 = n.GetStringValue(); } },
-                { "address-street-2", n => { AddressStreet2 = n.GetStringValue(); } },
-                { "address-subdivision", n => { AddressSubdivision = n.GetStringValue(); } },
-                { "birthdate", n => { Birthdate = n.GetDateValue(); } },
-                { "email-address", n => { EmailAddress = n.GetStringValue(); } },
-                { "name-first", n => { NameFirst = n.GetStringValue(); } },
-                { "name-last", n => { NameLast = n.GetStringValue(); } },
-                { "name-middle", n => { NameMiddle = n.GetStringValue(); } },
-                { "phone-number", n => { PhoneNumber = n.GetStringValue(); } },
-            };
+                return CreateAnInquiryRequestDataAttributesFieldsMember1.GetFieldDeserializers();
+            }
+            else if(InquiryFields != null)
+            {
+                return InquiryFields.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -152,19 +68,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("address-city", AddressCity);
-            writer.WriteStringValue("address-country-code", AddressCountryCode);
-            writer.WriteStringValue("address-postal-code", AddressPostalCode);
-            writer.WriteStringValue("address-street-1", AddressStreet1);
-            writer.WriteStringValue("address-street-2", AddressStreet2);
-            writer.WriteStringValue("address-subdivision", AddressSubdivision);
-            writer.WriteDateValue("birthdate", Birthdate);
-            writer.WriteStringValue("email-address", EmailAddress);
-            writer.WriteStringValue("name-first", NameFirst);
-            writer.WriteStringValue("name-last", NameLast);
-            writer.WriteStringValue("name-middle", NameMiddle);
-            writer.WriteStringValue("phone-number", PhoneNumber);
-            writer.WriteAdditionalData(AdditionalData);
+            if(CreateAnInquiryRequestDataAttributesFieldsMember1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestDataAttributesFieldsMember1>(null, CreateAnInquiryRequestDataAttributesFieldsMember1);
+            }
+            else if(InquiryFields != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryFields>(null, InquiryFields);
+            }
         }
     }
 }

@@ -23,10 +23,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>This is a free-form object containing potentially helpful metadata on the extraction result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItemMetadata? Metadata { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItemMetadataProperty? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItemMetadata Metadata { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItemMetadataProperty Metadata { get; set; }
 #endif
         /// <summary>The page number the extraction result is detected. Page is 1-indexed.</summary>
         public int? Page { get; set; }
@@ -57,7 +57,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "match-level", n => { MatchLevel = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItemMetadata>(global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItemMetadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItemMetadataProperty>(global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItemMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "page", n => { Page = n.GetIntValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
             };
@@ -70,7 +70,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("match-level", MatchLevel);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItemMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItemMetadataProperty>("metadata", Metadata);
             writer.WriteIntValue("page", Page);
             writer.WriteStringValue("value", Value);
         }

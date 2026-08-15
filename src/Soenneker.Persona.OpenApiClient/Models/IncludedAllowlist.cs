@@ -8,11 +8,21 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustom"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistIncludeAll"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistIncludeNone"/>
+    /// &quot;Controls which related objects appear in the `included` array of webhook payloads. The default is `include_none`. When `state` is `custom`, `event-types` configures which related objects to include per event type: event types you are subscribed to (via `enabled-events`) but do not list are excluded, and event types you list but are not subscribed to are dropped on save. A `custom` config whose event types are all `[\&quot;*\&quot;]` is equivalent to, and is normalized to, `include_all`.&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class IncludedAllowlist : IComposedTypeWrapper, IParsable
+    public partial class IncludedAllowlist : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Per-event-type include configuration. At most one entry per event type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem>? EventTypes { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem> EventTypes { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustom"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,6 +47,29 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistIncludeNone IncludedAllowlistIncludeNone { get; set; }
 #endif
+        /// <summary>Include all related objects for every subscribed event type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? State { get; set; }
+#nullable restore
+#else
+        public string State { get; set; }
+#endif
+        /// <summary>Union discriminator</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist"/> and sets the default values.
+        /// </summary>
+        public IncludedAllowlist()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -58,6 +91,18 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if("IncludedAllowlistIncludeNone".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.IncludedAllowlistIncludeNone = new global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistIncludeNone();
+            }
+            else if(parseNode.GetStringValue() is string stateValue)
+            {
+                result.State = stateValue;
+            }
+            else if(parseNode.GetStringValue() is string typeValue)
+            {
+                result.Type = typeValue;
+            }
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem>(global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem> eventTypesValue)
+            {
+                result.EventTypes = eventTypesValue;
             }
             return result;
         }
@@ -100,6 +145,19 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistIncludeNone>(null, IncludedAllowlistIncludeNone);
             }
+            else if(State != null)
+            {
+                writer.WriteStringValue(null, State);
+            }
+            else if(Type != null)
+            {
+                writer.WriteStringValue(null, Type);
+            }
+            else if(EventTypes != null)
+            {
+                writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem>(null, EventTypes);
+            }
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

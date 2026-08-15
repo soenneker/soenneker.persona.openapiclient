@@ -7,44 +7,28 @@ using System.IO;
 using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeployment"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeploymentDataMember1"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class WorkflowRelationshipsActiveDeploymentData : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class WorkflowRelationshipsActiveDeploymentData : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The attributes property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeployment"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeploymentAttributes? Attributes { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeployment? WorkflowDeployment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeploymentAttributes Attributes { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeployment WorkflowDeployment { get; set; }
 #endif
-        /// <summary>The id property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeploymentDataMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Id { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeploymentDataMember1? WorkflowRelationshipsActiveDeploymentDataMember1 { get; set; }
 #nullable restore
 #else
-        public string Id { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeploymentDataMember1 WorkflowRelationshipsActiveDeploymentDataMember1 { get; set; }
 #endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeploymentData"/> and sets the default values.
-        /// </summary>
-        public WorkflowRelationshipsActiveDeploymentData()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -53,7 +37,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeploymentData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeploymentData();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeploymentData();
+            if("WorkflowDeployment".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.WorkflowDeployment = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeployment();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,12 +51,15 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(WorkflowDeployment != null)
             {
-                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeploymentAttributes>(global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeploymentAttributes.CreateFromDiscriminatorValue); } },
-                { "id", n => { Id = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
-            };
+                return WorkflowDeployment.GetFieldDeserializers();
+            }
+            else if(WorkflowRelationshipsActiveDeploymentDataMember1 != null)
+            {
+                return WorkflowRelationshipsActiveDeploymentDataMember1.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -75,10 +68,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeploymentAttributes>("attributes", Attributes);
-            writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
+            if(WorkflowDeployment != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowDeployment>(null, WorkflowDeployment);
+            }
+            else if(WorkflowRelationshipsActiveDeploymentDataMember1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeploymentDataMember1>(null, WorkflowRelationshipsActiveDeploymentDataMember1);
+            }
         }
     }
 }

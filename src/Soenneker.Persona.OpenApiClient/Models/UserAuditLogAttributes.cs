@@ -25,10 +25,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>&quot;The GET params of the request. Schema depends on the action taken. Note: For large payloads, the value may appear as [FILTERED] to indicate redaction or truncation.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? GetParams { get; set; }
+        public string? GetParams { get; set; }
 #nullable restore
 #else
-        public UntypedNode GetParams { get; set; }
+        public string GetParams { get; set; }
 #endif
         /// <summary>The impersonatorEmailAddress property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,10 +65,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>&quot;The POST params of the request. Schema depends on the action taken. Note: For large payloads, the value may appear as [FILTERED] to indicate redaction or truncation.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? PostParams { get; set; }
+        public string? PostParams { get; set; }
 #nullable restore
 #else
-        public UntypedNode PostParams { get; set; }
+        public string PostParams { get; set; }
 #endif
         /// <summary>The responseStatus property</summary>
         public int? ResponseStatus { get; set; }
@@ -100,12 +100,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "context", n => { Context = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogAttributesContext>(global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogAttributesContext.CreateFromDiscriminatorValue); } },
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "get-params", n => { GetParams = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "get-params", n => { GetParams = n.GetStringValue(); } },
                 { "impersonator-email-address", n => { ImpersonatorEmailAddress = n.GetStringValue(); } },
                 { "ip-address", n => { IpAddress = n.GetStringValue(); } },
                 { "method", n => { Method = n.GetStringValue(); } },
                 { "path", n => { Path = n.GetStringValue(); } },
-                { "post-params", n => { PostParams = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "post-params", n => { PostParams = n.GetStringValue(); } },
                 { "response-status", n => { ResponseStatus = n.GetIntValue(); } },
                 { "user-agent", n => { UserAgent = n.GetStringValue(); } },
             };
@@ -119,12 +119,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogAttributesContext>("context", Context);
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
-            writer.WriteObjectValue<UntypedNode>("get-params", GetParams);
+            writer.WriteStringValue("get-params", GetParams);
             writer.WriteStringValue("impersonator-email-address", ImpersonatorEmailAddress);
             writer.WriteStringValue("ip-address", IpAddress);
             writer.WriteStringValue("method", Method);
             writer.WriteStringValue("path", Path);
-            writer.WriteObjectValue<UntypedNode>("post-params", PostParams);
+            writer.WriteStringValue("post-params", PostParams);
             writer.WriteIntValue("response-status", ResponseStatus);
             writer.WriteStringValue("user-agent", UserAgent);
         }

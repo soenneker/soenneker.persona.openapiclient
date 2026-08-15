@@ -52,13 +52,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The expirationDate property</summary>
         public Date? ExpirationDate { get; set; }
         /// <summary>Face image extracted from the NFC card, when present. Deprecated in favor of `selfie-photo`.</summary>
-        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage? FaceImage { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesFaceImage? FaceImage { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage FaceImage { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesFaceImage FaceImage { get; set; }
 #endif
         /// <summary>Deprecated in favor of `sex`</summary>
         [Obsolete("")]
@@ -190,7 +189,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created-at-ts", n => { CreatedAtTs = n.GetIntValue(); } },
                 { "expiration-date", n => { ExpirationDate = n.GetDateValue(); } },
-                { "face-image", n => { FaceImage = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage>(global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage.CreateFromDiscriminatorValue); } },
+                { "face-image", n => { FaceImage = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesFaceImage>(global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesFaceImage.CreateFromDiscriminatorValue); } },
                 { "gender", n => { Gender = n.GetStringValue(); } },
                 { "identification-class", n => { IdentificationClass = n.GetStringValue(); } },
                 { "identification-number", n => { IdentificationNumber = n.GetStringValue(); } },
@@ -223,7 +222,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteIntValue("created-at-ts", CreatedAtTs);
             writer.WriteDateValue("expiration-date", ExpirationDate);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2FaceImage>("face-image", FaceImage);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesFaceImage>("face-image", FaceImage);
             writer.WriteStringValue("gender", Gender);
             writer.WriteStringValue("identification-class", IdentificationClass);
             writer.WriteStringValue("identification-number", IdentificationNumber);

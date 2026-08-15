@@ -15,10 +15,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Source-specific structured details about the role</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemRolesItemData? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemRolesItemDataProperty? Data { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemRolesItemData Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemRolesItemDataProperty Data { get; set; }
 #endif
         /// <summary>Human-readable description of the role</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,7 +46,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemRolesItemData>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemRolesItemData.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemRolesItemDataProperty>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemRolesItemDataProperty.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
             };
         }
@@ -57,7 +57,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemRolesItemData>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemRolesItemDataProperty>("data", Data);
             writer.WriteStringValue("description", Description);
         }
     }

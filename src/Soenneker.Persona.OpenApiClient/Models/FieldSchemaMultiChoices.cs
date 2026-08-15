@@ -45,7 +45,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public string Label { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaMultiChoices_type? Type { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -68,7 +74,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "default-value", n => { DefaultValue = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaMultiChoices_type>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -82,7 +88,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("default-value", DefaultValue);
             writer.WriteStringValue("key", Key);
             writer.WriteStringValue("label", Label);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaMultiChoices_type>("type", Type);
+            writer.WriteStringValue("type", Type);
         }
     }
 }

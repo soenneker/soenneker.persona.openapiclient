@@ -72,10 +72,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>QR code attachment returned by SERPRO, if present.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributesAllOf2QrCodeAttachment? QrCodeAttachment { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributesQrCodeAttachment? QrCodeAttachment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributesAllOf2QrCodeAttachment QrCodeAttachment { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributesQrCodeAttachment QrCodeAttachment { get; set; }
 #endif
         /// <summary>The time the verification was redacted in ISO 8601 format</summary>
         public DateTimeOffset? RedactedAt { get; set; }
@@ -164,7 +164,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "identification-number", n => { IdentificationNumber = n.GetStringValue(); } },
                 { "issue-date", n => { IssueDate = n.GetDateValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "qr-code-attachment", n => { QrCodeAttachment = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributesAllOf2QrCodeAttachment>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributesAllOf2QrCodeAttachment.CreateFromDiscriminatorValue); } },
+                { "qr-code-attachment", n => { QrCodeAttachment = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributesQrCodeAttachment>(global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributesQrCodeAttachment.CreateFromDiscriminatorValue); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
                 { "selfie-compare-image-url", n => { SelfieCompareImageUrl = n.GetStringValue(); } },
                 { "selfie-comparison-error-code", n => { SelfieComparisonErrorCode = n.GetStringValue(); } },
@@ -196,7 +196,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("identification-number", IdentificationNumber);
             writer.WriteDateValue("issue-date", IssueDate);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributesAllOf2QrCodeAttachment>("qr-code-attachment", QrCodeAttachment);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationDigitalIdSerproAttributesQrCodeAttachment>("qr-code-attachment", QrCodeAttachment);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
             writer.WriteStringValue("selfie-compare-image-url", SelfieCompareImageUrl);
             writer.WriteStringValue("selfie-comparison-error-code", SelfieComparisonErrorCode);

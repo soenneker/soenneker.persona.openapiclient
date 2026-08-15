@@ -13,7 +13,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>Omit relationship linkages from webhook payload objects.</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlistIncludeNone_state? State { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? State { get; set; }
+#nullable restore
+#else
+        public string State { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -32,7 +38,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlistIncludeNone_state>(); } },
+                { "state", n => { State = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -42,7 +48,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlistIncludeNone_state>("state", State);
+            writer.WriteStringValue("state", State);
         }
     }
 }

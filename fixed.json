@@ -41293,6 +41293,9 @@
               "string"
             ],
             "description": "Extracted sex designation from the scanned card."
+          },
+          "vehicle-classes": {
+            "$ref": "#/components/schemas/VerificationJpMyNumberNfcScanAttributesVehicleClasses"
           }
         }
       },
@@ -48758,6 +48761,9 @@
               "string"
             ],
             "description": "Extracted sex designation from the scanned card."
+          },
+          "vehicle-classes": {
+            "$ref": "#/components/schemas/VerificationJpMyNumberNfcScanAttributesAllOf2VehicleClassesProperty"
           }
         }
       },
@@ -54992,6 +54998,26 @@
         },
         "description": "Portrait photo of the bearer extracted from the NFC card, when present."
       },
+      "VerificationJpMyNumberNfcScanAttributesAllOf2VehicleClasses": {
+        "examples": [
+          {
+            "semi-mid-sized": {
+              "acquisition-date": "2023-11-22"
+            },
+            "other": {
+              "acquisition-date": "2023-11-22"
+            }
+          }
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VerificationJpMyNumberNfcScanAttributesAllOf2VehicleClassesAdditionalProperties"
+        },
+        "description": "Vehicle classes the bearer is licensed for, extracted from a scanned driver\u0027s license."
+      },
       "ReportAddressLookupRequestAttributesAllOf2Query": {
         "required": [
           "address-street-1",
@@ -58940,6 +58966,19 @@
             ],
             "type": "string",
             "x-polymorphic": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VerificationJpMyNumberNfcScanAttributesAllOf2VehicleClassesAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "acquisition-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
           }
         },
         "additionalProperties": false
@@ -66959,6 +66998,13 @@
         "type": "object",
         "description": "Face image extracted from the NFC card, when present. Deprecated in favor of \u0060selfie-photo\u0060."
       },
+      "VerificationJpMyNumberNfcScanAttributesVehicleClasses": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VerificationJpMyNumberNfcScanAttributesAllOf2VehicleClassesAdditionalProperties"
+        },
+        "description": "Vehicle classes the bearer is licensed for, extracted from a scanned driver\u0027s license."
+      },
       "FieldSchemaJsonConfigAllOf2JsonSchemaProperty": {
         "type": "object",
         "description": "A JSON Schema document (Draft 7 syntax) describing the shape of values\nstored in this field. Synthesized server-side by some verification\ntypes (e.g. \u0060government-id\u0060 writes a map of national identification\nnumbers); the schema is informational and may evolve without a\nversioned update."
@@ -66981,6 +67027,13 @@
       "VerificationJpMyNumberNfcScanAttributesAllOf2FaceImageProperty": {
         "type": "object",
         "description": "Face image extracted from the NFC card, when present. Deprecated in favor of \u0060selfie-photo\u0060."
+      },
+      "VerificationJpMyNumberNfcScanAttributesAllOf2VehicleClassesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VerificationJpMyNumberNfcScanAttributesAllOf2VehicleClassesAdditionalProperties"
+        },
+        "description": "Vehicle classes the bearer is licensed for, extracted from a scanned driver\u0027s license."
       },
       "TransactionAttributesFieldsProperty": {
         "type": "object",

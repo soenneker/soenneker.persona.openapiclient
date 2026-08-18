@@ -155,6 +155,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<string> Tags { get; set; }
 #endif
+        /// <summary>Vehicle classes the bearer is licensed for, extracted from a scanned driver&apos;s license.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesVehicleClasses? VehicleClasses { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesVehicleClasses VehicleClasses { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributes"/> and sets the default values.
         /// </summary>
@@ -204,6 +212,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "submitted-at", n => { SubmittedAt = n.GetDateTimeOffsetValue(); } },
                 { "submitted-at-ts", n => { SubmittedAtTs = n.GetIntValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "vehicle-classes", n => { VehicleClasses = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesVehicleClasses>(global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesVehicleClasses.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -237,6 +246,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("submitted-at", SubmittedAt);
             writer.WriteIntValue("submitted-at-ts", SubmittedAtTs);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesVehicleClasses>("vehicle-classes", VehicleClasses);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

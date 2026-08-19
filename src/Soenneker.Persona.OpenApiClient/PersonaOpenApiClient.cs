@@ -39,6 +39,7 @@ using Soenneker.Persona.OpenApiClient.Verification;
 using Soenneker.Persona.OpenApiClient.Verifications;
 using Soenneker.Persona.OpenApiClient.Webhooks;
 using Soenneker.Persona.OpenApiClient.WorkflowRuns;
+using Soenneker.Persona.OpenApiClient.WorkflowVersions;
 using Soenneker.Persona.OpenApiClient.Workflows;
 using System.Collections.Generic;
 using System.IO;
@@ -221,6 +222,11 @@ namespace Soenneker.Persona.OpenApiClient
         public global::Soenneker.Persona.OpenApiClient.Workflows.WorkflowsRequestBuilder Workflows
         {
             get => new global::Soenneker.Persona.OpenApiClient.Workflows.WorkflowsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The workflowVersions property</summary>
+        public global::Soenneker.Persona.OpenApiClient.WorkflowVersions.WorkflowVersionsRequestBuilder WorkflowVersions
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.WorkflowVersions.WorkflowVersionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.PersonaOpenApiClient"/> and sets the default values.

@@ -14,7 +14,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     {
         /// <summary>The createdAt property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>The description property</summary>
+        /// <summary>A description of the changes in this version. Draft versions have no description until one is set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }
@@ -22,6 +22,44 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>The values a run of this version accepts when it is started.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersionAttributesInputsItem>? Inputs { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersionAttributesInputsItem> Inputs { get; set; }
+#endif
+        /// <summary>The email address of the User who last updated this version. Null when the version was last updated by Persona rather than by a member of your organization.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LastUpdater { get; set; }
+#nullable restore
+#else
+        public string LastUpdater { get; set; }
+#endif
+        /// <summary>Whether this version is running in the environment of the requesting API key or delivering webhook. While a Workflow is being rolled out, two versions are live at once; both report true. Always false while the Workflow itself is paused or archived.</summary>
+        public bool? Live { get; set; }
+        /// <summary>The values a completed run of this version returns.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersionAttributesOutputsItem>? Outputs { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersionAttributesOutputsItem> Outputs { get; set; }
+#endif
+        /// <summary>The publishedAt property</summary>
+        public DateTimeOffset? PublishedAt { get; set; }
+        /// <summary>Which side of a rollout this version serves. Null when the version is not live —including while the Workflow is paused or archived — and for organizations whosedeployments do not model a per-version traffic share.Possible values:- treatment- controlDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RolloutLabel { get; set; }
+#nullable restore
+#else
+        public string RolloutLabel { get; set; }
+#endif
+        /// <summary>The share of traffic this version receives in the environment of the requesting API key or delivering webhook. Null when the version is not live — including while the Workflow is paused or archived — and for organizations whose deployments do not model a per-version traffic share.</summary>
+        public int? RolloutPercentage { get; set; }
         /// <summary>The status of the Workflow VersionPossible values:- draft- published- archivedDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,6 +67,24 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public string Status { get; set; }
+#endif
+        /// <summary>What starts a run of this version. Null until a trigger is attached.Possible values:- trigger-account- trigger-api- trigger-case- trigger-direct- trigger-event- trigger-recurring- trigger-schedule- trigger-verificationDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TriggerType { get; set; }
+#nullable restore
+#else
+        public string TriggerType { get; set; }
+#endif
+        /// <summary>When this version was last edited. Does not cover edits to `inputs` or `outputs`; poll those values directly rather than this timestamp to detect input-contract changes.</summary>
+        public DateTimeOffset? UpdatedAt { get; set; }
+        /// <summary>The name of the Workflow this version belongs to.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WorkflowName { get; set; }
+#nullable restore
+#else
+        public string WorkflowName { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,7 +106,17 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "inputs", n => { Inputs = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersionAttributesInputsItem>(global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersionAttributesInputsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "last-updater", n => { LastUpdater = n.GetStringValue(); } },
+                { "live", n => { Live = n.GetBoolValue(); } },
+                { "outputs", n => { Outputs = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersionAttributesOutputsItem>(global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersionAttributesOutputsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "published-at", n => { PublishedAt = n.GetDateTimeOffsetValue(); } },
+                { "rollout-label", n => { RolloutLabel = n.GetStringValue(); } },
+                { "rollout-percentage", n => { RolloutPercentage = n.GetIntValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
+                { "trigger-type", n => { TriggerType = n.GetStringValue(); } },
+                { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "workflow-name", n => { WorkflowName = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -62,7 +128,17 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteStringValue("description", Description);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersionAttributesInputsItem>("inputs", Inputs);
+            writer.WriteStringValue("last-updater", LastUpdater);
+            writer.WriteBoolValue("live", Live);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersionAttributesOutputsItem>("outputs", Outputs);
+            writer.WriteDateTimeOffsetValue("published-at", PublishedAt);
+            writer.WriteStringValue("rollout-label", RolloutLabel);
+            writer.WriteIntValue("rollout-percentage", RolloutPercentage);
             writer.WriteStringValue("status", Status);
+            writer.WriteStringValue("trigger-type", TriggerType);
+            writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);
+            writer.WriteStringValue("workflow-name", WorkflowName);
         }
     }
 }

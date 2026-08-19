@@ -154,6 +154,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Nationality { get; set; }
 #endif
+        /// <summary>The portrait photo extracted from the mobile document credential.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationMdocAttributesAllOf2PortraitPhoto? PortraitPhoto { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationMdocAttributesAllOf2PortraitPhoto PortraitPhoto { get; set; }
+#endif
         /// <summary>The time the verification was redacted in ISO 8601 format</summary>
         public DateTimeOffset? RedactedAt { get; set; }
         /// <summary>The status of the verificationPossible values:- initiated- submitted- tentatively_passed (only for `verification/document` and `verification/qes-infocert`)- tentatively_failed (only for `verification/database-business` and `verification/database-business-footprint`)- passed- failed- requires_retry- skipped- canceled- confirmed (only for `verification/email-address` and `verification/phone-number`)Do not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
@@ -231,6 +239,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "name-first", n => { NameFirst = n.GetStringValue(); } },
                 { "name-last", n => { NameLast = n.GetStringValue(); } },
                 { "nationality", n => { Nationality = n.GetStringValue(); } },
+                { "portrait-photo", n => { PortraitPhoto = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationMdocAttributesAllOf2PortraitPhoto>(global::Soenneker.Persona.OpenApiClient.Models.VerificationMdocAttributesAllOf2PortraitPhoto.CreateFromDiscriminatorValue); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "submitted-at", n => { SubmittedAt = n.GetDateTimeOffsetValue(); } },
@@ -268,6 +277,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("name-first", NameFirst);
             writer.WriteStringValue("name-last", NameLast);
             writer.WriteStringValue("nationality", Nationality);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationMdocAttributesAllOf2PortraitPhoto>("portrait-photo", PortraitPhoto);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("submitted-at", SubmittedAt);

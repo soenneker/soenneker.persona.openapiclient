@@ -24931,6 +24931,120 @@
           }
         }
       }
+    },
+    "/workflow-versions": {
+      "get": {
+        "tags": [
+          "Workflows"
+        ],
+        "summary": "List all Workflow Versions",
+        "description": "Retrieves the published versions and current draft version of a Workflow. Archived versions are not returned.\n\nProvide the Workflow ID in \u0060filter[workflow-id]\u0060, which you can copy from the Workflow in your Persona dashboard. The \u0060live\u0060, \u0060rollout-label\u0060, and \u0060rollout-percentage\u0060 attributes are relative to the environment your API key belongs to: a version live in Production is not live in Sandbox. Sandbox API keys are supported, and report \u0060live: false\u0060 for every version of a Workflow that is only deployed to Production.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/workflow-versions/list-all-workflow-versions"
+        },
+        "operationId": "ListAllWorkflowVersions",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-query-params"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": true,
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "required": [
+                "workflow-id"
+              ],
+              "type": "object",
+              "properties": {
+                "workflow-id": {
+                  "examples": [
+                    "wfl_3VghhbvDc7UuUNT8uZrqZjsk"
+                  ],
+                  "type": "string",
+                  "description": "The Workflow ID to list versions for."
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a collection of Workflow Version objects.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAllWorkflowVersions200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/workflow-version-list"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -41547,6 +41661,9 @@
               "string"
             ],
             "description": "The trusted organization that issued the document credentials."
+          },
+          "portrait-photo": {
+            "$ref": "#/components/schemas/VerificationMdocAttributesAllOf2PortraitPhoto"
           }
         }
       },
@@ -48934,6 +49051,9 @@
               "string"
             ],
             "description": "The trusted organization that issued the document credentials."
+          },
+          "portrait-photo": {
+            "$ref": "#/components/schemas/VerificationMdocAttributesAllOf2PortraitPhoto"
           }
         }
       },
@@ -52899,18 +53019,119 @@
       "WorkflowVersionAttributes": {
         "type": "object",
         "properties": {
+          "workflow-name": {
+            "examples": [
+              "KYC Review Workflow"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The name of the Workflow this version belongs to."
+          },
           "description": {
-            "type": "string"
+            "examples": [
+              "Add manual review escalation"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "A description of the changes in this version. Draft versions have no description until one is set."
           },
           "status": {
+            "examples": [
+              "published"
+            ],
             "type": "string",
             "description": "The status of the Workflow Version\n\nPossible values:\n- draft\n- published\n- archived\n\nDo not assume this is a static enumeration; Persona may add new\nvalues in the future without a versioned update."
+          },
+          "trigger-type": {
+            "examples": [
+              "trigger-api"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "What starts a run of this version. Null until a trigger is attached.\n\nPossible values:\n- trigger-account\n- trigger-api\n- trigger-case\n- trigger-direct\n- trigger-event\n- trigger-recurring\n- trigger-schedule\n- trigger-verification\n\nDo not assume this is a static enumeration; Persona may add new\nvalues in the future without a versioned update."
+          },
+          "live": {
+            "examples": [
+              true
+            ],
+            "type": "boolean",
+            "description": "Whether this version is running in the environment of the requesting API key or delivering webhook. While a Workflow is being rolled out, two versions are live at once; both report true. Always false while the Workflow itself is paused or archived."
+          },
+          "rollout-label": {
+            "examples": [
+              "treatment"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Which side of a rollout this version serves. Null when the version is not live \u2014\nincluding while the Workflow is paused or archived \u2014 and for organizations whose\ndeployments do not model a per-version traffic share.\n\nPossible values:\n- treatment\n- control\n\nDo not assume this is a static enumeration; Persona may add new\nvalues in the future without a versioned update."
+          },
+          "rollout-percentage": {
+            "examples": [
+              100
+            ],
+            "maximum": 100,
+            "minimum": 1,
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The share of traffic this version receives in the environment of the requesting API key or delivering webhook. Null when the version is not live \u2014 including while the Workflow is paused or archived \u2014 and for organizations whose deployments do not model a per-version traffic share."
+          },
+          "last-updater": {
+            "examples": [
+              "taylor@example.com"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The email address of the User who last updated this version. Null when the version was last updated by Persona rather than by a member of your organization."
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkflowVersionAttributesInputsItem"
+            },
+            "description": "The values a run of this version accepts when it is started."
+          },
+          "outputs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkflowVersionAttributesOutputsItem"
+            },
+            "description": "The values a completed run of this version returns."
           },
           "created-at": {
             "examples": [
               "2022-08-08T18:55:44.910Z"
             ],
             "type": "string",
+            "format": "date-time"
+          },
+          "updated-at": {
+            "examples": [
+              "2022-08-09T17:12:03.221Z"
+            ],
+            "type": "string",
+            "description": "When this version was last edited. Does not cover edits to \u0060inputs\u0060 or \u0060outputs\u0060; poll those values directly rather than this timestamp to detect input-contract changes.",
+            "format": "date-time"
+          },
+          "published-at": {
+            "examples": [
+              "2022-08-09T17:12:03.221Z"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
             "format": "date-time"
           }
         },
@@ -55017,6 +55238,28 @@
           "$ref": "#/components/schemas/VerificationJpMyNumberNfcScanAttributesAllOf2VehicleClassesAdditionalProperties"
         },
         "description": "Vehicle classes the bearer is licensed for, extracted from a scanned driver\u0027s license."
+      },
+      "VerificationMdocAttributesAllOf2PortraitPhoto": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "byte-size": {
+            "examples": [
+              316802
+            ],
+            "type": "integer",
+            "default": 0
+          },
+          "url": {
+            "examples": [
+              "https://files.withpersona.com/..."
+            ],
+            "type": "string"
+          }
+        },
+        "description": "The portrait photo extracted from the mobile document credential."
       },
       "ReportAddressLookupRequestAttributesAllOf2Query": {
         "required": [
@@ -57533,6 +57776,49 @@
           "null",
           "object"
         ]
+      },
+      "WorkflowVersionAttributesInputsItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "examples": [
+              "account_id"
+            ],
+            "type": "string"
+          },
+          "type": {
+            "examples": [
+              "string"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The JSON type accepted for this input."
+          },
+          "required": {
+            "examples": [
+              true
+            ],
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WorkflowVersionAttributesOutputsItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "examples": [
+              "risk_score"
+            ],
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
       },
       "WorkflowVersionRelationshipsWorkflow": {
         "type": "object",
@@ -64318,6 +64604,26 @@
         },
         "additionalProperties": false
       },
+      "ListAllWorkflowVersions200Response": {
+        "required": [
+          "data",
+          "links"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkflowVersion"
+            },
+            "description": "An array of Workflow Versions"
+          },
+          "links": {
+            "$ref": "#/components/schemas/ListAllWorkflowVersions200ResponseLinks"
+          }
+        },
+        "additionalProperties": false
+      },
       "WebhookAccountCreatedRequest": {
         "type": "object",
         "properties": {
@@ -69343,6 +69649,28 @@
             ]
           },
           "prev": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListAllWorkflowVersions200ResponseLinks": {
+        "required": [
+          "prev",
+          "next"
+        ],
+        "type": "object",
+        "properties": {
+          "prev": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "next": {
             "type": [
               "null",
               "string"
@@ -90977,6 +91305,127 @@
           }
         }
       },
+      "workflow-version-list": {
+        "value": {
+          "data": [
+            {
+              "type": "workflow-version",
+              "id": "wfv_DRAFT123",
+              "attributes": {
+                "workflow-name": "KYC Review Workflow",
+                "description": null,
+                "status": "draft",
+                "trigger-type": "trigger-api",
+                "live": false,
+                "rollout-label": null,
+                "rollout-percentage": null,
+                "last-updater": "taylor@example.com",
+                "inputs": [
+                  {
+                    "name": "account_id",
+                    "type": "string",
+                    "required": true
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "risk_score"
+                  }
+                ],
+                "created-at": "2026-03-27T18:29:41.000Z",
+                "updated-at": "2026-03-27T18:31:05.000Z",
+                "published-at": null
+              },
+              "relationships": {
+                "workflow": {
+                  "data": {
+                    "type": "workflow",
+                    "id": "wfl_3VghhbvDc7UuUNT8uZrqZjsk"
+                  }
+                }
+              }
+            },
+            {
+              "type": "workflow-version",
+              "id": "wfv_TREATMENT123",
+              "attributes": {
+                "workflow-name": "KYC Review Workflow",
+                "description": "Add manual review escalation",
+                "status": "published",
+                "trigger-type": "trigger-api",
+                "live": true,
+                "rollout-label": "treatment",
+                "rollout-percentage": 25,
+                "last-updater": "alex@example.com",
+                "inputs": [
+                  {
+                    "name": "account_id",
+                    "type": "string",
+                    "required": true
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "risk_score"
+                  }
+                ],
+                "created-at": "2026-03-26T18:22:59.828Z",
+                "updated-at": "2026-03-26T18:29:41.000Z",
+                "published-at": "2026-03-26T18:29:41.000Z"
+              },
+              "relationships": {
+                "workflow": {
+                  "data": {
+                    "type": "workflow",
+                    "id": "wfl_3VghhbvDc7UuUNT8uZrqZjsk"
+                  }
+                }
+              }
+            },
+            {
+              "type": "workflow-version",
+              "id": "wfv_CONTROL123",
+              "attributes": {
+                "workflow-name": "KYC Review Workflow",
+                "description": "Initial published version",
+                "status": "published",
+                "trigger-type": "trigger-api",
+                "live": true,
+                "rollout-label": "control",
+                "rollout-percentage": 75,
+                "last-updater": null,
+                "inputs": [
+                  {
+                    "name": "account_id",
+                    "type": "string",
+                    "required": true
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "risk_score"
+                  }
+                ],
+                "created-at": "2026-03-20T18:22:59.828Z",
+                "updated-at": "2026-03-20T18:29:41.000Z",
+                "published-at": "2026-03-20T18:29:41.000Z"
+              },
+              "relationships": {
+                "workflow": {
+                  "data": {
+                    "type": "workflow",
+                    "id": "wfl_3VghhbvDc7UuUNT8uZrqZjsk"
+                  }
+                }
+              }
+            }
+          ],
+          "links": {
+            "prev": null,
+            "next": null
+          }
+        }
+      },
       "account-created-webhook-body": {
         "value": {
           "data": {
@@ -105605,9 +106054,19 @@
                     "type": "workflow-version",
                     "id": "wfv_2mmawjLXMzWs91uz9oKhp4Wy",
                     "attributes": {
+                      "workflow-name": "KYC Review Workflow",
                       "description": "Initial published version",
                       "status": "published",
-                      "created-at": "2023-11-01T12:05:00.000Z"
+                      "trigger-type": "trigger-event",
+                      "live": true,
+                      "rollout-label": "treatment",
+                      "rollout-percentage": 100,
+                      "last-updater": null,
+                      "inputs": [],
+                      "outputs": [],
+                      "created-at": "2023-11-01T12:05:00.000Z",
+                      "updated-at": "2023-11-01T12:05:00.000Z",
+                      "published-at": "2023-11-01T12:05:00.000Z"
                     },
                     "relationships": {
                       "workflow": {
@@ -105705,9 +106164,19 @@
                     "type": "workflow-version",
                     "id": "wfv_744igEoBXwB7UG2eFt994aUEcziK",
                     "attributes": {
+                      "workflow-name": "KYC Review Workflow",
                       "description": "Initial published version",
                       "status": "published",
-                      "created-at": "2023-11-01T12:05:00.000Z"
+                      "trigger-type": "trigger-event",
+                      "live": true,
+                      "rollout-label": "treatment",
+                      "rollout-percentage": 100,
+                      "last-updater": null,
+                      "inputs": [],
+                      "outputs": [],
+                      "created-at": "2023-11-01T12:05:00.000Z",
+                      "updated-at": "2023-11-01T12:05:00.000Z",
+                      "published-at": "2023-11-01T12:05:00.000Z"
                     },
                     "relationships": {
                       "workflow": {
@@ -105805,9 +106274,19 @@
                     "type": "workflow-version",
                     "id": "wfv_744igEoBXwB7UG2eFt994aUEcziK",
                     "attributes": {
+                      "workflow-name": "KYC Review Workflow",
                       "description": "Initial published version",
                       "status": "published",
-                      "created-at": "2023-11-01T12:05:00.000Z"
+                      "trigger-type": "trigger-event",
+                      "live": true,
+                      "rollout-label": "treatment",
+                      "rollout-percentage": 100,
+                      "last-updater": null,
+                      "inputs": [],
+                      "outputs": [],
+                      "created-at": "2023-11-01T12:05:00.000Z",
+                      "updated-at": "2023-11-01T12:05:00.000Z",
+                      "published-at": "2023-11-01T12:05:00.000Z"
                     },
                     "relationships": {
                       "workflow": {

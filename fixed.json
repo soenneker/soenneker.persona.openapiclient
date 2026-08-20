@@ -19481,6 +19481,591 @@
         }
       }
     },
+    "/theme-sets": {
+      "get": {
+        "tags": [
+          "Theme Sets"
+        ],
+        "summary": "List all Theme Sets",
+        "description": "Returns a list of your organization\u0027s theme sets. Results are returned in reverse chronological order, with the most recently created objects first.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/theme-sets/list-all-theme-sets"
+        },
+        "operationId": "ListAllThemeSets",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-query-params"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "filter[status]",
+            "in": "query",
+            "description": "Filter theme sets by status \u2014 one of \u0022active\u0022 or \u0022archived\u0022.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a collection of Theme Set objects.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAllThemeSets200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "value": {
+                      "data": [
+                        {
+                          "type": "theme-set",
+                          "id": "theset_ABC123",
+                          "attributes": {
+                            "name": "Brand Default",
+                            "status": "active",
+                            "styles": {
+                              "settings": {
+                                "use-dark-theme": false,
+                                "preferred-theme-variant": "light"
+                              },
+                              "light": {
+                                "inquiry": {
+                                  "primary-color": {
+                                    "unit": "hex",
+                                    "value": "#111111"
+                                  }
+                                },
+                                "components": {
+                                  "button": {
+                                    "primary": {
+                                      "base": {
+                                        "background-color": {
+                                          "unit": "hex",
+                                          "value": "#111111"
+                                        },
+                                        "text-color": {
+                                          "unit": "hex",
+                                          "value": "#FFFFFF"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "created-at": "2026-01-01T00:00:00.000Z",
+                            "updated-at": "2026-01-01T00:00:00.000Z",
+                            "archived-at": null
+                          }
+                        }
+                      ],
+                      "links": {
+                        "prev": null,
+                        "next": null
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Theme Sets"
+        ],
+        "summary": "Create a Theme Set",
+        "description": "Creates a new theme set. The \u0060data\u0060 attribute carries the nested theme tree (\u0060settings\u0060 / \u0060light\u0060 / \u0060dark\u0060) \u2014 the same shape as the Code-First theme-set YAML. Style cells that are not supported are ignored.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/theme-sets/create-a-theme-set"
+        },
+        "operationId": "CreateAThemeSet",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAThemeSetRequest"
+              },
+              "examples": {
+                "Created": {
+                  "value": {
+                    "data": {
+                      "attributes": {
+                        "name": "Brand Default",
+                        "styles": {
+                          "settings": {
+                            "use-dark-theme": false,
+                            "preferred-theme-variant": "light"
+                          },
+                          "light": {
+                            "inquiry": {
+                              "primary-color": {
+                                "unit": "hex",
+                                "value": "#111111"
+                              }
+                            },
+                            "components": {
+                              "button": {
+                                "primary": {
+                                  "base": {
+                                    "background-color": {
+                                      "unit": "hex",
+                                      "value": "#111111"
+                                    },
+                                    "text-color": {
+                                      "unit": "hex",
+                                      "value": "#FFFFFF"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "This endpoint returns a Theme Set object.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateAThemeSet201Response"
+                },
+                "examples": {
+                  "Created": {
+                    "value": {
+                      "data": {
+                        "type": "theme-set",
+                        "id": "theset_ABC123",
+                        "attributes": {
+                          "name": "Brand Default",
+                          "status": "active",
+                          "styles": {
+                            "settings": {
+                              "use-dark-theme": false,
+                              "preferred-theme-variant": "light"
+                            },
+                            "light": {
+                              "inquiry": {
+                                "primary-color": {
+                                  "unit": "hex",
+                                  "value": "#111111"
+                                }
+                              },
+                              "components": {
+                                "button": {
+                                  "primary": {
+                                    "base": {
+                                      "background-color": {
+                                        "unit": "hex",
+                                        "value": "#111111"
+                                      },
+                                      "text-color": {
+                                        "unit": "hex",
+                                        "value": "#FFFFFF"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "created-at": "2026-01-01T00:00:00.000Z",
+                          "updated-at": "2026-01-01T00:00:00.000Z",
+                          "archived-at": null
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "409": {
+            "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
+    "/theme-sets/{themeSetId}": {
+      "get": {
+        "tags": [
+          "Theme Sets"
+        ],
+        "summary": "Retrieve a Theme Set",
+        "description": "Retrieves the details of an existing theme set.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/theme-sets/retrieve-a-theme-set"
+        },
+        "operationId": "RetrieveAThemeSet",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "themeSetId",
+            "in": "path",
+            "description": "Theme Set\u0027s ID (starts with \u0022theset_\u0022)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Theme Set object.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetrieveAThemeSet200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "value": {
+                      "data": {
+                        "type": "theme-set",
+                        "id": "theset_ABC123",
+                        "attributes": {
+                          "name": "Brand Default",
+                          "status": "active",
+                          "styles": {
+                            "settings": {
+                              "use-dark-theme": false,
+                              "preferred-theme-variant": "light"
+                            },
+                            "light": {
+                              "inquiry": {
+                                "primary-color": {
+                                  "unit": "hex",
+                                  "value": "#111111"
+                                }
+                              },
+                              "components": {
+                                "button": {
+                                  "primary": {
+                                    "base": {
+                                      "background-color": {
+                                        "unit": "hex",
+                                        "value": "#111111"
+                                      },
+                                      "text-color": {
+                                        "unit": "hex",
+                                        "value": "#FFFFFF"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "created-at": "2026-01-01T00:00:00.000Z",
+                          "updated-at": "2026-01-01T00:00:00.000Z",
+                          "archived-at": null
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Theme Sets"
+        ],
+        "summary": "Archive a Theme Set",
+        "description": "Archive an existing theme set. Archived theme sets are still retrievable, but can no longer be assigned to inquiry templates.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/theme-sets/archive-a-theme-set"
+        },
+        "operationId": "ArchiveAThemeSet",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "themeSetId",
+            "in": "path",
+            "description": "ID of the theme set to archive",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Theme Set object.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArchiveAThemeSet200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "value": {
+                      "data": {
+                        "type": "theme-set",
+                        "id": "theset_ABC123",
+                        "attributes": {
+                          "name": "Brand Default",
+                          "status": "archived",
+                          "styles": {
+                            "settings": {
+                              "use-dark-theme": false,
+                              "preferred-theme-variant": "light"
+                            }
+                          },
+                          "created-at": "2026-01-01T00:00:00.000Z",
+                          "updated-at": "2026-01-01T00:00:00.000Z",
+                          "archived-at": "2026-01-02T00:00:00.000Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
     "/transactions": {
       "post": {
         "tags": [
@@ -30680,6 +31265,57 @@
           "$ref": "#/components/schemas/ReportHistoryItem"
         },
         "description": "The history of runs and actions for a report"
+      },
+      "ThemeSetVariant": {
+        "type": "object",
+        "properties": {
+          "inquiry": {
+            "$ref": "#/components/schemas/ThemeSetVariantInquiryProperty"
+          },
+          "components": {
+            "$ref": "#/components/schemas/ThemeSetVariantComponentsProperty"
+          },
+          "step-assets": {
+            "$ref": "#/components/schemas/ThemeSetVariantStepAssetsProperty"
+          }
+        },
+        "description": "One theme variant: \u0060inquiry\u0060 holds flow chrome (navbar, modal, hosted flow), \u0060components\u0060 holds the per-component style grid (component \u2192 variant \u2192 state \u2192 properties). Value leaves are typed objects such as \u0060{ unit: hex, value: \u0022#111111\u0022 }\u0060 (color), \u0060{ unit: px, value: 16 }\u0060 (size), \u0060{ x: ..., y: ... }\u0060 (dimensions) and \u0060{ bitmask: 15 }\u0060 (corner mask). The accepted cells are exactly those of the Code-First theme-set YAML shape."
+      },
+      "ThemeSetStyles": {
+        "type": "object",
+        "properties": {
+          "settings": {
+            "$ref": "#/components/schemas/ThemeSetStylesSettings"
+          },
+          "light": {
+            "$ref": "#/components/schemas/ThemeSetVariant"
+          },
+          "dark": {
+            "$ref": "#/components/schemas/ThemeSetVariant"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Nested theme tree. Sparse \u2014 any omitted cell falls back to the Persona default cascade. \u0060dark\u0060 mirrors the structure of \u0060light\u0060 and is fully optional."
+      },
+      "ThemeSet": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ThemeSetType"
+          },
+          "id": {
+            "examples": [
+              "theset_ABC123"
+            ],
+            "type": "string",
+            "description": "Unique identifier of the theme set (starts with \u0022theset_\u0022)."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ThemeSetAttributes"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Theme Set object"
       },
       "TransactionLabel": {
         "type": "object",
@@ -52633,6 +53269,80 @@
         },
         "additionalProperties": false
       },
+      "ThemeSetVariantInquiry": {
+        "type": "object"
+      },
+      "ThemeSetVariantComponents": {
+        "type": "object"
+      },
+      "ThemeSetVariantStepAssets": {
+        "type": "object"
+      },
+      "ThemeSetStylesSettings": {
+        "type": "object",
+        "properties": {
+          "use-dark-theme": {
+            "type": "boolean",
+            "description": "Whether the dark variant is served to devices that prefer dark mode."
+          },
+          "preferred-theme-variant": {
+            "examples": [
+              "light"
+            ],
+            "type": "string",
+            "description": "Variant served when no device preference applies \u2014 one of \u0022light\u0022 or \u0022dark\u0022."
+          }
+        },
+        "additionalProperties": false
+      },
+      "ThemeSetAttributes": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "examples": [
+              "Brand Default"
+            ],
+            "type": "string",
+            "description": "Display name of the theme set."
+          },
+          "status": {
+            "examples": [
+              "active"
+            ],
+            "type": "string",
+            "description": "Lifecycle status \u2014 one of \u0022active\u0022 or \u0022archived\u0022. Archived theme sets are retained but no longer editable."
+          },
+          "styles": {
+            "$ref": "#/components/schemas/ThemeSetStyles"
+          },
+          "created-at": {
+            "examples": [
+              "2026-01-01T00:00:00.000Z"
+            ],
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated-at": {
+            "examples": [
+              "2026-01-01T00:00:00.000Z"
+            ],
+            "type": "string",
+            "format": "date-time"
+          },
+          "archived-at": {
+            "examples": [
+              "2026-01-01T00:00:00.000Z"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Set when the theme set is archived.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "TransactionLabelAttributes": {
         "type": "object",
         "properties": {
@@ -64112,6 +64822,38 @@
         },
         "additionalProperties": false
       },
+      "ListAllThemeSets200Response": {
+        "required": [
+          "data",
+          "links"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ThemeSet"
+            },
+            "description": "An array of Theme Sets"
+          },
+          "links": {
+            "$ref": "#/components/schemas/ListAllThemeSets200ResponseLinks"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateAThemeSetRequest": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CreateAThemeSetRequestData"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateATransactionRequest": {
         "type": "object",
         "properties": {
@@ -66494,6 +67236,42 @@
         "type": "string",
         "format": "binary"
       },
+      "CreateAThemeSet201Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ThemeSet"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RetrieveAThemeSet200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ThemeSet"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ArchiveAThemeSet200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ThemeSet"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateATransaction200Response": {
         "required": [
           "data"
@@ -67237,6 +68015,15 @@
       "SourceDataTxnPeekableAttributes": {
         "type": "object",
         "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
+      "ThemeSetVariantInquiryProperty": {
+        "type": "object"
+      },
+      "ThemeSetVariantComponentsProperty": {
+        "type": "object"
+      },
+      "ThemeSetVariantStepAssetsProperty": {
+        "type": "object"
       },
       "FieldSchemaJsonConfigJsonSchema": {
         "type": "object",
@@ -69387,6 +70174,40 @@
               "type": "string",
               "description": "ID of the tag to add to the Report."
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListAllThemeSets200ResponseLinks": {
+        "required": [
+          "next",
+          "prev"
+        ],
+        "type": "object",
+        "properties": {
+          "next": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "prev": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateAThemeSetRequestData": {
+        "required": [
+          "attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "attributes": {
+            "$ref": "#/components/schemas/CreateAThemeSetRequestDataAttributes"
           }
         },
         "additionalProperties": false
@@ -73097,6 +73918,22 @@
           "reason": {
             "type": "string",
             "description": "required"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateAThemeSetRequestDataAttributes": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Display name of the theme set."
+          },
+          "styles": {
+            "$ref": "#/components/schemas/ThemeSetStyles"
           }
         },
         "additionalProperties": false
@@ -80939,6 +81776,23 @@
             {
               "value": "review",
               "name": "Review"
+            }
+          ]
+        }
+      },
+      "ThemeSetType": {
+        "const": null,
+        "enum": [
+          "theme-set"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ThemeSetType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "theme-set",
+              "name": "ThemeSet"
             }
           ]
         }
@@ -106541,6 +107395,10 @@
     {
       "name": "Reports",
       "description": "Interact with Persona Report objects"
+    },
+    {
+      "name": "Theme Sets",
+      "description": "Interact with Persona Theme Set objects"
     },
     {
       "name": "Transactions",

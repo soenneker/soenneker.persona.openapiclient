@@ -32,6 +32,7 @@ using Soenneker.Persona.OpenApiClient.PrivacyPasses;
 using Soenneker.Persona.OpenApiClient.RateLimits;
 using Soenneker.Persona.OpenApiClient.Relays;
 using Soenneker.Persona.OpenApiClient.Reports;
+using Soenneker.Persona.OpenApiClient.ThemeSets;
 using Soenneker.Persona.OpenApiClient.TransactionTypes;
 using Soenneker.Persona.OpenApiClient.Transactions;
 using Soenneker.Persona.OpenApiClient.UserAuditLogs;
@@ -182,6 +183,11 @@ namespace Soenneker.Persona.OpenApiClient
         public global::Soenneker.Persona.OpenApiClient.Reports.ReportsRequestBuilder Reports
         {
             get => new global::Soenneker.Persona.OpenApiClient.Reports.ReportsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The themeSets property</summary>
+        public global::Soenneker.Persona.OpenApiClient.ThemeSets.ThemeSetsRequestBuilder ThemeSets
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.ThemeSets.ThemeSetsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The transactions property</summary>
         public global::Soenneker.Persona.OpenApiClient.Transactions.TransactionsRequestBuilder Transactions

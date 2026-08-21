@@ -8,13 +8,11 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// One theme variant: `inquiry` holds flow chrome (navbar, modal, hosted flow), `components` holds the per-component style grid (component → variant → state → properties). Value leaves are typed objects such as `{ unit: hex, value: &quot;#111111&quot; }` (color), `{ unit: px, value: 16 }` (size), `{ x: ..., y: ... }` (dimensions) and `{ bitmask: 15 }` (corner mask). The accepted cells are exactly those of the Code-First theme-set YAML shape.
+    /// One theme variant: `inquiry` holds flow chrome (navbar, modal, hosted flow), `components` holds the per-component style grid (component → variant → state → properties). Value leaves are typed objects such as `{ unit: hex, value: &quot;#111111&quot; }` (color), `{ unit: px, value: 16 }` (size), `{ x: ..., y: ... }` (dimensions) and `{ bitmask: 15 }` (corner mask). The accepted cells are exactly those of the Code-First theme-set YAML shape; a request containing a non-permitted or mistyped cell at any depth is rejected with a 400 naming each offending path. Values that pass the structural check but cannot be reconciled into the stored theme (for example, shared button properties that disagree between the primary and secondary variants) are rejected with a 422.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class ThemeSetVariant : IAdditionalDataHolder, IParsable
+    public partial class ThemeSetVariant : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The components property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,13 +37,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantStepAssetsProperty StepAssets { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant"/> and sets the default values.
-        /// </summary>
-        public ThemeSetVariant()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -79,7 +70,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantComponentsProperty>("components", Components);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantInquiryProperty>("inquiry", Inquiry);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantStepAssetsProperty>("step-assets", StepAssets);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -77,7 +77,7 @@ namespace Soenneker.Persona.OpenApiClient.ThemeSets
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllThemeSets200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllThemeSets200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new theme set. The `data` attribute carries the nested theme tree (`settings` / `light` / `dark`) — the same shape as the Code-First theme-set YAML. Style cells that are not supported are ignored.
+        /// Creates a new theme set. The `data` attribute carries the nested theme tree (`settings` / `light` / `dark`) — the same shape as the Code-First theme-set YAML. Style cells that are not supported are rejected with a 400 naming each offending path.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/theme-sets/create-a-theme-set" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateAThemeSet201Response"/></returns>
@@ -132,7 +132,7 @@ namespace Soenneker.Persona.OpenApiClient.ThemeSets
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new theme set. The `data` attribute carries the nested theme tree (`settings` / `light` / `dark`) — the same shape as the Code-First theme-set YAML. Style cells that are not supported are ignored.
+        /// Creates a new theme set. The `data` attribute carries the nested theme tree (`settings` / `light` / `dark`) — the same shape as the Code-First theme-set YAML. Style cells that are not supported are rejected with a 400 naming each offending path.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -199,7 +199,7 @@ namespace Soenneker.Persona.OpenApiClient.ThemeSets
 #endif
         }
         /// <summary>
-        /// Creates a new theme set. The `data` attribute carries the nested theme tree (`settings` / `light` / `dark`) — the same shape as the Code-First theme-set YAML. Style cells that are not supported are ignored.
+        /// Creates a new theme set. The `data` attribute carries the nested theme tree (`settings` / `light` / `dark`) — the same shape as the Code-First theme-set YAML. Style cells that are not supported are rejected with a 400 naming each offending path.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ThemeSetsRequestBuilderPostQueryParameters 

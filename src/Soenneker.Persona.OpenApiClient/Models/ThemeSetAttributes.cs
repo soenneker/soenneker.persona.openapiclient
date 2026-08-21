@@ -32,7 +32,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Status { get; set; }
 #endif
-        /// <summary>Nested theme tree. Sparse — any omitted cell falls back to the Persona default cascade. `dark` mirrors the structure of `light` and is fully optional.</summary>
+        /// <summary>Nested theme tree. Sparse — any omitted cell falls back to the Persona default cascade. `dark` mirrors the structure of `light` and is fully optional. Requests carrying non-permitted or mistyped cells at any depth are rejected with a 400 naming each offending path; values that are structurally valid but cannot be reconciled into the stored theme (for example, shared button properties that disagree between the primary and secondary variants) are rejected with a 422.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetStyles? Styles { get; set; }

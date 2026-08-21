@@ -34,7 +34,7 @@ namespace Soenneker.Persona.OpenApiClient.ThemeSets.Item
         {
         }
         /// <summary>
-        /// Archive an existing theme set. Archived theme sets are still retrievable, but can no longer be assigned to inquiry templates.
+        /// Archive an existing theme set. Archived theme sets are still retrievable, but can no longer be assigned to inquiry templates. Archiving also detaches the theme set from any inquiry templates it is assigned to — live flows fall back to default styling. The organization&apos;s default theme set cannot be archived and returns a 409.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/theme-sets/archive-a-theme-set" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ArchiveAThemeSet200Response"/></returns>
@@ -102,7 +102,45 @@ namespace Soenneker.Persona.OpenApiClient.ThemeSets.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAThemeSet200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.RetrieveAThemeSet200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Archive an existing theme set. Archived theme sets are still retrievable, but can no longer be assigned to inquiry templates.
+        /// Updates an existing theme set. Both attributes are optional — an omitted attribute is left unchanged. When `styles` is present it replaces the stored styling wholesale: the tree carries the complete desired styling, and any cell absent from it falls back to the Persona default cascade.
+        /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/theme-sets/update-a-theme-set" />
+        /// </summary>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.UpdateAThemeSet200Response"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse">When receiving a 409 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.UpdateAThemeSet200Response?> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.UpdateAThemeSetRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ThemeSets.Item.WithThemeSetItemRequestBuilder.WithThemeSetItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.UpdateAThemeSet200Response> PatchAsync(global::Soenneker.Persona.OpenApiClient.Models.UpdateAThemeSetRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ThemeSets.Item.WithThemeSetItemRequestBuilder.WithThemeSetItemRequestBuilderPatchQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.UpdateAThemeSet200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.UpdateAThemeSet200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// Archive an existing theme set. Archived theme sets are still retrievable, but can no longer be assigned to inquiry templates. Archiving also detaches the theme set from any inquiry templates it is assigned to — live flows fall back to default styling. The organization&apos;s default theme set cannot be archived and returns a 409.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -140,6 +178,28 @@ namespace Soenneker.Persona.OpenApiClient.ThemeSets.Item
             return requestInfo;
         }
         /// <summary>
+        /// Updates an existing theme set. Both attributes are optional — an omitted attribute is left unchanged. When `styles` is present it replaces the stored styling wholesale: the tree carries the complete desired styling, and any cell absent from it falls back to the Persona default cascade.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.UpdateAThemeSetRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ThemeSets.Item.WithThemeSetItemRequestBuilder.WithThemeSetItemRequestBuilderPatchQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToPatchRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.UpdateAThemeSetRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ThemeSets.Item.WithThemeSetItemRequestBuilder.WithThemeSetItemRequestBuilderPatchQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
+            return requestInfo;
+        }
+        /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.ThemeSets.Item.WithThemeSetItemRequestBuilder"/></returns>
@@ -149,7 +209,7 @@ namespace Soenneker.Persona.OpenApiClient.ThemeSets.Item
             return new global::Soenneker.Persona.OpenApiClient.ThemeSets.Item.WithThemeSetItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Archive an existing theme set. Archived theme sets are still retrievable, but can no longer be assigned to inquiry templates.
+        /// Archive an existing theme set. Archived theme sets are still retrievable, but can no longer be assigned to inquiry templates. Archiving also detaches the theme set from any inquiry templates it is assigned to — live flows fall back to default styling. The organization&apos;s default theme set cannot be archived and returns a 409.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithThemeSetItemRequestBuilderDeleteQueryParameters 
@@ -170,6 +230,23 @@ namespace Soenneker.Persona.OpenApiClient.ThemeSets.Item
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithThemeSetItemRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("fields")]
+            public string? Fields { get; set; }
+#nullable restore
+#else
+            [QueryParameter("fields")]
+            public string Fields { get; set; }
+#endif
+        }
+        /// <summary>
+        /// Updates an existing theme set. Both attributes are optional — an omitted attribute is left unchanged. When `styles` is present it replaces the stored styling wholesale: the tree carries the complete desired styling, and any cell absent from it falls back to the Persona default cascade.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class WithThemeSetItemRequestBuilderPatchQueryParameters 
         {
             /// <summary>Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

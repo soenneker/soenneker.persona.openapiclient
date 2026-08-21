@@ -8,12 +8,12 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Nested theme tree. Sparse — any omitted cell falls back to the Persona default cascade. `dark` mirrors the structure of `light` and is fully optional.
+    /// Nested theme tree. Sparse — any omitted cell falls back to the Persona default cascade. `dark` mirrors the structure of `light` and is fully optional. Requests carrying non-permitted or mistyped cells at any depth are rejected with a 400 naming each offending path; values that are structurally valid but cannot be reconciled into the stored theme (for example, shared button properties that disagree between the primary and secondary variants) are rejected with a 422.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ThemeSetStyles : IParsable
     {
-        /// <summary>One theme variant: `inquiry` holds flow chrome (navbar, modal, hosted flow), `components` holds the per-component style grid (component → variant → state → properties). Value leaves are typed objects such as `{ unit: hex, value: &quot;#111111&quot; }` (color), `{ unit: px, value: 16 }` (size), `{ x: ..., y: ... }` (dimensions) and `{ bitmask: 15 }` (corner mask). The accepted cells are exactly those of the Code-First theme-set YAML shape.</summary>
+        /// <summary>One theme variant: `inquiry` holds flow chrome (navbar, modal, hosted flow), `components` holds the per-component style grid (component → variant → state → properties). Value leaves are typed objects such as `{ unit: hex, value: &quot;#111111&quot; }` (color), `{ unit: px, value: 16 }` (size), `{ x: ..., y: ... }` (dimensions) and `{ bitmask: 15 }` (corner mask). The accepted cells are exactly those of the Code-First theme-set YAML shape; a request containing a non-permitted or mistyped cell at any depth is rejected with a 400 naming each offending path. Values that pass the structural check but cannot be reconciled into the stored theme (for example, shared button properties that disagree between the primary and secondary variants) are rejected with a 422.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant? Dark { get; set; }
@@ -21,7 +21,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant Dark { get; set; }
 #endif
-        /// <summary>One theme variant: `inquiry` holds flow chrome (navbar, modal, hosted flow), `components` holds the per-component style grid (component → variant → state → properties). Value leaves are typed objects such as `{ unit: hex, value: &quot;#111111&quot; }` (color), `{ unit: px, value: 16 }` (size), `{ x: ..., y: ... }` (dimensions) and `{ bitmask: 15 }` (corner mask). The accepted cells are exactly those of the Code-First theme-set YAML shape.</summary>
+        /// <summary>One theme variant: `inquiry` holds flow chrome (navbar, modal, hosted flow), `components` holds the per-component style grid (component → variant → state → properties). Value leaves are typed objects such as `{ unit: hex, value: &quot;#111111&quot; }` (color), `{ unit: px, value: 16 }` (size), `{ x: ..., y: ... }` (dimensions) and `{ bitmask: 15 }` (corner mask). The accepted cells are exactly those of the Code-First theme-set YAML shape; a request containing a non-permitted or mistyped cell at any depth is rejected with a 400 naming each offending path. Values that pass the structural check but cannot be reconciled into the stored theme (for example, shared button properties that disagree between the primary and secondary variants) are rejected with a 422.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant? Light { get; set; }

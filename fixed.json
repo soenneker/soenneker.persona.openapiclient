@@ -26949,6 +26949,31 @@
         },
         "description": "PII-filtered snapshot of a Txn source object. Carries the txn\u0027s filtered scalar attributes\nunder \u0060peekable-attributes\u0060, and the txn\u0027s standard and custom user-space fields under\n\u0060peekable-attributes.fields\u0060.\n"
       },
+      "SourceDataReportWatchlist": {
+        "unevaluatedProperties": false,
+        "title": "Watchlist Report Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataReportWatchlistPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Watchlist report. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nReport subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
       "SourceData": {
         "type": "object",
         "oneOf": [
@@ -26969,6 +26994,9 @@
           },
           {
             "$ref": "#/components/schemas/SourceDataTxn"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataReportWatchlist"
           }
         ],
         "properties": {
@@ -26999,12 +27027,14 @@
             "connect/source-data/verification/email-address": "#/components/schemas/SourceDataVerificationEmailAddress",
             "connect/source-data/account": "#/components/schemas/SourceDataAccount",
             "connect/source-data/txn": "#/components/schemas/SourceDataTxn",
+            "connect/source-data/report/watchlist": "#/components/schemas/SourceDataReportWatchlist",
             "SourceDataInquiry": "#/components/schemas/SourceDataInquiry",
             "SourceDataVerificationDatabase": "#/components/schemas/SourceDataVerificationDatabase",
             "SourceDataVerificationPhoneNumber": "#/components/schemas/SourceDataVerificationPhoneNumber",
             "SourceDataVerificationEmailAddress": "#/components/schemas/SourceDataVerificationEmailAddress",
             "SourceDataAccount": "#/components/schemas/SourceDataAccount",
-            "SourceDataTxn": "#/components/schemas/SourceDataTxn"
+            "SourceDataTxn": "#/components/schemas/SourceDataTxn",
+            "SourceDataReportWatchlist": "#/components/schemas/SourceDataReportWatchlist"
           }
         }
       },
@@ -33420,6 +33450,23 @@
           },
           "peekable-attributes": {
             "$ref": "#/components/schemas/SourceDataTxnAllOf2PeekableAttributes"
+          }
+        }
+      },
+      "SourceDataReportWatchlistAllOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConnectSourceDataReportWatchlistType"
+          },
+          "id": {
+            "examples": [
+              "rep_ABC123"
+            ],
+            "type": "string"
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataReportWatchlistAllOf2PeekableAttributesProperty"
           }
         }
       },
@@ -54542,6 +54589,12 @@
           "$ref": "#/components/schemas/SourceDataPeekableAttribute"
         }
       },
+      "SourceDataReportWatchlistAllOf2PeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
       "IncludedAllowlistCustomEventTypesItem": {
         "required": [
           "event-type",
@@ -68204,6 +68257,10 @@
         "type": "object",
         "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
       },
+      "SourceDataReportWatchlistPeekableAttributes": {
+        "type": "object",
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
       "ThemeSetVariantInquiryProperty": {
         "type": "object"
       },
@@ -68252,6 +68309,12 @@
         }
       },
       "SourceDataVerificationDocumentAllOf2PeekableAttributesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataReportWatchlistAllOf2PeekableAttributesProperty": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/SourceDataPeekableAttribute"
@@ -83602,6 +83665,23 @@
             {
               "value": "connect/source-data/txn",
               "name": "ConnectSourceDataTxn"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataReportWatchlistType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/report/watchlist"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataReportWatchlistType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/report/watchlist",
+              "name": "ConnectSourceDataReportWatchlist"
             }
           ]
         }

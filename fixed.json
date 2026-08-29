@@ -66738,6 +66738,15 @@
         },
         "additionalProperties": false
       },
+      "WebhookWorkflowRunCompletedRequest": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WebhookWorkflowRunCompletedRequestData"
+          }
+        },
+        "additionalProperties": false
+      },
       "WebhookWorkflowRunCreatedRequest": {
         "type": "object",
         "properties": {
@@ -73176,6 +73185,25 @@
           }
         }
       },
+      "WebhookWorkflowRunCompletedRequestData": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/EventValueType"
+          },
+          "id": {
+            "examples": [
+              "evt_ABC123"
+            ],
+            "type": "string",
+            "description": "Unique identifier for this Event. Starts with \u0060evt_\u0060."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/WebhookWorkflowRunCompletedRequestDataAttributes"
+          }
+        }
+      },
       "WebhookWorkflowRunCreatedRequestData": {
         "unevaluatedProperties": false,
         "type": "object",
@@ -76843,6 +76871,29 @@
           }
         }
       },
+      "WebhookWorkflowRunCompletedRequestDataAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/WorkflowRunCompletedName"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/WebhookWorkflowRunCompletedRequestDataAttributesPayload"
+          },
+          "context": {
+            "$ref": "#/components/schemas/WebhookWorkflowRunCompletedRequestDataAttributesContext"
+          },
+          "created-at": {
+            "examples": [
+              "2023-09-21T18:29:40.000Z"
+            ],
+            "type": "string",
+            "description": "Datetime when the event was created.",
+            "format": "date-time"
+          }
+        }
+      },
       "WebhookWorkflowRunCreatedRequestDataAttributes": {
         "unevaluatedProperties": false,
         "type": "object",
@@ -79228,6 +79279,25 @@
           }
         },
         "additionalProperties": false
+      },
+      "WebhookWorkflowRunCompletedRequestDataAttributesPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WorkflowRun"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkflowRunIncludedObjectsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookWorkflowRunCompletedRequestDataAttributesContext": {
+        "type": "object",
+        "description": "Additional context for the event. Always \u0060{}\u0060 for \u0060workflow-run.completed\u0060."
       },
       "WebhookWorkflowRunCreatedRequestDataAttributesPayload": {
         "type": "object",
@@ -82389,6 +82459,7 @@
           "verification.tentatively-failed",
           "verification.tentatively-passed",
           "verification.updated-tags",
+          "workflow-run.completed",
           "workflow-run.created",
           "workflow-run.errored",
           "workflow-run.resumed",
@@ -83383,6 +83454,10 @@
             {
               "value": "verification.updated-tags",
               "name": "VerificationUpdatedTags"
+            },
+            {
+              "value": "workflow-run.completed",
+              "name": "WorkflowRunCompleted"
             },
             {
               "value": "workflow-run.created",
@@ -86168,6 +86243,23 @@
             {
               "value": "verification.updated-tags",
               "name": "VerificationUpdatedTags"
+            }
+          ]
+        }
+      },
+      "WorkflowRunCompletedName": {
+        "const": null,
+        "enum": [
+          "workflow-run.completed"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "WorkflowRunCompletedName",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "workflow-run.completed",
+              "name": "WorkflowRunCompleted"
             }
           ]
         }
@@ -107139,6 +107231,116 @@
           }
         }
       },
+      "workflow-run-completed-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_r2F8kPq7wX3cVbN5mJh9dT",
+            "attributes": {
+              "name": "workflow-run.completed",
+              "payload": {
+                "data": {
+                  "type": "workflow-run",
+                  "id": "wfr_85ZjhktrgWeQx6FEb9sGfvyPNFWz",
+                  "attributes": {
+                    "status": "completed",
+                    "created-at": "2025-11-15T13:32:31.172Z",
+                    "completed-at": "2025-11-15T13:34:42.901Z"
+                  },
+                  "relationships": {
+                    "creator": {
+                      "data": {
+                        "type": "event",
+                        "id": "evt_3VghhbvDc7UuUNT8uZrqZjsk"
+                      }
+                    },
+                    "workflow": {
+                      "data": {
+                        "type": "workflow",
+                        "id": "wfl_p6YpUH4NhqVf8n4ducnoPSVa"
+                      }
+                    },
+                    "workflow-version": {
+                      "data": {
+                        "type": "workflow-version",
+                        "id": "wfv_744igEoBXwB7UG2eFt994aUEcziK"
+                      }
+                    }
+                  },
+                  "meta": {
+                    "processing-time-seconds": 131
+                  }
+                },
+                "included": [
+                  {
+                    "type": "workflow",
+                    "id": "wfl_p6YpUH4NhqVf8n4ducnoPSVa",
+                    "attributes": {
+                      "name": "KYC Review Workflow",
+                      "status": "running",
+                      "created-at": "2023-11-01T12:00:00.000Z"
+                    },
+                    "relationships": {
+                      "latest-published-version": {
+                        "data": {
+                          "type": "workflow-version",
+                          "id": "wfv_744igEoBXwB7UG2eFt994aUEcziK"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "workflow-version",
+                    "id": "wfv_744igEoBXwB7UG2eFt994aUEcziK",
+                    "attributes": {
+                      "workflow-name": "KYC Review Workflow",
+                      "description": "Initial published version",
+                      "status": "published",
+                      "trigger-type": "trigger-event",
+                      "live": true,
+                      "rollout-label": "treatment",
+                      "rollout-percentage": 100,
+                      "last-updater": null,
+                      "inputs": [],
+                      "outputs": [],
+                      "created-at": "2023-11-01T12:05:00.000Z",
+                      "updated-at": "2023-11-01T12:05:00.000Z",
+                      "published-at": "2023-11-01T12:05:00.000Z"
+                    },
+                    "relationships": {
+                      "workflow": {
+                        "data": {
+                          "type": "workflow",
+                          "id": "wfl_p6YpUH4NhqVf8n4ducnoPSVa"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "event",
+                    "id": "evt_3VghhbvDc7UuUNT8uZrqZjsk",
+                    "attributes": {
+                      "name": "inquiry.completed",
+                      "payload": {
+                        "data": {
+                          "type": "inquiry",
+                          "id": "inq_3VghhbvDc7UuUNT8uZrqZjsk",
+                          "attributes": {},
+                          "relationships": {}
+                        }
+                      },
+                      "created-at": "2025-11-15T13:32:30.500Z",
+                      "context": {}
+                    }
+                  }
+                ]
+              },
+              "created-at": "2025-11-15T13:34:45.000Z",
+              "context": {}
+            }
+          }
+        }
+      },
       "workflow-run-created-webhook-body": {
         "value": {
           "data": {
@@ -113861,6 +114063,54 @@
               "examples": {
                 "Example Body": {
                   "$ref": "#/components/examples/verification-updated-tags-webhook-body"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 2xx status code to indicate that the data was received successfully. Any other status will trigger retries. For more info see [Retry Logic](https://docs.withpersona.com/webhooks#retry-logic).",
+            "$ref": "#/components/responses/success"
+          }
+        }
+      }
+    },
+    "workflow-run.completed": {
+      "post": {
+        "tags": [
+          "Workflow run events"
+        ],
+        "summary": "Workflow run completed",
+        "description": "Webhook for the \u0060workflow-run.completed\u0060 event. For more info see [Webhooks Overview](https://docs.withpersona.com/webhooks).",
+        "operationId": "WebhookWorkflowRunCompleted",
+        "parameters": [
+          {
+            "description": "Header. An HMAC that you should use to check that requests are authentic. Compare this value with your own digest, computed from the request body and your webhook secret. For more info see [Webhook Best Practices](https://docs.withpersona.com/webhooks-best-practices).",
+            "$ref": "#/components/parameters/persona-signature-header"
+          },
+          {
+            "description": "The number of times that Persona has attempted to deliver this webhook. This value is incremented each time Persona attempts to deliver the webhook, regardless of whether the delivery was successful.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-made"
+          },
+          {
+            "description": "The number of times that Persona will attempt to deliver this webhook. This value is decremented each time Persona attempts to deliver the webhook.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-left"
+          },
+          {
+            "description": "The time at which Persona first attempted to deliver this webhook. This value is a Unix timestamp in seconds.",
+            "$ref": "#/components/parameters/persona-webhook-first-attempted-at"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookWorkflowRunCompletedRequest"
+              },
+              "examples": {
+                "Example Body": {
+                  "$ref": "#/components/examples/workflow-run-completed-webhook-body"
                 }
               }
             }

@@ -992,6 +992,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         #pragma warning disable CS1591
         VerificationUpdatedTags,
         #pragma warning restore CS1591
+        [EnumMember(Value = "workflow-run.completed")]
+        #pragma warning disable CS1591
+        WorkflowRunCompleted,
+        #pragma warning restore CS1591
         [EnumMember(Value = "workflow-run.created")]
         #pragma warning disable CS1591
         WorkflowRunCreated,

@@ -33063,9 +33063,9 @@
             "type": "array",
             "items": {
               "type": "string",
-              "description": "Possible values:\n- html\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
-              "default": []
-            }
+              "description": "Possible values:\n- html\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update."
+            },
+            "default": []
           }
         }
       },
@@ -45906,9 +45906,9 @@
             "type": "array",
             "items": {
               "type": "string",
-              "description": "Possible values:\n- html\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
-              "default": []
-            }
+              "description": "Possible values:\n- html\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update."
+            },
+            "default": []
           }
         }
       },

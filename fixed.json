@@ -24212,6 +24212,194 @@
         }
       }
     },
+    "/webhook-events/search": {
+      "post": {
+        "tags": [
+          "Webhook Events"
+        ],
+        "summary": "Search Webhook Events",
+        "description": "Search for webhook events using a flexible query language.\n\nWebhook events are the individual delivery records for your webhooks \u2014 one per event, per\nwebhook. Use this endpoint to find events (for example, all \u0060failed\u0060 deliveries for a given\nwebhook in a time window) before re-running them.\n\n## Data Freshness\n\nDo not use search for read-after-write flows because the data will not be immediately available\nto search. Under normal operating conditions, data is searchable within approximately 1 minute\nof creation or modification. Propagation could be delayed during an outage.\n\n## Retention\n\nWebhook events are retained for a limited window. Searches are automatically bounded to that\nwindow, so events older than the retention period are not returned even if requested.\n\n### Searchable Attributes\n\nThe following attributes can be used in query predicates:\n\n| Attribute | Description |\n|-----------|-------------|\n| \u0060updated_at\u0060 | Timestamp the event was last updated (i.e. last delivery attempt). Supports \u0060eq\u0060, \u0060gt\u0060, \u0060gte\u0060, \u0060lt\u0060, \u0060lte\u0060. |\n| \u0060status\u0060 | Delivery status: \u0060pending\u0060, \u0060completed\u0060, \u0060failed\u0060, or \u0060skipped\u0060. |\n| \u0060webhook_id\u0060 | Webhook token (e.g. \u0060wbh_ABC123\u0060). |\n| \u0060event_id\u0060 | Event token the webhook event was created from (e.g. \u0060evt_ABC123\u0060). |\n| \u0060event_name\u0060 | Event name (e.g. \u0060inquiry.completed\u0060). |\n| \u0060webhook_event_id\u0060 | Webhook event token (e.g. \u0060wbhe_ABC123\u0060). |\n| \u0060related_object_ids\u0060 | A related object token contained in the event payload. |\n\nAll attributes other than \u0060updated_at\u0060 support only the \u0060eq\u0060 operator.\n",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/webhook-events/search-webhook-events"
+        },
+        "operationId": "SearchWebhookEvents",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "after": {
+                  "examples": [
+                    "eyJ2IjoxfQ=="
+                  ],
+                  "type": "string",
+                  "description": "Cursor for forward pagination. Use the value from \u0060links.next\u0060 in the previous response. Cursors are opaque and must not be constructed by clients."
+                },
+                "before": {
+                  "examples": [
+                    "eyJ2IjoxfQ=="
+                  ],
+                  "type": "string",
+                  "description": "Cursor for backward pagination. Use the value from \u0060links.prev\u0060 in the previous response. Cursors are opaque and must not be constructed by clients. Cannot be combined with \u0060after\u0060."
+                },
+                "size": {
+                  "examples": [
+                    10
+                  ],
+                  "maximum": 100,
+                  "minimum": 1,
+                  "type": "integer",
+                  "description": "Number of results to return per page.",
+                  "default": 10
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchWebhookEventsRequest"
+              },
+              "examples": {
+                "Simple query": {
+                  "value": {
+                    "query": {
+                      "attribute": "status",
+                      "operator": "eq",
+                      "value": "failed"
+                    },
+                    "sort": {
+                      "attribute": "updated_at",
+                      "direction": "desc"
+                    },
+                    "page": {
+                      "size": 15
+                    }
+                  }
+                },
+                "Complex boolean query": {
+                  "value": {
+                    "query": {
+                      "and": [
+                        {
+                          "attribute": "webhook_id",
+                          "operator": "eq",
+                          "value": "wbh_1a2b3c"
+                        },
+                        {
+                          "attribute": "status",
+                          "operator": "eq",
+                          "value": "failed"
+                        },
+                        {
+                          "attribute": "updated_at",
+                          "operator": "gte",
+                          "value": "2026-04-23T00:00:00Z"
+                        }
+                      ]
+                    },
+                    "page": {
+                      "size": 15
+                    }
+                  }
+                },
+                "Empty query (all webhook events)": {
+                  "value": {
+                    "page": {
+                      "size": 15
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a collection of Webhook Event objects matching the search criteria.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchWebhookEvents200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/webhook-event-list-search"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "409": {
+            "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
     "/webhooks": {
       "get": {
         "tags": [
@@ -31859,6 +32047,25 @@
           "$ref": "#/components/schemas/VerificationIncludedObjectsItem"
         }
       },
+      "WebhookEvent": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/WebhookEventType"
+          },
+          "id": {
+            "examples": [
+              "wbhe_9f2a3cD4e5F6g7H8i9J0kLmN"
+            ],
+            "type": "string"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/WebhookEventAttributes"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Webhook Event object \u2014 a single delivery record for one event to one webhook."
+      },
       "IncludedAllowlist": {
         "unevaluatedProperties": false,
         "type": "object",
@@ -31941,7 +32148,7 @@
             "items": {
               "$ref": "#/components/schemas/WebhookRequestAttributesEnabledEventsItem"
             },
-            "description": "Supported events that you want to receive webhooks for. Set \u0060*\u0060 to enable all events. Descriptions of all events can be found [here](https://docs.withpersona.com/events). Retrieve Events for your organization using the [Events API](https://docs.withpersona.com/api-reference/events/list-all-events)."
+            "description": "Supported events that you want to receive webhooks for. Set \u0060*\u0060 to enable all events. Descriptions of all events can be found [here](https://docs.withpersona.com/events). Retrieve Events for your organization using the [Events API](https://docs.withpersona.com/api-reference/events/list-all-events). Custom events you emit yourself may also be subscribed to by name."
           },
           "api-version": {
             "$ref": "#/components/schemas/ApiVersion"
@@ -37572,6 +37779,9 @@
               "null",
               "string"
             ]
+          },
+          "vehicle-classes": {
+            "$ref": "#/components/schemas/VerificationGovernmentIdAttributesVehicleClasses"
           },
           "identification-number": {
             "examples": [
@@ -45604,6 +45814,18 @@
           }
         }
       },
+      "WebhookRequestAttributesEnabledEventsItem": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/WebhookRequestAttributesEnabledEventsItemWrapper"
+          },
+          {
+            "$ref": "#/components/schemas/WebhookRequestAttributesEnabledEventsItemBranch2"
+          }
+        ]
+      },
       "WebhookWithSecretAttributesIncludedAllowlist": {
         "unevaluatedProperties": false,
         "examples": [
@@ -47994,6 +48216,9 @@
               "null",
               "string"
             ]
+          },
+          "vehicle-classes": {
+            "$ref": "#/components/schemas/VerificationGovernmentIdAttributesAllOf2VehicleClassesProperty"
           },
           "identification-number": {
             "examples": [
@@ -52532,7 +52757,8 @@
             "examples": [
               "inquiry.expired",
               "workflow-run.created",
-              "account.tag-added"
+              "account.tag-added",
+              "custom.object.processed"
             ],
             "type": "string"
           },
@@ -53695,6 +53921,85 @@
           },
           "user-session": {
             "$ref": "#/components/schemas/UserAuditLogRelationshipsUserSession"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookEventAttributes": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "examples": [
+              "failed"
+            ],
+            "type": "string",
+            "description": "Delivery status of the webhook event. Possible values: pending, completed, failed, skipped."
+          },
+          "event-name": {
+            "examples": [
+              "inquiry.completed"
+            ],
+            "type": "string",
+            "description": "The name of the event that triggered this webhook delivery."
+          },
+          "webhook-id": {
+            "examples": [
+              "wbh_1a2b3c"
+            ],
+            "type": "string",
+            "description": "The token of the Webhook this event was delivered to."
+          },
+          "event-id": {
+            "examples": [
+              "evt_44c1d2"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The token of the Event this webhook event was created from, or null if unavailable."
+          },
+          "result-code": {
+            "examples": [
+              503
+            ],
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "HTTP status code returned by the destination endpoint on the most recent delivery attempt, or null if no attempt has been made yet."
+          },
+          "attempts-made": {
+            "examples": [
+              8
+            ],
+            "type": "integer",
+            "description": "Number of delivery attempts made so far."
+          },
+          "last-attempted-at": {
+            "examples": [
+              "2026-04-24T09:15:44.000Z"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Timestamp of the most recent delivery attempt, or null if no attempt has been made yet.",
+            "format": "date-time"
+          },
+          "created-at": {
+            "examples": [
+              "2026-04-23T14:02:11.000Z"
+            ],
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated-at": {
+            "examples": [
+              "2026-04-24T09:15:44.000Z"
+            ],
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -55915,6 +56220,32 @@
             "type": "string"
           }
         }
+      },
+      "VerificationGovernmentIdAttributesAllOf2VehicleClasses": {
+        "examples": [
+          {
+            "AM": {
+              "issue-date": "2020-09-27T00:00:00",
+              "expiration-date": null
+            },
+            "B": {
+              "issue-date": "2020-09-27T00:00:00",
+              "expiration-date": null
+            },
+            "L": {
+              "issue-date": "2020-09-27T00:00:00",
+              "expiration-date": null
+            }
+          }
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VerificationGovernmentIdAttributesAllOf2VehicleClassesAdditionalProperties"
+        },
+        "description": "Issue and expiration dates for each vehicle class extracted from a driving license (e.g. European licenses). Keys are the class identifiers exactly as they appear on the license, including national classes."
       },
       "VerificationGovernmentIdRelationshipsAllOf2Document": {
         "type": "object",
@@ -58275,8 +58606,7 @@
             "$ref": "#/components/schemas/EventTypeAttributesPayloadData"
           }
         },
-        "additionalProperties": false,
-        "description": "The entire serialized entity that triggered the event"
+        "description": "For a Persona-defined event, the entire serialized entity that triggered it. For a custom event, the arbitrary body you supplied when creating it, returned exactly as sent -- its keys are never re-cased."
       },
       "EventTypeAttributesContext": {
         "type": "object",
@@ -60138,6 +60468,24 @@
             ],
             "type": "string",
             "x-polymorphic": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VerificationGovernmentIdAttributesAllOf2VehicleClassesAdditionalProperties": {
+        "type": "object",
+        "properties": {
+          "issue-date": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "expiration-date": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
         },
         "additionalProperties": false
@@ -65337,6 +65685,41 @@
         },
         "additionalProperties": false
       },
+      "SearchWebhookEventsRequest": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "$ref": "#/components/schemas/SearchWebhookEventsRequestQuery"
+          },
+          "sort": {
+            "$ref": "#/components/schemas/SearchWebhookEventsRequestSort"
+          },
+          "page": {
+            "$ref": "#/components/schemas/SearchWebhookEventsRequestPage"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchWebhookEvents200Response": {
+        "required": [
+          "data",
+          "links"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebhookEvent"
+            },
+            "description": "An array of Webhook Events matching the search criteria"
+          },
+          "links": {
+            "$ref": "#/components/schemas/SearchWebhookEvents200ResponseLinks"
+          }
+        },
+        "additionalProperties": false
+      },
       "ListAllWebhooks200Response": {
         "required": [
           "data",
@@ -66774,9 +67157,37 @@
         },
         "additionalProperties": false
       },
+      "WebhookRequestAttributesEnabledEventsItemWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/WebhookRequestAttributesEnabledEventsItemWrapperValue"
+          }
+        }
+      },
       "ExamplePayload": {
         "type": "object",
         "description": "Placeholder schema for path example refs"
+      },
+      "WebhookRequestAttributesEnabledEventsItemBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "examples": [
+              "custom.object.processed"
+            ],
+            "maxLength": 128,
+            "pattern": "^custom(\\.[a-z0-9]\u002B(-[a-z0-9]\u002B)*){1,4}$",
+            "type": "string",
+            "description": "A custom event you emit yourself via the Events API. Names are reserved to the \u0060custom\u0060 family so they can never collide with a Persona-defined event."
+          }
+        }
       },
       "CreateAConnectConnection201Response": {
         "required": [
@@ -68226,6 +68637,23 @@
           }
         ]
       },
+      "SearchWebhookEventsRequestQueryValue": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          }
+        ],
+        "description": "Value to compare against",
+        "x-inheritable": true
+      },
       "SourceDataBasePeekableAttributesProperty": {
         "type": "object",
         "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
@@ -68339,6 +68767,13 @@
         "type": "object",
         "description": "JSON key-value pairs of field name to field value."
       },
+      "VerificationGovernmentIdAttributesVehicleClasses": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VerificationGovernmentIdAttributesAllOf2VehicleClassesAdditionalProperties"
+        },
+        "description": "Issue and expiration dates for each vehicle class extracted from a driving license (e.g. European licenses). Keys are the class identifiers exactly as they appear on the license, including national classes."
+      },
       "DocumentGenericAttributesFields": {
         "type": "object",
         "description": "JSON key-value pairs of field name to field value. Exact schema depends on the configuration of your template."
@@ -68368,6 +68803,13 @@
       "VerificationDocumentAttributesAllOf2FieldsProperty": {
         "type": "object",
         "description": "JSON key-value pairs of field name to field value."
+      },
+      "VerificationGovernmentIdAttributesAllOf2VehicleClassesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/VerificationGovernmentIdAttributesAllOf2VehicleClassesAdditionalProperties"
+        },
+        "description": "Issue and expiration dates for each vehicle class extracted from a driving license (e.g. European licenses). Keys are the class identifiers exactly as they appear on the license, including national classes."
       },
       "DocumentGenericAttributesAllOf2FieldsProperty": {
         "type": "object",
@@ -70658,6 +71100,150 @@
               "null",
               "string"
             ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchWebhookEventsRequestQuery": {
+        "unevaluatedProperties": false,
+        "examples": [
+          {
+            "attribute": "status",
+            "operator": "eq",
+            "value": "failed"
+          },
+          {
+            "and": [
+              {
+                "attribute": "webhook_id",
+                "operator": "eq",
+                "value": "wbh_1a2b3c"
+              },
+              {
+                "attribute": "updated_at",
+                "operator": "gte",
+                "value": "2026-04-23T00:00:00Z"
+              }
+            ]
+          }
+        ],
+        "type": "object",
+        "properties": {
+          "and": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchWebhookEventsRequestQueryAndItem"
+            }
+          },
+          "or": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchWebhookEventsRequestQueryOrItem"
+            }
+          },
+          "not": {
+            "$ref": "#/components/schemas/SearchWebhookEventsRequestQueryNot"
+          },
+          "attribute": {
+            "examples": [
+              "updated_at",
+              "status",
+              "webhook_id",
+              "event_name"
+            ],
+            "type": "string",
+            "description": "The attribute name to filter on (e.g., \u0027updated_at\u0027, \u0027status\u0027, \u0027webhook_id\u0027, \u0027event_name\u0027)"
+          },
+          "operator": {
+            "type": "string",
+            "description": "Comparison operator. Possible values: eq (equal), gt (greater than), gte (greater than or equal), lt (less than), lte (less than or equal)."
+          },
+          "value": {
+            "$ref": "#/components/schemas/SearchWebhookEventsRequestQueryValue"
+          }
+        },
+        "description": "Search query using boolean logic (AND/OR/NOT) and comparison operators.\nSupports predicates with operators: eq (equal), gt (greater than), gte (greater than or equal),\nlt (less than), lte (less than or equal). Only \u0060updated_at\u0060 supports the range operators;\nall other attributes support only \u0060eq\u0060.\n"
+      },
+      "SearchWebhookEventsRequestSort": {
+        "required": [
+          "attribute",
+          "direction"
+        ],
+        "type": "object",
+        "properties": {
+          "attribute": {
+            "examples": [
+              "updated_at"
+            ],
+            "type": "string",
+            "description": "The attribute name to sort by. Only \u0060updated_at\u0060 is supported."
+          },
+          "direction": {
+            "type": "string",
+            "description": "Sort direction. Possible values: asc (ascending), desc (descending).",
+            "default": "desc"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Sort configuration for results"
+      },
+      "SearchWebhookEventsRequestPage": {
+        "type": "object",
+        "properties": {
+          "after": {
+            "examples": [
+              "eyJ2IjoxfQ=="
+            ],
+            "type": "string",
+            "description": "Cursor for forward pagination. Opaque; use the value from \u0060links.next\u0060."
+          },
+          "before": {
+            "examples": [
+              "eyJ2IjoxfQ=="
+            ],
+            "type": "string",
+            "description": "Cursor for backward pagination. Opaque; use the value from \u0060links.prev\u0060. Cannot be combined with \u0060after\u0060."
+          },
+          "size": {
+            "examples": [
+              10
+            ],
+            "maximum": 100,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Number of results to return per page",
+            "default": 10
+          }
+        },
+        "additionalProperties": false,
+        "description": "Pagination parameters"
+      },
+      "SearchWebhookEvents200ResponseLinks": {
+        "required": [
+          "prev",
+          "next"
+        ],
+        "type": "object",
+        "properties": {
+          "prev": {
+            "examples": [
+              "/api/v1/webhook-events/search?page%5Bbefore%5D=eyJ2IjoxfQ%3D%3D\u0026page%5Bsize%5D=10"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "URL pointing to the previous page of data, or null if on the first page. Must be used with a POST request and the original request body."
+          },
+          "next": {
+            "examples": [
+              "/api/v1/webhook-events/search?page%5Bafter%5D=eyJ2IjoxfQ%3D%3D\u0026page%5Bsize%5D=10"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "URL pointing to the next page of data, or null if on the last page. Must be used with a POST request and the original request body."
           }
         },
         "additionalProperties": false
@@ -74294,6 +74880,15 @@
           }
         },
         "additionalProperties": false
+      },
+      "SearchWebhookEventsRequestQueryAndItem": {
+        "type": "object"
+      },
+      "SearchWebhookEventsRequestQueryOrItem": {
+        "type": "object"
+      },
+      "SearchWebhookEventsRequestQueryNot": {
+        "type": "object"
       },
       "CreateAWorkflowRunRequestDataAttributes": {
         "required": [
@@ -82194,6 +82789,23 @@
           ]
         }
       },
+      "WebhookEventType": {
+        "const": null,
+        "enum": [
+          "webhook-event"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "WebhookEventType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "webhook-event",
+              "name": "WebhookEvent"
+            }
+          ]
+        }
+      },
       "WebhookType": {
         "const": null,
         "enum": [
@@ -82211,7 +82823,600 @@
           ]
         }
       },
-      "WebhookRequestAttributesEnabledEventsItem": {
+      "WebhookRequestAttributesApiKeyInflection": {
+        "enum": [
+          "camel",
+          "kebab",
+          "snake"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Default key inflection for attribute keys in incoming webhook requests. For more info see the [Key Inflection docs](https://docs.withpersona.com/key-inflection).",
+        "x-ms-enum": {
+          "name": "WebhookRequestAttributesApiKeyInflection",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "camel",
+              "name": "Camel"
+            },
+            {
+              "value": "kebab",
+              "name": "Kebab"
+            },
+            {
+              "value": "snake",
+              "name": "Snake"
+            }
+          ]
+        }
+      },
+      "WorkflowVersionType": {
+        "const": null,
+        "enum": [
+          "workflow-version"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "WorkflowVersionType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "workflow-version",
+              "name": "WorkflowVersion"
+            }
+          ]
+        }
+      },
+      "ImporterPipelineRunType": {
+        "const": null,
+        "enum": [
+          "importer-pipeline-run"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ImporterPipelineRunType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "importer-pipeline-run",
+              "name": "ImporterPipelineRun"
+            }
+          ]
+        }
+      },
+      "ImporterPipelineType": {
+        "const": null,
+        "enum": [
+          "importer-pipeline"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ImporterPipelineType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "importer-pipeline",
+              "name": "ImporterPipeline"
+            }
+          ]
+        }
+      },
+      "FullVisibility": {
+        "const": null,
+        "enum": [
+          "full"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "FullVisibility",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "full",
+              "name": "Full"
+            }
+          ]
+        }
+      },
+      "PresenceVisibility": {
+        "const": null,
+        "enum": [
+          "presence"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "PresenceVisibility",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "presence",
+              "name": "Presence"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataVerificationDatabaseType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/verification/database"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataVerificationDatabaseType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/database",
+              "name": "ConnectSourceDataVerificationDatabase"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataVerificationPhoneNumberType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/verification/phone-number"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataVerificationPhoneNumberType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/phone-number",
+              "name": "ConnectSourceDataVerificationPhoneNumber"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataVerificationEmailAddressType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/verification/email-address"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataVerificationEmailAddressType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/email-address",
+              "name": "ConnectSourceDataVerificationEmailAddress"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataVerificationGovernmentIdType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/verification/government-id"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataVerificationGovernmentIdType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/government-id",
+              "name": "ConnectSourceDataVerificationGovernmentId"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataVerificationSelfieType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/verification/selfie"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataVerificationSelfieType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/selfie",
+              "name": "ConnectSourceDataVerificationSelfie"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataVerificationDocumentType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/verification/document"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataVerificationDocumentType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/document",
+              "name": "ConnectSourceDataVerificationDocument"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataAccountType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/account"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataAccountType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/account",
+              "name": "ConnectSourceDataAccount"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataInquiryType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/inquiry"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataInquiryType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/inquiry",
+              "name": "ConnectSourceDataInquiry"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataTxnType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/txn"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataTxnType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/txn",
+              "name": "ConnectSourceDataTxn"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataReportWatchlistType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/report/watchlist"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataReportWatchlistType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/report/watchlist",
+              "name": "ConnectSourceDataReportWatchlist"
+            }
+          ]
+        }
+      },
+      "IncludeAllState": {
+        "const": null,
+        "enum": [
+          "include_all"
+        ],
+        "type": "string",
+        "description": "Include all related objects for every subscribed event type.",
+        "x-ms-enum": {
+          "name": "IncludeAllState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "include_all",
+              "name": "IncludeAll"
+            }
+          ]
+        }
+      },
+      "IncludeNoneState": {
+        "const": null,
+        "enum": [
+          "include_none"
+        ],
+        "type": "string",
+        "description": "Include no related objects (the default).",
+        "x-ms-enum": {
+          "name": "IncludeNoneState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "include_none",
+              "name": "IncludeNone"
+            }
+          ]
+        }
+      },
+      "CustomState": {
+        "const": null,
+        "enum": [
+          "custom"
+        ],
+        "type": "string",
+        "description": "Configure included related objects per event type via \u0060event-types\u0060.",
+        "x-ms-enum": {
+          "name": "CustomState",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "custom",
+              "name": "Custom"
+            }
+          ]
+        }
+      },
+      "AdministratorType": {
+        "const": null,
+        "enum": [
+          "administrator"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "AdministratorType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "administrator",
+              "name": "Administrator"
+            }
+          ]
+        }
+      },
+      "WorkflowStepActionType": {
+        "const": null,
+        "enum": [
+          "workflow-step/action"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "WorkflowStepActionType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "workflow-step/action",
+              "name": "WorkflowStepAction"
+            }
+          ]
+        }
+      },
+      "ReportSharedRelationshipsAccountDataType": {
+        "const": null,
+        "enum": [
+          "account"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReportSharedRelationshipsAccountDataType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "account",
+              "name": "Account"
+            }
+          ]
+        }
+      },
+      "ReportSharedRelationshipsTransactionDataType": {
+        "const": null,
+        "enum": [
+          "transaction"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReportSharedRelationshipsTransactionDataType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "transaction",
+              "name": "Transaction"
+            }
+          ]
+        }
+      },
+      "VerificationSharedRelationshipsTransactionDataType": {
+        "const": null,
+        "enum": [
+          "transaction"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "VerificationSharedRelationshipsTransactionDataType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "transaction",
+              "name": "Transaction"
+            }
+          ]
+        }
+      },
+      "VerificationSharedRelationshipsAccountsDataItemType": {
+        "const": null,
+        "enum": [
+          "account"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "VerificationSharedRelationshipsAccountsDataItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "account",
+              "name": "Account"
+            }
+          ]
+        }
+      },
+      "DocumentSharedRelationshipsTransactionDataType": {
+        "const": null,
+        "enum": [
+          "transaction"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "DocumentSharedRelationshipsTransactionDataType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "transaction",
+              "name": "Transaction"
+            }
+          ]
+        }
+      },
+      "AccountStatusType": {
+        "const": null,
+        "enum": [
+          "account-status"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "AccountStatusType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "account-status",
+              "name": "AccountStatus"
+            }
+          ]
+        }
+      },
+      "CaseTypeRelationshipsAccountsDataItemType": {
+        "const": null,
+        "enum": [
+          "account"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "CaseTypeRelationshipsAccountsDataItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "account",
+              "name": "Account"
+            }
+          ]
+        }
+      },
+      "CaseTypeRelationshipsTxnsDataItemType": {
+        "const": null,
+        "enum": [
+          "transaction"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "CaseTypeRelationshipsTxnsDataItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "transaction",
+              "name": "Transaction"
+            }
+          ]
+        }
+      },
+      "InquiryRelationshipsAccountDataType": {
+        "const": null,
+        "enum": [
+          "account"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "InquiryRelationshipsAccountDataType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "account",
+              "name": "Account"
+            }
+          ]
+        }
+      },
+      "InquiryRelationshipsTransactionDataType": {
+        "const": null,
+        "enum": [
+          "transaction"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "InquiryRelationshipsTransactionDataType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "transaction",
+              "name": "Transaction"
+            }
+          ]
+        }
+      },
+      "GraphQueryRelationshipsAccountsDataItemType": {
+        "const": null,
+        "enum": [
+          "account"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "GraphQueryRelationshipsAccountsDataItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "account",
+              "name": "Account"
+            }
+          ]
+        }
+      },
+      "UserSessionType": {
+        "const": null,
+        "enum": [
+          "user-session"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "UserSessionType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "user-session",
+              "name": "UserSession"
+            }
+          ]
+        }
+      },
+      "CreateAccessToken201ResponseTokenType": {
+        "enum": [
+          "bearer",
+          "Bearer"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "CreateAccessToken201ResponseTokenType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "bearer",
+              "name": "Bearer1"
+            }
+          ]
+        }
+      },
+      "WebhookRequestAttributesEnabledEventsItemWrapperValue": {
         "enum": [
           "*",
           "account-property.redacted",
@@ -82468,7 +83673,7 @@
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "WebhookRequestAttributesEnabledEventsItem",
+          "name": "WebhookRequestAttributesEnabledEventsItemWrapperValue",
           "modelAsString": false,
           "values": [
             {
@@ -83474,599 +84679,6 @@
             {
               "value": "workflow.published",
               "name": "WorkflowPublished"
-            }
-          ]
-        }
-      },
-      "WebhookRequestAttributesApiKeyInflection": {
-        "enum": [
-          "camel",
-          "kebab",
-          "snake"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Default key inflection for attribute keys in incoming webhook requests. For more info see the [Key Inflection docs](https://docs.withpersona.com/key-inflection).",
-        "x-ms-enum": {
-          "name": "WebhookRequestAttributesApiKeyInflection",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "camel",
-              "name": "Camel"
-            },
-            {
-              "value": "kebab",
-              "name": "Kebab"
-            },
-            {
-              "value": "snake",
-              "name": "Snake"
-            }
-          ]
-        }
-      },
-      "WorkflowVersionType": {
-        "const": null,
-        "enum": [
-          "workflow-version"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "WorkflowVersionType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "workflow-version",
-              "name": "WorkflowVersion"
-            }
-          ]
-        }
-      },
-      "ImporterPipelineRunType": {
-        "const": null,
-        "enum": [
-          "importer-pipeline-run"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "ImporterPipelineRunType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "importer-pipeline-run",
-              "name": "ImporterPipelineRun"
-            }
-          ]
-        }
-      },
-      "ImporterPipelineType": {
-        "const": null,
-        "enum": [
-          "importer-pipeline"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "ImporterPipelineType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "importer-pipeline",
-              "name": "ImporterPipeline"
-            }
-          ]
-        }
-      },
-      "FullVisibility": {
-        "const": null,
-        "enum": [
-          "full"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "FullVisibility",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "full",
-              "name": "Full"
-            }
-          ]
-        }
-      },
-      "PresenceVisibility": {
-        "const": null,
-        "enum": [
-          "presence"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "PresenceVisibility",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "presence",
-              "name": "Presence"
-            }
-          ]
-        }
-      },
-      "ConnectSourceDataVerificationDatabaseType": {
-        "const": null,
-        "enum": [
-          "connect/source-data/verification/database"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "ConnectSourceDataVerificationDatabaseType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "connect/source-data/verification/database",
-              "name": "ConnectSourceDataVerificationDatabase"
-            }
-          ]
-        }
-      },
-      "ConnectSourceDataVerificationPhoneNumberType": {
-        "const": null,
-        "enum": [
-          "connect/source-data/verification/phone-number"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "ConnectSourceDataVerificationPhoneNumberType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "connect/source-data/verification/phone-number",
-              "name": "ConnectSourceDataVerificationPhoneNumber"
-            }
-          ]
-        }
-      },
-      "ConnectSourceDataVerificationEmailAddressType": {
-        "const": null,
-        "enum": [
-          "connect/source-data/verification/email-address"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "ConnectSourceDataVerificationEmailAddressType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "connect/source-data/verification/email-address",
-              "name": "ConnectSourceDataVerificationEmailAddress"
-            }
-          ]
-        }
-      },
-      "ConnectSourceDataVerificationGovernmentIdType": {
-        "const": null,
-        "enum": [
-          "connect/source-data/verification/government-id"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "ConnectSourceDataVerificationGovernmentIdType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "connect/source-data/verification/government-id",
-              "name": "ConnectSourceDataVerificationGovernmentId"
-            }
-          ]
-        }
-      },
-      "ConnectSourceDataVerificationSelfieType": {
-        "const": null,
-        "enum": [
-          "connect/source-data/verification/selfie"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "ConnectSourceDataVerificationSelfieType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "connect/source-data/verification/selfie",
-              "name": "ConnectSourceDataVerificationSelfie"
-            }
-          ]
-        }
-      },
-      "ConnectSourceDataVerificationDocumentType": {
-        "const": null,
-        "enum": [
-          "connect/source-data/verification/document"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "ConnectSourceDataVerificationDocumentType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "connect/source-data/verification/document",
-              "name": "ConnectSourceDataVerificationDocument"
-            }
-          ]
-        }
-      },
-      "ConnectSourceDataAccountType": {
-        "const": null,
-        "enum": [
-          "connect/source-data/account"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "ConnectSourceDataAccountType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "connect/source-data/account",
-              "name": "ConnectSourceDataAccount"
-            }
-          ]
-        }
-      },
-      "ConnectSourceDataInquiryType": {
-        "const": null,
-        "enum": [
-          "connect/source-data/inquiry"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "ConnectSourceDataInquiryType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "connect/source-data/inquiry",
-              "name": "ConnectSourceDataInquiry"
-            }
-          ]
-        }
-      },
-      "ConnectSourceDataTxnType": {
-        "const": null,
-        "enum": [
-          "connect/source-data/txn"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "ConnectSourceDataTxnType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "connect/source-data/txn",
-              "name": "ConnectSourceDataTxn"
-            }
-          ]
-        }
-      },
-      "ConnectSourceDataReportWatchlistType": {
-        "const": null,
-        "enum": [
-          "connect/source-data/report/watchlist"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "ConnectSourceDataReportWatchlistType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "connect/source-data/report/watchlist",
-              "name": "ConnectSourceDataReportWatchlist"
-            }
-          ]
-        }
-      },
-      "IncludeAllState": {
-        "const": null,
-        "enum": [
-          "include_all"
-        ],
-        "type": "string",
-        "description": "Include all related objects for every subscribed event type.",
-        "x-ms-enum": {
-          "name": "IncludeAllState",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "include_all",
-              "name": "IncludeAll"
-            }
-          ]
-        }
-      },
-      "IncludeNoneState": {
-        "const": null,
-        "enum": [
-          "include_none"
-        ],
-        "type": "string",
-        "description": "Include no related objects (the default).",
-        "x-ms-enum": {
-          "name": "IncludeNoneState",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "include_none",
-              "name": "IncludeNone"
-            }
-          ]
-        }
-      },
-      "CustomState": {
-        "const": null,
-        "enum": [
-          "custom"
-        ],
-        "type": "string",
-        "description": "Configure included related objects per event type via \u0060event-types\u0060.",
-        "x-ms-enum": {
-          "name": "CustomState",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "custom",
-              "name": "Custom"
-            }
-          ]
-        }
-      },
-      "AdministratorType": {
-        "const": null,
-        "enum": [
-          "administrator"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "AdministratorType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "administrator",
-              "name": "Administrator"
-            }
-          ]
-        }
-      },
-      "WorkflowStepActionType": {
-        "const": null,
-        "enum": [
-          "workflow-step/action"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "WorkflowStepActionType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "workflow-step/action",
-              "name": "WorkflowStepAction"
-            }
-          ]
-        }
-      },
-      "ReportSharedRelationshipsAccountDataType": {
-        "const": null,
-        "enum": [
-          "account"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "ReportSharedRelationshipsAccountDataType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "account",
-              "name": "Account"
-            }
-          ]
-        }
-      },
-      "ReportSharedRelationshipsTransactionDataType": {
-        "const": null,
-        "enum": [
-          "transaction"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "ReportSharedRelationshipsTransactionDataType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "transaction",
-              "name": "Transaction"
-            }
-          ]
-        }
-      },
-      "VerificationSharedRelationshipsTransactionDataType": {
-        "const": null,
-        "enum": [
-          "transaction"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "VerificationSharedRelationshipsTransactionDataType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "transaction",
-              "name": "Transaction"
-            }
-          ]
-        }
-      },
-      "VerificationSharedRelationshipsAccountsDataItemType": {
-        "const": null,
-        "enum": [
-          "account"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "VerificationSharedRelationshipsAccountsDataItemType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "account",
-              "name": "Account"
-            }
-          ]
-        }
-      },
-      "DocumentSharedRelationshipsTransactionDataType": {
-        "const": null,
-        "enum": [
-          "transaction"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "DocumentSharedRelationshipsTransactionDataType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "transaction",
-              "name": "Transaction"
-            }
-          ]
-        }
-      },
-      "AccountStatusType": {
-        "const": null,
-        "enum": [
-          "account-status"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "AccountStatusType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "account-status",
-              "name": "AccountStatus"
-            }
-          ]
-        }
-      },
-      "CaseTypeRelationshipsAccountsDataItemType": {
-        "const": null,
-        "enum": [
-          "account"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "CaseTypeRelationshipsAccountsDataItemType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "account",
-              "name": "Account"
-            }
-          ]
-        }
-      },
-      "CaseTypeRelationshipsTxnsDataItemType": {
-        "const": null,
-        "enum": [
-          "transaction"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "CaseTypeRelationshipsTxnsDataItemType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "transaction",
-              "name": "Transaction"
-            }
-          ]
-        }
-      },
-      "InquiryRelationshipsAccountDataType": {
-        "const": null,
-        "enum": [
-          "account"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "InquiryRelationshipsAccountDataType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "account",
-              "name": "Account"
-            }
-          ]
-        }
-      },
-      "InquiryRelationshipsTransactionDataType": {
-        "const": null,
-        "enum": [
-          "transaction"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "InquiryRelationshipsTransactionDataType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "transaction",
-              "name": "Transaction"
-            }
-          ]
-        }
-      },
-      "GraphQueryRelationshipsAccountsDataItemType": {
-        "const": null,
-        "enum": [
-          "account"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "GraphQueryRelationshipsAccountsDataItemType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "account",
-              "name": "Account"
-            }
-          ]
-        }
-      },
-      "UserSessionType": {
-        "const": null,
-        "enum": [
-          "user-session"
-        ],
-        "type": "string",
-        "x-ms-enum": {
-          "name": "UserSessionType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "user-session",
-              "name": "UserSession"
-            }
-          ]
-        }
-      },
-      "CreateAccessToken201ResponseTokenType": {
-        "enum": [
-          "bearer",
-          "Bearer"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "CreateAccessToken201ResponseTokenType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "bearer",
-              "name": "Bearer1"
             }
           ]
         }
@@ -92002,6 +92614,20 @@
               "sex": null,
               "restrictions": null,
               "vehicle-class": null,
+              "vehicle-classes": {
+                "AM": {
+                  "issue-date": "2020-09-27T00:00:00",
+                  "expiration-date": null
+                },
+                "B": {
+                  "issue-date": "2020-09-27T00:00:00",
+                  "expiration-date": "2035-09-27T00:00:00"
+                },
+                "L": {
+                  "issue-date": "2020-09-27T00:00:00",
+                  "expiration-date": null
+                }
+              },
               "identification-number": "Y123ABC",
               "from-reusable-persona": false
             },
@@ -92288,6 +92914,31 @@
                 }
               }
             }
+          }
+        }
+      },
+      "webhook-event-list-search": {
+        "value": {
+          "data": [
+            {
+              "type": "webhook-event",
+              "id": "wbhe_9f2a3cD4e5F6g7H8i9J0kLmN",
+              "attributes": {
+                "status": "failed",
+                "event-name": "inquiry.completed",
+                "webhook-id": "wbh_1a2b3c",
+                "event-id": "evt_44c1d2",
+                "result-code": 503,
+                "attempts-made": 8,
+                "last-attempted-at": "2026-04-24T09:15:44.000Z",
+                "created-at": "2026-04-23T14:02:11.000Z",
+                "updated-at": "2026-04-24T09:15:44.000Z"
+              }
+            }
+          ],
+          "links": {
+            "prev": null,
+            "next": "/api/v1/webhook-events/search?page%5Bafter%5D=eyJ2IjoxfQ%3D%3D\u0026page%5Bsize%5D=10"
           }
         }
       },
@@ -107966,6 +108617,10 @@
     {
       "name": "Webhooks",
       "description": "Interact with Webhooks via API"
+    },
+    {
+      "name": "Webhook Events",
+      "description": "Search Webhook Events via API"
     },
     {
       "name": "Workflows",

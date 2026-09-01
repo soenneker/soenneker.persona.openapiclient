@@ -30,7 +30,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The entire serialized entity that triggered the event</summary>
+        /// <summary>For a Persona-defined event, the entire serialized entity that triggered it. For a custom event, the arbitrary body you supplied when creating it, returned exactly as sent -- its keys are never re-cased.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.EventTypeAttributesPayload? Payload { get; set; }

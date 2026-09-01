@@ -352,6 +352,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string VehicleClass { get; set; }
 #endif
+        /// <summary>Issue and expiration dates for each vehicle class extracted from a driving license (e.g. European licenses). Keys are the class identifiers exactly as they appear on the license, including national classes.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesVehicleClasses? VehicleClasses { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesVehicleClasses VehicleClasses { get; set; }
+#endif
         /// <summary>The videoUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -443,6 +451,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "submitted-at-ts", n => { SubmittedAtTs = n.GetIntValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "vehicle-class", n => { VehicleClass = n.GetStringValue(); } },
+                { "vehicle-classes", n => { VehicleClasses = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesVehicleClasses>(global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesVehicleClasses.CreateFromDiscriminatorValue); } },
                 { "video-url", n => { VideoUrl = n.GetStringValue(); } },
                 { "visa-status", n => { VisaStatus = n.GetStringValue(); } },
             };
@@ -503,6 +512,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteIntValue("submitted-at-ts", SubmittedAtTs);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("vehicle-class", VehicleClass);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesVehicleClasses>("vehicle-classes", VehicleClasses);
             writer.WriteStringValue("video-url", VideoUrl);
             writer.WriteStringValue("visa-status", VisaStatus);
             writer.WriteAdditionalData(AdditionalData);

@@ -38,6 +38,7 @@ using Soenneker.Persona.OpenApiClient.Transactions;
 using Soenneker.Persona.OpenApiClient.UserAuditLogs;
 using Soenneker.Persona.OpenApiClient.Verification;
 using Soenneker.Persona.OpenApiClient.Verifications;
+using Soenneker.Persona.OpenApiClient.WebhookEvents;
 using Soenneker.Persona.OpenApiClient.Webhooks;
 using Soenneker.Persona.OpenApiClient.WorkflowRuns;
 using Soenneker.Persona.OpenApiClient.WorkflowVersions;
@@ -213,6 +214,11 @@ namespace Soenneker.Persona.OpenApiClient
         public global::Soenneker.Persona.OpenApiClient.Verifications.VerificationsRequestBuilder Verifications
         {
             get => new global::Soenneker.Persona.OpenApiClient.Verifications.VerificationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The webhookEvents property</summary>
+        public global::Soenneker.Persona.OpenApiClient.WebhookEvents.WebhookEventsRequestBuilder WebhookEvents
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.WebhookEvents.WebhookEventsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The webhooks property</summary>
         public global::Soenneker.Persona.OpenApiClient.Webhooks.WebhooksRequestBuilder Webhooks

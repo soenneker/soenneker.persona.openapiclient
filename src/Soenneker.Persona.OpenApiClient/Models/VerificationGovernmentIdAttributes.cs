@@ -86,6 +86,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string CaptureMethod { get; set; }
 #endif
+        /// <summary>Capture method for each side of the ID, keyed by side.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2CaptureMethods? CaptureMethods { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2CaptureMethods CaptureMethods { get; set; }
+#endif
         /// <summary>The checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -411,6 +419,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "birthdate", n => { Birthdate = n.GetStringValue(); } },
                 { "birthplace", n => { Birthplace = n.GetStringValue(); } },
                 { "capture-method", n => { CaptureMethod = n.GetStringValue(); } },
+                { "capture-methods", n => { CaptureMethods = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2CaptureMethods>(global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2CaptureMethods.CreateFromDiscriminatorValue); } },
                 { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completed-at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
                 { "completed-at-ts", n => { CompletedAtTs = n.GetIntValue(); } },
@@ -472,6 +481,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("birthdate", Birthdate);
             writer.WriteStringValue("birthplace", Birthplace);
             writer.WriteStringValue("capture-method", CaptureMethod);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2CaptureMethods>("capture-methods", CaptureMethods);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>("checks", Checks);
             writer.WriteDateTimeOffsetValue("completed-at", CompletedAt);
             writer.WriteIntValue("completed-at-ts", CompletedAtTs);

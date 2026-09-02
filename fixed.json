@@ -9992,6 +9992,128 @@
         }
       }
     },
+    "/inquiries/{inquiryId}/set-step": {
+      "post": {
+        "tags": [
+          "Inquiries"
+        ],
+        "summary": "Set the step of an Inquiry",
+        "description": "Sets the step an Inquiry\u0027s flow is currently on.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/inquiries/set-step"
+        },
+        "operationId": "InquiriesSetStep",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "description": "A comma-separated list of relationship paths. This can be used to customize which related resources will be fully serialized in the \u0060included\u0060 key in the response. See [Serialization](https://docs.withpersona.com/serialization#inclusion-of-related-resources) for more details.",
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "inquiryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InquiriesSetStepRequest"
+              },
+              "examples": {
+                "Success": {
+                  "$ref": "#/components/examples/set-step"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "This endpoint returns an Inquiry object and (optionally) its related objects in \u0060included\u0060.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InquiriesSetStep200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/inquiry"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
     "/inquiries/{inquiryId}/set-tags": {
       "post": {
         "tags": [
@@ -23846,6 +23968,10 @@
                           "selfie-photo-url": null,
                           "id-class": null,
                           "capture-method": null,
+                          "capture-methods": {
+                            "front": null,
+                            "back": null
+                          },
                           "name-first": null,
                           "name-middle": null,
                           "name-last": null,
@@ -37574,6 +37700,9 @@
               "string"
             ]
           },
+          "capture-methods": {
+            "$ref": "#/components/schemas/VerificationGovernmentIdAttributesAllOf2CaptureMethods"
+          },
           "name-first": {
             "examples": [
               "ALEXANDER"
@@ -48011,6 +48140,9 @@
               "string"
             ]
           },
+          "capture-methods": {
+            "$ref": "#/components/schemas/VerificationGovernmentIdAttributesAllOf2CaptureMethods"
+          },
           "name-first": {
             "examples": [
               "ALEXANDER"
@@ -56221,6 +56353,34 @@
           }
         }
       },
+      "VerificationGovernmentIdAttributesAllOf2CaptureMethods": {
+        "examples": [
+          {
+            "front": "api",
+            "back": null
+          }
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "front": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "back": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "description": "Capture method for each side of the ID, keyed by side."
+      },
       "VerificationGovernmentIdAttributesAllOf2VehicleClasses": {
         "examples": [
           {
@@ -64309,6 +64469,36 @@
         },
         "additionalProperties": false
       },
+      "InquiriesSetStepRequest": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/InquiriesSetStepRequestMeta"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InquiriesSetStep200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Inquiry"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InquiryIncludedObjectsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "InquiriesSetAllTagsRequest": {
         "type": "object",
         "properties": {
@@ -70160,6 +70350,23 @@
               "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpcXNlX1Q4UHJxcG9FaHdoVVYxd0hSZXVVOW9mcyIsImF1ZCI6InBlcnNvbmEtdmVyaWZ5IiwiaXNzIjoic3RhZ2luZy53aXRocGVyc29uYS5jb20iLCJpYXQiOjE1NzM4NTI2NjEsIm5iZiI6MTU3Mzg1MjY2MSwiZXhwIjoxNTczOTM5MDYxLCJqdGkiOiI5NWRlNjhkOS1hZjI4LTRiMzItOWIxYi03MjA4MTg3NTI3N2IiLCJzaWQiOiJpcXNlX1Q4UHJxcG9FaHdoVVYxd0hSZXVVOW9mcyJ9.LN6DEnfjP5cZoZ3w41RgyX5QVmutmjHja_bRHOmDjg0"
             ],
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InquiriesSetStepRequestMeta": {
+        "required": [
+          "next-step-name"
+        ],
+        "type": "object",
+        "properties": {
+          "next-step-name": {
+            "examples": [
+              "government_id",
+              "selfie"
+            ],
+            "type": "string",
+            "description": "Name of the step to move the Inquiry to. Must be a step on the Inquiry\u0027s template version."
           }
         },
         "additionalProperties": false
@@ -90072,6 +90279,13 @@
           }
         }
       },
+      "set-step": {
+        "value": {
+          "meta": {
+            "next-step-name": "government_id"
+          }
+        }
+      },
       "inquiry-list-search": {
         "value": {
           "data": [
@@ -91339,6 +91553,10 @@
                 "video-url": null,
                 "id-class": null,
                 "capture-method": "api",
+                "capture-methods": {
+                  "front": "api",
+                  "back": "api"
+                },
                 "expiration-date": null,
                 "endorsements": null,
                 "restrictions": null,
@@ -92586,6 +92804,10 @@
               "video-url": null,
               "id-class": "dl",
               "capture-method": "upload",
+              "capture-methods": {
+                "front": "upload",
+                "back": null
+              },
               "name-first": "JANE",
               "name-middle": null,
               "name-last": "DOE",
@@ -106712,6 +106934,10 @@
                     "video-url": null,
                     "id-class": null,
                     "capture-method": null,
+                    "capture-methods": {
+                      "front": null,
+                      "back": null
+                    },
                     "name-first": null,
                     "name-middle": null,
                     "name-last": null,
@@ -106847,6 +107073,10 @@
                     "video-url": null,
                     "id-class": "dl",
                     "capture-method": "api",
+                    "capture-methods": {
+                      "front": "api",
+                      "back": "api"
+                    },
                     "name-first": "Jane",
                     "name-middle": "Marie",
                     "name-last": "Doe",
@@ -106992,6 +107222,10 @@
                     "video-url": null,
                     "id-class": "dl",
                     "capture-method": "api",
+                    "capture-methods": {
+                      "front": "api",
+                      "back": "api"
+                    },
                     "name-first": "Jane",
                     "name-middle": "Marie",
                     "name-last": "Doe",
@@ -107432,6 +107666,10 @@
                     "video-url": null,
                     "id-class": "dl",
                     "capture-method": "api",
+                    "capture-methods": {
+                      "front": "api",
+                      "back": null
+                    },
                     "name-first": "Jane",
                     "name-middle": "Marie",
                     "name-last": "Doe",

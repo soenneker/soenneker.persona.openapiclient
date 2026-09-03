@@ -13,7 +13,6 @@ using Soenneker.Persona.OpenApiClient.Inquiries.Item.PerformSimulateActions;
 using Soenneker.Persona.OpenApiClient.Inquiries.Item.Print;
 using Soenneker.Persona.OpenApiClient.Inquiries.Item.RemoveTag;
 using Soenneker.Persona.OpenApiClient.Inquiries.Item.Resume;
-using Soenneker.Persona.OpenApiClient.Inquiries.Item.SetStep;
 using Soenneker.Persona.OpenApiClient.Inquiries.Item.SetTags;
 using Soenneker.Persona.OpenApiClient.Models;
 using System.Collections.Generic;
@@ -78,11 +77,6 @@ namespace Soenneker.Persona.OpenApiClient.Inquiries.Item
         public global::Soenneker.Persona.OpenApiClient.Inquiries.Item.Resume.ResumeRequestBuilder Resume
         {
             get => new global::Soenneker.Persona.OpenApiClient.Inquiries.Item.Resume.ResumeRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The setStep property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Inquiries.Item.SetStep.SetStepRequestBuilder SetStep
-        {
-            get => new global::Soenneker.Persona.OpenApiClient.Inquiries.Item.SetStep.SetStepRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The setTags property</summary>
         public global::Soenneker.Persona.OpenApiClient.Inquiries.Item.SetTags.SetTagsRequestBuilder SetTags

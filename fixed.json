@@ -9992,128 +9992,6 @@
         }
       }
     },
-    "/inquiries/{inquiryId}/set-step": {
-      "post": {
-        "tags": [
-          "Inquiries"
-        ],
-        "summary": "Set the step of an Inquiry",
-        "description": "Sets the step an Inquiry\u0027s flow is currently on.",
-        "externalDocs": {
-          "description": "Full documentation for this API on the Persona website.",
-          "url": "https://docs.withpersona.com/api-reference/inquiries/set-step"
-        },
-        "operationId": "InquiriesSetStep",
-        "parameters": [
-          {
-            "description": "Determines casing for the API response.",
-            "$ref": "#/components/parameters/key-inflection-header"
-          },
-          {
-            "description": "Ensures the request is idempotent.",
-            "$ref": "#/components/parameters/idempotency-key-header"
-          },
-          {
-            "$ref": "#/components/parameters/persona-version-header"
-          },
-          {
-            "description": "A comma-separated list of relationship paths. This can be used to customize which related resources will be fully serialized in the \u0060included\u0060 key in the response. See [Serialization](https://docs.withpersona.com/serialization#inclusion-of-related-resources) for more details.",
-            "$ref": "#/components/parameters/include-query-parameter"
-          },
-          {
-            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
-            "$ref": "#/components/parameters/fields-query-parameter"
-          },
-          {
-            "name": "inquiryId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/InquiriesSetStepRequest"
-              },
-              "examples": {
-                "Success": {
-                  "$ref": "#/components/examples/set-step"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "This endpoint returns an Inquiry object and (optionally) its related objects in \u0060included\u0060.",
-            "headers": {
-              "RateLimit-Limit": {
-                "$ref": "#/components/headers/rate-limit-limit"
-              },
-              "RateLimit-Remaining": {
-                "$ref": "#/components/headers/rate-limit-remaining"
-              },
-              "RateLimit-Reset": {
-                "$ref": "#/components/headers/rate-limit-reset"
-              },
-              "Request-Id": {
-                "$ref": "#/components/headers/request-id"
-              },
-              "Persona-Environment-Id": {
-                "$ref": "#/components/headers/persona-environment-id"
-              },
-              "Persona-Organization-Id": {
-                "$ref": "#/components/headers/persona-organization-id"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InquiriesSetStep200Response"
-                },
-                "examples": {
-                  "Success": {
-                    "$ref": "#/components/examples/inquiry"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The request was unacceptable, often due to invalid parameters.",
-            "$ref": "#/components/responses/bad-request"
-          },
-          "401": {
-            "description": "An invalid API key was provided.",
-            "$ref": "#/components/responses/unauthorized"
-          },
-          "403": {
-            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
-            "$ref": "#/components/responses/forbidden"
-          },
-          "404": {
-            "description": "The requested resource doesn\u2019t exist.",
-            "$ref": "#/components/responses/not-found"
-          },
-          "409": {
-            "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
-            "$ref": "#/components/responses/conflict"
-          },
-          "422": {
-            "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
-            "$ref": "#/components/responses/unprocessable-entity"
-          },
-          "429": {
-            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
-            "$ref": "#/components/responses/too-many-requests"
-          }
-        }
-      }
-    },
     "/inquiries/{inquiryId}/set-tags": {
       "post": {
         "tags": [
@@ -23862,6 +23740,9 @@
                   },
                   "BusinessWebsite": {
                     "$ref": "#/components/examples/verification-business-website"
+                  },
+                  "CryptoWallet": {
+                    "$ref": "#/components/examples/verification-crypto-wallet"
                   }
                 }
               }
@@ -29543,6 +29424,28 @@
         "additionalProperties": false,
         "description": "A Credit Card Verification"
       },
+      "VerificationCryptoWallet": {
+        "title": "Crypto Wallet Verification",
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/VerificationCryptoWalletType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The token of the verification",
+            "example": "ver_ABC123"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/VerificationCryptoWalletAttributes"
+          },
+          "relationships": {
+            "$ref": "#/components/schemas/VerificationSharedRelationships"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Crypto Wallet Verification"
+      },
       "VerificationDatabaseAadhaar": {
         "title": "Database Aadhaar Verification",
         "type": "object",
@@ -31906,6 +31809,9 @@
             "$ref": "#/components/schemas/VerificationCreditCard"
           },
           {
+            "$ref": "#/components/schemas/VerificationCryptoWallet"
+          },
+          {
             "$ref": "#/components/schemas/VerificationDatabase"
           },
           {
@@ -32036,6 +31942,7 @@
             "verification/business-website": "#/components/schemas/VerificationBusinessWebsite",
             "verification/certificate-korea": "#/components/schemas/VerificationCertificateKorea",
             "verification/credit-card": "#/components/schemas/VerificationCreditCard",
+            "verification/crypto-wallet": "#/components/schemas/VerificationCryptoWallet",
             "verification/database": "#/components/schemas/VerificationDatabase",
             "verification/database-aadhaar": "#/components/schemas/VerificationDatabaseAadhaar",
             "verification/database-business": "#/components/schemas/VerificationDatabaseBusiness",
@@ -32080,6 +31987,7 @@
             "VerificationBusinessWebsite": "#/components/schemas/VerificationBusinessWebsite",
             "VerificationCertificateKorea": "#/components/schemas/VerificationCertificateKorea",
             "VerificationCreditCard": "#/components/schemas/VerificationCreditCard",
+            "VerificationCryptoWallet": "#/components/schemas/VerificationCryptoWallet",
             "VerificationDatabase": "#/components/schemas/VerificationDatabase",
             "VerificationDatabaseAadhaar": "#/components/schemas/VerificationDatabaseAadhaar",
             "VerificationDatabaseBusiness": "#/components/schemas/VerificationDatabaseBusiness",
@@ -39625,6 +39533,122 @@
           }
         }
       },
+      "VerificationCryptoWalletAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the verification\n\nPossible values:\n- initiated\n- submitted\n- tentatively_passed (only for \u0060verification/document\u0060 and \u0060verification/qes-infocert\u0060)\n- tentatively_failed (only for \u0060verification/database-business\u0060 and \u0060verification/database-business-footprint\u0060)\n- passed\n- failed\n- requires_retry\n- skipped\n- canceled\n- confirmed (only for \u0060verification/email-address\u0060 and \u0060verification/phone-number\u0060)\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update."
+          },
+          "created-at": {
+            "type": "string",
+            "description": "The time the verification was created in ISO 8601 format",
+            "format": "date-time",
+            "example": "2023-11-16T01:31:16.000Z"
+          },
+          "created-at-ts": {
+            "type": "integer",
+            "description": "The time the verification was created in Unix timestamp format",
+            "format": "int32",
+            "example": 1700098276
+          },
+          "submitted-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The time the verification was submitted in ISO 8601 format",
+            "format": "date-time",
+            "example": "2023-11-16T01:31:16.000Z"
+          },
+          "submitted-at-ts": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The time the verification was submitted in Unix timestamp format",
+            "example": 1700098276
+          },
+          "completed-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The time the verification was completed in ISO 8601 format",
+            "format": "date-time",
+            "example": "2023-11-16T01:31:16.000Z"
+          },
+          "completed-at-ts": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The time the verification was completed in Unix timestamp format",
+            "example": 1700098276
+          },
+          "redacted-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The time the verification was redacted in ISO 8601 format",
+            "format": "date-time",
+            "example": "2023-11-16T01:31:16.000Z"
+          },
+          "country-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "ISO 3166-1 alpha 2 country code.",
+            "example": "US"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags on the verification"
+          },
+          "checks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VerificationSharedAttributesChecksItem"
+            }
+          },
+          "wallet-address": {
+            "examples": [
+              "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Wallet address extracted from the signed authentication message."
+          },
+          "chain-id": {
+            "examples": [
+              "eip155:1"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Blockchain network identifier extracted from the signed authentication message (CAIP-2, e.g. \u0022eip155:1\u0022 for Ethereum mainnet)."
+          },
+          "expected-address": {
+            "examples": [
+              "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional address the signed wallet address is compared against."
+          }
+        }
+      },
       "VerificationDatabaseAadhaarAttributes": {
         "unevaluatedProperties": false,
         "type": "object",
@@ -43405,6 +43429,9 @@
             "$ref": "#/components/schemas/VerificationCreditCard"
           },
           {
+            "$ref": "#/components/schemas/VerificationCryptoWallet"
+          },
+          {
             "$ref": "#/components/schemas/VerificationDatabase"
           },
           {
@@ -43576,6 +43603,7 @@
             "verification/business-website": "#/components/schemas/VerificationBusinessWebsite",
             "verification/certificate-korea": "#/components/schemas/VerificationCertificateKorea",
             "verification/credit-card": "#/components/schemas/VerificationCreditCard",
+            "verification/crypto-wallet": "#/components/schemas/VerificationCryptoWallet",
             "verification/database": "#/components/schemas/VerificationDatabase",
             "verification/database-aadhaar": "#/components/schemas/VerificationDatabaseAadhaar",
             "verification/database-business": "#/components/schemas/VerificationDatabaseBusiness",
@@ -43651,6 +43679,7 @@
             "VerificationBusinessWebsite": "#/components/schemas/VerificationBusinessWebsite",
             "VerificationCertificateKorea": "#/components/schemas/VerificationCertificateKorea",
             "VerificationCreditCard": "#/components/schemas/VerificationCreditCard",
+            "VerificationCryptoWallet": "#/components/schemas/VerificationCryptoWallet",
             "VerificationDatabase": "#/components/schemas/VerificationDatabase",
             "VerificationDatabaseAadhaar": "#/components/schemas/VerificationDatabaseAadhaar",
             "VerificationDatabaseBusiness": "#/components/schemas/VerificationDatabaseBusiness",
@@ -45743,6 +45772,7 @@
             "verification-template/business-website": "#/components/schemas/VerificationTemplate",
             "verification-template/certificate-korea": "#/components/schemas/VerificationTemplate",
             "verification-template/credit-card": "#/components/schemas/VerificationTemplate",
+            "verification-template/crypto-wallet": "#/components/schemas/VerificationTemplate",
             "verification-template/database": "#/components/schemas/VerificationTemplate",
             "verification-template/database-aadhaar": "#/components/schemas/VerificationTemplate",
             "verification-template/database-business": "#/components/schemas/VerificationTemplate",
@@ -45787,6 +45817,7 @@
             "verification-template-version/business-website": "#/components/schemas/VerificationTemplateVersion",
             "verification-template-version/certificate-korea": "#/components/schemas/VerificationTemplateVersion",
             "verification-template-version/credit-card": "#/components/schemas/VerificationTemplateVersion",
+            "verification-template-version/crypto-wallet": "#/components/schemas/VerificationTemplateVersion",
             "verification-template-version/database": "#/components/schemas/VerificationTemplateVersion",
             "verification-template-version/database-aadhaar": "#/components/schemas/VerificationTemplateVersion",
             "verification-template-version/database-business": "#/components/schemas/VerificationTemplateVersion",
@@ -48888,6 +48919,41 @@
               "string"
             ],
             "description": "The type of certificate used for verification."
+          }
+        }
+      },
+      "VerificationCryptoWalletAttributesAllOf2": {
+        "type": "object",
+        "properties": {
+          "wallet-address": {
+            "examples": [
+              "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Wallet address extracted from the signed authentication message."
+          },
+          "chain-id": {
+            "examples": [
+              "eip155:1"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Blockchain network identifier extracted from the signed authentication message (CAIP-2, e.g. \u0022eip155:1\u0022 for Ethereum mainnet)."
+          },
+          "expected-address": {
+            "examples": [
+              "0x90F79bf6EB2c4f870365E785982E1f101E93b906"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional address the signed wallet address is compared against."
           }
         }
       },
@@ -64469,36 +64535,6 @@
         },
         "additionalProperties": false
       },
-      "InquiriesSetStepRequest": {
-        "required": [
-          "meta"
-        ],
-        "type": "object",
-        "properties": {
-          "meta": {
-            "$ref": "#/components/schemas/InquiriesSetStepRequestMeta"
-          }
-        },
-        "additionalProperties": false
-      },
-      "InquiriesSetStep200Response": {
-        "required": [
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/Inquiry"
-          },
-          "included": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/InquiryIncludedObjectsItem"
-            }
-          }
-        },
-        "additionalProperties": false
-      },
       "InquiriesSetAllTagsRequest": {
         "type": "object",
         "properties": {
@@ -70350,23 +70386,6 @@
               "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJpcXNlX1Q4UHJxcG9FaHdoVVYxd0hSZXVVOW9mcyIsImF1ZCI6InBlcnNvbmEtdmVyaWZ5IiwiaXNzIjoic3RhZ2luZy53aXRocGVyc29uYS5jb20iLCJpYXQiOjE1NzM4NTI2NjEsIm5iZiI6MTU3Mzg1MjY2MSwiZXhwIjoxNTczOTM5MDYxLCJqdGkiOiI5NWRlNjhkOS1hZjI4LTRiMzItOWIxYi03MjA4MTg3NTI3N2IiLCJzaWQiOiJpcXNlX1Q4UHJxcG9FaHdoVVYxd0hSZXVVOW9mcyJ9.LN6DEnfjP5cZoZ3w41RgyX5QVmutmjHja_bRHOmDjg0"
             ],
             "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "InquiriesSetStepRequestMeta": {
-        "required": [
-          "next-step-name"
-        ],
-        "type": "object",
-        "properties": {
-          "next-step-name": {
-            "examples": [
-              "government_id",
-              "selfie"
-            ],
-            "type": "string",
-            "description": "Name of the step to move the Inquiry to. Must be a step on the Inquiry\u0027s template version."
           }
         },
         "additionalProperties": false
@@ -81623,6 +81642,23 @@
           ]
         }
       },
+      "VerificationCryptoWalletType": {
+        "const": null,
+        "enum": [
+          "verification/crypto-wallet"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "VerificationCryptoWalletType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "verification/crypto-wallet",
+              "name": "VerificationCryptoWallet"
+            }
+          ]
+        }
+      },
       "VerificationDatabaseAadhaarType": {
         "const": null,
         "enum": [
@@ -90279,13 +90315,6 @@
           }
         }
       },
-      "set-step": {
-        "value": {
-          "meta": {
-            "next-step-name": "government_id"
-          }
-        }
-      },
       "inquiry-list-search": {
         "value": {
           "data": [
@@ -93132,6 +93161,101 @@
               "verification-template-version": {
                 "data": {
                   "type": "verification-template-version/business-website",
+                  "id": "vtmplv_ABC123"
+                }
+              }
+            }
+          }
+        }
+      },
+      "verification-crypto-wallet": {
+        "value": {
+          "data": {
+            "type": "verification/crypto-wallet",
+            "id": "ver_ABC123",
+            "attributes": {
+              "status": "passed",
+              "created-at": "2023-11-03T17:37:06.000Z",
+              "created-at-ts": 1699033026,
+              "submitted-at": "2023-11-03T17:37:10.000Z",
+              "submitted-at-ts": 1699033030,
+              "completed-at": "2023-11-03T17:37:15.000Z",
+              "completed-at-ts": 1699033035,
+              "country-code": null,
+              "wallet-address": "0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+              "chain-id": "eip155:1",
+              "expected-address": null,
+              "checks": [
+                {
+                  "name": "crypto_wallet_validity_detection",
+                  "status": "passed",
+                  "reasons": [],
+                  "requirement": "required",
+                  "metadata": {}
+                },
+                {
+                  "name": "crypto_wallet_statement_comparison",
+                  "status": "not_applicable",
+                  "reasons": [
+                    "no_expected_statement"
+                  ],
+                  "requirement": "required",
+                  "metadata": {}
+                },
+                {
+                  "name": "crypto_wallet_address_comparison",
+                  "status": "not_applicable",
+                  "reasons": [
+                    "no_expected_address"
+                  ],
+                  "requirement": "required",
+                  "metadata": {}
+                },
+                {
+                  "name": "crypto_wallet_disallowed_chain_detection",
+                  "status": "not_applicable",
+                  "reasons": [
+                    "no_allowlist"
+                  ],
+                  "requirement": "required",
+                  "metadata": {}
+                }
+              ]
+            },
+            "relationships": {
+              "inquiry": {
+                "data": {
+                  "type": "inquiry",
+                  "id": "inq_ABC123"
+                }
+              },
+              "template": {
+                "data": null
+              },
+              "inquiry-template-version": {
+                "data": {
+                  "type": "inquiry-template-version",
+                  "id": "itmplv_ABC123"
+                }
+              },
+              "inquiry-template": {
+                "data": {
+                  "type": "inquiry-template",
+                  "id": "itmpl_ABC123"
+                }
+              },
+              "transaction": {
+                "data": null
+              },
+              "verification-template": {
+                "data": {
+                  "type": "verification-template/crypto-wallet",
+                  "id": "vtmpl_ABC123"
+                }
+              },
+              "verification-template-version": {
+                "data": {
+                  "type": "verification-template-version/crypto-wallet",
                   "id": "vtmplv_ABC123"
                 }
               }

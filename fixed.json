@@ -26095,6 +26095,9 @@
         "x-inheritable": true
       },
       "FieldSchema": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "anyOf": [
           {
@@ -26149,6 +26152,9 @@
               "null",
               "string"
             ]
+          },
+          "type": {
+            "type": "string"
           }
         },
         "discriminator": {
@@ -27032,6 +27038,9 @@
         "description": "PII-filtered snapshot of an Account source object. Carries the account\u0027s filtered scalar\nattributes under \u0060peekable-attributes\u0060, and the account\u0027s standard and custom user-space\nfields under \u0060peekable-attributes.fields\u0060.\n"
       },
       "SourceDataRelatedObject": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -27170,6 +27179,9 @@
         "description": "PII-filtered snapshot of a Watchlist report. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nReport subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
       },
       "SourceData": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -28732,6 +28744,9 @@
         "description": "A Document Mdoc object"
       },
       "Document": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "anyOf": [
           {
@@ -28756,6 +28771,9 @@
           },
           "relationships": {
             "$ref": "#/components/schemas/DocumentSharedRelationships"
+          },
+          "type": {
+            "type": "string"
           }
         },
         "discriminator": {
@@ -29032,6 +29050,9 @@
         "description": "An Importer for phone number List Items"
       },
       "Importer": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -29069,6 +29090,9 @@
           },
           "attributes": {
             "$ref": "#/components/schemas/ImporterSharedAttributes"
+          },
+          "type": {
+            "type": "string"
           }
         },
         "discriminator": {
@@ -30667,6 +30691,9 @@
         "description": "A Strings List object"
       },
       "List": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "anyOf": [
           {
@@ -30696,6 +30723,9 @@
         ],
         "properties": {
           "id": {
+            "type": "string"
+          },
+          "type": {
             "type": "string"
           }
         },
@@ -30735,6 +30765,9 @@
         "description": "The current rate limit for a resource."
       },
       "Report": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -30797,6 +30830,9 @@
           },
           "relationships": {
             "$ref": "#/components/schemas/ReportSharedRelationships"
+          },
+          "type": {
+            "type": "string"
           }
         },
         "discriminator": {
@@ -31788,6 +31824,9 @@
         "additionalProperties": false
       },
       "Verification": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -31931,6 +31970,9 @@
             "type": "string",
             "description": "The token of the verification",
             "example": "ver_ABC123"
+          },
+          "type": {
+            "type": "string"
           }
         },
         "discriminator": {
@@ -33361,6 +33403,9 @@
         }
       },
       "AccountsIncludedObjectsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -38420,6 +38465,9 @@
         }
       },
       "CasesIncludedObjectsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -38536,6 +38584,9 @@
             "examples": [
               "act_hpNqyAbEG4HeVjZoBRNCMKkA"
             ],
+            "type": "string"
+          },
+          "type": {
             "type": "string"
           }
         },
@@ -38692,6 +38743,9 @@
         }
       },
       "DocumentIncludedObjectsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -38718,6 +38772,9 @@
             "examples": [
               "inq_5FrMN7NAGgFdGGysCDd7DaBW"
             ],
+            "type": "string"
+          },
+          "type": {
             "type": "string"
           }
         },
@@ -43321,6 +43378,9 @@
         }
       },
       "InquiryIncludedObjectsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -43561,6 +43621,9 @@
           },
           "meta": {
             "$ref": "#/components/schemas/WorkflowRunMeta"
+          },
+          "type": {
+            "type": "string"
           }
         },
         "discriminator": {
@@ -43724,6 +43787,9 @@
         }
       },
       "InquirySessionsIncludedObjectsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -43746,6 +43812,9 @@
           },
           "relationships": {
             "$ref": "#/components/schemas/InquiryRelationships"
+          },
+          "type": {
+            "type": "string"
           }
         },
         "discriminator": {
@@ -43761,6 +43830,9 @@
         }
       },
       "InquiryTemplateIncludedObjectsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -45509,6 +45581,9 @@
         }
       },
       "ReportsIncludedObjectsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -45578,6 +45653,9 @@
           },
           "meta": {
             "$ref": "#/components/schemas/ReportTemplateSharedMeta"
+          },
+          "type": {
+            "type": "string"
           }
         },
         "discriminator": {
@@ -45625,6 +45703,9 @@
         }
       },
       "ReportHistoryItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -45687,6 +45768,9 @@
             ],
             "description": "The number of matches found (only present if the run is completed)",
             "example": 30
+          },
+          "type": {
+            "type": "string"
           }
         },
         "discriminator": {
@@ -45706,6 +45790,9 @@
         }
       },
       "VerificationIncludedObjectsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -45750,6 +45837,9 @@
             "examples": [
               "act_hpNqyAbEG4HeVjZoBRNCMKkA"
             ],
+            "type": "string"
+          },
+          "type": {
             "type": "string"
           }
         },
@@ -46015,6 +46105,9 @@
         }
       },
       "WorkflowRunIncludedObjectsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -46036,6 +46129,9 @@
               "wfl_3JqAR9ddLRVZLK5z4yD8oeHB"
             ],
             "type": "string"
+          },
+          "type": {
+            "type": "string"
           }
         },
         "discriminator": {
@@ -46053,6 +46149,9 @@
         }
       },
       "ImporterPipelineRunsIncludedObjectsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -46082,6 +46181,9 @@
         }
       },
       "SelfieIncludedObjectsItem": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {

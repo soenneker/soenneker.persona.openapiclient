@@ -53,10 +53,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The includedAllowlist property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesIncludedAllowlist? IncludedAllowlist { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist? IncludedAllowlist { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesIncludedAllowlist IncludedAllowlist { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist IncludedAllowlist { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -123,7 +123,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "enabled-events", n => { EnabledEvents = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "file-access-token-expires-in", n => { FileAccessTokenExpiresIn = n.GetIntValue(); } },
-                { "included-allowlist", n => { IncludedAllowlist = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesIncludedAllowlist>(global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesIncludedAllowlist.CreateFromDiscriminatorValue); } },
+                { "included-allowlist", n => { IncludedAllowlist = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist>(global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "payload-filter", n => { PayloadFilter = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesPayloadFilterProperty>(global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesPayloadFilterProperty.CreateFromDiscriminatorValue); } },
                 { "relationship-allowlist", n => { RelationshipAllowlist = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist>(global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist.CreateFromDiscriminatorValue); } },
@@ -145,7 +145,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfPrimitiveValues<string>("enabled-events", EnabledEvents);
             writer.WriteIntValue("file-access-token-expires-in", FileAccessTokenExpiresIn);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesIncludedAllowlist>("included-allowlist", IncludedAllowlist);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist>("included-allowlist", IncludedAllowlist);
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookAttributesPayloadFilterProperty>("payload-filter", PayloadFilter);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist>("relationship-allowlist", RelationshipAllowlist);

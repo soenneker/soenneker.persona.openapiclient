@@ -29,6 +29,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>The relationships property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogRelationships? Relationships { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogRelationships Relationships { get; set; }
+#endif
         /// <summary>The type property</summary>
         public global::Soenneker.Persona.OpenApiClient.Models.ApiLogType? Type { get; set; }
         /// <summary>
@@ -51,6 +59,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributes>(global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributes.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogRelationships>(global::Soenneker.Persona.OpenApiClient.Models.ApiLogRelationships.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogType>(); } },
             };
         }
@@ -63,6 +72,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributes>("attributes", Attributes);
             writer.WriteStringValue("id", Id);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogRelationships>("relationships", Relationships);
             writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogType>("type", Type);
         }
     }

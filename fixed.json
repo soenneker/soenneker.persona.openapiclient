@@ -27281,6 +27281,9 @@
           },
           "attributes": {
             "$ref": "#/components/schemas/ApiLogAttributes"
+          },
+          "relationships": {
+            "$ref": "#/components/schemas/ApiLogRelationships"
           }
         },
         "additionalProperties": false,
@@ -51957,6 +51960,15 @@
         },
         "additionalProperties": false
       },
+      "ApiLogRelationships": {
+        "type": "object",
+        "properties": {
+          "api-key": {
+            "$ref": "#/components/schemas/ApiLogRelationshipsApiKey"
+          }
+        },
+        "additionalProperties": false
+      },
       "CaseTemplateAttributes": {
         "type": "object",
         "properties": {
@@ -57762,6 +57774,16 @@
         },
         "additionalProperties": false
       },
+      "ApiLogRelationshipsApiKey": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ApiLogRelationshipsApiKeyData"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The API key that made this request, if any."
+      },
       "CaseTypeAttributesFields": {
         "examples": [
           {
@@ -61409,6 +61431,24 @@
           "Vary": {
             "examples": [
               "Accept"
+            ],
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiLogRelationshipsApiKeyData": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ApiKeyType"
+          },
+          "id": {
+            "examples": [
+              "api_ABC123"
             ],
             "type": "string"
           }
@@ -89055,6 +89095,14 @@
                 },
                 "created-at": "2023-09-20T20:20:03.485\u002B00:00",
                 "redacted-at": null
+              },
+              "relationships": {
+                "api-key": {
+                  "data": {
+                    "type": "api-key",
+                    "id": "api_ABC123"
+                  }
+                }
               }
             }
           ],
@@ -89100,6 +89148,14 @@
               },
               "created-at": "2023-09-20T20:20:03.485\u002B00:00",
               "redacted-at": null
+            },
+            "relationships": {
+              "api-key": {
+                "data": {
+                  "type": "api-key",
+                  "id": "api_ABC123"
+                }
+              }
             }
           }
         }

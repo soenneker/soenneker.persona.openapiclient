@@ -12,6 +12,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public partial class VerificationSharedAttributesChecksItem : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The category assigned to the check. Possible values include:- biometrics- fraud- user_action_required- validityThis categorizes the check itself, not its outcome. A null categorymeans the check is uncategorized or its category is unknown; it mustnot be interpreted as non-fraud. Do not assume this is a staticenumeration; Persona may add new values in the future without aversioned update.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Category { get; set; }
+#nullable restore
+#else
+        public string Category { get; set; }
+#endif
         /// <summary>This is a free-form object containing relevant metadata to the processing and result of the check.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,6 +78,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "category", n => { Category = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItemMetadataProperty>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItemMetadataProperty.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "reasons", n => { Reasons = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -84,6 +93,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("category", Category);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItemMetadataProperty>("metadata", Metadata);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("reasons", Reasons);

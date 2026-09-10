@@ -28,6 +28,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponseErrorsItemMetaProperty Meta { get; set; }
 #endif
+        /// <summary>The location of the invalid value.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponseErrorsItemSource? Source { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponseErrorsItemSource Source { get; set; }
+#endif
         /// <summary>Bad Request</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,6 +64,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "details", n => { Details = n.GetStringValue(); } },
                 { "meta", n => { Meta = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponseErrorsItemMetaProperty>(global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponseErrorsItemMetaProperty.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponseErrorsItemSource>(global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponseErrorsItemSource.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -68,6 +77,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("details", Details);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponseErrorsItemMetaProperty>("meta", Meta);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponseErrorsItemSource>("source", Source);
             writer.WriteStringValue("title", Title);
         }
     }

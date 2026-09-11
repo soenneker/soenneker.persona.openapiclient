@@ -67,6 +67,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string ReferenceNumber { get; set; }
 #endif
+        /// <summary>Date until which the person may work in the UK.</summary>
+        public Date? RightToWorkEndDate { get; set; }
+        /// <summary>Date from which the person may work in the UK.</summary>
+        public Date? RightToWorkStartDate { get; set; }
         /// <summary>The UK share code used for verification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -135,6 +139,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "name-full", n => { NameFull = n.GetStringValue(); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
                 { "reference-number", n => { ReferenceNumber = n.GetStringValue(); } },
+                { "right-to-work-end-date", n => { RightToWorkEndDate = n.GetDateValue(); } },
+                { "right-to-work-start-date", n => { RightToWorkStartDate = n.GetDateValue(); } },
                 { "sharecode", n => { Sharecode = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "submitted-at", n => { SubmittedAt = n.GetDateTimeOffsetValue(); } },
@@ -162,6 +168,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("name-full", NameFull);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
             writer.WriteStringValue("reference-number", ReferenceNumber);
+            writer.WriteDateValue("right-to-work-end-date", RightToWorkEndDate);
+            writer.WriteDateValue("right-to-work-start-date", RightToWorkStartDate);
             writer.WriteStringValue("sharecode", Sharecode);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("submitted-at", SubmittedAt);

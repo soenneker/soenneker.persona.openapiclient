@@ -28,6 +28,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsReviewer Reviewer { get; set; }
 #endif
+        /// <summary>The Sentinel sessions that collected device and network data for this Transaction. Present on every Transaction; `data` is empty unless the Transaction has one or more Sentinel sessions.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsSentinelSessions? SentinelSessions { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsSentinelSessions SentinelSessions { get; set; }
+#endif
         /// <summary>The transactionLabel property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,6 +72,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "related-objects", n => { RelatedObjects = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsRelatedObjects>(global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsRelatedObjects.CreateFromDiscriminatorValue); } },
                 { "reviewer", n => { Reviewer = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsReviewer>(global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsReviewer.CreateFromDiscriminatorValue); } },
+                { "sentinel-sessions", n => { SentinelSessions = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsSentinelSessions>(global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsSentinelSessions.CreateFromDiscriminatorValue); } },
                 { "transaction-label", n => { TransactionLabel = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionLabel>(global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionLabel.CreateFromDiscriminatorValue); } },
                 { "transaction-type", n => { TransactionType = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionType>(global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionType.CreateFromDiscriminatorValue); } },
             };
@@ -77,6 +86,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsRelatedObjects>("related-objects", RelatedObjects);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsReviewer>("reviewer", Reviewer);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsSentinelSessions>("sentinel-sessions", SentinelSessions);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionLabel>("transaction-label", TransactionLabel);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionType>("transaction-type", TransactionType);
         }

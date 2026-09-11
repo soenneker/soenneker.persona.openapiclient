@@ -20,7 +20,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.Transaction Data { get; set; }
 #endif
-        /// <summary>Full representations of the objects referenced in `data.attributes.relationships` — the Transaction&apos;s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to.</summary>
+        /// <summary>Full representations of the objects referenced in `data.attributes.relationships` — the Transaction&apos;s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), its Sentinel Session, and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Persona.OpenApiClient.Models.TransactionsIncludedObjectsItem>? Included { get; set; }

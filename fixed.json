@@ -6182,7 +6182,7 @@
           "Cases"
         ],
         "summary": "Search Cases",
-        "description": "Search for cases using a flexible query language.\n\n## Search vs. List Endpoints\n\nThe Search and List endpoints serve different purposes and have distinct performance characteristics.\n\nUse the **Search** endpoint (\u0060POST /cases/search\u0060) when you need to perform complex queries with boolean logic (AND/OR/NOT), filter by custom fields, assignee, case queue, or SLA expiration, or apply multiple conditions simultaneously. Search is optimized for flexible querying and is faster than paginating through all resources when looking for specific records.\n\nUse the **List** endpoint (\u0060GET /cases\u0060) for simple listing with basic filters like status, case template, account, inquiry, or report.\n\n## Data Freshness\n\nDo not use search for read-after-write flows because the data will not be immediately available to search.\nUnder normal operating conditions, data is searchable within approximately 1 minute of creation or modification.\nPropagation of new or updated data could be delayed during an outage.\nFor workflows that require immediate data availability after creating or updating a case, use the List Cases endpoint instead.\n\n### Searchable Attributes\n\nThe following attributes can be used in query predicates:\n\n| Attribute | Description |\n|-----------|-------------|\n| \u0060template\u0060 | Case template (e.g., \u0060ctmpl_ABC123\u0060) |\n| \u0060status\u0060 | Case status (e.g., \u0060open\u0060, \u0060pending\u0060, \u0060resolved\u0060) |\n| \u0060state\u0060 | Case state |\n| \u0060created_at\u0060 | Case creation timestamp |\n| \u0060updated_at\u0060 | Case last updated timestamp |\n| \u0060resolved_at\u0060 | Case resolution timestamp |\n| \u0060sla_expires_at\u0060 | SLA expiration timestamp |\n| \u0060assignee\u0060 | Assigned user (e.g., \u0060user_ABC123\u0060) |\n| \u0060case_queue\u0060 | Case queue (e.g., \u0060cqueue_ABC123\u0060) |\n| \u0060resolver\u0060 | Resolver user |\n| \u0060fields.*\u0060 | Custom case field (e.g., \u0060fields.priority\u0060) |\n\n**Note:** Custom fields (\u0060fields.*\u0060) must be configured as searchable on the Case Template to be queryable.\n",
+        "description": "Search for cases using a flexible query language.\n\n## Search vs. List Endpoints\n\nThe Search and List endpoints serve different purposes and have distinct performance characteristics.\n\nUse the **Search** endpoint (\u0060POST /cases/search\u0060) when you need to perform complex queries with boolean logic (AND/OR/NOT), filter by custom fields, assignee, case queue, or SLA expiration, or apply multiple conditions simultaneously. Search is optimized for flexible querying and is faster than paginating through all resources when looking for specific records.\n\nUse the **List** endpoint (\u0060GET /cases\u0060) for simple listing with basic filters like status, case template, account, inquiry, or report.\n\n## Data Freshness\n\nDo not use search for read-after-write flows because the data will not be immediately available to search.\nUnder normal operating conditions, data is searchable within approximately 1 minute of creation or modification.\nPropagation of new or updated data could be delayed during an outage.\nFor workflows that require immediate data availability after creating or updating a case, use the List Cases endpoint instead.\n\n### Searchable Attributes\n\nThe following attributes can be used in query predicates:\n\n| Attribute | Description |\n|-----------|-------------|\n| \u0060template\u0060 | Case template (e.g., \u0060ctmpl_ABC123\u0060) |\n| \u0060case_template_id\u0060 | Case template (e.g., \u0060ctmpl_ABC123\u0060) |\n| \u0060status\u0060 | Case status (e.g., \u0060open\u0060, \u0060pending\u0060, \u0060resolved\u0060) |\n| \u0060state\u0060 | Case state |\n| \u0060resolution\u0060 | Case resolution |\n| \u0060created_at\u0060 | Case creation timestamp |\n| \u0060updated_at\u0060 | Case last updated timestamp |\n| \u0060resolved_at\u0060 | Case resolution timestamp |\n| \u0060sla_expires_at\u0060 | SLA expiration timestamp |\n| \u0060assignee\u0060 | Assigned user (e.g., \u0060user_ABC123\u0060) |\n| \u0060case_queue\u0060 | Case queue (e.g., \u0060cqueue_ABC123\u0060) |\n| \u0060case_queue_id\u0060 | Case queue (e.g., \u0060cqueue_ABC123\u0060) |\n| \u0060resolver\u0060 | Resolver user |\n| \u0060account_id\u0060 | Related account (e.g., \u0060act_ABC123\u0060) |\n| \u0060inquiry_id\u0060 | Related inquiry (e.g., \u0060inq_ABC123\u0060) |\n| \u0060tag_id\u0060 | Related tag (e.g., \u0060tag_ABC123\u0060) |\n| \u0060fields.*\u0060 | Custom case field (e.g., \u0060fields.priority\u0060) |\n\n**Note:** Custom fields (\u0060fields.*\u0060) must be configured as searchable on the Case Template to be queryable.\n\n**Note:** \u0060account_id\u0060, \u0060inquiry_id\u0060, \u0060tag_id\u0060, \u0060case_template_id\u0060, \u0060case_queue_id\u0060, and\n\u0060resolution\u0060 cannot be used in \u0060sort\u0060.\n\n**Note:** \u0060account_id\u0060, \u0060inquiry_id\u0060, and \u0060tag_id\u0060 match against the 50 most recently added\naccounts, inquiries, and tags on a case. A case related to more than 50 of one of these will not\nmatch on the older ones.\n",
         "externalDocs": {
           "description": "Full documentation for this API on the Persona website.",
           "url": "https://docs.withpersona.com/api-reference/cases/search-cases"
@@ -32411,7 +32411,7 @@
         "items": {
           "$ref": "#/components/schemas/TransactionsIncludedObjectsItem"
         },
-        "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
+        "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), its Sentinel Session, and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
       },
       "ImportAnAccountFormDataRequest": {
         "required": [
@@ -32450,7 +32450,8 @@
               "account",
               "inquiry",
               "workflow-run",
-              "report/watchlist"
+              "report/watchlist",
+              "sentinel-session"
             ],
             "type": "string",
             "description": "The type of the included object.",
@@ -42436,6 +42437,24 @@
             ],
             "description": "Date until which the immigration status is valid.",
             "format": "date"
+          },
+          "right-to-work-start-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Date from which the person may work in the UK.",
+            "format": "date",
+            "example": "2023-02-15"
+          },
+          "right-to-work-end-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Date until which the person may work in the UK.",
+            "format": "date",
+            "example": "2025-02-15"
           }
         }
       },
@@ -50179,6 +50198,24 @@
             ],
             "description": "Date until which the immigration status is valid.",
             "format": "date"
+          },
+          "right-to-work-start-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Date from which the person may work in the UK.",
+            "format": "date",
+            "example": "2023-02-15"
+          },
+          "right-to-work-end-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Date until which the person may work in the UK.",
+            "format": "date",
+            "example": "2025-02-15"
           }
         }
       },
@@ -51749,6 +51786,9 @@
           },
           "related-objects": {
             "$ref": "#/components/schemas/TransactionRelationshipsRelatedObjects"
+          },
+          "sentinel-sessions": {
+            "$ref": "#/components/schemas/TransactionRelationshipsSentinelSessions"
           }
         },
         "additionalProperties": false
@@ -57707,6 +57747,19 @@
         "additionalProperties": false,
         "description": "Objects involved in this Transaction\u0027s related Workflow runs. Will include a maximum of 100 related objects."
       },
+      "TransactionRelationshipsSentinelSessions": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransactionRelationshipsSentinelSessionsDataItem"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "description": "The Sentinel sessions that collected device and network data for this Transaction. Present on every Transaction; \u0060data\u0060 is empty unless the Transaction has one or more Sentinel sessions."
+      },
       "ConnectConnectionRelationshipsCreator": {
         "required": [
           "data"
@@ -61227,6 +61280,22 @@
             ],
             "type": "string",
             "description": "Unique identifier for this object."
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransactionRelationshipsSentinelSessionsDataItem": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SentinelSessionType"
+          },
+          "id": {
+            "examples": [
+              "snts_ABC123"
+            ],
+            "type": "string",
+            "description": "Unique identifier for this Sentinel Session. Starts with \u0060snts_\u0060."
           }
         },
         "additionalProperties": false
@@ -74783,7 +74852,7 @@
               "null",
               "string"
             ],
-            "description": "BETA FEATURE -- Theme Set ID for styling. Only available for Dynamic Flow Inquiries."
+            "description": "Theme Set ID for styling. Only available for Dynamic Flow Inquiries."
           },
           "redirect-uri": {
             "examples": [
@@ -79895,7 +79964,7 @@
             "items": {
               "$ref": "#/components/schemas/TransactionsIncludedObjectsItem"
             },
-            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
+            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), its Sentinel Session, and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
           }
         },
         "additionalProperties": false
@@ -79911,7 +79980,7 @@
             "items": {
               "$ref": "#/components/schemas/TransactionsIncludedObjectsItem"
             },
-            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
+            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), its Sentinel Session, and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
           }
         },
         "additionalProperties": false
@@ -79927,7 +79996,7 @@
             "items": {
               "$ref": "#/components/schemas/TransactionsIncludedObjectsItem"
             },
-            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
+            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), its Sentinel Session, and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
           }
         },
         "additionalProperties": false
@@ -79943,7 +80012,7 @@
             "items": {
               "$ref": "#/components/schemas/TransactionsIncludedObjectsItem"
             },
-            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
+            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), its Sentinel Session, and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
           }
         },
         "additionalProperties": false
@@ -79959,7 +80028,7 @@
             "items": {
               "$ref": "#/components/schemas/TransactionsIncludedObjectsItem"
             },
-            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
+            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), its Sentinel Session, and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
           }
         },
         "additionalProperties": false
@@ -79975,7 +80044,7 @@
             "items": {
               "$ref": "#/components/schemas/TransactionsIncludedObjectsItem"
             },
-            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
+            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), its Sentinel Session, and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
           }
         },
         "additionalProperties": false
@@ -80025,7 +80094,7 @@
             "items": {
               "$ref": "#/components/schemas/TransactionsIncludedObjectsItem"
             },
-            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
+            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), its Sentinel Session, and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
           }
         },
         "additionalProperties": false
@@ -80075,7 +80144,7 @@
             "items": {
               "$ref": "#/components/schemas/TransactionsIncludedObjectsItem"
             },
-            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
+            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), its Sentinel Session, and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
           }
         },
         "additionalProperties": false
@@ -83719,6 +83788,23 @@
             {
               "value": "account-status",
               "name": "AccountStatus"
+            }
+          ]
+        }
+      },
+      "SentinelSessionType": {
+        "const": null,
+        "enum": [
+          "sentinel-session"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "SentinelSessionType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "sentinel-session",
+              "name": "SentinelSession"
             }
           ]
         }
@@ -91490,6 +91576,9 @@
                       "id": "ver_ABC123"
                     }
                   ]
+                },
+                "sentinel-sessions": {
+                  "data": []
                 }
               }
             }
@@ -91575,6 +91664,9 @@
                     "id": "ver_ABC123"
                   }
                 ]
+              },
+              "sentinel-sessions": {
+                "data": []
               }
             }
           }
@@ -91655,6 +91747,9 @@
                     "id": "ver_ABC123"
                   }
                 ]
+              },
+              "sentinel-sessions": {
+                "data": []
               }
             }
           },
@@ -92238,6 +92333,9 @@
                     "id": "ver_ABC123"
                   }
                 ]
+              },
+              "sentinel-sessions": {
+                "data": []
               }
             }
           },
@@ -107188,6 +107286,14 @@
                           "id": "act_9yGqWZ8jK4pN2dR7sVxL3bTm"
                         }
                       ]
+                    },
+                    "sentinel-sessions": {
+                      "data": [
+                        {
+                          "type": "sentinel-session",
+                          "id": "snts_26wUfNNK6Ze7qkwyK6kuj7Rk"
+                        }
+                      ]
                     }
                   }
                 },
@@ -107200,6 +107306,34 @@
                       "created-at": "2023-06-29T23:54:35.293Z",
                       "updated-at": "2023-06-29T23:54:35.293Z",
                       "field-schemas": []
+                    }
+                  },
+                  {
+                    "type": "sentinel-session",
+                    "id": "snts_26wUfNNK6Ze7qkwyK6kuj7Rk",
+                    "attributes": {
+                      "status": "processed",
+                      "created-at": "2024-02-16T09:12:50.118Z",
+                      "updated-at": "2024-02-16T09:13:10.552Z",
+                      "ip-address": "139.178.128.13",
+                      "device-token": "dev_9yGqWZ8jK4pN2dR7sVxL3bTm",
+                      "device-fingerprint": "a1b2c3d4e5f6",
+                      "browser-fingerprint": "a1b2c3d4e5f6",
+                      "bot-score": 0.02,
+                      "threat-level": "low",
+                      "proxy": false,
+                      "tor": false,
+                      "datacenter": false,
+                      "vpn": false,
+                      "ip-connection-type": "residential",
+                      "ip-isp": "Comcast",
+                      "country-code": "US",
+                      "country-name": "United States",
+                      "region-code": "CA",
+                      "region-name": "California",
+                      "latitude": 37.7749,
+                      "longitude": -122.4194,
+                      "account-reference-id": null
                     }
                   }
                 ]

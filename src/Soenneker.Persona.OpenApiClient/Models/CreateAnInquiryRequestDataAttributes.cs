@@ -109,7 +109,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string ThemeId { get; set; }
 #endif
-        /// <summary>BETA FEATURE -- Theme Set ID for styling. Only available for Dynamic Flow Inquiries.</summary>
+        /// <summary>Theme Set ID for styling. Only available for Dynamic Flow Inquiries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ThemeSetId { get; set; }

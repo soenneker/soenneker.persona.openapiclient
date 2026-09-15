@@ -36,7 +36,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<string> Tags { get; set; }
 #endif
-        /// <summary>Transaction type ID to create the transaction for.</summary>
+        /// <summary>Transaction type ID to create the transaction for. Required. Must be the ID of an existing Transaction Type in your organization, which always begins with `txntp_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TransactionTypeId { get; set; }

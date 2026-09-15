@@ -12,7 +12,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public partial class AccountsAddRelationRequestMeta : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Key of the relation schema to add.</summary>
+        /// <summary>Key of the relation schema to add. Valid keys are **defined by the relation schemas configured for your organization**, not by this API, so the accepted set varies per organization and per object type. A key outside that set is rejected with `No relation schema found for &apos;&lt;key&gt;&apos;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RelationSchemaKey { get; set; }

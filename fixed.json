@@ -20269,7 +20269,8 @@
                 "$ref": "#/components/schemas/CreateATransactionRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -65911,6 +65912,9 @@
         "additionalProperties": false
       },
       "CreateATransactionRequest": {
+        "required": [
+          "data"
+        ],
         "type": "object",
         "properties": {
           "data": {
@@ -69523,7 +69527,7 @@
         "properties": {
           "relation-schema-key": {
             "type": "string",
-            "description": "Key of the relation schema to add."
+            "description": "Key of the relation schema to add. Valid keys are **defined by the relation schemas configured for your organization**, not by this API, so the accepted set varies per organization and per object type. A key outside that set is rejected with \u0060No relation schema found for \u0027\u003Ckey\u003E\u0027\u0060."
           },
           "target-object-id": {
             "type": "string",
@@ -71406,6 +71410,9 @@
         "additionalProperties": false
       },
       "CreateATransactionRequestData": {
+        "required": [
+          "attributes"
+        ],
         "type": "object",
         "properties": {
           "attributes": {
@@ -71464,7 +71471,7 @@
         "properties": {
           "relation-schema-key": {
             "type": "string",
-            "description": "Key of the relation schema to add."
+            "description": "Key of the relation schema to add. Valid keys are **defined by the relation schemas configured for your organization**, not by this API, so the accepted set varies per organization and per object type. A key outside that set is rejected with \u0060No relation schema found for \u0027\u003Ckey\u003E\u0027\u0060."
           },
           "target-object-id": {
             "type": "string",
@@ -75308,11 +75315,18 @@
         "additionalProperties": false
       },
       "CreateATransactionRequestDataAttributes": {
+        "required": [
+          "transaction-type-id"
+        ],
         "type": "object",
         "properties": {
           "transaction-type-id": {
+            "examples": [
+              "txntp_8kQvWmT3xLpR6yNzHdF2sJbC"
+            ],
+            "pattern": "^txntp_",
             "type": "string",
-            "description": "Transaction type ID to create the transaction for."
+            "description": "Transaction type ID to create the transaction for. Required. Must be the ID of an existing Transaction Type in your organization, which always begins with \u0060txntp_\u0060."
           },
           "fields": {
             "$ref": "#/components/schemas/CreateATransactionRequestDataAttributesFields"
@@ -75341,7 +75355,8 @@
             "$ref": "#/components/schemas/UpdateATransactionRequestDataAttributesFields"
           },
           "status": {
-            "type": "string"
+            "type": "string",
+            "description": "The status to move the Transaction to. Valid values are configured on the Transaction Type, not fixed by this API, so they differ between transaction types and between organizations. This API does not expose the configured set; it is visible on the transaction type in the Dashboard. A value outside that set is rejected with \u0060Status does not exist\u0060."
           },
           "reference-id": {
             "type": "string",

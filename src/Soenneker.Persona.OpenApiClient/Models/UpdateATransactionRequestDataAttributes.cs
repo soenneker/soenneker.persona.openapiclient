@@ -36,7 +36,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string ReferenceId { get; set; }
 #endif
-        /// <summary>The status property</summary>
+        /// <summary>The status to move the Transaction to. Valid values are configured on the Transaction Type, not fixed by this API, so they differ between transaction types and between organizations. This API does not expose the configured set; it is visible on the transaction type in the Dashboard. A value outside that set is rejected with `Status does not exist`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }

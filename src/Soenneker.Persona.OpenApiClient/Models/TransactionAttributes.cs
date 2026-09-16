@@ -30,6 +30,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string ReferenceId { get; set; }
 #endif
+        /// <summary>Risk signals computed for this Transaction, keyed by signal name. Only present for Transactions whose Transaction Type has Sentinel enabled; signals appear once the Sentinel session has been processed. Specific keys are not enumerated in the public spec and may be added or removed over time. Contact your Persona account team for more information.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributesSignalsProperty? Signals { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributesSignalsProperty Signals { get; set; }
+#endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,6 +77,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributesFieldsProperty>(global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributesFieldsProperty.CreateFromDiscriminatorValue); } },
                 { "reference-id", n => { ReferenceId = n.GetStringValue(); } },
+                { "signals", n => { Signals = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributesSignalsProperty>(global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributesSignalsProperty.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -84,6 +93,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributesFieldsProperty>("fields", Fields);
             writer.WriteStringValue("reference-id", ReferenceId);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionAttributesSignalsProperty>("signals", Signals);
             writer.WriteStringValue("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);

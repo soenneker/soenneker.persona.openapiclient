@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersons"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRisk"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPerson"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSynthetic"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersons"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRisk"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPerson"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportScreening"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSynthetic"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Report : IComposedTypeWrapper, IParsable
@@ -117,6 +117,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative ReportProfileNonAuthoritative { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportScreening"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportScreening? ReportScreening { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportScreening ReportScreening { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -211,6 +219,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 result.ReportProfileNonAuthoritative = new global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative();
             }
+            else if("report/screening".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportScreening = new global::Soenneker.Persona.OpenApiClient.Models.ReportScreening();
+            }
             else if("report/integration/sentilink-scores".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportSentilinkScores = new global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores();
@@ -286,6 +298,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if(ReportProfileNonAuthoritative != null)
             {
                 return ReportProfileNonAuthoritative.GetFieldDeserializers();
+            }
+            else if(ReportScreening != null)
+            {
+                return ReportScreening.GetFieldDeserializers();
             }
             else if(ReportSentilinkScores != null)
             {
@@ -363,6 +379,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if(ReportProfileNonAuthoritative != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative>(null, ReportProfileNonAuthoritative);
+            }
+            else if(ReportScreening != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportScreening>(null, ReportScreening);
             }
             else if(ReportSentilinkScores != null)
             {

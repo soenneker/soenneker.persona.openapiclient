@@ -18022,6 +18022,9 @@
                 "examples": {
                   "Created": {
                     "$ref": "#/components/examples/report-watchlist"
+                  },
+                  "Screening": {
+                    "$ref": "#/components/examples/report-screening"
                   }
                 }
               }
@@ -18134,6 +18137,9 @@
                 "examples": {
                   "Success": {
                     "$ref": "#/components/examples/report-watchlist"
+                  },
+                  "Screening": {
+                    "$ref": "#/components/examples/report-screening"
                   }
                 }
               }
@@ -18240,6 +18246,9 @@
                 "examples": {
                   "Success": {
                     "$ref": "#/components/examples/report-watchlist"
+                  },
+                  "Screening": {
+                    "$ref": "#/components/examples/report-screening"
                   }
                 }
               }
@@ -30781,6 +30790,28 @@
         "additionalProperties": false,
         "description": "The current rate limit for a resource."
       },
+      "ReportScreening": {
+        "title": "Screening Report",
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ReportScreeningType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the report",
+            "example": "rep_7WNzPaNcroBKLarNHBjYDLAp"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ReportScreeningAttributes"
+          },
+          "relationships": {
+            "$ref": "#/components/schemas/ReportSharedRelationships"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Screening Report"
+      },
       "Report": {
         "required": [
           "type"
@@ -30827,6 +30858,9 @@
             "$ref": "#/components/schemas/ReportProfileNonAuthoritative"
           },
           {
+            "$ref": "#/components/schemas/ReportScreening"
+          },
+          {
             "$ref": "#/components/schemas/ReportSentilinkScores"
           },
           {
@@ -30868,6 +30902,7 @@
             "report/politically-exposed-person": "#/components/schemas/ReportPoliticallyExposedPerson",
             "report/profile": "#/components/schemas/ReportProfile",
             "report/profile-non-authoritative": "#/components/schemas/ReportProfileNonAuthoritative",
+            "report/screening": "#/components/schemas/ReportScreening",
             "report/integration/sentilink-scores": "#/components/schemas/ReportSentilinkScores",
             "report/social-media": "#/components/schemas/ReportSocialMedia",
             "report/synthetic": "#/components/schemas/ReportSynthetic",
@@ -30885,6 +30920,7 @@
             "ReportPoliticallyExposedPerson": "#/components/schemas/ReportPoliticallyExposedPerson",
             "ReportProfile": "#/components/schemas/ReportProfile",
             "ReportProfileNonAuthoritative": "#/components/schemas/ReportProfileNonAuthoritative",
+            "ReportScreening": "#/components/schemas/ReportScreening",
             "ReportSentilinkScores": "#/components/schemas/ReportSentilinkScores",
             "ReportSocialMedia": "#/components/schemas/ReportSocialMedia",
             "ReportSynthetic": "#/components/schemas/ReportSynthetic",
@@ -31103,6 +31139,23 @@
         },
         "additionalProperties": false,
         "description": "Fields required to create a Profile Non-Authoritative Report"
+      },
+      "ReportScreeningRequest": {
+        "title": "Screening Report",
+        "required": [
+          "attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ReportScreeningType"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ReportScreeningRequestAttributes"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Fields required to create a Screening Report"
       },
       "ReportSocialMediaRequest": {
         "title": "Social Media Report",
@@ -31450,6 +31503,28 @@
         },
         "additionalProperties": false,
         "description": "A Profile Report Template"
+      },
+      "ReportTemplateScreening": {
+        "title": "Screening Report Template",
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ReportTemplateScreeningType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the Report Template",
+            "example": "rptp_7WNzPaNcroBKLarNHBjYDLAp"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ReportTemplateScreeningAttributes"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ReportTemplateSharedMeta"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Screening Report Template"
       },
       "ReportTemplateSentilinkScores": {
         "title": "SentiLink Report Template",
@@ -32399,6 +32474,10 @@
         "items": {
           "$ref": "#/components/schemas/ImporterPipelineRunsIncludedObjectsItem"
         }
+      },
+      "WebhookBodyEmptyContext": {
+        "type": "object",
+        "description": "Unused for this event; always an empty object."
       },
       "SelfieIncludedObjects": {
         "type": "array",
@@ -45114,6 +45193,86 @@
           }
         }
       },
+      "ReportScreeningAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the report\n\nPossible values:\n- pending\n- ready\n- errored\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update."
+          },
+          "created-at": {
+            "type": "string",
+            "description": "The time the report was created in ISO 8601 format",
+            "example": "2020-04-12T05:08:51.000Z"
+          },
+          "completed-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The time the report completed processing in ISO 8601 format",
+            "example": "2020-04-13T00:23:57.000Z"
+          },
+          "redacted-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The time the report was redacted in ISO 8601 format",
+            "example": null
+          },
+          "report-template-version-name": {
+            "type": "string",
+            "description": "The name of the report template version used for this report",
+            "example": "v1"
+          },
+          "has-match": {
+            "type": "boolean",
+            "description": "Whether or not the report matched"
+          },
+          "is-continuous": {
+            "type": "boolean",
+            "description": "Whether or not this report has been run more than once"
+          },
+          "is-recurring": {
+            "type": "boolean",
+            "description": "Whether or not this report is scheduled to run in the future"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "tag1"
+            },
+            "description": "Tags on the report"
+          },
+          "query": {
+            "$ref": "#/components/schemas/ReportScreeningAttributesAllOf2Query"
+          },
+          "matched-screening-types": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string",
+              "example": "sanction"
+            },
+            "description": "The types of screening (e.g. sanction, warning, PEP, adverse media) that produced at least one matched record on this report.\nDo not assume this is a static enumeration; Persona may add new values in the future without a versioned update."
+          },
+          "matched-records": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ReportScreeningAttributesAllOf2MatchedRecordsItem"
+            },
+            "description": "The records that matched from the search input, across all configured screening types"
+          }
+        }
+      },
       "ReportAddressLookupRequestAttributes": {
         "unevaluatedProperties": false,
         "required": [
@@ -45485,6 +45644,40 @@
           }
         }
       },
+      "ReportScreeningRequestAttributes": {
+        "unevaluatedProperties": false,
+        "required": [
+          "query"
+        ],
+        "type": "object",
+        "properties": {
+          "account-id": {
+            "examples": [
+              "act_ABC123"
+            ],
+            "type": "string",
+            "description": "Account ID to associate with this Report."
+          },
+          "reference-id": {
+            "examples": [
+              "abc-123"
+            ],
+            "type": "string",
+            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "deprecated": true
+          },
+          "report-template-id": {
+            "examples": [
+              "rptp_abc123"
+            ],
+            "type": "string",
+            "description": "ID of Verification Template. Starts with \u0060rptp_\u0060. You can find your Report Template IDs [here](https://app.withpersona.com/dashboard/report-templates)."
+          },
+          "query": {
+            "$ref": "#/components/schemas/ReportScreeningRequestAttributesAllOf2Query"
+          }
+        }
+      },
       "ReportSocialMediaRequestAttributes": {
         "unevaluatedProperties": false,
         "required": [
@@ -45587,6 +45780,32 @@
           }
         }
       },
+      "ReportTemplateScreeningAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "created-at": {
+            "examples": [
+              "2020-04-12T05:08:51.000Z"
+            ],
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated-at": {
+            "examples": [
+              "2020-04-12T05:08:51.000Z"
+            ],
+            "type": "string",
+            "format": "date-time"
+          },
+          "screening-coverage": {
+            "$ref": "#/components/schemas/ReportTemplateScreeningAttributesAllOf2ScreeningCoverage"
+          }
+        }
+      },
       "ReportTemplateWatchlistAttributes": {
         "unevaluatedProperties": false,
         "type": "object",
@@ -45665,6 +45884,9 @@
             "$ref": "#/components/schemas/ReportTemplateProfile"
           },
           {
+            "$ref": "#/components/schemas/ReportTemplateScreening"
+          },
+          {
             "$ref": "#/components/schemas/ReportTemplateSentilinkScores"
           },
           {
@@ -45711,6 +45933,7 @@
             "report-template/phone-number": "#/components/schemas/ReportTemplatePhoneRisk",
             "report-template/politically-exposed-person": "#/components/schemas/ReportTemplatePoliticallyExposedPerson",
             "report-template/profile": "#/components/schemas/ReportTemplateProfile",
+            "report-template/screening": "#/components/schemas/ReportTemplateScreening",
             "report-template/integration/sentilink-scores": "#/components/schemas/ReportTemplateSentilinkScores",
             "report-template/social-media": "#/components/schemas/ReportTemplateSocialMedia",
             "report-template/synthetic": "#/components/schemas/ReportTemplateSynthetic",
@@ -45730,6 +45953,7 @@
             "ReportTemplatePhoneRisk": "#/components/schemas/ReportTemplatePhoneRisk",
             "ReportTemplatePoliticallyExposedPerson": "#/components/schemas/ReportTemplatePoliticallyExposedPerson",
             "ReportTemplateProfile": "#/components/schemas/ReportTemplateProfile",
+            "ReportTemplateScreening": "#/components/schemas/ReportTemplateScreening",
             "ReportTemplateSentilinkScores": "#/components/schemas/ReportTemplateSentilinkScores",
             "ReportTemplateSocialMedia": "#/components/schemas/ReportTemplateSocialMedia",
             "ReportTemplateSynthetic": "#/components/schemas/ReportTemplateSynthetic",
@@ -51444,6 +51668,35 @@
           }
         }
       },
+      "ReportScreeningAttributesAllOf2": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "$ref": "#/components/schemas/ReportScreeningAttributesAllOf2Query"
+          },
+          "matched-screening-types": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string",
+              "example": "sanction"
+            },
+            "description": "The types of screening (e.g. sanction, warning, PEP, adverse media) that produced at least one matched record on this report.\nDo not assume this is a static enumeration; Persona may add new values in the future without a versioned update."
+          },
+          "matched-records": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ReportScreeningAttributesAllOf2MatchedRecordsItem"
+            },
+            "description": "The records that matched from the search input, across all configured screening types"
+          }
+        }
+      },
       "ReportAddressLookupRequestAttributesAllOf2": {
         "required": [
           "query"
@@ -51562,6 +51815,17 @@
           }
         }
       },
+      "ReportScreeningRequestAttributesAllOf2": {
+        "required": [
+          "query"
+        ],
+        "type": "object",
+        "properties": {
+          "query": {
+            "$ref": "#/components/schemas/ReportScreeningRequestAttributesAllOf2Query"
+          }
+        }
+      },
       "ReportSocialMediaRequestAttributesAllOf2": {
         "required": [
           "query"
@@ -51592,6 +51856,14 @@
         "properties": {
           "query": {
             "$ref": "#/components/schemas/ReportWatchlistRequestAttributesAllOf2Query"
+          }
+        }
+      },
+      "ReportTemplateScreeningAttributesAllOf2": {
+        "type": "object",
+        "properties": {
+          "screening-coverage": {
+            "$ref": "#/components/schemas/ReportTemplateScreeningAttributesAllOf2ScreeningCoverage"
           }
         }
       },
@@ -51752,6 +52024,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "signals": {
+            "$ref": "#/components/schemas/TransactionAttributesSignalsProperty"
           },
           "created-at": {
             "examples": [
@@ -56932,6 +57207,292 @@
         },
         "description": "The portrait photo extracted from the mobile document credential."
       },
+      "ReportScreeningAttributesAllOf2Query": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "name-first": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The input first name of the search individual",
+            "example": "Joe"
+          },
+          "name-middle": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The input middle name of the search individual",
+            "example": "N"
+          },
+          "name-last": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The input last name of the search individual",
+            "example": "Doe"
+          },
+          "term": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The input combined term used for searching (first \u002B middle \u002B last name)",
+            "example": "Joe N Doe"
+          },
+          "birthdate": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The input DOB in YYYY-MM-DD format",
+            "example": "1991-10-07"
+          },
+          "address-street-1": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The first line of the input search address",
+            "example": "1 Persona Way"
+          },
+          "address-street-2": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The second line of the input search address",
+            "example": "Suite 100"
+          },
+          "address-city": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The city of the input search address",
+            "example": "San Francisco"
+          },
+          "address-subdivision": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The state or subdivision of the input search address",
+            "example": "CA"
+          },
+          "address-postal-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The postal code of the input search address",
+            "example": "94103"
+          },
+          "address-country-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The country of the input search address, in alpha2 format",
+            "example": "US"
+          },
+          "email": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The input email address of the search individual",
+            "example": "joe.doe@example.com"
+          },
+          "identification-number": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The input government ID number of the search individual",
+            "example": "123456789"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The input search parameters used for this report"
+      },
+      "ReportScreeningAttributesAllOf2MatchedRecordsItem": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "example": "scrre_7WNzPaNcroBKLarNHBjYDLAp"
+          },
+          "matched": {
+            "type": "boolean"
+          },
+          "created-at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2023-09-13T22:08:56.618Z"
+          },
+          "reviewed-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time",
+            "example": "2023-09-14T18:02:11.000Z"
+          },
+          "review-status": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Possible values:\n- pending\n- indeterminate\n- true_positive\n- false_positive\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update."
+          },
+          "risk-level": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Possible values:\n- material\n- immaterial\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "example": "material"
+          },
+          "present-in-last-run": {
+            "type": "boolean",
+            "description": "Whether this record was present in the most recent run of the report"
+          },
+          "notify-on-change": {
+            "type": "boolean"
+          },
+          "record-types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "person"
+            }
+          },
+          "names": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ReportScreeningAttributesAllOf2MatchedRecordsItemNamesItem"
+            }
+          },
+          "birthdates": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ReportScreeningAttributesAllOf2MatchedRecordsItemBirthdatesItem"
+            }
+          },
+          "locations": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ReportScreeningAttributesAllOf2MatchedRecordsItemLocationsItem"
+            }
+          },
+          "sexes": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string",
+              "example": "male"
+            }
+          },
+          "emails": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string",
+              "example": "joe.doe@example.com"
+            }
+          },
+          "identifications": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ReportScreeningAttributesAllOf2MatchedRecordsItemIdentificationsItem"
+            }
+          },
+          "details": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ReportScreeningAttributesAllOf2MatchedRecordsItemDetailsItem"
+            }
+          },
+          "listings": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ReportScreeningAttributesAllOf2MatchedRecordsItemListingsItem"
+            }
+          },
+          "positions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ReportScreeningAttributesAllOf2MatchedRecordsItemPositionsItem"
+            }
+          },
+          "pep-classes": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "pep-roles": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "topics": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "articles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportScreeningAttributesAllOf2MatchedRecordsItemArticlesItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportAddressLookupRequestAttributesAllOf2Query": {
         "required": [
           "address-street-1",
@@ -57403,6 +57964,117 @@
         "additionalProperties": false,
         "description": "Requires \u0060phone-number\u0060, or \u0060email-address\u0060, or all of \u0060name-first\u0060, \u0060name-last\u0060, \u0060address-city\u0060, and \u0060address-subdivision\u0060."
       },
+      "ReportScreeningRequestAttributesAllOf2Query": {
+        "type": "object",
+        "properties": {
+          "name-first": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The first name of the individual to search.",
+            "example": "Joe"
+          },
+          "name-middle": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The middle name of the individual to search.",
+            "example": "N"
+          },
+          "name-last": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The last name of the individual to search.",
+            "example": "Doe"
+          },
+          "term": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Custom search term instead of separate name parts of the individual (i.e. first \u002B middle \u002B last name). Must contain at least one letter.",
+            "example": "Joe N Doe"
+          },
+          "birthdate": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The birthdate of the individual, formatted as YYYY-MM-DD (ISO 8601).",
+            "example": "1991-10-07"
+          },
+          "address-street-1": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The first line of the address to search.",
+            "example": "1 Persona Way"
+          },
+          "address-street-2": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The second line of the address to search.",
+            "example": "Suite 100"
+          },
+          "address-city": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The city of the address to search.",
+            "example": "San Francisco"
+          },
+          "address-subdivision": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The state or subdivision of the address to search.",
+            "example": "CA"
+          },
+          "address-postal-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The postal code of the address to search.",
+            "example": "94103"
+          },
+          "address-country-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "ISO 3166-1 alpha-2 country code of the address to search.",
+            "example": "US"
+          },
+          "email": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The email address of the individual to search.",
+            "example": "joe.doe@example.com"
+          },
+          "identification-number": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The government ID number of the individual to search.",
+            "example": "123456789"
+          }
+        },
+        "additionalProperties": false,
+        "description": "At least one of \u0060name-first\u0060, \u0060name-middle\u0060, \u0060name-last\u0060, \u0060term\u0060, \u0060birthdate\u0060, \u0060address-street-1\u0060, \u0060address-street-2\u0060, \u0060address-city\u0060, \u0060address-subdivision\u0060, \u0060address-postal-code\u0060, \u0060address-country-code\u0060, \u0060email\u0060, or \u0060identification-number\u0060 is required."
+      },
       "ReportSocialMediaRequestAttributesAllOf2Query": {
         "type": "object",
         "properties": {
@@ -57634,6 +58306,28 @@
         "additionalProperties": false,
         "description": "At least one of \u0060name-first\u0060, \u0060name-middle\u0060, \u0060name-last\u0060, or \u0060term\u0060 is required."
       },
+      "ReportTemplateScreeningAttributesAllOf2ScreeningCoverage": {
+        "type": "object",
+        "properties": {
+          "person-watchlist": {
+            "type": "boolean"
+          },
+          "business-watchlist": {
+            "type": "boolean"
+          },
+          "politically-exposed-person": {
+            "type": "boolean"
+          },
+          "person-adverse-media": {
+            "type": "boolean"
+          },
+          "business-adverse-media": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Which screening types this template\u0027s published configuration searches. Only present when explicitly requested."
+      },
       "ReportTemplateWatchlistAttributesAllOf2SearchListsItem": {
         "type": "object",
         "properties": {
@@ -57706,6 +58400,10 @@
       "TransactionAttributesFields": {
         "type": "object",
         "description": "JSON key-value pairs of field name to field value. Exact schema depends on the configuration of the Transaction Type for this Transaction. Keys in \u0060fields\u0060 are **not** key inflected."
+      },
+      "TransactionAttributesSignals": {
+        "type": "object",
+        "description": "Risk signals computed for this Transaction, keyed by signal name. Only present for Transactions whose Transaction Type has Sentinel enabled; signals appear once the Sentinel session has been processed. Specific keys are not enumerated in the public spec and may be added or removed over time. Contact your Persona account team for more information."
       },
       "TransactionRelationshipsReviewer": {
         "type": "object",
@@ -60990,6 +61688,289 @@
         },
         "additionalProperties": false
       },
+      "ReportScreeningAttributesAllOf2MatchedRecordsItemNamesItem": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "primary_name"
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Jonathan Doe"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportScreeningAttributesAllOf2MatchedRecordsItemBirthdatesItem": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "1964-07-01"
+          },
+          "end": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "2018-07-01"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportScreeningAttributesAllOf2MatchedRecordsItemLocationsItem": {
+        "type": "object",
+        "properties": {
+          "address-street-1": {
+            "type": "string"
+          },
+          "address-street-2": {
+            "type": "string"
+          },
+          "address-city": {
+            "type": "string"
+          },
+          "address-subdivision": {
+            "type": "string"
+          },
+          "address-postal-code": {
+            "type": "string"
+          },
+          "address-country-code": {
+            "type": "string",
+            "example": "US"
+          },
+          "type": {
+            "type": "string",
+            "example": "birthplace"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportScreeningAttributesAllOf2MatchedRecordsItemIdentificationsItem": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "passport"
+          },
+          "number": {
+            "type": "string"
+          },
+          "country-code": {
+            "type": "string",
+            "example": "KP"
+          },
+          "issue-date": {
+            "type": "string"
+          },
+          "expiration-date": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportScreeningAttributesAllOf2MatchedRecordsItemDetailsItem": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportScreeningAttributesAllOf2MatchedRecordsItemListingsItem": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "example": "scatr_7WNzPaNcroBKLarNHBjYDLAp"
+          },
+          "name": {
+            "type": "string",
+            "example": "OFAC - Specially Designated Nationals (SDN) List"
+          },
+          "type": {
+            "type": "string",
+            "example": "sanction"
+          },
+          "url": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "created-at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deactivated-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "reviewed-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "review-status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportScreeningAttributesAllOf2MatchedRecordsItemPositionsItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Minister of Foreign Affairs"
+          },
+          "country-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "KP"
+          },
+          "classes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "created-at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deactivated-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "reviewed-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "review-status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportScreeningAttributesAllOf2MatchedRecordsItemArticlesItem": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "snippet": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "source": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "primary-source": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "language": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "categories": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "perpetrators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportScreeningAttributesAllOf2MatchedRecordsItemArticlesItemPerpetratorsItem"
+            }
+          },
+          "victims": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportScreeningAttributesAllOf2MatchedRecordsItemArticlesItemVictimsItem"
+            }
+          },
+          "publish-date": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportBusinessLookupRequestAttributesAllOf2QueryAssociatedPeopleItem": {
         "type": "object",
         "properties": {
@@ -62868,6 +63849,42 @@
           "group-id": {
             "type": "string",
             "example": "EU:110286"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportScreeningAttributesAllOf2MatchedRecordsItemArticlesItemPerpetratorsItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportScreeningAttributesAllOf2MatchedRecordsItemArticlesItemVictimsItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
         },
         "additionalProperties": false
@@ -67298,6 +68315,42 @@
         },
         "additionalProperties": false
       },
+      "WebhookReportScreeningReadyRequest": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WebhookReportScreeningReadyRequestData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookReportScreeningMatchedRequest": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WebhookReportScreeningMatchedRequestData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookReportScreeningReviewedRequest": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WebhookReportScreeningReviewedRequestData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookReportScreeningErroredRequest": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WebhookReportScreeningErroredRequestData"
+          }
+        },
+        "additionalProperties": false
+      },
       "WebhookReportSentilinkScoresReadyRequest": {
         "type": "object",
         "properties": {
@@ -69110,6 +70163,9 @@
             "$ref": "#/components/schemas/ReportProfileNonAuthoritativeRequest"
           },
           {
+            "$ref": "#/components/schemas/ReportScreeningRequest"
+          },
+          {
             "$ref": "#/components/schemas/ReportSocialMediaRequest"
           },
           {
@@ -69316,6 +70372,10 @@
       "TransactionAttributesFieldsProperty": {
         "type": "object",
         "description": "JSON key-value pairs of field name to field value. Exact schema depends on the configuration of the Transaction Type for this Transaction. Keys in \u0060fields\u0060 are **not** key inflected."
+      },
+      "TransactionAttributesSignalsProperty": {
+        "type": "object",
+        "description": "Risk signals computed for this Transaction, keyed by signal name. Only present for Transactions whose Transaction Type has Sentinel enabled; signals appear once the Sentinel session has been processed. Specific keys are not enumerated in the public spec and may be added or removed over time. Contact your Persona account team for more information."
       },
       "CaseTypeAttributesFieldsProperty": {
         "type": "object",
@@ -73611,6 +74671,82 @@
           }
         }
       },
+      "WebhookReportScreeningReadyRequestData": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/EventValueType"
+          },
+          "id": {
+            "examples": [
+              "evt_ABC123"
+            ],
+            "type": "string",
+            "description": "Unique identifier for this Event. Starts with \u0060evt_\u0060."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/WebhookReportScreeningReadyRequestDataAttributes"
+          }
+        }
+      },
+      "WebhookReportScreeningMatchedRequestData": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/EventValueType"
+          },
+          "id": {
+            "examples": [
+              "evt_ABC123"
+            ],
+            "type": "string",
+            "description": "Unique identifier for this Event. Starts with \u0060evt_\u0060."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/WebhookReportScreeningMatchedRequestDataAttributes"
+          }
+        }
+      },
+      "WebhookReportScreeningReviewedRequestData": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/EventValueType"
+          },
+          "id": {
+            "examples": [
+              "evt_ABC123"
+            ],
+            "type": "string",
+            "description": "Unique identifier for this Event. Starts with \u0060evt_\u0060."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/WebhookReportScreeningReviewedRequestDataAttributes"
+          }
+        }
+      },
+      "WebhookReportScreeningErroredRequestData": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/EventValueType"
+          },
+          "id": {
+            "examples": [
+              "evt_ABC123"
+            ],
+            "type": "string",
+            "description": "Unique identifier for this Event. Starts with \u0060evt_\u0060."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/WebhookReportScreeningErroredRequestDataAttributes"
+          }
+        }
+      },
       "WebhookReportSentilinkScoresReadyRequestData": {
         "unevaluatedProperties": false,
         "type": "object",
@@ -77271,6 +78407,98 @@
           }
         }
       },
+      "WebhookReportScreeningReadyRequestDataAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/ReportScreeningReadyName"
+          },
+          "context": {
+            "$ref": "#/components/schemas/WebhookReportScreeningReadyRequestDataAttributesContext"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/WebhookReportScreeningReadyRequestDataAttributesPayload"
+          },
+          "created-at": {
+            "examples": [
+              "2023-09-21T18:29:40.000Z"
+            ],
+            "type": "string",
+            "description": "Datetime when the event was created.",
+            "format": "date-time"
+          }
+        }
+      },
+      "WebhookReportScreeningMatchedRequestDataAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/ReportScreeningMatchedName"
+          },
+          "context": {
+            "$ref": "#/components/schemas/WebhookReportScreeningMatchedRequestDataAttributesContext"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/WebhookReportScreeningMatchedRequestDataAttributesPayload"
+          },
+          "created-at": {
+            "examples": [
+              "2023-09-21T18:29:40.000Z"
+            ],
+            "type": "string",
+            "description": "Datetime when the event was created.",
+            "format": "date-time"
+          }
+        }
+      },
+      "WebhookReportScreeningReviewedRequestDataAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/ReportScreeningReviewedName"
+          },
+          "context": {
+            "$ref": "#/components/schemas/WebhookReportScreeningReviewedRequestDataAttributesContext"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/WebhookReportScreeningReviewedRequestDataAttributesPayload"
+          },
+          "created-at": {
+            "examples": [
+              "2023-09-21T18:29:40.000Z"
+            ],
+            "type": "string",
+            "description": "Datetime when the event was created.",
+            "format": "date-time"
+          }
+        }
+      },
+      "WebhookReportScreeningErroredRequestDataAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/ReportScreeningErroredName"
+          },
+          "context": {
+            "$ref": "#/components/schemas/WebhookReportScreeningErroredRequestDataAttributesContext"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/WebhookReportScreeningErroredRequestDataAttributesPayload"
+          },
+          "created-at": {
+            "examples": [
+              "2023-09-21T18:29:40.000Z"
+            ],
+            "type": "string",
+            "description": "Datetime when the event was created.",
+            "format": "date-time"
+          }
+        }
+      },
       "WebhookReportSentilinkScoresReadyRequestDataAttributes": {
         "unevaluatedProperties": false,
         "type": "object",
@@ -79744,6 +80972,132 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/ReportProfileNonAuthoritative"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportsIncludedObjectsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookReportScreeningReadyRequestDataAttributesContext": {
+        "type": "object",
+        "description": "Unused for this event; always an empty object."
+      },
+      "WebhookReportScreeningReadyRequestDataAttributesPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ReportScreening"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportsIncludedObjectsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookReportScreeningMatchedRequestDataAttributesContext": {
+        "type": "object",
+        "description": "Unused for this event; always an empty object."
+      },
+      "WebhookReportScreeningMatchedRequestDataAttributesPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ReportScreening"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportsIncludedObjectsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookReportScreeningReviewedRequestDataAttributesContext": {
+        "type": "object",
+        "properties": {
+          "review-type": {
+            "examples": [
+              "record"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The scope of the review action.\n\nPossible values:\n- all_records\n- attribute\n- multiple_attributes\n- record\n\nDo not assume this is a static enumeration; Persona may add new\nvalues in the future without a versioned update."
+          },
+          "review-status": {
+            "examples": [
+              "false_positive"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Possible values:\n- pending\n- indeterminate\n- true_positive\n- false_positive\n\nDo not assume this is a static enumeration; Persona may add new\nvalues in the future without a versioned update."
+          },
+          "risk-level": {
+            "examples": [
+              "material"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Possible values:\n- material\n- immaterial\n\nDo not assume this is a static enumeration; Persona may add new\nvalues in the future without a versioned update."
+          },
+          "record-token": {
+            "examples": [
+              "scrre_3EenGd9ZzeXLWBL11K5mnSBi"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The token of the matched record this review applies to. Absent when the review applied to the whole report rather than a single record (\u0060review-type\u0060 \u0060all_records\u0060, \u0060attribute\u0060, or \u0060multiple_attributes\u0060)."
+          },
+          "comment": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The reviewer\u0027s free-text comment explaining the disposition, if one was provided."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Identifies the disposition applied and the reviewer\u0027s comment."
+      },
+      "WebhookReportScreeningReviewedRequestDataAttributesPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ReportScreening"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportsIncludedObjectsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookReportScreeningErroredRequestDataAttributesContext": {
+        "type": "object",
+        "description": "Unused for this event; always an empty object."
+      },
+      "WebhookReportScreeningErroredRequestDataAttributesPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ReportScreening"
           },
           "included": {
             "type": "array",
@@ -82865,6 +84219,23 @@
           ]
         }
       },
+      "ReportScreeningType": {
+        "const": null,
+        "enum": [
+          "report/screening"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReportScreeningType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "report/screening",
+              "name": "ReportScreening"
+            }
+          ]
+        }
+      },
       "ReportTemplateAddressLookupType": {
         "const": null,
         "enum": [
@@ -83065,6 +84436,23 @@
             {
               "value": "report-template/profile",
               "name": "ReportTemplateProfile"
+            }
+          ]
+        }
+      },
+      "ReportTemplateScreeningType": {
+        "const": null,
+        "enum": [
+          "report-template/screening"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReportTemplateScreeningType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "report-template/screening",
+              "name": "ReportTemplateScreening"
             }
           ]
         }
@@ -84147,6 +85535,7 @@
           "report/screening.errored",
           "report/screening.matched",
           "report/screening.ready",
+          "report/screening.reviewed",
           "report/sec-action-lookup.errored",
           "report/sec-action-lookup.ready",
           "report/sentilink-application-risk.errored",
@@ -85007,6 +86396,10 @@
             {
               "value": "report/screening.ready",
               "name": "ReportScreeningReady"
+            },
+            {
+              "value": "report/screening.reviewed",
+              "name": "ReportScreeningReviewed"
             },
             {
               "value": "report/sec-action-lookup.errored",
@@ -86805,6 +88198,74 @@
             {
               "value": "report/profile-non-authoritative.errored",
               "name": "ReportProfileNonAuthoritativeErrored"
+            }
+          ]
+        }
+      },
+      "ReportScreeningReadyName": {
+        "const": null,
+        "enum": [
+          "report/screening.ready"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReportScreeningReadyName",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "report/screening.ready",
+              "name": "ReportScreeningReady"
+            }
+          ]
+        }
+      },
+      "ReportScreeningMatchedName": {
+        "const": null,
+        "enum": [
+          "report/screening.matched"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReportScreeningMatchedName",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "report/screening.matched",
+              "name": "ReportScreeningMatched"
+            }
+          ]
+        }
+      },
+      "ReportScreeningReviewedName": {
+        "const": null,
+        "enum": [
+          "report/screening.reviewed"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReportScreeningReviewedName",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "report/screening.reviewed",
+              "name": "ReportScreeningReviewed"
+            }
+          ]
+        }
+      },
+      "ReportScreeningErroredName": {
+        "const": null,
+        "enum": [
+          "report/screening.errored"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReportScreeningErroredName",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "report/screening.errored",
+              "name": "ReportScreeningErrored"
             }
           ]
         }
@@ -91508,6 +92969,120 @@
               "report-template": {
                 "data": {
                   "type": "report-template/watchlist",
+                  "id": "rptp_2t2xwqxPDE1gw8DtYVFB9Vua"
+                }
+              }
+            }
+          }
+        }
+      },
+      "report-screening": {
+        "value": {
+          "data": {
+            "type": "report/screening",
+            "id": "rep_ARR4XUoYJRgQd7VMVaGEY2Gc",
+            "attributes": {
+              "status": "ready",
+              "created-at": "2026-06-07T14:12:16.000Z",
+              "completed-at": "2026-06-07T14:12:16.000Z",
+              "redacted-at": null,
+              "report-template-version-name": "v1",
+              "has-match": true,
+              "is-continuous": false,
+              "is-recurring": true,
+              "tags": [],
+              "query": {
+                "name-first": "Joe",
+                "name-middle": null,
+                "name-last": "Doe",
+                "term": "Joe Doe",
+                "birthdate": null,
+                "address-street-1": null,
+                "address-street-2": null,
+                "address-city": null,
+                "address-subdivision": null,
+                "address-postal-code": null,
+                "address-country-code": null,
+                "email": null,
+                "identification-number": null
+              },
+              "matched-screening-types": [
+                "sanction"
+              ],
+              "matched-records": [
+                {
+                  "token": "scrre_7WNzPaNcroBKLarNHBjYDLAp",
+                  "matched": true,
+                  "created-at": "2026-06-07T14:12:16.000Z",
+                  "reviewed-at": null,
+                  "review-status": "pending",
+                  "risk-level": "material",
+                  "present-in-last-run": true,
+                  "notify-on-change": true,
+                  "record-types": [
+                    "person"
+                  ],
+                  "names": [
+                    {
+                      "type": "primary_name",
+                      "name": "Jonathan Doe"
+                    }
+                  ],
+                  "birthdates": [
+                    {
+                      "start": "1964-07-01",
+                      "end": "2018-07-01"
+                    }
+                  ],
+                  "locations": [
+                    {
+                      "address-country-code": "US",
+                      "type": "birthplace"
+                    }
+                  ],
+                  "sexes": [
+                    "male"
+                  ],
+                  "emails": [],
+                  "identifications": [],
+                  "details": [],
+                  "listings": [
+                    {
+                      "token": "scatr_7WNzPaNcroBKLarNHBjYDLAp",
+                      "name": "OFAC - Specially Designated Nationals (SDN) List",
+                      "type": "sanction",
+                      "url": "https://sanctionssearch.ofac.treas.gov/",
+                      "active": true,
+                      "created-at": "2026-06-07T14:12:16.000Z",
+                      "deactivated-at": null,
+                      "reviewed-at": null,
+                      "review-status": null
+                    }
+                  ],
+                  "positions": [],
+                  "pep-classes": [],
+                  "pep-roles": [],
+                  "topics": [],
+                  "articles": []
+                }
+              ]
+            },
+            "relationships": {
+              "inquiry": {
+                "data": null
+              },
+              "account": {
+                "data": {
+                  "type": "account",
+                  "id": "act_rD4wFHtwhkgbpy2pc3o2G94a"
+                }
+              },
+              "transaction": {
+                "data": null
+              },
+              "report-template": {
+                "data": {
+                  "type": "report-template/screening",
                   "id": "rptp_2t2xwqxPDE1gw8DtYVFB9Vua"
                 }
               }
@@ -105684,6 +107259,408 @@
           }
         }
       },
+      "report-screening-ready-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_H29QdkVRDr94kAJaHGxEkmzG",
+            "attributes": {
+              "name": "report/screening.ready",
+              "context": {},
+              "payload": {
+                "data": {
+                  "type": "report/screening",
+                  "id": "rep_h9dqK1fHRwzn5EJNBWuJvBSB",
+                  "attributes": {
+                    "status": "ready",
+                    "created-at": "2026-06-15T23:48:11.000Z",
+                    "completed-at": "2026-06-15T23:48:17.000Z",
+                    "redacted-at": null,
+                    "report-template-version-name": "v1",
+                    "has-match": false,
+                    "is-continuous": false,
+                    "is-recurring": true,
+                    "tags": [],
+                    "query": {
+                      "name-first": "Jane",
+                      "name-middle": null,
+                      "name-last": "Doe",
+                      "term": "Jane Doe",
+                      "birthdate": null,
+                      "address-street-1": null,
+                      "address-street-2": null,
+                      "address-city": null,
+                      "address-subdivision": null,
+                      "address-postal-code": null,
+                      "address-country-code": null,
+                      "email": null,
+                      "identification-number": null
+                    },
+                    "matched-screening-types": [],
+                    "matched-records": []
+                  },
+                  "relationships": {
+                    "inquiry": {
+                      "data": {
+                        "type": "inquiry",
+                        "id": "inq_2PqthYuCBRKPBenmQju6YqWp"
+                      }
+                    },
+                    "account": {
+                      "data": {
+                        "type": "account",
+                        "id": "act_wQUuFdsRMyxEeSgFJGLJEe5s"
+                      }
+                    },
+                    "transaction": {
+                      "data": null
+                    },
+                    "report-template": {
+                      "data": {
+                        "type": "report-template/screening",
+                        "id": "rptp_uXhRXnTQx3jqQbnAzy2jcVot"
+                      }
+                    }
+                  }
+                }
+              },
+              "created-at": "2026-06-15T23:48:17.000Z"
+            }
+          }
+        }
+      },
+      "report-screening-matched-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_fEG3T9cWCTwcyUhioYFkxeoV",
+            "attributes": {
+              "name": "report/screening.matched",
+              "context": {},
+              "payload": {
+                "data": {
+                  "type": "report/screening",
+                  "id": "rep_3a89rYD7zSLd8sPMAa2Bh5B6",
+                  "attributes": {
+                    "status": "ready",
+                    "created-at": "2026-06-15T23:48:11.000Z",
+                    "completed-at": "2026-06-15T23:48:17.000Z",
+                    "redacted-at": null,
+                    "report-template-version-name": "v1",
+                    "has-match": true,
+                    "is-continuous": false,
+                    "is-recurring": true,
+                    "tags": [],
+                    "query": {
+                      "name-first": "Jane",
+                      "name-middle": null,
+                      "name-last": "Doe",
+                      "term": "Jane Doe",
+                      "birthdate": null,
+                      "address-street-1": null,
+                      "address-street-2": null,
+                      "address-city": null,
+                      "address-subdivision": null,
+                      "address-postal-code": null,
+                      "address-country-code": null,
+                      "email": null,
+                      "identification-number": null
+                    },
+                    "matched-screening-types": [
+                      "sanction"
+                    ],
+                    "matched-records": [
+                      {
+                        "token": "scrre_fEG3T9cWCTwcyUhioYFkxeoV",
+                        "matched": true,
+                        "created-at": "2026-06-15T23:48:11.000Z",
+                        "reviewed-at": null,
+                        "review-status": "pending",
+                        "risk-level": "material",
+                        "present-in-last-run": true,
+                        "notify-on-change": true,
+                        "record-types": [
+                          "person"
+                        ],
+                        "names": [
+                          {
+                            "type": "primary_name",
+                            "name": "Jonathan Doe"
+                          }
+                        ],
+                        "birthdates": [
+                          {
+                            "start": "1964-07-01",
+                            "end": "2018-07-01"
+                          }
+                        ],
+                        "locations": [
+                          {
+                            "address-country-code": "US",
+                            "type": "birthplace"
+                          }
+                        ],
+                        "sexes": [
+                          "male"
+                        ],
+                        "emails": [],
+                        "identifications": [],
+                        "details": [],
+                        "listings": [
+                          {
+                            "token": "scatr_fEG3T9cWCTwcyUhioYFkxeoV",
+                            "name": "OFAC - Specially Designated Nationals (SDN) List",
+                            "type": "sanction",
+                            "url": "https://sanctionssearch.ofac.treas.gov/",
+                            "active": true,
+                            "created-at": "2026-06-15T23:48:11.000Z",
+                            "deactivated-at": null,
+                            "reviewed-at": null,
+                            "review-status": null
+                          }
+                        ],
+                        "positions": [],
+                        "pep-classes": [],
+                        "pep-roles": [],
+                        "topics": [],
+                        "articles": []
+                      }
+                    ]
+                  },
+                  "relationships": {
+                    "inquiry": {
+                      "data": {
+                        "type": "inquiry",
+                        "id": "inq_VVpTcAmqY1iHGYmB8gPrtNLf"
+                      }
+                    },
+                    "account": {
+                      "data": {
+                        "type": "account",
+                        "id": "act_mQFfJtWNAKkGy7DeQ1aCZ5CL"
+                      }
+                    },
+                    "transaction": {
+                      "data": null
+                    },
+                    "report-template": {
+                      "data": {
+                        "type": "report-template/screening",
+                        "id": "rptp_eKPgsbgE16U7irWYMwEWj9RV"
+                      }
+                    }
+                  }
+                }
+              },
+              "created-at": "2026-06-15T23:48:11.000Z"
+            }
+          }
+        }
+      },
+      "report-screening-reviewed-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_3EenGd9ZzeXLWBL11K5mnSBi",
+            "attributes": {
+              "name": "report/screening.reviewed",
+              "context": {
+                "review-type": "record",
+                "review-status": "false_positive",
+                "risk-level": "material",
+                "record-token": "scrre_3EenGd9ZzeXLWBL11K5mnSBi",
+                "comment": "Confirmed this is not a match to the sanctioned individual after manual review."
+              },
+              "payload": {
+                "data": {
+                  "type": "report/screening",
+                  "id": "rep_ovJKonLv97aSCLVUpsLBR75M",
+                  "attributes": {
+                    "status": "ready",
+                    "created-at": "2026-06-15T23:48:11.000Z",
+                    "completed-at": "2026-06-15T23:48:17.000Z",
+                    "redacted-at": null,
+                    "report-template-version-name": "v1",
+                    "has-match": true,
+                    "is-continuous": true,
+                    "is-recurring": true,
+                    "tags": [],
+                    "query": {
+                      "name-first": "Jane",
+                      "name-middle": null,
+                      "name-last": "Doe",
+                      "term": "Jane Doe",
+                      "birthdate": null,
+                      "address-street-1": null,
+                      "address-street-2": null,
+                      "address-city": null,
+                      "address-subdivision": null,
+                      "address-postal-code": null,
+                      "address-country-code": null,
+                      "email": null,
+                      "identification-number": null
+                    },
+                    "matched-screening-types": [
+                      "sanction"
+                    ],
+                    "matched-records": [
+                      {
+                        "token": "scrre_3EenGd9ZzeXLWBL11K5mnSBi",
+                        "matched": true,
+                        "created-at": "2026-06-15T23:48:11.000Z",
+                        "reviewed-at": "2026-06-16T10:00:00.000Z",
+                        "review-status": "false_positive",
+                        "risk-level": "material",
+                        "present-in-last-run": true,
+                        "notify-on-change": true,
+                        "record-types": [
+                          "person"
+                        ],
+                        "names": [
+                          {
+                            "type": "primary_name",
+                            "name": "Jonathan Doe"
+                          }
+                        ],
+                        "birthdates": [
+                          {
+                            "start": "1964-07-01",
+                            "end": "2018-07-01"
+                          }
+                        ],
+                        "locations": [
+                          {
+                            "address-country-code": "US",
+                            "type": "birthplace"
+                          }
+                        ],
+                        "sexes": [
+                          "male"
+                        ],
+                        "emails": [],
+                        "identifications": [],
+                        "details": [],
+                        "listings": [
+                          {
+                            "token": "scatr_3EenGd9ZzeXLWBL11K5mnSBi",
+                            "name": "OFAC - Specially Designated Nationals (SDN) List",
+                            "type": "sanction",
+                            "url": "https://sanctionssearch.ofac.treas.gov/",
+                            "active": true,
+                            "created-at": "2026-06-15T23:48:11.000Z",
+                            "deactivated-at": null,
+                            "reviewed-at": "2026-06-16T10:00:00.000Z",
+                            "review-status": "false_positive"
+                          }
+                        ],
+                        "positions": [],
+                        "pep-classes": [],
+                        "pep-roles": [],
+                        "topics": [],
+                        "articles": []
+                      }
+                    ]
+                  },
+                  "relationships": {
+                    "inquiry": {
+                      "data": {
+                        "type": "inquiry",
+                        "id": "inq_mrAQrPasWWNefviwRZbPnvmk"
+                      }
+                    },
+                    "account": {
+                      "data": {
+                        "type": "account",
+                        "id": "act_XtfNKtxNBpPghwNRj7h3LiUU"
+                      }
+                    },
+                    "transaction": {
+                      "data": null
+                    },
+                    "report-template": {
+                      "data": {
+                        "type": "report-template/screening",
+                        "id": "rptp_QY18iAaeJaXDhhhuzEe6WEAW"
+                      }
+                    }
+                  }
+                }
+              },
+              "created-at": "2026-06-16T10:00:00.000Z"
+            }
+          }
+        }
+      },
+      "report-screening-errored-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_usSNqySFixduY67JAnoDA3DN",
+            "attributes": {
+              "name": "report/screening.errored",
+              "context": {},
+              "payload": {
+                "data": {
+                  "type": "report/screening",
+                  "id": "rep_AXiYzt7DL79K3soo1MAVhXqW",
+                  "attributes": {
+                    "status": "errored",
+                    "created-at": "2026-06-15T23:48:11.000Z",
+                    "completed-at": null,
+                    "redacted-at": null,
+                    "report-template-version-name": "v1",
+                    "has-match": false,
+                    "is-continuous": false,
+                    "is-recurring": true,
+                    "tags": [],
+                    "query": {
+                      "name-first": "Jane",
+                      "name-middle": null,
+                      "name-last": "Doe",
+                      "term": "Jane Doe",
+                      "birthdate": null,
+                      "address-street-1": null,
+                      "address-street-2": null,
+                      "address-city": null,
+                      "address-subdivision": null,
+                      "address-postal-code": null,
+                      "address-country-code": null,
+                      "email": null,
+                      "identification-number": null
+                    },
+                    "matched-screening-types": [],
+                    "matched-records": []
+                  },
+                  "relationships": {
+                    "inquiry": {
+                      "data": {
+                        "type": "inquiry",
+                        "id": "inq_pZbB26BkXF8wjEEwNXdssDMT"
+                      }
+                    },
+                    "account": {
+                      "data": {
+                        "type": "account",
+                        "id": "act_7cwr22pxxSWHczLRgvy82Yri"
+                      }
+                    },
+                    "transaction": {
+                      "data": null
+                    },
+                    "report-template": {
+                      "data": {
+                        "type": "report-template/screening",
+                        "id": "rptp_aLdFtoSDFwUGpdu9xsvnH7Xn"
+                      }
+                    }
+                  }
+                }
+              },
+              "created-at": "2026-06-15T23:48:11.000Z"
+            }
+          }
+        }
+      },
       "report-sentilink-scores-ready-webhook-body": {
         "value": {
           "data": {
@@ -113922,6 +115899,198 @@
               "examples": {
                 "Example Body": {
                   "$ref": "#/components/examples/report-profile-non-authoritative-errored-webhook-body"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 2xx status code to indicate that the data was received successfully. Any other status will trigger retries. For more info see [Retry Logic](https://docs.withpersona.com/webhooks#retry-logic).",
+            "$ref": "#/components/responses/success"
+          }
+        }
+      }
+    },
+    "report/screening.ready": {
+      "post": {
+        "tags": [
+          "Report events"
+        ],
+        "summary": "Screening report ready",
+        "description": "Webhook for the \u0060report/screening.ready\u0060 event. For more info see [Webhooks Overview](https://docs.withpersona.com/webhooks).\n\nSent when a screening report finishes processing and its results are available (\u0060status\u0060 is \u0060ready\u0060).\n\nThe payload is the polymorphic report object. Inspect \u0060payload.data.type\u0060 (\u0060report/screening\u0060) to identify the report, and \u0060payload.data.attributes\u0060 for its inputs and results.",
+        "operationId": "WebhookReportScreeningReady",
+        "parameters": [
+          {
+            "description": "Header. An HMAC that you should use to check that requests are authentic. Compare this value with your own digest, computed from the request body and your webhook secret. For more info see [Webhook Best Practices](https://docs.withpersona.com/webhooks-best-practices).",
+            "$ref": "#/components/parameters/persona-signature-header"
+          },
+          {
+            "description": "The number of times that Persona has attempted to deliver this webhook. This value is incremented each time Persona attempts to deliver the webhook, regardless of whether the delivery was successful.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-made"
+          },
+          {
+            "description": "The number of times that Persona will attempt to deliver this webhook. This value is decremented each time Persona attempts to deliver the webhook.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-left"
+          },
+          {
+            "description": "The time at which Persona first attempted to deliver this webhook. This value is a Unix timestamp in seconds.",
+            "$ref": "#/components/parameters/persona-webhook-first-attempted-at"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookReportScreeningReadyRequest"
+              },
+              "examples": {
+                "Example Body": {
+                  "$ref": "#/components/examples/report-screening-ready-webhook-body"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 2xx status code to indicate that the data was received successfully. Any other status will trigger retries. For more info see [Retry Logic](https://docs.withpersona.com/webhooks#retry-logic).",
+            "$ref": "#/components/responses/success"
+          }
+        }
+      }
+    },
+    "report/screening.matched": {
+      "post": {
+        "tags": [
+          "Report events"
+        ],
+        "summary": "Screening report matched",
+        "description": "Webhook for the \u0060report/screening.matched\u0060 event. For more info see [Webhooks Overview](https://docs.withpersona.com/webhooks).\n\nSent when a screening report surfaces one or more matched records (\u0060has-match\u0060 becomes \u0060true\u0060). For continuously-monitored reports this fires on the run that introduces a new match.\n\nThe payload is the polymorphic report object. Inspect \u0060payload.data.type\u0060 (\u0060report/screening\u0060) to identify the report, and \u0060payload.data.attributes\u0060 for its inputs and results.",
+        "operationId": "WebhookReportScreeningMatched",
+        "parameters": [
+          {
+            "description": "Header. An HMAC that you should use to check that requests are authentic. Compare this value with your own digest, computed from the request body and your webhook secret. For more info see [Webhook Best Practices](https://docs.withpersona.com/webhooks-best-practices).",
+            "$ref": "#/components/parameters/persona-signature-header"
+          },
+          {
+            "description": "The number of times that Persona has attempted to deliver this webhook. This value is incremented each time Persona attempts to deliver the webhook, regardless of whether the delivery was successful.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-made"
+          },
+          {
+            "description": "The number of times that Persona will attempt to deliver this webhook. This value is decremented each time Persona attempts to deliver the webhook.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-left"
+          },
+          {
+            "description": "The time at which Persona first attempted to deliver this webhook. This value is a Unix timestamp in seconds.",
+            "$ref": "#/components/parameters/persona-webhook-first-attempted-at"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookReportScreeningMatchedRequest"
+              },
+              "examples": {
+                "Example Body": {
+                  "$ref": "#/components/examples/report-screening-matched-webhook-body"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 2xx status code to indicate that the data was received successfully. Any other status will trigger retries. For more info see [Retry Logic](https://docs.withpersona.com/webhooks#retry-logic).",
+            "$ref": "#/components/responses/success"
+          }
+        }
+      }
+    },
+    "report/screening.reviewed": {
+      "post": {
+        "tags": [
+          "Report events"
+        ],
+        "summary": "Screening report record reviewed",
+        "description": "Webhook for the \u0060report/screening.reviewed\u0060 event. For more info see [Webhooks Overview](https://docs.withpersona.com/webhooks).\n\nSent when a matched record on a screening report is reviewed (e.g. confirmed or dismissed) by a reviewer.\n\nThe payload is the polymorphic report object. Inspect \u0060payload.data.type\u0060 (\u0060report/screening\u0060) to identify the report, and \u0060payload.data.attributes.matched-records[].review-status\u0060 for the reviewed record\u0027s outcome.",
+        "operationId": "WebhookReportScreeningReviewed",
+        "parameters": [
+          {
+            "description": "Header. An HMAC that you should use to check that requests are authentic. Compare this value with your own digest, computed from the request body and your webhook secret. For more info see [Webhook Best Practices](https://docs.withpersona.com/webhooks-best-practices).",
+            "$ref": "#/components/parameters/persona-signature-header"
+          },
+          {
+            "description": "The number of times that Persona has attempted to deliver this webhook. This value is incremented each time Persona attempts to deliver the webhook, regardless of whether the delivery was successful.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-made"
+          },
+          {
+            "description": "The number of times that Persona will attempt to deliver this webhook. This value is decremented each time Persona attempts to deliver the webhook.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-left"
+          },
+          {
+            "description": "The time at which Persona first attempted to deliver this webhook. This value is a Unix timestamp in seconds.",
+            "$ref": "#/components/parameters/persona-webhook-first-attempted-at"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookReportScreeningReviewedRequest"
+              },
+              "examples": {
+                "Example Body": {
+                  "$ref": "#/components/examples/report-screening-reviewed-webhook-body"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 2xx status code to indicate that the data was received successfully. Any other status will trigger retries. For more info see [Retry Logic](https://docs.withpersona.com/webhooks#retry-logic).",
+            "$ref": "#/components/responses/success"
+          }
+        }
+      }
+    },
+    "report/screening.errored": {
+      "post": {
+        "tags": [
+          "Report events"
+        ],
+        "summary": "Screening report errored",
+        "description": "Webhook for the \u0060report/screening.errored\u0060 event. For more info see [Webhooks Overview](https://docs.withpersona.com/webhooks).\n\nSent when a screening report fails to complete processing (\u0060status\u0060 is \u0060errored\u0060).\n\nThe payload is the polymorphic report object. Inspect \u0060payload.data.type\u0060 (\u0060report/screening\u0060) to identify the report, and \u0060payload.data.attributes\u0060 for its inputs and results.",
+        "operationId": "WebhookReportScreeningErrored",
+        "parameters": [
+          {
+            "description": "Header. An HMAC that you should use to check that requests are authentic. Compare this value with your own digest, computed from the request body and your webhook secret. For more info see [Webhook Best Practices](https://docs.withpersona.com/webhooks-best-practices).",
+            "$ref": "#/components/parameters/persona-signature-header"
+          },
+          {
+            "description": "The number of times that Persona has attempted to deliver this webhook. This value is incremented each time Persona attempts to deliver the webhook, regardless of whether the delivery was successful.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-made"
+          },
+          {
+            "description": "The number of times that Persona will attempt to deliver this webhook. This value is decremented each time Persona attempts to deliver the webhook.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-left"
+          },
+          {
+            "description": "The time at which Persona first attempted to deliver this webhook. This value is a Unix timestamp in seconds.",
+            "$ref": "#/components/parameters/persona-webhook-first-attempted-at"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookReportScreeningErroredRequest"
+              },
+              "examples": {
+                "Example Body": {
+                  "$ref": "#/components/examples/report-screening-errored-webhook-body"
                 }
               }
             }

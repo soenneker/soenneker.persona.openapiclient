@@ -812,6 +812,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         #pragma warning disable CS1591
         ReportScreeningReady,
         #pragma warning restore CS1591
+        [EnumMember(Value = "report/screening.reviewed")]
+        #pragma warning disable CS1591
+        ReportScreeningReviewed,
+        #pragma warning restore CS1591
         [EnumMember(Value = "report/sec-action-lookup.errored")]
         #pragma warning disable CS1591
         ReportSecActionLookupErrored,

@@ -7029,6 +7029,10 @@
             "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
             "$ref": "#/components/responses/forbidden"
           },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
           "429": {
             "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
             "$ref": "#/components/responses/too-many-requests"

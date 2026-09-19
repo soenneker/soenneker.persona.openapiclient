@@ -124,7 +124,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string ResolverId { get; set; }
 #endif
-        /// <summary>Possible values:- user- workflow-runDo not assume this is a static enumeration; Persona may add new valuesin the future without a versioned update.</summary>
+        /// <summary>Possible values:- api-key- user- workflow-runDo not assume this is a static enumeration; Persona may add new valuesin the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ResolverType { get; set; }
@@ -172,7 +172,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string UpdaterId { get; set; }
 #endif
-        /// <summary>Possible values:- case-assignment-policy- user- workflow-runDo not assume this is a static enumeration; Persona may add new valuesin the future without a versioned update.</summary>
+        /// <summary>Possible values:- api-key- case-assignment-policy- user- workflow-runDo not assume this is a static enumeration; Persona may add new valuesin the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UpdaterType { get; set; }

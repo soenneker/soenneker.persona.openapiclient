@@ -52498,7 +52498,7 @@
               "null",
               "string"
             ],
-            "description": "Possible values:\n- user\n- workflow-run\n\nDo not assume this is a static enumeration; Persona may add new values\nin the future without a versioned update."
+            "description": "Possible values:\n- api-key\n- user\n- workflow-run\n\nDo not assume this is a static enumeration; Persona may add new values\nin the future without a versioned update."
           },
           "updater-id": {
             "examples": [
@@ -52514,7 +52514,7 @@
               "null",
               "string"
             ],
-            "description": "Possible values:\n- case-assignment-policy\n- user\n- workflow-run\n\nDo not assume this is a static enumeration; Persona may add new values\nin the future without a versioned update."
+            "description": "Possible values:\n- api-key\n- case-assignment-policy\n- user\n- workflow-run\n\nDo not assume this is a static enumeration; Persona may add new values\nin the future without a versioned update."
           },
           "tags": {
             "examples": [

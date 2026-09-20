@@ -10,6 +10,7 @@ using Soenneker.Persona.OpenApiClient.AccountTypes;
 using Soenneker.Persona.OpenApiClient.Accounts;
 using Soenneker.Persona.OpenApiClient.ApiKeys;
 using Soenneker.Persona.OpenApiClient.ApiLogs;
+using Soenneker.Persona.OpenApiClient.BatchJobs;
 using Soenneker.Persona.OpenApiClient.CaseTemplates;
 using Soenneker.Persona.OpenApiClient.Cases;
 using Soenneker.Persona.OpenApiClient.Connect;
@@ -74,6 +75,11 @@ namespace Soenneker.Persona.OpenApiClient
         public global::Soenneker.Persona.OpenApiClient.ApiLogs.ApiLogsRequestBuilder ApiLogs
         {
             get => new global::Soenneker.Persona.OpenApiClient.ApiLogs.ApiLogsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The batchJobs property</summary>
+        public global::Soenneker.Persona.OpenApiClient.BatchJobs.BatchJobsRequestBuilder BatchJobs
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.BatchJobs.BatchJobsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The cases property</summary>
         public global::Soenneker.Persona.OpenApiClient.Cases.CasesRequestBuilder Cases

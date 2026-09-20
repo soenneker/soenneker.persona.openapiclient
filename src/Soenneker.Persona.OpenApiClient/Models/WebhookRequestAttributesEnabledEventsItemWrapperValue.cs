@@ -104,6 +104,30 @@ namespace Soenneker.Persona.OpenApiClient.Models
         #pragma warning disable CS1591
         AuthenticationRedacted,
         #pragma warning restore CS1591
+        [EnumMember(Value = "batch-job.canceled")]
+        #pragma warning disable CS1591
+        BatchJobCanceled,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "batch-job.completed")]
+        #pragma warning disable CS1591
+        BatchJobCompleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "batch-job.errored")]
+        #pragma warning disable CS1591
+        BatchJobErrored,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "batch-job.paused")]
+        #pragma warning disable CS1591
+        BatchJobPaused,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "batch-job.resumed")]
+        #pragma warning disable CS1591
+        BatchJobResumed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "batch-job.started")]
+        #pragma warning disable CS1591
+        BatchJobStarted,
+        #pragma warning restore CS1591
         [EnumMember(Value = "case-comment.created")]
         #pragma warning disable CS1591
         CaseCommentCreated,

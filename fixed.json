@@ -3798,6 +3798,324 @@
         }
       }
     },
+    "/batch-jobs": {
+      "post": {
+        "tags": [
+          "Importers"
+        ],
+        "summary": "Create a Batch Job",
+        "description": "Submits a batch of rows to update or upsert Accounts, or update Inquiries, in bulk. Persona\nprocesses the rows asynchronously as a Batch Job; poll the returned job or retrieve its\nerrors to check progress.\n\n- **\u0060object: account\u0060** supports \u0060operation: update\u0060 (lookup by \u0060token\u0060 or \u0060reference_id\u0060) or\n  \u0060operation: upsert\u0060 (lookup by \u0060reference_id\u0060 only, and requires \u0060account_type_id\u0060 on the\n  pipeline or on each row).\n- **\u0060object: inquiry\u0060** only supports \u0060operation: update\u0060 with \u0060lookup_field: token\u0060.\n",
+        "operationId": "CreateABatchJob",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "description": "A comma-separated list of relationship paths. This can be used to customize which related resources will be fully serialized in the \u0060included\u0060 key in the response. See [Serialization](https://docs.withpersona.com/serialization#inclusion-of-related-resources) for more details.",
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateABatchJobRequest"
+              },
+              "examples": {
+                "Success": {
+                  "$ref": "#/components/examples/create-batch-job"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "The Batch Job has been created and processing has started.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateABatchJob202Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/batch-job"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "409": {
+            "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
+    "/batch-jobs/{batchJobId}": {
+      "get": {
+        "tags": [
+          "Importers"
+        ],
+        "summary": "Retrieve a Batch Job",
+        "description": "Retrieve the status and counts for an existing Batch Job.",
+        "operationId": "RetrieveABatchJob",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "description": "A comma-separated list of relationship paths. This can be used to customize which related resources will be fully serialized in the \u0060included\u0060 key in the response. See [Serialization](https://docs.withpersona.com/serialization#inclusion-of-related-resources) for more details.",
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "batchJobId",
+            "in": "path",
+            "description": "The ID of the Batch Job.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Batch Job resource.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetrieveABatchJob200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/batch-job"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
+    "/batch-jobs/{batchJobId}/errors": {
+      "get": {
+        "tags": [
+          "Importers"
+        ],
+        "summary": "Retrieve Batch Job errors",
+        "description": "Retrieve global and per-row errors for an existing Batch Job.",
+        "operationId": "RetrieveBatchJobErrors",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "name": "batchJobId",
+            "in": "path",
+            "description": "The ID of the Batch Job.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "after": {
+                  "examples": [
+                    25
+                  ],
+                  "type": "integer",
+                  "description": "Row number cursor. Omit for the first page; pass the \u0060row-number\u0060 of the last row returned to fetch the next page. Cannot be combined with \u0060before\u0060."
+                },
+                "before": {
+                  "examples": [
+                    25
+                  ],
+                  "type": "integer",
+                  "description": "Row number cursor. Pass the \u0060row-number\u0060 of the first row of a page to fetch the page immediately preceding it. Cannot be combined with \u0060after\u0060."
+                },
+                "size": {
+                  "examples": [
+                    50
+                  ],
+                  "type": "integer",
+                  "description": "Number of row errors to return, 1-100 (default 50)."
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This endpoint returns the errors for a Batch Job.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetrieveBatchJobErrors200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/batch-job-errors"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        }
+      }
+    },
     "/case-templates/{caseTemplateId}": {
       "get": {
         "tags": [
@@ -27315,6 +27633,66 @@
         },
         "additionalProperties": false,
         "description": "An API Log object"
+      },
+      "BatchJob": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/BatchJobType"
+          },
+          "id": {
+            "examples": [
+              "mprtpr_ABC123DEF456"
+            ],
+            "type": "string"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/BatchJobAttributes"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Batch Job object."
+      },
+      "BatchJobRowError": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/BatchJobRowErrorType"
+          },
+          "id": {
+            "examples": [
+              "mprtpr_ABC123DEF456:4"
+            ],
+            "type": "string",
+            "description": "Composite of the Batch Job\u0027s ID and the row\u0027s \u0060row-number\u0060, since row numbers are only unique within a run."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/BatchJobRowErrorAttributes"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A single row-level failure within a Batch Job."
+      },
+      "BatchJobErrorsMeta": {
+        "type": "object",
+        "properties": {
+          "error-count": {
+            "examples": [
+              2
+            ],
+            "type": "integer",
+            "description": "Total number of rows that failed to process, across the whole run (not just this page)."
+          },
+          "global-errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BatchJobErrorsMetaGlobalErrorsItem"
+            },
+            "description": "Errors that affected the whole run rather than a single row."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Error counts for a Batch Job, independent of which page of row errors was requested."
       },
       "CaseTemplate": {
         "type": "object",
@@ -52302,6 +52680,130 @@
         },
         "additionalProperties": false
       },
+      "BatchJobAttributes": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "examples": [
+              "running"
+            ],
+            "type": "string",
+            "description": "Current status of the batch job. Possible values include \u0060pending\u0060, \u0060running\u0060, \u0060paused\u0060, \u0060canceled\u0060, \u0060completed\u0060, \u0060errored\u0060, and \u0060killed\u0060."
+          },
+          "run-count": {
+            "examples": [
+              1
+            ],
+            "type": "integer",
+            "description": "Number of times this batch job has been executed"
+          },
+          "started-at": {
+            "examples": [
+              "2020-04-12T05:08:51.000Z"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When the batch job started processing",
+            "format": "date-time"
+          },
+          "ended-at": {
+            "examples": [
+              "2020-04-12T05:18:32.000Z"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When the batch job finished processing",
+            "format": "date-time"
+          },
+          "created-at": {
+            "examples": [
+              "2020-04-12T05:08:51.000Z"
+            ],
+            "type": "string",
+            "description": "When the batch job was created",
+            "format": "date-time"
+          },
+          "updated-at": {
+            "examples": [
+              "2020-04-13T00:23:57.000Z"
+            ],
+            "type": "string",
+            "description": "When the batch job was last updated",
+            "format": "date-time"
+          },
+          "redacted-at": {
+            "examples": [
+              "2020-04-14T00:22:43.000Z"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When the batch job was redacted",
+            "format": "date-time"
+          },
+          "run-data": {
+            "$ref": "#/components/schemas/BatchJobAttributesRunData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BatchJobRowErrorAttributes": {
+        "type": "object",
+        "properties": {
+          "row": {
+            "$ref": "#/components/schemas/BatchJobRowErrorAttributesRowProperty"
+          },
+          "error-message": {
+            "examples": [
+              "No record found with unique id \u0022a-123\u0022"
+            ],
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "row-number": {
+            "examples": [
+              4
+            ],
+            "type": "integer",
+            "description": "The 1-indexed position of this row within the submitted \u0060rows\u0060 array."
+          }
+        },
+        "additionalProperties": false
+      },
+      "BatchJobErrorsMetaGlobalErrorsItem": {
+        "type": "object",
+        "properties": {
+          "error-type": {
+            "examples": [
+              "failed_to_write"
+            ],
+            "type": "string"
+          },
+          "message": {
+            "examples": [
+              "Could not connect to the destination"
+            ],
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "retryable": {
+            "examples": [
+              false
+            ],
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "CaseTemplateAttributes": {
         "type": "object",
         "properties": {
@@ -58571,6 +59073,65 @@
         },
         "additionalProperties": false,
         "description": "The API key that made this request, if any."
+      },
+      "BatchJobAttributesRunData": {
+        "type": "object",
+        "properties": {
+          "column-names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Names of columns being processed"
+          },
+          "error-count": {
+            "examples": [
+              0
+            ],
+            "type": "integer",
+            "description": "Number of errors encountered"
+          },
+          "rows-read": {
+            "examples": [
+              1000
+            ],
+            "type": "integer",
+            "description": "Number of rows read from the source"
+          },
+          "row-count": {
+            "examples": [
+              1000
+            ],
+            "type": "integer",
+            "description": "Total number of rows processed"
+          },
+          "success-count": {
+            "examples": [
+              995
+            ],
+            "type": "integer",
+            "description": "Number of rows successfully processed"
+          },
+          "created-count": {
+            "examples": [
+              500
+            ],
+            "type": "integer",
+            "description": "Number of new records created"
+          },
+          "updated-count": {
+            "examples": [
+              495
+            ],
+            "type": "integer",
+            "description": "Number of existing records updated"
+          }
+        },
+        "description": "Runtime data and statistics for the batch job"
+      },
+      "BatchJobRowErrorAttributesRow": {
+        "type": "object",
+        "description": "The original row contents, as submitted."
       },
       "CaseTypeAttributesFields": {
         "examples": [
@@ -64954,6 +65515,42 @@
         },
         "additionalProperties": false
       },
+      "CreateABatchJobRequest": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CreateABatchJobRequestData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RetrieveBatchJobErrors200Response": {
+        "required": [
+          "data",
+          "meta",
+          "links"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BatchJobRowError"
+            },
+            "description": "A page of row-level failures, ordered by \u0060row-number\u0060."
+          },
+          "meta": {
+            "$ref": "#/components/schemas/BatchJobErrorsMeta"
+          },
+          "links": {
+            "$ref": "#/components/schemas/RetrieveBatchJobErrors200ResponseLinks"
+          }
+        },
+        "additionalProperties": false
+      },
       "RetrieveACaseTemplate200Response": {
         "required": [
           "data"
@@ -67995,6 +68592,60 @@
         },
         "additionalProperties": false
       },
+      "WebhookBatchJobCanceledRequest": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WebhookBatchJobCanceledRequestData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookBatchJobCompletedRequest": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WebhookBatchJobCompletedRequestData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookBatchJobErroredRequest": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WebhookBatchJobErroredRequestData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookBatchJobPausedRequest": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WebhookBatchJobPausedRequestData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookBatchJobResumedRequest": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WebhookBatchJobResumedRequestData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookBatchJobStartedRequest": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WebhookBatchJobStartedRequestData"
+          }
+        },
+        "additionalProperties": false
+      },
       "WebhookReportAddressLookupReadyRequest": {
         "type": "object",
         "properties": {
@@ -68773,6 +69424,30 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/ConnectConnection"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateABatchJob202Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BatchJob"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RetrieveABatchJob200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BatchJob"
           }
         },
         "additionalProperties": false
@@ -70381,6 +71056,10 @@
         "type": "object",
         "description": "Risk signals computed for this Transaction, keyed by signal name. Only present for Transactions whose Transaction Type has Sentinel enabled; signals appear once the Sentinel session has been processed. Specific keys are not enumerated in the public spec and may be added or removed over time. Contact your Persona account team for more information."
       },
+      "BatchJobRowErrorAttributesRowProperty": {
+        "type": "object",
+        "description": "The original row contents, as submitted."
+      },
       "CaseTypeAttributesFieldsProperty": {
         "type": "object",
         "description": "JSON key-value pairs of field name to field value. Exact schema depends on the configuration of the Case template for this Case. Keys in \u0060fields\u0060 are **not** key inflected."
@@ -71046,6 +71725,48 @@
               "null",
               "string"
             ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateABatchJobRequestData": {
+        "required": [
+          "attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "attributes": {
+            "$ref": "#/components/schemas/CreateABatchJobRequestDataAttributes"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RetrieveBatchJobErrors200ResponseLinks": {
+        "required": [
+          "prev",
+          "next"
+        ],
+        "type": "object",
+        "properties": {
+          "prev": {
+            "examples": [
+              null
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "URL pointing to the previous page of row errors, or null if this is the first page."
+          },
+          "next": {
+            "examples": [
+              "/api/v1/batch-jobs/mprtpr_ABC123DEF456/errors?page%5Bafter%5D=25"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "URL pointing to the next page of row errors, or null if there are no more."
           }
         },
         "additionalProperties": false
@@ -73991,6 +74712,120 @@
           }
         }
       },
+      "WebhookBatchJobCanceledRequestData": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/EventValueType"
+          },
+          "id": {
+            "examples": [
+              "evt_ABC123"
+            ],
+            "type": "string",
+            "description": "Unique identifier for this Event. Starts with \u0060evt_\u0060."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/WebhookBatchJobCanceledRequestDataAttributes"
+          }
+        }
+      },
+      "WebhookBatchJobCompletedRequestData": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/EventValueType"
+          },
+          "id": {
+            "examples": [
+              "evt_ABC123"
+            ],
+            "type": "string",
+            "description": "Unique identifier for this Event. Starts with \u0060evt_\u0060."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/WebhookBatchJobCompletedRequestDataAttributes"
+          }
+        }
+      },
+      "WebhookBatchJobErroredRequestData": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/EventValueType"
+          },
+          "id": {
+            "examples": [
+              "evt_ABC123"
+            ],
+            "type": "string",
+            "description": "Unique identifier for this Event. Starts with \u0060evt_\u0060."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/WebhookBatchJobErroredRequestDataAttributes"
+          }
+        }
+      },
+      "WebhookBatchJobPausedRequestData": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/EventValueType"
+          },
+          "id": {
+            "examples": [
+              "evt_ABC123"
+            ],
+            "type": "string",
+            "description": "Unique identifier for this Event. Starts with \u0060evt_\u0060."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/WebhookBatchJobPausedRequestDataAttributes"
+          }
+        }
+      },
+      "WebhookBatchJobResumedRequestData": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/EventValueType"
+          },
+          "id": {
+            "examples": [
+              "evt_ABC123"
+            ],
+            "type": "string",
+            "description": "Unique identifier for this Event. Starts with \u0060evt_\u0060."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/WebhookBatchJobResumedRequestDataAttributes"
+          }
+        }
+      },
+      "WebhookBatchJobStartedRequestData": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/EventValueType"
+          },
+          "id": {
+            "examples": [
+              "evt_ABC123"
+            ],
+            "type": "string",
+            "description": "Unique identifier for this Event. Starts with \u0060evt_\u0060."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/WebhookBatchJobStartedRequestDataAttributes"
+          }
+        }
+      },
       "WebhookReportAddressLookupReadyRequestData": {
         "unevaluatedProperties": false,
         "type": "object",
@@ -75834,6 +76669,63 @@
             "type": "string",
             "description": "The name of the field in the destination object.",
             "example": "street_address"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateABatchJobRequestDataAttributes": {
+        "required": [
+          "operation",
+          "object",
+          "lookup-field",
+          "rows"
+        ],
+        "type": "object",
+        "properties": {
+          "operation": {
+            "examples": [
+              "update"
+            ],
+            "type": "string",
+            "description": "Whether to only update existing objects, or create them if they don\u0027t already exist. One of \u0060update\u0060 or \u0060upsert\u0060. \u0060upsert\u0060 is only supported for \u0060object: account\u0060."
+          },
+          "object": {
+            "examples": [
+              "account"
+            ],
+            "type": "string",
+            "description": "The kind of object each row updates. One of \u0060account\u0060 or \u0060inquiry\u0060."
+          },
+          "lookup-field": {
+            "examples": [
+              "reference_id"
+            ],
+            "type": "string",
+            "description": "The field used to find the object each row applies to. One of \u0060token\u0060 or \u0060reference_id\u0060. \u0060token\u0060 is required for \u0060object: inquiry\u0060."
+          },
+          "emit-events": {
+            "examples": [
+              true
+            ],
+            "type": "boolean",
+            "description": "Whether to emit events for objects affected by this run. Defaults to \u0060true\u0060. When \u0060false\u0060 and \u0060object\u0060 is \u0060account\u0060: suppresses the \u0060account.updated-fields\u0060 event, and suppresses \u0060account.tag-added\u0060 / \u0060account.tag-removed\u0060 (so workflows and webhooks that trigger on those events do not run for this row). When \u0060false\u0060 and \u0060object\u0060 is \u0060inquiry\u0060: has no effect today, since updating an Inquiry\u0027s tags or fields through this endpoint does not emit any event regardless of this flag. In both cases, this only suppresses events -- it never affects the write itself, and Elasticsearch reindexing and the graph Kafka sync are not events and always run.",
+            "default": true
+          },
+          "account-type-id": {
+            "examples": [
+              "acttp_ABC123"
+            ],
+            "type": "string",
+            "description": "The default Account Type token to use for rows that create a new Account and don\u0027t specify their own \u0060account_type_id\u0060. Only applicable when \u0060object\u0060 is \u0060account\u0060."
+          },
+          "rows": {
+            "maxItems": 1000,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateABatchJobRequestDataAttributesRowsItem"
+            },
+            "description": "The rows to process, up to 1000 rows per request. Each row is a flat object whose keys are field names (for example \u0060reference_id\u0060, \u0060token\u0060, \u0060account_type_id\u0060, or a custom field key) and whose values are the data to write."
           }
         },
         "additionalProperties": false
@@ -77691,6 +78583,126 @@
           }
         }
       },
+      "WebhookBatchJobCanceledRequestDataAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/BatchJobCanceledName"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/WebhookBatchJobCanceledRequestDataAttributesPayload"
+          },
+          "created-at": {
+            "examples": [
+              "2023-09-21T18:29:40.000Z"
+            ],
+            "type": "string",
+            "description": "Datetime when the event was created.",
+            "format": "date-time"
+          }
+        }
+      },
+      "WebhookBatchJobCompletedRequestDataAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/BatchJobCompletedName"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/WebhookBatchJobCompletedRequestDataAttributesPayload"
+          },
+          "created-at": {
+            "examples": [
+              "2023-09-21T18:29:40.000Z"
+            ],
+            "type": "string",
+            "description": "Datetime when the event was created.",
+            "format": "date-time"
+          }
+        }
+      },
+      "WebhookBatchJobErroredRequestDataAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/BatchJobErroredName"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/WebhookBatchJobErroredRequestDataAttributesPayload"
+          },
+          "created-at": {
+            "examples": [
+              "2023-09-21T18:29:40.000Z"
+            ],
+            "type": "string",
+            "description": "Datetime when the event was created.",
+            "format": "date-time"
+          }
+        }
+      },
+      "WebhookBatchJobPausedRequestDataAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/BatchJobPausedName"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/WebhookBatchJobPausedRequestDataAttributesPayload"
+          },
+          "created-at": {
+            "examples": [
+              "2023-09-21T18:29:40.000Z"
+            ],
+            "type": "string",
+            "description": "Datetime when the event was created.",
+            "format": "date-time"
+          }
+        }
+      },
+      "WebhookBatchJobResumedRequestDataAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/BatchJobResumedName"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/WebhookBatchJobResumedRequestDataAttributesPayload"
+          },
+          "created-at": {
+            "examples": [
+              "2023-09-21T18:29:40.000Z"
+            ],
+            "type": "string",
+            "description": "Datetime when the event was created.",
+            "format": "date-time"
+          }
+        }
+      },
+      "WebhookBatchJobStartedRequestDataAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/BatchJobStartedName"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/WebhookBatchJobStartedRequestDataAttributesPayload"
+          },
+          "created-at": {
+            "examples": [
+              "2023-09-21T18:29:40.000Z"
+            ],
+            "type": "string",
+            "description": "Datetime when the event was created.",
+            "format": "date-time"
+          }
+        }
+      },
       "WebhookReportAddressLookupReadyRequestDataAttributes": {
         "unevaluatedProperties": false,
         "type": "object",
@@ -79312,6 +80324,16 @@
         "type": "object",
         "description": "JSON key-value pairs of field name to field value. Schema is defined by your Account Type."
       },
+      "CreateABatchJobRequestDataAttributesRowsItem": {
+        "examples": [
+          {
+            "reference_id": "a-123",
+            "account_type_id": "acttp_ABC123",
+            "name_first": "Jane"
+          }
+        ],
+        "type": "object"
+      },
       "CreateACaseRequestDataAttributesFields": {
         "examples": [
           {
@@ -80442,6 +81464,60 @@
             "items": {
               "$ref": "#/components/schemas/ImporterPipelineRunsIncludedObjectsItem"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookBatchJobCanceledRequestDataAttributesPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BatchJob"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookBatchJobCompletedRequestDataAttributesPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BatchJob"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookBatchJobErroredRequestDataAttributesPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BatchJob"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookBatchJobPausedRequestDataAttributesPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BatchJob"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookBatchJobResumedRequestDataAttributesPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BatchJob"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebhookBatchJobStartedRequestDataAttributesPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BatchJob"
           }
         },
         "additionalProperties": false
@@ -82227,6 +83303,40 @@
             {
               "value": "api-log",
               "name": "ApiLog"
+            }
+          ]
+        }
+      },
+      "BatchJobType": {
+        "const": null,
+        "enum": [
+          "batch-job"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "BatchJobType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "batch-job",
+              "name": "BatchJob"
+            }
+          ]
+        }
+      },
+      "BatchJobRowErrorType": {
+        "const": null,
+        "enum": [
+          "batch-job-row-error"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "BatchJobRowErrorType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "batch-job-row-error",
+              "name": "BatchJobRowError"
             }
           ]
         }
@@ -85362,6 +86472,12 @@
           "authentication.expired",
           "authentication.failed",
           "authentication.redacted",
+          "batch-job.canceled",
+          "batch-job.completed",
+          "batch-job.errored",
+          "batch-job.paused",
+          "batch-job.resumed",
+          "batch-job.started",
           "case-comment.created",
           "case-message.received",
           "case-message.sent",
@@ -85692,6 +86808,30 @@
             {
               "value": "authentication.redacted",
               "name": "AuthenticationRedacted"
+            },
+            {
+              "value": "batch-job.canceled",
+              "name": "BatchJobCanceled"
+            },
+            {
+              "value": "batch-job.completed",
+              "name": "BatchJobCompleted"
+            },
+            {
+              "value": "batch-job.errored",
+              "name": "BatchJobErrored"
+            },
+            {
+              "value": "batch-job.paused",
+              "name": "BatchJobPaused"
+            },
+            {
+              "value": "batch-job.resumed",
+              "name": "BatchJobResumed"
+            },
+            {
+              "value": "batch-job.started",
+              "name": "BatchJobStarted"
             },
             {
               "value": "case-comment.created",
@@ -87590,6 +88730,108 @@
             {
               "value": "importer-pipeline-run.started",
               "name": "ImporterPipelineRunStarted"
+            }
+          ]
+        }
+      },
+      "BatchJobCanceledName": {
+        "const": null,
+        "enum": [
+          "batch-job.canceled"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "BatchJobCanceledName",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "batch-job.canceled",
+              "name": "BatchJobCanceled"
+            }
+          ]
+        }
+      },
+      "BatchJobCompletedName": {
+        "const": null,
+        "enum": [
+          "batch-job.completed"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "BatchJobCompletedName",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "batch-job.completed",
+              "name": "BatchJobCompleted"
+            }
+          ]
+        }
+      },
+      "BatchJobErroredName": {
+        "const": null,
+        "enum": [
+          "batch-job.errored"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "BatchJobErroredName",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "batch-job.errored",
+              "name": "BatchJobErrored"
+            }
+          ]
+        }
+      },
+      "BatchJobPausedName": {
+        "const": null,
+        "enum": [
+          "batch-job.paused"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "BatchJobPausedName",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "batch-job.paused",
+              "name": "BatchJobPaused"
+            }
+          ]
+        }
+      },
+      "BatchJobResumedName": {
+        "const": null,
+        "enum": [
+          "batch-job.resumed"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "BatchJobResumedName",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "batch-job.resumed",
+              "name": "BatchJobResumed"
+            }
+          ]
+        }
+      },
+      "BatchJobStartedName": {
+        "const": null,
+        "enum": [
+          "batch-job.started"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "BatchJobStartedName",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "batch-job.started",
+              "name": "BatchJobStarted"
             }
           ]
         }
@@ -90765,6 +92007,86 @@
                 }
               }
             }
+          }
+        }
+      },
+      "create-batch-job": {
+        "value": {
+          "data": {
+            "attributes": {
+              "operation": "update",
+              "object": "account",
+              "lookup-field": "reference_id",
+              "account-type-id": "acttp_ABC123",
+              "rows": [
+                {
+                  "reference_id": "a-123",
+                  "name_first": "Jane",
+                  "name_last": "Doe"
+                },
+                {
+                  "reference_id": "a-456",
+                  "name_first": "John",
+                  "name_last": "Smith"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "batch-job": {
+        "value": {
+          "data": {
+            "type": "batch-job",
+            "id": "mprtpr_ABC123DEF456",
+            "attributes": {
+              "status": "pending",
+              "run-count": 1,
+              "started-at": null,
+              "ended-at": null,
+              "created-at": "2024-01-15T09:59:45.000Z",
+              "updated-at": "2024-01-15T09:59:45.000Z",
+              "redacted-at": null,
+              "run-data": {
+                "column-names": [
+                  "reference_id",
+                  "name_first",
+                  "name_last"
+                ],
+                "error-count": 0,
+                "rows-read": 0,
+                "row-count": 2,
+                "success-count": 0,
+                "created-count": 0,
+                "updated-count": 0
+              }
+            }
+          }
+        }
+      },
+      "batch-job-errors": {
+        "value": {
+          "data": [
+            {
+              "type": "batch-job-row-error",
+              "id": "mprtpr_ABC123DEF456:2",
+              "attributes": {
+                "row": {
+                  "reference_id": "a-456",
+                  "name_first": "John"
+                },
+                "error-message": "No record found with unique id \u0022a-456\u0022",
+                "row-number": 2
+              }
+            }
+          ],
+          "meta": {
+            "error-count": 1,
+            "global-errors": []
+          },
+          "links": {
+            "prev": null,
+            "next": null
           }
         }
       },
@@ -105204,6 +106526,246 @@
           }
         }
       },
+      "batch-job-canceled-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_ABC123DEF456GHI789JKL012MNO345",
+            "attributes": {
+              "name": "batch-job.canceled",
+              "payload": {
+                "data": {
+                  "type": "batch-job",
+                  "id": "mprtpr_ABC123DEF456",
+                  "attributes": {
+                    "status": "canceled",
+                    "run-count": 1,
+                    "started-at": "2024-01-15T12:00:00.000Z",
+                    "ended-at": "2024-01-15T12:00:05.000Z",
+                    "created-at": "2024-01-15T11:59:45.000Z",
+                    "updated-at": "2024-01-15T12:00:05.000Z",
+                    "redacted-at": null,
+                    "run-data": {
+                      "column-names": [
+                        "reference_id",
+                        "name_first",
+                        "name_last"
+                      ],
+                      "error-count": 0,
+                      "rows-read": 1,
+                      "row-count": 2,
+                      "success-count": 1,
+                      "created-count": 1,
+                      "updated-count": 0
+                    }
+                  }
+                }
+              },
+              "created-at": "2024-01-15T12:00:05.732Z"
+            }
+          }
+        }
+      },
+      "batch-job-completed-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_ABC123DEF456GHI789JKL012MNO345",
+            "attributes": {
+              "name": "batch-job.completed",
+              "payload": {
+                "data": {
+                  "type": "batch-job",
+                  "id": "mprtpr_ABC123DEF456",
+                  "attributes": {
+                    "status": "completed",
+                    "run-count": 1,
+                    "started-at": "2024-01-15T10:00:00.000Z",
+                    "ended-at": "2024-01-15T10:00:15.000Z",
+                    "created-at": "2024-01-15T09:59:45.000Z",
+                    "updated-at": "2024-01-15T10:00:15.000Z",
+                    "redacted-at": null,
+                    "run-data": {
+                      "column-names": [
+                        "reference_id",
+                        "name_first",
+                        "name_last"
+                      ],
+                      "error-count": 0,
+                      "rows-read": 2,
+                      "row-count": 2,
+                      "success-count": 2,
+                      "created-count": 2,
+                      "updated-count": 0
+                    }
+                  }
+                }
+              },
+              "created-at": "2024-01-15T10:00:15.732Z"
+            }
+          }
+        }
+      },
+      "batch-job-errored-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_ABC123DEF456GHI789JKL012MNO345",
+            "attributes": {
+              "name": "batch-job.errored",
+              "payload": {
+                "data": {
+                  "type": "batch-job",
+                  "id": "mprtpr_ABC123DEF456",
+                  "attributes": {
+                    "status": "errored",
+                    "run-count": 2,
+                    "started-at": "2024-01-15T11:00:00.000Z",
+                    "ended-at": "2024-01-15T11:00:15.000Z",
+                    "created-at": "2024-01-15T10:59:45.000Z",
+                    "updated-at": "2024-01-15T11:00:15.000Z",
+                    "redacted-at": null,
+                    "run-data": {
+                      "column-names": [
+                        "reference_id",
+                        "name_first",
+                        "name_last"
+                      ],
+                      "error-count": 2,
+                      "rows-read": 2,
+                      "row-count": 2,
+                      "success-count": 0,
+                      "created-count": 0,
+                      "updated-count": 0
+                    }
+                  }
+                }
+              },
+              "created-at": "2024-01-15T11:00:15.732Z"
+            }
+          }
+        }
+      },
+      "batch-job-paused-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_ABC123DEF456GHI789JKL012MNO345",
+            "attributes": {
+              "name": "batch-job.paused",
+              "payload": {
+                "data": {
+                  "type": "batch-job",
+                  "id": "mprtpr_ABC123DEF456",
+                  "attributes": {
+                    "status": "paused",
+                    "run-count": 1,
+                    "started-at": "2024-01-15T13:00:00.000Z",
+                    "ended-at": null,
+                    "created-at": "2024-01-15T12:59:45.000Z",
+                    "updated-at": "2024-01-15T13:00:05.000Z",
+                    "redacted-at": null,
+                    "run-data": {
+                      "column-names": [
+                        "reference_id",
+                        "name_first",
+                        "name_last"
+                      ],
+                      "error-count": 0,
+                      "rows-read": 1,
+                      "row-count": 2,
+                      "success-count": 1,
+                      "created-count": 1,
+                      "updated-count": 0
+                    }
+                  }
+                }
+              },
+              "created-at": "2024-01-15T13:00:05.732Z"
+            }
+          }
+        }
+      },
+      "batch-job-resumed-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_ABC123DEF456GHI789JKL012MNO345",
+            "attributes": {
+              "name": "batch-job.resumed",
+              "payload": {
+                "data": {
+                  "type": "batch-job",
+                  "id": "mprtpr_ABC123DEF456",
+                  "attributes": {
+                    "status": "running",
+                    "run-count": 2,
+                    "started-at": "2024-01-15T13:00:00.000Z",
+                    "ended-at": null,
+                    "created-at": "2024-01-15T12:59:45.000Z",
+                    "updated-at": "2024-01-15T13:10:00.000Z",
+                    "redacted-at": null,
+                    "run-data": {
+                      "column-names": [
+                        "reference_id",
+                        "name_first",
+                        "name_last"
+                      ],
+                      "error-count": 0,
+                      "rows-read": 1,
+                      "row-count": 2,
+                      "success-count": 1,
+                      "created-count": 1,
+                      "updated-count": 0
+                    }
+                  }
+                }
+              },
+              "created-at": "2024-01-15T13:10:00.732Z"
+            }
+          }
+        }
+      },
+      "batch-job-started-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_ABC123DEF456GHI789JKL012MNO345",
+            "attributes": {
+              "name": "batch-job.started",
+              "payload": {
+                "data": {
+                  "type": "batch-job",
+                  "id": "mprtpr_ABC123DEF456",
+                  "attributes": {
+                    "status": "running",
+                    "run-count": 1,
+                    "started-at": "2024-01-15T10:00:00.000Z",
+                    "ended-at": null,
+                    "created-at": "2024-01-15T09:59:45.000Z",
+                    "updated-at": "2024-01-15T10:00:00.000Z",
+                    "redacted-at": null,
+                    "run-data": {
+                      "column-names": [
+                        "reference_id",
+                        "name_first",
+                        "name_last"
+                      ],
+                      "error-count": 0,
+                      "rows-read": 0,
+                      "row-count": 2,
+                      "success-count": 0,
+                      "created-count": 0,
+                      "updated-count": 0
+                    }
+                  }
+                }
+              },
+              "created-at": "2024-01-15T10:00:00.732Z"
+            }
+          }
+        }
+      },
       "report-address-lookup-ready-webhook-body": {
         "value": {
           "data": {
@@ -114175,6 +115737,294 @@
               "examples": {
                 "Example Body": {
                   "$ref": "#/components/examples/importer-pipeline-run-started-webhook-body"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 2xx status code to indicate that the data was received successfully. Any other status will trigger retries. For more info see [Retry Logic](https://docs.withpersona.com/webhooks#retry-logic).",
+            "$ref": "#/components/responses/success"
+          }
+        }
+      }
+    },
+    "batch-job.canceled": {
+      "post": {
+        "tags": [
+          "Batch job events"
+        ],
+        "summary": "Batch job canceled",
+        "description": "Webhook for the \u0060batch-job.canceled\u0060 event. For more info see [Webhooks Overview](https://docs.withpersona.com/webhooks).",
+        "operationId": "WebhookBatchJobCanceled",
+        "parameters": [
+          {
+            "description": "Header. An HMAC that you should use to check that requests are authentic. Compare this value with your own digest, computed from the request body and your webhook secret. For more info see [Webhook Best Practices](https://docs.withpersona.com/webhooks-best-practices).",
+            "$ref": "#/components/parameters/persona-signature-header"
+          },
+          {
+            "description": "The number of times that Persona has attempted to deliver this webhook. This value is incremented each time Persona attempts to deliver the webhook, regardless of whether the delivery was successful.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-made"
+          },
+          {
+            "description": "The number of times that Persona will attempt to deliver this webhook. This value is decremented each time Persona attempts to deliver the webhook.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-left"
+          },
+          {
+            "description": "The time at which Persona first attempted to deliver this webhook. This value is a Unix timestamp in seconds.",
+            "$ref": "#/components/parameters/persona-webhook-first-attempted-at"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookBatchJobCanceledRequest"
+              },
+              "examples": {
+                "Example Body": {
+                  "$ref": "#/components/examples/batch-job-canceled-webhook-body"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 2xx status code to indicate that the data was received successfully. Any other status will trigger retries. For more info see [Retry Logic](https://docs.withpersona.com/webhooks#retry-logic).",
+            "$ref": "#/components/responses/success"
+          }
+        }
+      }
+    },
+    "batch-job.completed": {
+      "post": {
+        "tags": [
+          "Batch job events"
+        ],
+        "summary": "Batch job completed",
+        "description": "Webhook for the \u0060batch-job.completed\u0060 event. For more info see [Webhooks Overview](https://docs.withpersona.com/webhooks).",
+        "operationId": "WebhookBatchJobCompleted",
+        "parameters": [
+          {
+            "description": "Header. An HMAC that you should use to check that requests are authentic. Compare this value with your own digest, computed from the request body and your webhook secret. For more info see [Webhook Best Practices](https://docs.withpersona.com/webhooks-best-practices).",
+            "$ref": "#/components/parameters/persona-signature-header"
+          },
+          {
+            "description": "The number of times that Persona has attempted to deliver this webhook. This value is incremented each time Persona attempts to deliver the webhook, regardless of whether the delivery was successful.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-made"
+          },
+          {
+            "description": "The number of times that Persona will attempt to deliver this webhook. This value is decremented each time Persona attempts to deliver the webhook.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-left"
+          },
+          {
+            "description": "The time at which Persona first attempted to deliver this webhook. This value is a Unix timestamp in seconds.",
+            "$ref": "#/components/parameters/persona-webhook-first-attempted-at"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookBatchJobCompletedRequest"
+              },
+              "examples": {
+                "Example Body": {
+                  "$ref": "#/components/examples/batch-job-completed-webhook-body"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 2xx status code to indicate that the data was received successfully. Any other status will trigger retries. For more info see [Retry Logic](https://docs.withpersona.com/webhooks#retry-logic).",
+            "$ref": "#/components/responses/success"
+          }
+        }
+      }
+    },
+    "batch-job.errored": {
+      "post": {
+        "tags": [
+          "Batch job events"
+        ],
+        "summary": "Batch job errored",
+        "description": "Webhook for the \u0060batch-job.errored\u0060 event. For more info see [Webhooks Overview](https://docs.withpersona.com/webhooks).",
+        "operationId": "WebhookBatchJobErrored",
+        "parameters": [
+          {
+            "description": "Header. An HMAC that you should use to check that requests are authentic. Compare this value with your own digest, computed from the request body and your webhook secret. For more info see [Webhook Best Practices](https://docs.withpersona.com/webhooks-best-practices).",
+            "$ref": "#/components/parameters/persona-signature-header"
+          },
+          {
+            "description": "The number of times that Persona has attempted to deliver this webhook. This value is incremented each time Persona attempts to deliver the webhook, regardless of whether the delivery was successful.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-made"
+          },
+          {
+            "description": "The number of times that Persona will attempt to deliver this webhook. This value is decremented each time Persona attempts to deliver the webhook.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-left"
+          },
+          {
+            "description": "The time at which Persona first attempted to deliver this webhook. This value is a Unix timestamp in seconds.",
+            "$ref": "#/components/parameters/persona-webhook-first-attempted-at"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookBatchJobErroredRequest"
+              },
+              "examples": {
+                "Example Body": {
+                  "$ref": "#/components/examples/batch-job-errored-webhook-body"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 2xx status code to indicate that the data was received successfully. Any other status will trigger retries. For more info see [Retry Logic](https://docs.withpersona.com/webhooks#retry-logic).",
+            "$ref": "#/components/responses/success"
+          }
+        }
+      }
+    },
+    "batch-job.paused": {
+      "post": {
+        "tags": [
+          "Batch job events"
+        ],
+        "summary": "Batch job paused",
+        "description": "Webhook for the \u0060batch-job.paused\u0060 event. For more info see [Webhooks Overview](https://docs.withpersona.com/webhooks).",
+        "operationId": "WebhookBatchJobPaused",
+        "parameters": [
+          {
+            "description": "Header. An HMAC that you should use to check that requests are authentic. Compare this value with your own digest, computed from the request body and your webhook secret. For more info see [Webhook Best Practices](https://docs.withpersona.com/webhooks-best-practices).",
+            "$ref": "#/components/parameters/persona-signature-header"
+          },
+          {
+            "description": "The number of times that Persona has attempted to deliver this webhook. This value is incremented each time Persona attempts to deliver the webhook, regardless of whether the delivery was successful.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-made"
+          },
+          {
+            "description": "The number of times that Persona will attempt to deliver this webhook. This value is decremented each time Persona attempts to deliver the webhook.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-left"
+          },
+          {
+            "description": "The time at which Persona first attempted to deliver this webhook. This value is a Unix timestamp in seconds.",
+            "$ref": "#/components/parameters/persona-webhook-first-attempted-at"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookBatchJobPausedRequest"
+              },
+              "examples": {
+                "Example Body": {
+                  "$ref": "#/components/examples/batch-job-paused-webhook-body"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 2xx status code to indicate that the data was received successfully. Any other status will trigger retries. For more info see [Retry Logic](https://docs.withpersona.com/webhooks#retry-logic).",
+            "$ref": "#/components/responses/success"
+          }
+        }
+      }
+    },
+    "batch-job.resumed": {
+      "post": {
+        "tags": [
+          "Batch job events"
+        ],
+        "summary": "Batch job resumed",
+        "description": "Webhook for the \u0060batch-job.resumed\u0060 event. For more info see [Webhooks Overview](https://docs.withpersona.com/webhooks).",
+        "operationId": "WebhookBatchJobResumed",
+        "parameters": [
+          {
+            "description": "Header. An HMAC that you should use to check that requests are authentic. Compare this value with your own digest, computed from the request body and your webhook secret. For more info see [Webhook Best Practices](https://docs.withpersona.com/webhooks-best-practices).",
+            "$ref": "#/components/parameters/persona-signature-header"
+          },
+          {
+            "description": "The number of times that Persona has attempted to deliver this webhook. This value is incremented each time Persona attempts to deliver the webhook, regardless of whether the delivery was successful.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-made"
+          },
+          {
+            "description": "The number of times that Persona will attempt to deliver this webhook. This value is decremented each time Persona attempts to deliver the webhook.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-left"
+          },
+          {
+            "description": "The time at which Persona first attempted to deliver this webhook. This value is a Unix timestamp in seconds.",
+            "$ref": "#/components/parameters/persona-webhook-first-attempted-at"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookBatchJobResumedRequest"
+              },
+              "examples": {
+                "Example Body": {
+                  "$ref": "#/components/examples/batch-job-resumed-webhook-body"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 2xx status code to indicate that the data was received successfully. Any other status will trigger retries. For more info see [Retry Logic](https://docs.withpersona.com/webhooks#retry-logic).",
+            "$ref": "#/components/responses/success"
+          }
+        }
+      }
+    },
+    "batch-job.started": {
+      "post": {
+        "tags": [
+          "Batch job events"
+        ],
+        "summary": "Batch job started",
+        "description": "Webhook for the \u0060batch-job.started\u0060 event. For more info see [Webhooks Overview](https://docs.withpersona.com/webhooks).",
+        "operationId": "WebhookBatchJobStarted",
+        "parameters": [
+          {
+            "description": "Header. An HMAC that you should use to check that requests are authentic. Compare this value with your own digest, computed from the request body and your webhook secret. For more info see [Webhook Best Practices](https://docs.withpersona.com/webhooks-best-practices).",
+            "$ref": "#/components/parameters/persona-signature-header"
+          },
+          {
+            "description": "The number of times that Persona has attempted to deliver this webhook. This value is incremented each time Persona attempts to deliver the webhook, regardless of whether the delivery was successful.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-made"
+          },
+          {
+            "description": "The number of times that Persona will attempt to deliver this webhook. This value is decremented each time Persona attempts to deliver the webhook.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-left"
+          },
+          {
+            "description": "The time at which Persona first attempted to deliver this webhook. This value is a Unix timestamp in seconds.",
+            "$ref": "#/components/parameters/persona-webhook-first-attempted-at"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookBatchJobStartedRequest"
+              },
+              "examples": {
+                "Example Body": {
+                  "$ref": "#/components/examples/batch-job-started-webhook-body"
                 }
               }
             }

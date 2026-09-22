@@ -72,6 +72,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>The expiredAt property</summary>
         public DateTimeOffset? ExpiredAt { get; set; }
+        /// <summary>ISO 3166-1 alpha-2 country code stored from the session&apos;s GPS coordinates. Null when it has not been stored, including for sessions created before this value existed; null does not mean a GPS country cannot be derived.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GpsCountryCode { get; set; }
+#nullable restore
+#else
+        public string GpsCountryCode { get; set; }
+#endif
         /// <summary>The gpsLatitude property</summary>
         public double? GpsLatitude { get; set; }
         /// <summary>The gpsLongitude property</summary>
@@ -229,6 +237,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "device-name", n => { DeviceName = n.GetStringValue(); } },
                 { "device-type", n => { DeviceType = n.GetStringValue(); } },
                 { "expired-at", n => { ExpiredAt = n.GetDateTimeOffsetValue(); } },
+                { "gps-country-code", n => { GpsCountryCode = n.GetStringValue(); } },
                 { "gps-latitude", n => { GpsLatitude = n.GetDoubleValue(); } },
                 { "gps-longitude", n => { GpsLongitude = n.GetDoubleValue(); } },
                 { "gps-precision", n => { GpsPrecision = n.GetStringValue(); } },
@@ -270,6 +279,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("device-name", DeviceName);
             writer.WriteStringValue("device-type", DeviceType);
             writer.WriteDateTimeOffsetValue("expired-at", ExpiredAt);
+            writer.WriteStringValue("gps-country-code", GpsCountryCode);
             writer.WriteDoubleValue("gps-latitude", GpsLatitude);
             writer.WriteDoubleValue("gps-longitude", GpsLongitude);
             writer.WriteStringValue("gps-precision", GpsPrecision);

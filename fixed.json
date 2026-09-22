@@ -11067,7 +11067,11 @@
                             "region-code": "CA",
                             "region-name": "California",
                             "latitude": 37.7688,
-                            "longitude": -122.262
+                            "longitude": -122.262,
+                            "gps-latitude": null,
+                            "gps-longitude": null,
+                            "gps-precision": null,
+                            "gps-country-code": null
                           },
                           "relationships": {
                             "inquiry": {
@@ -11326,7 +11330,11 @@
                             "region-code": "CA",
                             "region-name": "California",
                             "latitude": 37.7688,
-                            "longitude": -122.262
+                            "longitude": -122.262,
+                            "gps-latitude": null,
+                            "gps-longitude": null,
+                            "gps-precision": null,
+                            "gps-country-code": null
                           },
                           "relationships": {
                             "inquiry": {
@@ -11690,7 +11698,11 @@
                           "region-code": "CA",
                           "region-name": "California",
                           "latitude": 37.7688,
-                          "longitude": -122.262
+                          "longitude": -122.262,
+                          "gps-latitude": null,
+                          "gps-longitude": null,
+                          "gps-precision": null,
+                          "gps-country-code": null
                         },
                         "relationships": {
                           "inquiry": {
@@ -54659,6 +54671,16 @@
               "string"
             ]
           },
+          "gps-country-code": {
+            "examples": [
+              "US"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "ISO 3166-1 alpha-2 country code stored from the session\u0027s GPS coordinates. Null when it has not been stored, including for sessions created before this value existed; null does not mean a GPS country cannot be derived."
+          },
           "ip-connection-type": {
             "examples": [
               "mobile",
@@ -93291,7 +93313,11 @@
                 "region-code": "CA",
                 "region-name": "California",
                 "latitude": 37.7688,
-                "longitude": -122.262
+                "longitude": -122.262,
+                "gps-latitude": null,
+                "gps-longitude": null,
+                "gps-precision": null,
+                "gps-country-code": null
               },
               "relationships": {
                 "inquiry": {
@@ -93887,7 +93913,11 @@
               "region-code": "CA",
               "region-name": "California",
               "latitude": 37.7688,
-              "longitude": -122.262
+              "longitude": -122.262,
+              "gps-latitude": null,
+              "gps-longitude": null,
+              "gps-precision": null,
+              "gps-country-code": null
             },
             "relationships": {
               "inquiry": {
@@ -103649,7 +103679,11 @@
                       "region-code": "CA",
                       "region-name": "California",
                       "latitude": 37.7749,
-                      "longitude": -122.4194
+                      "longitude": -122.4194,
+                      "gps-latitude": null,
+                      "gps-longitude": null,
+                      "gps-precision": null,
+                      "gps-country-code": null
                     },
                     "relationships": {
                       "inquiry": {
@@ -103990,7 +104024,11 @@
                       "region-code": "CA",
                       "region-name": "California",
                       "latitude": 37.7749,
-                      "longitude": -122.4194
+                      "longitude": -122.4194,
+                      "gps-latitude": null,
+                      "gps-longitude": null,
+                      "gps-precision": null,
+                      "gps-country-code": null
                     },
                     "relationships": {
                       "inquiry": {
@@ -104211,7 +104249,11 @@
                       "region-code": "CA",
                       "region-name": "California",
                       "latitude": 37.7749,
-                      "longitude": -122.4194
+                      "longitude": -122.4194,
+                      "gps-latitude": null,
+                      "gps-longitude": null,
+                      "gps-precision": null,
+                      "gps-country-code": null
                     },
                     "relationships": {
                       "inquiry": {
@@ -104432,7 +104474,11 @@
                       "region-code": "CA",
                       "region-name": "California",
                       "latitude": 37.7749,
-                      "longitude": -122.4194
+                      "longitude": -122.4194,
+                      "gps-latitude": null,
+                      "gps-longitude": null,
+                      "gps-precision": null,
+                      "gps-country-code": null
                     },
                     "relationships": {
                       "inquiry": {
@@ -104656,7 +104702,11 @@
                       "region-code": "CA",
                       "region-name": "California",
                       "latitude": 37.7749,
-                      "longitude": -122.4194
+                      "longitude": -122.4194,
+                      "gps-latitude": null,
+                      "gps-longitude": null,
+                      "gps-precision": null,
+                      "gps-country-code": null
                     },
                     "relationships": {
                       "inquiry": {
@@ -104880,7 +104930,11 @@
                       "region-code": "CA",
                       "region-name": "California",
                       "latitude": 37.7749,
-                      "longitude": -122.4194
+                      "longitude": -122.4194,
+                      "gps-latitude": null,
+                      "gps-longitude": null,
+                      "gps-precision": null,
+                      "gps-country-code": null
                     },
                     "relationships": {
                       "inquiry": {
@@ -105098,7 +105152,11 @@
                       "region-code": "CA",
                       "region-name": "California",
                       "latitude": 37.7749,
-                      "longitude": -122.4194
+                      "longitude": -122.4194,
+                      "gps-latitude": null,
+                      "gps-longitude": null,
+                      "gps-precision": null,
+                      "gps-country-code": null
                     },
                     "relationships": {
                       "inquiry": {
@@ -105493,7 +105551,11 @@
                       "region-code": "CA",
                       "region-name": "California",
                       "latitude": 37.7749,
-                      "longitude": -122.4194
+                      "longitude": -122.4194,
+                      "gps-latitude": null,
+                      "gps-longitude": null,
+                      "gps-precision": null,
+                      "gps-country-code": null
                     },
                     "relationships": {
                       "inquiry": {
@@ -105712,7 +105774,11 @@
                       "region-code": "CA",
                       "region-name": "California",
                       "latitude": 37.7749,
-                      "longitude": -122.4194
+                      "longitude": -122.4194,
+                      "gps-latitude": null,
+                      "gps-longitude": null,
+                      "gps-precision": null,
+                      "gps-country-code": null
                     },
                     "relationships": {
                       "inquiry": {
@@ -105939,7 +106005,11 @@
                       "region-code": "CA",
                       "region-name": "California",
                       "latitude": 37.7749,
-                      "longitude": -122.4194
+                      "longitude": -122.4194,
+                      "gps-latitude": null,
+                      "gps-longitude": null,
+                      "gps-precision": null,
+                      "gps-country-code": null
                     },
                     "relationships": {
                       "inquiry": {
@@ -106006,6 +106076,7 @@
                     "gps-latitude": null,
                     "gps-longitude": null,
                     "gps-precision": null,
+                    "gps-country-code": null,
                     "ip-connection-type": "residential",
                     "ip-isp": "Comcast Cable Communications",
                     "network-organization": "Comcast Cable Communications"
@@ -106156,6 +106227,7 @@
                     "gps-latitude": null,
                     "gps-longitude": null,
                     "gps-precision": null,
+                    "gps-country-code": null,
                     "ip-connection-type": "residential",
                     "ip-isp": "Comcast Cable Communications",
                     "network-organization": "Comcast Cable Communications"
@@ -106306,6 +106378,7 @@
                     "gps-latitude": null,
                     "gps-longitude": null,
                     "gps-precision": null,
+                    "gps-country-code": null,
                     "ip-connection-type": "residential",
                     "ip-isp": "Comcast Cable Communications",
                     "network-organization": "Comcast Cable Communications"

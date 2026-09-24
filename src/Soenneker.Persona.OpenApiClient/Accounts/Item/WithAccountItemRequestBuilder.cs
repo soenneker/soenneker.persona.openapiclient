@@ -3,10 +3,12 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Persona.OpenApiClient.Accounts.Item.AddObjects;
 using Soenneker.Persona.OpenApiClient.Accounts.Item.AddRelation;
 using Soenneker.Persona.OpenApiClient.Accounts.Item.AddTag;
 using Soenneker.Persona.OpenApiClient.Accounts.Item.Consolidate;
 using Soenneker.Persona.OpenApiClient.Accounts.Item.Relations;
+using Soenneker.Persona.OpenApiClient.Accounts.Item.RemoveObjects;
 using Soenneker.Persona.OpenApiClient.Accounts.Item.RemoveRelation;
 using Soenneker.Persona.OpenApiClient.Accounts.Item.RemoveTag;
 using Soenneker.Persona.OpenApiClient.Accounts.Item.RunAction;
@@ -25,6 +27,11 @@ namespace Soenneker.Persona.OpenApiClient.Accounts.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithAccountItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The addObjects property</summary>
+        public global::Soenneker.Persona.OpenApiClient.Accounts.Item.AddObjects.AddObjectsRequestBuilder AddObjects
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.Accounts.Item.AddObjects.AddObjectsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The addRelation property</summary>
         public global::Soenneker.Persona.OpenApiClient.Accounts.Item.AddRelation.AddRelationRequestBuilder AddRelation
         {
@@ -44,6 +51,11 @@ namespace Soenneker.Persona.OpenApiClient.Accounts.Item
         public global::Soenneker.Persona.OpenApiClient.Accounts.Item.Relations.RelationsRequestBuilder Relations
         {
             get => new global::Soenneker.Persona.OpenApiClient.Accounts.Item.Relations.RelationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The removeObjects property</summary>
+        public global::Soenneker.Persona.OpenApiClient.Accounts.Item.RemoveObjects.RemoveObjectsRequestBuilder RemoveObjects
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.Accounts.Item.RemoveObjects.RemoveObjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The removeRelation property</summary>
         public global::Soenneker.Persona.OpenApiClient.Accounts.Item.RemoveRelation.RemoveRelationRequestBuilder RemoveRelation

@@ -696,6 +696,130 @@
         "x-persona-product": "Accounts"
       }
     },
+    "/accounts/{accountId}/add-objects": {
+      "post": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Add Persona objects to an Account",
+        "description": "Adds Persona objects (such as inquiries, documents, or reports) to an Account. To link an Account to another Account or a Transaction, use add-relation instead.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/accounts/add-persona-objects"
+        },
+        "operationId": "AccountsAddObjects",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "description": "A comma-separated list of relationship paths. This can be used to customize which related resources will be fully serialized in the \u0060included\u0060 key in the response. See [Serialization](https://docs.withpersona.com/serialization#inclusion-of-related-resources) for more details.",
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "ID of the account to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountsAddObjectsRequest"
+              },
+              "examples": {
+                "Success": {
+                  "$ref": "#/components/examples/add-objects"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "This endpoint returns an Account object and (optionally) its related objects in \u0060included\u0060.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountsAddObjects200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/account"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        },
+        "x-persona-product": "Accounts"
+      }
+    },
     "/accounts/{accountId}/add-relation": {
       "post": {
         "tags": [
@@ -1166,6 +1290,130 @@
                 "examples": {
                   "Success": {
                     "$ref": "#/components/examples/account-list"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        },
+        "x-persona-product": "Accounts"
+      }
+    },
+    "/accounts/{accountId}/remove-objects": {
+      "post": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Remove Persona objects from an Account",
+        "description": "Removes Persona objects (such as inquiries, documents, or reports) from an Account. This operation is idempotent \u2014 removing an object that is not attached succeeds without modifying the account. To unlink an Account from another Account or a Transaction, use remove-relation instead.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/accounts/remove-persona-objects"
+        },
+        "operationId": "AccountsRemoveObjects",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "description": "A comma-separated list of relationship paths. This can be used to customize which related resources will be fully serialized in the \u0060included\u0060 key in the response. See [Serialization](https://docs.withpersona.com/serialization#inclusion-of-related-resources) for more details.",
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "ID of the account to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountsRemoveObjectsRequest"
+              },
+              "examples": {
+                "Success": {
+                  "$ref": "#/components/examples/remove-objects"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "This endpoint returns an Account object and (optionally) its related objects in \u0060included\u0060.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountsRemoveObjects200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/account"
                   }
                 }
               }
@@ -21483,6 +21731,130 @@
         "x-persona-product": "Transactions"
       }
     },
+    "/transactions/{transactionId}/add-objects": {
+      "post": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Add Persona objects to a Transaction",
+        "description": "Adds Persona objects (such as inquiries or verifications) to a Transaction. To link a Transaction to an Account or another Transaction, use add-relation instead.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/transactions/add-persona-objects"
+        },
+        "operationId": "TransactionsAddObjects",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "description": "A comma-separated list of relationship paths. This can be used to customize which related resources will be fully serialized in the \u0060included\u0060 key in the response. See [Serialization](https://docs.withpersona.com/serialization#inclusion-of-related-resources) for more details.",
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "transactionId",
+            "in": "path",
+            "description": "ID of the transaction to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransactionsAddObjectsRequest"
+              },
+              "examples": {
+                "Success": {
+                  "$ref": "#/components/examples/add-objects-2"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Transaction object and (optionally) its related objects in \u0060included\u0060.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionsAddObjects200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/transaction"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        },
+        "x-persona-product": "Transactions"
+      }
+    },
     "/transactions/{transactionId}/add-relation": {
       "post": {
         "tags": [
@@ -21822,6 +22194,130 @@
                 "examples": {
                   "Success": {
                     "$ref": "#/components/examples/transaction-with-label"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        },
+        "x-persona-product": "Transactions"
+      }
+    },
+    "/transactions/{transactionId}/remove-objects": {
+      "post": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Remove Persona objects from a Transaction",
+        "description": "Removes Persona objects (such as inquiries or verifications) from a Transaction. This operation is idempotent \u2014 removing an object that is not attached succeeds without modifying the transaction. To unlink a Transaction from an Account or another Transaction, use remove-relation instead.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/transactions/remove-persona-objects"
+        },
+        "operationId": "TransactionsRemoveObjects",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "description": "A comma-separated list of relationship paths. This can be used to customize which related resources will be fully serialized in the \u0060included\u0060 key in the response. See [Serialization](https://docs.withpersona.com/serialization#inclusion-of-related-resources) for more details.",
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "transactionId",
+            "in": "path",
+            "description": "ID of the transaction to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TransactionsRemoveObjectsRequest"
+              },
+              "examples": {
+                "Success": {
+                  "$ref": "#/components/examples/remove-objects-2"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Transaction object and (optionally) its related objects in \u0060included\u0060.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionsRemoveObjects200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/transaction"
                   }
                 }
               }
@@ -32584,6 +33080,13 @@
         },
         "additionalProperties": false
       },
+      "TransactionsIncludedObjects": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/TransactionsIncludedObjectsItem"
+        },
+        "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), its Sentinel Session, and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
+      },
       "TransactionType": {
         "type": "object",
         "properties": {
@@ -33194,13 +33697,6 @@
           "$ref": "#/components/schemas/SelfieIncludedObjectsItem"
         },
         "description": "Objects referenced in \u0060payload.data.relationships\u0060 may be provided in \u0060included\u0060 when related-object inclusion is enabled for the webhook subscription. When inclusion is not enabled, the \u0060included\u0060 key is omitted."
-      },
-      "TransactionsIncludedObjects": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/TransactionsIncludedObjectsItem"
-        },
-        "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), its Sentinel Session, and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
       },
       "ImportAnAccountFormDataRequest": {
         "required": [
@@ -43244,6 +43740,15 @@
             "description": "Date until which the person may work in the UK.",
             "format": "date",
             "example": "2025-02-15"
+          },
+          "right-to-work-digital-verification-service-provider-registration-confirmation": {
+            "$ref": "#/components/schemas/YesRightToWorkDigitalVerificationServiceProviderRegistrationConfirmation"
+          },
+          "right-to-work-supplementary-code-compliance-confirmation": {
+            "$ref": "#/components/schemas/YesRightToWorkSupplementaryCodeComplianceConfirmation"
+          },
+          "right-to-work-digital-verification-services-register-url": {
+            "$ref": "#/components/schemas/HttpsColonSlashSlashWwwAccessDvsRegisterServiceGovUkRegisterServiceDetailsQuestionMarkServiceIdEqual261RightToWorkDigitalVerificationServicesRegisterUrl"
           }
         }
       },
@@ -51150,6 +51655,15 @@
             "description": "Date until which the person may work in the UK.",
             "format": "date",
             "example": "2025-02-15"
+          },
+          "right-to-work-digital-verification-service-provider-registration-confirmation": {
+            "$ref": "#/components/schemas/YesRightToWorkDigitalVerificationServiceProviderRegistrationConfirmation"
+          },
+          "right-to-work-supplementary-code-compliance-confirmation": {
+            "$ref": "#/components/schemas/YesRightToWorkSupplementaryCodeComplianceConfirmation"
+          },
+          "right-to-work-digital-verification-services-register-url": {
+            "$ref": "#/components/schemas/HttpsColonSlashSlashWwwAccessDvsRegisterServiceGovUkRegisterServiceDetailsQuestionMarkServiceIdEqual261RightToWorkDigitalVerificationServicesRegisterUrl"
           }
         }
       },
@@ -65314,6 +65828,36 @@
         },
         "additionalProperties": false
       },
+      "AccountsAddObjectsRequest": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/AccountsAddObjectsRequestMeta"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountsAddObjects200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Account"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccountsIncludedObjectsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "AccountsAddRelationRequest": {
         "required": [
           "meta"
@@ -65420,6 +65964,36 @@
           },
           "links": {
             "$ref": "#/components/schemas/AccountsListAllRelations200ResponseLinks"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountsRemoveObjectsRequest": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/AccountsRemoveObjectsRequestMeta"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountsRemoveObjects200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Account"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccountsIncludedObjectsItem"
+            }
           }
         },
         "additionalProperties": false
@@ -67927,6 +68501,37 @@
         },
         "additionalProperties": false
       },
+      "TransactionsAddObjectsRequest": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/TransactionsAddObjectsRequestMeta"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransactionsAddObjects200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Transaction"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransactionsIncludedObjectsItem"
+            },
+            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), its Sentinel Session, and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
+          }
+        },
+        "additionalProperties": false
+      },
       "TransactionsAddRelationRequest": {
         "required": [
           "meta"
@@ -67971,6 +68576,37 @@
             "items": {
               "$ref": "#/components/schemas/TransactionLabel"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransactionsRemoveObjectsRequest": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/TransactionsRemoveObjectsRequestMeta"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransactionsRemoveObjects200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Transaction"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransactionsIncludedObjectsItem"
+            },
+            "description": "Full representations of the objects referenced in \u0060data.attributes.relationships\u0060 \u2014 the Transaction\u0027s Transaction Type, its reviewer (a Workflow Run, Workflow Step, or User), its Sentinel Session, and any related objects such as Accounts, Inquiries, Verifications, Reports, or Cases. The set of types that appear depends on what the Transaction is related to."
           }
         },
         "additionalProperties": false
@@ -71598,6 +72234,23 @@
         },
         "additionalProperties": false
       },
+      "AccountsAddObjectsRequestMeta": {
+        "required": [
+          "object-ids"
+        ],
+        "type": "object",
+        "properties": {
+          "object-ids": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of Persona object IDs to attach to this account. The following object types are supported- authentications, documents, graph queries, inquiries, reports, report runs, sars, selfies, and verifications."
+          }
+        },
+        "additionalProperties": false
+      },
       "AccountsAddRelationRequestMeta": {
         "required": [
           "relation-schema-key",
@@ -71672,6 +72325,23 @@
               "string"
             ],
             "description": "URL pointing to the next page of data, or null if on the last page."
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccountsRemoveObjectsRequestMeta": {
+        "required": [
+          "object-ids"
+        ],
+        "type": "object",
+        "properties": {
+          "object-ids": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of Persona object IDs to detach from this account. The following object types are supported- documents, graph queries, inquiries, reports, report runs, sars, selfies, and verifications."
           }
         },
         "additionalProperties": false
@@ -73584,6 +74254,23 @@
         },
         "additionalProperties": false
       },
+      "TransactionsAddObjectsRequestMeta": {
+        "required": [
+          "object-ids"
+        ],
+        "type": "object",
+        "properties": {
+          "object-ids": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of Persona object IDs to attach to this transaction. The following object types are supported- documents, inquiries, reports, and verifications."
+          }
+        },
+        "additionalProperties": false
+      },
       "TransactionsAddRelationRequestMeta": {
         "required": [
           "relation-schema-key",
@@ -73628,6 +74315,23 @@
           },
           "model-version": {
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TransactionsRemoveObjectsRequestMeta": {
+        "required": [
+          "object-ids"
+        ],
+        "type": "object",
+        "properties": {
+          "object-ids": {
+            "maxItems": 100,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Array of Persona object IDs to detach from this transaction. The following object types are supported- documents, inquiries, reports, and verifications."
           }
         },
         "additionalProperties": false
@@ -86456,6 +87160,41 @@
           ]
         }
       },
+      "YesRightToWorkDigitalVerificationServiceProviderRegistrationConfirmation": {
+        "const": null,
+        "enum": [
+          "Yes"
+        ],
+        "type": "string",
+        "description": "Persona\u0027s confirmation that it is registered as a Right to Work Digital Verification Service Provider."
+      },
+      "YesRightToWorkSupplementaryCodeComplianceConfirmation": {
+        "const": null,
+        "enum": [
+          "Yes"
+        ],
+        "type": "string",
+        "description": "Persona\u0027s confirmation that the check follows the UK Supplementary Code for Digital Right to Work Checks."
+      },
+      "HttpsColonSlashSlashWwwAccessDvsRegisterServiceGovUkRegisterServiceDetailsQuestionMarkServiceIdEqual261RightToWorkDigitalVerificationServicesRegisterUrl": {
+        "const": null,
+        "enum": [
+          "https://www.access-dvs-register.service.gov.uk/register/service-details?serviceId=261"
+        ],
+        "type": "string",
+        "description": "Link to Persona\u0027s entry in the UK Digital Verification Services Register.",
+        "format": "uri",
+        "x-ms-enum": {
+          "name": "ValueFDC6453E6B5EFD57",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "https://www.access-dvs-register.service.gov.uk/register/service-details?serviceId=261",
+              "name": "HttpsColonSlashSlashWwwAccessDvsRegisterServiceGovUkRegisterServiceDetailsQuestionMarkServiceIdEqual261"
+            }
+          ]
+        }
+      },
       "IncludeAllState": {
         "const": null,
         "enum": [
@@ -91386,6 +92125,16 @@
           }
         }
       },
+      "add-objects": {
+        "value": {
+          "meta": {
+            "object-ids": [
+              "inq_eGK41TM6GjcZgdcoox7x8Hh0",
+              "rep_PN3xspEwWCWWRp1eGpedaSNj"
+            ]
+          }
+        }
+      },
       "set-relation": {
         "value": {
           "meta": {
@@ -91407,6 +92156,16 @@
             "source-account-ids": [
               "act_1fVnCte2V9joRjYQ82QX8mPzKYzD",
               "act_zWHTCWmYbjFL4fCQSDF6NqztWXDT"
+            ]
+          }
+        }
+      },
+      "remove-objects": {
+        "value": {
+          "meta": {
+            "object-ids": [
+              "inq_eGK41TM6GjcZgdcoox7x8Hh0",
+              "rep_PN3xspEwWCWWRp1eGpedaSNj"
             ]
           }
         }
@@ -92483,26 +93242,6 @@
             "attributes": {
               "case-template-id": "ctmpl_Jumm3K4zHwaLBBdyLUCnHbBC"
             }
-          }
-        }
-      },
-      "add-objects": {
-        "value": {
-          "meta": {
-            "object-ids": [
-              "inq_eGK41TM6GjcZgdcoox7x8Hh0",
-              "rep_PN3xspEwWCWWRp1eGpedaSNj"
-            ]
-          }
-        }
-      },
-      "remove-objects": {
-        "value": {
-          "meta": {
-            "object-ids": [
-              "inq_eGK41TM6GjcZgdcoox7x8Hh0",
-              "rep_PN3xspEwWCWWRp1eGpedaSNj"
-            ]
           }
         }
       },
@@ -95612,6 +96351,26 @@
               }
             }
           ]
+        }
+      },
+      "add-objects-2": {
+        "value": {
+          "meta": {
+            "object-ids": [
+              "inq_eGK41TM6GjcZgdcoox7x8Hh0",
+              "ver_ixBrVPK2jKwg4qGmbWZvwMmw"
+            ]
+          }
+        }
+      },
+      "remove-objects-2": {
+        "value": {
+          "meta": {
+            "object-ids": [
+              "inq_eGK41TM6GjcZgdcoox7x8Hh0",
+              "ver_ixBrVPK2jKwg4qGmbWZvwMmw"
+            ]
+          }
         }
       },
       "transaction-type": {

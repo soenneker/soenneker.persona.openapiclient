@@ -30987,6 +30987,28 @@
         "additionalProperties": false,
         "description": "A Digital ID MitID Verification"
       },
+      "VerificationDigitalIdNorthernIrelandDriversLicenseCheckCode": {
+        "title": "Digital ID Northern Ireland Drivers License Check Code Verification",
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/VerificationDigitalIdNorthernIrelandDriversLicenseCheckCodeType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The token of the verification",
+            "example": "ver_ABC123"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/VerificationDigitalIdNorthernIrelandDriversLicenseCheckCodeAttributes"
+          },
+          "relationships": {
+            "$ref": "#/components/schemas/VerificationSharedRelationships"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Digital ID Northern Ireland Drivers License Check Code Verification"
+      },
       "VerificationDigitalIdOneId": {
         "title": "Digital ID One ID Verification",
         "type": "object",
@@ -33212,6 +33234,9 @@
             "$ref": "#/components/schemas/VerificationDigitalIdMitId"
           },
           {
+            "$ref": "#/components/schemas/VerificationDigitalIdNorthernIrelandDriversLicenseCheckCode"
+          },
+          {
             "$ref": "#/components/schemas/VerificationDigitalIdOneId"
           },
           {
@@ -33308,6 +33333,7 @@
             "verification/digital-id-its-me": "#/components/schemas/VerificationDigitalIdItsMe",
             "verification/digital-id-kcb-credit-card": "#/components/schemas/VerificationDigitalIdKcbCreditCard",
             "verification/digital-id-mit-id": "#/components/schemas/VerificationDigitalIdMitId",
+            "verification/digital-id-northern-ireland-drivers-license-check-code": "#/components/schemas/VerificationDigitalIdNorthernIrelandDriversLicenseCheckCode",
             "verification/digital-id-one-id": "#/components/schemas/VerificationDigitalIdOneId",
             "verification/digital-id-philsys": "#/components/schemas/VerificationDigitalIdPhilsys",
             "verification/digital-id-serpro": "#/components/schemas/VerificationDigitalIdSerpro",
@@ -33353,6 +33379,7 @@
             "VerificationDigitalIdItsMe": "#/components/schemas/VerificationDigitalIdItsMe",
             "VerificationDigitalIdKcbCreditCard": "#/components/schemas/VerificationDigitalIdKcbCreditCard",
             "VerificationDigitalIdMitId": "#/components/schemas/VerificationDigitalIdMitId",
+            "VerificationDigitalIdNorthernIrelandDriversLicenseCheckCode": "#/components/schemas/VerificationDigitalIdNorthernIrelandDriversLicenseCheckCode",
             "VerificationDigitalIdOneId": "#/components/schemas/VerificationDigitalIdOneId",
             "VerificationDigitalIdPhilsys": "#/components/schemas/VerificationDigitalIdPhilsys",
             "VerificationDigitalIdSerpro": "#/components/schemas/VerificationDigitalIdSerpro",
@@ -42779,6 +42806,142 @@
           }
         }
       },
+      "VerificationDigitalIdNorthernIrelandDriversLicenseCheckCodeAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the verification\n\nPossible values:\n- initiated\n- submitted\n- tentatively_passed (only for \u0060verification/document\u0060 and \u0060verification/qes-infocert\u0060)\n- tentatively_failed (only for \u0060verification/database-business\u0060 and \u0060verification/database-business-footprint\u0060)\n- passed\n- failed\n- requires_retry\n- skipped\n- canceled\n- confirmed (only for \u0060verification/email-address\u0060 and \u0060verification/phone-number\u0060)\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update."
+          },
+          "created-at": {
+            "type": "string",
+            "description": "The time the verification was created in ISO 8601 format",
+            "format": "date-time",
+            "example": "2023-11-16T01:31:16.000Z"
+          },
+          "created-at-ts": {
+            "type": "integer",
+            "description": "The time the verification was created in Unix timestamp format",
+            "format": "int32",
+            "example": 1700098276
+          },
+          "submitted-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The time the verification was submitted in ISO 8601 format",
+            "format": "date-time",
+            "example": "2023-11-16T01:31:16.000Z"
+          },
+          "submitted-at-ts": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The time the verification was submitted in Unix timestamp format",
+            "example": 1700098276
+          },
+          "completed-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The time the verification was completed in ISO 8601 format",
+            "format": "date-time",
+            "example": "2023-11-16T01:31:16.000Z"
+          },
+          "completed-at-ts": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "The time the verification was completed in Unix timestamp format",
+            "example": 1700098276
+          },
+          "redacted-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The time the verification was redacted in ISO 8601 format",
+            "format": "date-time",
+            "example": "2023-11-16T01:31:16.000Z"
+          },
+          "country-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "ISO 3166-1 alpha 2 country code.",
+            "example": "US"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Tags on the verification"
+          },
+          "checks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VerificationSharedAttributesChecksItem"
+            }
+          },
+          "check-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The single-use check code generated by the driver on nidirect.gov.uk."
+          },
+          "license-number": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The Northern Ireland driving licence number submitted for the check."
+          },
+          "name-full-input": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Full name provided by the end user for comparison."
+          },
+          "name-full": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Full name returned by the DVA licence check."
+          },
+          "license-status": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Driving status returned by the DVA licence check."
+          },
+          "license-expiry-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Date until which the driving licence is valid.",
+            "format": "date"
+          },
+          "driving-license-details": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Additional licence details returned by the DVA licence check."
+          }
+        }
+      },
       "VerificationDigitalIdOneIdAttributes": {
         "unevaluatedProperties": false,
         "type": "object",
@@ -44878,6 +45041,9 @@
             "$ref": "#/components/schemas/VerificationDigitalIdMitId"
           },
           {
+            "$ref": "#/components/schemas/VerificationDigitalIdNorthernIrelandDriversLicenseCheckCode"
+          },
+          {
             "$ref": "#/components/schemas/VerificationDigitalIdOneId"
           },
           {
@@ -45015,6 +45181,7 @@
             "verification/digital-id-its-me": "#/components/schemas/VerificationDigitalIdItsMe",
             "verification/digital-id-kcb-credit-card": "#/components/schemas/VerificationDigitalIdKcbCreditCard",
             "verification/digital-id-mit-id": "#/components/schemas/VerificationDigitalIdMitId",
+            "verification/digital-id-northern-ireland-drivers-license-check-code": "#/components/schemas/VerificationDigitalIdNorthernIrelandDriversLicenseCheckCode",
             "verification/digital-id-one-id": "#/components/schemas/VerificationDigitalIdOneId",
             "verification/digital-id-philsys": "#/components/schemas/VerificationDigitalIdPhilsys",
             "verification/digital-id-serpro": "#/components/schemas/VerificationDigitalIdSerpro",
@@ -45091,6 +45258,7 @@
             "VerificationDigitalIdItsMe": "#/components/schemas/VerificationDigitalIdItsMe",
             "VerificationDigitalIdKcbCreditCard": "#/components/schemas/VerificationDigitalIdKcbCreditCard",
             "VerificationDigitalIdMitId": "#/components/schemas/VerificationDigitalIdMitId",
+            "VerificationDigitalIdNorthernIrelandDriversLicenseCheckCode": "#/components/schemas/VerificationDigitalIdNorthernIrelandDriversLicenseCheckCode",
             "VerificationDigitalIdOneId": "#/components/schemas/VerificationDigitalIdOneId",
             "VerificationDigitalIdPhilsys": "#/components/schemas/VerificationDigitalIdPhilsys",
             "VerificationDigitalIdSerpro": "#/components/schemas/VerificationDigitalIdSerpro",
@@ -47356,6 +47524,7 @@
             "verification-template/digital-id-its-me": "#/components/schemas/VerificationTemplate",
             "verification-template/digital-id-kcb-credit-card": "#/components/schemas/VerificationTemplate",
             "verification-template/digital-id-mit-id": "#/components/schemas/VerificationTemplate",
+            "verification-template/digital-id-northern-ireland-drivers-license-check-code": "#/components/schemas/VerificationTemplate",
             "verification-template/digital-id-one-id": "#/components/schemas/VerificationTemplate",
             "verification-template/digital-id-philsys": "#/components/schemas/VerificationTemplate",
             "verification-template/digital-id-serpro": "#/components/schemas/VerificationTemplate",
@@ -47401,6 +47570,7 @@
             "verification-template-version/digital-id-its-me": "#/components/schemas/VerificationTemplateVersion",
             "verification-template-version/digital-id-kcb-credit-card": "#/components/schemas/VerificationTemplateVersion",
             "verification-template-version/digital-id-mit-id": "#/components/schemas/VerificationTemplateVersion",
+            "verification-template-version/digital-id-northern-ireland-drivers-license-check-code": "#/components/schemas/VerificationTemplateVersion",
             "verification-template-version/digital-id-one-id": "#/components/schemas/VerificationTemplateVersion",
             "verification-template-version/digital-id-philsys": "#/components/schemas/VerificationTemplateVersion",
             "verification-template-version/digital-id-serpro": "#/components/schemas/VerificationTemplateVersion",
@@ -51177,6 +51347,61 @@
               "string"
             ],
             "description": "The level of assurance reported by MitID for this verification."
+          }
+        }
+      },
+      "VerificationDigitalIdNorthernIrelandDriversLicenseCheckCodeAttributesAllOf2": {
+        "type": "object",
+        "properties": {
+          "check-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The single-use check code generated by the driver on nidirect.gov.uk."
+          },
+          "license-number": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The Northern Ireland driving licence number submitted for the check."
+          },
+          "name-full-input": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Full name provided by the end user for comparison."
+          },
+          "name-full": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Full name returned by the DVA licence check."
+          },
+          "license-status": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Driving status returned by the DVA licence check."
+          },
+          "license-expiry-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Date until which the driving licence is valid.",
+            "format": "date"
+          },
+          "driving-license-details": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Additional licence details returned by the DVA licence check."
           }
         }
       },
@@ -85653,6 +85878,23 @@
             {
               "value": "verification/digital-id-mit-id",
               "name": "VerificationDigitalIdMitId"
+            }
+          ]
+        }
+      },
+      "VerificationDigitalIdNorthernIrelandDriversLicenseCheckCodeType": {
+        "const": null,
+        "enum": [
+          "verification/digital-id-northern-ireland-drivers-license-check-code"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "VerificationDigitalIdNorthernIrelandDriversLicenseCheckCodeType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "verification/digital-id-northern-ireland-drivers-license-check-code",
+              "name": "VerificationDigitalIdNorthernIrelandDriversLicenseCheckCode"
             }
           ]
         }

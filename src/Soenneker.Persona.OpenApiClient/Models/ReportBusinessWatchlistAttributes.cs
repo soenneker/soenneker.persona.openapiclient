@@ -40,6 +40,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>Whether or not the report matched</summary>
         public bool? HasMatch { get; set; }
+        /// <summary>Matches that have been dismissed, and the details of that dismissal.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2IgnoreListItem>? IgnoreList { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2IgnoreListItem> IgnoreList { get; set; }
+#endif
         /// <summary>Whether or not this report has been run more than once</summary>
         public bool? IsContinuous { get; set; }
         /// <summary>Whether or not this report is scheduled to run in the future</summary>
@@ -129,6 +137,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "created-at", n => { CreatedAt = n.GetStringValue(); } },
                 { "fitness-probity-list", n => { FitnessProbityList = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2FitnessProbityListItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2FitnessProbityListItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "has-match", n => { HasMatch = n.GetBoolValue(); } },
+                { "ignore-list", n => { IgnoreList = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2IgnoreListItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2IgnoreListItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
                 { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
                 { "matched-lists", n => { MatchedLists = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -151,6 +160,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("created-at", CreatedAt);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2FitnessProbityListItem>("fitness-probity-list", FitnessProbityList);
             writer.WriteBoolValue("has-match", HasMatch);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2IgnoreListItem>("ignore-list", IgnoreList);
             writer.WriteBoolValue("is-continuous", IsContinuous);
             writer.WriteBoolValue("is-recurring", IsRecurring);
             writer.WriteCollectionOfPrimitiveValues<string>("matched-lists", MatchedLists);

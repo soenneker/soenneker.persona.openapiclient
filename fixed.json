@@ -28746,6 +28746,94 @@
         "additionalProperties": false,
         "description": "An Adverse Media Report"
       },
+      "ReportBusinessAdverseMediaMatch": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "FV933QHOUDG73V8"
+          },
+          "name": {
+            "type": "string",
+            "example": "Joe Doe"
+          },
+          "akas": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Joey Doey"
+            }
+          },
+          "match-types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "name_exact"
+            }
+          },
+          "birthdates": {
+            "type": "array",
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "media": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessAdverseMediaMatchMediaItem"
+            }
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessAdverseMediaMatchSourcesItem"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "description": "A match that was found (and may have been dismissed) for a Business Adverse Media report"
+      },
+      "ReportBusinessAdverseMediaIgnoreListEntry": {
+        "type": "object",
+        "properties": {
+          "entity-id": {
+            "type": "string",
+            "example": "FV933QHOUDG73V8"
+          },
+          "ignored-at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2023-09-13T22:08:56.618Z"
+          },
+          "run-history-completed-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time",
+            "example": "2023-08-11T20:36:04.291Z"
+          },
+          "match": {
+            "$ref": "#/components/schemas/ReportBusinessAdverseMediaMatch"
+          },
+          "ignore-reason": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "false positive"
+          },
+          "user": {
+            "type": "string",
+            "example": "John Doe"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A dismissed entity or media item on a Business Adverse Media report"
+      },
       "ReportBusinessAdverseMedia": {
         "title": "Business Adverse Media Report",
         "required": [
@@ -35648,6 +35736,20 @@
             },
             "description": "The sources that matched for the search"
           },
+          "ignore-list-media": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessAdverseMediaIgnoreListEntry"
+            },
+            "description": "Media that have been individually dismissed for a matched entity."
+          },
+          "ignore-list-entity": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessAdverseMediaIgnoreListEntry"
+            },
+            "description": "Entities that have been fully dismissed, and the details of that dismissal."
+          },
           "query": {
             "$ref": "#/components/schemas/ReportBusinessAdverseMediaAttributesAllOf2Query"
           },
@@ -36016,6 +36118,13 @@
               "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2WarningListItem"
             },
             "description": "Detailed information about matches found on warning lists."
+          },
+          "ignore-list": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2IgnoreListItem"
+            },
+            "description": "Matches that have been dismissed, and the details of that dismissal."
           }
         }
       },
@@ -48461,6 +48570,20 @@
             },
             "description": "The sources that matched for the search"
           },
+          "ignore-list-media": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessAdverseMediaIgnoreListEntry"
+            },
+            "description": "Media that have been individually dismissed for a matched entity."
+          },
+          "ignore-list-entity": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessAdverseMediaIgnoreListEntry"
+            },
+            "description": "Entities that have been fully dismissed, and the details of that dismissal."
+          },
           "query": {
             "$ref": "#/components/schemas/ReportBusinessAdverseMediaAttributesAllOf2Query"
           },
@@ -48625,6 +48748,13 @@
               "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2WarningListItem"
             },
             "description": "Detailed information about matches found on warning lists."
+          },
+          "ignore-list": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2IgnoreListItem"
+            },
+            "description": "Matches that have been dismissed, and the details of that dismissal."
           }
         }
       },
@@ -54502,6 +54632,65 @@
         "additionalProperties": false,
         "description": "The report template used to create this report"
       },
+      "ReportBusinessAdverseMediaMatchMediaItem": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date",
+            "example": "2022-11-12"
+          },
+          "snippet": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Snippet from matched article",
+            "example": "Joe Doe was ordered to jail on Friday after a judge revoked his bail for alleged witness tampering."
+          },
+          "url": {
+            "type": "string",
+            "description": "URL of matched article",
+            "example": "https://www.example.com/"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of matched article",
+            "example": "Joe Doe ordered to jail"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessAdverseMediaMatchSourcesItem": {
+        "type": "object",
+        "properties": {
+          "country-codes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "FR"
+            }
+          },
+          "name": {
+            "type": "string",
+            "example": "Adverse Media"
+          },
+          "token": {
+            "type": "string"
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "adverse-media-v2-other-minor"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportWatchlistEntityBirthdatesItem": {
         "type": "object",
         "properties": {
@@ -57638,6 +57827,39 @@
             "type": "string",
             "description": "A URL with more information about the list.",
             "format": "uri"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessWatchlistAttributesAllOf2IgnoreListItem": {
+        "type": "object",
+        "properties": {
+          "ignored-at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2023-09-13T22:08:56.618Z"
+          },
+          "run-history-completed-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time",
+            "example": "2023-08-11T20:36:04.291Z"
+          },
+          "match": {
+            "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2IgnoreListItemMatch"
+          },
+          "user": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "ignore-reason": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "false positive"
           }
         },
         "additionalProperties": false
@@ -62634,6 +62856,62 @@
         },
         "additionalProperties": false
       },
+      "ReportBusinessWatchlistAttributesAllOf2IgnoreListItemMatch": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Acme Sanctioned Holdings"
+          },
+          "url": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri",
+            "example": "https://sanctionslist.example.com/acme-sanctioned-holdings"
+          },
+          "list-type": {
+            "type": "string",
+            "example": "sanction"
+          },
+          "list-types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "sanction"
+            }
+          },
+          "slug": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "eu-ec-programme-prk"
+          },
+          "country-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "EU"
+          },
+          "flag-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "EU"
+          },
+          "entities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2IgnoreListItemMatchEntitiesItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItem": {
         "type": "object",
         "properties": {
@@ -65307,6 +65585,30 @@
           "type": {
             "type": "string",
             "example": "registered_agent_address"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessWatchlistAttributesAllOf2IgnoreListItemMatchEntitiesItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Acme Sanctioned Holdings"
+          },
+          "alias-type": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "primary_name"
+          },
+          "match-levels": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "name_exact"
+            }
           }
         },
         "additionalProperties": false

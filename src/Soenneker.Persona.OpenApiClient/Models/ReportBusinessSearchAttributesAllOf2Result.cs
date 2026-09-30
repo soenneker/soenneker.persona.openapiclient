@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,44 +9,34 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ReportBusinessAdverseMediaMatchMediaItem : IParsable
+    public partial class ReportBusinessSearchAttributesAllOf2Result : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The date property</summary>
-        public Date? Date { get; set; }
-        /// <summary>Snippet from matched article</summary>
+        /// <summary>Candidate businesses matching the query, most relevant first.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Snippet { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItem>? Businesses { get; set; }
 #nullable restore
 #else
-        public string Snippet { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItem> Businesses { get; set; }
 #endif
-        /// <summary>Title of matched article</summary>
+        /// <summary>Set when the search could not be completed. Vendor error detail is not exposed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Title { get; set; }
+        public string? Error { get; set; }
 #nullable restore
 #else
-        public string Title { get; set; }
-#endif
-        /// <summary>URL of matched article</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Url { get; set; }
-#nullable restore
-#else
-        public string Url { get; set; }
+        public string Error { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaMatchMediaItem"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2Result"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaMatchMediaItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2Result CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaMatchMediaItem();
+            return new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2Result();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,10 +46,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "date", n => { Date = n.GetDateValue(); } },
-                { "snippet", n => { Snippet = n.GetStringValue(); } },
-                { "title", n => { Title = n.GetStringValue(); } },
-                { "url", n => { Url = n.GetStringValue(); } },
+                { "businesses", n => { Businesses = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "error", n => { Error = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -70,10 +57,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDateValue("date", Date);
-            writer.WriteStringValue("snippet", Snippet);
-            writer.WriteStringValue("title", Title);
-            writer.WriteStringValue("url", Url);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItem>("businesses", Businesses);
+            writer.WriteStringValue("error", Error);
         }
     }
 }

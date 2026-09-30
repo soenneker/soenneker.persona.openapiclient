@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookupRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddressRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRiskRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritativeRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfileRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMediaRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSyntheticRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistRequest"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookupRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddressRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRiskRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritativeRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfileRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMediaRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSyntheticRequest"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlistRequest"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateAReportRequestData : IComposedTypeWrapper, IParsable
@@ -44,6 +44,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupRequest ReportBusinessLookupRequest { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchRequest"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchRequest? ReportBusinessSearchRequest { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchRequest ReportBusinessSearchRequest { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistRequest"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -146,6 +154,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             result.ReportAdverseMediaRequest = new global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMediaRequest();
             result.ReportBusinessAdverseMediaRequest = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaRequest();
             result.ReportBusinessLookupRequest = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupRequest();
+            result.ReportBusinessSearchRequest = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchRequest();
             result.ReportBusinessWatchlistRequest = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistRequest();
             result.ReportCryptoAddressWatchlistRequest = new global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistRequest();
             result.ReportEmailAddressRequest = new global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddressRequest();
@@ -165,9 +174,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(ReportAddressLookupRequest != null || ReportAdverseMediaRequest != null || ReportBusinessAdverseMediaRequest != null || ReportBusinessLookupRequest != null || ReportBusinessWatchlistRequest != null || ReportCryptoAddressWatchlistRequest != null || ReportEmailAddressRequest != null || ReportPhoneRiskRequest != null || ReportPoliticallyExposedPersonRequest != null || ReportProfileNonAuthoritativeRequest != null || ReportProfileRequest != null || ReportScreeningRequest != null || ReportSocialMediaRequest != null || ReportSyntheticRequest != null || ReportWatchlistRequest != null)
+            if(ReportAddressLookupRequest != null || ReportAdverseMediaRequest != null || ReportBusinessAdverseMediaRequest != null || ReportBusinessLookupRequest != null || ReportBusinessSearchRequest != null || ReportBusinessWatchlistRequest != null || ReportCryptoAddressWatchlistRequest != null || ReportEmailAddressRequest != null || ReportPhoneRiskRequest != null || ReportPoliticallyExposedPersonRequest != null || ReportProfileNonAuthoritativeRequest != null || ReportProfileRequest != null || ReportScreeningRequest != null || ReportSocialMediaRequest != null || ReportSyntheticRequest != null || ReportWatchlistRequest != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ReportAddressLookupRequest, ReportAdverseMediaRequest, ReportBusinessAdverseMediaRequest, ReportBusinessLookupRequest, ReportBusinessWatchlistRequest, ReportCryptoAddressWatchlistRequest, ReportEmailAddressRequest, ReportPhoneRiskRequest, ReportPoliticallyExposedPersonRequest, ReportProfileNonAuthoritativeRequest, ReportProfileRequest, ReportScreeningRequest, ReportSocialMediaRequest, ReportSyntheticRequest, ReportWatchlistRequest);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ReportAddressLookupRequest, ReportAdverseMediaRequest, ReportBusinessAdverseMediaRequest, ReportBusinessLookupRequest, ReportBusinessSearchRequest, ReportBusinessWatchlistRequest, ReportCryptoAddressWatchlistRequest, ReportEmailAddressRequest, ReportPhoneRiskRequest, ReportPoliticallyExposedPersonRequest, ReportProfileNonAuthoritativeRequest, ReportProfileRequest, ReportScreeningRequest, ReportSocialMediaRequest, ReportSyntheticRequest, ReportWatchlistRequest);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -178,7 +187,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookupRequest>(null, ReportAddressLookupRequest, ReportAdverseMediaRequest, ReportBusinessAdverseMediaRequest, ReportBusinessLookupRequest, ReportBusinessWatchlistRequest, ReportCryptoAddressWatchlistRequest, ReportEmailAddressRequest, ReportPhoneRiskRequest, ReportPoliticallyExposedPersonRequest, ReportProfileNonAuthoritativeRequest, ReportProfileRequest, ReportScreeningRequest, ReportSocialMediaRequest, ReportSyntheticRequest, ReportWatchlistRequest);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookupRequest>(null, ReportAddressLookupRequest, ReportAdverseMediaRequest, ReportBusinessAdverseMediaRequest, ReportBusinessLookupRequest, ReportBusinessSearchRequest, ReportBusinessWatchlistRequest, ReportCryptoAddressWatchlistRequest, ReportEmailAddressRequest, ReportPhoneRiskRequest, ReportPoliticallyExposedPersonRequest, ReportProfileNonAuthoritativeRequest, ReportProfileRequest, ReportScreeningRequest, ReportSocialMediaRequest, ReportSyntheticRequest, ReportWatchlistRequest);
         }
     }
 }

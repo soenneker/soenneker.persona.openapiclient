@@ -28321,6 +28321,31 @@
         },
         "description": "PII-filtered snapshot of a Txn source object. Carries the txn\u0027s filtered scalar attributes\nunder \u0060peekable-attributes\u0060, and the txn\u0027s standard and custom user-space fields under\n\u0060peekable-attributes.fields\u0060.\n"
       },
+      "SourceDataReportAdverseMedia": {
+        "unevaluatedProperties": false,
+        "title": "Adverse Media Report Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataReportAdverseMediaPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of an Adverse Media report. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nReport subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
       "SourceDataReportWatchlist": {
         "unevaluatedProperties": false,
         "title": "Watchlist Report Source Data",
@@ -28371,6 +28396,9 @@
             "$ref": "#/components/schemas/SourceDataTxn"
           },
           {
+            "$ref": "#/components/schemas/SourceDataReportAdverseMedia"
+          },
+          {
             "$ref": "#/components/schemas/SourceDataReportWatchlist"
           }
         ],
@@ -28402,6 +28430,7 @@
             "connect/source-data/verification/email-address": "#/components/schemas/SourceDataVerificationEmailAddress",
             "connect/source-data/account": "#/components/schemas/SourceDataAccount",
             "connect/source-data/txn": "#/components/schemas/SourceDataTxn",
+            "connect/source-data/report/adverse-media": "#/components/schemas/SourceDataReportAdverseMedia",
             "connect/source-data/report/watchlist": "#/components/schemas/SourceDataReportWatchlist",
             "SourceDataInquiry": "#/components/schemas/SourceDataInquiry",
             "SourceDataVerificationDatabase": "#/components/schemas/SourceDataVerificationDatabase",
@@ -28409,6 +28438,7 @@
             "SourceDataVerificationEmailAddress": "#/components/schemas/SourceDataVerificationEmailAddress",
             "SourceDataAccount": "#/components/schemas/SourceDataAccount",
             "SourceDataTxn": "#/components/schemas/SourceDataTxn",
+            "SourceDataReportAdverseMedia": "#/components/schemas/SourceDataReportAdverseMedia",
             "SourceDataReportWatchlist": "#/components/schemas/SourceDataReportWatchlist"
           }
         }
@@ -28746,94 +28776,6 @@
         "additionalProperties": false,
         "description": "An Adverse Media Report"
       },
-      "ReportBusinessAdverseMediaMatch": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "example": "FV933QHOUDG73V8"
-          },
-          "name": {
-            "type": "string",
-            "example": "Joe Doe"
-          },
-          "akas": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "example": "Joey Doey"
-            }
-          },
-          "match-types": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "example": "name_exact"
-            }
-          },
-          "birthdates": {
-            "type": "array",
-            "items": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          },
-          "media": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ReportBusinessAdverseMediaMatchMediaItem"
-            }
-          },
-          "sources": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ReportBusinessAdverseMediaMatchSourcesItem"
-            }
-          }
-        },
-        "additionalProperties": false,
-        "description": "A match that was found (and may have been dismissed) for a Business Adverse Media report"
-      },
-      "ReportBusinessAdverseMediaIgnoreListEntry": {
-        "type": "object",
-        "properties": {
-          "entity-id": {
-            "type": "string",
-            "example": "FV933QHOUDG73V8"
-          },
-          "ignored-at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2023-09-13T22:08:56.618Z"
-          },
-          "run-history-completed-at": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "format": "date-time",
-            "example": "2023-08-11T20:36:04.291Z"
-          },
-          "match": {
-            "$ref": "#/components/schemas/ReportBusinessAdverseMediaMatch"
-          },
-          "ignore-reason": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "example": "false positive"
-          },
-          "user": {
-            "type": "string",
-            "example": "John Doe"
-          }
-        },
-        "additionalProperties": false,
-        "description": "A dismissed entity or media item on a Business Adverse Media report"
-      },
       "ReportBusinessAdverseMedia": {
         "title": "Business Adverse Media Report",
         "required": [
@@ -28942,6 +28884,28 @@
         },
         "additionalProperties": false,
         "description": "A Business Lookup Report"
+      },
+      "ReportBusinessSearch": {
+        "title": "Business Search Report",
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ReportBusinessSearchType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the report",
+            "example": "rep_7WNzPaNcroBKLarNHBjYDLAp"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ReportBusinessSearchAttributes"
+          },
+          "relationships": {
+            "$ref": "#/components/schemas/ReportSharedRelationships"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Business Search Report"
       },
       "ReportBusinessWatchlist": {
         "title": "Business Watchlist Report",
@@ -32152,6 +32116,9 @@
             "$ref": "#/components/schemas/ReportBusinessLookup"
           },
           {
+            "$ref": "#/components/schemas/ReportBusinessSearch"
+          },
+          {
             "$ref": "#/components/schemas/ReportBusinessWatchlist"
           },
           {
@@ -32210,6 +32177,7 @@
             "report/business-associated-persons": "#/components/schemas/ReportBusinessAssociatedPersons",
             "report/business-registrations-lookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
             "report/business-lookup": "#/components/schemas/ReportBusinessLookup",
+            "report/business-search": "#/components/schemas/ReportBusinessSearch",
             "report/business-watchlist": "#/components/schemas/ReportBusinessWatchlist",
             "report/crypto-address-watchlist": "#/components/schemas/ReportCryptoAddressWatchlist",
             "report/email-address": "#/components/schemas/ReportEmailAddress",
@@ -32228,6 +32196,7 @@
             "ReportBusinessAssociatedPersons": "#/components/schemas/ReportBusinessAssociatedPersons",
             "ReportBusinessRegistrationsLookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
             "ReportBusinessLookup": "#/components/schemas/ReportBusinessLookup",
+            "ReportBusinessSearch": "#/components/schemas/ReportBusinessSearch",
             "ReportBusinessWatchlist": "#/components/schemas/ReportBusinessWatchlist",
             "ReportCryptoAddressWatchlist": "#/components/schemas/ReportCryptoAddressWatchlist",
             "ReportEmailAddress": "#/components/schemas/ReportEmailAddress",
@@ -32338,6 +32307,23 @@
         },
         "additionalProperties": false,
         "description": "Fields required to create a Business Lookup Report"
+      },
+      "ReportBusinessSearchRequest": {
+        "title": "Business Search Report",
+        "required": [
+          "attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ReportBusinessSearchType"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ReportBusinessSearchRequestAttributes"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Fields required to create a Business Search Report"
       },
       "ReportBusinessWatchlistRequest": {
         "title": "Business Watchlist Report",
@@ -35156,6 +35142,23 @@
           }
         }
       },
+      "SourceDataReportAdverseMediaAllOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConnectSourceDataReportAdverseMediaType"
+          },
+          "id": {
+            "examples": [
+              "rep_ABC123"
+            ],
+            "type": "string"
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataReportAdverseMediaAllOf2PeekableAttributesProperty"
+          }
+        }
+      },
       "SourceDataReportWatchlistAllOf2": {
         "type": "object",
         "properties": {
@@ -35736,20 +35739,6 @@
             },
             "description": "The sources that matched for the search"
           },
-          "ignore-list-media": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ReportBusinessAdverseMediaIgnoreListEntry"
-            },
-            "description": "Media that have been individually dismissed for a matched entity."
-          },
-          "ignore-list-entity": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ReportBusinessAdverseMediaIgnoreListEntry"
-            },
-            "description": "Entities that have been fully dismissed, and the details of that dismissal."
-          },
           "query": {
             "$ref": "#/components/schemas/ReportBusinessAdverseMediaAttributesAllOf2Query"
           },
@@ -36037,6 +36026,68 @@
           }
         }
       },
+      "ReportBusinessSearchAttributes": {
+        "unevaluatedProperties": false,
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the report\n\nPossible values:\n- pending\n- ready\n- errored\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update."
+          },
+          "created-at": {
+            "type": "string",
+            "description": "The time the report was created in ISO 8601 format",
+            "example": "2020-04-12T05:08:51.000Z"
+          },
+          "completed-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The time the report completed processing in ISO 8601 format",
+            "example": "2020-04-13T00:23:57.000Z"
+          },
+          "redacted-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The time the report was redacted in ISO 8601 format",
+            "example": null
+          },
+          "report-template-version-name": {
+            "type": "string",
+            "description": "The name of the report template version used for this report",
+            "example": "v1"
+          },
+          "has-match": {
+            "type": "boolean",
+            "description": "Whether or not the report matched"
+          },
+          "is-continuous": {
+            "type": "boolean",
+            "description": "Whether or not this report has been run more than once"
+          },
+          "is-recurring": {
+            "type": "boolean",
+            "description": "Whether or not this report is scheduled to run in the future"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "tag1"
+            },
+            "description": "Tags on the report"
+          },
+          "query": {
+            "$ref": "#/components/schemas/ReportBusinessSearchAttributesAllOf2Query"
+          },
+          "result": {
+            "$ref": "#/components/schemas/ReportBusinessSearchAttributesAllOf2Result"
+          }
+        }
+      },
       "ReportBusinessWatchlistAttributes": {
         "unevaluatedProperties": false,
         "type": "object",
@@ -36118,13 +36169,6 @@
               "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2WarningListItem"
             },
             "description": "Detailed information about matches found on warning lists."
-          },
-          "ignore-list": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2IgnoreListItem"
-            },
-            "description": "Matches that have been dismissed, and the details of that dismissal."
           }
         }
       },
@@ -39939,6 +39983,9 @@
             "$ref": "#/components/schemas/ReportBusinessLookup"
           },
           {
+            "$ref": "#/components/schemas/ReportBusinessSearch"
+          },
+          {
             "$ref": "#/components/schemas/ReportBusinessRegistrationsLookup"
           },
           {
@@ -40042,6 +40089,7 @@
             "report/business-associated-persons": "#/components/schemas/ReportBusinessAssociatedPersons",
             "report/business-registrations-lookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
             "report/business-lookup": "#/components/schemas/ReportBusinessLookup",
+            "report/business-search": "#/components/schemas/ReportBusinessSearch",
             "report/business-watchlist": "#/components/schemas/ReportBusinessWatchlist",
             "report/crypto-address-watchlist": "#/components/schemas/ReportCryptoAddressWatchlist",
             "report/email-address": "#/components/schemas/ReportEmailAddress",
@@ -40077,6 +40125,7 @@
             "ReportBusinessAdverseMedia": "#/components/schemas/ReportBusinessAdverseMedia",
             "ReportBusinessAssociatedPersons": "#/components/schemas/ReportBusinessAssociatedPersons",
             "ReportBusinessLookup": "#/components/schemas/ReportBusinessLookup",
+            "ReportBusinessSearch": "#/components/schemas/ReportBusinessSearch",
             "ReportBusinessRegistrationsLookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
             "ReportBusinessWatchlist": "#/components/schemas/ReportBusinessWatchlist",
             "ReportCryptoAddressWatchlist": "#/components/schemas/ReportCryptoAddressWatchlist",
@@ -45027,6 +45076,9 @@
             "$ref": "#/components/schemas/ReportBusinessLookup"
           },
           {
+            "$ref": "#/components/schemas/ReportBusinessSearch"
+          },
+          {
             "$ref": "#/components/schemas/ReportBusinessRegistrationsLookup"
           },
           {
@@ -45248,6 +45300,7 @@
             "report/business-associated-persons": "#/components/schemas/ReportBusinessAssociatedPersons",
             "report/business-registrations-lookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
             "report/business-lookup": "#/components/schemas/ReportBusinessLookup",
+            "report/business-search": "#/components/schemas/ReportBusinessSearch",
             "report/business-watchlist": "#/components/schemas/ReportBusinessWatchlist",
             "report/crypto-address-watchlist": "#/components/schemas/ReportCryptoAddressWatchlist",
             "report/email-address": "#/components/schemas/ReportEmailAddress",
@@ -45326,6 +45379,7 @@
             "ReportBusinessAdverseMedia": "#/components/schemas/ReportBusinessAdverseMedia",
             "ReportBusinessAssociatedPersons": "#/components/schemas/ReportBusinessAssociatedPersons",
             "ReportBusinessLookup": "#/components/schemas/ReportBusinessLookup",
+            "ReportBusinessSearch": "#/components/schemas/ReportBusinessSearch",
             "ReportBusinessRegistrationsLookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
             "ReportBusinessWatchlist": "#/components/schemas/ReportBusinessWatchlist",
             "ReportCryptoAddressWatchlist": "#/components/schemas/ReportCryptoAddressWatchlist",
@@ -46897,6 +46951,40 @@
           },
           "query": {
             "$ref": "#/components/schemas/ReportBusinessLookupRequestAttributesAllOf2Query"
+          }
+        }
+      },
+      "ReportBusinessSearchRequestAttributes": {
+        "unevaluatedProperties": false,
+        "required": [
+          "query"
+        ],
+        "type": "object",
+        "properties": {
+          "account-id": {
+            "examples": [
+              "act_ABC123"
+            ],
+            "type": "string",
+            "description": "Account ID to associate with this Report."
+          },
+          "reference-id": {
+            "examples": [
+              "abc-123"
+            ],
+            "type": "string",
+            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "deprecated": true
+          },
+          "report-template-id": {
+            "examples": [
+              "rptp_abc123"
+            ],
+            "type": "string",
+            "description": "ID of Verification Template. Starts with \u0060rptp_\u0060. You can find your Report Template IDs [here](https://app.withpersona.com/dashboard/report-templates)."
+          },
+          "query": {
+            "$ref": "#/components/schemas/ReportBusinessSearchRequestAttributesAllOf2Query"
           }
         }
       },
@@ -48570,20 +48658,6 @@
             },
             "description": "The sources that matched for the search"
           },
-          "ignore-list-media": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ReportBusinessAdverseMediaIgnoreListEntry"
-            },
-            "description": "Media that have been individually dismissed for a matched entity."
-          },
-          "ignore-list-entity": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ReportBusinessAdverseMediaIgnoreListEntry"
-            },
-            "description": "Entities that have been fully dismissed, and the details of that dismissal."
-          },
           "query": {
             "$ref": "#/components/schemas/ReportBusinessAdverseMediaAttributesAllOf2Query"
           },
@@ -48718,6 +48792,17 @@
           }
         }
       },
+      "ReportBusinessSearchAttributesAllOf2": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "$ref": "#/components/schemas/ReportBusinessSearchAttributesAllOf2Query"
+          },
+          "result": {
+            "$ref": "#/components/schemas/ReportBusinessSearchAttributesAllOf2Result"
+          }
+        }
+      },
       "ReportBusinessWatchlistAttributesAllOf2": {
         "type": "object",
         "properties": {
@@ -48748,13 +48833,6 @@
               "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2WarningListItem"
             },
             "description": "Detailed information about matches found on warning lists."
-          },
-          "ignore-list": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2IgnoreListItem"
-            },
-            "description": "Matches that have been dismissed, and the details of that dismissal."
           }
         }
       },
@@ -53319,6 +53397,17 @@
           }
         }
       },
+      "ReportBusinessSearchRequestAttributesAllOf2": {
+        "required": [
+          "query"
+        ],
+        "type": "object",
+        "properties": {
+          "query": {
+            "$ref": "#/components/schemas/ReportBusinessSearchRequestAttributesAllOf2Query"
+          }
+        }
+      },
       "ReportBusinessWatchlistRequestAttributesAllOf2": {
         "required": [
           "query"
@@ -53453,6 +53542,115 @@
             "items": {
               "$ref": "#/components/schemas/ReportTemplateWatchlistAttributesAllOf2SearchListsItem"
             }
+          }
+        }
+      },
+      "ReportBusinessSearchRequestAttributesAllOf2Query": {
+        "required": [
+          "country-code"
+        ],
+        "type": "object",
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/ReportBusinessSearchRequestAttributesAllOf2QueryAnyOf1"
+          },
+          {
+            "$ref": "#/components/schemas/ReportBusinessSearchRequestAttributesAllOf2QueryAnyOf2"
+          }
+        ],
+        "properties": {
+          "country-code": {
+            "type": "string",
+            "description": "ISO 3166-1 alpha-2 country code. Determines which business registry is searched.",
+            "example": "US"
+          },
+          "business-name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The name of the business to search. Either business-name or registration-number is required.",
+            "example": "Coffee Shop Inc"
+          },
+          "registration-number": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The business registration number to search, as issued by the local registry. Either business-name or registration-number is required.",
+            "example": "C1234567"
+          },
+          "address-street-1": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Address line 1 (e.g., street, PO Box, or company name).",
+            "example": "123 Funky St"
+          },
+          "address-street-2": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Address line 2 (e.g., apartment, suite, unit, or building)."
+          },
+          "address-city": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "City",
+            "example": "Funkyville"
+          },
+          "address-subdivision": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Subnational division of a country, such as a state or province.",
+            "example": "CA"
+          },
+          "address-postal-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "ZIP or postal code",
+            "example": "12345"
+          },
+          "max-results": {
+            "maximum": 10,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Maximum number of candidate businesses to return. Defaults to 3 when omitted.",
+            "example": 3
+          }
+        },
+        "additionalProperties": false,
+        "x-inheritable": true
+      },
+      "ReportBusinessSearchRequestAttributesAllOf2QueryAnyOf1": {
+        "required": [
+          "business-name"
+        ],
+        "type": "object",
+        "properties": {
+          "business-name": {
+            "minLength": 1,
+            "type": "string"
+          }
+        }
+      },
+      "ReportBusinessSearchRequestAttributesAllOf2QueryAnyOf2": {
+        "required": [
+          "registration-number"
+        ],
+        "type": "object",
+        "properties": {
+          "registration-number": {
+            "minLength": 1,
+            "type": "string"
           }
         }
       },
@@ -54631,65 +54829,6 @@
         },
         "additionalProperties": false,
         "description": "The report template used to create this report"
-      },
-      "ReportBusinessAdverseMediaMatchMediaItem": {
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "format": "date",
-            "example": "2022-11-12"
-          },
-          "snippet": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "Snippet from matched article",
-            "example": "Joe Doe was ordered to jail on Friday after a judge revoked his bail for alleged witness tampering."
-          },
-          "url": {
-            "type": "string",
-            "description": "URL of matched article",
-            "example": "https://www.example.com/"
-          },
-          "title": {
-            "type": "string",
-            "description": "Title of matched article",
-            "example": "Joe Doe ordered to jail"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ReportBusinessAdverseMediaMatchSourcesItem": {
-        "type": "object",
-        "properties": {
-          "country-codes": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "example": "FR"
-            }
-          },
-          "name": {
-            "type": "string",
-            "example": "Adverse Media"
-          },
-          "token": {
-            "type": "string"
-          },
-          "types": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "example": "adverse-media-v2-other-minor"
-            }
-          }
-        },
-        "additionalProperties": false
       },
       "ReportWatchlistEntityBirthdatesItem": {
         "type": "object",
@@ -57316,6 +57455,12 @@
           "$ref": "#/components/schemas/SourceDataPeekableAttribute"
         }
       },
+      "SourceDataReportAdverseMediaAllOf2PeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
       "SourceDataReportWatchlistAllOf2PeekableAttributes": {
         "type": "object",
         "additionalProperties": {
@@ -57786,6 +57931,95 @@
           }
         }
       },
+      "ReportBusinessSearchAttributesAllOf2Query": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "country-code": {
+            "type": "string",
+            "example": "US"
+          },
+          "business-name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Coffee Shop Inc"
+          },
+          "registration-number": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "C1234567"
+          },
+          "address-street-1": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "123 Funky St"
+          },
+          "address-street-2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "address-city": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Funkyville"
+          },
+          "address-subdivision": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "CA"
+          },
+          "address-postal-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "12345"
+          },
+          "max-results": {
+            "type": "integer",
+            "example": 3
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessSearchAttributesAllOf2Result": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "error": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Set when the search could not be completed. Vendor error detail is not exposed.",
+            "example": "The business search could not be completed."
+          },
+          "businesses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessSearchAttributesAllOf2ResultBusinessesItem"
+            },
+            "description": "Candidate businesses matching the query, most relevant first."
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportBusinessWatchlistAttributesAllOf2SanctionListItem": {
         "type": "object",
         "properties": {
@@ -57827,39 +58061,6 @@
             "type": "string",
             "description": "A URL with more information about the list.",
             "format": "uri"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ReportBusinessWatchlistAttributesAllOf2IgnoreListItem": {
-        "type": "object",
-        "properties": {
-          "ignored-at": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2023-09-13T22:08:56.618Z"
-          },
-          "run-history-completed-at": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "format": "date-time",
-            "example": "2023-08-11T20:36:04.291Z"
-          },
-          "match": {
-            "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2IgnoreListItemMatch"
-          },
-          "user": {
-            "type": "string",
-            "example": "John Doe"
-          },
-          "ignore-reason": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "example": "false positive"
           }
         },
         "additionalProperties": false
@@ -62856,58 +63057,60 @@
         },
         "additionalProperties": false
       },
-      "ReportBusinessWatchlistAttributesAllOf2IgnoreListItemMatch": {
+      "ReportBusinessSearchAttributesAllOf2ResultBusinessesItem": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "example": "Acme Sanctioned Holdings"
-          },
-          "url": {
+          "business-name": {
             "type": [
               "null",
               "string"
             ],
-            "format": "uri",
-            "example": "https://sanctionslist.example.com/acme-sanctioned-holdings"
+            "example": "Coffee Shop Inc"
           },
-          "list-type": {
-            "type": "string",
-            "example": "sanction"
+          "registration-number": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The registration number issued by the local business registry.",
+            "example": "C1234567"
           },
-          "list-types": {
+          "employer-identification-number": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "US federal tax identifier. Populated on United States results only.",
+            "example": "452999888"
+          },
+          "entity-type": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Legal form of the business. Best effort \u2014 United States results resolved through Dun \u0026 Bradstreet do not carry one.",
+            "example": "Corporation"
+          },
+          "incorporation-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "ISO 8601 date of incorporation. Populated on international results only.",
+            "example": "2015-04-23"
+          },
+          "addresses": {
             "type": "array",
             "items": {
-              "type": "string",
-              "example": "sanction"
+              "$ref": "#/components/schemas/ReportBusinessSearchAttributesAllOf2ResultBusinessesItemAddressesItem"
             }
           },
-          "slug": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "example": "eu-ec-programme-prk"
-          },
-          "country-code": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "example": "EU"
-          },
-          "flag-code": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "example": "EU"
-          },
-          "entities": {
+          "ubos": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2IgnoreListItemMatchEntitiesItem"
-            }
+              "$ref": "#/components/schemas/ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItem"
+            },
+            "description": "Ultimate Beneficial Owners. Only populated when the report template opts in."
           }
         },
         "additionalProperties": false
@@ -65589,25 +65792,95 @@
         },
         "additionalProperties": false
       },
-      "ReportBusinessWatchlistAttributesAllOf2IgnoreListItemMatchEntitiesItem": {
+      "ReportBusinessSearchAttributesAllOf2ResultBusinessesItemAddressesItem": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "example": "Acme Sanctioned Holdings"
-          },
-          "alias-type": {
+          "type": {
             "type": [
               "null",
               "string"
             ],
-            "example": "primary_name"
+            "description": "Classification of the address, when the registry provides one. One of headquarters, mailing, registered, registered_agent, officer, site, or other. Null when the registry did not classify it.",
+            "example": "headquarters"
           },
-          "match-levels": {
+          "street-1": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "123 Funky St"
+          },
+          "street-2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "city": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Funkyville"
+          },
+          "subdivision": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Subnational division of a country, such as a state or province.",
+            "example": "CA"
+          },
+          "postal-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "12345"
+          },
+          "country-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "ISO 3166-1 alpha-2 country code.",
+            "example": "US"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItem": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "individual"
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Jane Doe"
+          },
+          "birthdate": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "ISO 8601 partial date \u2014 YYYY-MM-DD, YYYY-MM, or YYYY depending on the precision the registry provided.",
+            "example": "1985-04"
+          },
+          "address": {
+            "$ref": "#/components/schemas/ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItemAddress"
+          },
+          "roles": {
             "type": "array",
             "items": {
-              "type": "string",
-              "example": "name_exact"
+              "$ref": "#/components/schemas/ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItemRolesItem"
             }
           }
         },
@@ -65899,6 +66172,67 @@
         ],
         "description": "Source-specific structured details about the role"
       },
+      "ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItemAddress": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "street-1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "street-2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "city": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "subdivision": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "postal-code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "country-code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItemRolesItem": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Shareholder"
+          },
+          "data": {
+            "$ref": "#/components/schemas/ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItemRolesItemDataProperty"
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportWatchlistAttributesAllOf2IgnoreListItemMatchEntitiesItemBirthdatesItem": {
         "type": "object",
         "properties": {
@@ -66129,6 +66463,12 @@
           }
         },
         "additionalProperties": false
+      },
+      "ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItemRolesItemData": {
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "AccountAttributesFieldsIdentificationNumbersValueItemValueIdentificationClass": {
         "type": "object",
@@ -72321,6 +72661,9 @@
             "$ref": "#/components/schemas/ReportBusinessLookupRequest"
           },
           {
+            "$ref": "#/components/schemas/ReportBusinessSearchRequest"
+          },
+          {
             "$ref": "#/components/schemas/ReportBusinessWatchlistRequest"
           },
           {
@@ -72412,6 +72755,10 @@
         "type": "object",
         "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
       },
+      "SourceDataReportAdverseMediaPeekableAttributes": {
+        "type": "object",
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
       "SourceDataReportWatchlistPeekableAttributes": {
         "type": "object",
         "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
@@ -72464,6 +72811,12 @@
         }
       },
       "SourceDataVerificationDocumentAllOf2PeekableAttributesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataReportAdverseMediaAllOf2PeekableAttributesProperty": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/SourceDataPeekableAttribute"
@@ -72699,6 +73052,9 @@
       "ReportBusinessAssociatedPersonsAttributesAllOf2OwnershipInformationOwnersItemRolesItemDataProperty": {
         "type": "object",
         "description": "Source-specific structured details about the role"
+      },
+      "ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItemRolesItemDataProperty": {
+        "type": "object"
       },
       "ListAllAccounts200ResponseLinks": {
         "required": [
@@ -85096,6 +85452,23 @@
           ]
         }
       },
+      "ReportBusinessSearchType": {
+        "const": null,
+        "enum": [
+          "report/business-search"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReportBusinessSearchType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "report/business-search",
+              "name": "ReportBusinessSearch"
+            }
+          ]
+        }
+      },
       "ReportBusinessWatchlistType": {
         "const": null,
         "enum": [
@@ -87683,6 +88056,23 @@
             {
               "value": "connect/source-data/txn",
               "name": "ConnectSourceDataTxn"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataReportAdverseMediaType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/report/adverse-media"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataReportAdverseMediaType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/report/adverse-media",
+              "name": "ConnectSourceDataReportAdverseMedia"
             }
           ]
         }
@@ -114454,7 +114844,7 @@
     },
     "headers": {
       "rate-limit-limit": {
-        "description": "The maximum number of requests permitted in the current rate limit window for the API key used to authenticate the request. Returned on every authenticated response.",
+        "description": "The maximum number of requests permitted in the current rate limit window. For an API key with its own rate limit, requests count against both the key\u0027s limit and the environment\u0027s limit, and this header reports whichever is closer to being reached, so it can change between responses. On a \u0060429\u0060 response, it reports the limit that rejected the request. For an API key without its own rate limit, it reports the environment\u0027s limit. Returned on every authenticated response.",
         "schema": {
           "examples": [
             300
@@ -114463,7 +114853,7 @@
         }
       },
       "rate-limit-remaining": {
-        "description": "The number of requests remaining in the current rate limit window for the API key used to authenticate the request. Returned on every authenticated response.",
+        "description": "The number of requests remaining in the current rate limit window for the limit reported in \u0060RateLimit-Limit\u0060. Returned on every authenticated response.",
         "schema": {
           "examples": [
             299

@@ -9,7 +9,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ReportBusinessAdverseMediaAttributes : IAdditionalDataHolder, IParsable
+    public partial class ReportBusinessSearchAttributes : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -39,10 +39,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The query property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Query? Query { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2Query? Query { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Query Query { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2Query Query { get; set; }
 #endif
         /// <summary>The time the report was redacted in ISO 8601 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,14 +51,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public string RedactedAt { get; set; }
-#endif
-        /// <summary>The sources that matched for the search</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItem>? RelatedSources { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItem> RelatedSources { get; set; }
 #endif
         /// <summary>The name of the report template version used for this report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,10 +63,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Result? Result { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2Result? Result { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Result Result { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2Result Result { get; set; }
 #endif
         /// <summary>The status of the reportPossible values:- pending- ready- erroredDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -92,30 +84,22 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<string> Tags { get; set; }
 #endif
-        /// <summary>The search term for the adverse media report, typically the name of the business.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Term { get; set; }
-#nullable restore
-#else
-        public string Term { get; set; }
-#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributes"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributes"/> and sets the default values.
         /// </summary>
-        public ReportBusinessAdverseMediaAttributes()
+        public ReportBusinessSearchAttributes()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributes"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributes"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributes();
+            return new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributes();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -130,14 +114,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "has-match", n => { HasMatch = n.GetBoolValue(); } },
                 { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
                 { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
-                { "query", n => { Query = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Query>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Query.CreateFromDiscriminatorValue); } },
+                { "query", n => { Query = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2Query>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2Query.CreateFromDiscriminatorValue); } },
                 { "redacted-at", n => { RedactedAt = n.GetStringValue(); } },
-                { "related-sources", n => { RelatedSources = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "report-template-version-name", n => { ReportTemplateVersionName = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Result>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Result.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2Result>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2Result.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "term", n => { Term = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -152,14 +134,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteBoolValue("has-match", HasMatch);
             writer.WriteBoolValue("is-continuous", IsContinuous);
             writer.WriteBoolValue("is-recurring", IsRecurring);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Query>("query", Query);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2Query>("query", Query);
             writer.WriteStringValue("redacted-at", RedactedAt);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItem>("related-sources", RelatedSources);
             writer.WriteStringValue("report-template-version-name", ReportTemplateVersionName);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Result>("result", Result);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2Result>("result", Result);
             writer.WriteStringValue("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
-            writer.WriteStringValue("term", Term);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

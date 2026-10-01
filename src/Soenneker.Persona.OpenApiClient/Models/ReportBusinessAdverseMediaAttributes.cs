@@ -32,6 +32,22 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>Whether or not the report matched</summary>
         public bool? HasMatch { get; set; }
+        /// <summary>Entities that have been fully dismissed, and the details of that dismissal.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry>? IgnoreListEntity { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry> IgnoreListEntity { get; set; }
+#endif
+        /// <summary>Media that have been individually dismissed for a matched entity.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry>? IgnoreListMedia { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry> IgnoreListMedia { get; set; }
+#endif
         /// <summary>Whether or not this report has been run more than once</summary>
         public bool? IsContinuous { get; set; }
         /// <summary>Whether or not this report is scheduled to run in the future</summary>
@@ -128,6 +144,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "completed-at", n => { CompletedAt = n.GetStringValue(); } },
                 { "created-at", n => { CreatedAt = n.GetStringValue(); } },
                 { "has-match", n => { HasMatch = n.GetBoolValue(); } },
+                { "ignore-list-entity", n => { IgnoreListEntity = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "ignore-list-media", n => { IgnoreListMedia = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
                 { "is-recurring", n => { IsRecurring = n.GetBoolValue(); } },
                 { "query", n => { Query = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Query>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Query.CreateFromDiscriminatorValue); } },
@@ -150,6 +168,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("completed-at", CompletedAt);
             writer.WriteStringValue("created-at", CreatedAt);
             writer.WriteBoolValue("has-match", HasMatch);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry>("ignore-list-entity", IgnoreListEntity);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry>("ignore-list-media", IgnoreListMedia);
             writer.WriteBoolValue("is-continuous", IsContinuous);
             writer.WriteBoolValue("is-recurring", IsRecurring);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Query>("query", Query);

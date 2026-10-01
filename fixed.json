@@ -6882,6 +6882,203 @@
         "x-persona-product": "Cases"
       }
     },
+    "/cases/{caseId}/add-comment": {
+      "post": {
+        "tags": [
+          "Cases"
+        ],
+        "summary": "Add comment to a Case",
+        "description": "Adds a comment to a Case",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/cases/add-comment"
+        },
+        "operationId": "AddComment",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "description": "A comma-separated list of relationship paths. This can be used to customize which related resources will be fully serialized in the \u0060included\u0060 key in the response. See [Serialization](https://docs.withpersona.com/serialization#inclusion-of-related-resources) for more details.",
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "caseId",
+            "in": "path",
+            "description": "ID of the case to add comment to.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddCommentRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Case object and (optionally) its related objects in \u0060included\u0060.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddComment200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "value": {
+                      "data": {
+                        "type": "case",
+                        "id": "case_3maVhdLzdGftRZCvxfqazVL1",
+                        "attributes": {
+                          "status": "Open",
+                          "name": "KYC-6",
+                          "resolution": null,
+                          "created-at": "2021-06-30T20:37:18.678Z",
+                          "updated-at": "2021-08-26T18:24:19.695Z",
+                          "assigned-at": "2021-08-26T18:24:19.695Z",
+                          "resolved-at": null,
+                          "redacted-at": null,
+                          "sla-expires-at": null,
+                          "creator-id": "wfl_yKynZZiuPz1R5qm9JFyBnnLB",
+                          "creator-type": "workflow-run",
+                          "assignee-id": "case_assignee@withpersona.com",
+                          "assigner-id": "case_assigner@withpersona.com",
+                          "assigner-type": "user",
+                          "resolver-id": null,
+                          "resolver-type": null,
+                          "updater-id": null,
+                          "updater-type": null,
+                          "tags": [
+                            "FRAUD"
+                          ],
+                          "fields": {},
+                          "attachments": []
+                        },
+                        "relationships": {
+                          "case-template": {
+                            "data": {
+                              "type": "case-template",
+                              "id": "ctmpl_6HheND7s14a2o7fg33iHqhg7"
+                            }
+                          },
+                          "case-queue": {
+                            "data": {
+                              "type": "case-queue",
+                              "id": "cqueue_7JRbkcdbx9fTossK98NJvRZcmk1"
+                            }
+                          },
+                          "case-comments": {
+                            "data": [
+                              {
+                                "type": "case-comment",
+                                "id": "cscm_yd2urRmjaCWcSSxqTSHvUcsn"
+                              }
+                            ]
+                          },
+                          "accounts": {
+                            "data": []
+                          },
+                          "inquiries": {
+                            "data": [
+                              {
+                                "type": "inquiry",
+                                "id": "inq_29Yd6kF6xWVFgemm5WTxhxvf"
+                              }
+                            ]
+                          },
+                          "reports": {
+                            "data": [
+                              {
+                                "type": "report/watchlist",
+                                "id": "rep_PN3xspEwWCWWRp1eGpedaSNj"
+                              }
+                            ]
+                          },
+                          "verifications": {
+                            "data": []
+                          },
+                          "txns": {
+                            "data": []
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        },
+        "x-persona-product": "Cases"
+      }
+    },
     "/cases/search": {
       "post": {
         "tags": [
@@ -28776,6 +28973,94 @@
         "additionalProperties": false,
         "description": "An Adverse Media Report"
       },
+      "ReportBusinessAdverseMediaMatch": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "FV933QHOUDG73V8"
+          },
+          "name": {
+            "type": "string",
+            "example": "Joe Doe"
+          },
+          "akas": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Joey Doey"
+            }
+          },
+          "match-types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "name_exact"
+            }
+          },
+          "birthdates": {
+            "type": "array",
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "media": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessAdverseMediaMatchMediaItem"
+            }
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessAdverseMediaMatchSourcesItem"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "description": "A match that was found (and may have been dismissed) for a Business Adverse Media report"
+      },
+      "ReportBusinessAdverseMediaIgnoreListEntry": {
+        "type": "object",
+        "properties": {
+          "entity-id": {
+            "type": "string",
+            "example": "FV933QHOUDG73V8"
+          },
+          "ignored-at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2023-09-13T22:08:56.618Z"
+          },
+          "run-history-completed-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time",
+            "example": "2023-08-11T20:36:04.291Z"
+          },
+          "match": {
+            "$ref": "#/components/schemas/ReportBusinessAdverseMediaMatch"
+          },
+          "ignore-reason": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "false positive"
+          },
+          "user": {
+            "type": "string",
+            "example": "John Doe"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A dismissed entity or media item on a Business Adverse Media report"
+      },
       "ReportBusinessAdverseMedia": {
         "title": "Business Adverse Media Report",
         "required": [
@@ -35739,6 +36024,20 @@
             },
             "description": "The sources that matched for the search"
           },
+          "ignore-list-media": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessAdverseMediaIgnoreListEntry"
+            },
+            "description": "Media that have been individually dismissed for a matched entity."
+          },
+          "ignore-list-entity": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessAdverseMediaIgnoreListEntry"
+            },
+            "description": "Entities that have been fully dismissed, and the details of that dismissal."
+          },
           "query": {
             "$ref": "#/components/schemas/ReportBusinessAdverseMediaAttributesAllOf2Query"
           },
@@ -36169,6 +36468,13 @@
               "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2WarningListItem"
             },
             "description": "Detailed information about matches found on warning lists."
+          },
+          "ignore-list": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2IgnoreListItem"
+            },
+            "description": "Matches that have been dismissed, and the details of that dismissal."
           }
         }
       },
@@ -48658,6 +48964,20 @@
             },
             "description": "The sources that matched for the search"
           },
+          "ignore-list-media": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessAdverseMediaIgnoreListEntry"
+            },
+            "description": "Media that have been individually dismissed for a matched entity."
+          },
+          "ignore-list-entity": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessAdverseMediaIgnoreListEntry"
+            },
+            "description": "Entities that have been fully dismissed, and the details of that dismissal."
+          },
           "query": {
             "$ref": "#/components/schemas/ReportBusinessAdverseMediaAttributesAllOf2Query"
           },
@@ -48833,6 +49153,13 @@
               "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2WarningListItem"
             },
             "description": "Detailed information about matches found on warning lists."
+          },
+          "ignore-list": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2IgnoreListItem"
+            },
+            "description": "Matches that have been dismissed, and the details of that dismissal."
           }
         }
       },
@@ -54830,6 +55157,65 @@
         "additionalProperties": false,
         "description": "The report template used to create this report"
       },
+      "ReportBusinessAdverseMediaMatchMediaItem": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date",
+            "example": "2022-11-12"
+          },
+          "snippet": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Snippet from matched article",
+            "example": "Joe Doe was ordered to jail on Friday after a judge revoked his bail for alleged witness tampering."
+          },
+          "url": {
+            "type": "string",
+            "description": "URL of matched article",
+            "example": "https://www.example.com/"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of matched article",
+            "example": "Joe Doe ordered to jail"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessAdverseMediaMatchSourcesItem": {
+        "type": "object",
+        "properties": {
+          "country-codes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "FR"
+            }
+          },
+          "name": {
+            "type": "string",
+            "example": "Adverse Media"
+          },
+          "token": {
+            "type": "string"
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "adverse-media-v2-other-minor"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportWatchlistEntityBirthdatesItem": {
         "type": "object",
         "properties": {
@@ -57570,13 +57956,6 @@
               ]
             }
           },
-          "match_types": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "example": "name_exact"
-            }
-          },
           "media": {
             "type": "array",
             "items": {
@@ -57596,6 +57975,13 @@
           "id": {
             "type": "string",
             "example": "FV933QHOUDG73V8"
+          },
+          "match_types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "name_exact"
+            }
           }
         },
         "additionalProperties": false
@@ -58061,6 +58447,39 @@
             "type": "string",
             "description": "A URL with more information about the list.",
             "format": "uri"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessWatchlistAttributesAllOf2IgnoreListItem": {
+        "type": "object",
+        "properties": {
+          "ignored-at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2023-09-13T22:08:56.618Z"
+          },
+          "run-history-completed-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time",
+            "example": "2023-08-11T20:36:04.291Z"
+          },
+          "match": {
+            "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2IgnoreListItemMatch"
+          },
+          "user": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "ignore-reason": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "false positive"
           }
         },
         "additionalProperties": false
@@ -62680,13 +63099,6 @@
       "ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItemSourcesItem": {
         "type": "object",
         "properties": {
-          "country_codes": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "example": "FR"
-            }
-          },
           "name": {
             "type": "string",
             "example": "Adverse Media"
@@ -62699,6 +63111,13 @@
             "items": {
               "type": "string",
               "example": "adverse-media-v2-other-minor"
+            }
+          },
+          "country_codes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "FR"
             }
           }
         },
@@ -63111,6 +63530,62 @@
               "$ref": "#/components/schemas/ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItem"
             },
             "description": "Ultimate Beneficial Owners. Only populated when the report template opts in."
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessWatchlistAttributesAllOf2IgnoreListItemMatch": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Acme Sanctioned Holdings"
+          },
+          "url": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri",
+            "example": "https://sanctionslist.example.com/acme-sanctioned-holdings"
+          },
+          "list-type": {
+            "type": "string",
+            "example": "sanction"
+          },
+          "list-types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "sanction"
+            }
+          },
+          "slug": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "eu-ec-programme-prk"
+          },
+          "country-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "EU"
+          },
+          "flag-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "EU"
+          },
+          "entities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessWatchlistAttributesAllOf2IgnoreListItemMatchEntitiesItem"
+            }
           }
         },
         "additionalProperties": false
@@ -65886,6 +66361,30 @@
         },
         "additionalProperties": false
       },
+      "ReportBusinessWatchlistAttributesAllOf2IgnoreListItemMatchEntitiesItem": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Acme Sanctioned Holdings"
+          },
+          "alias-type": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "primary_name"
+          },
+          "match-levels": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "name_exact"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItemBirthdatesItem": {
         "type": "object",
         "properties": {
@@ -67638,6 +68137,36 @@
         "additionalProperties": false
       },
       "SetTags200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CaseType"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CasesIncludedObjectsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddCommentRequest": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/AddCommentRequestMeta"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddComment200Response": {
         "required": [
           "data"
         ],
@@ -73849,6 +74378,20 @@
               "type": "string"
             },
             "description": "IDs of the tags to add to the Case."
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddCommentRequestMeta": {
+        "required": [
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The comment message to add to the Case."
           }
         },
         "additionalProperties": false

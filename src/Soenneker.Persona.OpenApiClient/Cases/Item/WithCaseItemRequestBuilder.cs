@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Persona.OpenApiClient.Cases.Item.AddComment;
 using Soenneker.Persona.OpenApiClient.Cases.Item.AddObjects;
 using Soenneker.Persona.OpenApiClient.Cases.Item.AddTag;
 using Soenneker.Persona.OpenApiClient.Cases.Item.Assign;
@@ -24,6 +25,11 @@ namespace Soenneker.Persona.OpenApiClient.Cases.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithCaseItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The addComment property</summary>
+        public global::Soenneker.Persona.OpenApiClient.Cases.Item.AddComment.AddCommentRequestBuilder AddComment
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.Cases.Item.AddComment.AddCommentRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The addObjects property</summary>
         public global::Soenneker.Persona.OpenApiClient.Cases.Item.AddObjects.AddObjectsRequestBuilder AddObjects
         {

@@ -3528,6 +3528,10 @@
             "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
             "$ref": "#/components/responses/forbidden"
           },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
           "409": {
             "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
             "$ref": "#/components/responses/conflict"
@@ -28215,7 +28219,9 @@
         "x-inheritable": true
       },
       "SourceDataPeekableAttribute": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -28228,7 +28234,9 @@
         "description": "Wrapper for a single peekable attribute. \u0060visibility\u0060 discriminates between two cases:\n  - \u0060full\u0060: the source organization\u0027s PII-share configuration exposes the attribute\u0027s value;\n    \u0060value\u0060 holds the raw value (any JSON type).\n  - \u0060presence\u0060: the source organization exposes only the attribute\u0027s presence; \u0060value\u0060 is a\n    boolean indicating whether the underlying field has a non-null value on the source.\nIntegrators should branch on \u0060visibility\u0060 first, then read \u0060value\u0060 accordingly.\n"
       },
       "SourceDataVerificationDatabase": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "title": "Database Verification Source Data",
         "required": [
           "type",
@@ -28253,7 +28261,9 @@
         "description": "PII-filtered snapshot of a Database verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows \u2014\nsee \u0060Verification::Database\u0060 in the share-token PII filter for the current allowlist.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
       },
       "SourceDataVerificationPhoneNumber": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "title": "Phone Number Verification Source Data",
         "required": [
           "type",
@@ -28278,7 +28288,9 @@
         "description": "PII-filtered snapshot of a Phone Number verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows \u2014\nsee \u0060Verification::PhoneNumber\u0060 in the share-token PII filter for the current allowlist.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
       },
       "SourceDataVerificationEmailAddress": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "title": "Email Address Verification Source Data",
         "required": [
           "type",
@@ -28303,7 +28315,9 @@
         "description": "PII-filtered snapshot of an Email Address verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows \u2014\nsee \u0060Verification::EmailAddress\u0060 in the share-token PII filter for the current allowlist.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
       },
       "SourceDataVerificationGovernmentId": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "title": "Government ID Verification Source Data",
         "required": [
           "type",
@@ -28328,7 +28342,9 @@
         "description": "PII-filtered snapshot of a Government ID verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
       },
       "SourceDataVerificationSelfie": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "title": "Selfie Verification Source Data",
         "required": [
           "type",
@@ -28353,7 +28369,9 @@
         "description": "PII-filtered snapshot of a Selfie verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
       },
       "SourceDataVerificationDocument": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "title": "Document Verification Source Data",
         "required": [
           "type",
@@ -28378,7 +28396,9 @@
         "description": "PII-filtered snapshot of a Document verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
       },
       "SourceDataAccount": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "title": "Account Source Data",
         "required": [
           "type",
@@ -28462,7 +28482,9 @@
         }
       },
       "SourceDataInquiry": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "title": "Inquiry Source Data",
         "required": [
           "type",
@@ -28494,7 +28516,9 @@
         "description": "PII-filtered snapshot of an Inquiry source object. Carries the inquiry\u0027s filtered scalar\nattributes under \u0060peekable-attributes\u0060, the inquiry\u0027s standard and custom user-space fields\nunder \u0060peekable-attributes.fields\u0060, and filtered snapshots of related source objects\n(verifications, accounts, etc.) inline under \u0060related-objects\u0060.\n"
       },
       "SourceDataTxn": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "title": "Txn Source Data",
         "required": [
           "type",
@@ -28519,7 +28543,9 @@
         "description": "PII-filtered snapshot of a Txn source object. Carries the txn\u0027s filtered scalar attributes\nunder \u0060peekable-attributes\u0060, and the txn\u0027s standard and custom user-space fields under\n\u0060peekable-attributes.fields\u0060.\n"
       },
       "SourceDataReportAdverseMedia": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "title": "Adverse Media Report Source Data",
         "required": [
           "type",
@@ -28544,7 +28570,9 @@
         "description": "PII-filtered snapshot of an Adverse Media report. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nReport subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
       },
       "SourceDataReportWatchlist": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "title": "Watchlist Report Source Data",
         "required": [
           "type",
@@ -30686,7 +30714,9 @@
         }
       },
       "InquiryFields": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "birthdate": {
@@ -33833,7 +33863,9 @@
         "description": "A Webhook Event object \u2014 a single delivery record for one event to one webhook."
       },
       "IncludedAllowlist": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -33860,7 +33892,9 @@
         "description": "Controls which related objects appear in the \u0060included\u0060 array of webhook payloads. The default is \u0060include_none\u0060. When \u0060state\u0060 is \u0060custom\u0060, \u0060event-types\u0060 configures which related objects to include per event type: event types you are subscribed to (via \u0060enabled-events\u0060) but do not list are excluded, and event types you list but are not subscribed to are dropped on save. A \u0060custom\u0060 config whose event types are all \u0060[\u0022*\u0022]\u0060 is equivalent to, and is normalized to, \u0060include_all\u0060."
       },
       "RelationshipAllowlist": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -34312,7 +34346,9 @@
         "additionalProperties": false
       },
       "FieldSchemaArrayConfig": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "required": {
@@ -34361,7 +34397,9 @@
         }
       },
       "FieldSchemaBooleanConfig": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "required": {
@@ -34407,7 +34445,9 @@
         }
       },
       "FieldSchemaChoicesConfig": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "required": {
@@ -34470,7 +34510,9 @@
         }
       },
       "FieldSchemaDateConfig": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "required": {
@@ -34536,7 +34578,9 @@
         }
       },
       "FieldSchemaDatetimeConfig": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "required": {
@@ -34582,7 +34626,9 @@
         }
       },
       "FieldSchemaEmailAddressConfig": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "required": {
@@ -34628,7 +34674,9 @@
         }
       },
       "FieldSchemaFileConfig": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "required": {
@@ -34710,7 +34758,9 @@
         }
       },
       "FieldSchemaHashConfig": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "required": {
@@ -34766,7 +34816,9 @@
         }
       },
       "FieldSchemaIntegerConfig": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "required": {
@@ -34818,7 +34870,9 @@
         }
       },
       "FieldSchemaJsonConfig": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "required": {
@@ -34867,7 +34921,9 @@
         }
       },
       "FieldSchemaMultiChoicesConfig": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "required": {
@@ -34930,7 +34986,9 @@
         }
       },
       "FieldSchemaNumberConfig": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "required": {
@@ -34982,7 +35040,9 @@
         }
       },
       "FieldSchemaStringConfig": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "required": {
@@ -35041,7 +35101,9 @@
         }
       },
       "FieldSchemaRelationConfig": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "required": {
@@ -35126,7 +35188,9 @@
         }
       },
       "ApiKeyWithValueAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -35462,7 +35526,9 @@
         }
       },
       "ConnectShareTokenAttributesSourceData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "allOf": [
           {
@@ -35472,7 +35538,9 @@
         "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
       },
       "ReportAddressLookupAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -35834,7 +35902,9 @@
         }
       },
       "ReportAdverseMediaAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -35959,7 +36029,9 @@
         }
       },
       "ReportBusinessAdverseMediaAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -36047,7 +36119,9 @@
         }
       },
       "ReportBusinessAssociatedPersonsAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query",
           "associated-persons",
@@ -36121,7 +36195,9 @@
         }
       },
       "ReportBusinessRegistrationsLookupAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query",
           "result"
@@ -36187,7 +36263,9 @@
         }
       },
       "ReportBusinessLookupAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -36326,7 +36404,9 @@
         }
       },
       "ReportBusinessSearchAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -36388,7 +36468,9 @@
         }
       },
       "ReportBusinessWatchlistAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -36479,7 +36561,9 @@
         }
       },
       "ReportCryptoAddressWatchlistAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -36547,7 +36631,9 @@
         }
       },
       "ReportEmailAddressAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -36821,7 +36907,9 @@
         }
       },
       "ReportPhoneRiskAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -36951,7 +37039,9 @@
         }
       },
       "ReportPoliticallyExposedPersonAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -37025,7 +37115,9 @@
         }
       },
       "ReportProfileAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -37223,7 +37315,9 @@
         }
       },
       "ReportProfileNonAuthoritativeAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -37285,7 +37379,9 @@
         }
       },
       "ReportSentilinkScoresAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -37347,7 +37443,9 @@
         }
       },
       "ReportSocialMediaAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -37535,7 +37633,9 @@
         }
       },
       "ReportSyntheticAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -37621,7 +37721,9 @@
         }
       },
       "ReportWatchlistAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -37742,7 +37844,9 @@
         }
       },
       "VerificationAamvaAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -37938,7 +38042,9 @@
         }
       },
       "VerificationDatabaseAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -38226,7 +38332,9 @@
         }
       },
       "VerificationDatabaseEcbsvAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -38363,7 +38471,9 @@
         }
       },
       "VerificationDatabasePhoneCarrierAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -38540,7 +38650,9 @@
         }
       },
       "VerificationDatabaseSerproAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -38650,7 +38762,9 @@
         }
       },
       "VerificationDatabaseSerproRelationships": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "inquiry": {
@@ -38683,7 +38797,9 @@
         }
       },
       "VerificationDatabaseStandardAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -38910,7 +39026,9 @@
         }
       },
       "VerificationDatabaseTinAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -39032,7 +39150,9 @@
         }
       },
       "VerificationDocumentAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -39144,7 +39264,9 @@
         }
       },
       "VerificationDocumentRelationships": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "inquiry": {
@@ -39177,7 +39299,9 @@
         }
       },
       "VerificationEmailAddressAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -39274,7 +39398,9 @@
         }
       },
       "VerificationGovernmentIdAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -39722,7 +39848,9 @@
         }
       },
       "VerificationGovernmentIdRelationships": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "inquiry": {
@@ -39755,7 +39883,9 @@
         }
       },
       "VerificationGovernmentIdNfcAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -39962,7 +40092,9 @@
         }
       },
       "VerificationGovernmentIdNfcRelationships": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "inquiry": {
@@ -39995,7 +40127,9 @@
         }
       },
       "VerificationPhoneNumberAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -40092,7 +40226,9 @@
         }
       },
       "VerificationSelfieAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -40462,7 +40598,9 @@
         }
       },
       "DocumentGenericAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -40590,7 +40728,9 @@
         }
       },
       "DocumentGovernmentIdAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -40895,7 +41035,9 @@
         }
       },
       "VerificationBankPennydropAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -40981,7 +41123,9 @@
         }
       },
       "VerificationBrandAssetAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -41081,7 +41225,9 @@
         }
       },
       "VerificationBusinessWebsiteAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -41177,7 +41323,9 @@
         }
       },
       "VerificationCertificateKoreaAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -41298,7 +41446,9 @@
         }
       },
       "VerificationCreditCardAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -41384,7 +41534,9 @@
         }
       },
       "VerificationCryptoWalletAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -41500,7 +41652,9 @@
         }
       },
       "VerificationDatabaseAadhaarAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -41608,7 +41762,9 @@
         }
       },
       "VerificationDatabaseBusinessAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -41823,7 +41979,9 @@
         }
       },
       "VerificationDatabaseBusinessFootprintAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -41909,7 +42067,9 @@
         }
       },
       "VerificationDatabaseVatNumberAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -42084,7 +42244,9 @@
         }
       },
       "VerificationDigitalIdConnectIdAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -42170,7 +42332,9 @@
         }
       },
       "VerificationDigitalIdEDoAppAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -42298,7 +42462,9 @@
         }
       },
       "VerificationDigitalIdFinnishTrustNetworkAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -42426,7 +42592,9 @@
         }
       },
       "VerificationDigitalIdFranceIdentiteAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -42554,7 +42722,9 @@
         }
       },
       "VerificationDigitalIdGenericAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -42696,7 +42866,9 @@
         }
       },
       "VerificationDigitalIdIdinAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -42824,7 +42996,9 @@
         }
       },
       "VerificationDigitalIdItsMeAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -43010,7 +43184,9 @@
         }
       },
       "VerificationDigitalIdKcbCreditCardAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -43136,7 +43312,9 @@
         }
       },
       "VerificationDigitalIdMitIdAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -43271,7 +43449,9 @@
         }
       },
       "VerificationDigitalIdNorthernIrelandDriversLicenseCheckCodeAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -43407,7 +43587,9 @@
         }
       },
       "VerificationDigitalIdOneIdAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -43535,7 +43717,9 @@
         }
       },
       "VerificationDigitalIdPhilsysAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -43684,7 +43868,9 @@
         }
       },
       "VerificationDigitalIdSerproAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -43844,7 +44030,9 @@
         }
       },
       "VerificationDigitalIdSingpassAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -44090,7 +44278,9 @@
         }
       },
       "VerificationDigitalIdSwedishBankIdAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -44218,7 +44408,9 @@
         }
       },
       "VerificationDigitalIdUkSharecodeAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -44380,7 +44572,9 @@
         }
       },
       "VerificationDigitalIdWorldIdAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -44466,7 +44660,9 @@
         }
       },
       "VerificationJpMyNumberNfcScanAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -44637,7 +44833,9 @@
         }
       },
       "VerificationMdocAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -44891,7 +45089,9 @@
         }
       },
       "VerificationPersonaFffInquiryAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -44977,7 +45177,9 @@
         }
       },
       "VerificationPhoneNumberSilentNetworkAuthenticationAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -45070,7 +45272,9 @@
         }
       },
       "VerificationQesInfocertAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -45163,7 +45367,9 @@
         }
       },
       "VerificationVerifiableCredentialAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -45282,7 +45488,9 @@
         }
       },
       "WorkflowRelationshipsActiveDeploymentData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -45308,7 +45516,9 @@
         }
       },
       "WorkflowRunRelationshipsCreatorData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -45831,7 +46041,9 @@
         }
       },
       "ListItemBrowserFingerprintAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -45891,7 +46103,9 @@
         }
       },
       "ListItemBrowserFingerprintRelationshipsCreatorData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -45920,7 +46134,9 @@
         }
       },
       "ListItemCountryAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -45978,7 +46194,9 @@
         }
       },
       "ListItemCountryRelationshipsCreatorData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -46007,7 +46225,9 @@
         }
       },
       "ListItemDeviceFingerprintAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -46067,7 +46287,9 @@
         }
       },
       "ListItemDeviceFingerprintRelationshipsCreatorData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -46096,7 +46318,9 @@
         }
       },
       "ListItemEmailAddressAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -46162,7 +46386,9 @@
         }
       },
       "ListItemEmailAddressRelationshipsCreatorData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -46194,7 +46420,9 @@
         }
       },
       "ListItemFieldAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -46251,7 +46479,9 @@
         }
       },
       "ListItemFieldRelationshipsCreatorData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -46280,7 +46510,9 @@
         }
       },
       "ListItemGeolocationAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -46355,7 +46587,9 @@
         }
       },
       "ListItemGeolocationRelationshipsCreatorData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -46387,7 +46621,9 @@
         }
       },
       "ListItemGovernmentIdNumberAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -46453,7 +46689,9 @@
         }
       },
       "ListItemGovernmentIdNumberRelationshipsCreatorData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -46485,7 +46723,9 @@
         }
       },
       "ListItemIpAddressAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -46545,7 +46785,9 @@
         }
       },
       "ListItemIpAddressRelationshipsCreatorData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -46577,7 +46819,9 @@
         }
       },
       "ListItemNameAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -46643,7 +46887,9 @@
         }
       },
       "ListItemNameRelationshipsCreatorData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -46675,7 +46921,9 @@
         }
       },
       "ListItemPhoneNumberAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -46735,7 +46983,9 @@
         }
       },
       "ListItemPhoneNumberRelationshipsCreatorData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -46767,7 +47017,9 @@
         }
       },
       "ListItemStringAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -46824,7 +47076,9 @@
         }
       },
       "ListItemStringRelationshipsCreatorData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -46853,7 +47107,9 @@
         }
       },
       "ListsBrowserFingerprintsAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -46880,7 +47136,9 @@
         }
       },
       "ListsCountriesAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -46907,7 +47165,9 @@
         }
       },
       "ListsEmailAddressesAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -46934,7 +47194,9 @@
         }
       },
       "ListsGeolocationsAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -46961,7 +47223,9 @@
         }
       },
       "ListsGovernmentIdNumbersAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -46988,7 +47252,9 @@
         }
       },
       "ListsIpAddressesAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -47015,7 +47281,9 @@
         }
       },
       "ListsNamesAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -47045,7 +47313,9 @@
         }
       },
       "ReportScreeningAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "status": {
@@ -47125,7 +47395,9 @@
         }
       },
       "ReportAddressLookupRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query"
         ],
@@ -47159,7 +47431,9 @@
         }
       },
       "ReportAdverseMediaRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query"
         ],
@@ -47193,7 +47467,9 @@
         }
       },
       "ReportBusinessAdverseMediaRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query"
         ],
@@ -47227,7 +47503,9 @@
         }
       },
       "ReportBusinessLookupRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query"
         ],
@@ -47261,7 +47539,9 @@
         }
       },
       "ReportBusinessSearchRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query"
         ],
@@ -47295,7 +47575,9 @@
         }
       },
       "ReportBusinessWatchlistRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query"
         ],
@@ -47329,7 +47611,9 @@
         }
       },
       "ReportCryptoAddressWatchlistRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query"
         ],
@@ -47363,7 +47647,9 @@
         }
       },
       "ReportEmailAddressRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query"
         ],
@@ -47397,7 +47683,9 @@
         }
       },
       "ReportPhoneRiskRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query"
         ],
@@ -47431,7 +47719,9 @@
         }
       },
       "ReportPoliticallyExposedPersonRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query"
         ],
@@ -47465,7 +47755,9 @@
         }
       },
       "ReportProfileRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "account-id": {
@@ -47496,7 +47788,9 @@
         }
       },
       "ReportProfileNonAuthoritativeRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query"
         ],
@@ -47530,7 +47824,9 @@
         }
       },
       "ReportScreeningRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query"
         ],
@@ -47564,7 +47860,9 @@
         }
       },
       "ReportSocialMediaRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query"
         ],
@@ -47598,7 +47896,9 @@
         }
       },
       "ReportSyntheticRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query"
         ],
@@ -47632,7 +47932,9 @@
         }
       },
       "ReportWatchlistRequestAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "query"
         ],
@@ -47666,7 +47968,9 @@
         }
       },
       "ReportTemplateScreeningAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -47692,7 +47996,9 @@
         }
       },
       "ReportTemplateWatchlistAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -48184,7 +48490,9 @@
         "additionalProperties": false
       },
       "WebhookAttributesIncludedAllowlist": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "examples": [
           {
             "state": "include_all"
@@ -48212,7 +48520,9 @@
         }
       },
       "WebhookRequestAttributesEnabledEventsItem": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "anyOf": [
           {
@@ -48224,7 +48534,9 @@
         ]
       },
       "WebhookWithSecretAttributesIncludedAllowlist": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "examples": [
           {
             "state": "include_all"
@@ -54179,10 +54491,11 @@
             "examples": [
               "pending",
               "active",
-              "inactive"
+              "inactive",
+              "archived"
             ],
             "type": "string",
-            "description": "The current status of the connection. One of \u0060pending\u0060, \u0060active\u0060, or \u0060inactive\u0060."
+            "description": "The current status of the connection. One of \u0060pending\u0060, \u0060active\u0060, \u0060inactive\u0060, or \u0060archived\u0060. An \u0060archived\u0060 connection is never listed or retrievable directly; it only appears as the connection of an existing share token."
           },
           "destination-organization-id": {
             "examples": [
@@ -69272,7 +69585,9 @@
         "additionalProperties": false
       },
       "CreateAccessTokenXWwwFormUrlencodedRequest": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "code": {
@@ -72816,7 +73131,9 @@
         "format": "binary"
       },
       "AccountsListAllRelations200ResponseDataItem": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -72836,7 +73153,9 @@
         }
       },
       "SearchAccountsRequestQueryValue": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -72853,7 +73172,9 @@
         "x-inheritable": true
       },
       "SearchCasesRequestQueryValue": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -72870,7 +73191,9 @@
         "x-inheritable": true
       },
       "CreateAnInquiryRequestDataAttributesFields": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -73005,7 +73328,9 @@
         "description": "JSON key-value pairs of field name to field value. Schema is defined by your Inquiry Template."
       },
       "UpdateAnInquiryRequestDataAttributesFields": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -73140,7 +73465,9 @@
         "description": "JSON key-value pairs of field name to field value. Schema is defined by your Inquiry Template."
       },
       "InquiriesPerformSimulateActionsRequestMetaSimulateActionsItem": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "anyOf": [
           {
@@ -73157,7 +73484,9 @@
         }
       },
       "SearchInquiriesRequestQueryValue": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -73174,7 +73503,9 @@
         "x-inheritable": true
       },
       "CreateAReportRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "anyOf": [
           {
@@ -73228,7 +73559,9 @@
         ]
       },
       "SearchWebhookEventsRequestQueryValue": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "oneOf": [
           {
@@ -73844,7 +74177,9 @@
         "additionalProperties": false
       },
       "SearchAccountsRequestQuery": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "examples": [
           {
             "attribute": "created_at",
@@ -74397,7 +74732,9 @@
         "additionalProperties": false
       },
       "SearchCasesRequestQuery": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "examples": [
           {
             "attribute": "created_at",
@@ -74908,7 +75245,9 @@
         "additionalProperties": false
       },
       "SearchInquiriesRequestQuery": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "examples": [
           {
             "attribute": "created_at",
@@ -75843,7 +76182,9 @@
         "additionalProperties": false
       },
       "SearchWebhookEventsRequestQuery": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "examples": [
           {
             "attribute": "status",
@@ -76097,7 +76438,9 @@
         "additionalProperties": false
       },
       "WebhookAccountCreatedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76116,7 +76459,9 @@
         }
       },
       "WebhookAccountRedactedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76135,7 +76480,9 @@
         }
       },
       "WebhookAccountArchivedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76154,7 +76501,9 @@
         }
       },
       "WebhookAccountRestoredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76173,7 +76522,9 @@
         }
       },
       "WebhookAccountConsolidatedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76192,7 +76543,9 @@
         }
       },
       "WebhookAccountConsolidatedWithRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76211,7 +76564,9 @@
         }
       },
       "WebhookAccountTagAddedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76230,7 +76585,9 @@
         }
       },
       "WebhookAccountTagRemovedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76249,7 +76606,9 @@
         }
       },
       "WebhookAccountAddedRelationRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76268,7 +76627,9 @@
         }
       },
       "WebhookAccountRemovedRelationRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76287,7 +76648,9 @@
         }
       },
       "WebhookAccountStatusUpdatedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76306,7 +76669,9 @@
         }
       },
       "WebhookAccountUpdatedFieldsRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76325,7 +76690,9 @@
         }
       },
       "WebhookAccountUpdatedTagsRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76344,7 +76711,9 @@
         }
       },
       "WebhookCaseAssignedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76363,7 +76732,9 @@
         }
       },
       "WebhookCaseCreatedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76382,7 +76753,9 @@
         }
       },
       "WebhookCaseExportedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76401,7 +76774,9 @@
         }
       },
       "WebhookCaseQueueUpdatedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76420,7 +76795,9 @@
         }
       },
       "WebhookCaseRedactedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76439,7 +76816,9 @@
         }
       },
       "WebhookCaseReopenedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76458,7 +76837,9 @@
         }
       },
       "WebhookCaseResolvedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76477,7 +76858,9 @@
         }
       },
       "WebhookCaseSlaExpiredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76496,7 +76879,9 @@
         }
       },
       "WebhookCaseStatusUpdatedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76515,7 +76900,9 @@
         }
       },
       "WebhookCaseUpdatedFieldsRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76534,7 +76921,9 @@
         }
       },
       "WebhookCaseUpdatedTagsRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76553,7 +76942,9 @@
         }
       },
       "WebhookDocumentCreatedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76572,7 +76963,9 @@
         }
       },
       "WebhookDocumentSubmittedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76591,7 +76984,9 @@
         }
       },
       "WebhookDocumentProcessedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76610,7 +77005,9 @@
         }
       },
       "WebhookDocumentErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76629,7 +77026,9 @@
         }
       },
       "WebhookDocumentExtractedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76648,7 +77047,9 @@
         }
       },
       "WebhookDocumentPendingRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76667,7 +77068,9 @@
         }
       },
       "WebhookGraphQueryCancelledRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76686,7 +77089,9 @@
         }
       },
       "WebhookGraphQueryCompletedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76705,7 +77110,9 @@
         }
       },
       "WebhookGraphQueryErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76724,7 +77131,9 @@
         }
       },
       "WebhookGraphQueryReranRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76743,7 +77152,9 @@
         }
       },
       "WebhookGraphQueryTimedOutRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76762,7 +77173,9 @@
         }
       },
       "WebhookInquiryCreatedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76781,7 +77194,9 @@
         }
       },
       "WebhookInquiryStartedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76800,7 +77215,9 @@
         }
       },
       "WebhookInquiryExpiredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76819,7 +77236,9 @@
         }
       },
       "WebhookInquiryCompletedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76838,7 +77257,9 @@
         }
       },
       "WebhookInquiryFailedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76857,7 +77278,9 @@
         }
       },
       "WebhookInquiryMarkedForReviewRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76876,7 +77299,9 @@
         }
       },
       "WebhookInquiryApprovedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76895,7 +77320,9 @@
         }
       },
       "WebhookInquiryDeclinedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76914,7 +77341,9 @@
         }
       },
       "WebhookInquiryTransitionedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76933,7 +77362,9 @@
         }
       },
       "WebhookInquiryRedactedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76952,7 +77383,9 @@
         }
       },
       "WebhookInquiryReusablePersonaCreatedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76971,7 +77404,9 @@
         }
       },
       "WebhookInquiryReusablePersonaUsedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -76990,7 +77425,9 @@
         }
       },
       "WebhookInquiryUpdatedTagsRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77009,7 +77446,9 @@
         }
       },
       "WebhookInquirySessionStartedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77028,7 +77467,9 @@
         }
       },
       "WebhookInquirySessionExpiredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77047,7 +77488,9 @@
         }
       },
       "WebhookInquirySessionCanceledRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77066,7 +77509,9 @@
         }
       },
       "WebhookImporterPipelineRunCanceledRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77085,7 +77530,9 @@
         }
       },
       "WebhookImporterPipelineRunCompletedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77104,7 +77551,9 @@
         }
       },
       "WebhookImporterPipelineRunErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77123,7 +77572,9 @@
         }
       },
       "WebhookImporterPipelineRunPausedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77142,7 +77593,9 @@
         }
       },
       "WebhookImporterPipelineRunResumedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77161,7 +77614,9 @@
         }
       },
       "WebhookImporterPipelineRunStartedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77180,7 +77635,9 @@
         }
       },
       "WebhookBatchJobCanceledRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77199,7 +77656,9 @@
         }
       },
       "WebhookBatchJobCompletedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77218,7 +77677,9 @@
         }
       },
       "WebhookBatchJobErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77237,7 +77698,9 @@
         }
       },
       "WebhookBatchJobPausedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77256,7 +77719,9 @@
         }
       },
       "WebhookBatchJobResumedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77275,7 +77740,9 @@
         }
       },
       "WebhookBatchJobStartedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77294,7 +77761,9 @@
         }
       },
       "WebhookReportAddressLookupReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77313,7 +77782,9 @@
         }
       },
       "WebhookReportAddressLookupErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77332,7 +77803,9 @@
         }
       },
       "WebhookReportAddressLookupSubmittedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77351,7 +77824,9 @@
         }
       },
       "WebhookReportAdverseMediaReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77370,7 +77845,9 @@
         }
       },
       "WebhookReportAdverseMediaErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77389,7 +77866,9 @@
         }
       },
       "WebhookReportAdverseMediaMatchedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77408,7 +77887,9 @@
         }
       },
       "WebhookReportAdverseMediaDismissedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77427,7 +77908,9 @@
         }
       },
       "WebhookReportBusinessAdverseMediaReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77446,7 +77929,9 @@
         }
       },
       "WebhookReportBusinessAdverseMediaErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77465,7 +77950,9 @@
         }
       },
       "WebhookReportBusinessAdverseMediaMatchedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77484,7 +77971,9 @@
         }
       },
       "WebhookReportBusinessAdverseMediaDismissedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77503,7 +77992,9 @@
         }
       },
       "WebhookReportBusinessAssociatedPersonsReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77522,7 +78013,9 @@
         }
       },
       "WebhookReportBusinessAssociatedPersonsErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77541,7 +78034,9 @@
         }
       },
       "WebhookReportBusinessLookupReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77560,7 +78055,9 @@
         }
       },
       "WebhookReportBusinessLookupErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77579,7 +78076,9 @@
         }
       },
       "WebhookReportBusinessRegistrationsLookupReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77598,7 +78097,9 @@
         }
       },
       "WebhookReportBusinessRegistrationsLookupErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77617,7 +78118,9 @@
         }
       },
       "WebhookReportBusinessWatchlistReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77636,7 +78139,9 @@
         }
       },
       "WebhookReportBusinessWatchlistErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77655,7 +78160,9 @@
         }
       },
       "WebhookReportBusinessWatchlistMatchedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77674,7 +78181,9 @@
         }
       },
       "WebhookReportBusinessWatchlistDismissedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77693,7 +78202,9 @@
         }
       },
       "WebhookReportCryptoAddressWatchlistReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77712,7 +78223,9 @@
         }
       },
       "WebhookReportCryptoAddressWatchlistErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77731,7 +78244,9 @@
         }
       },
       "WebhookReportCryptoAddressWatchlistMatchedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77750,7 +78265,9 @@
         }
       },
       "WebhookReportEmailAddressReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77769,7 +78286,9 @@
         }
       },
       "WebhookReportEmailAddressErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77788,7 +78307,9 @@
         }
       },
       "WebhookReportPhoneNumberReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77807,7 +78328,9 @@
         }
       },
       "WebhookReportPhoneNumberErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77826,7 +78349,9 @@
         }
       },
       "WebhookReportPoliticallyExposedPersonReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77845,7 +78370,9 @@
         }
       },
       "WebhookReportPoliticallyExposedPersonErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77864,7 +78391,9 @@
         }
       },
       "WebhookReportPoliticallyExposedPersonMatchedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77883,7 +78412,9 @@
         }
       },
       "WebhookReportPoliticallyExposedPersonDismissedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77902,7 +78433,9 @@
         }
       },
       "WebhookReportProfileReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77921,7 +78454,9 @@
         }
       },
       "WebhookReportProfileErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77940,7 +78475,9 @@
         }
       },
       "WebhookReportProfileNonAuthoritativeReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77959,7 +78496,9 @@
         }
       },
       "WebhookReportProfileNonAuthoritativeErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77978,7 +78517,9 @@
         }
       },
       "WebhookReportScreeningReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -77997,7 +78538,9 @@
         }
       },
       "WebhookReportScreeningMatchedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78016,7 +78559,9 @@
         }
       },
       "WebhookReportScreeningReviewedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78035,7 +78580,9 @@
         }
       },
       "WebhookReportScreeningErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78054,7 +78601,9 @@
         }
       },
       "WebhookReportSentilinkScoresReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78073,7 +78622,9 @@
         }
       },
       "WebhookReportSentilinkScoresErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78092,7 +78643,9 @@
         }
       },
       "WebhookReportSocialMediaReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78111,7 +78664,9 @@
         }
       },
       "WebhookReportSocialMediaErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78130,7 +78685,9 @@
         }
       },
       "WebhookReportSyntheticReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78149,7 +78706,9 @@
         }
       },
       "WebhookReportSyntheticErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78168,7 +78727,9 @@
         }
       },
       "WebhookReportWatchlistReadyRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78187,7 +78748,9 @@
         }
       },
       "WebhookReportWatchlistErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78206,7 +78769,9 @@
         }
       },
       "WebhookReportWatchlistMatchedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78225,7 +78790,9 @@
         }
       },
       "WebhookReportWatchlistDismissedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78244,7 +78811,9 @@
         }
       },
       "WebhookSelfieCreatedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78263,7 +78832,9 @@
         }
       },
       "WebhookSelfieSubmittedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78282,7 +78853,9 @@
         }
       },
       "WebhookSelfieProcessedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78301,7 +78874,9 @@
         }
       },
       "WebhookSelfieErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78320,7 +78895,9 @@
         }
       },
       "WebhookTransactionCreatedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78339,7 +78916,9 @@
         }
       },
       "WebhookTransactionStatusUpdatedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78358,7 +78937,9 @@
         }
       },
       "WebhookTransactionUpdatedFieldsRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78377,7 +78958,9 @@
         }
       },
       "WebhookTransactionLabeledRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78396,7 +78979,9 @@
         }
       },
       "WebhookTransactionRedactedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78415,7 +79000,9 @@
         }
       },
       "WebhookTransactionAddedRelationRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78434,7 +79021,9 @@
         }
       },
       "WebhookTransactionRemovedRelationRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78453,7 +79042,9 @@
         }
       },
       "WebhookTransactionSentinelSessionProcessedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78472,7 +79063,9 @@
         }
       },
       "WebhookTransactionTypeDeletedFieldRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78491,7 +79084,9 @@
         }
       },
       "WebhookVerificationCanceledRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78510,7 +79105,9 @@
         }
       },
       "WebhookVerificationCreatedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78529,7 +79126,9 @@
         }
       },
       "WebhookVerificationEscalatedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78548,7 +79147,9 @@
         }
       },
       "WebhookVerificationFailedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78567,7 +79168,9 @@
         }
       },
       "WebhookVerificationPassedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78586,7 +79189,9 @@
         }
       },
       "WebhookVerificationRequiresRetryRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78605,7 +79210,9 @@
         }
       },
       "WebhookVerificationSkippedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78624,7 +79231,9 @@
         }
       },
       "WebhookVerificationSubmittedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78643,7 +79252,9 @@
         }
       },
       "WebhookVerificationTentativelyFailedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78662,7 +79273,9 @@
         }
       },
       "WebhookVerificationTentativelyPassedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78681,7 +79294,9 @@
         }
       },
       "WebhookVerificationUpdatedTagsRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78700,7 +79315,9 @@
         }
       },
       "WebhookWorkflowRunCompletedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78719,7 +79336,9 @@
         }
       },
       "WebhookWorkflowRunCreatedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78738,7 +79357,9 @@
         }
       },
       "WebhookWorkflowRunErroredRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78757,7 +79378,9 @@
         }
       },
       "WebhookWorkflowRunResumedRequestData": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "type": {
@@ -78798,7 +79421,9 @@
         }
       },
       "CreateAnAccountRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "account-type-id": {
@@ -78924,7 +79549,9 @@
         }
       },
       "UpdateAnAccountRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "reference-id": {
@@ -79059,7 +79686,9 @@
         "type": "object"
       },
       "CreateAConnectConnectionRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "required": [
           "destination-organization-id"
         ],
@@ -79896,7 +80525,9 @@
         "additionalProperties": false
       },
       "WebhookAccountCreatedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -79916,7 +80547,9 @@
         }
       },
       "WebhookAccountRedactedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -79936,7 +80569,9 @@
         }
       },
       "WebhookAccountArchivedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -79956,7 +80591,9 @@
         }
       },
       "WebhookAccountRestoredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -79976,7 +80613,9 @@
         }
       },
       "WebhookAccountConsolidatedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -79996,7 +80635,9 @@
         }
       },
       "WebhookAccountConsolidatedWithRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80016,7 +80657,9 @@
         }
       },
       "WebhookAccountTagAddedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80036,7 +80679,9 @@
         }
       },
       "WebhookAccountTagRemovedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80056,7 +80701,9 @@
         }
       },
       "WebhookAccountAddedRelationRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80079,7 +80726,9 @@
         }
       },
       "WebhookAccountRemovedRelationRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80102,7 +80751,9 @@
         }
       },
       "WebhookAccountStatusUpdatedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80122,7 +80773,9 @@
         }
       },
       "WebhookAccountUpdatedFieldsRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80142,7 +80795,9 @@
         }
       },
       "WebhookAccountUpdatedTagsRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80165,7 +80820,9 @@
         }
       },
       "WebhookCaseAssignedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80185,7 +80842,9 @@
         }
       },
       "WebhookCaseCreatedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80205,7 +80864,9 @@
         }
       },
       "WebhookCaseExportedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80225,7 +80886,9 @@
         }
       },
       "WebhookCaseQueueUpdatedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80245,7 +80908,9 @@
         }
       },
       "WebhookCaseRedactedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80265,7 +80930,9 @@
         }
       },
       "WebhookCaseReopenedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80285,7 +80952,9 @@
         }
       },
       "WebhookCaseResolvedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80305,7 +80974,9 @@
         }
       },
       "WebhookCaseSlaExpiredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80325,7 +80996,9 @@
         }
       },
       "WebhookCaseStatusUpdatedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80345,7 +81018,9 @@
         }
       },
       "WebhookCaseUpdatedFieldsRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80365,7 +81040,9 @@
         }
       },
       "WebhookCaseUpdatedTagsRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80388,7 +81065,9 @@
         }
       },
       "WebhookDocumentCreatedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80408,7 +81087,9 @@
         }
       },
       "WebhookDocumentSubmittedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80428,7 +81109,9 @@
         }
       },
       "WebhookDocumentProcessedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80448,7 +81131,9 @@
         }
       },
       "WebhookDocumentErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80468,7 +81153,9 @@
         }
       },
       "WebhookDocumentExtractedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80488,7 +81175,9 @@
         }
       },
       "WebhookDocumentPendingRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80508,7 +81197,9 @@
         }
       },
       "WebhookGraphQueryCancelledRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80528,7 +81219,9 @@
         }
       },
       "WebhookGraphQueryCompletedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80548,7 +81241,9 @@
         }
       },
       "WebhookGraphQueryErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80568,7 +81263,9 @@
         }
       },
       "WebhookGraphQueryReranRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80588,7 +81285,9 @@
         }
       },
       "WebhookGraphQueryTimedOutRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80608,7 +81307,9 @@
         }
       },
       "WebhookInquiryCreatedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80628,7 +81329,9 @@
         }
       },
       "WebhookInquiryStartedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80648,7 +81351,9 @@
         }
       },
       "WebhookInquiryExpiredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80668,7 +81373,9 @@
         }
       },
       "WebhookInquiryCompletedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80688,7 +81395,9 @@
         }
       },
       "WebhookInquiryFailedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80708,7 +81417,9 @@
         }
       },
       "WebhookInquiryMarkedForReviewRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80728,7 +81439,9 @@
         }
       },
       "WebhookInquiryApprovedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80748,7 +81461,9 @@
         }
       },
       "WebhookInquiryDeclinedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80768,7 +81483,9 @@
         }
       },
       "WebhookInquiryTransitionedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80788,7 +81505,9 @@
         }
       },
       "WebhookInquiryRedactedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80808,7 +81527,9 @@
         }
       },
       "WebhookInquiryReusablePersonaCreatedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80828,7 +81549,9 @@
         }
       },
       "WebhookInquiryReusablePersonaUsedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80848,7 +81571,9 @@
         }
       },
       "WebhookInquiryUpdatedTagsRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80871,7 +81596,9 @@
         }
       },
       "WebhookInquirySessionStartedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80891,7 +81618,9 @@
         }
       },
       "WebhookInquirySessionExpiredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80911,7 +81640,9 @@
         }
       },
       "WebhookInquirySessionCanceledRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80931,7 +81662,9 @@
         }
       },
       "WebhookImporterPipelineRunCanceledRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80951,7 +81684,9 @@
         }
       },
       "WebhookImporterPipelineRunCompletedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80971,7 +81706,9 @@
         }
       },
       "WebhookImporterPipelineRunErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -80991,7 +81728,9 @@
         }
       },
       "WebhookImporterPipelineRunPausedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81011,7 +81750,9 @@
         }
       },
       "WebhookImporterPipelineRunResumedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81031,7 +81772,9 @@
         }
       },
       "WebhookImporterPipelineRunStartedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81051,7 +81794,9 @@
         }
       },
       "WebhookBatchJobCanceledRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81071,7 +81816,9 @@
         }
       },
       "WebhookBatchJobCompletedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81091,7 +81838,9 @@
         }
       },
       "WebhookBatchJobErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81111,7 +81860,9 @@
         }
       },
       "WebhookBatchJobPausedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81131,7 +81882,9 @@
         }
       },
       "WebhookBatchJobResumedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81151,7 +81904,9 @@
         }
       },
       "WebhookBatchJobStartedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81171,7 +81926,9 @@
         }
       },
       "WebhookReportAddressLookupReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81191,7 +81948,9 @@
         }
       },
       "WebhookReportAddressLookupErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81211,7 +81970,9 @@
         }
       },
       "WebhookReportAddressLookupSubmittedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81231,7 +81992,9 @@
         }
       },
       "WebhookReportAdverseMediaReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81251,7 +82014,9 @@
         }
       },
       "WebhookReportAdverseMediaErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81271,7 +82036,9 @@
         }
       },
       "WebhookReportAdverseMediaMatchedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81291,7 +82058,9 @@
         }
       },
       "WebhookReportAdverseMediaDismissedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81311,7 +82080,9 @@
         }
       },
       "WebhookReportBusinessAdverseMediaReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81331,7 +82102,9 @@
         }
       },
       "WebhookReportBusinessAdverseMediaErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81351,7 +82124,9 @@
         }
       },
       "WebhookReportBusinessAdverseMediaMatchedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81371,7 +82146,9 @@
         }
       },
       "WebhookReportBusinessAdverseMediaDismissedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81391,7 +82168,9 @@
         }
       },
       "WebhookReportBusinessAssociatedPersonsReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81411,7 +82190,9 @@
         }
       },
       "WebhookReportBusinessAssociatedPersonsErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81431,7 +82212,9 @@
         }
       },
       "WebhookReportBusinessLookupReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81451,7 +82234,9 @@
         }
       },
       "WebhookReportBusinessLookupErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81471,7 +82256,9 @@
         }
       },
       "WebhookReportBusinessRegistrationsLookupReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81491,7 +82278,9 @@
         }
       },
       "WebhookReportBusinessRegistrationsLookupErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81511,7 +82300,9 @@
         }
       },
       "WebhookReportBusinessWatchlistReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81531,7 +82322,9 @@
         }
       },
       "WebhookReportBusinessWatchlistErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81551,7 +82344,9 @@
         }
       },
       "WebhookReportBusinessWatchlistMatchedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81571,7 +82366,9 @@
         }
       },
       "WebhookReportBusinessWatchlistDismissedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81591,7 +82388,9 @@
         }
       },
       "WebhookReportCryptoAddressWatchlistReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81611,7 +82410,9 @@
         }
       },
       "WebhookReportCryptoAddressWatchlistErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81631,7 +82432,9 @@
         }
       },
       "WebhookReportCryptoAddressWatchlistMatchedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81651,7 +82454,9 @@
         }
       },
       "WebhookReportEmailAddressReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81671,7 +82476,9 @@
         }
       },
       "WebhookReportEmailAddressErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81691,7 +82498,9 @@
         }
       },
       "WebhookReportPhoneNumberReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81711,7 +82520,9 @@
         }
       },
       "WebhookReportPhoneNumberErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81731,7 +82542,9 @@
         }
       },
       "WebhookReportPoliticallyExposedPersonReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81751,7 +82564,9 @@
         }
       },
       "WebhookReportPoliticallyExposedPersonErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81771,7 +82586,9 @@
         }
       },
       "WebhookReportPoliticallyExposedPersonMatchedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81791,7 +82608,9 @@
         }
       },
       "WebhookReportPoliticallyExposedPersonDismissedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81811,7 +82630,9 @@
         }
       },
       "WebhookReportProfileReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81831,7 +82652,9 @@
         }
       },
       "WebhookReportProfileErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81851,7 +82674,9 @@
         }
       },
       "WebhookReportProfileNonAuthoritativeReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81871,7 +82696,9 @@
         }
       },
       "WebhookReportProfileNonAuthoritativeErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81891,7 +82718,9 @@
         }
       },
       "WebhookReportScreeningReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81914,7 +82743,9 @@
         }
       },
       "WebhookReportScreeningMatchedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81937,7 +82768,9 @@
         }
       },
       "WebhookReportScreeningReviewedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81960,7 +82793,9 @@
         }
       },
       "WebhookReportScreeningErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -81983,7 +82818,9 @@
         }
       },
       "WebhookReportSentilinkScoresReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82003,7 +82840,9 @@
         }
       },
       "WebhookReportSentilinkScoresErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82023,7 +82862,9 @@
         }
       },
       "WebhookReportSocialMediaReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82043,7 +82884,9 @@
         }
       },
       "WebhookReportSocialMediaErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82063,7 +82906,9 @@
         }
       },
       "WebhookReportSyntheticReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82083,7 +82928,9 @@
         }
       },
       "WebhookReportSyntheticErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82103,7 +82950,9 @@
         }
       },
       "WebhookReportWatchlistReadyRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82123,7 +82972,9 @@
         }
       },
       "WebhookReportWatchlistErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82143,7 +82994,9 @@
         }
       },
       "WebhookReportWatchlistMatchedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82163,7 +83016,9 @@
         }
       },
       "WebhookReportWatchlistDismissedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82183,7 +83038,9 @@
         }
       },
       "WebhookSelfieCreatedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82203,7 +83060,9 @@
         }
       },
       "WebhookSelfieSubmittedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82223,7 +83082,9 @@
         }
       },
       "WebhookSelfieProcessedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82243,7 +83104,9 @@
         }
       },
       "WebhookSelfieErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82263,7 +83126,9 @@
         }
       },
       "WebhookTransactionCreatedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82283,7 +83148,9 @@
         }
       },
       "WebhookTransactionStatusUpdatedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82303,7 +83170,9 @@
         }
       },
       "WebhookTransactionUpdatedFieldsRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82323,7 +83192,9 @@
         }
       },
       "WebhookTransactionLabeledRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82343,7 +83214,9 @@
         }
       },
       "WebhookTransactionRedactedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82363,7 +83236,9 @@
         }
       },
       "WebhookTransactionAddedRelationRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82386,7 +83261,9 @@
         }
       },
       "WebhookTransactionRemovedRelationRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82409,7 +83286,9 @@
         }
       },
       "WebhookTransactionSentinelSessionProcessedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82429,7 +83308,9 @@
         }
       },
       "WebhookTransactionTypeDeletedFieldRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82449,7 +83330,9 @@
         }
       },
       "WebhookVerificationCanceledRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82469,7 +83352,9 @@
         }
       },
       "WebhookVerificationCreatedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82489,7 +83374,9 @@
         }
       },
       "WebhookVerificationEscalatedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82509,7 +83396,9 @@
         }
       },
       "WebhookVerificationFailedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82529,7 +83418,9 @@
         }
       },
       "WebhookVerificationPassedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82549,7 +83440,9 @@
         }
       },
       "WebhookVerificationRequiresRetryRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82569,7 +83462,9 @@
         }
       },
       "WebhookVerificationSkippedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82589,7 +83484,9 @@
         }
       },
       "WebhookVerificationSubmittedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82609,7 +83506,9 @@
         }
       },
       "WebhookVerificationTentativelyFailedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82629,7 +83528,9 @@
         }
       },
       "WebhookVerificationTentativelyPassedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82649,7 +83550,9 @@
         }
       },
       "WebhookVerificationUpdatedTagsRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82672,7 +83575,9 @@
         }
       },
       "WebhookWorkflowRunCompletedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82695,7 +83600,9 @@
         }
       },
       "WebhookWorkflowRunCreatedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82718,7 +83625,9 @@
         }
       },
       "WebhookWorkflowRunErroredRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {
@@ -82741,7 +83650,9 @@
         }
       },
       "WebhookWorkflowRunResumedRequestDataAttributes": {
-        "unevaluatedProperties": false,
+        "unevaluatedProperties": {
+          "not": {}
+        },
         "type": "object",
         "properties": {
           "name": {

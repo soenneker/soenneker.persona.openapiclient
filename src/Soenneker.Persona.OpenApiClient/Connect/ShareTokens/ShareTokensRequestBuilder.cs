@@ -87,6 +87,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.ShareTokens
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
@@ -106,6 +107,7 @@ namespace Soenneker.Persona.OpenApiClient.Connect.ShareTokens
                 { "400", global::Soenneker.Persona.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },

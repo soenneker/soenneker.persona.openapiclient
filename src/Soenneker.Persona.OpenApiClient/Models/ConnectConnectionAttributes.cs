@@ -30,7 +30,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string SourceOrganizationId { get; set; }
 #endif
-        /// <summary>The current status of the connection. One of `pending`, `active`, or `inactive`.</summary>
+        /// <summary>The current status of the connection. One of `pending`, `active`, `inactive`, or `archived`. An `archived` connection is never listed or retrievable directly; it only appears as the connection of an existing share token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }

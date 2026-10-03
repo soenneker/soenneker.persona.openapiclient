@@ -100,6 +100,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<string> Tags { get; set; }
 #endif
+        /// <summary>The search term for the business watchlist report, typically the name of the business.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Term { get; set; }
+#nullable restore
+#else
+        public string Term { get; set; }
+#endif
         /// <summary>Detailed information about matches found on warning lists.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -146,6 +154,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "sanction-list", n => { SanctionList = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2SanctionListItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2SanctionListItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "term", n => { Term = n.GetStringValue(); } },
                 { "warning-list", n => { WarningList = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2WarningListItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2WarningListItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -169,6 +178,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2SanctionListItem>("sanction-list", SanctionList);
             writer.WriteStringValue("status", Status);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            writer.WriteStringValue("term", Term);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlistAttributesAllOf2WarningListItem>("warning-list", WarningList);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf4"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf4"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf5"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowRunRelationshipsCreatorData : IComposedTypeWrapper, IParsable
@@ -45,6 +45,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf4 WorkflowRunRelationshipsCreatorDataOneOf4 { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf5"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf5? WorkflowRunRelationshipsCreatorDataOneOf5 { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf5 WorkflowRunRelationshipsCreatorDataOneOf5 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -66,6 +74,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if("WorkflowRunRelationshipsCreatorDataOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.WorkflowRunRelationshipsCreatorDataOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf4();
+            }
+            else if("WorkflowRunRelationshipsCreatorDataOneOf5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.WorkflowRunRelationshipsCreatorDataOneOf5 = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf5();
             }
             return result;
         }
@@ -91,6 +103,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 return WorkflowRunRelationshipsCreatorDataOneOf4.GetFieldDeserializers();
             }
+            else if(WorkflowRunRelationshipsCreatorDataOneOf5 != null)
+            {
+                return WorkflowRunRelationshipsCreatorDataOneOf5.GetFieldDeserializers();
+            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -115,6 +131,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if(WorkflowRunRelationshipsCreatorDataOneOf4 != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf4>(null, WorkflowRunRelationshipsCreatorDataOneOf4);
+            }
+            else if(WorkflowRunRelationshipsCreatorDataOneOf5 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf5>(null, WorkflowRunRelationshipsCreatorDataOneOf5);
             }
         }
     }

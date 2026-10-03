@@ -34024,6 +34024,25 @@
         "additionalProperties": false,
         "description": "A Workflow Version object"
       },
+      "ScheduledRun": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ScheduledRunType"
+          },
+          "id": {
+            "examples": [
+              "srrun_3VghhbvDc7UuUNT8uZrqZjsk"
+            ],
+            "type": "string"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ScheduledRunAttributes"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Scheduled Run object"
+      },
       "WorkflowRunIncludedObjects": {
         "type": "array",
         "items": {
@@ -36522,6 +36541,14 @@
               "example": "tag1"
             },
             "description": "Tags on the report"
+          },
+          "term": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The search term for the business watchlist report, typically the name of the business.",
+            "example": "Acme Corporation"
           },
           "matched-lists": {
             "type": "array",
@@ -45532,6 +45559,9 @@
           },
           {
             "$ref": "#/components/schemas/WorkflowRunRelationshipsCreatorDataOneOf4"
+          },
+          {
+            "$ref": "#/components/schemas/WorkflowRunRelationshipsCreatorDataOneOf5"
           }
         ],
         "properties": {
@@ -48580,6 +48610,9 @@
           },
           {
             "$ref": "#/components/schemas/User"
+          },
+          {
+            "$ref": "#/components/schemas/ScheduledRun"
           }
         ],
         "properties": {
@@ -48600,10 +48633,12 @@
             "workflow-version": "#/components/schemas/WorkflowVersion",
             "event": "#/components/schemas/EventType",
             "user": "#/components/schemas/User",
+            "scheduled-run": "#/components/schemas/ScheduledRun",
             "Workflow": "#/components/schemas/Workflow",
             "WorkflowVersion": "#/components/schemas/WorkflowVersion",
             "EventType": "#/components/schemas/EventType",
-            "User": "#/components/schemas/User"
+            "User": "#/components/schemas/User",
+            "ScheduledRun": "#/components/schemas/ScheduledRun"
           }
         }
       },
@@ -49438,6 +49473,14 @@
       "ReportBusinessWatchlistAttributesAllOf2": {
         "type": "object",
         "properties": {
+          "term": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The search term for the business watchlist report, typically the name of the business.",
+            "example": "Acme Corporation"
+          },
           "matched-lists": {
             "type": "array",
             "items": {
@@ -53103,6 +53146,21 @@
           "id": {
             "examples": [
               "evt_3VghhbvDc7UuUNT8uZrqZjsk"
+            ],
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WorkflowRunRelationshipsCreatorDataOneOf5": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ScheduledRunType"
+          },
+          "id": {
+            "examples": [
+              "srrun_3VghhbvDc7UuUNT8uZrqZjsk"
             ],
             "type": "string"
           }
@@ -57625,6 +57683,65 @@
         "properties": {
           "workflow": {
             "$ref": "#/components/schemas/WorkflowVersionRelationshipsWorkflow"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ScheduledRunAttributes": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "examples": [
+              "finished"
+            ],
+            "type": "string"
+          },
+          "scheduled-at": {
+            "examples": [
+              "2022-08-08T18:55:44.910Z"
+            ],
+            "type": "string",
+            "format": "date-time"
+          },
+          "started-at": {
+            "examples": [
+              "2022-08-08T18:55:44.910Z"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "finished-at": {
+            "examples": [
+              "2022-08-08T18:55:44.910Z"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "errored-at": {
+            "examples": [
+              null
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "canceled-at": {
+            "examples": [
+              null
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -89289,6 +89406,23 @@
             {
               "value": "workflow-version",
               "name": "WorkflowVersion"
+            }
+          ]
+        }
+      },
+      "ScheduledRunType": {
+        "const": null,
+        "enum": [
+          "scheduled-run"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ScheduledRunType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "scheduled-run",
+              "name": "ScheduledRun"
             }
           ]
         }

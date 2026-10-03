@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.EventType"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.User"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersion"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.EventType"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ScheduledRun"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.User"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.Workflow"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersion"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowRunIncludedObjectsItem : IComposedTypeWrapper, IParsable
@@ -20,6 +20,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.EventType EventType { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ScheduledRun"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ScheduledRun? ScheduledRun { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ScheduledRun ScheduledRun { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.User"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,6 +67,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 result.EventType = new global::Soenneker.Persona.OpenApiClient.Models.EventType();
             }
+            else if("scheduled-run".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ScheduledRun = new global::Soenneker.Persona.OpenApiClient.Models.ScheduledRun();
+            }
             else if("user".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.User = new global::Soenneker.Persona.OpenApiClient.Models.User();
@@ -82,6 +94,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(EventType != null)
             {
                 return EventType.GetFieldDeserializers();
+            }
+            else if(ScheduledRun != null)
+            {
+                return ScheduledRun.GetFieldDeserializers();
             }
             else if(User != null)
             {
@@ -107,6 +123,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(EventType != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.EventType>(null, EventType);
+            }
+            else if(ScheduledRun != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ScheduledRun>(null, ScheduledRun);
             }
             else if(User != null)
             {

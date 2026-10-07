@@ -27363,9 +27363,11 @@
     "schemas": {
       "ApiVersion": {
         "examples": [
+          "2026-09-29",
           "2025-12-08"
         ],
         "enum": [
+          "2026-09-29",
           "2025-12-08",
           "2025-10-27",
           "2023-01-05",
@@ -27382,6 +27384,10 @@
           "name": "ApiVersion",
           "modelAsString": false,
           "values": [
+            {
+              "value": "2026-09-29",
+              "name": "Value20260929"
+            },
             {
               "value": "2025-12-08",
               "name": "Value20251208"
@@ -30206,6 +30212,41 @@
         },
         "additionalProperties": false,
         "description": "An Inquiry Template object"
+      },
+      "DeploymentRouteCriteria": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf2"
+          },
+          {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf3"
+          },
+          {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf4"
+          }
+        ],
+        "properties": {
+          "and": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf1And"
+          },
+          "or": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf2Or"
+          },
+          "!": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf3Composed"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf4Origin"
+          }
+        },
+        "description": "A deployment route criteria node: an \u0060and\u0060/\u0060or\u0060/\u0060!\u0060 operator tree whose \u0060origin\u0060 leaves are either \u0060{ context }\u0060 or \u0060{ resource-type, template-id, version }\u0060. Version references carry the version token and its deployment tag (null when the version is untagged). Each operator\u0027s operand may be a single node or a non-empty array of nodes."
       },
       "InquiryTemplateVersion": {
         "type": "object",
@@ -33929,7 +33970,10 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "A name for remembering webhook"
           },
           "description": {
@@ -40697,6 +40741,79 @@
           },
           "fields": {
             "$ref": "#/components/schemas/DocumentGenericAttributesFields"
+          }
+        }
+      },
+      "DeploymentRouteCriteriaOneOf1": {
+        "required": [
+          "and"
+        ],
+        "type": "object",
+        "properties": {
+          "and": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf1And"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentRouteCriteriaOneOf2": {
+        "required": [
+          "or"
+        ],
+        "type": "object",
+        "properties": {
+          "or": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf2Or"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentRouteCriteriaOneOf3": {
+        "required": [
+          "!"
+        ],
+        "type": "object",
+        "properties": {
+          "!": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf3Composed"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentRouteCriteriaOneOf4": {
+        "required": [
+          "origin"
+        ],
+        "type": "object",
+        "properties": {
+          "origin": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf4Origin"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategy": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2"
+          }
+        ],
+        "properties": {
+          "version": {
+            "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1Version"
+          },
+          "version-refs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItem"
+            }
           }
         }
       },
@@ -51274,6 +51391,178 @@
           }
         }
       },
+      "DeploymentRouteCriteriaOneOf1And": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DeploymentRouteCriteria"
+          },
+          {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf1AndBranch2"
+          }
+        ],
+        "properties": {
+          "and": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf1And"
+          },
+          "or": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf2Or"
+          },
+          "!": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf3Composed"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf4Origin"
+          },
+          "value": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeploymentRouteCriteria"
+            }
+          }
+        },
+        "x-inheritable": true
+      },
+      "DeploymentRouteCriteriaOneOf2Or": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DeploymentRouteCriteria"
+          },
+          {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf2OrBranch2"
+          }
+        ],
+        "properties": {
+          "and": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf1And"
+          },
+          "or": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf2Or"
+          },
+          "!": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf3Composed"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf4Origin"
+          },
+          "value": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeploymentRouteCriteria"
+            }
+          }
+        },
+        "x-inheritable": true
+      },
+      "DeploymentRouteCriteriaOneOf3Composed": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DeploymentRouteCriteria"
+          },
+          {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf3ComposedBranch2"
+          }
+        ],
+        "properties": {
+          "and": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf1And"
+          },
+          "or": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf2Or"
+          },
+          "!": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf3Composed"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf4Origin"
+          },
+          "value": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeploymentRouteCriteria"
+            }
+          }
+        },
+        "x-inheritable": true
+      },
+      "DeploymentRouteCriteriaOneOf4Origin": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf4OriginOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf4OriginOneOf2"
+          }
+        ],
+        "properties": {
+          "context": {
+            "examples": [
+              "mobile"
+            ],
+            "type": "string",
+            "description": "The request context the route matches on."
+          },
+          "resource-type": {
+            "examples": [
+              "inquiry-template"
+            ],
+            "type": "string",
+            "description": "The platform resource type the origin targets."
+          },
+          "template-id": {
+            "examples": [
+              "itmpl_ABC123"
+            ],
+            "type": "string",
+            "description": "The token of the resource template the origin targets."
+          },
+          "version": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf4OriginOneOf2Version"
+          }
+        },
+        "x-inheritable": true
+      },
+      "InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1": {
+        "required": [
+          "type",
+          "version"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConstantType"
+          },
+          "version": {
+            "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1Version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2": {
+        "required": [
+          "type",
+          "version-refs"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/WeightedRandomType"
+          },
+          "version-refs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "DocumentGovernmentIdAttributesAllOf2": {
         "type": "object",
         "properties": {
@@ -54242,6 +54531,49 @@
           }
         }
       },
+      "DeploymentRouteCriteriaOneOf4OriginOneOf1": {
+        "required": [
+          "context"
+        ],
+        "type": "object",
+        "properties": {
+          "context": {
+            "examples": [
+              "mobile"
+            ],
+            "type": "string",
+            "description": "The request context the route matches on."
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentRouteCriteriaOneOf4OriginOneOf2": {
+        "required": [
+          "resource-type",
+          "template-id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource-type": {
+            "examples": [
+              "inquiry-template"
+            ],
+            "type": "string",
+            "description": "The platform resource type the origin targets."
+          },
+          "template-id": {
+            "examples": [
+              "itmpl_ABC123"
+            ],
+            "type": "string",
+            "description": "The token of the resource template the origin targets."
+          },
+          "version": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf4OriginOneOf2Version"
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportBusinessSearchRequestAttributesAllOf2Query": {
         "required": [
           "country-code"
@@ -55956,6 +56288,39 @@
             ],
             "type": "boolean",
             "description": "Whether this is the Inquiry Template\u0027s current live published version."
+          },
+          "version-tag": {
+            "$ref": "#/components/schemas/InquiryTemplateVersionAttributesVersionTag"
+          },
+          "deployments": {
+            "examples": [
+              [
+                {
+                  "resource-type": "inquiry-template",
+                  "template-id": "itmpl_ABC123",
+                  "environment": {
+                    "token": "env_AbcDeFGhIjKlMnOpQrStUvWxYz1",
+                    "name": "production"
+                  },
+                  "rules": [
+                    {
+                      "strategy": {
+                        "type": "constant",
+                        "version": {
+                          "token": "itmplv_LIVE123",
+                          "tag": "v2"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            ],
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItem"
+            },
+            "description": "Deployment routes currently sending traffic to this version, one per environment; rules carry the strategy (constant today, weighted/conditional for partial rollouts) and version references carry each referenced version\u0027s token and deployment tag. Omitted for organizations not on explicit deploy."
           },
           "last-updater": {
             "examples": [
@@ -59935,6 +60300,46 @@
         "type": "object",
         "description": "JSON key-value pairs of field name to field value. Exact schema depends on the configuration of your template."
       },
+      "InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1Version": {
+        "required": [
+          "token",
+          "tag"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "tag": {
+            "examples": [
+              "v2"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The version\u0027s deployment tag, when one was minted."
+          }
+        },
+        "additionalProperties": false
+      },
+      "InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItem": {
+        "required": [
+          "version",
+          "weight"
+        ],
+        "type": "object",
+        "properties": {
+          "version": {
+            "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersion"
+          },
+          "weight": {
+            "type": "integer",
+            "description": "Relative share of traffic (0\u2013100). Weights across all version-refs in the strategy must sum to 100."
+          }
+        },
+        "additionalProperties": false
+      },
       "VerificationBusinessWebsiteAttributesAllOf2ExtractedIdentity": {
         "type": "object",
         "properties": {
@@ -61194,6 +61599,32 @@
         },
         "additionalProperties": false
       },
+      "DeploymentRouteCriteriaOneOf4OriginOneOf2Version": {
+        "required": [
+          "token",
+          "tag"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "tag": {
+            "examples": [
+              "3"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The version\u0027s deployment tag, when one was minted."
+          }
+        },
+        "additionalProperties": false
+      },
       "AccountTypeRelationshipsAccountStatuses": {
         "type": "object",
         "properties": {
@@ -62099,6 +62530,80 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/InquiryTemplateRelationshipsLatestPublishedVersionData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InquiryTemplateVersionAttributesVersionTag": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "examples": [
+          {
+            "name": "v2",
+            "description": "Initial production release",
+            "created-at": "2026-03-26T18:29:41.000Z"
+          }
+        ],
+        "required": [
+          "name",
+          "description",
+          "created-at"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "created-at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The version\u0027s deployment-engine tag; null when the version is untagged. Omitted for organizations not on explicit deploy."
+      },
+      "InquiryTemplateVersionAttributesDeploymentsItem": {
+        "required": [
+          "resource-type",
+          "template-id",
+          "environment",
+          "rules"
+        ],
+        "type": "object",
+        "properties": {
+          "resource-type": {
+            "examples": [
+              "inquiry-template"
+            ],
+            "type": "string",
+            "description": "The platform resource type the route targets. Possible values are \u0060inquiry-template\u0060, \u0060workflow\u0060, and \u0060scheduled-run-config\u0060."
+          },
+          "template-id": {
+            "examples": [
+              "itmpl_ABC123"
+            ],
+            "type": "string",
+            "description": "The token of the resource template the route targets."
+          },
+          "environment": {
+            "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItemEnvironment"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItemRulesItem"
+            },
+            "description": "The routing rules evaluated for the environment. Each rule has a strategy and may have a criteria tree with \u0060and\u0060, \u0060or\u0060, and \u0060!\u0060 operators over context or resource origins."
           }
         },
         "additionalProperties": false
@@ -64702,6 +65207,29 @@
         },
         "additionalProperties": false
       },
+      "InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersion": {
+        "required": [
+          "token",
+          "tag"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "tag": {
+            "examples": [
+              "3"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The version\u0027s deployment tag, when one was minted."
+          }
+        },
+        "additionalProperties": false
+      },
       "VerificationJpMyNumberNfcScanAttributesAllOf2VehicleClassesAdditionalProperties": {
         "type": "object",
         "properties": {
@@ -66205,6 +66733,46 @@
               "itmplv_ABC123"
             ],
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InquiryTemplateVersionAttributesDeploymentsItemEnvironment": {
+        "required": [
+          "token",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "examples": [
+              "env_AbcDeFGhIjKlMnOpQrStUvWxYz1"
+            ],
+            "type": "string",
+            "description": "The environment\u0027s token."
+          },
+          "name": {
+            "examples": [
+              "production"
+            ],
+            "type": "string",
+            "description": "The environment\u0027s display name."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The environment the route applies to."
+      },
+      "InquiryTemplateVersionAttributesDeploymentsItemRulesItem": {
+        "required": [
+          "strategy"
+        ],
+        "type": "object",
+        "properties": {
+          "criteria": {
+            "$ref": "#/components/schemas/DeploymentRouteCriteria"
+          },
+          "strategy": {
+            "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategy"
           }
         },
         "additionalProperties": false
@@ -72178,6 +72746,51 @@
             "pattern": "^custom(\\.[a-z0-9]\u002B(-[a-z0-9]\u002B)*){1,4}$",
             "type": "string",
             "description": "A custom event you emit yourself via the Events API. Names are reserved to the \u0060custom\u0060 family so they can never collide with a Persona-defined event."
+          }
+        }
+      },
+      "DeploymentRouteCriteriaOneOf1AndBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeploymentRouteCriteria"
+            }
+          }
+        }
+      },
+      "DeploymentRouteCriteriaOneOf2OrBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeploymentRouteCriteria"
+            }
+          }
+        }
+      },
+      "DeploymentRouteCriteriaOneOf3ComposedBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeploymentRouteCriteria"
+            }
           }
         }
       },
@@ -89771,6 +90384,40 @@
           ]
         }
       },
+      "ConstantType": {
+        "const": null,
+        "enum": [
+          "constant"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConstantType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "constant",
+              "name": "Constant"
+            }
+          ]
+        }
+      },
+      "WeightedRandomType": {
+        "const": null,
+        "enum": [
+          "weighted-random"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "WeightedRandomType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "weighted-random",
+              "name": "WeightedRandom"
+            }
+          ]
+        }
+      },
       "AdministratorType": {
         "const": null,
         "enum": [
@@ -97208,6 +97855,7 @@
                 "description": "Test reusable persona support",
                 "status": "draft",
                 "live": false,
+                "deployments": [],
                 "last-updater": "taylor@example.com",
                 "enabled-locales": [
                   "en-US"
@@ -97234,6 +97882,32 @@
                 "description": "Add reusable persona support",
                 "status": "published",
                 "live": true,
+                "version-tag": {
+                  "name": "v2",
+                  "description": "Initial production release",
+                  "created-at": "2026-03-26T18:29:41.000Z"
+                },
+                "deployments": [
+                  {
+                    "resource-type": "inquiry-template",
+                    "template-id": "itmpl_ABC123",
+                    "environment": {
+                      "token": "env_AbcDeFGhIjKlMnOpQrStUvWxYz1",
+                      "name": "production"
+                    },
+                    "rules": [
+                      {
+                        "strategy": {
+                          "type": "constant",
+                          "version": {
+                            "token": "itmplv_LIVE123",
+                            "tag": "v2"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ],
                 "last-updater": "alex@example.com",
                 "enabled-locales": [
                   "en-US"
@@ -97260,6 +97934,7 @@
                 "description": "Initial production version",
                 "status": "published",
                 "live": false,
+                "deployments": [],
                 "last-updater": null,
                 "enabled-locales": [
                   "en-US"

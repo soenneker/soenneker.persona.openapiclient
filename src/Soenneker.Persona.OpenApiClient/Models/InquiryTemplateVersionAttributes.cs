@@ -14,6 +14,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
     {
         /// <summary>The createdAt property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>Deployment routes currently sending traffic to this version, one per environment; rules carry the strategy (constant today, weighted/conditional for partial rollouts) and version references carry each referenced version&apos;s token and deployment tag. Omitted for organizations not on explicit deploy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItem>? Deployments { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItem> Deployments { get; set; }
+#endif
         /// <summary>A description of the changes in this version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,6 +76,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>The updatedAt property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
+        /// <summary>The version&apos;s deployment-engine tag; null when the version is untagged. Omitted for organizations not on explicit deploy.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesVersionTag? VersionTag { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesVersionTag VersionTag { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -87,6 +103,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "deployments", n => { Deployments = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItem>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "enabled-locales", n => { EnabledLocales = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "last-updater", n => { LastUpdater = n.GetStringValue(); } },
@@ -96,6 +113,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "theme", n => { Theme = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesTheme>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesTheme.CreateFromDiscriminatorValue); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "version-tag", n => { VersionTag = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesVersionTag>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesVersionTag.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -106,6 +124,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItem>("deployments", Deployments);
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfPrimitiveValues<string>("enabled-locales", EnabledLocales);
             writer.WriteStringValue("last-updater", LastUpdater);
@@ -115,6 +134,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("status", Status);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesTheme>("theme", Theme);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesVersionTag>("version-tag", VersionTag);
         }
     }
 }

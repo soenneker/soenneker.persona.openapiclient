@@ -7,6 +7,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ApiVersion
     {
+        [EnumMember(Value = "2026-09-29")]
+        #pragma warning disable CS1591
+        Value20260929,
+        #pragma warning restore CS1591
         [EnumMember(Value = "2025-12-08")]
         #pragma warning disable CS1591
         Value20251208,

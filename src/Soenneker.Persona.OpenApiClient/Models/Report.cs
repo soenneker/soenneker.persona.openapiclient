@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersons"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearch"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRisk"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPerson"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportScreening"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSynthetic"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersons"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofit"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearch"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlist"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRisk"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPerson"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportScreening"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMedia"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportSynthetic"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Report : IComposedTypeWrapper, IParsable
@@ -52,6 +52,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup ReportBusinessLookup { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofit"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofit? ReportBusinessNonprofit { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofit ReportBusinessNonprofit { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -195,6 +203,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 result.ReportBusinessLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup();
             }
+            else if("report/business-nonprofit".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.ReportBusinessNonprofit = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofit();
+            }
             else if("report/business-registrations-lookup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportBusinessRegistrationsLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup();
@@ -278,6 +290,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if(ReportBusinessLookup != null)
             {
                 return ReportBusinessLookup.GetFieldDeserializers();
+            }
+            else if(ReportBusinessNonprofit != null)
+            {
+                return ReportBusinessNonprofit.GetFieldDeserializers();
             }
             else if(ReportBusinessRegistrationsLookup != null)
             {
@@ -363,6 +379,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if(ReportBusinessLookup != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup>(null, ReportBusinessLookup);
+            }
+            else if(ReportBusinessNonprofit != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofit>(null, ReportBusinessNonprofit);
             }
             else if(ReportBusinessRegistrationsLookup != null)
             {

@@ -29204,6 +29204,28 @@
         "additionalProperties": false,
         "description": "A Business Lookup Report"
       },
+      "ReportBusinessNonprofit": {
+        "title": "Business Nonprofit Report",
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the report",
+            "example": "rep_7WNzPaNcroBKLarNHBjYDLAp"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitAttributes"
+          },
+          "relationships": {
+            "$ref": "#/components/schemas/ReportSharedRelationships"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Business Nonprofit Report"
+      },
       "ReportBusinessSearch": {
         "title": "Business Search Report",
         "type": "object",
@@ -32472,6 +32494,9 @@
             "$ref": "#/components/schemas/ReportBusinessLookup"
           },
           {
+            "$ref": "#/components/schemas/ReportBusinessNonprofit"
+          },
+          {
             "$ref": "#/components/schemas/ReportBusinessSearch"
           },
           {
@@ -32533,6 +32558,7 @@
             "report/business-associated-persons": "#/components/schemas/ReportBusinessAssociatedPersons",
             "report/business-registrations-lookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
             "report/business-lookup": "#/components/schemas/ReportBusinessLookup",
+            "report/business-nonprofit": "#/components/schemas/ReportBusinessNonprofit",
             "report/business-search": "#/components/schemas/ReportBusinessSearch",
             "report/business-watchlist": "#/components/schemas/ReportBusinessWatchlist",
             "report/crypto-address-watchlist": "#/components/schemas/ReportCryptoAddressWatchlist",
@@ -32552,6 +32578,7 @@
             "ReportBusinessAssociatedPersons": "#/components/schemas/ReportBusinessAssociatedPersons",
             "ReportBusinessRegistrationsLookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
             "ReportBusinessLookup": "#/components/schemas/ReportBusinessLookup",
+            "ReportBusinessNonprofit": "#/components/schemas/ReportBusinessNonprofit",
             "ReportBusinessSearch": "#/components/schemas/ReportBusinessSearch",
             "ReportBusinessWatchlist": "#/components/schemas/ReportBusinessWatchlist",
             "ReportCryptoAddressWatchlist": "#/components/schemas/ReportCryptoAddressWatchlist",
@@ -32663,6 +32690,23 @@
         },
         "additionalProperties": false,
         "description": "Fields required to create a Business Lookup Report"
+      },
+      "ReportBusinessNonprofitRequest": {
+        "title": "Business Nonprofit Report",
+        "required": [
+          "attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitType"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitRequestAttributes"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Fields required to create a Business Nonprofit Report"
       },
       "ReportBusinessSearchRequest": {
         "title": "Business Search Report",
@@ -33006,6 +33050,28 @@
         },
         "additionalProperties": false,
         "description": "A Business Lookup Report Template"
+      },
+      "ReportTemplateBusinessNonprofit": {
+        "title": "Business Nonprofit Report Template",
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ReportTemplateBusinessNonprofitType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the Report Template",
+            "example": "rptp_7WNzPaNcroBKLarNHBjYDLAp"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ReportTemplateSharedAttributes"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ReportTemplateSharedMeta"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Business Nonprofit Report Template"
       },
       "ReportTemplateBusinessRegistrationsLookup": {
         "title": "Business Registrations Lookup Report Template",
@@ -36463,6 +36529,70 @@
               "string"
             ],
             "description": "Possible values:\n- not_applicable\n- match\n- partial_match\n- no_match\n- unavailable\n- unknown\n\nDo not assume this is a static enumeration; Persona may add new\nvalues in the future without a versioned update."
+          }
+        }
+      },
+      "ReportBusinessNonprofitAttributes": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the report\n\nPossible values:\n- pending\n- ready\n- errored\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update."
+          },
+          "created-at": {
+            "type": "string",
+            "description": "The time the report was created in ISO 8601 format",
+            "example": "2020-04-12T05:08:51.000Z"
+          },
+          "completed-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The time the report completed processing in ISO 8601 format",
+            "example": "2020-04-13T00:23:57.000Z"
+          },
+          "redacted-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The time the report was redacted in ISO 8601 format",
+            "example": null
+          },
+          "report-template-version-name": {
+            "type": "string",
+            "description": "The name of the report template version used for this report",
+            "example": "v1"
+          },
+          "has-match": {
+            "type": "boolean",
+            "description": "Whether or not the report matched"
+          },
+          "is-continuous": {
+            "type": "boolean",
+            "description": "Whether or not this report has been run more than once"
+          },
+          "is-recurring": {
+            "type": "boolean",
+            "description": "Whether or not this report is scheduled to run in the future"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "tag1"
+            },
+            "description": "Tags on the report"
+          },
+          "query": {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitAttributesAllOf2Query"
+          },
+          "result": {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitAttributesAllOf2Result"
           }
         }
       },
@@ -40496,6 +40626,9 @@
             "$ref": "#/components/schemas/ReportBusinessLookup"
           },
           {
+            "$ref": "#/components/schemas/ReportBusinessNonprofit"
+          },
+          {
             "$ref": "#/components/schemas/ReportBusinessSearch"
           },
           {
@@ -40602,6 +40735,7 @@
             "report/business-associated-persons": "#/components/schemas/ReportBusinessAssociatedPersons",
             "report/business-registrations-lookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
             "report/business-lookup": "#/components/schemas/ReportBusinessLookup",
+            "report/business-nonprofit": "#/components/schemas/ReportBusinessNonprofit",
             "report/business-search": "#/components/schemas/ReportBusinessSearch",
             "report/business-watchlist": "#/components/schemas/ReportBusinessWatchlist",
             "report/crypto-address-watchlist": "#/components/schemas/ReportCryptoAddressWatchlist",
@@ -40638,6 +40772,7 @@
             "ReportBusinessAdverseMedia": "#/components/schemas/ReportBusinessAdverseMedia",
             "ReportBusinessAssociatedPersons": "#/components/schemas/ReportBusinessAssociatedPersons",
             "ReportBusinessLookup": "#/components/schemas/ReportBusinessLookup",
+            "ReportBusinessNonprofit": "#/components/schemas/ReportBusinessNonprofit",
             "ReportBusinessSearch": "#/components/schemas/ReportBusinessSearch",
             "ReportBusinessRegistrationsLookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
             "ReportBusinessWatchlist": "#/components/schemas/ReportBusinessWatchlist",
@@ -45739,6 +45874,9 @@
             "$ref": "#/components/schemas/ReportBusinessLookup"
           },
           {
+            "$ref": "#/components/schemas/ReportBusinessNonprofit"
+          },
+          {
             "$ref": "#/components/schemas/ReportBusinessSearch"
           },
           {
@@ -45963,6 +46101,7 @@
             "report/business-associated-persons": "#/components/schemas/ReportBusinessAssociatedPersons",
             "report/business-registrations-lookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
             "report/business-lookup": "#/components/schemas/ReportBusinessLookup",
+            "report/business-nonprofit": "#/components/schemas/ReportBusinessNonprofit",
             "report/business-search": "#/components/schemas/ReportBusinessSearch",
             "report/business-watchlist": "#/components/schemas/ReportBusinessWatchlist",
             "report/crypto-address-watchlist": "#/components/schemas/ReportCryptoAddressWatchlist",
@@ -46042,6 +46181,7 @@
             "ReportBusinessAdverseMedia": "#/components/schemas/ReportBusinessAdverseMedia",
             "ReportBusinessAssociatedPersons": "#/components/schemas/ReportBusinessAssociatedPersons",
             "ReportBusinessLookup": "#/components/schemas/ReportBusinessLookup",
+            "ReportBusinessNonprofit": "#/components/schemas/ReportBusinessNonprofit",
             "ReportBusinessSearch": "#/components/schemas/ReportBusinessSearch",
             "ReportBusinessRegistrationsLookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
             "ReportBusinessWatchlist": "#/components/schemas/ReportBusinessWatchlist",
@@ -47685,6 +47825,42 @@
           }
         }
       },
+      "ReportBusinessNonprofitRequestAttributes": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object",
+        "properties": {
+          "account-id": {
+            "examples": [
+              "act_ABC123"
+            ],
+            "type": "string",
+            "description": "Account ID to associate with this Report."
+          },
+          "reference-id": {
+            "examples": [
+              "abc-123"
+            ],
+            "type": "string",
+            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "deprecated": true
+          },
+          "report-template-id": {
+            "examples": [
+              "rptp_abc123"
+            ],
+            "type": "string",
+            "description": "ID of Verification Template. Starts with \u0060rptp_\u0060. You can find your Report Template IDs [here](https://app.withpersona.com/dashboard/report-templates)."
+          },
+          "query": {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitRequestAttributesAllOf2Query"
+          }
+        }
+      },
       "ReportBusinessSearchRequestAttributes": {
         "unevaluatedProperties": {
           "not": {}
@@ -48201,6 +48377,9 @@
             "$ref": "#/components/schemas/ReportTemplateBusinessLookup"
           },
           {
+            "$ref": "#/components/schemas/ReportTemplateBusinessNonprofit"
+          },
+          {
             "$ref": "#/components/schemas/ReportTemplateBusinessRegistrationsLookup"
           },
           {
@@ -48264,6 +48443,7 @@
             "report-template/business-adverse-media": "#/components/schemas/ReportTemplateBusinessAdverseMedia",
             "report-template/business-associated-persons": "#/components/schemas/ReportTemplateBusinessAssociatedPersons",
             "report-template/business-lookup": "#/components/schemas/ReportTemplateBusinessLookup",
+            "report-template/business-nonprofit": "#/components/schemas/ReportTemplateBusinessNonprofit",
             "report-template/business-registrations-lookup": "#/components/schemas/ReportTemplateBusinessRegistrationsLookup",
             "report-template/business-watchlist": "#/components/schemas/ReportTemplateBusinessWatchlist",
             "report-template/crypto-address-watchlist": "#/components/schemas/ReportTemplateCryptoAddressWatchlist",
@@ -48284,6 +48464,7 @@
             "ReportTemplateBusinessAdverseMedia": "#/components/schemas/ReportTemplateBusinessAdverseMedia",
             "ReportTemplateBusinessAssociatedPersons": "#/components/schemas/ReportTemplateBusinessAssociatedPersons",
             "ReportTemplateBusinessLookup": "#/components/schemas/ReportTemplateBusinessLookup",
+            "ReportTemplateBusinessNonprofit": "#/components/schemas/ReportTemplateBusinessNonprofit",
             "ReportTemplateBusinessRegistrationsLookup": "#/components/schemas/ReportTemplateBusinessRegistrationsLookup",
             "ReportTemplateBusinessWatchlist": "#/components/schemas/ReportTemplateBusinessWatchlist",
             "ReportTemplateCryptoAddressWatchlist": "#/components/schemas/ReportTemplateCryptoAddressWatchlist",
@@ -49573,6 +49754,17 @@
               "string"
             ],
             "description": "Possible values:\n- not_applicable\n- match\n- partial_match\n- no_match\n- unavailable\n- unknown\n\nDo not assume this is a static enumeration; Persona may add new\nvalues in the future without a versioned update."
+          }
+        }
+      },
+      "ReportBusinessNonprofitAttributesAllOf2": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitAttributesAllOf2Query"
+          },
+          "result": {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitAttributesAllOf2Result"
           }
         }
       },
@@ -54383,6 +54575,17 @@
           }
         }
       },
+      "ReportBusinessNonprofitRequestAttributesAllOf2": {
+        "required": [
+          "query"
+        ],
+        "type": "object",
+        "properties": {
+          "query": {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitRequestAttributesAllOf2Query"
+          }
+        }
+      },
       "ReportBusinessSearchRequestAttributesAllOf2": {
         "required": [
           "query"
@@ -59112,6 +59315,81 @@
           }
         }
       },
+      "ReportBusinessNonprofitAttributesAllOf2Query": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "ein": {
+            "type": "string",
+            "description": "The Employer Identification Number used to search for the nonprofit.",
+            "example": "12-3456789"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessNonprofitAttributesAllOf2Result": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "organization-name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The legal name of the nonprofit.",
+            "example": "Candid"
+          },
+          "organization-name-aka": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Other names associated with the nonprofit.",
+            "example": "The Foundation Center, Foundation Center, GuideStar, GuideStar USA"
+          },
+          "address": {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitAttributesAllOf2ResultAddress"
+          },
+          "foundation-type-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "PC"
+          },
+          "foundation-type-description": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Public charity described in section 509(a)(1) or (2)"
+          },
+          "irs-filing-requirement-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "010"
+          },
+          "irs-pub-78-details": {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitAttributesAllOf2ResultIrsPub78Details"
+          },
+          "irs-bmf-details": {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitAttributesAllOf2ResultIrsBmfDetails"
+          },
+          "ca-ag-details": {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitAttributesAllOf2ResultCaAgDetails"
+          },
+          "ca-ftb-details": {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitAttributesAllOf2ResultCaFtbDetails"
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportBusinessSearchAttributesAllOf2Query": {
         "type": [
           "null",
@@ -60949,6 +61227,21 @@
               "$ref": "#/components/schemas/ReportBusinessLookupRequestAttributesAllOf2QueryAssociatedPeopleItem"
             },
             "description": "Officers or agents associated with the business."
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessNonprofitRequestAttributesAllOf2Query": {
+        "required": [
+          "ein"
+        ],
+        "type": "object",
+        "properties": {
+          "ein": {
+            "pattern": "^[0-9]{2}-?[0-9]{7}$",
+            "type": "string",
+            "description": "The nine-digit Employer Identification Number of the nonprofit.",
+            "example": "12-3456789"
           }
         },
         "additionalProperties": false
@@ -64411,6 +64704,325 @@
         },
         "additionalProperties": false
       },
+      "ReportBusinessNonprofitAttributesAllOf2ResultAddress": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "street-1": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "32 Old Slip"
+          },
+          "street-2": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "24th Floor"
+          },
+          "city": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "New York"
+          },
+          "subdivision": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "NY"
+          },
+          "postal-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "10005"
+          },
+          "country-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "US"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessNonprofitAttributesAllOf2ResultIrsPub78Details": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "church-message": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "organization-name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Candid"
+          },
+          "ein": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "12-3456789"
+          },
+          "verified": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "example": true
+          },
+          "city": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "New York"
+          },
+          "state": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "NY"
+          },
+          "organization-types": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessNonprofitAttributesAllOf2ResultIrsPub78DetailsOrganizationTypesItem"
+            }
+          },
+          "most-recent-pub78": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "4/13/2021 4:00:00 AM"
+          },
+          "most-recent-irb": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "4/26/2021 12:00:00 AM"
+          },
+          "bulletin-number": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "2020-05"
+          },
+          "bulletin-url": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri",
+            "example": "https://www.irs.gov/pub/irs-irbs/irb20-05.pdf"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessNonprofitAttributesAllOf2ResultIrsBmfDetails": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "church-message": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "organization-name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "CANDID"
+          },
+          "ein": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "12-3456789"
+          },
+          "status": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "example": true
+          },
+          "most-recent-bmf": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "4/12/2021 4:00:00 AM"
+          },
+          "subsection": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "03"
+          },
+          "subsection-description": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "501(c)(3) Public Charity"
+          },
+          "ruling-month": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "06"
+          },
+          "ruling-year": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "1957"
+          },
+          "revocation-reason": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "failure_to_file"
+          },
+          "revocation-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "1/12/2021 2:23:09 PM"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessNonprofitAttributesAllOf2ResultCaAgDetails": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "May Operate or Solicit for Charitable Purposes"
+          },
+          "registry-status": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Current"
+          },
+          "state-charity-reg-num": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "CT0257773"
+          },
+          "issue-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "2018-05-15"
+          },
+          "last-renewal-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "2018-05-15"
+          },
+          "status-set-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "2018-09-12"
+          },
+          "as-of-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "2023-05-17"
+          },
+          "most-recent-ag": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "2023-04-19"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessNonprofitAttributesAllOf2ResultCaFtbDetails": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "revocation-status": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "example": true
+          },
+          "revocation-status-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "2017-03-28"
+          },
+          "most-recent-ftb": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "2023-04-19"
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportBusinessSearchAttributesAllOf2ResultBusinessesItem": {
         "type": "object",
         "properties": {
@@ -67261,6 +67873,33 @@
           "type": {
             "type": "string",
             "example": "registered_agent_address"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessNonprofitAttributesAllOf2ResultIrsPub78DetailsOrganizationTypesItem": {
+        "type": "object",
+        "properties": {
+          "organization-type": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "A public charity (50% deductibility limitation)."
+          },
+          "deductibility-limitation": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "50%"
+          },
+          "deductibility-status-description": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "PC"
           }
         },
         "additionalProperties": false
@@ -74249,6 +74888,9 @@
           },
           {
             "$ref": "#/components/schemas/ReportBusinessLookupRequest"
+          },
+          {
+            "$ref": "#/components/schemas/ReportBusinessNonprofitRequest"
           },
           {
             "$ref": "#/components/schemas/ReportBusinessSearchRequest"
@@ -86251,6 +86893,16 @@
             ],
             "description": "The token of the matched record this review applies to. Absent when the review applied to the whole report rather than a single record (\u0060review-type\u0060 \u0060all_records\u0060, \u0060attribute\u0060, or \u0060multiple_attributes\u0060)."
           },
+          "reviewer-token": {
+            "examples": [
+              "user_3VghhbvDc7UuUNT8uZrqZjsk"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The token of who performed the review: a user token (\u0060user_\u0060 prefix) when a person reviewed it, or a workflow run token (\u0060wfr_\u0060 prefix) when a workflow reviewed it. Null on events created before this field was added."
+          },
           "comment": {
             "type": [
               "null",
@@ -87632,6 +88284,23 @@
             {
               "value": "report/business-lookup",
               "name": "ReportBusinessLookup"
+            }
+          ]
+        }
+      },
+      "ReportBusinessNonprofitType": {
+        "const": null,
+        "enum": [
+          "report/business-nonprofit"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReportBusinessNonprofitType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "report/business-nonprofit",
+              "name": "ReportBusinessNonprofit"
             }
           ]
         }
@@ -89573,6 +90242,23 @@
             {
               "value": "report-template/business-lookup",
               "name": "ReportTemplateBusinessLookup"
+            }
+          ]
+        }
+      },
+      "ReportTemplateBusinessNonprofitType": {
+        "const": null,
+        "enum": [
+          "report-template/business-nonprofit"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReportTemplateBusinessNonprofitType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "report-template/business-nonprofit",
+              "name": "ReportTemplateBusinessNonprofit"
             }
           ]
         }
@@ -113379,6 +114065,7 @@
                 "review-status": "false_positive",
                 "risk-level": "material",
                 "record-token": "scrre_3EenGd9ZzeXLWBL11K5mnSBi",
+                "reviewer-token": "user_3VghhbvDc7UuUNT8uZrqZjsk",
                 "comment": "Confirmed this is not a match to the sanctioned individual after manual review."
               },
               "payload": {

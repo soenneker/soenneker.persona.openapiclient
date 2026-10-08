@@ -29,6 +29,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string RecordToken { get; set; }
 #endif
+        /// <summary>The token of who performed the review: a user token (`user_` prefix) when a person reviewed it, or a workflow run token (`wfr_` prefix) when a workflow reviewed it. Null on events created before this field was added.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ReviewerToken { get; set; }
+#nullable restore
+#else
+        public string ReviewerToken { get; set; }
+#endif
         /// <summary>Possible values:- pending- indeterminate- true_positive- false_positiveDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,6 +83,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "record-token", n => { RecordToken = n.GetStringValue(); } },
                 { "review-status", n => { ReviewStatus = n.GetStringValue(); } },
                 { "review-type", n => { ReviewType = n.GetStringValue(); } },
+                { "reviewer-token", n => { ReviewerToken = n.GetStringValue(); } },
                 { "risk-level", n => { RiskLevel = n.GetStringValue(); } },
             };
         }
@@ -87,6 +96,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("comment", Comment);
             writer.WriteStringValue("record-token", RecordToken);
+            writer.WriteStringValue("reviewer-token", ReviewerToken);
             writer.WriteStringValue("review-status", ReviewStatus);
             writer.WriteStringValue("review-type", ReviewType);
             writer.WriteStringValue("risk-level", RiskLevel);

@@ -9,34 +9,26 @@ namespace Soenneker.Persona.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class DeploymentRouteCriteriaOneOf4OriginOneOf2Version : IParsable
+    public partial class ReviewMatchesRequestData : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The version&apos;s serialized deployment tag, when one was minted.</summary>
+        /// <summary>The attributes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2VersionTag? Tag { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReviewMatchesRequestDataAttributes? Attributes { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2VersionTag Tag { get; set; }
-#endif
-        /// <summary>The token property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Token { get; set; }
-#nullable restore
-#else
-        public string Token { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReviewMatchesRequestDataAttributes Attributes { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2Version"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReviewMatchesRequestData"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2Version CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.ReviewMatchesRequestData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2Version();
+            return new global::Soenneker.Persona.OpenApiClient.Models.ReviewMatchesRequestData();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,8 +38,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "tag", n => { Tag = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2VersionTag>(global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2VersionTag.CreateFromDiscriminatorValue); } },
-                { "token", n => { Token = n.GetStringValue(); } },
+                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReviewMatchesRequestDataAttributes>(global::Soenneker.Persona.OpenApiClient.Models.ReviewMatchesRequestDataAttributes.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,8 +48,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2VersionTag>("tag", Tag);
-            writer.WriteStringValue("token", Token);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReviewMatchesRequestDataAttributes>("attributes", Attributes);
         }
     }
 }

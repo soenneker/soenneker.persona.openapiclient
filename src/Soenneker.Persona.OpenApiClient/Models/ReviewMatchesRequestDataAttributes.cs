@@ -7,13 +7,12 @@ using System.IO;
 using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
-    /// <summary>
-    /// Identifies the disposition applied and the reviewer&apos;s comment.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WebhookReportScreeningReviewedRequestDataAttributesContext : IParsable
+    #pragma warning disable CS1591
+    public partial class ReviewMatchesRequestDataAttributes : IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>The reviewer&apos;s free-text comment explaining the disposition, if one was provided.</summary>
+        /// <summary>The reasoning behind the review decision.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Comment { get; set; }
@@ -21,7 +20,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Comment { get; set; }
 #endif
-        /// <summary>The token of the matched record this review applies to. Absent when the review applied to the whole report rather than a single record (`review-type` `all_records`, `attribute`, or `multiple_attributes`).</summary>
+        /// <summary>When true, the reviewed records return to `pending` if their data changes on a later run.</summary>
+        public bool? NotifyOnChange { get; set; }
+        /// <summary>Token of the matched record to review, from `matched-records`. Required when `review-type` is `record`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RecordToken { get; set; }
@@ -29,15 +30,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string RecordToken { get; set; }
 #endif
-        /// <summary>The token of who performed the review: a user token (`user_` prefix) when a person reviewed it, a workflow run token (`wfr_` prefix) when a workflow reviewed it, or an API key token (`api_` prefix) when it was reviewed through the API. Null on events created before this field was added.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ReviewerToken { get; set; }
-#nullable restore
-#else
-        public string ReviewerToken { get; set; }
-#endif
-        /// <summary>Possible values:- pending- indeterminate- true_positive- false_positiveDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
+        /// <summary>Possible values:- pending- indeterminate- true_positive- false_positive</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ReviewStatus { get; set; }
@@ -45,7 +38,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string ReviewStatus { get; set; }
 #endif
-        /// <summary>The scope of the review action.Possible values:- all_records- attribute- multiple_attributes- recordDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
+        /// <summary>Possible values:- all_records: reviews every matched record on the report- record: reviews the single matched record identified by `record-token`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ReviewType { get; set; }
@@ -53,7 +46,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string ReviewType { get; set; }
 #endif
-        /// <summary>Possible values:- material- immaterialDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
+        /// <summary>Possible values:- material- immaterial</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RiskLevel { get; set; }
@@ -64,12 +57,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.WebhookReportScreeningReviewedRequestDataAttributesContext"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReviewMatchesRequestDataAttributes"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.WebhookReportScreeningReviewedRequestDataAttributesContext CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.ReviewMatchesRequestDataAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.WebhookReportScreeningReviewedRequestDataAttributesContext();
+            return new global::Soenneker.Persona.OpenApiClient.Models.ReviewMatchesRequestDataAttributes();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,10 +73,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "comment", n => { Comment = n.GetStringValue(); } },
+                { "notify-on-change", n => { NotifyOnChange = n.GetBoolValue(); } },
                 { "record-token", n => { RecordToken = n.GetStringValue(); } },
                 { "review-status", n => { ReviewStatus = n.GetStringValue(); } },
                 { "review-type", n => { ReviewType = n.GetStringValue(); } },
-                { "reviewer-token", n => { ReviewerToken = n.GetStringValue(); } },
                 { "risk-level", n => { RiskLevel = n.GetStringValue(); } },
             };
         }
@@ -95,8 +88,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("comment", Comment);
+            writer.WriteBoolValue("notify-on-change", NotifyOnChange);
             writer.WriteStringValue("record-token", RecordToken);
-            writer.WriteStringValue("reviewer-token", ReviewerToken);
             writer.WriteStringValue("review-status", ReviewStatus);
             writer.WriteStringValue("review-type", ReviewType);
             writer.WriteStringValue("risk-level", RiskLevel);

@@ -20252,6 +20252,129 @@
         "x-persona-product": "Reports"
       }
     },
+    "/reports/{reportId}/review": {
+      "post": {
+        "tags": [
+          "Reports"
+        ],
+        "summary": "Report Action: Review Matches",
+        "description": "Records a review decision on the matches of a Screening report. Review either every matched record at once, or a single matched record by its token from \u0060matched-records\u0060.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/reports/review-matches"
+        },
+        "operationId": "ReviewMatches",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "description": "A comma-separated list of relationship paths. This can be used to customize which related resources will be fully serialized in the \u0060included\u0060 key in the response. See [Serialization](https://docs.withpersona.com/serialization#inclusion-of-related-resources) for more details.",
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "reportId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewMatchesRequest"
+              },
+              "examples": {
+                "Success": {
+                  "$ref": "#/components/examples/review-matches"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Report object and (optionally) its related objects in \u0060included\u0060.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewMatches200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/report-screening"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        },
+        "x-persona-product": "Reports"
+      }
+    },
     "/reports/{reportId}/run": {
       "post": {
         "tags": [
@@ -27512,6 +27635,9 @@
             "$ref": "#/components/schemas/FieldSchemaNumber"
           },
           {
+            "$ref": "#/components/schemas/FieldSchemaPlatformFile"
+          },
+          {
             "$ref": "#/components/schemas/FieldSchemaString"
           },
           {
@@ -27547,6 +27673,7 @@
             "json": "#/components/schemas/FieldSchemaJson",
             "multi-choices": "#/components/schemas/FieldSchemaMultiChoices",
             "number": "#/components/schemas/FieldSchemaNumber",
+            "platform-file": "#/components/schemas/FieldSchemaPlatformFile",
             "string": "#/components/schemas/FieldSchemaString",
             "relation-schema": "#/components/schemas/FieldSchemaRelation",
             "FieldSchemaArray": "#/components/schemas/FieldSchemaArray",
@@ -27561,6 +27688,7 @@
             "FieldSchemaJson": "#/components/schemas/FieldSchemaJson",
             "FieldSchemaMultiChoices": "#/components/schemas/FieldSchemaMultiChoices",
             "FieldSchemaNumber": "#/components/schemas/FieldSchemaNumber",
+            "FieldSchemaPlatformFile": "#/components/schemas/FieldSchemaPlatformFile",
             "FieldSchemaString": "#/components/schemas/FieldSchemaString",
             "FieldSchemaRelation": "#/components/schemas/FieldSchemaRelation"
           }
@@ -27879,6 +28007,27 @@
           },
           "config": {
             "$ref": "#/components/schemas/FieldSchemaNumberConfig"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldSchemaPlatformFile": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/PlatformFileType"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "config": {
+            "$ref": "#/components/schemas/FieldSchemaPlatformFileConfig"
           }
         },
         "additionalProperties": false
@@ -28266,6 +28415,114 @@
         },
         "description": "PII-filtered snapshot of a Database verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows \u2014\nsee \u0060Verification::Database\u0060 in the share-token PII filter for the current allowlist.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
       },
+      "SourceDataVerificationDatabaseTin": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Database TIN Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseTinPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Database TIN verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
+      "SourceDataVerificationDatabaseBusiness": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Database Business Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseBusinessPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Database Business verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
+      "SourceDataVerificationBusinessWebsite": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Business Website Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationBusinessWebsitePeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Business Website verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
+      "SourceDataVerificationDatabaseUkDvla": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Database UK DVLA Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseUkDvlaPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Database UK DVLA verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
       "SourceDataVerificationPhoneNumber": {
         "unevaluatedProperties": {
           "not": {}
@@ -28438,6 +28695,18 @@
             "$ref": "#/components/schemas/SourceDataVerificationDatabase"
           },
           {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseTin"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseBusiness"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationBusinessWebsite"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseUkDvla"
+          },
+          {
             "$ref": "#/components/schemas/SourceDataVerificationPhoneNumber"
           },
           {
@@ -28471,6 +28740,10 @@
           "propertyName": "type",
           "mapping": {
             "connect/source-data/verification/database": "#/components/schemas/SourceDataVerificationDatabase",
+            "connect/source-data/verification/database-tin": "#/components/schemas/SourceDataVerificationDatabaseTin",
+            "connect/source-data/verification/database-business": "#/components/schemas/SourceDataVerificationDatabaseBusiness",
+            "connect/source-data/verification/business-website": "#/components/schemas/SourceDataVerificationBusinessWebsite",
+            "connect/source-data/verification/database-uk-dvla": "#/components/schemas/SourceDataVerificationDatabaseUkDvla",
             "connect/source-data/verification/phone-number": "#/components/schemas/SourceDataVerificationPhoneNumber",
             "connect/source-data/verification/email-address": "#/components/schemas/SourceDataVerificationEmailAddress",
             "connect/source-data/verification/government-id": "#/components/schemas/SourceDataVerificationGovernmentId",
@@ -28478,6 +28751,10 @@
             "connect/source-data/verification/document": "#/components/schemas/SourceDataVerificationDocument",
             "connect/source-data/account": "#/components/schemas/SourceDataAccount",
             "SourceDataVerificationDatabase": "#/components/schemas/SourceDataVerificationDatabase",
+            "SourceDataVerificationDatabaseTin": "#/components/schemas/SourceDataVerificationDatabaseTin",
+            "SourceDataVerificationDatabaseBusiness": "#/components/schemas/SourceDataVerificationDatabaseBusiness",
+            "SourceDataVerificationBusinessWebsite": "#/components/schemas/SourceDataVerificationBusinessWebsite",
+            "SourceDataVerificationDatabaseUkDvla": "#/components/schemas/SourceDataVerificationDatabaseUkDvla",
             "SourceDataVerificationPhoneNumber": "#/components/schemas/SourceDataVerificationPhoneNumber",
             "SourceDataVerificationEmailAddress": "#/components/schemas/SourceDataVerificationEmailAddress",
             "SourceDataVerificationGovernmentId": "#/components/schemas/SourceDataVerificationGovernmentId",
@@ -28615,6 +28892,18 @@
             "$ref": "#/components/schemas/SourceDataVerificationDatabase"
           },
           {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseTin"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseBusiness"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationBusinessWebsite"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseUkDvla"
+          },
+          {
             "$ref": "#/components/schemas/SourceDataVerificationPhoneNumber"
           },
           {
@@ -28657,6 +28946,10 @@
           "mapping": {
             "connect/source-data/inquiry": "#/components/schemas/SourceDataInquiry",
             "connect/source-data/verification/database": "#/components/schemas/SourceDataVerificationDatabase",
+            "connect/source-data/verification/database-tin": "#/components/schemas/SourceDataVerificationDatabaseTin",
+            "connect/source-data/verification/database-business": "#/components/schemas/SourceDataVerificationDatabaseBusiness",
+            "connect/source-data/verification/business-website": "#/components/schemas/SourceDataVerificationBusinessWebsite",
+            "connect/source-data/verification/database-uk-dvla": "#/components/schemas/SourceDataVerificationDatabaseUkDvla",
             "connect/source-data/verification/phone-number": "#/components/schemas/SourceDataVerificationPhoneNumber",
             "connect/source-data/verification/email-address": "#/components/schemas/SourceDataVerificationEmailAddress",
             "connect/source-data/account": "#/components/schemas/SourceDataAccount",
@@ -28665,6 +28958,10 @@
             "connect/source-data/report/watchlist": "#/components/schemas/SourceDataReportWatchlist",
             "SourceDataInquiry": "#/components/schemas/SourceDataInquiry",
             "SourceDataVerificationDatabase": "#/components/schemas/SourceDataVerificationDatabase",
+            "SourceDataVerificationDatabaseTin": "#/components/schemas/SourceDataVerificationDatabaseTin",
+            "SourceDataVerificationDatabaseBusiness": "#/components/schemas/SourceDataVerificationDatabaseBusiness",
+            "SourceDataVerificationBusinessWebsite": "#/components/schemas/SourceDataVerificationBusinessWebsite",
+            "SourceDataVerificationDatabaseUkDvla": "#/components/schemas/SourceDataVerificationDatabaseUkDvla",
             "SourceDataVerificationPhoneNumber": "#/components/schemas/SourceDataVerificationPhoneNumber",
             "SourceDataVerificationEmailAddress": "#/components/schemas/SourceDataVerificationEmailAddress",
             "SourceDataAccount": "#/components/schemas/SourceDataAccount",
@@ -30268,7 +30565,7 @@
             "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf4Origin"
           }
         },
-        "description": "A deployment route criteria node: an \u0060and\u0060/\u0060or\u0060/\u0060!\u0060 operator tree whose \u0060origin\u0060 leaves are either \u0060{ context }\u0060 or \u0060{ resource-type, template-id, version }\u0060. Version references carry the version token and its deployment tag (null when the version is untagged). Each operator\u0027s operand may be a single node or a non-empty array of nodes."
+        "description": "A deployment route criteria node: an \u0060and\u0060/\u0060or\u0060/\u0060!\u0060 operator tree whose \u0060origin\u0060 leaves are either \u0060{ context }\u0060 or \u0060{ resource-type, template-id, version }\u0060. Version references carry the version token and its serialized deployment tag (null when the version is untagged). Each operator\u0027s operand may be a single node or a non-empty array of nodes."
       },
       "InquiryTemplateVersion": {
         "type": "object",
@@ -35168,6 +35465,54 @@
           }
         }
       },
+      "FieldSchemaPlatformFileConfig": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "type": "object",
+        "properties": {
+          "required": {
+            "type": "boolean"
+          },
+          "archived-at": {
+            "examples": [
+              "2023-06-29T23:54:35.293Z"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "deactivated-at": {
+            "examples": [
+              "2023-06-29T23:54:35.293Z"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "source-key-path": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas."
+          },
+          "redaction-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be redacted on request.\n\nPossible values:\n- \u0060none\u0060 \u2014 value is redactable\n- \u0060never\u0060 \u2014 value is never redacted\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          },
+          "write-policy": {
+            "type": "string",
+            "description": "Whether the field\u0027s value may be overwritten after it is first set.\n\nPossible values:\n- \u0060none\u0060 \u2014 value may be overwritten on subsequent writes\n- \u0060write_once\u0060 \u2014 subsequent writes are rejected once a value is set\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update.",
+            "default": "none"
+          }
+        }
+      },
       "FieldSchemaStringConfig": {
         "unevaluatedProperties": {
           "not": {}
@@ -35474,6 +35819,74 @@
           },
           "peekable-attributes": {
             "$ref": "#/components/schemas/SourceDataVerificationDatabaseAllOf2PeekableAttributesProperty"
+          }
+        }
+      },
+      "SourceDataVerificationDatabaseTinAllOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConnectSourceDataVerificationDatabaseTinType"
+          },
+          "id": {
+            "examples": [
+              "ver_ABC123"
+            ],
+            "type": "string"
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseTinAllOf2PeekableAttributesProperty"
+          }
+        }
+      },
+      "SourceDataVerificationDatabaseBusinessAllOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConnectSourceDataVerificationDatabaseBusinessType"
+          },
+          "id": {
+            "examples": [
+              "ver_ABC123"
+            ],
+            "type": "string"
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseBusinessAllOf2PeekableAttributesProperty"
+          }
+        }
+      },
+      "SourceDataVerificationBusinessWebsiteAllOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConnectSourceDataVerificationBusinessWebsiteType"
+          },
+          "id": {
+            "examples": [
+              "ver_ABC123"
+            ],
+            "type": "string"
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationBusinessWebsiteAllOf2PeekableAttributesProperty"
+          }
+        }
+      },
+      "SourceDataVerificationDatabaseUkDvlaAllOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConnectSourceDataVerificationDatabaseUkDvlaType"
+          },
+          "id": {
+            "examples": [
+              "ver_ABC123"
+            ],
+            "type": "string"
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseUkDvlaAllOf2PeekableAttributesProperty"
           }
         }
       },
@@ -56490,7 +56903,7 @@
               true
             ],
             "type": "boolean",
-            "description": "Whether this is the Inquiry Template\u0027s current live published version."
+            "description": "Whether this version is configured for any Inquiry creation in any or all environments."
           },
           "version-tag": {
             "$ref": "#/components/schemas/InquiryTemplateVersionAttributesVersionTag"
@@ -56511,7 +56924,11 @@
                         "type": "constant",
                         "version": {
                           "token": "itmplv_LIVE123",
-                          "tag": "v2"
+                          "tag": {
+                            "name": "v2",
+                            "description": "Initial production release",
+                            "created-at": "2026-03-26T18:29:41.000Z"
+                          }
                         }
                       }
                     }
@@ -56523,7 +56940,7 @@
             "items": {
               "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItem"
             },
-            "description": "Deployment routes currently sending traffic to this version, one per environment; rules carry the strategy (constant today, weighted/conditional for partial rollouts) and version references carry each referenced version\u0027s token and deployment tag. Omitted for organizations not on explicit deploy."
+            "description": "Deployment routes currently sending traffic to this version, one per environment; rules carry the strategy (constant today, weighted/conditional for partial rollouts) and version references carry each referenced version\u0027s token and serialized deployment tag. Omitted for organizations not on explicit deploy."
           },
           "last-updater": {
             "examples": [
@@ -58776,6 +59193,30 @@
           "$ref": "#/components/schemas/SourceDataPeekableAttribute"
         }
       },
+      "SourceDataVerificationDatabaseTinAllOf2PeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataVerificationDatabaseBusinessAllOf2PeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataVerificationBusinessWebsiteAllOf2PeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataVerificationDatabaseUkDvlaAllOf2PeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
       "SourceDataVerificationPhoneNumberAllOf2PeekableAttributes": {
         "type": "object",
         "additionalProperties": {
@@ -60589,14 +61030,7 @@
             "type": "string"
           },
           "tag": {
-            "examples": [
-              "v2"
-            ],
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The version\u0027s deployment tag, when one was minted."
+            "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1VersionTag"
           }
         },
         "additionalProperties": false
@@ -61906,14 +62340,7 @@
             "type": "string"
           },
           "tag": {
-            "examples": [
-              "3"
-            ],
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The version\u0027s deployment tag, when one was minted."
+            "$ref": "#/components/schemas/DeploymentRouteCriteriaOneOf4OriginOneOf2VersionTag"
           }
         },
         "additionalProperties": false
@@ -65819,6 +66246,44 @@
         },
         "additionalProperties": false
       },
+      "InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1VersionTag": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "examples": [
+          {
+            "name": "v2",
+            "description": "Initial production release",
+            "created-at": "2026-03-26T18:29:41.000Z"
+          }
+        ],
+        "required": [
+          "name",
+          "description",
+          "created-at"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "created-at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The version\u0027s serialized deployment tag, when one was minted."
+      },
       "InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersion": {
         "required": [
           "token",
@@ -65830,14 +66295,7 @@
             "type": "string"
           },
           "tag": {
-            "examples": [
-              "3"
-            ],
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The version\u0027s deployment tag, when one was minted."
+            "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTag"
           }
         },
         "additionalProperties": false
@@ -66178,6 +66636,44 @@
           }
         },
         "additionalProperties": false
+      },
+      "DeploymentRouteCriteriaOneOf4OriginOneOf2VersionTag": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "examples": [
+          {
+            "name": "3",
+            "description": "Initial production release",
+            "created-at": "2026-03-26T18:29:41.000Z"
+          }
+        ],
+        "required": [
+          "name",
+          "description",
+          "created-at"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "created-at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The version\u0027s serialized deployment tag, when one was minted."
       },
       "AccountTypeRelationshipsAccountStatusesDataItem": {
         "type": "object",
@@ -68204,6 +68700,44 @@
           }
         },
         "additionalProperties": false
+      },
+      "InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTag": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "examples": [
+          {
+            "name": "3",
+            "description": "Initial production release",
+            "created-at": "2026-03-26T18:29:41.000Z"
+          }
+        ],
+        "required": [
+          "name",
+          "description",
+          "created-at"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "created-at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The version\u0027s serialized deployment tag, when one was minted."
       },
       "ReportScreeningAttributesAllOf2MatchedRecordsItemArticlesItemPerpetratorsItem": {
         "type": "object",
@@ -71369,6 +71903,36 @@
         "additionalProperties": false
       },
       "ReportActionResumeContinuousMonitoring200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Report"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportsIncludedObjectsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReviewMatchesRequest": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ReviewMatchesRequestData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReviewMatches200Response": {
         "required": [
           "data"
         ],
@@ -74957,6 +75521,22 @@
         "type": "object",
         "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
       },
+      "SourceDataVerificationDatabaseTinPeekableAttributes": {
+        "type": "object",
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
+      "SourceDataVerificationDatabaseBusinessPeekableAttributes": {
+        "type": "object",
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
+      "SourceDataVerificationBusinessWebsitePeekableAttributes": {
+        "type": "object",
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
+      "SourceDataVerificationDatabaseUkDvlaPeekableAttributes": {
+        "type": "object",
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
       "SourceDataVerificationPhoneNumberPeekableAttributes": {
         "type": "object",
         "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
@@ -75015,6 +75595,30 @@
         "description": "Raw attribute value as exposed by the source organization. Any JSON type."
       },
       "SourceDataVerificationDatabaseAllOf2PeekableAttributesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataVerificationDatabaseTinAllOf2PeekableAttributesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataVerificationDatabaseBusinessAllOf2PeekableAttributesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataVerificationBusinessWebsiteAllOf2PeekableAttributesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataVerificationDatabaseUkDvlaAllOf2PeekableAttributesProperty": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/SourceDataPeekableAttribute"
@@ -77268,6 +77872,18 @@
           "tag-id": {
             "type": "string",
             "description": "ID of the tag to remove from the Report."
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReviewMatchesRequestData": {
+        "required": [
+          "attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "attributes": {
+            "$ref": "#/components/schemas/ReviewMatchesRequestDataAttributes"
           }
         },
         "additionalProperties": false
@@ -81781,6 +82397,58 @@
           "reason": {
             "type": "string",
             "description": "required"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReviewMatchesRequestDataAttributes": {
+        "required": [
+          "review-type",
+          "review-status"
+        ],
+        "type": "object",
+        "properties": {
+          "review-type": {
+            "examples": [
+              "record"
+            ],
+            "type": "string",
+            "description": "Possible values:\n- all_records: reviews every matched record on the report\n- record: reviews the single matched record identified by \u0060record-token\u0060"
+          },
+          "review-status": {
+            "examples": [
+              "false_positive"
+            ],
+            "type": "string",
+            "description": "Possible values:\n- pending\n- indeterminate\n- true_positive\n- false_positive"
+          },
+          "record-token": {
+            "examples": [
+              "scrre_3EenGd9ZzeXLWBL11K5mnSBi"
+            ],
+            "type": "string",
+            "description": "Token of the matched record to review, from \u0060matched-records\u0060. Required when \u0060review-type\u0060 is \u0060record\u0060."
+          },
+          "risk-level": {
+            "examples": [
+              "material"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Possible values:\n- material\n- immaterial"
+          },
+          "comment": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The reasoning behind the review decision."
+          },
+          "notify-on-change": {
+            "type": "boolean",
+            "description": "When true, the reviewed records return to \u0060pending\u0060 if their data changes on a later run."
           }
         },
         "additionalProperties": false
@@ -86901,7 +87569,7 @@
               "null",
               "string"
             ],
-            "description": "The token of who performed the review: a user token (\u0060user_\u0060 prefix) when a person reviewed it, or a workflow run token (\u0060wfr_\u0060 prefix) when a workflow reviewed it. Null on events created before this field was added."
+            "description": "The token of who performed the review: a user token (\u0060user_\u0060 prefix) when a person reviewed it, a workflow run token (\u0060wfr_\u0060 prefix) when a workflow reviewed it, or an API key token (\u0060api_\u0060 prefix) when it was reviewed through the API. Null on events created before this field was added."
           },
           "comment": {
             "type": [
@@ -87910,6 +88578,23 @@
             {
               "value": "number",
               "name": "Number"
+            }
+          ]
+        }
+      },
+      "PlatformFileType": {
+        "const": null,
+        "enum": [
+          "platform-file"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "PlatformFileType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "platform-file",
+              "name": "PlatformFile"
             }
           ]
         }
@@ -90807,6 +91492,74 @@
             {
               "value": "connect/source-data/verification/database",
               "name": "ConnectSourceDataVerificationDatabase"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataVerificationDatabaseTinType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/verification/database-tin"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataVerificationDatabaseTinType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/database-tin",
+              "name": "ConnectSourceDataVerificationDatabaseTin"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataVerificationDatabaseBusinessType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/verification/database-business"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataVerificationDatabaseBusinessType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/database-business",
+              "name": "ConnectSourceDataVerificationDatabaseBusiness"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataVerificationBusinessWebsiteType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/verification/business-website"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataVerificationBusinessWebsiteType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/business-website",
+              "name": "ConnectSourceDataVerificationBusinessWebsite"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataVerificationDatabaseUkDvlaType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/verification/database-uk-dvla"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataVerificationDatabaseUkDvlaType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/database-uk-dvla",
+              "name": "ConnectSourceDataVerificationDatabaseUkDvla"
             }
           ]
         }
@@ -95673,6 +96426,26 @@
                     "min-date": null,
                     "max-date": null
                   }
+                },
+                {
+                  "type": "array",
+                  "key": "evidence_documents",
+                  "label": "Evidence Documents",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null,
+                    "item-schema": {
+                      "type": "platform-file",
+                      "key": "",
+                      "label": "",
+                      "config": {
+                        "required": false,
+                        "archived-at": null,
+                        "deactivated-at": null
+                      }
+                    }
+                  }
                 }
               ]
             }
@@ -98587,7 +99360,11 @@
                           "type": "constant",
                           "version": {
                             "token": "itmplv_LIVE123",
-                            "tag": "v2"
+                            "tag": {
+                              "name": "v2",
+                              "description": "Initial production release",
+                              "created-at": "2026-03-26T18:29:41.000Z"
+                            }
                           }
                         }
                       }
@@ -99379,6 +100156,19 @@
                   "id": "rptp_2t2xwqxPDE1gw8DtYVFB9Vua"
                 }
               }
+            }
+          }
+        }
+      },
+      "review-matches": {
+        "value": {
+          "data": {
+            "attributes": {
+              "review-type": "record",
+              "record-token": "scrre_3EenGd9ZzeXLWBL11K5mnSBi",
+              "review-status": "false_positive",
+              "risk-level": null,
+              "comment": "Birthdate does not match the sanctioned individual."
             }
           }
         }
@@ -100467,6 +101257,16 @@
                     "archived-at": null,
                     "deactivated-at": null,
                     "target": "document-government-id"
+                  }
+                },
+                {
+                  "type": "platform-file",
+                  "key": "evidence_document",
+                  "label": "Evidence Document",
+                  "config": {
+                    "required": false,
+                    "archived-at": null,
+                    "deactivated-at": null
                   }
                 }
               ]

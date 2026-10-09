@@ -7,36 +7,39 @@ using System.IO;
 using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
+    /// <summary>
+    /// The version&apos;s serialized deployment tag, when one was minted.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class DeploymentRouteCriteriaOneOf4OriginOneOf2Version : IParsable
-    #pragma warning restore CS1591
+    public partial class InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTag : IParsable
     {
-        /// <summary>The version&apos;s serialized deployment tag, when one was minted.</summary>
+        /// <summary>The createdAt property</summary>
+        public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2VersionTag? Tag { get; set; }
+        public string? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2VersionTag Tag { get; set; }
+        public string Description { get; set; }
 #endif
-        /// <summary>The token property</summary>
+        /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Token { get; set; }
+        public string? Name { get; set; }
 #nullable restore
 #else
-        public string Token { get; set; }
+        public string Name { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2Version"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTag"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2Version CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTag CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2Version();
+            return new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTag();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,8 +49,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "tag", n => { Tag = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2VersionTag>(global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2VersionTag.CreateFromDiscriminatorValue); } },
-                { "token", n => { Token = n.GetStringValue(); } },
+                { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,8 +61,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4OriginOneOf2VersionTag>("tag", Tag);
-            writer.WriteStringValue("token", Token);
+            writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
+            writer.WriteStringValue("description", Description);
+            writer.WriteStringValue("name", Name);
         }
     }
 }

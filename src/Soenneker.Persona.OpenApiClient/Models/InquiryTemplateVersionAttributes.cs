@@ -14,7 +14,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     {
         /// <summary>The createdAt property</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>Deployment routes currently sending traffic to this version, one per environment; rules carry the strategy (constant today, weighted/conditional for partial rollouts) and version references carry each referenced version&apos;s token and deployment tag. Omitted for organizations not on explicit deploy.</summary>
+        /// <summary>Deployment routes currently sending traffic to this version, one per environment; rules carry the strategy (constant today, weighted/conditional for partial rollouts) and version references carry each referenced version&apos;s token and serialized deployment tag. Omitted for organizations not on explicit deploy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItem>? Deployments { get; set; }
@@ -46,7 +46,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string LastUpdater { get; set; }
 #endif
-        /// <summary>Whether this is the Inquiry Template&apos;s current live published version.</summary>
+        /// <summary>Whether this version is configured for any Inquiry creation in any or all environments.</summary>
         public bool? Live { get; set; }
         /// <summary>The nameDisplay property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

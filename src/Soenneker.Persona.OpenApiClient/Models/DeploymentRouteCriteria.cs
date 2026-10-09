@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// A deployment route criteria node: an `and`/`or`/`!` operator tree whose `origin` leaves are either `{ context }` or `{ resource-type, template-id, version }`. Version references carry the version token and its deployment tag (null when the version is untagged). Each operator&apos;s operand may be a single node or a non-empty array of nodes.
+    /// A deployment route criteria node: an `and`/`or`/`!` operator tree whose `origin` leaves are either `{ context }` or `{ resource-type, template-id, version }`. Version references carry the version token and its serialized deployment tag (null when the version is untagged). Each operator&apos;s operand may be a single node or a non-empty array of nodes.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DeploymentRouteCriteria : IAdditionalDataHolder, IComposedTypeWrapper, IParsable

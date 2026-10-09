@@ -11,6 +11,7 @@ using Soenneker.Persona.OpenApiClient.Reports.Item.Pause;
 using Soenneker.Persona.OpenApiClient.Reports.Item.Print;
 using Soenneker.Persona.OpenApiClient.Reports.Item.RemoveTag;
 using Soenneker.Persona.OpenApiClient.Reports.Item.Resume;
+using Soenneker.Persona.OpenApiClient.Reports.Item.Review;
 using Soenneker.Persona.OpenApiClient.Reports.Item.Run;
 using Soenneker.Persona.OpenApiClient.Reports.Item.SetTags;
 using System.Collections.Generic;
@@ -60,6 +61,11 @@ namespace Soenneker.Persona.OpenApiClient.Reports.Item
         public global::Soenneker.Persona.OpenApiClient.Reports.Item.Resume.ResumeRequestBuilder Resume
         {
             get => new global::Soenneker.Persona.OpenApiClient.Reports.Item.Resume.ResumeRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The review property</summary>
+        public global::Soenneker.Persona.OpenApiClient.Reports.Item.Review.ReviewRequestBuilder Review
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.Reports.Item.Review.ReviewRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The run property</summary>
         public global::Soenneker.Persona.OpenApiClient.Reports.Item.Run.RunRequestBuilder Run

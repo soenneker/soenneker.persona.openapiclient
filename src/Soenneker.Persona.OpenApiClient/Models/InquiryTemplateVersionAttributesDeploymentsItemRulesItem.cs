@@ -12,7 +12,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public partial class InquiryTemplateVersionAttributesDeploymentsItemRulesItem : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>A deployment route criteria node: an `and`/`or`/`!` operator tree whose `origin` leaves are either `{ context }` or `{ resource-type, template-id, version }`. Version references carry the version token and its deployment tag (null when the version is untagged). Each operator&apos;s operand may be a single node or a non-empty array of nodes.</summary>
+        /// <summary>A deployment route criteria node: an `and`/`or`/`!` operator tree whose `origin` leaves are either `{ context }` or `{ resource-type, template-id, version }`. Version references carry the version token and its serialized deployment tag (null when the version is untagged). Each operator&apos;s operand may be a single node or a non-empty array of nodes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteria? Criteria { get; set; }

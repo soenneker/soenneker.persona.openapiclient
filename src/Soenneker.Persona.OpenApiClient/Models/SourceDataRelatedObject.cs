@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataAccount"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDocument"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationGovernmentId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationPhoneNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationSelfie"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataAccount"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsite"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseBusiness"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseTin"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseUkDvla"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDocument"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationGovernmentId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationPhoneNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationSelfie"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SourceDataRelatedObject : IComposedTypeWrapper, IParsable
@@ -21,6 +21,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.SourceDataAccount SourceDataAccount { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsite"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsite? SourceDataVerificationBusinessWebsite { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsite SourceDataVerificationBusinessWebsite { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,6 +36,30 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase SourceDataVerificationDatabase { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseBusiness"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseBusiness? SourceDataVerificationDatabaseBusiness { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseBusiness SourceDataVerificationDatabaseBusiness { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseTin"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseTin? SourceDataVerificationDatabaseTin { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseTin SourceDataVerificationDatabaseTin { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseUkDvla"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseUkDvla? SourceDataVerificationDatabaseUkDvla { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseUkDvla SourceDataVerificationDatabaseUkDvla { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDocument"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -83,9 +115,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 result.SourceDataAccount = new global::Soenneker.Persona.OpenApiClient.Models.SourceDataAccount();
             }
+            else if("connect/source-data/verification/business-website".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SourceDataVerificationBusinessWebsite = new global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsite();
+            }
             else if("connect/source-data/verification/database".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SourceDataVerificationDatabase = new global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase();
+            }
+            else if("connect/source-data/verification/database-business".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SourceDataVerificationDatabaseBusiness = new global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseBusiness();
+            }
+            else if("connect/source-data/verification/database-tin".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SourceDataVerificationDatabaseTin = new global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseTin();
+            }
+            else if("connect/source-data/verification/database-uk-dvla".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SourceDataVerificationDatabaseUkDvla = new global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseUkDvla();
             }
             else if("connect/source-data/verification/document".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -119,9 +167,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 return SourceDataAccount.GetFieldDeserializers();
             }
+            else if(SourceDataVerificationBusinessWebsite != null)
+            {
+                return SourceDataVerificationBusinessWebsite.GetFieldDeserializers();
+            }
             else if(SourceDataVerificationDatabase != null)
             {
                 return SourceDataVerificationDatabase.GetFieldDeserializers();
+            }
+            else if(SourceDataVerificationDatabaseBusiness != null)
+            {
+                return SourceDataVerificationDatabaseBusiness.GetFieldDeserializers();
+            }
+            else if(SourceDataVerificationDatabaseTin != null)
+            {
+                return SourceDataVerificationDatabaseTin.GetFieldDeserializers();
+            }
+            else if(SourceDataVerificationDatabaseUkDvla != null)
+            {
+                return SourceDataVerificationDatabaseUkDvla.GetFieldDeserializers();
             }
             else if(SourceDataVerificationDocument != null)
             {
@@ -156,9 +220,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataAccount>(null, SourceDataAccount);
             }
+            else if(SourceDataVerificationBusinessWebsite != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsite>(null, SourceDataVerificationBusinessWebsite);
+            }
             else if(SourceDataVerificationDatabase != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase>(null, SourceDataVerificationDatabase);
+            }
+            else if(SourceDataVerificationDatabaseBusiness != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseBusiness>(null, SourceDataVerificationDatabaseBusiness);
+            }
+            else if(SourceDataVerificationDatabaseTin != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseTin>(null, SourceDataVerificationDatabaseTin);
+            }
+            else if(SourceDataVerificationDatabaseUkDvla != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseUkDvla>(null, SourceDataVerificationDatabaseUkDvla);
             }
             else if(SourceDataVerificationDocument != null)
             {

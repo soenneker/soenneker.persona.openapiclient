@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaArray"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaBoolean"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaChoices"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDate"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDatetime"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaFile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaHash"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaInteger"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaJson"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaMultiChoices"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelation"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaString"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaArray"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaBoolean"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaChoices"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDate"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaDatetime"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaFile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaHash"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaInteger"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaJson"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaMultiChoices"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaPlatformFile"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelation"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaString"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FieldSchema : IComposedTypeWrapper, IParsable
@@ -109,6 +109,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaNumber FieldSchemaNumber { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaPlatformFile"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaPlatformFile? FieldSchemaPlatformFile { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaPlatformFile FieldSchemaPlatformFile { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelation"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -146,6 +154,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             result.FieldSchemaJson = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaJson();
             result.FieldSchemaMultiChoices = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaMultiChoices();
             result.FieldSchemaNumber = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaNumber();
+            result.FieldSchemaPlatformFile = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaPlatformFile();
             result.FieldSchemaRelation = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaRelation();
             result.FieldSchemaString = new global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaString();
             return result;
@@ -156,9 +165,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(FieldSchemaArray != null || FieldSchemaBoolean != null || FieldSchemaChoices != null || FieldSchemaDate != null || FieldSchemaDatetime != null || FieldSchemaEmailAddress != null || FieldSchemaFile != null || FieldSchemaHash != null || FieldSchemaInteger != null || FieldSchemaJson != null || FieldSchemaMultiChoices != null || FieldSchemaNumber != null || FieldSchemaRelation != null || FieldSchemaString != null)
+            if(FieldSchemaArray != null || FieldSchemaBoolean != null || FieldSchemaChoices != null || FieldSchemaDate != null || FieldSchemaDatetime != null || FieldSchemaEmailAddress != null || FieldSchemaFile != null || FieldSchemaHash != null || FieldSchemaInteger != null || FieldSchemaJson != null || FieldSchemaMultiChoices != null || FieldSchemaNumber != null || FieldSchemaPlatformFile != null || FieldSchemaRelation != null || FieldSchemaString != null)
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FieldSchemaArray, FieldSchemaBoolean, FieldSchemaChoices, FieldSchemaDate, FieldSchemaDatetime, FieldSchemaEmailAddress, FieldSchemaFile, FieldSchemaHash, FieldSchemaInteger, FieldSchemaJson, FieldSchemaMultiChoices, FieldSchemaNumber, FieldSchemaRelation, FieldSchemaString);
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(FieldSchemaArray, FieldSchemaBoolean, FieldSchemaChoices, FieldSchemaDate, FieldSchemaDatetime, FieldSchemaEmailAddress, FieldSchemaFile, FieldSchemaHash, FieldSchemaInteger, FieldSchemaJson, FieldSchemaMultiChoices, FieldSchemaNumber, FieldSchemaPlatformFile, FieldSchemaRelation, FieldSchemaString);
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -169,7 +178,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaArray>(null, FieldSchemaArray, FieldSchemaBoolean, FieldSchemaChoices, FieldSchemaDate, FieldSchemaDatetime, FieldSchemaEmailAddress, FieldSchemaFile, FieldSchemaHash, FieldSchemaInteger, FieldSchemaJson, FieldSchemaMultiChoices, FieldSchemaNumber, FieldSchemaRelation, FieldSchemaString);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FieldSchemaArray>(null, FieldSchemaArray, FieldSchemaBoolean, FieldSchemaChoices, FieldSchemaDate, FieldSchemaDatetime, FieldSchemaEmailAddress, FieldSchemaFile, FieldSchemaHash, FieldSchemaInteger, FieldSchemaJson, FieldSchemaMultiChoices, FieldSchemaNumber, FieldSchemaPlatformFile, FieldSchemaRelation, FieldSchemaString);
         }
     }
 }

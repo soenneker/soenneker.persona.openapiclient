@@ -36,7 +36,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The match_types property</summary>
+        /// <summary>The matchTypes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? MatchTypes { get; set; }
@@ -89,7 +89,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "akas", n => { Akas = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "birthdates", n => { Birthdates = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "match_types", n => { MatchTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "match-types", n => { MatchTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "media", n => { Media = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItemMediaItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItemMediaItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "sources", n => { Sources = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItemSourcesItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItemSourcesItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -105,7 +105,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("akas", Akas);
             writer.WriteCollectionOfPrimitiveValues<string>("birthdates", Birthdates);
             writer.WriteStringValue("id", Id);
-            writer.WriteCollectionOfPrimitiveValues<string>("match_types", MatchTypes);
+            writer.WriteCollectionOfPrimitiveValues<string>("match-types", MatchTypes);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItemMediaItem>("media", Media);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItemSourcesItem>("sources", Sources);

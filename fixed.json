@@ -11,7 +11,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "2025-12-08"
+    "version": "2026-09-29"
   },
   "servers": [
     {
@@ -34333,10 +34333,7 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": [
-              "null",
-              "string"
-            ],
+            "type": "string",
             "description": "A name for remembering webhook"
           },
           "description": {
@@ -59395,6 +59392,13 @@
               ]
             }
           },
+          "match-types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "name_exact"
+            }
+          },
           "media": {
             "type": "array",
             "items": {
@@ -59414,13 +59418,6 @@
           "id": {
             "type": "string",
             "example": "FV933QHOUDG73V8"
-          },
-          "match_types": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "example": "name_exact"
-            }
           }
         },
         "additionalProperties": false
@@ -64754,6 +64751,13 @@
       "ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItemSourcesItem": {
         "type": "object",
         "properties": {
+          "country-codes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "FR"
+            }
+          },
           "name": {
             "type": "string",
             "example": "Adverse Media"
@@ -64766,13 +64770,6 @@
             "items": {
               "type": "string",
               "example": "adverse-media-v2-other-minor"
-            }
-          },
-          "country_codes": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "example": "FR"
             }
           }
         },

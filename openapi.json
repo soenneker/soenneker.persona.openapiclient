@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Persona API Reference",
-    "version": "2025-12-08",
+    "version": "2026-09-29",
     "license": {
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
@@ -31188,6 +31188,7 @@
                       "attributes": {
                         "$ref": "#/components/schemas/webhook-request-attributes",
                         "required": [
+                          "name",
                           "url",
                           "enabled-events"
                         ]
@@ -51770,6 +51771,13 @@
                             ]
                           }
                         },
+                        "match-types": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "name_exact"
+                          }
+                        },
                         "media": {
                           "type": "array",
                           "items": {
@@ -51809,6 +51817,13 @@
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
+                              "country-codes": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "example": "FR"
+                                }
+                              },
                               "name": {
                                 "type": "string",
                                 "example": "Adverse Media"
@@ -51822,13 +51837,6 @@
                                   "type": "string",
                                   "example": "adverse-media-v2-other-minor"
                                 }
-                              },
-                              "country_codes": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string",
-                                  "example": "FR"
-                                }
                               }
                             }
                           }
@@ -51836,13 +51844,6 @@
                         "id": {
                           "type": "string",
                           "example": "FV933QHOUDG73V8"
-                        },
-                        "match_types": {
-                          "type": "array",
-                          "items": {
-                            "type": "string",
-                            "example": "name_exact"
-                          }
                         }
                       }
                     }
@@ -71572,10 +71573,7 @@
         "properties": {
           "name": {
             "description": "A name for remembering webhook",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description": {
             "description": "An optional description for this webhook",

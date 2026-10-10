@@ -12,7 +12,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public partial class ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItemSourcesItem : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The country_codes property</summary>
+        /// <summary>The countryCodes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? CountryCodes { get; set; }
@@ -62,7 +62,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "country_codes", n => { CountryCodes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "country-codes", n => { CountryCodes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
                 { "types", n => { Types = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
@@ -75,7 +75,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("country_codes", CountryCodes);
+            writer.WriteCollectionOfPrimitiveValues<string>("country-codes", CountryCodes);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("token", Token);
             writer.WriteCollectionOfPrimitiveValues<string>("types", Types);

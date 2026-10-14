@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// The version&apos;s deployment-engine tag; null when the version is untagged. Omitted for organizations not on explicit deploy.
+    /// The version&apos;s tag; null when the version is untagged. Omitted for Sandbox API keys and for API keys without `inquiry_template.read` on the parent Inquiry Template (for example, when this version is included in an Inquiry response).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InquiryTemplateVersionAttributesVersionTag : IParsable

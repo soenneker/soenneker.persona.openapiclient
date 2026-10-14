@@ -236,6 +236,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         #pragma warning disable CS1591
         ConnectShareTokenOutboundRedeemed,
         #pragma warning restore CS1591
+        [EnumMember(Value = "deployment.completed")]
+        #pragma warning disable CS1591
+        DeploymentCompleted,
+        #pragma warning restore CS1591
         [EnumMember(Value = "document.created")]
         #pragma warning disable CS1591
         DocumentCreated,

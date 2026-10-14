@@ -7498,6 +7498,220 @@
         "x-persona-product": "Devices"
       }
     },
+    "/deployments": {
+      "get": {
+        "tags": [
+          "Deployments"
+        ],
+        "summary": "List all Deployments",
+        "description": "Returns a list of your organization\u0027s deployments, newest first. Results are returned in reverse chronological order.\nEach deployment\u0027s \u0060routes\u0060 carry the effective state as of that deployment \u2014 the newest route per (resource template, environment) key at or before it. Pass \u0060filter[changes-only]=true\u0060 to render only the rows each deployment wrote, so the list reads as a change history. \u0060filter[environment-id]\u0060 and \u0060filter[template-id]\u0060 narrow both the deployments listed and the routes each one carries.\nThis endpoint requires a production API key; sandbox API keys receive 401.",
+        "operationId": "ListAllDeployments",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "$ref": "#/components/parameters/pagination-query-params"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "environment-id": {
+                  "examples": [
+                    "env_2VpXc7nMqZwKjRfLsGdYb8Ht"
+                  ],
+                  "type": "string",
+                  "description": "Filter deployments and routes to a single environment."
+                },
+                "template-id": {
+                  "examples": [
+                    "itmpl_H5wJqL8vNrXmPyKsTdGc2Vz"
+                  ],
+                  "type": "string",
+                  "description": "Filter deployments and routes to a single resource template."
+                },
+                "changes-only": {
+                  "examples": [
+                    true
+                  ],
+                  "type": "boolean",
+                  "description": "When true, each deployment renders only the routes it wrote rather than the effective state as of it."
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a collection of Deployment objects.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListAllDeployments200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/deployment-list"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        },
+        "x-persona-product": "Deployments"
+      }
+    },
+    "/deployments/{deploymentId}": {
+      "get": {
+        "tags": [
+          "Deployments"
+        ],
+        "summary": "Retrieve a Deployment",
+        "description": "Retrieves a deployment. Its \u0060routes\u0060 carry the effective state as of it \u2014 the newest route per (resource template, environment) key at or before the deployment \u2014 including routes written by earlier deployments.\nThis endpoint requires a production API key; sandbox API keys receive 401.",
+        "operationId": "RetrieveADeployment",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "deploymentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Deployment object.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetrieveADeployment200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "$ref": "#/components/examples/deployment"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          }
+        },
+        "x-persona-product": "Deployments"
+      }
+    },
     "/document/generics/{documentId}": {
       "get": {
         "tags": [
@@ -30428,6 +30642,98 @@
         },
         "additionalProperties": false
       },
+      "RouteCriteria": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf2"
+          },
+          {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf3"
+          },
+          {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf4"
+          }
+        ],
+        "properties": {
+          "and": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf1And"
+          },
+          "or": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf2Or"
+          },
+          "!": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf3Composed"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf4Origin"
+          }
+        },
+        "description": "A deployment route criteria node: an \u0060and\u0060/\u0060or\u0060/\u0060!\u0060 operator tree whose \u0060origin\u0060 leaves are either \u0060{ context }\u0060 or \u0060{ resource-type, template-id, version }\u0060. Version references carry the version token and its deployment tag object (null when the version is untagged). Each operator\u0027s operand may be a single node or a non-empty array of nodes."
+      },
+      "VersionTag": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "examples": [
+          {
+            "name": "v2",
+            "description": "Initial production release",
+            "created-at": "2026-03-26T18:29:41.000Z"
+          }
+        ],
+        "required": [
+          "name",
+          "description",
+          "created-at"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "created-at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The version\u0027s deployment tag, when one was minted."
+      },
+      "Deployment": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DeploymentType"
+          },
+          "id": {
+            "examples": [
+              "dply_7KqH4xVnR2bPmYwL9sTgD3cE"
+            ],
+            "type": "string"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/DeploymentAttributes"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Deployment object. A deployment is an atomic, immutable write of routing rules across a set of (resource, environment) keys \u2014 the state the deployment engine serves traffic from."
+      },
       "DocumentSharedAttributes": {
         "type": "object",
         "properties": {
@@ -41213,6 +41519,79 @@
           }
         }
       },
+      "RouteCriteriaOneOf1": {
+        "required": [
+          "and"
+        ],
+        "type": "object",
+        "properties": {
+          "and": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf1And"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RouteCriteriaOneOf2": {
+        "required": [
+          "or"
+        ],
+        "type": "object",
+        "properties": {
+          "or": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf2Or"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RouteCriteriaOneOf3": {
+        "required": [
+          "!"
+        ],
+        "type": "object",
+        "properties": {
+          "!": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf3Composed"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RouteCriteriaOneOf4": {
+        "required": [
+          "origin"
+        ],
+        "type": "object",
+        "properties": {
+          "origin": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf4Origin"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentAttributesRoutesItemRulesItemStrategy": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf2"
+          }
+        ],
+        "properties": {
+          "version": {
+            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf1Version"
+          },
+          "version-refs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf2VersionRefsItem"
+            }
+          }
+        }
+      },
       "DocumentGenericAttributes": {
         "unevaluatedProperties": {
           "not": {}
@@ -51950,6 +52329,178 @@
           }
         }
       },
+      "RouteCriteriaOneOf1And": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/RouteCriteria"
+          },
+          {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf1AndBranch2"
+          }
+        ],
+        "properties": {
+          "and": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf1And"
+          },
+          "or": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf2Or"
+          },
+          "!": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf3Composed"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf4Origin"
+          },
+          "value": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RouteCriteria"
+            }
+          }
+        },
+        "x-inheritable": true
+      },
+      "RouteCriteriaOneOf2Or": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/RouteCriteria"
+          },
+          {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf2OrBranch2"
+          }
+        ],
+        "properties": {
+          "and": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf1And"
+          },
+          "or": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf2Or"
+          },
+          "!": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf3Composed"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf4Origin"
+          },
+          "value": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RouteCriteria"
+            }
+          }
+        },
+        "x-inheritable": true
+      },
+      "RouteCriteriaOneOf3Composed": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/RouteCriteria"
+          },
+          {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf3ComposedBranch2"
+          }
+        ],
+        "properties": {
+          "and": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf1And"
+          },
+          "or": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf2Or"
+          },
+          "!": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf3Composed"
+          },
+          "origin": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf4Origin"
+          },
+          "value": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RouteCriteria"
+            }
+          }
+        },
+        "x-inheritable": true
+      },
+      "RouteCriteriaOneOf4Origin": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf4OriginOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf4OriginOneOf2"
+          }
+        ],
+        "properties": {
+          "context": {
+            "examples": [
+              "mobile"
+            ],
+            "type": "string",
+            "description": "The request context the route matches on."
+          },
+          "resource-type": {
+            "examples": [
+              "inquiry-template"
+            ],
+            "type": "string",
+            "description": "The platform resource type the origin targets."
+          },
+          "template-id": {
+            "examples": [
+              "itmpl_ABC123"
+            ],
+            "type": "string",
+            "description": "The token of the resource template the origin targets."
+          },
+          "version": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf4OriginOneOf2Version"
+          }
+        },
+        "x-inheritable": true
+      },
+      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf1": {
+        "required": [
+          "type",
+          "version"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConstantType"
+          },
+          "version": {
+            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf1Version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf2": {
+        "required": [
+          "type",
+          "version-refs"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/WeightedRandomType"
+          },
+          "version-refs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf2VersionRefsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "DocumentGenericAttributesAllOf2": {
         "type": "object",
         "properties": {
@@ -55144,6 +55695,49 @@
           }
         }
       },
+      "RouteCriteriaOneOf4OriginOneOf1": {
+        "required": [
+          "context"
+        ],
+        "type": "object",
+        "properties": {
+          "context": {
+            "examples": [
+              "mobile"
+            ],
+            "type": "string",
+            "description": "The request context the route matches on."
+          }
+        },
+        "additionalProperties": false
+      },
+      "RouteCriteriaOneOf4OriginOneOf2": {
+        "required": [
+          "resource-type",
+          "template-id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource-type": {
+            "examples": [
+              "inquiry-template"
+            ],
+            "type": "string",
+            "description": "The platform resource type the origin targets."
+          },
+          "template-id": {
+            "examples": [
+              "itmpl_ABC123"
+            ],
+            "type": "string",
+            "description": "The token of the resource template the origin targets."
+          },
+          "version": {
+            "$ref": "#/components/schemas/RouteCriteriaOneOf4OriginOneOf2Version"
+          }
+        },
+        "additionalProperties": false
+      },
       "DeploymentRouteCriteriaOneOf4OriginOneOf1": {
         "required": [
           "context"
@@ -56735,6 +57329,26 @@
         },
         "additionalProperties": false
       },
+      "DeploymentAttributes": {
+        "type": "object",
+        "properties": {
+          "created-at": {
+            "examples": [
+              "2026-10-01T18:34:17.000Z"
+            ],
+            "type": "string",
+            "format": "date-time"
+          },
+          "routes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeploymentAttributesRoutesItem"
+            },
+            "description": "The routes this deployment puts in force. Each route binds a (resource template, environment) key to a rules tree. Without \u0060filter[changes-only]\u0060 this is the effective state as of the deployment \u2014 including routes written by earlier deployments \u2014 so a route whose \u0060source-deployment-id\u0060 is set was authored by the deployment named there. With \u0060filter[changes-only]\u0060 it is exactly the rows this deployment wrote."
+          }
+        },
+        "additionalProperties": false
+      },
       "DocumentSharedRelationshipsInquiry": {
         "type": "object",
         "properties": {
@@ -56900,7 +57514,7 @@
               true
             ],
             "type": "boolean",
-            "description": "Whether this version is configured for any Inquiry creation in any or all environments."
+            "description": "Whether this version is deployed in at least one environment. Reflects organization-wide state, so the value is the same for Sandbox and Production API keys."
           },
           "version-tag": {
             "$ref": "#/components/schemas/InquiryTemplateVersionAttributesVersionTag"
@@ -56937,7 +57551,7 @@
             "items": {
               "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItem"
             },
-            "description": "Deployment routes currently sending traffic to this version, one per environment; rules carry the strategy (constant today, weighted/conditional for partial rollouts) and version references carry each referenced version\u0027s token and serialized deployment tag. Omitted for organizations not on explicit deploy."
+            "description": "Deployment routes currently sending traffic to this version, one per environment; rules carry the strategy (constant today, weighted/conditional for partial rollouts) and version references carry each referenced version\u0027s token and serialized deployment tag. Omitted under the same conditions as \u0060version-tag\u0060."
           },
           "last-updater": {
             "examples": [
@@ -61012,6 +61626,46 @@
         },
         "additionalProperties": false
       },
+      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf1Version": {
+        "required": [
+          "token",
+          "tag"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "examples": [
+              "itmplv_LIVE123"
+            ],
+            "type": "string",
+            "description": "The resource version\u0027s token."
+          },
+          "tag": {
+            "$ref": "#/components/schemas/VersionTag"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf2VersionRefsItem": {
+        "required": [
+          "version",
+          "weight"
+        ],
+        "type": "object",
+        "properties": {
+          "version": {
+            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf2VersionRefsItemVersion"
+          },
+          "weight": {
+            "examples": [
+              80
+            ],
+            "type": "integer",
+            "description": "The ref\u0027s weight within the weighted split."
+          }
+        },
+        "additionalProperties": false
+      },
       "DocumentGenericAttributesAllOf2Fields": {
         "type": "object",
         "description": "JSON key-value pairs of field name to field value. Exact schema depends on the configuration of your template."
@@ -62323,6 +62977,25 @@
         },
         "additionalProperties": false
       },
+      "RouteCriteriaOneOf4OriginOneOf2Version": {
+        "required": [
+          "token",
+          "tag"
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "tag": {
+            "$ref": "#/components/schemas/VersionTag"
+          }
+        },
+        "additionalProperties": false
+      },
       "DeploymentRouteCriteriaOneOf4OriginOneOf2Version": {
         "required": [
           "token",
@@ -63143,6 +63816,46 @@
         },
         "additionalProperties": false
       },
+      "DeploymentAttributesRoutesItem": {
+        "type": "object",
+        "properties": {
+          "resource-type": {
+            "examples": [
+              "inquiry-template"
+            ],
+            "type": "string",
+            "description": "The platform resource type the route targets. \u0060inquiry-template\u0060 is the only supported resource type today; \u0060workflow\u0060 and \u0060scheduled-run-config\u0060 support is planned for a future deploy-manager release."
+          },
+          "template-id": {
+            "examples": [
+              "itmpl_H5wJqL8vNrXmPyKsTdGc2Vz"
+            ],
+            "type": "string",
+            "description": "The token of the resource template the route targets."
+          },
+          "environment": {
+            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemEnvironment"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItem"
+            },
+            "description": "The routing rules evaluated for the key. An empty list undeploys the resource from the environment. Each rule has a strategy and may have a criteria tree with \u0060and\u0060, \u0060or\u0060, and \u0060!\u0060 operators over context or resource origins."
+          },
+          "source-deployment-id": {
+            "examples": [
+              "dply_1AbCdEfGhIjKlMnOpQrStUv"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The token of the deployment that wrote this route, when it predates this deployment; null when this deployment wrote it."
+          }
+        },
+        "additionalProperties": false
+      },
       "DocumentSharedRelationshipsInquiryData": {
         "type": [
           "null",
@@ -63287,7 +64000,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "The version\u0027s deployment-engine tag; null when the version is untagged. Omitted for organizations not on explicit deploy."
+        "description": "The version\u0027s tag; null when the version is untagged. Omitted for Sandbox API keys and for API keys without \u0060inquiry_template.read\u0060 on the parent Inquiry Template (for example, when this version is included in an Inquiry response)."
       },
       "InquiryTemplateVersionAttributesDeploymentsItem": {
         "required": [
@@ -66243,6 +66956,22 @@
         },
         "additionalProperties": false
       },
+      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf2VersionRefsItemVersion": {
+        "required": [
+          "token",
+          "tag"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "tag": {
+            "$ref": "#/components/schemas/VersionTag"
+          }
+        },
+        "additionalProperties": false
+      },
       "InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1VersionTag": {
         "unevaluatedProperties": {
           "not": {}
@@ -67823,6 +68552,44 @@
           "object"
         ],
         "description": "This is a free-form object containing potentially helpful metadata on the extraction result."
+      },
+      "DeploymentAttributesRoutesItemEnvironment": {
+        "required": [
+          "token",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "examples": [
+              "env_2VpXc7nMqZwKjRfLsGdYb8Ht"
+            ],
+            "type": "string"
+          },
+          "name": {
+            "examples": [
+              "production"
+            ],
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The environment the route applies to."
+      },
+      "DeploymentAttributesRoutesItemRulesItem": {
+        "required": [
+          "strategy"
+        ],
+        "type": "object",
+        "properties": {
+          "criteria": {
+            "$ref": "#/components/schemas/RouteCriteria"
+          },
+          "strategy": {
+            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategy"
+          }
+        },
+        "additionalProperties": false
       },
       "InquiryTemplateRelationshipsLatestPublishedVersionData": {
         "type": [
@@ -70421,6 +71188,26 @@
         },
         "additionalProperties": false
       },
+      "ListAllDeployments200Response": {
+        "required": [
+          "data",
+          "links"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Deployment"
+            },
+            "description": "An array of Deployments"
+          },
+          "links": {
+            "$ref": "#/components/schemas/ListAllDeployments200ResponseLinks"
+          }
+        },
+        "additionalProperties": false
+      },
       "RetrieveAGenericDocument200Response": {
         "required": [
           "data"
@@ -72864,6 +73651,15 @@
         },
         "additionalProperties": false
       },
+      "WebhookDeploymentCompletedRequest": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/WebhookDeploymentCompletedRequestData"
+          }
+        },
+        "additionalProperties": false
+      },
       "WebhookDocumentCreatedRequest": {
         "type": "object",
         "properties": {
@@ -73949,6 +74745,51 @@
           }
         }
       },
+      "RouteCriteriaOneOf1AndBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RouteCriteria"
+            }
+          }
+        }
+      },
+      "RouteCriteriaOneOf2OrBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RouteCriteria"
+            }
+          }
+        }
+      },
+      "RouteCriteriaOneOf3ComposedBranch2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RouteCriteria"
+            }
+          }
+        }
+      },
       "DeploymentRouteCriteriaOneOf1AndBranch2": {
         "required": [
           "value"
@@ -74062,6 +74903,18 @@
         "properties": {
           "data": {
             "$ref": "#/components/schemas/BatchJob"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RetrieveADeployment200Response": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Deployment"
           }
         },
         "additionalProperties": false
@@ -76881,6 +77734,34 @@
         },
         "additionalProperties": false
       },
+      "ListAllDeployments200ResponseLinks": {
+        "required": [
+          "next",
+          "prev"
+        ],
+        "type": "object",
+        "properties": {
+          "next": {
+            "examples": [
+              "/api/v1/deployments?page%5Bafter%5D=dply_7KqH4xVnR2bPmYwL9sTgD3cE"
+            ],
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "prev": {
+            "examples": [
+              "/api/v1/deployments?page%5Bbefore%5D=dply_4JnT2wQrZ8vYbLpKxMsNh6dC"
+            ],
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
       "ListAllEvents200ResponseLinks": {
         "required": [
           "prev",
@@ -78923,6 +79804,27 @@
           },
           "attributes": {
             "$ref": "#/components/schemas/WebhookCaseUpdatedTagsRequestDataAttributes"
+          }
+        }
+      },
+      "WebhookDeploymentCompletedRequestData": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/EventValueType"
+          },
+          "id": {
+            "examples": [
+              "evt_ABC123"
+            ],
+            "type": "string",
+            "description": "Unique identifier for this Event. Starts with \u0060evt_\u0060."
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/WebhookDeploymentCompletedRequestDataAttributes"
           }
         }
       },
@@ -83101,6 +84003,28 @@
           }
         }
       },
+      "WebhookDeploymentCompletedRequestDataAttributes": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "type": "object",
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/DeploymentCompletedName"
+          },
+          "payload": {
+            "$ref": "#/components/schemas/WebhookDeploymentCompletedRequestDataAttributesPayload"
+          },
+          "created-at": {
+            "examples": [
+              "2023-09-21T18:29:40.000Z"
+            ],
+            "type": "string",
+            "description": "Datetime when the event was created.",
+            "format": "date-time"
+          }
+        }
+      },
       "WebhookDocumentCreatedRequestDataAttributes": {
         "unevaluatedProperties": {
           "not": {}
@@ -86381,6 +87305,15 @@
         },
         "additionalProperties": false
       },
+      "WebhookDeploymentCompletedRequestDataAttributesPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Deployment"
+          }
+        },
+        "additionalProperties": false
+      },
       "WebhookDocumentCreatedRequestDataAttributesPayload": {
         "type": "object",
         "properties": {
@@ -89429,6 +90362,23 @@
           ]
         }
       },
+      "DeploymentType": {
+        "const": null,
+        "enum": [
+          "deployment"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "DeploymentType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "deployment",
+              "name": "Deployment"
+            }
+          ]
+        }
+      },
       "DocumentGenericType": {
         "const": null,
         "enum": [
@@ -92186,6 +93136,7 @@
           "connect/share-token.inbound-redeemed",
           "connect/share-token.outbound-created",
           "connect/share-token.outbound-redeemed",
+          "deployment.completed",
           "document.created",
           "document.errored",
           "document.extracted",
@@ -92621,6 +93572,10 @@
             {
               "value": "connect/share-token.outbound-redeemed",
               "name": "ConnectShareTokenOutboundRedeemed"
+            },
+            {
+              "value": "deployment.completed",
+              "name": "DeploymentCompleted"
             },
             {
               "value": "document.created",
@@ -93850,6 +94805,23 @@
             {
               "value": "case.updated-tags",
               "name": "CaseUpdatedTags"
+            }
+          ]
+        }
+      },
+      "DeploymentCompletedName": {
+        "const": null,
+        "enum": [
+          "deployment.completed"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "DeploymentCompletedName",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "deployment.completed",
+              "name": "DeploymentCompleted"
             }
           ]
         }
@@ -98054,6 +99026,100 @@
               "device-vendor-id": "1a2b3c4d-5e6f-7g8h-9ijk-1A2B3C4D5E6F",
               "device-fingerprint": "1a2b3c4d5e6f7g8h9ijk",
               "browser-fingerprint": "1a2b3c4d5e6f7g8h9ijklmnopqrstuvw"
+            }
+          }
+        }
+      },
+      "deployment-list": {
+        "value": {
+          "data": [
+            {
+              "type": "deployment",
+              "id": "dply_7KqH4xVnR2bPmYwL9sTgD3cE",
+              "attributes": {
+                "created-at": "2026-10-01T18:34:17.000Z",
+                "routes": [
+                  {
+                    "resource-type": "inquiry-template",
+                    "template-id": "itmpl_H5wJqL8vNrXmPyKsTdGc2Vz",
+                    "environment": {
+                      "token": "env_2VpXc7nMqZwKjRfLsGdYb8Ht",
+                      "name": "production"
+                    },
+                    "rules": [
+                      {
+                        "criteria": {
+                          "origin": {
+                            "resource-type": "inquiry-template",
+                            "template-id": "itmpl_H5wJqL8vNrXmPyKsTdGc2Vz",
+                            "version": null
+                          }
+                        },
+                        "strategy": {
+                          "type": "constant",
+                          "version": {
+                            "token": "itv_C7kNmQr9wJxYtHvLgPsBd4Fz",
+                            "tag": {
+                              "name": "v2",
+                              "description": "Initial production release",
+                              "created-at": "2026-03-26T18:29:41.000Z"
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "source-deployment-id": "dply_1AbCdEfGhIjKlMnOpQrStUv"
+                  }
+                ]
+              }
+            }
+          ],
+          "links": {
+            "prev": null,
+            "next": "/api/v1/deployments?page%5Bafter%5D=dply_7KqH4xVnR2bPmYwL9sTgD3cE"
+          }
+        }
+      },
+      "deployment": {
+        "value": {
+          "data": {
+            "type": "deployment",
+            "id": "dply_7KqH4xVnR2bPmYwL9sTgD3cE",
+            "attributes": {
+              "created-at": "2026-10-01T18:34:17.000Z",
+              "routes": [
+                {
+                  "resource-type": "inquiry-template",
+                  "template-id": "itmpl_H5wJqL8vNrXmPyKsTdGc2Vz",
+                  "environment": {
+                    "token": "env_2VpXc7nMqZwKjRfLsGdYb8Ht",
+                    "name": "production"
+                  },
+                  "rules": [
+                    {
+                      "criteria": {
+                        "origin": {
+                          "resource-type": "inquiry-template",
+                          "template-id": "itmpl_H5wJqL8vNrXmPyKsTdGc2Vz",
+                          "version": null
+                        }
+                      },
+                      "strategy": {
+                        "type": "constant",
+                        "version": {
+                          "token": "itv_C7kNmQr9wJxYtHvLgPsBd4Fz",
+                          "tag": {
+                            "name": "v2",
+                            "description": "Initial production release",
+                            "created-at": "2026-03-26T18:29:41.000Z"
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "source-deployment-id": "dply_1AbCdEfGhIjKlMnOpQrStUv"
+                }
+              ]
             }
           }
         }
@@ -107476,6 +108542,60 @@
                 ]
               },
               "created-at": "2024-01-19T13:15:08.000Z"
+            }
+          }
+        }
+      },
+      "deployment-completed-webhook-body": {
+        "value": {
+          "data": {
+            "type": "event",
+            "id": "evt_7KqH4xVnR2bPmYwL9sTgD3cE8fZ",
+            "attributes": {
+              "name": "deployment.completed",
+              "payload": {
+                "data": {
+                  "type": "deployment",
+                  "id": "dply_7KqH4xVnR2bPmYwL9sTgD3cE",
+                  "attributes": {
+                    "created-at": "2026-10-01T18:34:17.000Z",
+                    "routes": [
+                      {
+                        "resource-type": "inquiry-template",
+                        "template-id": "itmpl_H5wJqL8vNrXmPyKsTdGc2Vz",
+                        "environment": {
+                          "token": "env_2VpXc7nMqZwKjRfLsGdYb8Ht",
+                          "name": "production"
+                        },
+                        "rules": [
+                          {
+                            "criteria": {
+                              "origin": {
+                                "resource-type": "inquiry-template",
+                                "template-id": "itmpl_H5wJqL8vNrXmPyKsTdGc2Vz",
+                                "version": null
+                              }
+                            },
+                            "strategy": {
+                              "type": "constant",
+                              "version": {
+                                "token": "itv_C7kNmQr9wJxYtHvLgPsBd4Fz",
+                                "tag": {
+                                  "name": "v2",
+                                  "description": "Initial production release",
+                                  "created-at": "2026-03-26T18:29:41.000Z"
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "source-deployment-id": null
+                      }
+                    ]
+                  }
+                }
+              },
+              "created-at": "2026-10-01T18:34:18.032Z"
             }
           }
         }
@@ -118702,6 +119822,10 @@
       "description": "Interact with Persona Device objects"
     },
     {
+      "name": "Deployments",
+      "description": "Interact with Persona Deployment objects"
+    },
+    {
       "name": "Documents",
       "description": "Interact with Persona Document objects"
     },
@@ -120013,6 +121137,55 @@
           }
         },
         "x-persona-product": "Cases"
+      }
+    },
+    "deployment.completed": {
+      "post": {
+        "tags": [
+          "Deployment events"
+        ],
+        "summary": "Deployment completed",
+        "description": "Webhook for the \u0060deployment.completed\u0060 event. For more info see [Webhooks Overview](https://docs.withpersona.com/webhooks).\nThis webhook is delivered only to production environments.",
+        "operationId": "WebhookDeploymentCompleted",
+        "parameters": [
+          {
+            "description": "Header. An HMAC that you should use to check that requests are authentic. Compare this value with your own digest, computed from the request body and your webhook secret. For more info see [Webhook Best Practices](https://docs.withpersona.com/webhooks-best-practices).",
+            "$ref": "#/components/parameters/persona-signature-header"
+          },
+          {
+            "description": "The number of times that Persona has attempted to deliver this webhook. This value is incremented each time Persona attempts to deliver the webhook, regardless of whether the delivery was successful.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-made"
+          },
+          {
+            "description": "The number of times that Persona will attempt to deliver this webhook. This value is decremented each time Persona attempts to deliver the webhook.",
+            "$ref": "#/components/parameters/persona-webhook-attempts-left"
+          },
+          {
+            "description": "The time at which Persona first attempted to deliver this webhook. This value is a Unix timestamp in seconds.",
+            "$ref": "#/components/parameters/persona-webhook-first-attempted-at"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookDeploymentCompletedRequest"
+              },
+              "examples": {
+                "Example Body": {
+                  "$ref": "#/components/examples/deployment-completed-webhook-body"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Return a 2xx status code to indicate that the data was received successfully. Any other status will trigger retries. For more info see [Retry Logic](https://docs.withpersona.com/webhooks#retry-logic).",
+            "$ref": "#/components/responses/success"
+          }
+        },
+        "x-persona-product": "Deployments"
       }
     },
     "document.created": {

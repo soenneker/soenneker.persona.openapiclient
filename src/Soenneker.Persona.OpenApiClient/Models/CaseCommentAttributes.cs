@@ -30,7 +30,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>The time the comment was created</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>The comment message</summary>
+        /// <summary>The comment message. Null once the comment has been redacted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Message { get; set; }
@@ -38,6 +38,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Message { get; set; }
 #endif
+        /// <summary>The time the comment was redacted, or null if it has not been redacted. A redacted comment keeps its identifiers and timestamps but its message is cleared.</summary>
+        public DateTimeOffset? RedactedAt { get; set; }
         /// <summary>The time the comment was last updated</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -62,6 +64,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "commenter-type", n => { CommenterType = n.GetStringValue(); } },
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
+                { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -76,6 +79,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("commenter-type", CommenterType);
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteStringValue("message", Message);
+            writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);
         }
     }

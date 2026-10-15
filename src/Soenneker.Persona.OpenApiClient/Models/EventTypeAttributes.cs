@@ -12,7 +12,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public partial class EventTypeAttributes : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Additional context populated for some event types.</summary>
+        /// <summary>Additional context populated for some event types. For a custom event, the context you supplied when creating it, or empty if you supplied none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.EventTypeAttributesContextProperty? Context { get; set; }

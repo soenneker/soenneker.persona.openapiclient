@@ -8,13 +8,29 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Additional context for the event. Always `{}` for `workflow-run.errored`.
+    /// Additional context for the event. Describes the step that caused the workflow run to error and why. Being rolled out gradually: until it is enabled for your organization, this is `{}`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookWorkflowRunErroredRequestDataAttributesContext : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Why the run errored. `null` when the run errored before this field existed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextError? Error { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextError Error { get; set; }
+#endif
+        /// <summary>The step that errored. `null` when the run failed as a whole rather than at a step (for example, it expired), or when the run errored before this field existed.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep? ErroredStep { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep ErroredStep { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContext"/> and sets the default values.
         /// </summary>
@@ -40,6 +56,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "error", n => { Error = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextError>(global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextError.CreateFromDiscriminatorValue); } },
+                { "errored-step", n => { ErroredStep = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep>(global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,6 +67,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextError>("error", Error);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep>("errored-step", ErroredStep);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

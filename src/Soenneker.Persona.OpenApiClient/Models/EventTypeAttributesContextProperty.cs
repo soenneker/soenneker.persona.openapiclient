@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Additional context populated for some event types.
+    /// Additional context populated for some event types. For a custom event, the context you supplied when creating it, or empty if you supplied none.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EventTypeAttributesContextProperty : IAdditionalDataHolder, IParsable

@@ -45840,6 +45840,46 @@
             ],
             "format": "date"
           },
+          "my-number-card-expiration-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Expiration date read from the My Number card, set when a My Number card read operation was performed.",
+            "format": "date"
+          },
+          "signing-cert-expiration-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Expiration date of the signing certificate read from the card, set when a digital signature operation was performed.",
+            "format": "date"
+          },
+          "auth-cert-expiration-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Expiration date of the authentication certificate read from the card, set when an authentication signature operation was performed.",
+            "format": "date"
+          },
+          "drivers-license-expiration-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Expiration date read from a driver\u0027s license, set when a driver\u0027s license read operation was performed.",
+            "format": "date"
+          },
+          "residence-card-expiration-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Expiration date read from a residence card, set when a residence card read operation was performed.",
+            "format": "date"
+          },
           "face-image": {
             "$ref": "#/components/schemas/VerificationJpMyNumberNfcScanAttributesFaceImage"
           },
@@ -45881,6 +45921,16 @@
             ],
             "description": "Identification number scanned from drivers license. Deprecated in favor of identification-number.",
             "deprecated": true
+          },
+          "license-restrictions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Restrictions in effect on the bearer\u0027s driver\u0027s license, captured as free text from a scanned driver\u0027s license."
           },
           "name-full": {
             "type": [
@@ -54254,6 +54304,46 @@
             ],
             "format": "date"
           },
+          "my-number-card-expiration-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Expiration date read from the My Number card, set when a My Number card read operation was performed.",
+            "format": "date"
+          },
+          "signing-cert-expiration-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Expiration date of the signing certificate read from the card, set when a digital signature operation was performed.",
+            "format": "date"
+          },
+          "auth-cert-expiration-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Expiration date of the authentication certificate read from the card, set when an authentication signature operation was performed.",
+            "format": "date"
+          },
+          "drivers-license-expiration-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Expiration date read from a driver\u0027s license, set when a driver\u0027s license read operation was performed.",
+            "format": "date"
+          },
+          "residence-card-expiration-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Expiration date read from a residence card, set when a residence card read operation was performed.",
+            "format": "date"
+          },
           "face-image": {
             "$ref": "#/components/schemas/VerificationJpMyNumberNfcScanAttributesAllOf2FaceImageProperty"
           },
@@ -54295,6 +54385,16 @@
             ],
             "description": "Identification number scanned from drivers license. Deprecated in favor of identification-number.",
             "deprecated": true
+          },
+          "license-restrictions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "description": "Restrictions in effect on the bearer\u0027s driver\u0027s license, captured as free text from a scanned driver\u0027s license."
           },
           "name-full": {
             "type": [
@@ -56712,8 +56812,11 @@
             "examples": [
               "This is a case comment"
             ],
-            "type": "string",
-            "description": "The comment message"
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The comment message. Null once the comment has been redacted."
           },
           "created-at": {
             "examples": [
@@ -56729,6 +56832,17 @@
             ],
             "type": "string",
             "description": "The time the comment was last updated",
+            "format": "date-time"
+          },
+          "redacted-at": {
+            "examples": [
+              "2021-03-25T07:04:16.667Z"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The time the comment was redacted, or null if it has not been redacted. A redacted comment keeps its identifiers and timestamps but its message is cleared.",
             "format": "date-time"
           },
           "commenter-id": {
@@ -61876,6 +61990,15 @@
             "description": "The input DOB in YYYY-MM-DD format",
             "example": "1991-10-07"
           },
+          "formation-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional business formation date. Business adverse-media articles published before this date are excluded when the report is processed. Articles on this date and undated articles remain eligible under other configured filters. This date is separate from the date used for identity matching. Returns null when unset, with no formation-date cutoff applied.",
+            "format": "date",
+            "example": "2000-01-01"
+          },
           "address-street-1": {
             "type": [
               "null",
@@ -62643,6 +62766,15 @@
             ],
             "description": "The birthdate of the individual, formatted as YYYY-MM-DD (ISO 8601).",
             "example": "1991-10-07"
+          },
+          "formation-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional business formation date. Business adverse-media articles published before this date are excluded when the report is processed. Articles on this date and undated articles remain eligible under other configured filters. This date is separate from the date used for identity matching.",
+            "format": "date",
+            "example": "2000-01-01"
           },
           "address-street-1": {
             "type": [
@@ -64592,7 +64724,7 @@
       },
       "EventTypeAttributesContext": {
         "type": "object",
-        "description": "Additional context populated for some event types."
+        "description": "Additional context populated for some event types. For a custom event, the context you supplied when creating it, or empty if you supplied none."
       },
       "GraphQueryAttributesParams": {
         "type": "object",
@@ -76618,7 +76750,7 @@
       },
       "EventTypeAttributesContextProperty": {
         "type": "object",
-        "description": "Additional context populated for some event types."
+        "description": "Additional context populated for some event types. For a custom event, the context you supplied when creating it, or empty if you supplied none."
       },
       "GraphQueryAttributesParamsProperty": {
         "type": "object",
@@ -89216,7 +89348,15 @@
       },
       "WebhookWorkflowRunErroredRequestDataAttributesContext": {
         "type": "object",
-        "description": "Additional context for the event. Always \u0060{}\u0060 for \u0060workflow-run.errored\u0060."
+        "properties": {
+          "errored-step": {
+            "$ref": "#/components/schemas/WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep"
+          },
+          "error": {
+            "$ref": "#/components/schemas/WebhookWorkflowRunErroredRequestDataAttributesContextError"
+          }
+        },
+        "description": "Additional context for the event. Describes the step that caused the workflow run to error and why. Being rolled out gradually: until it is enabled for your organization, this is \u0060{}\u0060."
       },
       "WebhookWorkflowRunResumedRequestDataAttributesPayload": {
         "type": "object",
@@ -89307,6 +89447,86 @@
           }
         },
         "additionalProperties": false
+      },
+      "WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "name": {
+            "examples": [
+              "Run report"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Display name of the step in the workflow."
+          },
+          "key": {
+            "examples": [
+              "action_run_report"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Identifier of the step in the workflow version\u0027s configuration."
+          },
+          "type": {
+            "examples": [
+              "action"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Kind of step, for example \u0060action\u0060, \u0060conditional\u0060, \u0060parallel\u0060, \u0060loop\u0060, \u0060module\u0060 or \u0060wait\u0060."
+          },
+          "action-key": {
+            "examples": [
+              "run_report"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The action the step runs. \u0060null\u0060 unless \u0060type\u0060 is \u0060action\u0060."
+          }
+        },
+        "additionalProperties": false,
+        "description": "The step that errored. \u0060null\u0060 when the run failed as a whole rather than at a step (for example, it expired), or when the run errored before this field existed."
+      },
+      "WebhookWorkflowRunErroredRequestDataAttributesContextError": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "type": {
+            "examples": [
+              "missing-input-error"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Category of the error, for example \u0060missing-input-error\u0060, \u0060invalid-input-error\u0060, \u0060configuration-error\u0060, \u0060resource-error\u0060 or \u0060unknown-error\u0060. \u0060run-failure\u0060 when the run failed as a whole rather than at a step."
+          },
+          "message": {
+            "examples": [
+              "Required information is missing for report_template_id"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Human-readable description of the error. Only shown for configuration and input errors; every other type reads \u0022An error occurred while executing this step\u0022."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Why the run errored. \u0060null\u0060 when the run errored before this field existed."
       },
       "ArrayType": {
         "const": null,
@@ -101130,6 +101350,7 @@
                 "name-last": "Doe",
                 "term": "Joe Doe",
                 "birthdate": null,
+                "formation-date": null,
                 "address-street-1": null,
                 "address-street-2": null,
                 "address-city": null,
@@ -119534,7 +119755,18 @@
                 ]
               },
               "created-at": "2025-11-15T13:32:35.000Z",
-              "context": {}
+              "context": {
+                "errored-step": {
+                  "name": "Run report",
+                  "key": "action_run_report",
+                  "type": "action",
+                  "action-key": "run_report"
+                },
+                "error": {
+                  "type": "missing-input-error",
+                  "message": "Required information is missing for report_template_id"
+                }
+              }
             }
           }
         }

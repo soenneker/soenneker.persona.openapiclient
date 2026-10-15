@@ -23,6 +23,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Address { get; set; }
 #endif
+        /// <summary>Expiration date of the authentication certificate read from the card, set when an authentication signature operation was performed.</summary>
+        public Date? AuthCertExpirationDate { get; set; }
         /// <summary>The birthdate property</summary>
         public Date? Birthdate { get; set; }
         /// <summary>The checks property</summary>
@@ -49,6 +51,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The time the verification was created in Unix timestamp format</summary>
         public int? CreatedAtTs { get; set; }
+        /// <summary>Expiration date read from a driver&apos;s license, set when a driver&apos;s license read operation was performed.</summary>
+        public Date? DriversLicenseExpirationDate { get; set; }
         /// <summary>The expirationDate property</summary>
         public Date? ExpirationDate { get; set; }
         /// <summary>Face image extracted from the NFC card, when present. Deprecated in favor of `selfie-photo`.</summary>
@@ -101,6 +105,16 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string LicenseNumber { get; set; }
 #endif
+        /// <summary>Restrictions in effect on the bearer&apos;s driver&apos;s license, captured as free text from a scanned driver&apos;s license.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? LicenseRestrictions { get; set; }
+#nullable restore
+#else
+        public List<string> LicenseRestrictions { get; set; }
+#endif
+        /// <summary>Expiration date read from the My Number card, set when a My Number card read operation was performed.</summary>
+        public Date? MyNumberCardExpirationDate { get; set; }
         /// <summary>The nameFull property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -119,6 +133,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>The time the verification was redacted in ISO 8601 format</summary>
         public DateTimeOffset? RedactedAt { get; set; }
+        /// <summary>Expiration date read from a residence card, set when a residence card read operation was performed.</summary>
+        public Date? ResidenceCardExpirationDate { get; set; }
         /// <summary>Portrait photo of the bearer extracted from the NFC card, when present.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -135,6 +151,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Sex { get; set; }
 #endif
+        /// <summary>Expiration date of the signing certificate read from the card, set when a digital signature operation was performed.</summary>
+        public Date? SigningCertExpirationDate { get; set; }
         /// <summary>The status of the verificationPossible values:- initiated- submitted- tentatively_passed (only for `verification/document` and `verification/qes-infocert`)- tentatively_failed (only for `verification/database-business` and `verification/database-business-footprint`)- passed- failed- requires_retry- skipped- canceled- confirmed (only for `verification/email-address` and `verification/phone-number`)Do not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -189,6 +207,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "address", n => { Address = n.GetStringValue(); } },
+                { "auth-cert-expiration-date", n => { AuthCertExpirationDate = n.GetDateValue(); } },
                 { "birthdate", n => { Birthdate = n.GetDateValue(); } },
                 { "checks", n => { Checks = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "completed-at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },
@@ -196,6 +215,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created-at-ts", n => { CreatedAtTs = n.GetIntValue(); } },
+                { "drivers-license-expiration-date", n => { DriversLicenseExpirationDate = n.GetDateValue(); } },
                 { "expiration-date", n => { ExpirationDate = n.GetDateValue(); } },
                 { "face-image", n => { FaceImage = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesFaceImage>(global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesFaceImage.CreateFromDiscriminatorValue); } },
                 { "gender", n => { Gender = n.GetStringValue(); } },
@@ -203,11 +223,15 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "identification-number", n => { IdentificationNumber = n.GetStringValue(); } },
                 { "kana-name", n => { KanaName = n.GetStringValue(); } },
                 { "license-number", n => { LicenseNumber = n.GetStringValue(); } },
+                { "license-restrictions", n => { LicenseRestrictions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "my-number-card-expiration-date", n => { MyNumberCardExpirationDate = n.GetDateValue(); } },
                 { "name-full", n => { NameFull = n.GetStringValue(); } },
                 { "operation", n => { Operation = n.GetStringValue(); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
+                { "residence-card-expiration-date", n => { ResidenceCardExpirationDate = n.GetDateValue(); } },
                 { "selfie-photo", n => { SelfiePhoto = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto>(global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto.CreateFromDiscriminatorValue); } },
                 { "sex", n => { Sex = n.GetStringValue(); } },
+                { "signing-cert-expiration-date", n => { SigningCertExpirationDate = n.GetDateValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "submitted-at", n => { SubmittedAt = n.GetDateTimeOffsetValue(); } },
                 { "submitted-at-ts", n => { SubmittedAtTs = n.GetIntValue(); } },
@@ -223,6 +247,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("address", Address);
+            writer.WriteDateValue("auth-cert-expiration-date", AuthCertExpirationDate);
             writer.WriteDateValue("birthdate", Birthdate);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>("checks", Checks);
             writer.WriteDateTimeOffsetValue("completed-at", CompletedAt);
@@ -230,6 +255,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("country-code", CountryCode);
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteIntValue("created-at-ts", CreatedAtTs);
+            writer.WriteDateValue("drivers-license-expiration-date", DriversLicenseExpirationDate);
             writer.WriteDateValue("expiration-date", ExpirationDate);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesFaceImage>("face-image", FaceImage);
             writer.WriteStringValue("gender", Gender);
@@ -237,11 +263,15 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("identification-number", IdentificationNumber);
             writer.WriteStringValue("kana-name", KanaName);
             writer.WriteStringValue("license-number", LicenseNumber);
+            writer.WriteCollectionOfPrimitiveValues<string>("license-restrictions", LicenseRestrictions);
+            writer.WriteDateValue("my-number-card-expiration-date", MyNumberCardExpirationDate);
             writer.WriteStringValue("name-full", NameFull);
             writer.WriteStringValue("operation", Operation);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
+            writer.WriteDateValue("residence-card-expiration-date", ResidenceCardExpirationDate);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto>("selfie-photo", SelfiePhoto);
             writer.WriteStringValue("sex", Sex);
+            writer.WriteDateValue("signing-cert-expiration-date", SigningCertExpirationDate);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("submitted-at", SubmittedAt);
             writer.WriteIntValue("submitted-at-ts", SubmittedAtTs);

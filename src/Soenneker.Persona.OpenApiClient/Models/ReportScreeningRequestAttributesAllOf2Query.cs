@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -77,6 +78,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string Email { get; set; }
 #endif
+        /// <summary>Optional business formation date. Business adverse-media articles published before this date are excluded when the report is processed. Articles on this date and undated articles remain eligible under other configured filters. This date is separate from the date used for identity matching.</summary>
+        public Date? FormationDate { get; set; }
         /// <summary>The government ID number of the individual to search.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -143,6 +146,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "address-subdivision", n => { AddressSubdivision = n.GetStringValue(); } },
                 { "birthdate", n => { Birthdate = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
+                { "formation-date", n => { FormationDate = n.GetDateValue(); } },
                 { "identification-number", n => { IdentificationNumber = n.GetStringValue(); } },
                 { "name-first", n => { NameFirst = n.GetStringValue(); } },
                 { "name-last", n => { NameLast = n.GetStringValue(); } },
@@ -165,6 +169,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("address-subdivision", AddressSubdivision);
             writer.WriteStringValue("birthdate", Birthdate);
             writer.WriteStringValue("email", Email);
+            writer.WriteDateValue("formation-date", FormationDate);
             writer.WriteStringValue("identification-number", IdentificationNumber);
             writer.WriteStringValue("name-first", NameFirst);
             writer.WriteStringValue("name-last", NameLast);

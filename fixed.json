@@ -34144,7 +34144,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "One theme variant: \u0060inquiry\u0060 holds flow chrome (navbar, modal, hosted flow), \u0060components\u0060 holds the per-component style grid (component \u2192 variant \u2192 state \u2192 properties). Value leaves are typed objects such as \u0060{ unit: hex, value: \u0022#111111\u0022 }\u0060 (color), \u0060{ unit: px, value: 16 }\u0060 (size), \u0060{ x: ..., y: ... }\u0060 (dimensions) and \u0060{ bitmask: 15 }\u0060 (corner mask). The accepted cells are exactly those of the Code-First theme-set YAML shape; a request containing a non-permitted or mistyped cell at any depth is rejected with a 400 naming each offending path. Values that pass the structural check but cannot be reconciled into the stored theme (for example, shared button properties that disagree between the primary and secondary variants) are rejected with a 422."
+        "description": "One theme variant: \u0060inquiry\u0060 holds flow chrome (navbar, modal, hosted flow), \u0060components\u0060 holds the per-component style grid (component \u2192 variant \u2192 state \u2192 properties). Value leaves are typed objects such as \u0060{ unit: hex, value: \u0022#111111\u0022 }\u0060 (color), \u0060{ unit: px, value: 16 }\u0060 (size), \u0060{ x: ..., y: ... }\u0060 (dimensions) and \u0060{ bitmask: 15 }\u0060 (corner mask). The accepted cells are exactly those of the Code-First theme-set YAML shape; a request containing a non-permitted or mistyped cell at any depth is rejected with a 400 naming each offending path. Values that pass the structural check but cannot be reconciled into the stored theme (for example, shared button properties that disagree between the primary, secondary, and tertiary variants) are rejected with a 422."
       },
       "ThemeSetStyles": {
         "type": "object",
@@ -34160,7 +34160,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Nested theme tree. Sparse \u2014 any omitted cell falls back to the Persona default cascade. \u0060dark\u0060 mirrors the structure of \u0060light\u0060 and is fully optional. Requests carrying non-permitted or mistyped cells at any depth are rejected with a 400 naming each offending path; values that are structurally valid but cannot be reconciled into the stored theme (for example, shared button properties that disagree between the primary and secondary variants) are rejected with a 422."
+        "description": "Nested theme tree. Sparse \u2014 any omitted cell falls back to the Persona default cascade. \u0060dark\u0060 mirrors the structure of \u0060light\u0060 and is fully optional. Requests carrying non-permitted or mistyped cells at any depth are rejected with a 400 naming each offending path; values that are structurally valid but cannot be reconciled into the stored theme (for example, shared button properties that disagree between the primary, secondary, and tertiary variants) are rejected with a 422."
       },
       "ThemeSet": {
         "type": "object",

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataAccount"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsite"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseBusiness"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseTin"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseUkDvla"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDocument"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationGovernmentId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationPhoneNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationSelfie"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataAccount"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsite"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabase"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseBusiness"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabasePhoneCarrier"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseStandard"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseTin"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseUkDvla"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDocument"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationEmailAddress"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationGovernmentId"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationPhoneNumber"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationPhoneNumberSilentNetworkAuthentication"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationSelfie"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SourceDataRelatedObject : IComposedTypeWrapper, IParsable
@@ -44,6 +44,22 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseBusiness SourceDataVerificationDatabaseBusiness { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabasePhoneCarrier"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabasePhoneCarrier? SourceDataVerificationDatabasePhoneCarrier { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabasePhoneCarrier SourceDataVerificationDatabasePhoneCarrier { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseStandard"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseStandard? SourceDataVerificationDatabaseStandard { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseStandard SourceDataVerificationDatabaseStandard { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseTin"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -93,6 +109,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationPhoneNumber SourceDataVerificationPhoneNumber { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationPhoneNumberSilentNetworkAuthentication"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationPhoneNumberSilentNetworkAuthentication? SourceDataVerificationPhoneNumberSilentNetworkAuthentication { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationPhoneNumberSilentNetworkAuthentication SourceDataVerificationPhoneNumberSilentNetworkAuthentication { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationSelfie"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -127,6 +151,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 result.SourceDataVerificationDatabaseBusiness = new global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseBusiness();
             }
+            else if("connect/source-data/verification/database-phone-carrier".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SourceDataVerificationDatabasePhoneCarrier = new global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabasePhoneCarrier();
+            }
+            else if("connect/source-data/verification/database-standard".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SourceDataVerificationDatabaseStandard = new global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseStandard();
+            }
             else if("connect/source-data/verification/database-tin".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SourceDataVerificationDatabaseTin = new global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseTin();
@@ -150,6 +182,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if("connect/source-data/verification/phone-number".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SourceDataVerificationPhoneNumber = new global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationPhoneNumber();
+            }
+            else if("connect/source-data/verification/phone-number-silent-network-authentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SourceDataVerificationPhoneNumberSilentNetworkAuthentication = new global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationPhoneNumberSilentNetworkAuthentication();
             }
             else if("connect/source-data/verification/selfie".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -179,6 +215,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 return SourceDataVerificationDatabaseBusiness.GetFieldDeserializers();
             }
+            else if(SourceDataVerificationDatabasePhoneCarrier != null)
+            {
+                return SourceDataVerificationDatabasePhoneCarrier.GetFieldDeserializers();
+            }
+            else if(SourceDataVerificationDatabaseStandard != null)
+            {
+                return SourceDataVerificationDatabaseStandard.GetFieldDeserializers();
+            }
             else if(SourceDataVerificationDatabaseTin != null)
             {
                 return SourceDataVerificationDatabaseTin.GetFieldDeserializers();
@@ -202,6 +246,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if(SourceDataVerificationPhoneNumber != null)
             {
                 return SourceDataVerificationPhoneNumber.GetFieldDeserializers();
+            }
+            else if(SourceDataVerificationPhoneNumberSilentNetworkAuthentication != null)
+            {
+                return SourceDataVerificationPhoneNumberSilentNetworkAuthentication.GetFieldDeserializers();
             }
             else if(SourceDataVerificationSelfie != null)
             {
@@ -232,6 +280,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseBusiness>(null, SourceDataVerificationDatabaseBusiness);
             }
+            else if(SourceDataVerificationDatabasePhoneCarrier != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabasePhoneCarrier>(null, SourceDataVerificationDatabasePhoneCarrier);
+            }
+            else if(SourceDataVerificationDatabaseStandard != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseStandard>(null, SourceDataVerificationDatabaseStandard);
+            }
             else if(SourceDataVerificationDatabaseTin != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationDatabaseTin>(null, SourceDataVerificationDatabaseTin);
@@ -255,6 +311,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if(SourceDataVerificationPhoneNumber != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationPhoneNumber>(null, SourceDataVerificationPhoneNumber);
+            }
+            else if(SourceDataVerificationPhoneNumberSilentNetworkAuthentication != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationPhoneNumberSilentNetworkAuthentication>(null, SourceDataVerificationPhoneNumberSilentNetworkAuthentication);
             }
             else if(SourceDataVerificationSelfie != null)
             {

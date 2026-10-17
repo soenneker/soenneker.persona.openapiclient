@@ -44,6 +44,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<string> ListTypes { get; set; }
 #endif
+        /// <summary>The types of matching criteria satisfied by the search input.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? MatchTypes { get; set; }
+#nullable restore
+#else
+        public List<string> MatchTypes { get; set; }
+#endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,6 +98,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "flag-code", n => { FlagCode = n.GetStringValue(); } },
                 { "list-type", n => { ListType = n.GetStringValue(); } },
                 { "list-types", n => { ListTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "match-types", n => { MatchTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -106,6 +115,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("flag-code", FlagCode);
             writer.WriteStringValue("list-type", ListType);
             writer.WriteCollectionOfPrimitiveValues<string>("list-types", ListTypes);
+            writer.WriteCollectionOfPrimitiveValues<string>("match-types", MatchTypes);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("slug", Slug);
             writer.WriteStringValue("url", Url);

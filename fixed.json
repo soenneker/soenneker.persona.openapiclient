@@ -28737,6 +28737,87 @@
         },
         "description": "PII-filtered snapshot of a Database UK DVLA verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
       },
+      "SourceDataVerificationDatabaseStandard": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Database Standard Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseStandardPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Database Standard verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
+      "SourceDataVerificationDatabasePhoneCarrier": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Database Phone Carrier Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabasePhoneCarrierPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Database Phone Carrier verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
+      "SourceDataVerificationPhoneNumberSilentNetworkAuthentication": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Phone Number Silent Network Authentication Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationPhoneNumberSilentNetworkAuthenticationPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Phone Number Silent Network Authentication verification. The\n\u0060peekable-attributes\u0060 bag carries whichever PII-filtered scalar attributes the source organization\u0027s\nconfiguration allows. Verification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
       "SourceDataVerificationPhoneNumber": {
         "unevaluatedProperties": {
           "not": {}
@@ -28921,6 +29002,15 @@
             "$ref": "#/components/schemas/SourceDataVerificationDatabaseUkDvla"
           },
           {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseStandard"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabasePhoneCarrier"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationPhoneNumberSilentNetworkAuthentication"
+          },
+          {
             "$ref": "#/components/schemas/SourceDataVerificationPhoneNumber"
           },
           {
@@ -28958,6 +29048,9 @@
             "connect/source-data/verification/database-business": "#/components/schemas/SourceDataVerificationDatabaseBusiness",
             "connect/source-data/verification/business-website": "#/components/schemas/SourceDataVerificationBusinessWebsite",
             "connect/source-data/verification/database-uk-dvla": "#/components/schemas/SourceDataVerificationDatabaseUkDvla",
+            "connect/source-data/verification/database-standard": "#/components/schemas/SourceDataVerificationDatabaseStandard",
+            "connect/source-data/verification/database-phone-carrier": "#/components/schemas/SourceDataVerificationDatabasePhoneCarrier",
+            "connect/source-data/verification/phone-number-silent-network-authentication": "#/components/schemas/SourceDataVerificationPhoneNumberSilentNetworkAuthentication",
             "connect/source-data/verification/phone-number": "#/components/schemas/SourceDataVerificationPhoneNumber",
             "connect/source-data/verification/email-address": "#/components/schemas/SourceDataVerificationEmailAddress",
             "connect/source-data/verification/government-id": "#/components/schemas/SourceDataVerificationGovernmentId",
@@ -28969,6 +29062,9 @@
             "SourceDataVerificationDatabaseBusiness": "#/components/schemas/SourceDataVerificationDatabaseBusiness",
             "SourceDataVerificationBusinessWebsite": "#/components/schemas/SourceDataVerificationBusinessWebsite",
             "SourceDataVerificationDatabaseUkDvla": "#/components/schemas/SourceDataVerificationDatabaseUkDvla",
+            "SourceDataVerificationDatabaseStandard": "#/components/schemas/SourceDataVerificationDatabaseStandard",
+            "SourceDataVerificationDatabasePhoneCarrier": "#/components/schemas/SourceDataVerificationDatabasePhoneCarrier",
+            "SourceDataVerificationPhoneNumberSilentNetworkAuthentication": "#/components/schemas/SourceDataVerificationPhoneNumberSilentNetworkAuthentication",
             "SourceDataVerificationPhoneNumber": "#/components/schemas/SourceDataVerificationPhoneNumber",
             "SourceDataVerificationEmailAddress": "#/components/schemas/SourceDataVerificationEmailAddress",
             "SourceDataVerificationGovernmentId": "#/components/schemas/SourceDataVerificationGovernmentId",
@@ -29118,6 +29214,15 @@
             "$ref": "#/components/schemas/SourceDataVerificationDatabaseUkDvla"
           },
           {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseStandard"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabasePhoneCarrier"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataVerificationPhoneNumberSilentNetworkAuthentication"
+          },
+          {
             "$ref": "#/components/schemas/SourceDataVerificationPhoneNumber"
           },
           {
@@ -29164,6 +29269,9 @@
             "connect/source-data/verification/database-business": "#/components/schemas/SourceDataVerificationDatabaseBusiness",
             "connect/source-data/verification/business-website": "#/components/schemas/SourceDataVerificationBusinessWebsite",
             "connect/source-data/verification/database-uk-dvla": "#/components/schemas/SourceDataVerificationDatabaseUkDvla",
+            "connect/source-data/verification/database-standard": "#/components/schemas/SourceDataVerificationDatabaseStandard",
+            "connect/source-data/verification/database-phone-carrier": "#/components/schemas/SourceDataVerificationDatabasePhoneCarrier",
+            "connect/source-data/verification/phone-number-silent-network-authentication": "#/components/schemas/SourceDataVerificationPhoneNumberSilentNetworkAuthentication",
             "connect/source-data/verification/phone-number": "#/components/schemas/SourceDataVerificationPhoneNumber",
             "connect/source-data/verification/email-address": "#/components/schemas/SourceDataVerificationEmailAddress",
             "connect/source-data/account": "#/components/schemas/SourceDataAccount",
@@ -29176,6 +29284,9 @@
             "SourceDataVerificationDatabaseBusiness": "#/components/schemas/SourceDataVerificationDatabaseBusiness",
             "SourceDataVerificationBusinessWebsite": "#/components/schemas/SourceDataVerificationBusinessWebsite",
             "SourceDataVerificationDatabaseUkDvla": "#/components/schemas/SourceDataVerificationDatabaseUkDvla",
+            "SourceDataVerificationDatabaseStandard": "#/components/schemas/SourceDataVerificationDatabaseStandard",
+            "SourceDataVerificationDatabasePhoneCarrier": "#/components/schemas/SourceDataVerificationDatabasePhoneCarrier",
+            "SourceDataVerificationPhoneNumberSilentNetworkAuthentication": "#/components/schemas/SourceDataVerificationPhoneNumberSilentNetworkAuthentication",
             "SourceDataVerificationPhoneNumber": "#/components/schemas/SourceDataVerificationPhoneNumber",
             "SourceDataVerificationEmailAddress": "#/components/schemas/SourceDataVerificationEmailAddress",
             "SourceDataAccount": "#/components/schemas/SourceDataAccount",
@@ -36190,6 +36301,57 @@
           },
           "peekable-attributes": {
             "$ref": "#/components/schemas/SourceDataVerificationDatabaseUkDvlaAllOf2PeekableAttributesProperty"
+          }
+        }
+      },
+      "SourceDataVerificationDatabaseStandardAllOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConnectSourceDataVerificationDatabaseStandardType"
+          },
+          "id": {
+            "examples": [
+              "ver_ABC123"
+            ],
+            "type": "string"
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabaseStandardAllOf2PeekableAttributesProperty"
+          }
+        }
+      },
+      "SourceDataVerificationDatabasePhoneCarrierAllOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConnectSourceDataVerificationDatabasePhoneCarrierType"
+          },
+          "id": {
+            "examples": [
+              "ver_ABC123"
+            ],
+            "type": "string"
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationDatabasePhoneCarrierAllOf2PeekableAttributesProperty"
+          }
+        }
+      },
+      "SourceDataVerificationPhoneNumberSilentNetworkAuthenticationAllOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConnectSourceDataVerificationPhoneNumberSilentNetworkAuthenticationType"
+          },
+          "id": {
+            "examples": [
+              "ver_ABC123"
+            ],
+            "type": "string"
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationPhoneNumberSilentNetworkAuthenticationAllOf2PeekableAttributesProperty"
           }
         }
       },
@@ -59942,6 +60104,24 @@
           "$ref": "#/components/schemas/SourceDataPeekableAttribute"
         }
       },
+      "SourceDataVerificationDatabaseStandardAllOf2PeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataVerificationDatabasePhoneCarrierAllOf2PeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataVerificationPhoneNumberSilentNetworkAuthenticationAllOf2PeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
       "SourceDataVerificationPhoneNumberAllOf2PeekableAttributes": {
         "type": "object",
         "additionalProperties": {
@@ -61393,6 +61573,17 @@
               "type": "string",
               "example": "sanction"
             }
+          },
+          "match-types": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string",
+              "example": "name_exact"
+            },
+            "description": "The types of matching criteria satisfied by the search input."
           },
           "slug": {
             "type": "string",
@@ -66970,6 +67161,17 @@
               "type": "string",
               "example": "sanction"
             }
+          },
+          "match-types": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": "string",
+              "example": "name_exact"
+            },
+            "description": "The types of matching criteria satisfied by the search input."
           },
           "slug": {
             "type": "string",
@@ -76519,6 +76721,18 @@
         "type": "object",
         "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
       },
+      "SourceDataVerificationDatabaseStandardPeekableAttributes": {
+        "type": "object",
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
+      "SourceDataVerificationDatabasePhoneCarrierPeekableAttributes": {
+        "type": "object",
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
+      "SourceDataVerificationPhoneNumberSilentNetworkAuthenticationPeekableAttributes": {
+        "type": "object",
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
       "SourceDataVerificationPhoneNumberPeekableAttributes": {
         "type": "object",
         "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
@@ -76601,6 +76815,24 @@
         }
       },
       "SourceDataVerificationDatabaseUkDvlaAllOf2PeekableAttributesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataVerificationDatabaseStandardAllOf2PeekableAttributesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataVerificationDatabasePhoneCarrierAllOf2PeekableAttributesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataVerificationPhoneNumberSilentNetworkAuthenticationAllOf2PeekableAttributesProperty": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/SourceDataPeekableAttribute"
@@ -92731,6 +92963,57 @@
           ]
         }
       },
+      "ConnectSourceDataVerificationDatabaseStandardType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/verification/database-standard"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataVerificationDatabaseStandardType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/database-standard",
+              "name": "ConnectSourceDataVerificationDatabaseStandard"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataVerificationDatabasePhoneCarrierType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/verification/database-phone-carrier"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataVerificationDatabasePhoneCarrierType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/database-phone-carrier",
+              "name": "ConnectSourceDataVerificationDatabasePhoneCarrier"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataVerificationPhoneNumberSilentNetworkAuthenticationType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/verification/phone-number-silent-network-authentication"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataVerificationPhoneNumberSilentNetworkAuthenticationType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/phone-number-silent-network-authentication",
+              "name": "ConnectSourceDataVerificationPhoneNumberSilentNetworkAuthentication"
+            }
+          ]
+        }
+      },
       "ConnectSourceDataVerificationPhoneNumberType": {
         "const": null,
         "enum": [
@@ -101294,7 +101577,7 @@
               "completed-at": "2023-06-07T14:12:16.000Z",
               "redacted-at": null,
               "report-template-version-name": "v1",
-              "has-match": false,
+              "has-match": true,
               "is-continuous": false,
               "tags": [],
               "name-first": "Jane",
@@ -101303,8 +101586,51 @@
               "term": "Jane Doe",
               "birthdate": null,
               "country-code": null,
-              "matched-lists": [],
-              "ignore-list": []
+              "matched-lists": [
+                {
+                  "name": "EU - EC - Programme PRK - North Korea",
+                  "slug": "eu-ec-programme-prk",
+                  "list-type": "sanction",
+                  "list-types": [
+                    "sanction"
+                  ],
+                  "match-types": [
+                    "name_exact"
+                  ],
+                  "entities": [
+                    {
+                      "name": "Jane Doe",
+                      "alias-type": "primary_name",
+                      "birthdates": []
+                    }
+                  ]
+                }
+              ],
+              "ignore-list": [
+                {
+                  "ignored-at": "2023-06-07T14:12:16.000Z",
+                  "run-history-completed-at": "2023-06-07T14:12:16.000Z",
+                  "match": {
+                    "name": "EU - EC - Programme PRK - North Korea",
+                    "slug": "eu-ec-programme-prk",
+                    "list-type": "sanction",
+                    "list-types": [
+                      "sanction"
+                    ],
+                    "match-types": null,
+                    "entities": [
+                      {
+                        "name": "Jane Doe",
+                        "alias-type": "aka",
+                        "birthdates": [],
+                        "group-id": "EU:110286"
+                      }
+                    ]
+                  },
+                  "user": "John Doe",
+                  "ignore-reason": "false positive"
+                }
+              ]
             },
             "relationships": {
               "inquiry": {

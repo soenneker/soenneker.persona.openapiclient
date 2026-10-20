@@ -29162,6 +29162,87 @@
         },
         "description": "PII-filtered snapshot of an Adverse Media report. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nReport subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
       },
+      "SourceDataReportEmailAddress": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Email Address Report Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataReportEmailAddressPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of an Email Address report. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nReport subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
+      "SourceDataReportPoliticallyExposedPerson": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Politically Exposed Person Report Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataReportPoliticallyExposedPersonPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Politically Exposed Person report. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nReport subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
+      "SourceDataReportScreening": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Screening Report Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Discriminator for the source-object type. Subtypes constrain this to a specific value via \u0060const\u0060.",
+            "x-polymorphic": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataReportScreeningPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Screening report. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nReport subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
       "SourceDataReportWatchlist": {
         "unevaluatedProperties": {
           "not": {}
@@ -29238,6 +29319,15 @@
             "$ref": "#/components/schemas/SourceDataReportAdverseMedia"
           },
           {
+            "$ref": "#/components/schemas/SourceDataReportEmailAddress"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataReportPoliticallyExposedPerson"
+          },
+          {
+            "$ref": "#/components/schemas/SourceDataReportScreening"
+          },
+          {
             "$ref": "#/components/schemas/SourceDataReportWatchlist"
           }
         ],
@@ -29277,6 +29367,9 @@
             "connect/source-data/account": "#/components/schemas/SourceDataAccount",
             "connect/source-data/txn": "#/components/schemas/SourceDataTxn",
             "connect/source-data/report/adverse-media": "#/components/schemas/SourceDataReportAdverseMedia",
+            "connect/source-data/report/email-address": "#/components/schemas/SourceDataReportEmailAddress",
+            "connect/source-data/report/politically-exposed-person": "#/components/schemas/SourceDataReportPoliticallyExposedPerson",
+            "connect/source-data/report/screening": "#/components/schemas/SourceDataReportScreening",
             "connect/source-data/report/watchlist": "#/components/schemas/SourceDataReportWatchlist",
             "SourceDataInquiry": "#/components/schemas/SourceDataInquiry",
             "SourceDataVerificationDatabase": "#/components/schemas/SourceDataVerificationDatabase",
@@ -29292,6 +29385,9 @@
             "SourceDataAccount": "#/components/schemas/SourceDataAccount",
             "SourceDataTxn": "#/components/schemas/SourceDataTxn",
             "SourceDataReportAdverseMedia": "#/components/schemas/SourceDataReportAdverseMedia",
+            "SourceDataReportEmailAddress": "#/components/schemas/SourceDataReportEmailAddress",
+            "SourceDataReportPoliticallyExposedPerson": "#/components/schemas/SourceDataReportPoliticallyExposedPerson",
+            "SourceDataReportScreening": "#/components/schemas/SourceDataReportScreening",
             "SourceDataReportWatchlist": "#/components/schemas/SourceDataReportWatchlist"
           }
         }
@@ -36512,6 +36608,57 @@
           },
           "peekable-attributes": {
             "$ref": "#/components/schemas/SourceDataReportAdverseMediaAllOf2PeekableAttributesProperty"
+          }
+        }
+      },
+      "SourceDataReportEmailAddressAllOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConnectSourceDataReportEmailAddressType"
+          },
+          "id": {
+            "examples": [
+              "rep_ABC123"
+            ],
+            "type": "string"
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataReportEmailAddressAllOf2PeekableAttributesProperty"
+          }
+        }
+      },
+      "SourceDataReportPoliticallyExposedPersonAllOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConnectSourceDataReportPoliticallyExposedPersonType"
+          },
+          "id": {
+            "examples": [
+              "rep_ABC123"
+            ],
+            "type": "string"
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataReportPoliticallyExposedPersonAllOf2PeekableAttributesProperty"
+          }
+        }
+      },
+      "SourceDataReportScreeningAllOf2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ConnectSourceDataReportScreeningType"
+          },
+          "id": {
+            "examples": [
+              "rep_ABC123"
+            ],
+            "type": "string"
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataReportScreeningAllOf2PeekableAttributesProperty"
           }
         }
       },
@@ -60191,6 +60338,24 @@
           "$ref": "#/components/schemas/SourceDataPeekableAttribute"
         }
       },
+      "SourceDataReportEmailAddressAllOf2PeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataReportPoliticallyExposedPersonAllOf2PeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataReportScreeningAllOf2PeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
       "SourceDataReportWatchlistAllOf2PeekableAttributes": {
         "type": "object",
         "additionalProperties": {
@@ -68075,7 +68240,10 @@
               "account",
               "inquiry",
               "txn",
-              "verification"
+              "verification",
+              "report/email-address",
+              "report/politically-exposed-person",
+              "report/screening"
             ],
             "type": "string",
             "x-polymorphic": true
@@ -68084,7 +68252,8 @@
             "examples": [
               "act_ABC123",
               "inq_DEF456",
-              "txn_GHI789"
+              "txn_GHI789",
+              "rep_ABC123"
             ],
             "type": "string"
           }
@@ -68102,7 +68271,10 @@
               "account",
               "inquiry",
               "txn",
-              "verification/database"
+              "verification/database",
+              "report/email-address",
+              "report/politically-exposed-person",
+              "report/screening"
             ],
             "type": "string",
             "x-polymorphic": true
@@ -68111,7 +68283,8 @@
             "examples": [
               "act_ABC123",
               "inq_DEF456",
-              "txn_GHI789"
+              "txn_GHI789",
+              "rep_ABC123"
             ],
             "type": "string"
           }
@@ -76769,6 +76942,18 @@
         "type": "object",
         "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
       },
+      "SourceDataReportEmailAddressPeekableAttributes": {
+        "type": "object",
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
+      "SourceDataReportPoliticallyExposedPersonPeekableAttributes": {
+        "type": "object",
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
+      "SourceDataReportScreeningPeekableAttributes": {
+        "type": "object",
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
       "SourceDataReportWatchlistPeekableAttributes": {
         "type": "object",
         "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
@@ -76869,6 +77054,24 @@
         }
       },
       "SourceDataReportAdverseMediaAllOf2PeekableAttributesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataReportEmailAddressAllOf2PeekableAttributesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataReportPoliticallyExposedPersonAllOf2PeekableAttributesProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        }
+      },
+      "SourceDataReportScreeningAllOf2PeekableAttributesProperty": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/SourceDataPeekableAttribute"
@@ -93163,6 +93366,57 @@
             {
               "value": "connect/source-data/report/adverse-media",
               "name": "ConnectSourceDataReportAdverseMedia"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataReportEmailAddressType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/report/email-address"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataReportEmailAddressType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/report/email-address",
+              "name": "ConnectSourceDataReportEmailAddress"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataReportPoliticallyExposedPersonType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/report/politically-exposed-person"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataReportPoliticallyExposedPersonType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/report/politically-exposed-person",
+              "name": "ConnectSourceDataReportPoliticallyExposedPerson"
+            }
+          ]
+        }
+      },
+      "ConnectSourceDataReportScreeningType": {
+        "const": null,
+        "enum": [
+          "connect/source-data/report/screening"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ConnectSourceDataReportScreeningType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/report/screening",
+              "name": "ConnectSourceDataReportScreening"
             }
           ]
         }

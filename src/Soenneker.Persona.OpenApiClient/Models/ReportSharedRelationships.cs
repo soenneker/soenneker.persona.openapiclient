@@ -13,13 +13,21 @@ namespace Soenneker.Persona.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReportSharedRelationships : IParsable
     {
-        /// <summary>The account linked to the report</summary>
+        /// <summary>The report&apos;s home account, or the first linked account when it has no home account. It returns only one account and is kept for backwards compatibility; use `accounts` to see every associated account. Including it does not require the `account.read` permission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccount? Account { get; set; }
 #nullable restore
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccount Account { get; set; }
+#endif
+        /// <summary>Every account associated with the report, meaning its home account plus all linked accounts, deduplicated and listed in account creation order. Use this when a report can be linked to more than one account; `account` is kept for backwards compatibility and returns only one. The list is not paginated or capped, and is empty when the report has no accounts. Expanding it with `include=accounts` requires the `account.read` permission; the linkage ids do not.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccounts? Accounts { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccounts Accounts { get; set; }
 #endif
         /// <summary>The inquiry linked to the report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,6 +72,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "account", n => { Account = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccount>(global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccount.CreateFromDiscriminatorValue); } },
+                { "accounts", n => { Accounts = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccounts>(global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccounts.CreateFromDiscriminatorValue); } },
                 { "inquiry", n => { Inquiry = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsInquiry>(global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsInquiry.CreateFromDiscriminatorValue); } },
                 { "report-template", n => { ReportTemplate = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsReportTemplate>(global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsReportTemplate.CreateFromDiscriminatorValue); } },
                 { "transaction", n => { Transaction = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsTransaction>(global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsTransaction.CreateFromDiscriminatorValue); } },
@@ -77,6 +86,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccount>("account", Account);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccounts>("accounts", Accounts);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsInquiry>("inquiry", Inquiry);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsReportTemplate>("report-template", ReportTemplate);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsTransaction>("transaction", Transaction);

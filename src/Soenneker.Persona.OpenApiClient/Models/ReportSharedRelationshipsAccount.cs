@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// The account linked to the report
+    /// The report&apos;s home account, or the first linked account when it has no home account. It returns only one account and is kept for backwards compatibility; use `accounts` to see every associated account. Including it does not require the `account.read` permission.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReportSharedRelationshipsAccount : IParsable

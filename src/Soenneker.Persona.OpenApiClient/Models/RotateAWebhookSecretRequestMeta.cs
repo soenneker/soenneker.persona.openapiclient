@@ -12,7 +12,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public partial class RotateAWebhookSecretRequestMeta : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Seconds until currently active webhook expires</summary>
+        /// <summary>Number of seconds the current secret stays active after rotation. During this window Persona signs each webhook event with both the old and new secrets. Defaults to `0`, which expires the old secret immediately. Set it long enough to deploy the new secret to your endpoint.If the webhook already has an expiring secret, this instead sets that secret&apos;s expiration to this many seconds from now. It can only move the expiration sooner.</summary>
         public int? ExpiresInSeconds { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

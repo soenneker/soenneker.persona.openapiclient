@@ -34,7 +34,7 @@ namespace Soenneker.Persona.OpenApiClient.Deployments.Item
         {
         }
         /// <summary>
-        /// Retrieves a deployment. Its `routes` carry the effective state as of it — the newest route per (resource template, environment) key at or before the deployment — including routes written by earlier deployments.This endpoint requires a production API key; sandbox API keys receive 401.
+        /// Retrieves a single deployment. Its `routes` carry the effective state as of it — the newest route per (resource template, environment) key at or before the deployment, across every environment and template — including routes written by earlier deployments. Because the response is a snapshot, it can look similar to the list endpoint; it does not list other deployments.This endpoint does not accept filters. To see only the routes a deployment wrote, use the list endpoint with `filter[changes-only]=true`.This endpoint requires a production API key; sandbox API keys receive 401.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveADeployment200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Persona.OpenApiClient.Deployments.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.RetrieveADeployment200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.RetrieveADeployment200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves a deployment. Its `routes` carry the effective state as of it — the newest route per (resource template, environment) key at or before the deployment — including routes written by earlier deployments.This endpoint requires a production API key; sandbox API keys receive 401.
+        /// Retrieves a single deployment. Its `routes` carry the effective state as of it — the newest route per (resource template, environment) key at or before the deployment, across every environment and template — including routes written by earlier deployments. Because the response is a snapshot, it can look similar to the list endpoint; it does not list other deployments.This endpoint does not accept filters. To see only the routes a deployment wrote, use the list endpoint with `filter[changes-only]=true`.This endpoint requires a production API key; sandbox API keys receive 401.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Persona.OpenApiClient.Deployments.Item
             return new global::Soenneker.Persona.OpenApiClient.Deployments.Item.WithDeploymentItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves a deployment. Its `routes` carry the effective state as of it — the newest route per (resource template, environment) key at or before the deployment — including routes written by earlier deployments.This endpoint requires a production API key; sandbox API keys receive 401.
+        /// Retrieves a single deployment. Its `routes` carry the effective state as of it — the newest route per (resource template, environment) key at or before the deployment, across every environment and template — including routes written by earlier deployments. Because the response is a snapshot, it can look similar to the list endpoint; it does not list other deployments.This endpoint does not accept filters. To see only the routes a deployment wrote, use the list endpoint with `filter[changes-only]=true`.This endpoint requires a production API key; sandbox API keys receive 401.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithDeploymentItemRequestBuilderGetQueryParameters 

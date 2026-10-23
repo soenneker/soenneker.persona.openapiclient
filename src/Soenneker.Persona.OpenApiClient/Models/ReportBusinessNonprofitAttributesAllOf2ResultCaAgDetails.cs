@@ -20,6 +20,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string AsOfDate { get; set; }
 #endif
+        /// <summary>The initial California charity registration date, when supplied by the Persona registry lookup. Null for Candid-sourced reports.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InitialRegistrationDate { get; set; }
+#nullable restore
+#else
+        public string InitialRegistrationDate { get; set; }
+#endif
         /// <summary>The issueDate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -95,6 +103,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "as-of-date", n => { AsOfDate = n.GetStringValue(); } },
+                { "initial-registration-date", n => { InitialRegistrationDate = n.GetStringValue(); } },
                 { "issue-date", n => { IssueDate = n.GetStringValue(); } },
                 { "last-renewal-date", n => { LastRenewalDate = n.GetStringValue(); } },
                 { "most-recent-ag", n => { MostRecentAg = n.GetStringValue(); } },
@@ -112,6 +121,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("as-of-date", AsOfDate);
+            writer.WriteStringValue("initial-registration-date", InitialRegistrationDate);
             writer.WriteStringValue("issue-date", IssueDate);
             writer.WriteStringValue("last-renewal-date", LastRenewalDate);
             writer.WriteStringValue("most-recent-ag", MostRecentAg);

@@ -84,6 +84,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         #pragma warning disable CS1591
         AgentConversationMessageAdded,
         #pragma warning restore CS1591
+        [EnumMember(Value = "authentication-template.authentication-errored")]
+        #pragma warning disable CS1591
+        AuthenticationTemplateAuthenticationErrored,
+        #pragma warning restore CS1591
         [EnumMember(Value = "authentication.completed")]
         #pragma warning disable CS1591
         AuthenticationCompleted,

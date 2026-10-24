@@ -151,10 +151,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.CaseTypeAttributes_tags>? Tags { get; set; }
+        public UntypedNode? Tags { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.CaseTypeAttributes_tags> Tags { get; set; }
+        public UntypedNode Tags { get; set; }
 #endif
         /// <summary>The updatedAt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -215,7 +215,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "resolver-type", n => { ResolverType = n.GetStringValue(); } },
                 { "sla-expires-at", n => { SlaExpiresAt = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
-                { "tags", n => { Tags = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.CaseTypeAttributes_tags>(global::Soenneker.Persona.OpenApiClient.Models.CaseTypeAttributes_tags.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tags", n => { Tags = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "updated-at", n => { UpdatedAt = n.GetStringValue(); } },
                 { "updater-id", n => { UpdaterId = n.GetStringValue(); } },
                 { "updater-type", n => { UpdaterType = n.GetStringValue(); } },
@@ -245,7 +245,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("resolver-type", ResolverType);
             writer.WriteStringValue("sla-expires-at", SlaExpiresAt);
             writer.WriteStringValue("status", Status);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.CaseTypeAttributes_tags>("tags", Tags);
+            writer.WriteObjectValue<UntypedNode>("tags", Tags);
             writer.WriteStringValue("updated-at", UpdatedAt);
             writer.WriteStringValue("updater-id", UpdaterId);
             writer.WriteStringValue("updater-type", UpdaterType);

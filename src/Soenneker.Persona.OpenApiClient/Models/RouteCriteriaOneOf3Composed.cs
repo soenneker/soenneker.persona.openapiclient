@@ -8,26 +8,26 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3ComposedBranch2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria"/>, List&lt;global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RouteCriteriaOneOf3Composed : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria&gt;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria>? RouteCriteria { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria> RouteCriteria { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria? RouteCriteria { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria? RouteCriteriaOneOf3ComposedRouteCriteria { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria RouteCriteria { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3ComposedBranch2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3ComposedBranch2? RouteCriteriaOneOf3ComposedBranch2 { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3ComposedBranch2 RouteCriteriaOneOf3ComposedBranch2 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria RouteCriteriaOneOf3ComposedRouteCriteria { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,9 +39,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3Composed();
-            if("RouteCriteriaOneOf3ComposedBranch2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria>(global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria> routeCriteriaValue)
             {
-                result.RouteCriteriaOneOf3ComposedBranch2 = new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3ComposedBranch2();
+                result.RouteCriteria = routeCriteriaValue;
             }
             return result;
         }
@@ -51,13 +51,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(RouteCriteria != null)
+            if(RouteCriteriaOneOf3ComposedRouteCriteria != null)
             {
-                return RouteCriteria.GetFieldDeserializers();
-            }
-            else if(RouteCriteriaOneOf3ComposedBranch2 != null)
-            {
-                return RouteCriteriaOneOf3ComposedBranch2.GetFieldDeserializers();
+                return RouteCriteriaOneOf3ComposedRouteCriteria.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -68,13 +64,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(RouteCriteria != null)
+            if(RouteCriteriaOneOf3ComposedRouteCriteria != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria>(null, RouteCriteria);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria>(null, RouteCriteriaOneOf3ComposedRouteCriteria);
             }
-            else if(RouteCriteriaOneOf3ComposedBranch2 != null)
+            else if(RouteCriteria != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3ComposedBranch2>(null, RouteCriteriaOneOf3ComposedBranch2);
+                writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria>(null, RouteCriteria);
             }
         }
     }

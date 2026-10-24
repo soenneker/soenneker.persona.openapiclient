@@ -21,7 +21,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTemplateType? Type { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseTemplateDataType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.CaseTemplateType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseTemplateDataType>(); } },
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.CaseTemplateType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseTemplateDataType>("type", Type);
         }
     }
 }

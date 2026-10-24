@@ -37,13 +37,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategy();
-            if("InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("constant".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1 = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1();
             }
-            else if("InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("weighted-random".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2();
             }

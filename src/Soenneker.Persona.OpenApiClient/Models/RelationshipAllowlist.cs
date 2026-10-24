@@ -37,13 +37,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("state")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist();
-            if("RelationshipAllowlistIncludeAll".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("include_all".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RelationshipAllowlistIncludeAll = new global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlistIncludeAll();
             }
-            else if("RelationshipAllowlistIncludeNone".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("include_none".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RelationshipAllowlistIncludeNone = new global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlistIncludeNone();
             }

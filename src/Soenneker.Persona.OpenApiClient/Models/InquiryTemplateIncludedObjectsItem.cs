@@ -39,7 +39,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionRelationships Relationships { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionType? Type { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateIncludedObjectsItem"/> and sets the default values.
         /// </summary>
@@ -68,7 +74,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributes>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributes.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionRelationships>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionRelationships.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -81,7 +87,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributes>("attributes", Attributes);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionRelationships>("relationships", Relationships);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

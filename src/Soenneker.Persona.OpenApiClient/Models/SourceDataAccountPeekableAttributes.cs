@@ -15,6 +15,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Nested bag of standard and custom user-space fields (e.g. `name-first`,`name-last`, org-defined fields). Each entry is a `{visibility, value}` wrapper.The set of keys varies by the account type and by the source organization&apos;sPII-share configuration; clients should handle unknown keys defensively.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataAccountAllOf2PeekableAttributesFieldsProperty? Fields { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataAccountAllOf2PeekableAttributesFieldsProperty Fields { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataAccountPeekableAttributes"/> and sets the default values.
         /// </summary>
@@ -40,6 +48,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataAccountAllOf2PeekableAttributesFieldsProperty>(global::Soenneker.Persona.OpenApiClient.Models.SourceDataAccountAllOf2PeekableAttributesFieldsProperty.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,6 +58,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataAccountAllOf2PeekableAttributesFieldsProperty>("fields", Fields);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

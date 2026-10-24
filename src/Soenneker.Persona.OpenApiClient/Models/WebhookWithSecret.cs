@@ -30,7 +30,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookType? Type { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributes>(global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributes.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretType>(); } },
             };
         }
         /// <summary>
@@ -63,7 +63,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributes>("attributes", Attributes);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretType>("type", Type);
         }
     }
 }

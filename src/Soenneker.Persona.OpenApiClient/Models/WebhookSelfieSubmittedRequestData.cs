@@ -31,7 +31,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.EventValueType? Type { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookBodySharedDataType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.WebhookSelfieSubmittedRequestData"/> and sets the default values.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookSelfieSubmittedRequestDataAttributes>(global::Soenneker.Persona.OpenApiClient.Models.WebhookSelfieSubmittedRequestDataAttributes.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.EventValueType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookBodySharedDataType>(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookSelfieSubmittedRequestDataAttributes>("attributes", Attributes);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.EventValueType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookBodySharedDataType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

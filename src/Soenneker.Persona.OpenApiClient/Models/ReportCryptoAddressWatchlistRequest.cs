@@ -22,7 +22,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistRequestAttributes Attributes { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistType? Type { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistRequestType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -42,7 +42,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistRequestAttributes>(global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistRequestAttributes.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistRequestType>(); } },
             };
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistRequestAttributes>("attributes", Attributes);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistRequestType>("type", Type);
         }
     }
 }

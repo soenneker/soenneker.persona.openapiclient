@@ -37,13 +37,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.AccountsListAllRelations200ResponseDataItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.AccountsListAllRelations200ResponseDataItem();
-            if("Account".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("account".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.Account = new global::Soenneker.Persona.OpenApiClient.Models.Account();
             }
-            else if("Transaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("transaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.Transaction = new global::Soenneker.Persona.OpenApiClient.Models.Transaction();
             }

@@ -8,68 +8,43 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Search query using boolean logic (AND/OR/NOT) and comparison operators.Supports predicates with operators: eq (equal), gt (greater than), gte (greater than or equal),lt (less than), lte (less than or equal). Only `updated_at` supports the range operators;all other attributes support only `eq`.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf4"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SearchWebhookEventsRequestQuery : IAdditionalDataHolder, IParsable
+    public partial class SearchWebhookEventsRequestQuery : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The and property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryAndItem>? And { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf1? SearchWebhookEventsRequestQueryOneOf1 { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryAndItem> And { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf1 SearchWebhookEventsRequestQueryOneOf1 { get; set; }
 #endif
-        /// <summary>The attribute name to filter on (e.g., &apos;updated_at&apos;, &apos;status&apos;, &apos;webhook_id&apos;, &apos;event_name&apos;)</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Attribute { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf2? SearchWebhookEventsRequestQueryOneOf2 { get; set; }
 #nullable restore
 #else
-        public string Attribute { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf2 SearchWebhookEventsRequestQueryOneOf2 { get; set; }
 #endif
-        /// <summary>The not property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryNot? Not { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf3? SearchWebhookEventsRequestQueryOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryNot Not { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf3 SearchWebhookEventsRequestQueryOneOf3 { get; set; }
 #endif
-        /// <summary>Comparison operator. Possible values: eq (equal), gt (greater than), gte (greater than or equal), lt (less than), lte (less than or equal).</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Operator { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf4? SearchWebhookEventsRequestQueryOneOf4 { get; set; }
 #nullable restore
 #else
-        public string Operator { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf4 SearchWebhookEventsRequestQueryOneOf4 { get; set; }
 #endif
-        /// <summary>The or property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOrItem>? Or { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOrItem> Or { get; set; }
-#endif
-        /// <summary>Value to compare against</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryValue? Value { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryValue Value { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQuery"/> and sets the default values.
-        /// </summary>
-        public SearchWebhookEventsRequestQuery()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -78,7 +53,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQuery CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQuery();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQuery();
+            if("SearchWebhookEventsRequestQueryOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SearchWebhookEventsRequestQueryOneOf1 = new global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf1();
+            }
+            else if("SearchWebhookEventsRequestQueryOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SearchWebhookEventsRequestQueryOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf2();
+            }
+            else if("SearchWebhookEventsRequestQueryOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SearchWebhookEventsRequestQueryOneOf3 = new global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf3();
+            }
+            else if("SearchWebhookEventsRequestQueryOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SearchWebhookEventsRequestQueryOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf4();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,15 +79,23 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(SearchWebhookEventsRequestQueryOneOf1 != null)
             {
-                { "and", n => { And = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryAndItem>(global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryAndItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "attribute", n => { Attribute = n.GetStringValue(); } },
-                { "not", n => { Not = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryNot>(global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryNot.CreateFromDiscriminatorValue); } },
-                { "operator", n => { Operator = n.GetStringValue(); } },
-                { "or", n => { Or = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOrItem>(global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOrItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryValue>(global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryValue.CreateFromDiscriminatorValue); } },
-            };
+                return SearchWebhookEventsRequestQueryOneOf1.GetFieldDeserializers();
+            }
+            else if(SearchWebhookEventsRequestQueryOneOf2 != null)
+            {
+                return SearchWebhookEventsRequestQueryOneOf2.GetFieldDeserializers();
+            }
+            else if(SearchWebhookEventsRequestQueryOneOf3 != null)
+            {
+                return SearchWebhookEventsRequestQueryOneOf3.GetFieldDeserializers();
+            }
+            else if(SearchWebhookEventsRequestQueryOneOf4 != null)
+            {
+                return SearchWebhookEventsRequestQueryOneOf4.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -103,13 +104,22 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryAndItem>("and", And);
-            writer.WriteStringValue("attribute", Attribute);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryNot>("not", Not);
-            writer.WriteStringValue("operator", Operator);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOrItem>("or", Or);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryValue>("value", Value);
-            writer.WriteAdditionalData(AdditionalData);
+            if(SearchWebhookEventsRequestQueryOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf1>(null, SearchWebhookEventsRequestQueryOneOf1);
+            }
+            else if(SearchWebhookEventsRequestQueryOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf2>(null, SearchWebhookEventsRequestQueryOneOf2);
+            }
+            else if(SearchWebhookEventsRequestQueryOneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf3>(null, SearchWebhookEventsRequestQueryOneOf3);
+            }
+            else if(SearchWebhookEventsRequestQueryOneOf4 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf4>(null, SearchWebhookEventsRequestQueryOneOf4);
+            }
         }
     }
 }

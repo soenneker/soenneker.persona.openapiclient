@@ -39,7 +39,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationships Relationships { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryType? Type { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.SelfieIncludedObjectsItem"/> and sets the default values.
         /// </summary>
@@ -68,7 +74,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributes>(global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributes.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationships>(global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationships.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -81,7 +87,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributes>("attributes", Attributes);
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationships>("relationships", Relationships);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -79,10 +79,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The version&apos;s tag; null when the version is untagged. Omitted for Sandbox API keys and for API keys without `inquiry_template.read` on the parent Inquiry Template (for example, when this version is included in an Inquiry response).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesVersionTag? VersionTag { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesVersionTagOneOf2? VersionTag { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesVersionTag VersionTag { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesVersionTagOneOf2 VersionTag { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -113,7 +113,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "theme", n => { Theme = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesTheme>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesTheme.CreateFromDiscriminatorValue); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-                { "version-tag", n => { VersionTag = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesVersionTag>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesVersionTag.CreateFromDiscriminatorValue); } },
+                { "version-tag", n => { VersionTag = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesVersionTagOneOf2>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesVersionTagOneOf2.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -134,7 +134,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("status", Status);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesTheme>("theme", Theme);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesVersionTag>("version-tag", VersionTag);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesVersionTagOneOf2>("version-tag", VersionTag);
         }
     }
 }

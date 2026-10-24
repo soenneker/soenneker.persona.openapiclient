@@ -15,10 +15,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The version&apos;s serialized deployment tag, when one was minted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTag? Tag { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTagOneOf2? Tag { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTag Tag { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTagOneOf2 Tag { get; set; }
 #endif
         /// <summary>The token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,7 +46,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "tag", n => { Tag = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTag>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTag.CreateFromDiscriminatorValue); } },
+                { "tag", n => { Tag = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTagOneOf2>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTagOneOf2.CreateFromDiscriminatorValue); } },
                 { "token", n => { Token = n.GetStringValue(); } },
             };
         }
@@ -57,7 +57,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTag>("tag", Tag);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItemVersionTagOneOf2>("tag", Tag);
             writer.WriteStringValue("token", Token);
         }
     }

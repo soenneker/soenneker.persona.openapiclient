@@ -71,15 +71,15 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 result.ReportHistoryPause = new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryPause();
             }
-            else if("ReportHistoryResume".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("resume".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportHistoryResume = new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryResume();
             }
-            else if("ReportHistoryReview".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("review".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportHistoryReview = new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryReview();
             }
-            else if("ReportHistoryRun".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("run".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ReportHistoryRun = new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryRun();
             }

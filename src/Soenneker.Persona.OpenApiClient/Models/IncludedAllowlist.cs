@@ -64,17 +64,17 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("state")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist();
-            if("IncludedAllowlistCustom".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("custom".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.IncludedAllowlistCustom = new global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustom();
             }
-            else if("IncludedAllowlistIncludeAll".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("include_all".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.IncludedAllowlistIncludeAll = new global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistIncludeAll();
             }
-            else if("IncludedAllowlistIncludeNone".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("include_none".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.IncludedAllowlistIncludeNone = new global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistIncludeNone();
             }

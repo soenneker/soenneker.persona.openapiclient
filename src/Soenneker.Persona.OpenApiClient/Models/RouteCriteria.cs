@@ -96,6 +96,22 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria();
+            if("RouteCriteriaOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RouteCriteriaOneOf1 = new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1();
+            }
+            else if("RouteCriteriaOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RouteCriteriaOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf2();
+            }
+            else if("RouteCriteriaOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RouteCriteriaOneOf3 = new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3();
+            }
+            else if("RouteCriteriaOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.RouteCriteriaOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf4();
+            }
             return result;
         }
         /// <summary>

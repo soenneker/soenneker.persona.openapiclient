@@ -8,68 +8,43 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Search query using boolean logic (AND/OR/NOT) and comparison operators.Supports predicates with operators: eq (equal), gt (greater than), gte (greater than or equal),lt (less than), lte (less than or equal).
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf1"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf2"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf3"/>, <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf4"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class SearchAccountsRequestQuery : IAdditionalDataHolder, IParsable
+    public partial class SearchAccountsRequestQuery : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The and property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryAndItem>? And { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf1? SearchAccountsRequestQueryOneOf1 { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryAndItem> And { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf1 SearchAccountsRequestQueryOneOf1 { get; set; }
 #endif
-        /// <summary>The attribute name to filter on (e.g., &apos;created_at&apos;, &apos;type&apos;, &apos;status&apos;, &apos;fields.age&apos;)</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Attribute { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf2? SearchAccountsRequestQueryOneOf2 { get; set; }
 #nullable restore
 #else
-        public string Attribute { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf2 SearchAccountsRequestQueryOneOf2 { get; set; }
 #endif
-        /// <summary>The not property</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryNot? Not { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf3? SearchAccountsRequestQueryOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryNot Not { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf3 SearchAccountsRequestQueryOneOf3 { get; set; }
 #endif
-        /// <summary>Comparison operator. Possible values: eq (equal), gt (greater than), gte (greater than or equal), lt (less than), lte (less than or equal).</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Operator { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf4? SearchAccountsRequestQueryOneOf4 { get; set; }
 #nullable restore
 #else
-        public string Operator { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf4 SearchAccountsRequestQueryOneOf4 { get; set; }
 #endif
-        /// <summary>The or property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOrItem>? Or { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOrItem> Or { get; set; }
-#endif
-        /// <summary>Value to compare against</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryValue? Value { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryValue Value { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQuery"/> and sets the default values.
-        /// </summary>
-        public SearchAccountsRequestQuery()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -78,7 +53,25 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQuery CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQuery();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQuery();
+            if("SearchAccountsRequestQueryOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SearchAccountsRequestQueryOneOf1 = new global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf1();
+            }
+            else if("SearchAccountsRequestQueryOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SearchAccountsRequestQueryOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf2();
+            }
+            else if("SearchAccountsRequestQueryOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SearchAccountsRequestQueryOneOf3 = new global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf3();
+            }
+            else if("SearchAccountsRequestQueryOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SearchAccountsRequestQueryOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf4();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,15 +79,23 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(SearchAccountsRequestQueryOneOf1 != null)
             {
-                { "and", n => { And = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryAndItem>(global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryAndItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "attribute", n => { Attribute = n.GetStringValue(); } },
-                { "not", n => { Not = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryNot>(global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryNot.CreateFromDiscriminatorValue); } },
-                { "operator", n => { Operator = n.GetStringValue(); } },
-                { "or", n => { Or = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOrItem>(global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOrItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "value", n => { Value = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryValue>(global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryValue.CreateFromDiscriminatorValue); } },
-            };
+                return SearchAccountsRequestQueryOneOf1.GetFieldDeserializers();
+            }
+            else if(SearchAccountsRequestQueryOneOf2 != null)
+            {
+                return SearchAccountsRequestQueryOneOf2.GetFieldDeserializers();
+            }
+            else if(SearchAccountsRequestQueryOneOf3 != null)
+            {
+                return SearchAccountsRequestQueryOneOf3.GetFieldDeserializers();
+            }
+            else if(SearchAccountsRequestQueryOneOf4 != null)
+            {
+                return SearchAccountsRequestQueryOneOf4.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -103,13 +104,22 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryAndItem>("and", And);
-            writer.WriteStringValue("attribute", Attribute);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryNot>("not", Not);
-            writer.WriteStringValue("operator", Operator);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOrItem>("or", Or);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryValue>("value", Value);
-            writer.WriteAdditionalData(AdditionalData);
+            if(SearchAccountsRequestQueryOneOf1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf1>(null, SearchAccountsRequestQueryOneOf1);
+            }
+            else if(SearchAccountsRequestQueryOneOf2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf2>(null, SearchAccountsRequestQueryOneOf2);
+            }
+            else if(SearchAccountsRequestQueryOneOf3 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf3>(null, SearchAccountsRequestQueryOneOf3);
+            }
+            else if(SearchAccountsRequestQueryOneOf4 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf4>(null, SearchAccountsRequestQueryOneOf4);
+            }
         }
     }
 }

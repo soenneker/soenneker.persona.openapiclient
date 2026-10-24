@@ -51,10 +51,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The tags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributes_tags>? Tags { get; set; }
+        public UntypedNode? Tags { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributes_tags> Tags { get; set; }
+        public UntypedNode Tags { get; set; }
 #endif
         /// <summary>The updatedAt property</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -82,7 +82,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFields>(global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFields.CreateFromDiscriminatorValue); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
                 { "reference-id", n => { ReferenceId = n.GetStringValue(); } },
-                { "tags", n => { Tags = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributes_tags>(global::Soenneker.Persona.OpenApiClient.Models.AccountAttributes_tags.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "tags", n => { Tags = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -99,7 +99,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFields>("fields", Fields);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
             writer.WriteStringValue("reference-id", ReferenceId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributes_tags>("tags", Tags);
+            writer.WriteObjectValue<UntypedNode>("tags", Tags);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);
         }
     }

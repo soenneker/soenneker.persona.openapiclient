@@ -17,10 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Unused for this event; always an empty object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookReportScreeningReadyRequestDataAttributesContext? Context { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookBodyEmptyContext? Context { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookReportScreeningReadyRequestDataAttributesContext Context { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookBodyEmptyContext Context { get; set; }
 #endif
         /// <summary>Datetime when the event was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -59,7 +59,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "context", n => { Context = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookReportScreeningReadyRequestDataAttributesContext>(global::Soenneker.Persona.OpenApiClient.Models.WebhookReportScreeningReadyRequestDataAttributesContext.CreateFromDiscriminatorValue); } },
+                { "context", n => { Context = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookBodyEmptyContext>(global::Soenneker.Persona.OpenApiClient.Models.WebhookBodyEmptyContext.CreateFromDiscriminatorValue); } },
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningReadyName>(); } },
                 { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookReportScreeningReadyRequestDataAttributesPayload>(global::Soenneker.Persona.OpenApiClient.Models.WebhookReportScreeningReadyRequestDataAttributesPayload.CreateFromDiscriminatorValue); } },
@@ -72,7 +72,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookReportScreeningReadyRequestDataAttributesContext>("context", Context);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookBodyEmptyContext>("context", Context);
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningReadyName>("name", Name);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookReportScreeningReadyRequestDataAttributesPayload>("payload", Payload);

@@ -22,7 +22,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchRequestAttributes Attributes { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchType? Type { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchRequestType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -42,7 +42,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchRequestAttributes>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchRequestAttributes.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchRequestType>(); } },
             };
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchRequestAttributes>("attributes", Attributes);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchRequestType>("type", Type);
         }
     }
 }

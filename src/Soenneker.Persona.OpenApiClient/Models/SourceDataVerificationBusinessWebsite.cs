@@ -31,14 +31,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsitePeekableAttributes PeekableAttributes { get; set; }
 #endif
-        /// <summary>Discriminator for the source-object type. Subtypes constrain this to a specific value via `const`.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        /// <summary>The type property</summary>
+        public global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsiteType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsite"/> and sets the default values.
         /// </summary>
@@ -66,7 +60,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "peekable-attributes", n => { PeekableAttributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsitePeekableAttributes>(global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsitePeekableAttributes.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsiteType>(); } },
             };
         }
         /// <summary>
@@ -78,7 +72,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsitePeekableAttributes>("peekable-attributes", PeekableAttributes);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.SourceDataVerificationBusinessWebsiteType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

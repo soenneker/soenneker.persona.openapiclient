@@ -13,7 +13,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The type property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.WeightedRandomType? Type { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2Type? Type { get; set; }
         /// <summary>The versionRefs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,7 +40,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WeightedRandomType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2Type>(); } },
                 { "version-refs", n => { VersionRefs = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItem>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -51,7 +51,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WeightedRandomType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2Type>("type", Type);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItem>("version-refs", VersionRefs);
         }
     }

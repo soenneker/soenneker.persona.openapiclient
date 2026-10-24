@@ -45,6 +45,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.CreateACaseRequestDataAttributesFields Fields { get; set; }
 #endif
+        /// <summary>Names of tags to add to this case. Tags that don&apos;t exist are created.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -67,6 +75,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "case-template-id", n => { CaseTemplateId = n.GetStringValue(); } },
                 { "creator-email-address", n => { CreatorEmailAddress = n.GetStringValue(); } },
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CreateACaseRequestDataAttributesFields>(global::Soenneker.Persona.OpenApiClient.Models.CreateACaseRequestDataAttributesFields.CreateFromDiscriminatorValue); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -80,6 +89,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("case-template-id", CaseTemplateId);
             writer.WriteStringValue("creator-email-address", CreatorEmailAddress);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CreateACaseRequestDataAttributesFields>("fields", Fields);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
         }
     }
 }

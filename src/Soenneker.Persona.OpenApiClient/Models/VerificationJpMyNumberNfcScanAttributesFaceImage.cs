@@ -10,6 +10,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// <summary>
     /// Face image extracted from the NFC card, when present. Deprecated in favor of `selfie-photo`.
     /// </summary>
+    [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VerificationJpMyNumberNfcScanAttributesFaceImage : IAdditionalDataHolder, IParsable
     {

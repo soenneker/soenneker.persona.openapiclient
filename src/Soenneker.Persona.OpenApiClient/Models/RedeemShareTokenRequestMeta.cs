@@ -12,6 +12,30 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public partial class RedeemShareTokenRequestMeta : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Existing Account ID in the destination environment to link to the cloned Inquiry.Only applies when cloning an Inquiry. Cannot be combined withauto-create-account-reference-id or data.attributes.destination-id.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AccountId { get; set; }
+#nullable restore
+#else
+        public string AccountId { get; set; }
+#endif
+        /// <summary>Links the cloned Inquiry to the Account with this reference ID in the destinationenvironment, or creates a new Account with this reference ID if none exists.Only applies when cloning an Inquiry. Cannot be combined with account-id ordata.attributes.destination-id.Unlike `POST /inquiries`, creating a new Account requiresauto-create-account-type-id; there is no default Account type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AutoCreateAccountReferenceId { get; set; }
+#nullable restore
+#else
+        public string AutoCreateAccountReferenceId { get; set; }
+#endif
+        /// <summary>The Account Type to use when auto-create-account-reference-id creates a newAccount. Also limits the reference ID lookup to Accounts of this type.Requires auto-create-account-reference-id.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AutoCreateAccountTypeId { get; set; }
+#nullable restore
+#else
+        public string AutoCreateAccountTypeId { get; set; }
+#endif
         /// <summary>Optional list of field mappings to apply when hydrating an existing destination.If a source field name matches the destination field name, it is copied directly.These mappings are applied for fields not already matched by name. Field mappingsare not used when cloning; omit them from clone requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +62,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "account-id", n => { AccountId = n.GetStringValue(); } },
+                { "auto-create-account-reference-id", n => { AutoCreateAccountReferenceId = n.GetStringValue(); } },
+                { "auto-create-account-type-id", n => { AutoCreateAccountTypeId = n.GetStringValue(); } },
                 { "field-mappings", n => { FieldMappings = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMetaFieldMappingsItem>(global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMetaFieldMappingsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -48,6 +75,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("account-id", AccountId);
+            writer.WriteStringValue("auto-create-account-reference-id", AutoCreateAccountReferenceId);
+            writer.WriteStringValue("auto-create-account-type-id", AutoCreateAccountTypeId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMetaFieldMappingsItem>("field-mappings", FieldMappings);
         }
     }

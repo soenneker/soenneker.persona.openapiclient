@@ -22,7 +22,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRiskRequestAttributes Attributes { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneNumberType? Type { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRiskRequestType? Type { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -42,7 +42,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRiskRequestAttributes>(global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRiskRequestAttributes.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneNumberType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRiskRequestType>(); } },
             };
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRiskRequestAttributes>("attributes", Attributes);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneNumberType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRiskRequestType>("type", Type);
         }
     }
 }

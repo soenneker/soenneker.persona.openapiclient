@@ -49,10 +49,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The stats property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesStatsProperty? Stats { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesStats? Stats { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesStatsProperty Stats { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesStats Stats { get; set; }
 #endif
         /// <summary>Possible values:- submitted- completed- errored- cancelled- timed_outDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -90,7 +90,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "nodes", n => { Nodes = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesNodesItem>(global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesNodesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "params", n => { Params = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesParamsProperty>(global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesParamsProperty.CreateFromDiscriminatorValue); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
-                { "stats", n => { Stats = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesStatsProperty>(global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesStatsProperty.CreateFromDiscriminatorValue); } },
+                { "stats", n => { Stats = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesStats>(global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesStats.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -110,7 +110,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesNodesItem>("nodes", Nodes);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesParamsProperty>("params", Params);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesStatsProperty>("stats", Stats);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.GraphQueryAttributesStats>("stats", Stats);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);
         }

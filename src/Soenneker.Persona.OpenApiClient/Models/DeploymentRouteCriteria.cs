@@ -96,6 +96,22 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteria();
+            if("DeploymentRouteCriteriaOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.DeploymentRouteCriteriaOneOf1 = new global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf1();
+            }
+            else if("DeploymentRouteCriteriaOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.DeploymentRouteCriteriaOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf2();
+            }
+            else if("DeploymentRouteCriteriaOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.DeploymentRouteCriteriaOneOf3 = new global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf3();
+            }
+            else if("DeploymentRouteCriteriaOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.DeploymentRouteCriteriaOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf4();
+            }
             return result;
         }
         /// <summary>

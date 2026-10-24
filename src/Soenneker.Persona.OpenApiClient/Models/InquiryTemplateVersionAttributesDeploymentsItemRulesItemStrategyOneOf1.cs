@@ -13,7 +13,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The type property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.ConstantType? Type { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1Type? Type { get; set; }
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,7 +40,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ConstantType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1Type>(); } },
                 { "version", n => { Version = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1Version>(global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1Version.CreateFromDiscriminatorValue); } },
             };
         }
@@ -51,7 +51,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ConstantType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1Type>("type", Type);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf1Version>("version", Version);
         }
     }

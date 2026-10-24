@@ -31,7 +31,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.ImporterPipelineType? Type { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterPipelineRunsIncludedObjectsItem"/> and sets the default values.
         /// </summary>
@@ -59,7 +65,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterPipelineAttributes>(global::Soenneker.Persona.OpenApiClient.Models.ImporterPipelineAttributes.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterPipelineType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -71,7 +77,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterPipelineAttributes>("attributes", Attributes);
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterPipelineType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

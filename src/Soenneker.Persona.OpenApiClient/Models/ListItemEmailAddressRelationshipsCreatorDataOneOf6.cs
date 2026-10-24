@@ -23,7 +23,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public string Id { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemEmailAddressType? Type { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf6Type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf6"/> and sets the default values.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemEmailAddressType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf6Type>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemEmailAddressType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemEmailAddressRelationshipsCreatorDataOneOf6Type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

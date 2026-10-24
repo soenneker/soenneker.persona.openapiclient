@@ -23,10 +23,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>Excluded from the response by default. Will be an empty array when the `include` query parameter in the request was explicitly set to empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.WithTransactionType>? Included { get; set; }
+        public UntypedNode? Included { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.WithTransactionType> Included { get; set; }
+        public UntypedNode Included { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,7 +47,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionType>(global::Soenneker.Persona.OpenApiClient.Models.TransactionType.CreateFromDiscriminatorValue); } },
-                { "included", n => { Included = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WithTransactionType>(global::Soenneker.Persona.OpenApiClient.Models.WithTransactionType.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "included", n => { Included = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionType>("data", Data);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WithTransactionType>("included", Included);
+            writer.WriteObjectValue<UntypedNode>("included", Included);
         }
     }
 }

@@ -12,8 +12,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public partial class RelationshipAllowlistIncludeNone : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Include no related objects (the default).</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.IncludeNoneState? State { get; set; }
+        /// <summary>Omit relationship linkages from webhook payload objects.</summary>
+        public global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlistIncludeNoneState? State { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -32,7 +32,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "state", n => { State = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.IncludeNoneState>(); } },
+                { "state", n => { State = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlistIncludeNoneState>(); } },
             };
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.IncludeNoneState>("state", State);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlistIncludeNoneState>("state", State);
         }
     }
 }

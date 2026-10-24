@@ -56,6 +56,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The expirationDate property</summary>
         public Date? ExpirationDate { get; set; }
         /// <summary>Face image extracted from the NFC card, when present. Deprecated in favor of `selfie-photo`.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesFaceImage? FaceImage { get; set; }

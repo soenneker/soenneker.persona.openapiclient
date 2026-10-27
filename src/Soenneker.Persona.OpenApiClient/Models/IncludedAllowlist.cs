@@ -82,7 +82,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 result.State = stateValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem>(global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem> eventTypesValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem>(global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem> eventTypesValue)
             {
                 result.EventTypes = eventTypesValue;
             }

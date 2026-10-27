@@ -29,7 +29,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string RecordToken { get; set; }
 #endif
-        /// <summary>The token of who performed the review: a user token (`user_` prefix) when a person reviewed it, a workflow run token (`wfr_` prefix) when a workflow reviewed it, or an API key token (`api_` prefix) when it was reviewed through the API. Null on events created before this field was added.</summary>
+        /// <summary>The token of who performed the review: a user token (`user_` prefix) when a person reviewed it, a workflow run token (`wfr_` prefix) when a workflow reviewed it, or an API key token (`api_` prefix) when it was reviewed through the API. Null on events created before this property was added.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ReviewerToken { get; set; }

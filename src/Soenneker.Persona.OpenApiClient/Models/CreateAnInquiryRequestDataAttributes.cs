@@ -44,7 +44,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string InitialStepName { get; set; }
 #endif
-        /// <summary>Template ID for flow requirements (use this field if your template ID starts with `itmpl_`). *You must pass in either template-id OR inquiry-template-id OR inquiry-template-version-id*</summary>
+        /// <summary>Template ID for flow requirements (use this attribute if your template ID starts with `itmpl_`). *You must pass in either template-id OR inquiry-template-id OR inquiry-template-version-id*</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? InquiryTemplateId { get; set; }
@@ -76,7 +76,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string RedirectUri { get; set; }
 #endif
-        /// <summary>Reference ID to refer to an entity in your user model. This field is deprecated in favor of `meta.auto-create-account-reference-id`.</summary>
+        /// <summary>Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of `meta.auto-create-account-reference-id`.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,7 +93,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public List<string> Tags { get; set; }
 #endif
-        /// <summary>Template ID for flow requirements (use this field if your template ID starts with `tmpl_`). *You must pass in either template-id OR inquiry-template-id OR inquiry-template-version-id*</summary>
+        /// <summary>Template ID for flow requirements (use this attribute if your template ID starts with `tmpl_`). *You must pass in either template-id OR inquiry-template-id OR inquiry-template-version-id*</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TemplateId { get; set; }

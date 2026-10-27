@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// Why the run errored. `null` when the run errored before this field existed.
+    /// Why the run errored. `null` when the run errored before this property existed.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookWorkflowRunErroredRequestDataAttributesContextError : IParsable

@@ -18747,6 +18747,10 @@
             "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
             "$ref": "#/components/responses/forbidden"
           },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
           "409": {
             "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
             "$ref": "#/components/responses/conflict"
@@ -33226,7 +33230,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48434,7 +48438,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48470,7 +48474,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48506,7 +48510,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48542,7 +48546,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48578,7 +48582,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48614,7 +48618,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48650,7 +48654,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48686,7 +48690,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48722,7 +48726,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48758,7 +48762,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48794,7 +48798,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48830,7 +48834,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48863,7 +48867,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48899,7 +48903,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48935,7 +48939,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -48971,7 +48975,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -49007,7 +49011,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -49043,7 +49047,7 @@
               "abc-123"
             ],
             "type": "string",
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "report-template-id": {
@@ -83257,7 +83261,7 @@
         "properties": {
           "destination-id": {
             "type": "string",
-            "description": "The ID of the existing destination object to hydrate. Omit this field, or\nthe entire request body, to clone the source into a new destination object.\n",
+            "description": "The ID of the existing destination object to hydrate. Omit this attribute, or\nthe entire request body, to clone the source into a new destination object.\n",
             "example": "inq_DEF456"
           }
         },
@@ -83428,7 +83432,7 @@
               "null",
               "string"
             ],
-            "description": "Template ID for flow requirements (use this field if your template ID starts with \u0060tmpl_\u0060). *You must pass in either template-id OR inquiry-template-id OR inquiry-template-version-id*"
+            "description": "Template ID for flow requirements (use this attribute if your template ID starts with \u0060tmpl_\u0060). *You must pass in either template-id OR inquiry-template-id OR inquiry-template-version-id*"
           },
           "inquiry-template-id": {
             "examples": [
@@ -83438,7 +83442,7 @@
               "null",
               "string"
             ],
-            "description": "Template ID for flow requirements (use this field if your template ID starts with \u0060itmpl_\u0060). *You must pass in either template-id OR inquiry-template-id OR inquiry-template-version-id*"
+            "description": "Template ID for flow requirements (use this attribute if your template ID starts with \u0060itmpl_\u0060). *You must pass in either template-id OR inquiry-template-id OR inquiry-template-version-id*"
           },
           "inquiry-template-version-id": {
             "examples": [
@@ -83458,7 +83462,7 @@
               "null",
               "string"
             ],
-            "description": "Reference ID to refer to an entity in your user model. This field is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
             "deprecated": true
           },
           "account-id": {
@@ -89098,7 +89102,7 @@
               "null",
               "string"
             ],
-            "description": "The token of who performed the review: a user token (\u0060user_\u0060 prefix) when a person reviewed it, a workflow run token (\u0060wfr_\u0060 prefix) when a workflow reviewed it, or an API key token (\u0060api_\u0060 prefix) when it was reviewed through the API. Null on events created before this field was added."
+            "description": "The token of who performed the review: a user token (\u0060user_\u0060 prefix) when a person reviewed it, a workflow run token (\u0060wfr_\u0060 prefix) when a workflow reviewed it, or an API key token (\u0060api_\u0060 prefix) when it was reviewed through the API. Null on events created before this property was added."
           },
           "comment": {
             "type": [
@@ -89959,7 +89963,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "The step that errored. \u0060null\u0060 when the run failed as a whole rather than at a step (for example, it expired), or when the run errored before this field existed."
+        "description": "The step that errored. \u0060null\u0060 when the run failed as a whole rather than at a step (for example, it expired), or when the run errored before this property existed."
       },
       "WebhookWorkflowRunErroredRequestDataAttributesContextError": {
         "type": [
@@ -89989,7 +89993,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Why the run errored. \u0060null\u0060 when the run errored before this field existed."
+        "description": "Why the run errored. \u0060null\u0060 when the run errored before this property existed."
       },
       "ArrayType": {
         "const": null,

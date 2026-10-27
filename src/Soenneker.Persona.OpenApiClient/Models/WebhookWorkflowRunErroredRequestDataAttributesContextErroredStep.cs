@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// The step that errored. `null` when the run failed as a whole rather than at a step (for example, it expired), or when the run errored before this field existed.
+    /// The step that errored. `null` when the run failed as a whole rather than at a step (for example, it expired), or when the run errored before this property existed.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep : IParsable

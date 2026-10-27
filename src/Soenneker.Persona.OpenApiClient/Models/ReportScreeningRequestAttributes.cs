@@ -30,7 +30,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningRequestAttributesAllOf2Query Query { get; set; }
 #endif
-        /// <summary>Reference ID to refer to an entity in your user model. This field is deprecated in favor of `meta.auto-create-account-reference-id`.</summary>
+        /// <summary>Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of `meta.auto-create-account-reference-id`.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

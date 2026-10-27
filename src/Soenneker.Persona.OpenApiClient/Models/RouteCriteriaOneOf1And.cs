@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And();
-            if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria>(global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria> routeCriteriaValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria>(global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria> routeCriteriaValue)
             {
                 result.RouteCriteria = routeCriteriaValue;
             }

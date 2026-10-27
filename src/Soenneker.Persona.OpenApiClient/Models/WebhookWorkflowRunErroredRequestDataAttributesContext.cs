@@ -15,7 +15,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Why the run errored. `null` when the run errored before this field existed.</summary>
+        /// <summary>Why the run errored. `null` when the run errored before this property existed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextError? Error { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextError Error { get; set; }
 #endif
-        /// <summary>The step that errored. `null` when the run failed as a whole rather than at a step (for example, it expired), or when the run errored before this field existed.</summary>
+        /// <summary>The step that errored. `null` when the run failed as a whole rather than at a step (for example, it expired), or when the run errored before this property existed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep? ErroredStep { get; set; }

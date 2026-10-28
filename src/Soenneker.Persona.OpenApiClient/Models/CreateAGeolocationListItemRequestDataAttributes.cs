@@ -24,6 +24,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #endif
         /// <summary>Longitude of geolocation item (-180 to 180).</summary>
         public float? Longitude { get; set; }
+        /// <summary>Optional free-text note to attach to the list item. Maximum 255 characters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Note { get; set; }
+#nullable restore
+#else
+        public string Note { get; set; }
+#endif
         /// <summary>Radius in meters from point to be considered for match distance.</summary>
         public float? RadiusMeters { get; set; }
         /// <summary>
@@ -47,6 +55,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "latitude", n => { Latitude = n.GetFloatValue(); } },
                 { "list-id", n => { ListId = n.GetStringValue(); } },
                 { "longitude", n => { Longitude = n.GetFloatValue(); } },
+                { "note", n => { Note = n.GetStringValue(); } },
                 { "radius-meters", n => { RadiusMeters = n.GetFloatValue(); } },
             };
         }
@@ -60,6 +69,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteFloatValue("latitude", Latitude);
             writer.WriteStringValue("list-id", ListId);
             writer.WriteFloatValue("longitude", Longitude);
+            writer.WriteStringValue("note", Note);
             writer.WriteFloatValue("radius-meters", RadiusMeters);
         }
     }

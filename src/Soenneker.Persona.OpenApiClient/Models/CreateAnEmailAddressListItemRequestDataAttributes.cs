@@ -28,6 +28,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string MatchType { get; set; }
 #endif
+        /// <summary>Optional free-text note to attach to the list item. Maximum 255 characters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Note { get; set; }
+#nullable restore
+#else
+        public string Note { get; set; }
+#endif
         /// <summary>Email address to add.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,6 +64,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "list-id", n => { ListId = n.GetStringValue(); } },
                 { "match-type", n => { MatchType = n.GetStringValue(); } },
+                { "note", n => { Note = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
             };
         }
@@ -68,6 +77,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("list-id", ListId);
             writer.WriteStringValue("match-type", MatchType);
+            writer.WriteStringValue("note", Note);
             writer.WriteStringValue("value", Value);
         }
     }

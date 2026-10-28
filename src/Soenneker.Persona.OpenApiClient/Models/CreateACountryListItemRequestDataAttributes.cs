@@ -28,6 +28,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string ListId { get; set; }
 #endif
+        /// <summary>Optional free-text note to attach to the list item. Maximum 255 characters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Note { get; set; }
+#nullable restore
+#else
+        public string Note { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -48,6 +56,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
                 { "list-id", n => { ListId = n.GetStringValue(); } },
+                { "note", n => { Note = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -59,6 +68,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("country-code", CountryCode);
             writer.WriteStringValue("list-id", ListId);
+            writer.WriteStringValue("note", Note);
         }
     }
 }

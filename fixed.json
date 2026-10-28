@@ -29824,6 +29824,115 @@
         "additionalProperties": false,
         "description": "A Business Lookup Report"
       },
+      "ReportBusinessMediaCoverageAnalysis": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "value": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "example": true
+          },
+          "confidence": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "high"
+          },
+          "analysis": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "The article is about the queried business and matches its location."
+          }
+        },
+        "additionalProperties": false,
+        "description": "An assessment of a Business Media Coverage article"
+      },
+      "ReportBusinessMediaCoverageArticle": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Acme Corporation raises $50M Series B"
+          },
+          "summary": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Acme Corporation announced a $50 million Series B round to expand internationally."
+          },
+          "dates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessMediaCoverageArticleDatesItem"
+            }
+          },
+          "published-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The date the article was published, in YYYY-MM-DD format.",
+            "example": "2025-05-01"
+          },
+          "source": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The URL of the article.",
+            "example": "https://news.example.com/acme-series-b"
+          },
+          "publisher": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Example News"
+          },
+          "relevance": {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverageAnalysis"
+          },
+          "reputation": {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverageAnalysis"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A news article found for a Business Media Coverage report"
+      },
+      "ReportBusinessMediaCoverage": {
+        "title": "Business Media Coverage Report",
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverageType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the report",
+            "example": "rep_7WNzPaNcroBKLarNHBjYDLAp"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverageAttributes"
+          },
+          "relationships": {
+            "$ref": "#/components/schemas/ReportSharedRelationships"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Business Media Coverage Report"
+      },
       "ReportBusinessNonprofit": {
         "title": "Business Nonprofit Report",
         "type": "object",
@@ -32564,6 +32673,17 @@
             ],
             "type": "integer",
             "default": 0
+          },
+          "note": {
+            "examples": [
+              "Added after a confirmed chargeback"
+            ],
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note attached to the list item."
           }
         },
         "x-inheritable": true
@@ -33138,6 +33258,9 @@
             "$ref": "#/components/schemas/ReportBusinessLookup"
           },
           {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverage"
+          },
+          {
             "$ref": "#/components/schemas/ReportBusinessNonprofit"
           },
           {
@@ -33197,6 +33320,7 @@
             "report/business-associated-persons": "#/components/schemas/ReportBusinessAssociatedPersons",
             "report/business-registrations-lookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
             "report/business-lookup": "#/components/schemas/ReportBusinessLookup",
+            "report/business-media-coverage": "#/components/schemas/ReportBusinessMediaCoverage",
             "report/business-nonprofit": "#/components/schemas/ReportBusinessNonprofit",
             "report/business-search": "#/components/schemas/ReportBusinessSearch",
             "report/business-watchlist": "#/components/schemas/ReportBusinessWatchlist",
@@ -33310,6 +33434,23 @@
         },
         "additionalProperties": false,
         "description": "Fields required to create a Business Lookup Report"
+      },
+      "ReportBusinessMediaCoverageRequest": {
+        "title": "Business Media Coverage Report",
+        "required": [
+          "attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverageRequestType"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverageRequestAttributes"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Fields required to create a Business Media Coverage Report"
       },
       "ReportBusinessNonprofitRequest": {
         "title": "Business Nonprofit Report",
@@ -33687,6 +33828,28 @@
         },
         "additionalProperties": false,
         "description": "A Business Lookup Report Template"
+      },
+      "ReportTemplateBusinessMediaCoverage": {
+        "title": "Business Media Coverage Report Template",
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ReportTemplateBusinessMediaCoverageType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the Report Template",
+            "example": "rptp_7WNzPaNcroBKLarNHBjYDLAp"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ReportTemplateSharedAttributes"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ReportTemplateSharedMeta"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A Business Media Coverage Report Template"
       },
       "ReportTemplateBusinessNonprofit": {
         "title": "Business Nonprofit Report Template",
@@ -37319,6 +37482,70 @@
               "string"
             ],
             "description": "Possible values:\n- not_applicable\n- match\n- partial_match\n- no_match\n- unavailable\n- unknown\n\nDo not assume this is a static enumeration; Persona may add new\nvalues in the future without a versioned update."
+          }
+        }
+      },
+      "ReportBusinessMediaCoverageAttributes": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the report\n\nPossible values:\n- pending\n- ready\n- errored\n\nDo not assume this is a static enumeration; Persona may add new values in\nthe future without a versioned update."
+          },
+          "created-at": {
+            "type": "string",
+            "description": "The time the report was created in ISO 8601 format",
+            "example": "2020-04-12T05:08:51.000Z"
+          },
+          "completed-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The time the report completed processing in ISO 8601 format",
+            "example": "2020-04-13T00:23:57.000Z"
+          },
+          "redacted-at": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The time the report was redacted in ISO 8601 format",
+            "example": null
+          },
+          "report-template-version-name": {
+            "type": "string",
+            "description": "The name of the report template version used for this report",
+            "example": "v1"
+          },
+          "has-match": {
+            "type": "boolean",
+            "description": "Whether or not the report matched"
+          },
+          "is-continuous": {
+            "type": "boolean",
+            "description": "Whether or not this report has been run more than once"
+          },
+          "is-recurring": {
+            "type": "boolean",
+            "description": "Whether or not this report is scheduled to run in the future"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "tag1"
+            },
+            "description": "Tags on the report"
+          },
+          "query": {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverageAttributesAllOf2Query"
+          },
+          "result": {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverageAttributesAllOf2Result"
           }
         }
       },
@@ -41471,6 +41698,9 @@
             "$ref": "#/components/schemas/ReportBusinessLookup"
           },
           {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverage"
+          },
+          {
             "$ref": "#/components/schemas/ReportBusinessNonprofit"
           },
           {
@@ -41577,6 +41807,7 @@
             "report/business-associated-persons": "#/components/schemas/ReportBusinessAssociatedPersons",
             "report/business-registrations-lookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
             "report/business-lookup": "#/components/schemas/ReportBusinessLookup",
+            "report/business-media-coverage": "#/components/schemas/ReportBusinessMediaCoverage",
             "report/business-nonprofit": "#/components/schemas/ReportBusinessNonprofit",
             "report/business-search": "#/components/schemas/ReportBusinessSearch",
             "report/business-watchlist": "#/components/schemas/ReportBusinessWatchlist",
@@ -46821,6 +47052,9 @@
             "$ref": "#/components/schemas/ReportBusinessLookup"
           },
           {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverage"
+          },
+          {
             "$ref": "#/components/schemas/ReportBusinessNonprofit"
           },
           {
@@ -47042,6 +47276,7 @@
             "report/business-associated-persons": "#/components/schemas/ReportBusinessAssociatedPersons",
             "report/business-registrations-lookup": "#/components/schemas/ReportBusinessRegistrationsLookup",
             "report/business-lookup": "#/components/schemas/ReportBusinessLookup",
+            "report/business-media-coverage": "#/components/schemas/ReportBusinessMediaCoverage",
             "report/business-nonprofit": "#/components/schemas/ReportBusinessNonprofit",
             "report/business-search": "#/components/schemas/ReportBusinessSearch",
             "report/business-watchlist": "#/components/schemas/ReportBusinessWatchlist",
@@ -47216,6 +47451,17 @@
             "type": "integer",
             "default": 0
           },
+          "note": {
+            "examples": [
+              "Added after a confirmed chargeback"
+            ],
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note attached to the list item."
+          },
           "value": {
             "examples": [
               "3082c312c9bfc8f0a43bc7173b18afe6"
@@ -47300,6 +47546,17 @@
             "type": "integer",
             "default": 0
           },
+          "note": {
+            "examples": [
+              "Added after a confirmed chargeback"
+            ],
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note attached to the list item."
+          },
           "country-code": {
             "type": "string",
             "description": "Alpha-2 country code"
@@ -47381,6 +47638,17 @@
             ],
             "type": "integer",
             "default": 0
+          },
+          "note": {
+            "examples": [
+              "Added after a confirmed chargeback"
+            ],
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note attached to the list item."
           },
           "value": {
             "examples": [
@@ -47465,6 +47733,17 @@
             ],
             "type": "integer",
             "default": 0
+          },
+          "note": {
+            "examples": [
+              "Added after a confirmed chargeback"
+            ],
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note attached to the list item."
           },
           "match-type": {
             "examples": [
@@ -47559,6 +47838,17 @@
             "type": "integer",
             "default": 0
           },
+          "note": {
+            "examples": [
+              "Added after a confirmed chargeback"
+            ],
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note attached to the list item."
+          },
           "field-value": {
             "type": "string"
           }
@@ -47639,6 +47929,17 @@
             ],
             "type": "integer",
             "default": 0
+          },
+          "note": {
+            "examples": [
+              "Added after a confirmed chargeback"
+            ],
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note attached to the list item."
           },
           "latitude": {
             "examples": [
@@ -47742,6 +48043,17 @@
             "type": "integer",
             "default": 0
           },
+          "note": {
+            "examples": [
+              "Added after a confirmed chargeback"
+            ],
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note attached to the list item."
+          },
           "id-class": {
             "examples": [
               "dl"
@@ -47835,6 +48147,17 @@
             "type": "integer",
             "default": 0
           },
+          "note": {
+            "examples": [
+              "Added after a confirmed chargeback"
+            ],
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note attached to the list item."
+          },
           "value": {
             "examples": [
               "127.0.0.0/24"
@@ -47921,6 +48244,17 @@
             ],
             "type": "integer",
             "default": 0
+          },
+          "note": {
+            "examples": [
+              "Added after a confirmed chargeback"
+            ],
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note attached to the list item."
           },
           "name-first": {
             "examples": [
@@ -48015,6 +48349,17 @@
             "type": "integer",
             "default": 0
           },
+          "note": {
+            "examples": [
+              "Added after a confirmed chargeback"
+            ],
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note attached to the list item."
+          },
           "value": {
             "examples": [
               "18006009777"
@@ -48101,6 +48446,17 @@
             ],
             "type": "integer",
             "default": 0
+          },
+          "note": {
+            "examples": [
+              "Added after a confirmed chargeback"
+            ],
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note attached to the list item."
           },
           "value": {
             "type": "string"
@@ -48558,6 +48914,42 @@
           },
           "query": {
             "$ref": "#/components/schemas/ReportBusinessLookupRequestAttributesAllOf2Query"
+          }
+        }
+      },
+      "ReportBusinessMediaCoverageRequestAttributes": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object",
+        "properties": {
+          "account-id": {
+            "examples": [
+              "act_ABC123"
+            ],
+            "type": "string",
+            "description": "Account ID to associate with this Report."
+          },
+          "reference-id": {
+            "examples": [
+              "abc-123"
+            ],
+            "type": "string",
+            "description": "Reference ID to refer to an entity in your user model. This attribute is deprecated in favor of \u0060meta.auto-create-account-reference-id\u0060.",
+            "deprecated": true
+          },
+          "report-template-id": {
+            "examples": [
+              "rptp_abc123"
+            ],
+            "type": "string",
+            "description": "ID of Verification Template. Starts with \u0060rptp_\u0060. You can find your Report Template IDs [here](https://app.withpersona.com/dashboard/report-templates)."
+          },
+          "query": {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverageRequestAttributesAllOf2Query"
           }
         }
       },
@@ -49148,6 +49540,9 @@
             "$ref": "#/components/schemas/ReportTemplateBusinessLookup"
           },
           {
+            "$ref": "#/components/schemas/ReportTemplateBusinessMediaCoverage"
+          },
+          {
             "$ref": "#/components/schemas/ReportTemplateBusinessNonprofit"
           },
           {
@@ -49205,6 +49600,7 @@
             "report-template/business-adverse-media": "#/components/schemas/ReportTemplateBusinessAdverseMedia",
             "report-template/business-associated-persons": "#/components/schemas/ReportTemplateBusinessAssociatedPersons",
             "report-template/business-lookup": "#/components/schemas/ReportTemplateBusinessLookup",
+            "report-template/business-media-coverage": "#/components/schemas/ReportTemplateBusinessMediaCoverage",
             "report-template/business-nonprofit": "#/components/schemas/ReportTemplateBusinessNonprofit",
             "report-template/business-registrations-lookup": "#/components/schemas/ReportTemplateBusinessRegistrationsLookup",
             "report-template/business-watchlist": "#/components/schemas/ReportTemplateBusinessWatchlist",
@@ -50371,6 +50767,17 @@
               "string"
             ],
             "description": "Possible values:\n- not_applicable\n- match\n- partial_match\n- no_match\n- unavailable\n- unknown\n\nDo not assume this is a static enumeration; Persona may add new\nvalues in the future without a versioned update."
+          }
+        }
+      },
+      "ReportBusinessMediaCoverageAttributesAllOf2": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverageAttributesAllOf2Query"
+          },
+          "result": {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverageAttributesAllOf2Result"
           }
         }
       },
@@ -55324,6 +55731,17 @@
           }
         }
       },
+      "ReportBusinessMediaCoverageRequestAttributesAllOf2": {
+        "required": [
+          "query"
+        ],
+        "type": "object",
+        "properties": {
+          "query": {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverageRequestAttributesAllOf2Query"
+          }
+        }
+      },
       "ReportBusinessNonprofitRequestAttributesAllOf2": {
         "required": [
           "query"
@@ -57084,6 +57502,26 @@
               "type": "string",
               "example": "adverse-media-v2-other-minor"
             }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessMediaCoverageArticleDatesItem": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "2025-05-01"
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "published"
           }
         },
         "additionalProperties": false
@@ -60365,6 +60803,131 @@
           }
         }
       },
+      "ReportBusinessMediaCoverageAttributesAllOf2Query": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "business-name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Acme Corporation"
+          },
+          "website": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "https://example.com"
+          },
+          "address-street-1": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "123 Main St"
+          },
+          "address-street-2": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Suite 100"
+          },
+          "address-city": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "San Francisco"
+          },
+          "address-subdivision": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "CA"
+          },
+          "address-postal-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "94105"
+          },
+          "address-country-code": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "US"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessMediaCoverageAttributesAllOf2Result": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "homepage": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The homepage of the business, if found.",
+            "example": "https://example.com"
+          },
+          "summary": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "A summary of the media coverage found for the business.",
+            "example": "Acme Corporation has received coverage for its recent funding and international expansion."
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessMediaCoverageAttributesAllOf2ResultTopicsItem"
+            },
+            "description": "Media coverage grouped by topic."
+          },
+          "irrelevant-articles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessMediaCoverageArticle"
+            },
+            "description": "Articles excluded because they are not about the queried business."
+          },
+          "nonreputable-articles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessMediaCoverageArticle"
+            },
+            "description": "Articles excluded because their source is not reputable."
+          },
+          "out-of-range-articles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessMediaCoverageArticle"
+            },
+            "description": "Articles excluded because they fall outside the template\u0027s article age window."
+          },
+          "error-message": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Set when the report errored."
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportBusinessNonprofitAttributesAllOf2Query": {
         "type": [
           "null",
@@ -62498,6 +63061,51 @@
               "$ref": "#/components/schemas/ReportBusinessLookupRequestAttributesAllOf2QueryAssociatedPeopleItem"
             },
             "description": "Officers or agents associated with the business."
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessMediaCoverageRequestAttributesAllOf2Query": {
+        "required": [
+          "business-name",
+          "address-country-code"
+        ],
+        "type": "object",
+        "properties": {
+          "business-name": {
+            "type": "string",
+            "description": "The name of the business.",
+            "example": "Acme Corporation"
+          },
+          "address-country-code": {
+            "type": "string",
+            "description": "The ISO 3166-1 alpha-2 country code of the business.",
+            "example": "US"
+          },
+          "website": {
+            "type": "string",
+            "description": "The website of the business. Improves match accuracy.",
+            "example": "https://example.com"
+          },
+          "address-street-1": {
+            "type": "string",
+            "example": "123 Main St"
+          },
+          "address-street-2": {
+            "type": "string",
+            "example": "Suite 100"
+          },
+          "address-city": {
+            "type": "string",
+            "example": "San Francisco"
+          },
+          "address-subdivision": {
+            "type": "string",
+            "example": "CA"
+          },
+          "address-postal-code": {
+            "type": "string",
+            "example": "94105"
           }
         },
         "additionalProperties": false
@@ -66026,6 +66634,46 @@
           "name": {
             "type": "string",
             "example": "RESTAURANT INSPECTIONS"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportBusinessMediaCoverageAttributesAllOf2ResultTopicsItem": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Series B funding"
+          },
+          "summary": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "Acme Corporation raised $50 million to expand internationally."
+          },
+          "start-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "2025-04-30"
+          },
+          "end-date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "example": "2025-05-02"
+          },
+          "articles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReportBusinessMediaCoverageArticle"
+            }
           }
         },
         "additionalProperties": false
@@ -76682,6 +77330,9 @@
             "$ref": "#/components/schemas/ReportBusinessLookupRequest"
           },
           {
+            "$ref": "#/components/schemas/ReportBusinessMediaCoverageRequest"
+          },
+          {
             "$ref": "#/components/schemas/ReportBusinessNonprofitRequest"
           },
           {
@@ -83201,7 +83852,7 @@
       },
       "RunAccountActionRequestDataParameters": {
         "type": "object",
-        "description": "Parameters required by the account action"
+        "description": "Parameters required by the account action. File values must be uploaded as an object with \u0060filename\u0060 and base64-encoded \u0060data\u0060; references to existing stored files are rejected with a 400."
       },
       "CreateAConnectConnectionRequestDataAttributes": {
         "unevaluatedProperties": {
@@ -83637,6 +84288,14 @@
           "value": {
             "type": "string",
             "description": "Browser fingerprint to add to list."
+          },
+          "note": {
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note to attach to the list item. Maximum 255 characters."
           }
         },
         "additionalProperties": false
@@ -83651,6 +84310,14 @@
           "list-id": {
             "type": "string",
             "description": "ID of the list to add this item to. List must be a Country List."
+          },
+          "note": {
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note to attach to the list item. Maximum 255 characters."
           }
         },
         "additionalProperties": false
@@ -83665,6 +84332,14 @@
           "value": {
             "type": "string",
             "description": "Device fingerprint to add to list."
+          },
+          "note": {
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note to attach to the list item. Maximum 255 characters."
           }
         },
         "additionalProperties": false
@@ -83683,6 +84358,14 @@
           "value": {
             "type": "string",
             "description": "Email address to add."
+          },
+          "note": {
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note to attach to the list item. Maximum 255 characters."
           }
         },
         "additionalProperties": false
@@ -83697,6 +84380,14 @@
           "field-value": {
             "type": "string",
             "description": "Field value to add to the list."
+          },
+          "note": {
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note to attach to the list item. Maximum 255 characters."
           }
         },
         "additionalProperties": false
@@ -83722,6 +84413,14 @@
             "type": "number",
             "description": "Radius in meters from point to be considered for match distance.",
             "format": "float"
+          },
+          "note": {
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note to attach to the list item. Maximum 255 characters."
           }
         },
         "additionalProperties": false
@@ -83740,6 +84439,14 @@
           "list-id": {
             "type": "string",
             "description": "ID of the list to add this item to. List must be a Government ID Number List."
+          },
+          "note": {
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note to attach to the list item. Maximum 255 characters."
           }
         },
         "additionalProperties": false
@@ -83754,6 +84461,14 @@
           "value": {
             "type": "string",
             "description": "IP address to add. IPv4 and IPv6 are supported."
+          },
+          "note": {
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note to attach to the list item. Maximum 255 characters."
           }
         },
         "additionalProperties": false
@@ -83772,6 +84487,14 @@
           "name-last": {
             "type": "string",
             "description": "Last name of the name to add to the list."
+          },
+          "note": {
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note to attach to the list item. Maximum 255 characters."
           }
         },
         "additionalProperties": false
@@ -83786,6 +84509,14 @@
           "value": {
             "type": "string",
             "description": "Phone number to add."
+          },
+          "note": {
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note to attach to the list item. Maximum 255 characters."
           }
         },
         "additionalProperties": false
@@ -83800,6 +84531,14 @@
           "value": {
             "type": "string",
             "description": "String value to add to the list."
+          },
+          "note": {
+            "maxLength": 255,
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Optional free-text note to attach to the list item. Maximum 255 characters."
           }
         },
         "additionalProperties": false
@@ -87424,7 +88163,7 @@
           }
         ],
         "type": "object",
-        "description": "JSON key-value pairs of field name to field value. Schema is defined by the trigger payload schema on your Workflow Version."
+        "description": "JSON key-value pairs of field name to field value. Schema is defined by the trigger payload schema on your Workflow Version. File values must be uploaded as an object with \u0060filename\u0060 and base64-encoded \u0060data\u0060; references to existing stored files are rejected with a 400."
       },
       "WebhookAccountCreatedRequestDataAttributesPayload": {
         "type": "object",
@@ -90607,6 +91346,23 @@
           ]
         }
       },
+      "ReportBusinessMediaCoverageType": {
+        "const": null,
+        "enum": [
+          "report/business-media-coverage"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReportBusinessMediaCoverageType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "report/business-media-coverage",
+              "name": "ReportBusinessMediaCoverage"
+            }
+          ]
+        }
+      },
       "ReportBusinessNonprofitType": {
         "const": null,
         "enum": [
@@ -92579,6 +93335,23 @@
           ]
         }
       },
+      "ReportBusinessMediaCoverageRequestType": {
+        "const": null,
+        "enum": [
+          "report/business-media-coverage"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReportBusinessMediaCoverageRequestType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "report/business-media-coverage",
+              "name": "ReportBusinessMediaCoverage"
+            }
+          ]
+        }
+      },
       "ReportBusinessNonprofitRequestType": {
         "const": null,
         "enum": [
@@ -92898,6 +93671,23 @@
             {
               "value": "report-template/business-lookup",
               "name": "ReportTemplateBusinessLookup"
+            }
+          ]
+        }
+      },
+      "ReportTemplateBusinessMediaCoverageType": {
+        "const": null,
+        "enum": [
+          "report-template/business-media-coverage"
+        ],
+        "type": "string",
+        "x-ms-enum": {
+          "name": "ReportTemplateBusinessMediaCoverageType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "report-template/business-media-coverage",
+              "name": "ReportTemplateBusinessMediaCoverage"
             }
           ]
         }
@@ -103352,6 +104142,7 @@
               "updated-at": "2020-09-18T18:06:40.515Z",
               "created-at": "2020-09-18T18:06:40.515Z",
               "match-count": 0,
+              "note": "Added after a confirmed chargeback",
               "value": "3082c312c9bfc8f0a43bc7173b18afe6"
             },
             "relationships": {
@@ -103373,6 +104164,7 @@
               "updated-at": "2020-09-18T18:06:40.515Z",
               "created-at": "2020-09-18T18:06:40.515Z",
               "match-count": 0,
+              "note": null,
               "value": "3082c312c9bfc8f0a43bc7173b18afe6"
             },
             "relationships": {
@@ -103395,6 +104187,7 @@
               "updated-at": "2020-09-18T17:58:06.866Z",
               "created-at": "2020-09-18T17:58:06.866Z",
               "match-count": 0,
+              "note": "Added after a confirmed chargeback",
               "country-code": "US"
             },
             "relationships": {
@@ -103416,6 +104209,7 @@
               "updated-at": "2020-09-18T17:58:06.866Z",
               "created-at": "2020-09-18T17:58:06.866Z",
               "match-count": 0,
+              "note": null,
               "country-code": "US"
             },
             "relationships": {
@@ -103438,6 +104232,7 @@
               "updated-at": "2020-09-18T18:06:40.515Z",
               "created-at": "2020-09-18T18:06:40.515Z",
               "match-count": 0,
+              "note": "Added after a confirmed chargeback",
               "value": "3082c312c9bfc8f0a43bc7173b18afe6"
             },
             "relationships": {
@@ -103459,6 +104254,7 @@
               "updated-at": "2020-09-18T18:06:40.515Z",
               "created-at": "2020-09-18T18:06:40.515Z",
               "match-count": 0,
+              "note": null,
               "value": "3082c312c9bfc8f0a43bc7173b18afe6"
             },
             "relationships": {
@@ -103481,6 +104277,7 @@
               "updated-at": "2020-09-18T17:58:06.866Z",
               "created-at": "2020-09-18T17:58:06.866Z",
               "match-count": 0,
+              "note": "Added after a confirmed chargeback",
               "value": "joe-imposter@yahoo.com",
               "match-type": "email_address"
             },
@@ -103503,6 +104300,7 @@
               "updated-at": "2020-09-18T17:58:06.866Z",
               "created-at": "2020-09-18T17:58:06.866Z",
               "match-count": 0,
+              "note": null,
               "value": "joe-imposter@yahoo.com",
               "match-type": "email_address"
             },
@@ -103526,6 +104324,7 @@
               "updated-at": "2020-09-18T18:07:53.000Z",
               "created-at": "2020-09-18T18:07:53.000Z",
               "match-count": 0,
+              "note": "Added after a confirmed chargeback",
               "field-value": "abc123"
             },
             "relationships": {
@@ -103547,6 +104346,7 @@
               "updated-at": "2020-09-18T18:07:53.000Z",
               "created-at": "2020-09-18T18:07:53.000Z",
               "match-count": 0,
+              "note": null,
               "field-value": "abc123"
             },
             "relationships": {
@@ -103569,6 +104369,7 @@
               "updated-at": "2020-09-18T18:03:30.324Z",
               "created-at": "2020-09-18T18:03:30.324Z",
               "match-count": 0,
+              "note": "Added after a confirmed chargeback",
               "latitude": 37.7879461,
               "longitude": -122.3977409,
               "radius-meters": 10
@@ -103592,6 +104393,7 @@
               "updated-at": "2020-09-18T18:03:30.324Z",
               "created-at": "2020-09-18T18:03:30.324Z",
               "match-count": 0,
+              "note": null,
               "latitude": 37.7879461,
               "longitude": -122.3977409,
               "radius-meters": 10
@@ -103616,6 +104418,7 @@
               "updated-at": "2020-09-18T18:07:53.000Z",
               "created-at": "2020-09-18T18:07:53.000Z",
               "match-count": 0,
+              "note": "Added after a confirmed chargeback",
               "id-class": "dl",
               "id-number": "F4K3NUM"
             },
@@ -103638,6 +104441,7 @@
               "updated-at": "2020-09-18T18:07:53.000Z",
               "created-at": "2020-09-18T18:07:53.000Z",
               "match-count": 0,
+              "note": null,
               "id-class": "dl",
               "id-number": "F4K3NUM"
             },
@@ -103661,6 +104465,7 @@
               "updated-at": "2020-09-18T18:07:53.000Z",
               "created-at": "2020-09-18T18:07:53.000Z",
               "match-count": 0,
+              "note": "Added after a confirmed chargeback",
               "value": "127.0.0.0/24"
             },
             "relationships": {
@@ -103682,6 +104487,7 @@
               "updated-at": "2020-09-18T18:07:53.000Z",
               "created-at": "2020-09-18T18:07:53.000Z",
               "match-count": 0,
+              "note": null,
               "value": "127.0.0.0/24"
             },
             "relationships": {
@@ -103704,6 +104510,7 @@
               "updated-at": "2020-09-18T18:07:53.000Z",
               "created-at": "2020-09-18T18:07:53.000Z",
               "match-count": 0,
+              "note": "Added after a confirmed chargeback",
               "name-first": "Joe",
               "name-last": "Imposter"
             },
@@ -103726,6 +104533,7 @@
               "updated-at": "2020-09-18T18:07:53.000Z",
               "created-at": "2020-09-18T18:07:53.000Z",
               "match-count": 0,
+              "note": null,
               "name-first": "Joe",
               "name-last": "Imposter"
             },
@@ -103749,6 +104557,7 @@
               "updated-at": "2020-09-18T18:07:53.000Z",
               "created-at": "2020-09-18T18:07:53.000Z",
               "match-count": 0,
+              "note": "Added after a confirmed chargeback",
               "value": "18006009777"
             },
             "relationships": {
@@ -103770,6 +104579,7 @@
               "updated-at": "2020-09-18T18:07:53.000Z",
               "created-at": "2020-09-18T18:07:53.000Z",
               "match-count": 0,
+              "note": null,
               "value": "18006009777"
             },
             "relationships": {
@@ -103792,6 +104602,7 @@
               "updated-at": "2020-09-18T18:07:53.000Z",
               "created-at": "2020-09-18T18:07:53.000Z",
               "match-count": 0,
+              "note": "Added after a confirmed chargeback",
               "value": "abc123"
             },
             "relationships": {
@@ -103813,6 +104624,7 @@
               "updated-at": "2020-09-18T18:07:53.000Z",
               "created-at": "2020-09-18T18:07:53.000Z",
               "match-count": 0,
+              "note": null,
               "value": "abc123"
             },
             "relationships": {

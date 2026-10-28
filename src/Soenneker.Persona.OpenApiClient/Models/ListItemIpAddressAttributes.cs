@@ -20,6 +20,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The matchCount property</summary>
         public int? MatchCount { get; set; }
+        /// <summary>Optional free-text note attached to the list item.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Note { get; set; }
+#nullable restore
+#else
+        public string Note { get; set; }
+#endif
         /// <summary>The redactedAt property</summary>
         public DateTimeOffset? RedactedAt { get; set; }
         /// <summary>Possible values:- pending- active- archivedDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
@@ -69,6 +77,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "archived-at", n => { ArchivedAt = n.GetDateTimeOffsetValue(); } },
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "match-count", n => { MatchCount = n.GetIntValue(); } },
+                { "note", n => { Note = n.GetStringValue(); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
@@ -85,6 +94,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("archived-at", ArchivedAt);
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteIntValue("match-count", MatchCount);
+            writer.WriteStringValue("note", Note);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
             writer.WriteStringValue("status", Status);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);

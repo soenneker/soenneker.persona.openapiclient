@@ -20,6 +20,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string ListId { get; set; }
 #endif
+        /// <summary>Optional free-text note to attach to the list item. Maximum 255 characters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Note { get; set; }
+#nullable restore
+#else
+        public string Note { get; set; }
+#endif
         /// <summary>Device fingerprint to add to list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,6 +55,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "list-id", n => { ListId = n.GetStringValue(); } },
+                { "note", n => { Note = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
             };
         }
@@ -58,6 +67,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("list-id", ListId);
+            writer.WriteStringValue("note", Note);
             writer.WriteStringValue("value", Value);
         }
     }

@@ -24,6 +24,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public double? Longitude { get; set; }
         /// <summary>The matchCount property</summary>
         public int? MatchCount { get; set; }
+        /// <summary>Optional free-text note attached to the list item.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Note { get; set; }
+#nullable restore
+#else
+        public string Note { get; set; }
+#endif
         /// <summary>The radiusMeters property</summary>
         public int? RadiusMeters { get; set; }
         /// <summary>The redactedAt property</summary>
@@ -72,6 +80,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "latitude", n => { Latitude = n.GetDoubleValue(); } },
                 { "longitude", n => { Longitude = n.GetDoubleValue(); } },
                 { "match-count", n => { MatchCount = n.GetIntValue(); } },
+                { "note", n => { Note = n.GetStringValue(); } },
                 { "radius-meters", n => { RadiusMeters = n.GetIntValue(); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -90,6 +99,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDoubleValue("latitude", Latitude);
             writer.WriteDoubleValue("longitude", Longitude);
             writer.WriteIntValue("match-count", MatchCount);
+            writer.WriteStringValue("note", Note);
             writer.WriteIntValue("radius-meters", RadiusMeters);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
             writer.WriteStringValue("status", Status);

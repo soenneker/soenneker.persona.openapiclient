@@ -36,6 +36,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string ListId { get; set; }
 #endif
+        /// <summary>Optional free-text note to attach to the list item. Maximum 255 characters.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Note { get; set; }
+#nullable restore
+#else
+        public string Note { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -57,6 +65,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "id-class", n => { IdClass = n.GetStringValue(); } },
                 { "id-number", n => { IdNumber = n.GetStringValue(); } },
                 { "list-id", n => { ListId = n.GetStringValue(); } },
+                { "note", n => { Note = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -69,6 +78,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("id-class", IdClass);
             writer.WriteStringValue("id-number", IdNumber);
             writer.WriteStringValue("list-id", ListId);
+            writer.WriteStringValue("note", Note);
         }
     }
 }

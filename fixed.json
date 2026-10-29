@@ -38085,6 +38085,14 @@
             "description": "Whether email address user is 13 or older",
             "example": true
           },
+          "age-estimated-15-plus": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether email address user is 15 or older",
+            "example": true
+          },
           "age-estimated-16-plus": {
             "type": [
               "null",
@@ -51050,6 +51058,14 @@
               "boolean"
             ],
             "description": "Whether email address user is 13 or older",
+            "example": true
+          },
+          "age-estimated-15-plus": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether email address user is 15 or older",
             "example": true
           },
           "age-estimated-16-plus": {

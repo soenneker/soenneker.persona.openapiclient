@@ -16,6 +16,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether email address user is 13 or older</summary>
         public bool? AgeEstimated13Plus { get; set; }
+        /// <summary>Whether email address user is 15 or older</summary>
+        public bool? AgeEstimated15Plus { get; set; }
         /// <summary>Whether email address user is 16 or older</summary>
         public bool? AgeEstimated16Plus { get; set; }
         /// <summary>Whether email address user is 18 or older</summary>
@@ -175,6 +177,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "age-estimated-13-plus", n => { AgeEstimated13Plus = n.GetBoolValue(); } },
+                { "age-estimated-15-plus", n => { AgeEstimated15Plus = n.GetBoolValue(); } },
                 { "age-estimated-16-plus", n => { AgeEstimated16Plus = n.GetBoolValue(); } },
                 { "age-estimated-18-plus", n => { AgeEstimated18Plus = n.GetBoolValue(); } },
                 { "completed-at", n => { CompletedAt = n.GetStringValue(); } },
@@ -221,6 +224,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("age-estimated-13-plus", AgeEstimated13Plus);
+            writer.WriteBoolValue("age-estimated-15-plus", AgeEstimated15Plus);
             writer.WriteBoolValue("age-estimated-16-plus", AgeEstimated16Plus);
             writer.WriteBoolValue("age-estimated-18-plus", AgeEstimated18Plus);
             writer.WriteStringValue("completed-at", CompletedAt);

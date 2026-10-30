@@ -12,46 +12,68 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReportSharedRelationships : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("account") is { } nullNodeAccount && nullNodeAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Account = null;
+            if (parseNode.GetChildNode("accounts") is { } nullNodeAccounts && nullNodeAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Accounts = null;
+            if (parseNode.GetChildNode("inquiry") is { } nullNodeInquiry && nullNodeInquiry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inquiry = null;
+            if (parseNode.GetChildNode("report-template") is { } nullNodeReportTemplate && nullNodeReportTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportTemplate = null;
+            if (parseNode.GetChildNode("transaction") is { } nullNodeTransaction && nullNodeTransaction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transaction = null;
+        }
+
         /// <summary>The report&apos;s home account, or the first linked account when it has no home account. It returns only one account and is kept for backwards compatibility; use `accounts` to see every associated account. Including it does not require the `account.read` permission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccount? Account { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccount? Account { get => _explicitNullValueAccount; set { _explicitNullValueAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account"); else _explicitNullProperties?.Remove("account"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccount? _explicitNullValueAccount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccount Account { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccount Account { get => _explicitNullValueAccount; set { _explicitNullValueAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account"); else _explicitNullProperties?.Remove("account"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccount _explicitNullValueAccount = default!;
 #endif
         /// <summary>Every account associated with the report, meaning its home account plus all linked accounts, deduplicated and listed in account creation order. Use this when a report can be linked to more than one account; `account` is kept for backwards compatibility and returns only one. The list is not paginated or capped, and is empty when the report has no accounts. Expanding it with `include=accounts` requires the `account.read` permission; the linkage ids do not.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccounts? Accounts { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccounts? Accounts { get => _explicitNullValueAccounts; set { _explicitNullValueAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accounts"); else _explicitNullProperties?.Remove("accounts"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccounts? _explicitNullValueAccounts = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccounts Accounts { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccounts Accounts { get => _explicitNullValueAccounts; set { _explicitNullValueAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accounts"); else _explicitNullProperties?.Remove("accounts"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccounts _explicitNullValueAccounts = default!;
 #endif
         /// <summary>The inquiry linked to the report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsInquiry? Inquiry { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsInquiry? Inquiry { get => _explicitNullValueInquiry; set { _explicitNullValueInquiry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry"); else _explicitNullProperties?.Remove("inquiry"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsInquiry? _explicitNullValueInquiry = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsInquiry Inquiry { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsInquiry Inquiry { get => _explicitNullValueInquiry; set { _explicitNullValueInquiry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry"); else _explicitNullProperties?.Remove("inquiry"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsInquiry _explicitNullValueInquiry = default!;
 #endif
         /// <summary>The report template used to create this report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsReportTemplate? ReportTemplate { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsReportTemplate? ReportTemplate { get => _explicitNullValueReportTemplate; set { _explicitNullValueReportTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report-template"); else _explicitNullProperties?.Remove("report-template"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsReportTemplate? _explicitNullValueReportTemplate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsReportTemplate ReportTemplate { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsReportTemplate ReportTemplate { get => _explicitNullValueReportTemplate; set { _explicitNullValueReportTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report-template"); else _explicitNullProperties?.Remove("report-template"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsReportTemplate _explicitNullValueReportTemplate = default!;
 #endif
         /// <summary>The transaction linked to the report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsTransaction? Transaction { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsTransaction? Transaction { get => _explicitNullValueTransaction; set { _explicitNullValueTransaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction"); else _explicitNullProperties?.Remove("transaction"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsTransaction? _explicitNullValueTransaction = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsTransaction Transaction { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsTransaction Transaction { get => _explicitNullValueTransaction; set { _explicitNullValueTransaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction"); else _explicitNullProperties?.Remove("transaction"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsTransaction _explicitNullValueTransaction = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -61,7 +83,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationships CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationships();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationships(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,7 +111,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsAccounts>("accounts", Accounts);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsInquiry>("inquiry", Inquiry);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsReportTemplate>("report-template", ReportTemplate);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsTransaction>("transaction", Transaction);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSharedRelationshipsTransaction>("transaction", Transaction);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

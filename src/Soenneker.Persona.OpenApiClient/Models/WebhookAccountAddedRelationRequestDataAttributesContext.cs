@@ -12,30 +12,46 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookAccountAddedRelationRequestDataAttributesContext : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("relation-schema-key") is { } nullNodeRelationSchemaKey && nullNodeRelationSchemaKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelationSchemaKey = null;
+            if (parseNode.GetChildNode("target-account-id") is { } nullNodeTargetAccountId && nullNodeTargetAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetAccountId = null;
+            if (parseNode.GetChildNode("target-txn-id") is { } nullNodeTargetTxnId && nullNodeTargetTxnId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetTxnId = null;
+        }
+
         /// <summary>The key of the relationship schema connecting this Account to the related object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RelationSchemaKey { get; set; }
+        public string? RelationSchemaKey { get => _explicitNullValueRelationSchemaKey; set { _explicitNullValueRelationSchemaKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relation-schema-key"); else _explicitNullProperties?.Remove("relation-schema-key"); } }
+        private string? _explicitNullValueRelationSchemaKey = default!;
 #nullable restore
 #else
-        public string RelationSchemaKey { get; set; }
+        public string RelationSchemaKey { get => _explicitNullValueRelationSchemaKey; set { _explicitNullValueRelationSchemaKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relation-schema-key"); else _explicitNullProperties?.Remove("relation-schema-key"); } }
+        private string _explicitNullValueRelationSchemaKey = default!;
 #endif
         /// <summary>Token of the related Account when the related object is an Account, otherwise `null`. Starts with `act_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TargetAccountId { get; set; }
+        public string? TargetAccountId { get => _explicitNullValueTargetAccountId; set { _explicitNullValueTargetAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target-account-id"); else _explicitNullProperties?.Remove("target-account-id"); } }
+        private string? _explicitNullValueTargetAccountId = default!;
 #nullable restore
 #else
-        public string TargetAccountId { get; set; }
+        public string TargetAccountId { get => _explicitNullValueTargetAccountId; set { _explicitNullValueTargetAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target-account-id"); else _explicitNullProperties?.Remove("target-account-id"); } }
+        private string _explicitNullValueTargetAccountId = default!;
 #endif
         /// <summary>Token of the related Transaction when the related object is a Transaction, otherwise `null`. Starts with `txn_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TargetTxnId { get; set; }
+        public string? TargetTxnId { get => _explicitNullValueTargetTxnId; set { _explicitNullValueTargetTxnId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target-txn-id"); else _explicitNullProperties?.Remove("target-txn-id"); } }
+        private string? _explicitNullValueTargetTxnId = default!;
 #nullable restore
 #else
-        public string TargetTxnId { get; set; }
+        public string TargetTxnId { get => _explicitNullValueTargetTxnId; set { _explicitNullValueTargetTxnId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target-txn-id"); else _explicitNullProperties?.Remove("target-txn-id"); } }
+        private string _explicitNullValueTargetTxnId = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,7 +61,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.WebhookAccountAddedRelationRequestDataAttributesContext CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.WebhookAccountAddedRelationRequestDataAttributesContext();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.WebhookAccountAddedRelationRequestDataAttributesContext(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +85,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("relation-schema-key", RelationSchemaKey);
             writer.WriteStringValue("target-account-id", TargetAccountId);
-            writer.WriteStringValue("target-txn-id", TargetTxnId);
+            writer.WriteStringValue("target-txn-id", TargetTxnId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

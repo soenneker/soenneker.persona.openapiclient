@@ -12,7 +12,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Report : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookup"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -201,93 +206,102 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var result = new global::Soenneker.Persona.OpenApiClient.Models.Report();
             if("report/address-lookup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportAddressLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookup();
+                
             }
             else if("report/adverse-media".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportAdverseMedia = new global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMedia();
+                
             }
             else if("report/business-adverse-media".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportBusinessAdverseMedia = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMedia();
+                
             }
             else if("report/business-associated-persons".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportBusinessAssociatedPersons = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersons();
+                
             }
             else if("report/business-lookup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportBusinessLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup();
+                
             }
             else if("report/business-media-coverage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportBusinessMediaCoverage = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessMediaCoverage();
+                
             }
             else if("report/business-nonprofit".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportBusinessNonprofit = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofit();
+                
             }
             else if("report/business-registrations-lookup".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportBusinessRegistrationsLookup = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup();
+                
             }
             else if("report/business-search".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportBusinessSearch = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearch();
+                
             }
             else if("report/business-watchlist".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportBusinessWatchlist = new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlist();
+                
             }
             else if("report/crypto-address-watchlist".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportCryptoAddressWatchlist = new global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlist();
+                
             }
             else if("report/email-address".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportEmailAddress = new global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddress();
+                
             }
             else if("report/ip-address".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportIpAddress = new global::Soenneker.Persona.OpenApiClient.Models.ReportIpAddress();
+                
             }
             else if("report/phone-number".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportPhoneRisk = new global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRisk();
+                
             }
             else if("report/politically-exposed-person".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportPoliticallyExposedPerson = new global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPerson();
+                
             }
             else if("report/profile".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportProfile = new global::Soenneker.Persona.OpenApiClient.Models.ReportProfile();
+                
             }
             else if("report/profile-non-authoritative".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportProfileNonAuthoritative = new global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative();
+                
             }
             else if("report/screening".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportScreening = new global::Soenneker.Persona.OpenApiClient.Models.ReportScreening();
+                
             }
             else if("report/integration/sentilink-scores".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportSentilinkScores = new global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores();
+                
             }
             else if("report/social-media".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportSocialMedia = new global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMedia();
+                
             }
             else if("report/synthetic".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportSynthetic = new global::Soenneker.Persona.OpenApiClient.Models.ReportSynthetic();
+                
             }
             else if("report/watchlist".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportWatchlist = new global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("report/business-adverse-media".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("id") != null && parseNode.GetChildNode("attributes") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("report/business-associated-persons".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("id") != null && parseNode.GetChildNode("attributes") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("report/business-registrations-lookup".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("id") != null && parseNode.GetChildNode("attributes") != null))();
+            if (result.ReportAddressLookup == null && result.ReportAdverseMedia == null && result.ReportBusinessAdverseMedia == null && result.ReportBusinessAssociatedPersons == null && result.ReportBusinessLookup == null && result.ReportBusinessMediaCoverage == null && result.ReportBusinessNonprofit == null && result.ReportBusinessRegistrationsLookup == null && result.ReportBusinessSearch == null && result.ReportBusinessWatchlist == null && result.ReportCryptoAddressWatchlist == null && result.ReportEmailAddress == null && result.ReportIpAddress == null && result.ReportPhoneRisk == null && result.ReportPoliticallyExposedPerson == null && result.ReportProfile == null && result.ReportProfileNonAuthoritative == null && result.ReportScreening == null && result.ReportSentilinkScores == null && result.ReportSocialMedia == null && result.ReportSynthetic == null && result.ReportWatchlist == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.ReportBusinessAdverseMedia = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMedia(), parseNode);
+            if (result.ReportAddressLookup == null && result.ReportAdverseMedia == null && result.ReportBusinessAdverseMedia == null && result.ReportBusinessAssociatedPersons == null && result.ReportBusinessLookup == null && result.ReportBusinessMediaCoverage == null && result.ReportBusinessNonprofit == null && result.ReportBusinessRegistrationsLookup == null && result.ReportBusinessSearch == null && result.ReportBusinessWatchlist == null && result.ReportCryptoAddressWatchlist == null && result.ReportEmailAddress == null && result.ReportIpAddress == null && result.ReportPhoneRisk == null && result.ReportPoliticallyExposedPerson == null && result.ReportProfile == null && result.ReportProfileNonAuthoritative == null && result.ReportScreening == null && result.ReportSentilinkScores == null && result.ReportSocialMedia == null && result.ReportSynthetic == null && result.ReportWatchlist == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.ReportBusinessAssociatedPersons = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersons(), parseNode);
+            if (result.ReportAddressLookup == null && result.ReportAdverseMedia == null && result.ReportBusinessAdverseMedia == null && result.ReportBusinessAssociatedPersons == null && result.ReportBusinessLookup == null && result.ReportBusinessMediaCoverage == null && result.ReportBusinessNonprofit == null && result.ReportBusinessRegistrationsLookup == null && result.ReportBusinessSearch == null && result.ReportBusinessWatchlist == null && result.ReportCryptoAddressWatchlist == null && result.ReportEmailAddress == null && result.ReportIpAddress == null && result.ReportPhoneRisk == null && result.ReportPoliticallyExposedPerson == null && result.ReportProfile == null && result.ReportProfileNonAuthoritative == null && result.ReportScreening == null && result.ReportSentilinkScores == null && result.ReportSocialMedia == null && result.ReportSynthetic == null && result.ReportWatchlist == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.ReportBusinessRegistrationsLookup = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup(), parseNode);
+            if (result.ReportAddressLookup == null && result.ReportAdverseMedia == null && result.ReportBusinessAdverseMedia == null && result.ReportBusinessAssociatedPersons == null && result.ReportBusinessLookup == null && result.ReportBusinessMediaCoverage == null && result.ReportBusinessNonprofit == null && result.ReportBusinessRegistrationsLookup == null && result.ReportBusinessSearch == null && result.ReportBusinessWatchlist == null && result.ReportCryptoAddressWatchlist == null && result.ReportEmailAddress == null && result.ReportIpAddress == null && result.ReportPhoneRisk == null && result.ReportPoliticallyExposedPerson == null && result.ReportProfile == null && result.ReportProfileNonAuthoritative == null && result.ReportScreening == null && result.ReportSentilinkScores == null && result.ReportSocialMedia == null && result.ReportSynthetic == null && result.ReportWatchlist == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -391,93 +405,140 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ReportAddressLookup != null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportAddressLookup is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportAddressLookup); return; }
+            if (ReportAdverseMedia != null && ReportAddressLookup == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportAdverseMedia is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportAdverseMedia); return; }
+            if (ReportBusinessAdverseMedia != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportBusinessAdverseMedia is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportBusinessAdverseMedia); return; }
+            if (ReportBusinessAssociatedPersons != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportBusinessAssociatedPersons is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportBusinessAssociatedPersons); return; }
+            if (ReportBusinessLookup != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportBusinessLookup is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportBusinessLookup); return; }
+            if (ReportBusinessMediaCoverage != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportBusinessMediaCoverage is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportBusinessMediaCoverage); return; }
+            if (ReportBusinessNonprofit != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportBusinessNonprofit is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportBusinessNonprofit); return; }
+            if (ReportBusinessRegistrationsLookup != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportBusinessRegistrationsLookup is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportBusinessRegistrationsLookup); return; }
+            if (ReportBusinessSearch != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportBusinessSearch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportBusinessSearch); return; }
+            if (ReportBusinessWatchlist != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportBusinessWatchlist is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportBusinessWatchlist); return; }
+            if (ReportCryptoAddressWatchlist != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportCryptoAddressWatchlist is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportCryptoAddressWatchlist); return; }
+            if (ReportEmailAddress != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportEmailAddress is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportEmailAddress); return; }
+            if (ReportIpAddress != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportIpAddress is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportIpAddress); return; }
+            if (ReportPhoneRisk != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportPhoneRisk is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportPhoneRisk); return; }
+            if (ReportPoliticallyExposedPerson != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportPoliticallyExposedPerson is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportPoliticallyExposedPerson); return; }
+            if (ReportProfile != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportProfile is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportProfile); return; }
+            if (ReportProfileNonAuthoritative != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportProfileNonAuthoritative is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportProfileNonAuthoritative); return; }
+            if (ReportScreening != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportScreening is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportScreening); return; }
+            if (ReportSentilinkScores != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSocialMedia == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportSentilinkScores is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportSentilinkScores); return; }
+            if (ReportSocialMedia != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSynthetic == null && ReportWatchlist == null) { if (ReportSocialMedia is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportSocialMedia); return; }
+            if (ReportSynthetic != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportWatchlist == null) { if (ReportSynthetic is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportSynthetic); return; }
+            if (ReportWatchlist != null && ReportAddressLookup == null && ReportAdverseMedia == null && ReportBusinessAdverseMedia == null && ReportBusinessAssociatedPersons == null && ReportBusinessLookup == null && ReportBusinessMediaCoverage == null && ReportBusinessNonprofit == null && ReportBusinessRegistrationsLookup == null && ReportBusinessSearch == null && ReportBusinessWatchlist == null && ReportCryptoAddressWatchlist == null && ReportEmailAddress == null && ReportIpAddress == null && ReportPhoneRisk == null && ReportPoliticallyExposedPerson == null && ReportProfile == null && ReportProfileNonAuthoritative == null && ReportScreening == null && ReportSentilinkScores == null && ReportSocialMedia == null && ReportSynthetic == null) { if (ReportWatchlist is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportWatchlist); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ReportAddressLookup != null)
             {
+                if (ReportAddressLookup is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportAddressLookup>(null, ReportAddressLookup);
             }
             else if(ReportAdverseMedia != null)
             {
+                if (ReportAdverseMedia is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportAdverseMedia>(null, ReportAdverseMedia);
             }
             else if(ReportBusinessAdverseMedia != null)
             {
+                if (ReportBusinessAdverseMedia is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMedia>(null, ReportBusinessAdverseMedia);
             }
             else if(ReportBusinessAssociatedPersons != null)
             {
+                if (ReportBusinessAssociatedPersons is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersons>(null, ReportBusinessAssociatedPersons);
             }
             else if(ReportBusinessLookup != null)
             {
+                if (ReportBusinessLookup is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookup>(null, ReportBusinessLookup);
             }
             else if(ReportBusinessMediaCoverage != null)
             {
+                if (ReportBusinessMediaCoverage is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessMediaCoverage>(null, ReportBusinessMediaCoverage);
             }
             else if(ReportBusinessNonprofit != null)
             {
+                if (ReportBusinessNonprofit is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofit>(null, ReportBusinessNonprofit);
             }
             else if(ReportBusinessRegistrationsLookup != null)
             {
+                if (ReportBusinessRegistrationsLookup is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookup>(null, ReportBusinessRegistrationsLookup);
             }
             else if(ReportBusinessSearch != null)
             {
+                if (ReportBusinessSearch is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearch>(null, ReportBusinessSearch);
             }
             else if(ReportBusinessWatchlist != null)
             {
+                if (ReportBusinessWatchlist is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessWatchlist>(null, ReportBusinessWatchlist);
             }
             else if(ReportCryptoAddressWatchlist != null)
             {
+                if (ReportCryptoAddressWatchlist is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlist>(null, ReportCryptoAddressWatchlist);
             }
             else if(ReportEmailAddress != null)
             {
+                if (ReportEmailAddress is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportEmailAddress>(null, ReportEmailAddress);
             }
             else if(ReportIpAddress != null)
             {
+                if (ReportIpAddress is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportIpAddress>(null, ReportIpAddress);
             }
             else if(ReportPhoneRisk != null)
             {
+                if (ReportPhoneRisk is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportPhoneRisk>(null, ReportPhoneRisk);
             }
             else if(ReportPoliticallyExposedPerson != null)
             {
+                if (ReportPoliticallyExposedPerson is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPerson>(null, ReportPoliticallyExposedPerson);
             }
             else if(ReportProfile != null)
             {
+                if (ReportProfile is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportProfile>(null, ReportProfile);
             }
             else if(ReportProfileNonAuthoritative != null)
             {
+                if (ReportProfileNonAuthoritative is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileNonAuthoritative>(null, ReportProfileNonAuthoritative);
             }
             else if(ReportScreening != null)
             {
+                if (ReportScreening is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportScreening>(null, ReportScreening);
             }
             else if(ReportSentilinkScores != null)
             {
+                if (ReportSentilinkScores is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSentilinkScores>(null, ReportSentilinkScores);
             }
             else if(ReportSocialMedia != null)
             {
+                if (ReportSocialMedia is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSocialMedia>(null, ReportSocialMedia);
             }
             else if(ReportSynthetic != null)
             {
+                if (ReportSynthetic is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportSynthetic>(null, ReportSynthetic);
             }
             else if(ReportWatchlist != null)
             {
+                if (ReportWatchlist is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportWatchlist>(null, ReportWatchlist);
             }
         }

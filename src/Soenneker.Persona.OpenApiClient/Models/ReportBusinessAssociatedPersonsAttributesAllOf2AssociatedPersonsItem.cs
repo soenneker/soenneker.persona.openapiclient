@@ -11,22 +11,35 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("names") is { } nullNodeNames && nullNodeNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Names = null;
+            if (parseNode.GetChildNode("positions") is { } nullNodePositions && nullNodePositions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Positions = null;
+        }
+
         /// <summary>Names associated with the person</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItemNamesItem>? Names { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItemNamesItem>? Names { get => _explicitNullValueNames; set { _explicitNullValueNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("names"); else _explicitNullProperties?.Remove("names"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItemNamesItem>? _explicitNullValueNames = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItemNamesItem> Names { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItemNamesItem> Names { get => _explicitNullValueNames; set { _explicitNullValueNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("names"); else _explicitNullProperties?.Remove("names"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItemNamesItem> _explicitNullValueNames = default!;
 #endif
         /// <summary>Positions held by the person</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItemPositionsItem>? Positions { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItemPositionsItem>? Positions { get => _explicitNullValuePositions; set { _explicitNullValuePositions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("positions"); else _explicitNullProperties?.Remove("positions"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItemPositionsItem>? _explicitNullValuePositions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItemPositionsItem> Positions { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItemPositionsItem> Positions { get => _explicitNullValuePositions; set { _explicitNullValuePositions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("positions"); else _explicitNullProperties?.Remove("positions"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItemPositionsItem> _explicitNullValuePositions = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -36,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +71,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItemNamesItem>("names", Names);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItemPositionsItem>("positions", Positions);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAssociatedPersonsAttributesAllOf2AssociatedPersonsItemPositionsItem>("positions", Positions);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

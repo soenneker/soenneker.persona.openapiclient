@@ -11,36 +11,58 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("ignored-at") is { } nullNodeIgnoredAt && nullNodeIgnoredAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoredAt = null;
+            if (parseNode.GetChildNode("ignore-reason") is { } nullNodeIgnoreReason && nullNodeIgnoreReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoreReason = null;
+            if (parseNode.GetChildNode("is-internal") is { } nullNodeIsInternal && nullNodeIsInternal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsInternal = null;
+            if (parseNode.GetChildNode("match") is { } nullNodeMatch && nullNodeMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Match = null;
+            if (parseNode.GetChildNode("run-history-completed-at") is { } nullNodeRunHistoryCompletedAt && nullNodeRunHistoryCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunHistoryCompletedAt = null;
+            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+        }
+
         /// <summary>The datetime when the entry was ignored.</summary>
-        public DateTimeOffset? IgnoredAt { get; set; }
+        public DateTimeOffset? IgnoredAt { get => _explicitNullValueIgnoredAt; set { _explicitNullValueIgnoredAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored-at"); else _explicitNullProperties?.Remove("ignored-at"); } }
+        private DateTimeOffset? _explicitNullValueIgnoredAt = default!;
         /// <summary>The reason why the entry was added to the ignore list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IgnoreReason { get; set; }
+        public string? IgnoreReason { get => _explicitNullValueIgnoreReason; set { _explicitNullValueIgnoreReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore-reason"); else _explicitNullProperties?.Remove("ignore-reason"); } }
+        private string? _explicitNullValueIgnoreReason = default!;
 #nullable restore
 #else
-        public string IgnoreReason { get; set; }
+        public string IgnoreReason { get => _explicitNullValueIgnoreReason; set { _explicitNullValueIgnoreReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore-reason"); else _explicitNullProperties?.Remove("ignore-reason"); } }
+        private string _explicitNullValueIgnoreReason = default!;
 #endif
         /// <summary>Indicates if the ignore list entry is internal.</summary>
-        public bool? IsInternal { get; set; }
+        public bool? IsInternal { get => _explicitNullValueIsInternal; set { _explicitNullValueIsInternal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is-internal"); else _explicitNullProperties?.Remove("is-internal"); } }
+        private bool? _explicitNullValueIsInternal = default!;
         /// <summary>The match property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItemMatch? Match { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItemMatch? Match { get => _explicitNullValueMatch; set { _explicitNullValueMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match"); else _explicitNullProperties?.Remove("match"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItemMatch? _explicitNullValueMatch = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItemMatch Match { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItemMatch Match { get => _explicitNullValueMatch; set { _explicitNullValueMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match"); else _explicitNullProperties?.Remove("match"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItemMatch _explicitNullValueMatch = default!;
 #endif
         /// <summary>The datetime when the run history was completed.</summary>
-        public DateTimeOffset? RunHistoryCompletedAt { get; set; }
+        public DateTimeOffset? RunHistoryCompletedAt { get => _explicitNullValueRunHistoryCompletedAt; set { _explicitNullValueRunHistoryCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run-history-completed-at"); else _explicitNullProperties?.Remove("run-history-completed-at"); } }
+        private DateTimeOffset? _explicitNullValueRunHistoryCompletedAt = default!;
         /// <summary>The user who added the entry to the ignore list.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? User { get; set; }
+        public string? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public string User { get; set; }
+        public string User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string _explicitNullValueUser = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,7 +72,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,7 +102,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteBoolValue("is-internal", IsInternal);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportPoliticallyExposedPersonAttributesAllOf2IgnoreListItemMatch>("match", Match);
             writer.WriteDateTimeOffsetValue("run-history-completed-at", RunHistoryCompletedAt);
-            writer.WriteStringValue("user", User);
+            writer.WriteStringValue("user", User);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

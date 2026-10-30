@@ -11,84 +11,124 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class WebhookRequestAttributes : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("api-attributes-blocklist") is { } nullNodeApiAttributesBlocklist && nullNodeApiAttributesBlocklist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiAttributesBlocklist = null;
+            if (parseNode.GetChildNode("api-key-inflection") is { } nullNodeApiKeyInflection && nullNodeApiKeyInflection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyInflection = null;
+            if (parseNode.GetChildNode("api-version") is { } nullNodeApiVersion && nullNodeApiVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiVersion = null;
+            if (parseNode.GetChildNode("custom-http-headers") is { } nullNodeCustomHttpHeaders && nullNodeCustomHttpHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomHttpHeaders = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("enabled-events") is { } nullNodeEnabledEvents && nullNodeEnabledEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledEvents = null;
+            if (parseNode.GetChildNode("file-access-token-expires-in") is { } nullNodeFileAccessTokenExpiresIn && nullNodeFileAccessTokenExpiresIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileAccessTokenExpiresIn = null;
+            if (parseNode.GetChildNode("included-allowlist") is { } nullNodeIncludedAllowlist && nullNodeIncludedAllowlist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludedAllowlist = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("payload-filter") is { } nullNodePayloadFilter && nullNodePayloadFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PayloadFilter = null;
+            if (parseNode.GetChildNode("relationship-allowlist") is { } nullNodeRelationshipAllowlist && nullNodeRelationshipAllowlist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelationshipAllowlist = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+        }
+
         /// <summary>Attributes blocked from webhook requests. For more info see [Webhook Attributes Blocklist](https://docs.withpersona.com/webhook-blocklists#attribute-blocklist).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ApiAttributesBlocklist { get; set; }
+        public List<string>? ApiAttributesBlocklist { get => _explicitNullValueApiAttributesBlocklist; set { _explicitNullValueApiAttributesBlocklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-attributes-blocklist"); else _explicitNullProperties?.Remove("api-attributes-blocklist"); } }
+        private List<string>? _explicitNullValueApiAttributesBlocklist = default!;
 #nullable restore
 #else
-        public List<string> ApiAttributesBlocklist { get; set; }
+        public List<string> ApiAttributesBlocklist { get => _explicitNullValueApiAttributesBlocklist; set { _explicitNullValueApiAttributesBlocklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-attributes-blocklist"); else _explicitNullProperties?.Remove("api-attributes-blocklist"); } }
+        private List<string> _explicitNullValueApiAttributesBlocklist = default!;
 #endif
         /// <summary>Default key inflection for attribute keys in incoming webhook requests. For more info see the [Key Inflection docs](https://docs.withpersona.com/key-inflection).</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesApiKeyInflection? ApiKeyInflection { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesApiKeyInflection? ApiKeyInflection { get => _explicitNullValueApiKeyInflection; set { _explicitNullValueApiKeyInflection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-key-inflection"); else _explicitNullProperties?.Remove("api-key-inflection"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesApiKeyInflection? _explicitNullValueApiKeyInflection = default!;
         /// <summary>Server API version. More info on versioning can be found [here](https://docs.withpersona.com/versioning).</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiVersion? ApiVersion { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiVersion? ApiVersion { get => _explicitNullValueApiVersion; set { _explicitNullValueApiVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-version"); else _explicitNullProperties?.Remove("api-version"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ApiVersion? _explicitNullValueApiVersion = default!;
         /// <summary>Custom HTTP headers to include in webhook requests. For more info see [Webhook Custom HTTP Headers](https://docs.withpersona.com/webhook-custom-http-headers).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesCustomHttpHeaders? CustomHttpHeaders { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesCustomHttpHeaders? CustomHttpHeaders { get => _explicitNullValueCustomHttpHeaders; set { _explicitNullValueCustomHttpHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom-http-headers"); else _explicitNullProperties?.Remove("custom-http-headers"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesCustomHttpHeaders? _explicitNullValueCustomHttpHeaders = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesCustomHttpHeaders CustomHttpHeaders { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesCustomHttpHeaders CustomHttpHeaders { get => _explicitNullValueCustomHttpHeaders; set { _explicitNullValueCustomHttpHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custom-http-headers"); else _explicitNullProperties?.Remove("custom-http-headers"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesCustomHttpHeaders _explicitNullValueCustomHttpHeaders = default!;
 #endif
         /// <summary>An optional description for this webhook</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Supported events that you want to receive webhooks for. Set `*` to enable all events. Descriptions of all events can be found [here](https://docs.withpersona.com/events). Retrieve Events for your organization using the [Events API](https://docs.withpersona.com/api-reference/events/list-all-events). Custom events you emit yourself may also be subscribed to by name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? EnabledEvents { get; set; }
+        public List<string>? EnabledEvents { get => _explicitNullValueEnabledEvents; set { _explicitNullValueEnabledEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled-events"); else _explicitNullProperties?.Remove("enabled-events"); } }
+        private List<string>? _explicitNullValueEnabledEvents = default!;
 #nullable restore
 #else
-        public List<string> EnabledEvents { get; set; }
+        public List<string> EnabledEvents { get => _explicitNullValueEnabledEvents; set { _explicitNullValueEnabledEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled-events"); else _explicitNullProperties?.Remove("enabled-events"); } }
+        private List<string> _explicitNullValueEnabledEvents = default!;
 #endif
         /// <summary>How soon any file access tokens in webhook requests expire. For more info see [Downloading Files](https://docs.withpersona.com/downloading-files).</summary>
-        public int? FileAccessTokenExpiresIn { get; set; }
+        public int? FileAccessTokenExpiresIn { get => _explicitNullValueFileAccessTokenExpiresIn; set { _explicitNullValueFileAccessTokenExpiresIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file-access-token-expires-in"); else _explicitNullProperties?.Remove("file-access-token-expires-in"); } }
+        private int? _explicitNullValueFileAccessTokenExpiresIn = default!;
         /// <summary>Controls which related objects appear in the `included` array of webhook payloads. The default is `include_none`. When `state` is `custom`, `event-types` configures which related objects to include per event type: event types you are subscribed to (via `enabled-events`) but do not list are excluded, and event types you list but are not subscribed to are dropped on save. A `custom` config whose event types are all `[&quot;*&quot;]` is equivalent to, and is normalized to, `include_all`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist? IncludedAllowlist { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist? IncludedAllowlist { get => _explicitNullValueIncludedAllowlist; set { _explicitNullValueIncludedAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("included-allowlist"); else _explicitNullProperties?.Remove("included-allowlist"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist? _explicitNullValueIncludedAllowlist = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist IncludedAllowlist { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist IncludedAllowlist { get => _explicitNullValueIncludedAllowlist; set { _explicitNullValueIncludedAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("included-allowlist"); else _explicitNullProperties?.Remove("included-allowlist"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist _explicitNullValueIncludedAllowlist = default!;
 #endif
         /// <summary>A name for remembering webhook</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Filter webhook events based on payload data. Only available for enterprise clients. For more info see [Webhook Event Filters](https://docs.withpersona.com/webhook-event-filters).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesPayloadFilter? PayloadFilter { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesPayloadFilter? PayloadFilter { get => _explicitNullValuePayloadFilter; set { _explicitNullValuePayloadFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload-filter"); else _explicitNullProperties?.Remove("payload-filter"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesPayloadFilter? _explicitNullValuePayloadFilter = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesPayloadFilter PayloadFilter { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesPayloadFilter PayloadFilter { get => _explicitNullValuePayloadFilter; set { _explicitNullValuePayloadFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload-filter"); else _explicitNullProperties?.Remove("payload-filter"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesPayloadFilter _explicitNullValuePayloadFilter = default!;
 #endif
         /// <summary>Controls whether relationships are serialized in webhook payload objects. The default is `include_all`. The object shape leaves room for future granular relationship configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist? RelationshipAllowlist { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist? RelationshipAllowlist { get => _explicitNullValueRelationshipAllowlist; set { _explicitNullValueRelationshipAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationship-allowlist"); else _explicitNullProperties?.Remove("relationship-allowlist"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist? _explicitNullValueRelationshipAllowlist = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist RelationshipAllowlist { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist RelationshipAllowlist { get => _explicitNullValueRelationshipAllowlist; set { _explicitNullValueRelationshipAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationship-allowlist"); else _explicitNullProperties?.Remove("relationship-allowlist"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist _explicitNullValueRelationshipAllowlist = default!;
 #endif
         /// <summary>URL to which webhook events are forwarded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -98,7 +138,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributes();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributes(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -140,7 +180,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesPayloadFilter>("payload-filter", PayloadFilter);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist>("relationship-allowlist", RelationshipAllowlist);
-            writer.WriteStringValue("url", Url);
+            writer.WriteStringValue("url", Url);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

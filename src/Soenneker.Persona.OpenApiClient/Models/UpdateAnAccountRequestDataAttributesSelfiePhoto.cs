@@ -12,14 +12,24 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UpdateAnAccountRequestDataAttributesSelfiePhoto : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("data") is { } nullNodeData && nullNodeData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Data = null;
+        }
+
         /// <summary>Selfie photo data, must be an image. Can also be provided as an uploaded file such as with multipart/form-data requests instead of this object. Null will remove the existing selfie photo from the Account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.UpdateAnAccountRequestDataAttributesSelfiePhotoData? Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.UpdateAnAccountRequestDataAttributesSelfiePhotoData? Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.UpdateAnAccountRequestDataAttributesSelfiePhotoData? _explicitNullValueData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.UpdateAnAccountRequestDataAttributesSelfiePhotoData Data { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.UpdateAnAccountRequestDataAttributesSelfiePhotoData Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.UpdateAnAccountRequestDataAttributesSelfiePhotoData _explicitNullValueData = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -29,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.UpdateAnAccountRequestDataAttributesSelfiePhoto CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.UpdateAnAccountRequestDataAttributesSelfiePhoto();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.UpdateAnAccountRequestDataAttributesSelfiePhoto(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,7 +59,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.UpdateAnAccountRequestDataAttributesSelfiePhotoData>("data", Data);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.UpdateAnAccountRequestDataAttributesSelfiePhotoData>("data", Data);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

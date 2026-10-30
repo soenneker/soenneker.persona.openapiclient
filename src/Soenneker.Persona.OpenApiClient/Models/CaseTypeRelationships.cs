@@ -11,70 +11,101 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CaseTypeRelationships : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("accounts") is { } nullNodeAccounts && nullNodeAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Accounts = null;
+            if (parseNode.GetChildNode("case-comments") is { } nullNodeCaseComments && nullNodeCaseComments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaseComments = null;
+            if (parseNode.GetChildNode("case-queue") is { } nullNodeCaseQueue && nullNodeCaseQueue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaseQueue = null;
+            if (parseNode.GetChildNode("case-template") is { } nullNodeCaseTemplate && nullNodeCaseTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaseTemplate = null;
+            if (parseNode.GetChildNode("inquiries") is { } nullNodeInquiries && nullNodeInquiries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inquiries = null;
+            if (parseNode.GetChildNode("reports") is { } nullNodeReports && nullNodeReports.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reports = null;
+            if (parseNode.GetChildNode("txns") is { } nullNodeTxns && nullNodeTxns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Txns = null;
+            if (parseNode.GetChildNode("verifications") is { } nullNodeVerifications && nullNodeVerifications.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verifications = null;
+        }
+
         /// <summary>The accounts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsAccounts? Accounts { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsAccounts? Accounts { get => _explicitNullValueAccounts; set { _explicitNullValueAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accounts"); else _explicitNullProperties?.Remove("accounts"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsAccounts? _explicitNullValueAccounts = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsAccounts Accounts { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsAccounts Accounts { get => _explicitNullValueAccounts; set { _explicitNullValueAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accounts"); else _explicitNullProperties?.Remove("accounts"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsAccounts _explicitNullValueAccounts = default!;
 #endif
         /// <summary>The caseComments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseComments? CaseComments { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseComments? CaseComments { get => _explicitNullValueCaseComments; set { _explicitNullValueCaseComments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case-comments"); else _explicitNullProperties?.Remove("case-comments"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseComments? _explicitNullValueCaseComments = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseComments CaseComments { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseComments CaseComments { get => _explicitNullValueCaseComments; set { _explicitNullValueCaseComments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case-comments"); else _explicitNullProperties?.Remove("case-comments"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseComments _explicitNullValueCaseComments = default!;
 #endif
         /// <summary>The caseQueue property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseQueue? CaseQueue { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseQueue? CaseQueue { get => _explicitNullValueCaseQueue; set { _explicitNullValueCaseQueue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case-queue"); else _explicitNullProperties?.Remove("case-queue"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseQueue? _explicitNullValueCaseQueue = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseQueue CaseQueue { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseQueue CaseQueue { get => _explicitNullValueCaseQueue; set { _explicitNullValueCaseQueue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case-queue"); else _explicitNullProperties?.Remove("case-queue"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseQueue _explicitNullValueCaseQueue = default!;
 #endif
         /// <summary>The caseTemplate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseTemplate? CaseTemplate { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseTemplate? CaseTemplate { get => _explicitNullValueCaseTemplate; set { _explicitNullValueCaseTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case-template"); else _explicitNullProperties?.Remove("case-template"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseTemplate? _explicitNullValueCaseTemplate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseTemplate CaseTemplate { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseTemplate CaseTemplate { get => _explicitNullValueCaseTemplate; set { _explicitNullValueCaseTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case-template"); else _explicitNullProperties?.Remove("case-template"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsCaseTemplate _explicitNullValueCaseTemplate = default!;
 #endif
         /// <summary>The inquiries property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsInquiries? Inquiries { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsInquiries? Inquiries { get => _explicitNullValueInquiries; set { _explicitNullValueInquiries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiries"); else _explicitNullProperties?.Remove("inquiries"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsInquiries? _explicitNullValueInquiries = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsInquiries Inquiries { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsInquiries Inquiries { get => _explicitNullValueInquiries; set { _explicitNullValueInquiries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiries"); else _explicitNullProperties?.Remove("inquiries"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsInquiries _explicitNullValueInquiries = default!;
 #endif
         /// <summary>The reports property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsReports? Reports { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsReports? Reports { get => _explicitNullValueReports; set { _explicitNullValueReports = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reports"); else _explicitNullProperties?.Remove("reports"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsReports? _explicitNullValueReports = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsReports Reports { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsReports Reports { get => _explicitNullValueReports; set { _explicitNullValueReports = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reports"); else _explicitNullProperties?.Remove("reports"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsReports _explicitNullValueReports = default!;
 #endif
         /// <summary>The txns property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsTxns? Txns { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsTxns? Txns { get => _explicitNullValueTxns; set { _explicitNullValueTxns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("txns"); else _explicitNullProperties?.Remove("txns"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsTxns? _explicitNullValueTxns = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsTxns Txns { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsTxns Txns { get => _explicitNullValueTxns; set { _explicitNullValueTxns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("txns"); else _explicitNullProperties?.Remove("txns"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsTxns _explicitNullValueTxns = default!;
 #endif
         /// <summary>The verifications property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsVerifications? Verifications { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsVerifications? Verifications { get => _explicitNullValueVerifications; set { _explicitNullValueVerifications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verifications"); else _explicitNullProperties?.Remove("verifications"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsVerifications? _explicitNullValueVerifications = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsVerifications Verifications { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsVerifications Verifications { get => _explicitNullValueVerifications; set { _explicitNullValueVerifications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verifications"); else _explicitNullProperties?.Remove("verifications"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsVerifications _explicitNullValueVerifications = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -84,7 +115,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationships CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationships();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationships(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -118,7 +149,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsInquiries>("inquiries", Inquiries);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsReports>("reports", Reports);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsTxns>("txns", Txns);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsVerifications>("verifications", Verifications);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CaseTypeRelationshipsVerifications>("verifications", Verifications);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

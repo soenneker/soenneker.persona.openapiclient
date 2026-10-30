@@ -11,25 +11,40 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BatchJobRowErrorAttributes : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("error-message") is { } nullNodeErrorMessage && nullNodeErrorMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorMessage = null;
+            if (parseNode.GetChildNode("row") is { } nullNodeRow && nullNodeRow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Row = null;
+            if (parseNode.GetChildNode("row-number") is { } nullNodeRowNumber && nullNodeRowNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RowNumber = null;
+        }
+
         /// <summary>The errorMessage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorMessage { get; set; }
+        public string? ErrorMessage { get => _explicitNullValueErrorMessage; set { _explicitNullValueErrorMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error-message"); else _explicitNullProperties?.Remove("error-message"); } }
+        private string? _explicitNullValueErrorMessage = default!;
 #nullable restore
 #else
-        public string ErrorMessage { get; set; }
+        public string ErrorMessage { get => _explicitNullValueErrorMessage; set { _explicitNullValueErrorMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error-message"); else _explicitNullProperties?.Remove("error-message"); } }
+        private string _explicitNullValueErrorMessage = default!;
 #endif
         /// <summary>The original row contents, as submitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.BatchJobRowErrorAttributesRowProperty? Row { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.BatchJobRowErrorAttributesRowProperty? Row { get => _explicitNullValueRow; set { _explicitNullValueRow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("row"); else _explicitNullProperties?.Remove("row"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.BatchJobRowErrorAttributesRowProperty? _explicitNullValueRow = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.BatchJobRowErrorAttributesRowProperty Row { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.BatchJobRowErrorAttributesRowProperty Row { get => _explicitNullValueRow; set { _explicitNullValueRow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("row"); else _explicitNullProperties?.Remove("row"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.BatchJobRowErrorAttributesRowProperty _explicitNullValueRow = default!;
 #endif
         /// <summary>The 1-indexed position of this row within the submitted `rows` array.</summary>
-        public int? RowNumber { get; set; }
+        public int? RowNumber { get => _explicitNullValueRowNumber; set { _explicitNullValueRowNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("row-number"); else _explicitNullProperties?.Remove("row-number"); } }
+        private int? _explicitNullValueRowNumber = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.BatchJobRowErrorAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.BatchJobRowErrorAttributes();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.BatchJobRowErrorAttributes(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,7 +77,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("error-message", ErrorMessage);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.BatchJobRowErrorAttributesRowProperty>("row", Row);
-            writer.WriteIntValue("row-number", RowNumber);
+            writer.WriteIntValue("row-number", RowNumber);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

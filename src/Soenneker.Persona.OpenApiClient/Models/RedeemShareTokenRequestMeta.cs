@@ -11,38 +11,57 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RedeemShareTokenRequestMeta : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("account-id") is { } nullNodeAccountId && nullNodeAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountId = null;
+            if (parseNode.GetChildNode("auto-create-account-reference-id") is { } nullNodeAutoCreateAccountReferenceId && nullNodeAutoCreateAccountReferenceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoCreateAccountReferenceId = null;
+            if (parseNode.GetChildNode("auto-create-account-type-id") is { } nullNodeAutoCreateAccountTypeId && nullNodeAutoCreateAccountTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoCreateAccountTypeId = null;
+            if (parseNode.GetChildNode("field-mappings") is { } nullNodeFieldMappings && nullNodeFieldMappings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldMappings = null;
+        }
+
         /// <summary>Existing Account ID in the destination environment to link to the cloned Inquiry.Only applies when cloning an Inquiry. Cannot be combined withauto-create-account-reference-id or data.attributes.destination-id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountId { get; set; }
+        public string? AccountId { get => _explicitNullValueAccountId; set { _explicitNullValueAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account-id"); else _explicitNullProperties?.Remove("account-id"); } }
+        private string? _explicitNullValueAccountId = default!;
 #nullable restore
 #else
-        public string AccountId { get; set; }
+        public string AccountId { get => _explicitNullValueAccountId; set { _explicitNullValueAccountId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account-id"); else _explicitNullProperties?.Remove("account-id"); } }
+        private string _explicitNullValueAccountId = default!;
 #endif
         /// <summary>Links the cloned Inquiry to the Account with this reference ID in the destinationenvironment, or creates a new Account with this reference ID if none exists.Only applies when cloning an Inquiry. Cannot be combined with account-id ordata.attributes.destination-id.Unlike `POST /inquiries`, creating a new Account requiresauto-create-account-type-id; there is no default Account type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AutoCreateAccountReferenceId { get; set; }
+        public string? AutoCreateAccountReferenceId { get => _explicitNullValueAutoCreateAccountReferenceId; set { _explicitNullValueAutoCreateAccountReferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-account-reference-id"); else _explicitNullProperties?.Remove("auto-create-account-reference-id"); } }
+        private string? _explicitNullValueAutoCreateAccountReferenceId = default!;
 #nullable restore
 #else
-        public string AutoCreateAccountReferenceId { get; set; }
+        public string AutoCreateAccountReferenceId { get => _explicitNullValueAutoCreateAccountReferenceId; set { _explicitNullValueAutoCreateAccountReferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-account-reference-id"); else _explicitNullProperties?.Remove("auto-create-account-reference-id"); } }
+        private string _explicitNullValueAutoCreateAccountReferenceId = default!;
 #endif
         /// <summary>The Account Type to use when auto-create-account-reference-id creates a newAccount. Also limits the reference ID lookup to Accounts of this type.Requires auto-create-account-reference-id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AutoCreateAccountTypeId { get; set; }
+        public string? AutoCreateAccountTypeId { get => _explicitNullValueAutoCreateAccountTypeId; set { _explicitNullValueAutoCreateAccountTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-account-type-id"); else _explicitNullProperties?.Remove("auto-create-account-type-id"); } }
+        private string? _explicitNullValueAutoCreateAccountTypeId = default!;
 #nullable restore
 #else
-        public string AutoCreateAccountTypeId { get; set; }
+        public string AutoCreateAccountTypeId { get => _explicitNullValueAutoCreateAccountTypeId; set { _explicitNullValueAutoCreateAccountTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-account-type-id"); else _explicitNullProperties?.Remove("auto-create-account-type-id"); } }
+        private string _explicitNullValueAutoCreateAccountTypeId = default!;
 #endif
         /// <summary>Optional list of field mappings to apply when hydrating an existing destination.If a source field name matches the destination field name, it is copied directly.These mappings are applied for fields not already matched by name. Field mappingsare not used when cloning; omit them from clone requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMetaFieldMappingsItem>? FieldMappings { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMetaFieldMappingsItem>? FieldMappings { get => _explicitNullValueFieldMappings; set { _explicitNullValueFieldMappings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field-mappings"); else _explicitNullProperties?.Remove("field-mappings"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMetaFieldMappingsItem>? _explicitNullValueFieldMappings = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMetaFieldMappingsItem> FieldMappings { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMetaFieldMappingsItem> FieldMappings { get => _explicitNullValueFieldMappings; set { _explicitNullValueFieldMappings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field-mappings"); else _explicitNullProperties?.Remove("field-mappings"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMetaFieldMappingsItem> _explicitNullValueFieldMappings = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -52,7 +71,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMeta CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMeta();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMeta(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,7 +97,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("account-id", AccountId);
             writer.WriteStringValue("auto-create-account-reference-id", AutoCreateAccountReferenceId);
             writer.WriteStringValue("auto-create-account-type-id", AutoCreateAccountTypeId);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMetaFieldMappingsItem>("field-mappings", FieldMappings);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMetaFieldMappingsItem>("field-mappings", FieldMappings);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

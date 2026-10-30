@@ -11,22 +11,35 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GenerateAOneTimeLinkForAnInquirySession200ResponseMeta : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("one-time-link") is { } nullNodeOneTimeLink && nullNodeOneTimeLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OneTimeLink = null;
+            if (parseNode.GetChildNode("one-time-link-short") is { } nullNodeOneTimeLinkShort && nullNodeOneTimeLinkShort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OneTimeLinkShort = null;
+        }
+
         /// <summary>The oneTimeLink property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OneTimeLink { get; set; }
+        public string? OneTimeLink { get => _explicitNullValueOneTimeLink; set { _explicitNullValueOneTimeLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("one-time-link"); else _explicitNullProperties?.Remove("one-time-link"); } }
+        private string? _explicitNullValueOneTimeLink = default!;
 #nullable restore
 #else
-        public string OneTimeLink { get; set; }
+        public string OneTimeLink { get => _explicitNullValueOneTimeLink; set { _explicitNullValueOneTimeLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("one-time-link"); else _explicitNullProperties?.Remove("one-time-link"); } }
+        private string _explicitNullValueOneTimeLink = default!;
 #endif
         /// <summary>The oneTimeLinkShort property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OneTimeLinkShort { get; set; }
+        public string? OneTimeLinkShort { get => _explicitNullValueOneTimeLinkShort; set { _explicitNullValueOneTimeLinkShort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("one-time-link-short"); else _explicitNullProperties?.Remove("one-time-link-short"); } }
+        private string? _explicitNullValueOneTimeLinkShort = default!;
 #nullable restore
 #else
-        public string OneTimeLinkShort { get; set; }
+        public string OneTimeLinkShort { get => _explicitNullValueOneTimeLinkShort; set { _explicitNullValueOneTimeLinkShort = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("one-time-link-short"); else _explicitNullProperties?.Remove("one-time-link-short"); } }
+        private string _explicitNullValueOneTimeLinkShort = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -36,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200ResponseMeta CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200ResponseMeta();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.GenerateAOneTimeLinkForAnInquirySession200ResponseMeta(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +71,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("one-time-link", OneTimeLink);
-            writer.WriteStringValue("one-time-link-short", OneTimeLinkShort);
+            writer.WriteStringValue("one-time-link-short", OneTimeLinkShort);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

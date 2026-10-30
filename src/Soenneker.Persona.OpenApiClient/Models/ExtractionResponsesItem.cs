@@ -11,38 +11,57 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ExtractionResponsesItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("extraction-type") is { } nullNodeExtractionType && nullNodeExtractionType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExtractionType = null;
+            if (parseNode.GetChildNode("field-name") is { } nullNodeFieldName && nullNodeFieldName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldName = null;
+            if (parseNode.GetChildNode("results") is { } nullNodeResults && nullNodeResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Results = null;
+            if (parseNode.GetChildNode("structured-results") is { } nullNodeStructuredResults && nullNodeStructuredResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StructuredResults = null;
+        }
+
         /// <summary>The extractionType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExtractionType { get; set; }
+        public string? ExtractionType { get => _explicitNullValueExtractionType; set { _explicitNullValueExtractionType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extraction-type"); else _explicitNullProperties?.Remove("extraction-type"); } }
+        private string? _explicitNullValueExtractionType = default!;
 #nullable restore
 #else
-        public string ExtractionType { get; set; }
+        public string ExtractionType { get => _explicitNullValueExtractionType; set { _explicitNullValueExtractionType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extraction-type"); else _explicitNullProperties?.Remove("extraction-type"); } }
+        private string _explicitNullValueExtractionType = default!;
 #endif
         /// <summary>The fieldName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FieldName { get; set; }
+        public string? FieldName { get => _explicitNullValueFieldName; set { _explicitNullValueFieldName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field-name"); else _explicitNullProperties?.Remove("field-name"); } }
+        private string? _explicitNullValueFieldName = default!;
 #nullable restore
 #else
-        public string FieldName { get; set; }
+        public string FieldName { get => _explicitNullValueFieldName; set { _explicitNullValueFieldName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field-name"); else _explicitNullProperties?.Remove("field-name"); } }
+        private string _explicitNullValueFieldName = default!;
 #endif
         /// <summary>A list of objects containing the actual value extracted and additional information relevant to the extraction result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItem>? Results { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItem>? Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItem>? _explicitNullValueResults = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItem> Results { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItem> Results { get => _explicitNullValueResults; set { _explicitNullValueResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("results"); else _explicitNullProperties?.Remove("results"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItem> _explicitNullValueResults = default!;
 #endif
         /// <summary>A list of structured AI extraction results with locations stripped. Values are recursive — objects contain nested structured results — but bounding-box location data is omitted from the API response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemStructuredResultsItemProperty>? StructuredResults { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemStructuredResultsItemProperty>? StructuredResults { get => _explicitNullValueStructuredResults; set { _explicitNullValueStructuredResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("structured-results"); else _explicitNullProperties?.Remove("structured-results"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemStructuredResultsItemProperty>? _explicitNullValueStructuredResults = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemStructuredResultsItemProperty> StructuredResults { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemStructuredResultsItemProperty> StructuredResults { get => _explicitNullValueStructuredResults; set { _explicitNullValueStructuredResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("structured-results"); else _explicitNullProperties?.Remove("structured-results"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemStructuredResultsItemProperty> _explicitNullValueStructuredResults = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -52,7 +71,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,7 +97,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("extraction-type", ExtractionType);
             writer.WriteStringValue("field-name", FieldName);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemResultsItem>("results", Results);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemStructuredResultsItemProperty>("structured-results", StructuredResults);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ExtractionResponsesItemStructuredResultsItemProperty>("structured-results", StructuredResults);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

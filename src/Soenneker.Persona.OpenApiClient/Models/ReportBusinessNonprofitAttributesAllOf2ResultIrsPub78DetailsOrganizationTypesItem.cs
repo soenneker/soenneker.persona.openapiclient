@@ -11,30 +11,46 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReportBusinessNonprofitAttributesAllOf2ResultIrsPub78DetailsOrganizationTypesItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("deductibility-limitation") is { } nullNodeDeductibilityLimitation && nullNodeDeductibilityLimitation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeductibilityLimitation = null;
+            if (parseNode.GetChildNode("deductibility-status-description") is { } nullNodeDeductibilityStatusDescription && nullNodeDeductibilityStatusDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeductibilityStatusDescription = null;
+            if (parseNode.GetChildNode("organization-type") is { } nullNodeOrganizationType && nullNodeOrganizationType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationType = null;
+        }
+
         /// <summary>The deductibilityLimitation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeductibilityLimitation { get; set; }
+        public string? DeductibilityLimitation { get => _explicitNullValueDeductibilityLimitation; set { _explicitNullValueDeductibilityLimitation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deductibility-limitation"); else _explicitNullProperties?.Remove("deductibility-limitation"); } }
+        private string? _explicitNullValueDeductibilityLimitation = default!;
 #nullable restore
 #else
-        public string DeductibilityLimitation { get; set; }
+        public string DeductibilityLimitation { get => _explicitNullValueDeductibilityLimitation; set { _explicitNullValueDeductibilityLimitation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deductibility-limitation"); else _explicitNullProperties?.Remove("deductibility-limitation"); } }
+        private string _explicitNullValueDeductibilityLimitation = default!;
 #endif
         /// <summary>The deductibilityStatusDescription property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeductibilityStatusDescription { get; set; }
+        public string? DeductibilityStatusDescription { get => _explicitNullValueDeductibilityStatusDescription; set { _explicitNullValueDeductibilityStatusDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deductibility-status-description"); else _explicitNullProperties?.Remove("deductibility-status-description"); } }
+        private string? _explicitNullValueDeductibilityStatusDescription = default!;
 #nullable restore
 #else
-        public string DeductibilityStatusDescription { get; set; }
+        public string DeductibilityStatusDescription { get => _explicitNullValueDeductibilityStatusDescription; set { _explicitNullValueDeductibilityStatusDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deductibility-status-description"); else _explicitNullProperties?.Remove("deductibility-status-description"); } }
+        private string _explicitNullValueDeductibilityStatusDescription = default!;
 #endif
         /// <summary>The organizationType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrganizationType { get; set; }
+        public string? OrganizationType { get => _explicitNullValueOrganizationType; set { _explicitNullValueOrganizationType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization-type"); else _explicitNullProperties?.Remove("organization-type"); } }
+        private string? _explicitNullValueOrganizationType = default!;
 #nullable restore
 #else
-        public string OrganizationType { get; set; }
+        public string OrganizationType { get => _explicitNullValueOrganizationType; set { _explicitNullValueOrganizationType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization-type"); else _explicitNullProperties?.Remove("organization-type"); } }
+        private string _explicitNullValueOrganizationType = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,7 +60,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsPub78DetailsOrganizationTypesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsPub78DetailsOrganizationTypesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsPub78DetailsOrganizationTypesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,7 +84,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("deductibility-limitation", DeductibilityLimitation);
             writer.WriteStringValue("deductibility-status-description", DeductibilityStatusDescription);
-            writer.WriteStringValue("organization-type", OrganizationType);
+            writer.WriteStringValue("organization-type", OrganizationType);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -11,17 +11,29 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ThemeSetStylesSettings : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("preferred-theme-variant") is { } nullNodePreferredThemeVariant && nullNodePreferredThemeVariant.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreferredThemeVariant = null;
+            if (parseNode.GetChildNode("use-dark-theme") is { } nullNodeUseDarkTheme && nullNodeUseDarkTheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseDarkTheme = null;
+        }
+
         /// <summary>Variant served when no device preference applies — one of &quot;light&quot; or &quot;dark&quot;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PreferredThemeVariant { get; set; }
+        public string? PreferredThemeVariant { get => _explicitNullValuePreferredThemeVariant; set { _explicitNullValuePreferredThemeVariant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preferred-theme-variant"); else _explicitNullProperties?.Remove("preferred-theme-variant"); } }
+        private string? _explicitNullValuePreferredThemeVariant = default!;
 #nullable restore
 #else
-        public string PreferredThemeVariant { get; set; }
+        public string PreferredThemeVariant { get => _explicitNullValuePreferredThemeVariant; set { _explicitNullValuePreferredThemeVariant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preferred-theme-variant"); else _explicitNullProperties?.Remove("preferred-theme-variant"); } }
+        private string _explicitNullValuePreferredThemeVariant = default!;
 #endif
         /// <summary>Whether the dark variant is served to devices that prefer dark mode.</summary>
-        public bool? UseDarkTheme { get; set; }
+        public bool? UseDarkTheme { get => _explicitNullValueUseDarkTheme; set { _explicitNullValueUseDarkTheme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("use-dark-theme"); else _explicitNullProperties?.Remove("use-dark-theme"); } }
+        private bool? _explicitNullValueUseDarkTheme = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,7 +42,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ThemeSetStylesSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ThemeSetStylesSettings();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ThemeSetStylesSettings(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,7 +64,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("preferred-theme-variant", PreferredThemeVariant);
-            writer.WriteBoolValue("use-dark-theme", UseDarkTheme);
+            writer.WriteBoolValue("use-dark-theme", UseDarkTheme);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

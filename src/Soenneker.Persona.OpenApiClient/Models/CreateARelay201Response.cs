@@ -11,30 +11,46 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateARelay201Response : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("relay-secret") is { } nullNodeRelaySecret && nullNodeRelaySecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelaySecret = null;
+            if (parseNode.GetChildNode("relay-session-access-token") is { } nullNodeRelaySessionAccessToken && nullNodeRelaySessionAccessToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelaySessionAccessToken = null;
+            if (parseNode.GetChildNode("relay-token") is { } nullNodeRelayToken && nullNodeRelayToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelayToken = null;
+        }
+
         /// <summary>Secret value tied to this Relay. Returned only at creation and must be passed in the `Persona-Relay-Secret` header for any read of the claim payload.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RelaySecret { get; set; }
+        public string? RelaySecret { get => _explicitNullValueRelaySecret; set { _explicitNullValueRelaySecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relay-secret"); else _explicitNullProperties?.Remove("relay-secret"); } }
+        private string? _explicitNullValueRelaySecret = default!;
 #nullable restore
 #else
-        public string RelaySecret { get; set; }
+        public string RelaySecret { get => _explicitNullValueRelaySecret; set { _explicitNullValueRelaySecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relay-secret"); else _explicitNullProperties?.Remove("relay-secret"); } }
+        private string _explicitNullValueRelaySecret = default!;
 #endif
         /// <summary>Encoded JWT used by Persona&apos;s client SDK to load the associated Inquiry Session in the end-user&apos;s browser or device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RelaySessionAccessToken { get; set; }
+        public string? RelaySessionAccessToken { get => _explicitNullValueRelaySessionAccessToken; set { _explicitNullValueRelaySessionAccessToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relay-session-access-token"); else _explicitNullProperties?.Remove("relay-session-access-token"); } }
+        private string? _explicitNullValueRelaySessionAccessToken = default!;
 #nullable restore
 #else
-        public string RelaySessionAccessToken { get; set; }
+        public string RelaySessionAccessToken { get => _explicitNullValueRelaySessionAccessToken; set { _explicitNullValueRelaySessionAccessToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relay-session-access-token"); else _explicitNullProperties?.Remove("relay-session-access-token"); } }
+        private string _explicitNullValueRelaySessionAccessToken = default!;
 #endif
         /// <summary>Public Relay identifier. Use this token in subsequent calls to `/relays/{relay-token}/generate-claim`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RelayToken { get; set; }
+        public string? RelayToken { get => _explicitNullValueRelayToken; set { _explicitNullValueRelayToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relay-token"); else _explicitNullProperties?.Remove("relay-token"); } }
+        private string? _explicitNullValueRelayToken = default!;
 #nullable restore
 #else
-        public string RelayToken { get; set; }
+        public string RelayToken { get => _explicitNullValueRelayToken; set { _explicitNullValueRelayToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relay-token"); else _explicitNullProperties?.Remove("relay-token"); } }
+        private string _explicitNullValueRelayToken = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,7 +60,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.CreateARelay201Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.CreateARelay201Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.CreateARelay201Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,7 +84,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("relay-secret", RelaySecret);
             writer.WriteStringValue("relay-session-access-token", RelaySessionAccessToken);
-            writer.WriteStringValue("relay-token", RelayToken);
+            writer.WriteStringValue("relay-token", RelayToken);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

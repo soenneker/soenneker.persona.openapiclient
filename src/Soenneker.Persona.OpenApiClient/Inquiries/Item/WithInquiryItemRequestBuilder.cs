@@ -132,6 +132,8 @@ namespace Soenneker.Persona.OpenApiClient.Inquiries.Item
                 { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.RedactAnInquiry200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -164,6 +166,8 @@ namespace Soenneker.Persona.OpenApiClient.Inquiries.Item
                 { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.RetrieveAnInquiry200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -202,6 +206,8 @@ namespace Soenneker.Persona.OpenApiClient.Inquiries.Item
                 { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.UpdateAnInquiry200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

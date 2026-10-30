@@ -11,54 +11,79 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ApiLogAttributesRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("get-params") is { } nullNodeGetParams && nullNodeGetParams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GetParams = null;
+            if (parseNode.GetChildNode("headers") is { } nullNodeHeaders && nullNodeHeaders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Headers = null;
+            if (parseNode.GetChildNode("ip-address") is { } nullNodeIpAddress && nullNodeIpAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAddress = null;
+            if (parseNode.GetChildNode("method") is { } nullNodeMethod && nullNodeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Method = null;
+            if (parseNode.GetChildNode("path") is { } nullNodePath && nullNodePath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Path = null;
+            if (parseNode.GetChildNode("post-params") is { } nullNodePostParams && nullNodePostParams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostParams = null;
+        }
+
         /// <summary>The GET params of the request. Schema depends on the API called.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestGetParamsProperty? GetParams { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestGetParamsProperty? GetParams { get => _explicitNullValueGetParams; set { _explicitNullValueGetParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("get-params"); else _explicitNullProperties?.Remove("get-params"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestGetParamsProperty? _explicitNullValueGetParams = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestGetParamsProperty GetParams { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestGetParamsProperty GetParams { get => _explicitNullValueGetParams; set { _explicitNullValueGetParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("get-params"); else _explicitNullProperties?.Remove("get-params"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestGetParamsProperty _explicitNullValueGetParams = default!;
 #endif
         /// <summary>The headers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestHeaders? Headers { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestHeaders? Headers { get => _explicitNullValueHeaders; set { _explicitNullValueHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headers"); else _explicitNullProperties?.Remove("headers"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestHeaders? _explicitNullValueHeaders = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestHeaders Headers { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestHeaders Headers { get => _explicitNullValueHeaders; set { _explicitNullValueHeaders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headers"); else _explicitNullProperties?.Remove("headers"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestHeaders _explicitNullValueHeaders = default!;
 #endif
         /// <summary>The ipAddress property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IpAddress { get; set; }
+        public string? IpAddress { get => _explicitNullValueIpAddress; set { _explicitNullValueIpAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip-address"); else _explicitNullProperties?.Remove("ip-address"); } }
+        private string? _explicitNullValueIpAddress = default!;
 #nullable restore
 #else
-        public string IpAddress { get; set; }
+        public string IpAddress { get => _explicitNullValueIpAddress; set { _explicitNullValueIpAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip-address"); else _explicitNullProperties?.Remove("ip-address"); } }
+        private string _explicitNullValueIpAddress = default!;
 #endif
         /// <summary>The method property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Method { get; set; }
+        public string? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
+        private string? _explicitNullValueMethod = default!;
 #nullable restore
 #else
-        public string Method { get; set; }
+        public string Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
+        private string _explicitNullValueMethod = default!;
 #endif
         /// <summary>The path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Path { get; set; }
+        public string? Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string? _explicitNullValuePath = default!;
 #nullable restore
 #else
-        public string Path { get; set; }
+        public string Path { get => _explicitNullValuePath; set { _explicitNullValuePath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("path"); else _explicitNullProperties?.Remove("path"); } }
+        private string _explicitNullValuePath = default!;
 #endif
         /// <summary>The POST params of the request. Schema depends on the API called.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestPostParamsProperty? PostParams { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestPostParamsProperty? PostParams { get => _explicitNullValuePostParams; set { _explicitNullValuePostParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("post-params"); else _explicitNullProperties?.Remove("post-params"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestPostParamsProperty? _explicitNullValuePostParams = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestPostParamsProperty PostParams { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestPostParamsProperty PostParams { get => _explicitNullValuePostParams; set { _explicitNullValuePostParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("post-params"); else _explicitNullProperties?.Remove("post-params"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestPostParamsProperty _explicitNullValuePostParams = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -68,7 +93,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,7 +123,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("ip-address", IpAddress);
             writer.WriteStringValue("method", Method);
             writer.WriteStringValue("path", Path);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestPostParamsProperty>("post-params", PostParams);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesRequestPostParamsProperty>("post-params", PostParams);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

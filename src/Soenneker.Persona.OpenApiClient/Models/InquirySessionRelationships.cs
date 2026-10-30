@@ -11,30 +11,46 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class InquirySessionRelationships : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("device") is { } nullNodeDevice && nullNodeDevice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Device = null;
+            if (parseNode.GetChildNode("inquiry") is { } nullNodeInquiry && nullNodeInquiry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inquiry = null;
+            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+        }
+
         /// <summary>The device property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsDevice? Device { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsDevice? Device { get => _explicitNullValueDevice; set { _explicitNullValueDevice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device"); else _explicitNullProperties?.Remove("device"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsDevice? _explicitNullValueDevice = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsDevice Device { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsDevice Device { get => _explicitNullValueDevice; set { _explicitNullValueDevice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device"); else _explicitNullProperties?.Remove("device"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsDevice _explicitNullValueDevice = default!;
 #endif
         /// <summary>The inquiry property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsInquiry? Inquiry { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsInquiry? Inquiry { get => _explicitNullValueInquiry; set { _explicitNullValueInquiry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry"); else _explicitNullProperties?.Remove("inquiry"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsInquiry? _explicitNullValueInquiry = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsInquiry Inquiry { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsInquiry Inquiry { get => _explicitNullValueInquiry; set { _explicitNullValueInquiry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry"); else _explicitNullProperties?.Remove("inquiry"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsInquiry _explicitNullValueInquiry = default!;
 #endif
         /// <summary>The network property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsNetwork? Network { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsNetwork? _explicitNullValueNetwork = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsNetwork Network { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsNetwork Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsNetwork _explicitNullValueNetwork = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,7 +60,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationships CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationships();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationships(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,7 +84,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsDevice>("device", Device);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsInquiry>("inquiry", Inquiry);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsNetwork>("network", Network);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquirySessionRelationshipsNetwork>("network", Network);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

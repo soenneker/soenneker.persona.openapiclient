@@ -11,74 +11,114 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ApiLogAttributesResponseHeaders : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("Cache-Control") is { } nullNodeCacheControl && nullNodeCacheControl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CacheControl = null;
+            if (parseNode.GetChildNode("Content-Type") is { } nullNodeContentType && nullNodeContentType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContentType = null;
+            if (parseNode.GetChildNode("Expires") is { } nullNodeExpires && nullNodeExpires.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Expires = null;
+            if (parseNode.GetChildNode("Persona-Host") is { } nullNodePersonaHost && nullNodePersonaHost.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PersonaHost = null;
+            if (parseNode.GetChildNode("Pragma") is { } nullNodePragma && nullNodePragma.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pragma = null;
+            if (parseNode.GetChildNode("Quota-Limit") is { } nullNodeQuotaLimit && nullNodeQuotaLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuotaLimit = null;
+            if (parseNode.GetChildNode("Quota-Remaining") is { } nullNodeQuotaRemaining && nullNodeQuotaRemaining.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuotaRemaining = null;
+            if (parseNode.GetChildNode("Quota-Reset") is { } nullNodeQuotaReset && nullNodeQuotaReset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) QuotaReset = null;
+            if (parseNode.GetChildNode("RateLimit-Limit") is { } nullNodeRateLimitLimit && nullNodeRateLimitLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RateLimitLimit = null;
+            if (parseNode.GetChildNode("RateLimit-Remaining") is { } nullNodeRateLimitRemaining && nullNodeRateLimitRemaining.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RateLimitRemaining = null;
+            if (parseNode.GetChildNode("RateLimit-Reset") is { } nullNodeRateLimitReset && nullNodeRateLimitReset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RateLimitReset = null;
+            if (parseNode.GetChildNode("Request-Id") is { } nullNodeRequestId && nullNodeRequestId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestId = null;
+            if (parseNode.GetChildNode("Vary") is { } nullNodeVary && nullNodeVary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vary = null;
+        }
+
         /// <summary>The CacheControl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CacheControl { get; set; }
+        public string? CacheControl { get => _explicitNullValueCacheControl; set { _explicitNullValueCacheControl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Cache-Control"); else _explicitNullProperties?.Remove("Cache-Control"); } }
+        private string? _explicitNullValueCacheControl = default!;
 #nullable restore
 #else
-        public string CacheControl { get; set; }
+        public string CacheControl { get => _explicitNullValueCacheControl; set { _explicitNullValueCacheControl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Cache-Control"); else _explicitNullProperties?.Remove("Cache-Control"); } }
+        private string _explicitNullValueCacheControl = default!;
 #endif
         /// <summary>The ContentType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ContentType { get; set; }
+        public string? ContentType { get => _explicitNullValueContentType; set { _explicitNullValueContentType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Content-Type"); else _explicitNullProperties?.Remove("Content-Type"); } }
+        private string? _explicitNullValueContentType = default!;
 #nullable restore
 #else
-        public string ContentType { get; set; }
+        public string ContentType { get => _explicitNullValueContentType; set { _explicitNullValueContentType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Content-Type"); else _explicitNullProperties?.Remove("Content-Type"); } }
+        private string _explicitNullValueContentType = default!;
 #endif
         /// <summary>The Expires property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Expires { get; set; }
+        public string? Expires { get => _explicitNullValueExpires; set { _explicitNullValueExpires = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Expires"); else _explicitNullProperties?.Remove("Expires"); } }
+        private string? _explicitNullValueExpires = default!;
 #nullable restore
 #else
-        public string Expires { get; set; }
+        public string Expires { get => _explicitNullValueExpires; set { _explicitNullValueExpires = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Expires"); else _explicitNullProperties?.Remove("Expires"); } }
+        private string _explicitNullValueExpires = default!;
 #endif
         /// <summary>The PersonaHost property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PersonaHost { get; set; }
+        public string? PersonaHost { get => _explicitNullValuePersonaHost; set { _explicitNullValuePersonaHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Persona-Host"); else _explicitNullProperties?.Remove("Persona-Host"); } }
+        private string? _explicitNullValuePersonaHost = default!;
 #nullable restore
 #else
-        public string PersonaHost { get; set; }
+        public string PersonaHost { get => _explicitNullValuePersonaHost; set { _explicitNullValuePersonaHost = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Persona-Host"); else _explicitNullProperties?.Remove("Persona-Host"); } }
+        private string _explicitNullValuePersonaHost = default!;
 #endif
         /// <summary>The Pragma property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Pragma { get; set; }
+        public string? Pragma { get => _explicitNullValuePragma; set { _explicitNullValuePragma = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Pragma"); else _explicitNullProperties?.Remove("Pragma"); } }
+        private string? _explicitNullValuePragma = default!;
 #nullable restore
 #else
-        public string Pragma { get; set; }
+        public string Pragma { get => _explicitNullValuePragma; set { _explicitNullValuePragma = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Pragma"); else _explicitNullProperties?.Remove("Pragma"); } }
+        private string _explicitNullValuePragma = default!;
 #endif
         /// <summary>The QuotaLimit property</summary>
-        public int? QuotaLimit { get; set; }
+        public int? QuotaLimit { get => _explicitNullValueQuotaLimit; set { _explicitNullValueQuotaLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Quota-Limit"); else _explicitNullProperties?.Remove("Quota-Limit"); } }
+        private int? _explicitNullValueQuotaLimit = default!;
         /// <summary>The QuotaRemaining property</summary>
-        public int? QuotaRemaining { get; set; }
+        public int? QuotaRemaining { get => _explicitNullValueQuotaRemaining; set { _explicitNullValueQuotaRemaining = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Quota-Remaining"); else _explicitNullProperties?.Remove("Quota-Remaining"); } }
+        private int? _explicitNullValueQuotaRemaining = default!;
         /// <summary>The QuotaReset property</summary>
-        public int? QuotaReset { get; set; }
+        public int? QuotaReset { get => _explicitNullValueQuotaReset; set { _explicitNullValueQuotaReset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Quota-Reset"); else _explicitNullProperties?.Remove("Quota-Reset"); } }
+        private int? _explicitNullValueQuotaReset = default!;
         /// <summary>The RateLimitLimit property</summary>
-        public int? RateLimitLimit { get; set; }
+        public int? RateLimitLimit { get => _explicitNullValueRateLimitLimit; set { _explicitNullValueRateLimitLimit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RateLimit-Limit"); else _explicitNullProperties?.Remove("RateLimit-Limit"); } }
+        private int? _explicitNullValueRateLimitLimit = default!;
         /// <summary>The RateLimitRemaining property</summary>
-        public int? RateLimitRemaining { get; set; }
+        public int? RateLimitRemaining { get => _explicitNullValueRateLimitRemaining; set { _explicitNullValueRateLimitRemaining = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RateLimit-Remaining"); else _explicitNullProperties?.Remove("RateLimit-Remaining"); } }
+        private int? _explicitNullValueRateLimitRemaining = default!;
         /// <summary>The RateLimitReset property</summary>
-        public int? RateLimitReset { get; set; }
+        public int? RateLimitReset { get => _explicitNullValueRateLimitReset; set { _explicitNullValueRateLimitReset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("RateLimit-Reset"); else _explicitNullProperties?.Remove("RateLimit-Reset"); } }
+        private int? _explicitNullValueRateLimitReset = default!;
         /// <summary>The RequestId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequestId { get; set; }
+        public string? RequestId { get => _explicitNullValueRequestId; set { _explicitNullValueRequestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Request-Id"); else _explicitNullProperties?.Remove("Request-Id"); } }
+        private string? _explicitNullValueRequestId = default!;
 #nullable restore
 #else
-        public string RequestId { get; set; }
+        public string RequestId { get => _explicitNullValueRequestId; set { _explicitNullValueRequestId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Request-Id"); else _explicitNullProperties?.Remove("Request-Id"); } }
+        private string _explicitNullValueRequestId = default!;
 #endif
         /// <summary>The Vary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Vary { get; set; }
+        public string? Vary { get => _explicitNullValueVary; set { _explicitNullValueVary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Vary"); else _explicitNullProperties?.Remove("Vary"); } }
+        private string? _explicitNullValueVary = default!;
 #nullable restore
 #else
-        public string Vary { get; set; }
+        public string Vary { get => _explicitNullValueVary; set { _explicitNullValueVary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Vary"); else _explicitNullProperties?.Remove("Vary"); } }
+        private string _explicitNullValueVary = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -88,7 +128,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesResponseHeaders CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesResponseHeaders();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ApiLogAttributesResponseHeaders(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -132,7 +172,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteIntValue("RateLimit-Remaining", RateLimitRemaining);
             writer.WriteIntValue("RateLimit-Reset", RateLimitReset);
             writer.WriteStringValue("Request-Id", RequestId);
-            writer.WriteStringValue("Vary", Vary);
+            writer.WriteStringValue("Vary", Vary);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

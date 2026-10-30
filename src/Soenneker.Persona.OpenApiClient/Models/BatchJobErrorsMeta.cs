@@ -12,16 +12,28 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BatchJobErrorsMeta : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("error-count") is { } nullNodeErrorCount && nullNodeErrorCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorCount = null;
+            if (parseNode.GetChildNode("global-errors") is { } nullNodeGlobalErrors && nullNodeGlobalErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalErrors = null;
+        }
+
         /// <summary>Total number of rows that failed to process, across the whole run (not just this page).</summary>
-        public int? ErrorCount { get; set; }
+        public int? ErrorCount { get => _explicitNullValueErrorCount; set { _explicitNullValueErrorCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error-count"); else _explicitNullProperties?.Remove("error-count"); } }
+        private int? _explicitNullValueErrorCount = default!;
         /// <summary>Errors that affected the whole run rather than a single row.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.BatchJobErrorsMetaGlobalErrorsItem>? GlobalErrors { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.BatchJobErrorsMetaGlobalErrorsItem>? GlobalErrors { get => _explicitNullValueGlobalErrors; set { _explicitNullValueGlobalErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global-errors"); else _explicitNullProperties?.Remove("global-errors"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.BatchJobErrorsMetaGlobalErrorsItem>? _explicitNullValueGlobalErrors = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.BatchJobErrorsMetaGlobalErrorsItem> GlobalErrors { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.BatchJobErrorsMetaGlobalErrorsItem> GlobalErrors { get => _explicitNullValueGlobalErrors; set { _explicitNullValueGlobalErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("global-errors"); else _explicitNullProperties?.Remove("global-errors"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.BatchJobErrorsMetaGlobalErrorsItem> _explicitNullValueGlobalErrors = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -31,7 +43,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.BatchJobErrorsMeta CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.BatchJobErrorsMeta();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.BatchJobErrorsMeta(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +65,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("error-count", ErrorCount);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.BatchJobErrorsMetaGlobalErrorsItem>("global-errors", GlobalErrors);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.BatchJobErrorsMetaGlobalErrorsItem>("global-errors", GlobalErrors);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

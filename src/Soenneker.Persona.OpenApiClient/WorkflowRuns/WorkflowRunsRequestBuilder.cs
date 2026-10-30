@@ -35,7 +35,7 @@ namespace Soenneker.Persona.OpenApiClient.WorkflowRuns
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WorkflowRunsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflow-runs{?fields*,filter*,page*}", pathParameters)
+        public WorkflowRunsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflow-runs{?fields*,filter%5Bstatus%5D,page*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Persona.OpenApiClient.WorkflowRuns
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WorkflowRunsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflow-runs{?fields*,filter*,page*}", rawUrl)
+        public WorkflowRunsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/workflow-runs{?fields*,filter%5Bstatus%5D,page*}", rawUrl)
         {
         }
         /// <summary>
@@ -73,6 +73,8 @@ namespace Soenneker.Persona.OpenApiClient.WorkflowRuns
                 { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllWorkflowRuns200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -123,14 +125,14 @@ namespace Soenneker.Persona.OpenApiClient.WorkflowRuns
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             #pragma warning disable CS1591
-            [QueryParameter("filter")]
-            public string? Filter { get; set; }
+            [QueryParameter("filter%5Bstatus%5D")]
+            public string? Filterstatus { get; set; }
             #pragma warning restore CS1591
 #nullable restore
 #else
             #pragma warning disable CS1591
-            [QueryParameter("filter")]
-            public string Filter { get; set; }
+            [QueryParameter("filter%5Bstatus%5D")]
+            public string Filterstatus { get; set; }
             #pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

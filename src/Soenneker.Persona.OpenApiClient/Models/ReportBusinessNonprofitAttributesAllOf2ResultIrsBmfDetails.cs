@@ -11,88 +11,127 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReportBusinessNonprofitAttributesAllOf2ResultIrsBmfDetails : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("church-message") is { } nullNodeChurchMessage && nullNodeChurchMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChurchMessage = null;
+            if (parseNode.GetChildNode("ein") is { } nullNodeEin && nullNodeEin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ein = null;
+            if (parseNode.GetChildNode("most-recent-bmf") is { } nullNodeMostRecentBmf && nullNodeMostRecentBmf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MostRecentBmf = null;
+            if (parseNode.GetChildNode("organization-name") is { } nullNodeOrganizationName && nullNodeOrganizationName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationName = null;
+            if (parseNode.GetChildNode("revocation-date") is { } nullNodeRevocationDate && nullNodeRevocationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RevocationDate = null;
+            if (parseNode.GetChildNode("revocation-reason") is { } nullNodeRevocationReason && nullNodeRevocationReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RevocationReason = null;
+            if (parseNode.GetChildNode("ruling-month") is { } nullNodeRulingMonth && nullNodeRulingMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RulingMonth = null;
+            if (parseNode.GetChildNode("ruling-year") is { } nullNodeRulingYear && nullNodeRulingYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RulingYear = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("subsection") is { } nullNodeSubsection && nullNodeSubsection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subsection = null;
+            if (parseNode.GetChildNode("subsection-description") is { } nullNodeSubsectionDescription && nullNodeSubsectionDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubsectionDescription = null;
+        }
+
         /// <summary>The churchMessage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ChurchMessage { get; set; }
+        public string? ChurchMessage { get => _explicitNullValueChurchMessage; set { _explicitNullValueChurchMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("church-message"); else _explicitNullProperties?.Remove("church-message"); } }
+        private string? _explicitNullValueChurchMessage = default!;
 #nullable restore
 #else
-        public string ChurchMessage { get; set; }
+        public string ChurchMessage { get => _explicitNullValueChurchMessage; set { _explicitNullValueChurchMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("church-message"); else _explicitNullProperties?.Remove("church-message"); } }
+        private string _explicitNullValueChurchMessage = default!;
 #endif
         /// <summary>The ein property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ein { get; set; }
+        public string? Ein { get => _explicitNullValueEin; set { _explicitNullValueEin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ein"); else _explicitNullProperties?.Remove("ein"); } }
+        private string? _explicitNullValueEin = default!;
 #nullable restore
 #else
-        public string Ein { get; set; }
+        public string Ein { get => _explicitNullValueEin; set { _explicitNullValueEin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ein"); else _explicitNullProperties?.Remove("ein"); } }
+        private string _explicitNullValueEin = default!;
 #endif
         /// <summary>The mostRecentBmf property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MostRecentBmf { get; set; }
+        public string? MostRecentBmf { get => _explicitNullValueMostRecentBmf; set { _explicitNullValueMostRecentBmf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("most-recent-bmf"); else _explicitNullProperties?.Remove("most-recent-bmf"); } }
+        private string? _explicitNullValueMostRecentBmf = default!;
 #nullable restore
 #else
-        public string MostRecentBmf { get; set; }
+        public string MostRecentBmf { get => _explicitNullValueMostRecentBmf; set { _explicitNullValueMostRecentBmf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("most-recent-bmf"); else _explicitNullProperties?.Remove("most-recent-bmf"); } }
+        private string _explicitNullValueMostRecentBmf = default!;
 #endif
         /// <summary>The organizationName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrganizationName { get; set; }
+        public string? OrganizationName { get => _explicitNullValueOrganizationName; set { _explicitNullValueOrganizationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization-name"); else _explicitNullProperties?.Remove("organization-name"); } }
+        private string? _explicitNullValueOrganizationName = default!;
 #nullable restore
 #else
-        public string OrganizationName { get; set; }
+        public string OrganizationName { get => _explicitNullValueOrganizationName; set { _explicitNullValueOrganizationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization-name"); else _explicitNullProperties?.Remove("organization-name"); } }
+        private string _explicitNullValueOrganizationName = default!;
 #endif
         /// <summary>The revocationDate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RevocationDate { get; set; }
+        public string? RevocationDate { get => _explicitNullValueRevocationDate; set { _explicitNullValueRevocationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revocation-date"); else _explicitNullProperties?.Remove("revocation-date"); } }
+        private string? _explicitNullValueRevocationDate = default!;
 #nullable restore
 #else
-        public string RevocationDate { get; set; }
+        public string RevocationDate { get => _explicitNullValueRevocationDate; set { _explicitNullValueRevocationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revocation-date"); else _explicitNullProperties?.Remove("revocation-date"); } }
+        private string _explicitNullValueRevocationDate = default!;
 #endif
         /// <summary>The revocationReason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RevocationReason { get; set; }
+        public string? RevocationReason { get => _explicitNullValueRevocationReason; set { _explicitNullValueRevocationReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revocation-reason"); else _explicitNullProperties?.Remove("revocation-reason"); } }
+        private string? _explicitNullValueRevocationReason = default!;
 #nullable restore
 #else
-        public string RevocationReason { get; set; }
+        public string RevocationReason { get => _explicitNullValueRevocationReason; set { _explicitNullValueRevocationReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revocation-reason"); else _explicitNullProperties?.Remove("revocation-reason"); } }
+        private string _explicitNullValueRevocationReason = default!;
 #endif
         /// <summary>The rulingMonth property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RulingMonth { get; set; }
+        public string? RulingMonth { get => _explicitNullValueRulingMonth; set { _explicitNullValueRulingMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ruling-month"); else _explicitNullProperties?.Remove("ruling-month"); } }
+        private string? _explicitNullValueRulingMonth = default!;
 #nullable restore
 #else
-        public string RulingMonth { get; set; }
+        public string RulingMonth { get => _explicitNullValueRulingMonth; set { _explicitNullValueRulingMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ruling-month"); else _explicitNullProperties?.Remove("ruling-month"); } }
+        private string _explicitNullValueRulingMonth = default!;
 #endif
         /// <summary>The rulingYear property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RulingYear { get; set; }
+        public string? RulingYear { get => _explicitNullValueRulingYear; set { _explicitNullValueRulingYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ruling-year"); else _explicitNullProperties?.Remove("ruling-year"); } }
+        private string? _explicitNullValueRulingYear = default!;
 #nullable restore
 #else
-        public string RulingYear { get; set; }
+        public string RulingYear { get => _explicitNullValueRulingYear; set { _explicitNullValueRulingYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ruling-year"); else _explicitNullProperties?.Remove("ruling-year"); } }
+        private string _explicitNullValueRulingYear = default!;
 #endif
         /// <summary>The status property</summary>
-        public bool? Status { get; set; }
+        public bool? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private bool? _explicitNullValueStatus = default!;
         /// <summary>The subsection property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Subsection { get; set; }
+        public string? Subsection { get => _explicitNullValueSubsection; set { _explicitNullValueSubsection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subsection"); else _explicitNullProperties?.Remove("subsection"); } }
+        private string? _explicitNullValueSubsection = default!;
 #nullable restore
 #else
-        public string Subsection { get; set; }
+        public string Subsection { get => _explicitNullValueSubsection; set { _explicitNullValueSubsection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subsection"); else _explicitNullProperties?.Remove("subsection"); } }
+        private string _explicitNullValueSubsection = default!;
 #endif
         /// <summary>The subsectionDescription property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SubsectionDescription { get; set; }
+        public string? SubsectionDescription { get => _explicitNullValueSubsectionDescription; set { _explicitNullValueSubsectionDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subsection-description"); else _explicitNullProperties?.Remove("subsection-description"); } }
+        private string? _explicitNullValueSubsectionDescription = default!;
 #nullable restore
 #else
-        public string SubsectionDescription { get; set; }
+        public string SubsectionDescription { get => _explicitNullValueSubsectionDescription; set { _explicitNullValueSubsectionDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subsection-description"); else _explicitNullProperties?.Remove("subsection-description"); } }
+        private string _explicitNullValueSubsectionDescription = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -102,7 +141,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsBmfDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsBmfDetails();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsBmfDetails(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -142,7 +183,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("ruling-year", RulingYear);
             writer.WriteBoolValue("status", Status);
             writer.WriteStringValue("subsection", Subsection);
-            writer.WriteStringValue("subsection-description", SubsectionDescription);
+            writer.WriteStringValue("subsection-description", SubsectionDescription);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

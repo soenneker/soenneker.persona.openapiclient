@@ -11,38 +11,57 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("alias-type") is { } nullNodeAliasType && nullNodeAliasType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AliasType = null;
+            if (parseNode.GetChildNode("birthdates") is { } nullNodeBirthdates && nullNodeBirthdates.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Birthdates = null;
+            if (parseNode.GetChildNode("crypto-addresses") is { } nullNodeCryptoAddresses && nullNodeCryptoAddresses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CryptoAddresses = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+        }
+
         /// <summary>The aliasType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AliasType { get; set; }
+        public string? AliasType { get => _explicitNullValueAliasType; set { _explicitNullValueAliasType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alias-type"); else _explicitNullProperties?.Remove("alias-type"); } }
+        private string? _explicitNullValueAliasType = default!;
 #nullable restore
 #else
-        public string AliasType { get; set; }
+        public string AliasType { get => _explicitNullValueAliasType; set { _explicitNullValueAliasType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alias-type"); else _explicitNullProperties?.Remove("alias-type"); } }
+        private string _explicitNullValueAliasType = default!;
 #endif
         /// <summary>The birthdates property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItemBirthdatesItem>? Birthdates { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItemBirthdatesItem>? Birthdates { get => _explicitNullValueBirthdates; set { _explicitNullValueBirthdates = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthdates"); else _explicitNullProperties?.Remove("birthdates"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItemBirthdatesItem>? _explicitNullValueBirthdates = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItemBirthdatesItem> Birthdates { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItemBirthdatesItem> Birthdates { get => _explicitNullValueBirthdates; set { _explicitNullValueBirthdates = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthdates"); else _explicitNullProperties?.Remove("birthdates"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItemBirthdatesItem> _explicitNullValueBirthdates = default!;
 #endif
         /// <summary>The cryptoAddresses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItemCryptoAddressesItem>? CryptoAddresses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItemCryptoAddressesItem>? CryptoAddresses { get => _explicitNullValueCryptoAddresses; set { _explicitNullValueCryptoAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crypto-addresses"); else _explicitNullProperties?.Remove("crypto-addresses"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItemCryptoAddressesItem>? _explicitNullValueCryptoAddresses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItemCryptoAddressesItem> CryptoAddresses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItemCryptoAddressesItem> CryptoAddresses { get => _explicitNullValueCryptoAddresses; set { _explicitNullValueCryptoAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("crypto-addresses"); else _explicitNullProperties?.Remove("crypto-addresses"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItemCryptoAddressesItem> _explicitNullValueCryptoAddresses = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -52,7 +71,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,7 +97,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("alias-type", AliasType);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItemBirthdatesItem>("birthdates", Birthdates);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportCryptoAddressWatchlistAttributesAllOf2ResultItemEntitiesItemCryptoAddressesItem>("crypto-addresses", CryptoAddresses);
-            writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("name", Name);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

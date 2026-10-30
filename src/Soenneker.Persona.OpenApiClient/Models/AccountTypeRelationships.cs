@@ -11,22 +11,35 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AccountTypeRelationships : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("account-statuses") is { } nullNodeAccountStatuses && nullNodeAccountStatuses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountStatuses = null;
+            if (parseNode.GetChildNode("default-account-status") is { } nullNodeDefaultAccountStatus && nullNodeDefaultAccountStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultAccountStatus = null;
+        }
+
         /// <summary>The accountStatuses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationshipsAccountStatuses? AccountStatuses { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationshipsAccountStatuses? AccountStatuses { get => _explicitNullValueAccountStatuses; set { _explicitNullValueAccountStatuses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account-statuses"); else _explicitNullProperties?.Remove("account-statuses"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationshipsAccountStatuses? _explicitNullValueAccountStatuses = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationshipsAccountStatuses AccountStatuses { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationshipsAccountStatuses AccountStatuses { get => _explicitNullValueAccountStatuses; set { _explicitNullValueAccountStatuses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account-statuses"); else _explicitNullProperties?.Remove("account-statuses"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationshipsAccountStatuses _explicitNullValueAccountStatuses = default!;
 #endif
         /// <summary>The defaultAccountStatus property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationshipsDefaultAccountStatus? DefaultAccountStatus { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationshipsDefaultAccountStatus? DefaultAccountStatus { get => _explicitNullValueDefaultAccountStatus; set { _explicitNullValueDefaultAccountStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default-account-status"); else _explicitNullProperties?.Remove("default-account-status"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationshipsDefaultAccountStatus? _explicitNullValueDefaultAccountStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationshipsDefaultAccountStatus DefaultAccountStatus { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationshipsDefaultAccountStatus DefaultAccountStatus { get => _explicitNullValueDefaultAccountStatus; set { _explicitNullValueDefaultAccountStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("default-account-status"); else _explicitNullProperties?.Remove("default-account-status"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationshipsDefaultAccountStatus _explicitNullValueDefaultAccountStatus = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -36,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationships CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationships();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationships(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +71,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationshipsAccountStatuses>("account-statuses", AccountStatuses);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationshipsDefaultAccountStatus>("default-account-status", DefaultAccountStatus);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountTypeRelationshipsDefaultAccountStatus>("default-account-status", DefaultAccountStatus);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

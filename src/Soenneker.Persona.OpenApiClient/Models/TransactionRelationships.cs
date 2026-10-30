@@ -11,46 +11,68 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TransactionRelationships : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("related-objects") is { } nullNodeRelatedObjects && nullNodeRelatedObjects.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelatedObjects = null;
+            if (parseNode.GetChildNode("reviewer") is { } nullNodeReviewer && nullNodeReviewer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reviewer = null;
+            if (parseNode.GetChildNode("sentinel-sessions") is { } nullNodeSentinelSessions && nullNodeSentinelSessions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SentinelSessions = null;
+            if (parseNode.GetChildNode("transaction-label") is { } nullNodeTransactionLabel && nullNodeTransactionLabel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionLabel = null;
+            if (parseNode.GetChildNode("transaction-type") is { } nullNodeTransactionType && nullNodeTransactionType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionType = null;
+        }
+
         /// <summary>Objects involved in this Transaction&apos;s related Workflow runs. Will include a maximum of 100 related objects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsRelatedObjects? RelatedObjects { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsRelatedObjects? RelatedObjects { get => _explicitNullValueRelatedObjects; set { _explicitNullValueRelatedObjects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("related-objects"); else _explicitNullProperties?.Remove("related-objects"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsRelatedObjects? _explicitNullValueRelatedObjects = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsRelatedObjects RelatedObjects { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsRelatedObjects RelatedObjects { get => _explicitNullValueRelatedObjects; set { _explicitNullValueRelatedObjects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("related-objects"); else _explicitNullProperties?.Remove("related-objects"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsRelatedObjects _explicitNullValueRelatedObjects = default!;
 #endif
         /// <summary>The entity that reviewed the transaction</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsReviewer? Reviewer { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsReviewer? Reviewer { get => _explicitNullValueReviewer; set { _explicitNullValueReviewer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer"); else _explicitNullProperties?.Remove("reviewer"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsReviewer? _explicitNullValueReviewer = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsReviewer Reviewer { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsReviewer Reviewer { get => _explicitNullValueReviewer; set { _explicitNullValueReviewer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer"); else _explicitNullProperties?.Remove("reviewer"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsReviewer _explicitNullValueReviewer = default!;
 #endif
         /// <summary>The Sentinel sessions that collected device and network data for this Transaction. Present on every Transaction; `data` is empty unless the Transaction has one or more Sentinel sessions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsSentinelSessions? SentinelSessions { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsSentinelSessions? SentinelSessions { get => _explicitNullValueSentinelSessions; set { _explicitNullValueSentinelSessions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sentinel-sessions"); else _explicitNullProperties?.Remove("sentinel-sessions"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsSentinelSessions? _explicitNullValueSentinelSessions = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsSentinelSessions SentinelSessions { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsSentinelSessions SentinelSessions { get => _explicitNullValueSentinelSessions; set { _explicitNullValueSentinelSessions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sentinel-sessions"); else _explicitNullProperties?.Remove("sentinel-sessions"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsSentinelSessions _explicitNullValueSentinelSessions = default!;
 #endif
         /// <summary>The transactionLabel property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionLabel? TransactionLabel { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionLabel? TransactionLabel { get => _explicitNullValueTransactionLabel; set { _explicitNullValueTransactionLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction-label"); else _explicitNullProperties?.Remove("transaction-label"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionLabel? _explicitNullValueTransactionLabel = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionLabel TransactionLabel { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionLabel TransactionLabel { get => _explicitNullValueTransactionLabel; set { _explicitNullValueTransactionLabel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction-label"); else _explicitNullProperties?.Remove("transaction-label"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionLabel _explicitNullValueTransactionLabel = default!;
 #endif
         /// <summary>The transactionType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionType? TransactionType { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionType? TransactionType { get => _explicitNullValueTransactionType; set { _explicitNullValueTransactionType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction-type"); else _explicitNullProperties?.Remove("transaction-type"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionType? _explicitNullValueTransactionType = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionType TransactionType { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionType TransactionType { get => _explicitNullValueTransactionType; set { _explicitNullValueTransactionType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction-type"); else _explicitNullProperties?.Remove("transaction-type"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionType _explicitNullValueTransactionType = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -60,7 +82,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationships CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationships();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationships(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,7 +110,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsReviewer>("reviewer", Reviewer);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsSentinelSessions>("sentinel-sessions", SentinelSessions);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionLabel>("transaction-label", TransactionLabel);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionType>("transaction-type", TransactionType);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsTransactionType>("transaction-type", TransactionType);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

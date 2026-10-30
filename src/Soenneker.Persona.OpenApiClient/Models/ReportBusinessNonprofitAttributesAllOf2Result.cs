@@ -11,86 +11,123 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReportBusinessNonprofitAttributesAllOf2Result : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("address") is { } nullNodeAddress && nullNodeAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Address = null;
+            if (parseNode.GetChildNode("ca-ag-details") is { } nullNodeCaAgDetails && nullNodeCaAgDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaAgDetails = null;
+            if (parseNode.GetChildNode("ca-ftb-details") is { } nullNodeCaFtbDetails && nullNodeCaFtbDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaFtbDetails = null;
+            if (parseNode.GetChildNode("foundation-type-code") is { } nullNodeFoundationTypeCode && nullNodeFoundationTypeCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FoundationTypeCode = null;
+            if (parseNode.GetChildNode("foundation-type-description") is { } nullNodeFoundationTypeDescription && nullNodeFoundationTypeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FoundationTypeDescription = null;
+            if (parseNode.GetChildNode("irs-bmf-details") is { } nullNodeIrsBmfDetails && nullNodeIrsBmfDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IrsBmfDetails = null;
+            if (parseNode.GetChildNode("irs-filing-requirement-code") is { } nullNodeIrsFilingRequirementCode && nullNodeIrsFilingRequirementCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IrsFilingRequirementCode = null;
+            if (parseNode.GetChildNode("irs-pub-78-details") is { } nullNodeIrsPub78Details && nullNodeIrsPub78Details.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IrsPub78Details = null;
+            if (parseNode.GetChildNode("organization-name") is { } nullNodeOrganizationName && nullNodeOrganizationName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationName = null;
+            if (parseNode.GetChildNode("organization-name-aka") is { } nullNodeOrganizationNameAka && nullNodeOrganizationNameAka.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrganizationNameAka = null;
+        }
+
         /// <summary>The address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultAddress? Address { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultAddress? Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultAddress? _explicitNullValueAddress = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultAddress Address { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultAddress Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultAddress _explicitNullValueAddress = default!;
 #endif
         /// <summary>The caAgDetails property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultCaAgDetails? CaAgDetails { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultCaAgDetails? CaAgDetails { get => _explicitNullValueCaAgDetails; set { _explicitNullValueCaAgDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ca-ag-details"); else _explicitNullProperties?.Remove("ca-ag-details"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultCaAgDetails? _explicitNullValueCaAgDetails = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultCaAgDetails CaAgDetails { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultCaAgDetails CaAgDetails { get => _explicitNullValueCaAgDetails; set { _explicitNullValueCaAgDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ca-ag-details"); else _explicitNullProperties?.Remove("ca-ag-details"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultCaAgDetails _explicitNullValueCaAgDetails = default!;
 #endif
         /// <summary>The caFtbDetails property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultCaFtbDetails? CaFtbDetails { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultCaFtbDetails? CaFtbDetails { get => _explicitNullValueCaFtbDetails; set { _explicitNullValueCaFtbDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ca-ftb-details"); else _explicitNullProperties?.Remove("ca-ftb-details"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultCaFtbDetails? _explicitNullValueCaFtbDetails = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultCaFtbDetails CaFtbDetails { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultCaFtbDetails CaFtbDetails { get => _explicitNullValueCaFtbDetails; set { _explicitNullValueCaFtbDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ca-ftb-details"); else _explicitNullProperties?.Remove("ca-ftb-details"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultCaFtbDetails _explicitNullValueCaFtbDetails = default!;
 #endif
         /// <summary>The foundationTypeCode property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FoundationTypeCode { get; set; }
+        public string? FoundationTypeCode { get => _explicitNullValueFoundationTypeCode; set { _explicitNullValueFoundationTypeCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foundation-type-code"); else _explicitNullProperties?.Remove("foundation-type-code"); } }
+        private string? _explicitNullValueFoundationTypeCode = default!;
 #nullable restore
 #else
-        public string FoundationTypeCode { get; set; }
+        public string FoundationTypeCode { get => _explicitNullValueFoundationTypeCode; set { _explicitNullValueFoundationTypeCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foundation-type-code"); else _explicitNullProperties?.Remove("foundation-type-code"); } }
+        private string _explicitNullValueFoundationTypeCode = default!;
 #endif
         /// <summary>The foundationTypeDescription property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FoundationTypeDescription { get; set; }
+        public string? FoundationTypeDescription { get => _explicitNullValueFoundationTypeDescription; set { _explicitNullValueFoundationTypeDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foundation-type-description"); else _explicitNullProperties?.Remove("foundation-type-description"); } }
+        private string? _explicitNullValueFoundationTypeDescription = default!;
 #nullable restore
 #else
-        public string FoundationTypeDescription { get; set; }
+        public string FoundationTypeDescription { get => _explicitNullValueFoundationTypeDescription; set { _explicitNullValueFoundationTypeDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("foundation-type-description"); else _explicitNullProperties?.Remove("foundation-type-description"); } }
+        private string _explicitNullValueFoundationTypeDescription = default!;
 #endif
         /// <summary>The irsBmfDetails property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsBmfDetails? IrsBmfDetails { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsBmfDetails? IrsBmfDetails { get => _explicitNullValueIrsBmfDetails; set { _explicitNullValueIrsBmfDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("irs-bmf-details"); else _explicitNullProperties?.Remove("irs-bmf-details"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsBmfDetails? _explicitNullValueIrsBmfDetails = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsBmfDetails IrsBmfDetails { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsBmfDetails IrsBmfDetails { get => _explicitNullValueIrsBmfDetails; set { _explicitNullValueIrsBmfDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("irs-bmf-details"); else _explicitNullProperties?.Remove("irs-bmf-details"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsBmfDetails _explicitNullValueIrsBmfDetails = default!;
 #endif
         /// <summary>The irsFilingRequirementCode property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IrsFilingRequirementCode { get; set; }
+        public string? IrsFilingRequirementCode { get => _explicitNullValueIrsFilingRequirementCode; set { _explicitNullValueIrsFilingRequirementCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("irs-filing-requirement-code"); else _explicitNullProperties?.Remove("irs-filing-requirement-code"); } }
+        private string? _explicitNullValueIrsFilingRequirementCode = default!;
 #nullable restore
 #else
-        public string IrsFilingRequirementCode { get; set; }
+        public string IrsFilingRequirementCode { get => _explicitNullValueIrsFilingRequirementCode; set { _explicitNullValueIrsFilingRequirementCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("irs-filing-requirement-code"); else _explicitNullProperties?.Remove("irs-filing-requirement-code"); } }
+        private string _explicitNullValueIrsFilingRequirementCode = default!;
 #endif
         /// <summary>The irsPub78Details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsPub78Details? IrsPub78Details { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsPub78Details? IrsPub78Details { get => _explicitNullValueIrsPub78Details; set { _explicitNullValueIrsPub78Details = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("irs-pub-78-details"); else _explicitNullProperties?.Remove("irs-pub-78-details"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsPub78Details? _explicitNullValueIrsPub78Details = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsPub78Details IrsPub78Details { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsPub78Details IrsPub78Details { get => _explicitNullValueIrsPub78Details; set { _explicitNullValueIrsPub78Details = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("irs-pub-78-details"); else _explicitNullProperties?.Remove("irs-pub-78-details"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsPub78Details _explicitNullValueIrsPub78Details = default!;
 #endif
         /// <summary>The legal name of the nonprofit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrganizationName { get; set; }
+        public string? OrganizationName { get => _explicitNullValueOrganizationName; set { _explicitNullValueOrganizationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization-name"); else _explicitNullProperties?.Remove("organization-name"); } }
+        private string? _explicitNullValueOrganizationName = default!;
 #nullable restore
 #else
-        public string OrganizationName { get; set; }
+        public string OrganizationName { get => _explicitNullValueOrganizationName; set { _explicitNullValueOrganizationName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization-name"); else _explicitNullProperties?.Remove("organization-name"); } }
+        private string _explicitNullValueOrganizationName = default!;
 #endif
         /// <summary>Other names associated with the nonprofit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrganizationNameAka { get; set; }
+        public string? OrganizationNameAka { get => _explicitNullValueOrganizationNameAka; set { _explicitNullValueOrganizationNameAka = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization-name-aka"); else _explicitNullProperties?.Remove("organization-name-aka"); } }
+        private string? _explicitNullValueOrganizationNameAka = default!;
 #nullable restore
 #else
-        public string OrganizationNameAka { get; set; }
+        public string OrganizationNameAka { get => _explicitNullValueOrganizationNameAka; set { _explicitNullValueOrganizationNameAka = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("organization-name-aka"); else _explicitNullProperties?.Remove("organization-name-aka"); } }
+        private string _explicitNullValueOrganizationNameAka = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -100,7 +137,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2Result CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2Result();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2Result(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -138,7 +177,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("irs-filing-requirement-code", IrsFilingRequirementCode);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultIrsPub78Details>("irs-pub-78-details", IrsPub78Details);
             writer.WriteStringValue("organization-name", OrganizationName);
-            writer.WriteStringValue("organization-name-aka", OrganizationNameAka);
+            writer.WriteStringValue("organization-name-aka", OrganizationNameAka);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

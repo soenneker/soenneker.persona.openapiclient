@@ -11,152 +11,220 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReportScreeningAttributesAllOf2MatchedRecordsItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("articles") is { } nullNodeArticles && nullNodeArticles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Articles = null;
+            if (parseNode.GetChildNode("birthdates") is { } nullNodeBirthdates && nullNodeBirthdates.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Birthdates = null;
+            if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("details") is { } nullNodeDetails && nullNodeDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Details = null;
+            if (parseNode.GetChildNode("emails") is { } nullNodeEmails && nullNodeEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emails = null;
+            if (parseNode.GetChildNode("identifications") is { } nullNodeIdentifications && nullNodeIdentifications.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Identifications = null;
+            if (parseNode.GetChildNode("listings") is { } nullNodeListings && nullNodeListings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Listings = null;
+            if (parseNode.GetChildNode("locations") is { } nullNodeLocations && nullNodeLocations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Locations = null;
+            if (parseNode.GetChildNode("matched") is { } nullNodeMatched && nullNodeMatched.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Matched = null;
+            if (parseNode.GetChildNode("names") is { } nullNodeNames && nullNodeNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Names = null;
+            if (parseNode.GetChildNode("notify-on-change") is { } nullNodeNotifyOnChange && nullNodeNotifyOnChange.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NotifyOnChange = null;
+            if (parseNode.GetChildNode("pep-classes") is { } nullNodePepClasses && nullNodePepClasses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PepClasses = null;
+            if (parseNode.GetChildNode("pep-roles") is { } nullNodePepRoles && nullNodePepRoles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PepRoles = null;
+            if (parseNode.GetChildNode("positions") is { } nullNodePositions && nullNodePositions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Positions = null;
+            if (parseNode.GetChildNode("present-in-last-run") is { } nullNodePresentInLastRun && nullNodePresentInLastRun.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PresentInLastRun = null;
+            if (parseNode.GetChildNode("record-types") is { } nullNodeRecordTypes && nullNodeRecordTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordTypes = null;
+            if (parseNode.GetChildNode("reviewed-at") is { } nullNodeReviewedAt && nullNodeReviewedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewedAt = null;
+            if (parseNode.GetChildNode("review-status") is { } nullNodeReviewStatus && nullNodeReviewStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewStatus = null;
+            if (parseNode.GetChildNode("risk-level") is { } nullNodeRiskLevel && nullNodeRiskLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RiskLevel = null;
+            if (parseNode.GetChildNode("sexes") is { } nullNodeSexes && nullNodeSexes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sexes = null;
+            if (parseNode.GetChildNode("token") is { } nullNodeToken && nullNodeToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Token = null;
+            if (parseNode.GetChildNode("topics") is { } nullNodeTopics && nullNodeTopics.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Topics = null;
+        }
+
         /// <summary>The articles property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemArticlesItem>? Articles { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemArticlesItem>? Articles { get => _explicitNullValueArticles; set { _explicitNullValueArticles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("articles"); else _explicitNullProperties?.Remove("articles"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemArticlesItem>? _explicitNullValueArticles = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemArticlesItem> Articles { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemArticlesItem> Articles { get => _explicitNullValueArticles; set { _explicitNullValueArticles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("articles"); else _explicitNullProperties?.Remove("articles"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemArticlesItem> _explicitNullValueArticles = default!;
 #endif
         /// <summary>The birthdates property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemBirthdatesItem>? Birthdates { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemBirthdatesItem>? Birthdates { get => _explicitNullValueBirthdates; set { _explicitNullValueBirthdates = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthdates"); else _explicitNullProperties?.Remove("birthdates"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemBirthdatesItem>? _explicitNullValueBirthdates = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemBirthdatesItem> Birthdates { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemBirthdatesItem> Birthdates { get => _explicitNullValueBirthdates; set { _explicitNullValueBirthdates = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthdates"); else _explicitNullProperties?.Remove("birthdates"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemBirthdatesItem> _explicitNullValueBirthdates = default!;
 #endif
         /// <summary>The createdAt property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The details property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemDetailsItem>? Details { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemDetailsItem>? Details { get => _explicitNullValueDetails; set { _explicitNullValueDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("details"); else _explicitNullProperties?.Remove("details"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemDetailsItem>? _explicitNullValueDetails = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemDetailsItem> Details { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemDetailsItem> Details { get => _explicitNullValueDetails; set { _explicitNullValueDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("details"); else _explicitNullProperties?.Remove("details"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemDetailsItem> _explicitNullValueDetails = default!;
 #endif
         /// <summary>The emails property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Emails { get; set; }
+        public List<string>? Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
+        private List<string>? _explicitNullValueEmails = default!;
 #nullable restore
 #else
-        public List<string> Emails { get; set; }
+        public List<string> Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
+        private List<string> _explicitNullValueEmails = default!;
 #endif
         /// <summary>The identifications property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemIdentificationsItem>? Identifications { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemIdentificationsItem>? Identifications { get => _explicitNullValueIdentifications; set { _explicitNullValueIdentifications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identifications"); else _explicitNullProperties?.Remove("identifications"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemIdentificationsItem>? _explicitNullValueIdentifications = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemIdentificationsItem> Identifications { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemIdentificationsItem> Identifications { get => _explicitNullValueIdentifications; set { _explicitNullValueIdentifications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identifications"); else _explicitNullProperties?.Remove("identifications"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemIdentificationsItem> _explicitNullValueIdentifications = default!;
 #endif
         /// <summary>The listings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemListingsItem>? Listings { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemListingsItem>? Listings { get => _explicitNullValueListings; set { _explicitNullValueListings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("listings"); else _explicitNullProperties?.Remove("listings"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemListingsItem>? _explicitNullValueListings = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemListingsItem> Listings { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemListingsItem> Listings { get => _explicitNullValueListings; set { _explicitNullValueListings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("listings"); else _explicitNullProperties?.Remove("listings"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemListingsItem> _explicitNullValueListings = default!;
 #endif
         /// <summary>The locations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemLocationsItem>? Locations { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemLocationsItem>? Locations { get => _explicitNullValueLocations; set { _explicitNullValueLocations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locations"); else _explicitNullProperties?.Remove("locations"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemLocationsItem>? _explicitNullValueLocations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemLocationsItem> Locations { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemLocationsItem> Locations { get => _explicitNullValueLocations; set { _explicitNullValueLocations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locations"); else _explicitNullProperties?.Remove("locations"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemLocationsItem> _explicitNullValueLocations = default!;
 #endif
         /// <summary>The matched property</summary>
-        public bool? Matched { get; set; }
+        public bool? Matched { get => _explicitNullValueMatched; set { _explicitNullValueMatched = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matched"); else _explicitNullProperties?.Remove("matched"); } }
+        private bool? _explicitNullValueMatched = default!;
         /// <summary>The names property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemNamesItem>? Names { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemNamesItem>? Names { get => _explicitNullValueNames; set { _explicitNullValueNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("names"); else _explicitNullProperties?.Remove("names"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemNamesItem>? _explicitNullValueNames = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemNamesItem> Names { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemNamesItem> Names { get => _explicitNullValueNames; set { _explicitNullValueNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("names"); else _explicitNullProperties?.Remove("names"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemNamesItem> _explicitNullValueNames = default!;
 #endif
         /// <summary>The notifyOnChange property</summary>
-        public bool? NotifyOnChange { get; set; }
+        public bool? NotifyOnChange { get => _explicitNullValueNotifyOnChange; set { _explicitNullValueNotifyOnChange = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notify-on-change"); else _explicitNullProperties?.Remove("notify-on-change"); } }
+        private bool? _explicitNullValueNotifyOnChange = default!;
         /// <summary>The pepClasses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PepClasses { get; set; }
+        public List<string>? PepClasses { get => _explicitNullValuePepClasses; set { _explicitNullValuePepClasses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pep-classes"); else _explicitNullProperties?.Remove("pep-classes"); } }
+        private List<string>? _explicitNullValuePepClasses = default!;
 #nullable restore
 #else
-        public List<string> PepClasses { get; set; }
+        public List<string> PepClasses { get => _explicitNullValuePepClasses; set { _explicitNullValuePepClasses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pep-classes"); else _explicitNullProperties?.Remove("pep-classes"); } }
+        private List<string> _explicitNullValuePepClasses = default!;
 #endif
         /// <summary>The pepRoles property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PepRoles { get; set; }
+        public List<string>? PepRoles { get => _explicitNullValuePepRoles; set { _explicitNullValuePepRoles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pep-roles"); else _explicitNullProperties?.Remove("pep-roles"); } }
+        private List<string>? _explicitNullValuePepRoles = default!;
 #nullable restore
 #else
-        public List<string> PepRoles { get; set; }
+        public List<string> PepRoles { get => _explicitNullValuePepRoles; set { _explicitNullValuePepRoles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pep-roles"); else _explicitNullProperties?.Remove("pep-roles"); } }
+        private List<string> _explicitNullValuePepRoles = default!;
 #endif
         /// <summary>The positions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemPositionsItem>? Positions { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemPositionsItem>? Positions { get => _explicitNullValuePositions; set { _explicitNullValuePositions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("positions"); else _explicitNullProperties?.Remove("positions"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemPositionsItem>? _explicitNullValuePositions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemPositionsItem> Positions { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemPositionsItem> Positions { get => _explicitNullValuePositions; set { _explicitNullValuePositions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("positions"); else _explicitNullProperties?.Remove("positions"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItemPositionsItem> _explicitNullValuePositions = default!;
 #endif
         /// <summary>Whether this record was present in the most recent run of the report</summary>
-        public bool? PresentInLastRun { get; set; }
+        public bool? PresentInLastRun { get => _explicitNullValuePresentInLastRun; set { _explicitNullValuePresentInLastRun = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("present-in-last-run"); else _explicitNullProperties?.Remove("present-in-last-run"); } }
+        private bool? _explicitNullValuePresentInLastRun = default!;
         /// <summary>The recordTypes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RecordTypes { get; set; }
+        public List<string>? RecordTypes { get => _explicitNullValueRecordTypes; set { _explicitNullValueRecordTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record-types"); else _explicitNullProperties?.Remove("record-types"); } }
+        private List<string>? _explicitNullValueRecordTypes = default!;
 #nullable restore
 #else
-        public List<string> RecordTypes { get; set; }
+        public List<string> RecordTypes { get => _explicitNullValueRecordTypes; set { _explicitNullValueRecordTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record-types"); else _explicitNullProperties?.Remove("record-types"); } }
+        private List<string> _explicitNullValueRecordTypes = default!;
 #endif
         /// <summary>The reviewedAt property</summary>
-        public DateTimeOffset? ReviewedAt { get; set; }
+        public DateTimeOffset? ReviewedAt { get => _explicitNullValueReviewedAt; set { _explicitNullValueReviewedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewed-at"); else _explicitNullProperties?.Remove("reviewed-at"); } }
+        private DateTimeOffset? _explicitNullValueReviewedAt = default!;
         /// <summary>Possible values:- pending- indeterminate- true_positive- false_positiveDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReviewStatus { get; set; }
+        public string? ReviewStatus { get => _explicitNullValueReviewStatus; set { _explicitNullValueReviewStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review-status"); else _explicitNullProperties?.Remove("review-status"); } }
+        private string? _explicitNullValueReviewStatus = default!;
 #nullable restore
 #else
-        public string ReviewStatus { get; set; }
+        public string ReviewStatus { get => _explicitNullValueReviewStatus; set { _explicitNullValueReviewStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review-status"); else _explicitNullProperties?.Remove("review-status"); } }
+        private string _explicitNullValueReviewStatus = default!;
 #endif
         /// <summary>Possible values:- material- immaterialDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RiskLevel { get; set; }
+        public string? RiskLevel { get => _explicitNullValueRiskLevel; set { _explicitNullValueRiskLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("risk-level"); else _explicitNullProperties?.Remove("risk-level"); } }
+        private string? _explicitNullValueRiskLevel = default!;
 #nullable restore
 #else
-        public string RiskLevel { get; set; }
+        public string RiskLevel { get => _explicitNullValueRiskLevel; set { _explicitNullValueRiskLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("risk-level"); else _explicitNullProperties?.Remove("risk-level"); } }
+        private string _explicitNullValueRiskLevel = default!;
 #endif
         /// <summary>The sexes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Sexes { get; set; }
+        public List<string>? Sexes { get => _explicitNullValueSexes; set { _explicitNullValueSexes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sexes"); else _explicitNullProperties?.Remove("sexes"); } }
+        private List<string>? _explicitNullValueSexes = default!;
 #nullable restore
 #else
-        public List<string> Sexes { get; set; }
+        public List<string> Sexes { get => _explicitNullValueSexes; set { _explicitNullValueSexes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sexes"); else _explicitNullProperties?.Remove("sexes"); } }
+        private List<string> _explicitNullValueSexes = default!;
 #endif
         /// <summary>The token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Token { get; set; }
+        public string? Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        private string? _explicitNullValueToken = default!;
 #nullable restore
 #else
-        public string Token { get; set; }
+        public string Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        private string _explicitNullValueToken = default!;
 #endif
         /// <summary>The topics property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Topics { get; set; }
+        public List<string>? Topics { get => _explicitNullValueTopics; set { _explicitNullValueTopics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topics"); else _explicitNullProperties?.Remove("topics"); } }
+        private List<string>? _explicitNullValueTopics = default!;
 #nullable restore
 #else
-        public List<string> Topics { get; set; }
+        public List<string> Topics { get => _explicitNullValueTopics; set { _explicitNullValueTopics = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topics"); else _explicitNullProperties?.Remove("topics"); } }
+        private List<string> _explicitNullValueTopics = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -166,7 +234,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningAttributesAllOf2MatchedRecordsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -228,7 +296,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("risk-level", RiskLevel);
             writer.WriteCollectionOfPrimitiveValues<string>("sexes", Sexes);
             writer.WriteStringValue("token", Token);
-            writer.WriteCollectionOfPrimitiveValues<string>("topics", Topics);
+            writer.WriteCollectionOfPrimitiveValues<string>("topics", Topics);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

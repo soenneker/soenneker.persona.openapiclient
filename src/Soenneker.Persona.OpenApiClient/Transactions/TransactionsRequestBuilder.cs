@@ -75,6 +75,8 @@ namespace Soenneker.Persona.OpenApiClient.Transactions
                 { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllTransactions200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllTransactions200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -82,7 +84,7 @@ namespace Soenneker.Persona.OpenApiClient.Transactions
         /// Creates a new Transaction for a specific transaction type in your organization.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/transactions/create-a-transaction" />
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateATransaction200Response"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateATransactionSuccessResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -95,11 +97,11 @@ namespace Soenneker.Persona.OpenApiClient.Transactions
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateATransaction200Response?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateATransactionRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.TransactionsRequestBuilder.TransactionsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateATransactionSuccessResponse?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateATransactionRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.TransactionsRequestBuilder.TransactionsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateATransaction200Response> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateATransactionRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.TransactionsRequestBuilder.TransactionsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.CreateATransactionSuccessResponse> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.CreateATransactionRequest body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.TransactionsRequestBuilder.TransactionsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -113,8 +115,10 @@ namespace Soenneker.Persona.OpenApiClient.Transactions
                 { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.CreateATransaction200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.CreateATransaction200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.CreateATransactionSuccessResponse>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.CreateATransactionSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Returns a list of your organization&apos;s transactions. Note that this endpoint aggregates transactions across all transaction type(s). See [Pagination](https://docs.withpersona.com/pagination) for more details about handling the response. Results are returned in reverse chronological order, with the most recently created objects first.

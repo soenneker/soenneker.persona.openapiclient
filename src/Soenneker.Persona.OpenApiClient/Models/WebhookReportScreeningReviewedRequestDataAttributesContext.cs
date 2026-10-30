@@ -12,54 +12,79 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookReportScreeningReviewedRequestDataAttributesContext : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("comment") is { } nullNodeComment && nullNodeComment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Comment = null;
+            if (parseNode.GetChildNode("record-token") is { } nullNodeRecordToken && nullNodeRecordToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RecordToken = null;
+            if (parseNode.GetChildNode("reviewer-token") is { } nullNodeReviewerToken && nullNodeReviewerToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewerToken = null;
+            if (parseNode.GetChildNode("review-status") is { } nullNodeReviewStatus && nullNodeReviewStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewStatus = null;
+            if (parseNode.GetChildNode("review-type") is { } nullNodeReviewType && nullNodeReviewType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReviewType = null;
+            if (parseNode.GetChildNode("risk-level") is { } nullNodeRiskLevel && nullNodeRiskLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RiskLevel = null;
+        }
+
         /// <summary>The reviewer&apos;s free-text comment explaining the disposition, if one was provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Comment { get; set; }
+        public string? Comment { get => _explicitNullValueComment; set { _explicitNullValueComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comment"); else _explicitNullProperties?.Remove("comment"); } }
+        private string? _explicitNullValueComment = default!;
 #nullable restore
 #else
-        public string Comment { get; set; }
+        public string Comment { get => _explicitNullValueComment; set { _explicitNullValueComment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("comment"); else _explicitNullProperties?.Remove("comment"); } }
+        private string _explicitNullValueComment = default!;
 #endif
         /// <summary>The token of the matched record this review applies to. Absent when the review applied to the whole report rather than a single record (`review-type` `all_records`, `attribute`, or `multiple_attributes`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RecordToken { get; set; }
+        public string? RecordToken { get => _explicitNullValueRecordToken; set { _explicitNullValueRecordToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record-token"); else _explicitNullProperties?.Remove("record-token"); } }
+        private string? _explicitNullValueRecordToken = default!;
 #nullable restore
 #else
-        public string RecordToken { get; set; }
+        public string RecordToken { get => _explicitNullValueRecordToken; set { _explicitNullValueRecordToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("record-token"); else _explicitNullProperties?.Remove("record-token"); } }
+        private string _explicitNullValueRecordToken = default!;
 #endif
         /// <summary>The token of who performed the review: a user token (`user_` prefix) when a person reviewed it, a workflow run token (`wfr_` prefix) when a workflow reviewed it, or an API key token (`api_` prefix) when it was reviewed through the API. Null on events created before this property was added.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReviewerToken { get; set; }
+        public string? ReviewerToken { get => _explicitNullValueReviewerToken; set { _explicitNullValueReviewerToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer-token"); else _explicitNullProperties?.Remove("reviewer-token"); } }
+        private string? _explicitNullValueReviewerToken = default!;
 #nullable restore
 #else
-        public string ReviewerToken { get; set; }
+        public string ReviewerToken { get => _explicitNullValueReviewerToken; set { _explicitNullValueReviewerToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer-token"); else _explicitNullProperties?.Remove("reviewer-token"); } }
+        private string _explicitNullValueReviewerToken = default!;
 #endif
         /// <summary>Possible values:- pending- indeterminate- true_positive- false_positiveDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReviewStatus { get; set; }
+        public string? ReviewStatus { get => _explicitNullValueReviewStatus; set { _explicitNullValueReviewStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review-status"); else _explicitNullProperties?.Remove("review-status"); } }
+        private string? _explicitNullValueReviewStatus = default!;
 #nullable restore
 #else
-        public string ReviewStatus { get; set; }
+        public string ReviewStatus { get => _explicitNullValueReviewStatus; set { _explicitNullValueReviewStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review-status"); else _explicitNullProperties?.Remove("review-status"); } }
+        private string _explicitNullValueReviewStatus = default!;
 #endif
         /// <summary>The scope of the review action.Possible values:- all_records- attribute- multiple_attributes- recordDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReviewType { get; set; }
+        public string? ReviewType { get => _explicitNullValueReviewType; set { _explicitNullValueReviewType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review-type"); else _explicitNullProperties?.Remove("review-type"); } }
+        private string? _explicitNullValueReviewType = default!;
 #nullable restore
 #else
-        public string ReviewType { get; set; }
+        public string ReviewType { get => _explicitNullValueReviewType; set { _explicitNullValueReviewType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("review-type"); else _explicitNullProperties?.Remove("review-type"); } }
+        private string _explicitNullValueReviewType = default!;
 #endif
         /// <summary>Possible values:- material- immaterialDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RiskLevel { get; set; }
+        public string? RiskLevel { get => _explicitNullValueRiskLevel; set { _explicitNullValueRiskLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("risk-level"); else _explicitNullProperties?.Remove("risk-level"); } }
+        private string? _explicitNullValueRiskLevel = default!;
 #nullable restore
 #else
-        public string RiskLevel { get; set; }
+        public string RiskLevel { get => _explicitNullValueRiskLevel; set { _explicitNullValueRiskLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("risk-level"); else _explicitNullProperties?.Remove("risk-level"); } }
+        private string _explicitNullValueRiskLevel = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -69,7 +94,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.WebhookReportScreeningReviewedRequestDataAttributesContext CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.WebhookReportScreeningReviewedRequestDataAttributesContext();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.WebhookReportScreeningReviewedRequestDataAttributesContext(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,7 +124,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("reviewer-token", ReviewerToken);
             writer.WriteStringValue("review-status", ReviewStatus);
             writer.WriteStringValue("review-type", ReviewType);
-            writer.WriteStringValue("risk-level", RiskLevel);
+            writer.WriteStringValue("risk-level", RiskLevel);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

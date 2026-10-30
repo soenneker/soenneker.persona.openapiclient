@@ -11,72 +11,105 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReportProfileAttributesAllOf2OmittedIdentityRecordsItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("addresses") is { } nullNodeAddresses && nullNodeAddresses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Addresses = null;
+            if (parseNode.GetChildNode("birthdates") is { } nullNodeBirthdates && nullNodeBirthdates.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Birthdates = null;
+            if (parseNode.GetChildNode("deceased") is { } nullNodeDeceased && nullNodeDeceased.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deceased = null;
+            if (parseNode.GetChildNode("deceased-date") is { } nullNodeDeceasedDate && nullNodeDeceasedDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeceasedDate = null;
+            if (parseNode.GetChildNode("drivers-licenses") is { } nullNodeDriversLicenses && nullNodeDriversLicenses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DriversLicenses = null;
+            if (parseNode.GetChildNode("email-addresses") is { } nullNodeEmailAddresses && nullNodeEmailAddresses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailAddresses = null;
+            if (parseNode.GetChildNode("names") is { } nullNodeNames && nullNodeNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Names = null;
+            if (parseNode.GetChildNode("phone-numbers") is { } nullNodePhoneNumbers && nullNodePhoneNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumbers = null;
+            if (parseNode.GetChildNode("social-security-numbers") is { } nullNodeSocialSecurityNumbers && nullNodeSocialSecurityNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SocialSecurityNumbers = null;
+        }
+
         /// <summary>The addresses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemAddressesItem>? Addresses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemAddressesItem>? Addresses { get => _explicitNullValueAddresses; set { _explicitNullValueAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addresses"); else _explicitNullProperties?.Remove("addresses"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemAddressesItem>? _explicitNullValueAddresses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemAddressesItem> Addresses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemAddressesItem> Addresses { get => _explicitNullValueAddresses; set { _explicitNullValueAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addresses"); else _explicitNullProperties?.Remove("addresses"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemAddressesItem> _explicitNullValueAddresses = default!;
 #endif
         /// <summary>The birthdates property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Birthdates { get; set; }
+        public List<string>? Birthdates { get => _explicitNullValueBirthdates; set { _explicitNullValueBirthdates = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthdates"); else _explicitNullProperties?.Remove("birthdates"); } }
+        private List<string>? _explicitNullValueBirthdates = default!;
 #nullable restore
 #else
-        public List<string> Birthdates { get; set; }
+        public List<string> Birthdates { get => _explicitNullValueBirthdates; set { _explicitNullValueBirthdates = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthdates"); else _explicitNullProperties?.Remove("birthdates"); } }
+        private List<string> _explicitNullValueBirthdates = default!;
 #endif
         /// <summary>The deceased property</summary>
-        public bool? Deceased { get; set; }
+        public bool? Deceased { get => _explicitNullValueDeceased; set { _explicitNullValueDeceased = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deceased"); else _explicitNullProperties?.Remove("deceased"); } }
+        private bool? _explicitNullValueDeceased = default!;
         /// <summary>The deceasedDate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeceasedDate { get; set; }
+        public string? DeceasedDate { get => _explicitNullValueDeceasedDate; set { _explicitNullValueDeceasedDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deceased-date"); else _explicitNullProperties?.Remove("deceased-date"); } }
+        private string? _explicitNullValueDeceasedDate = default!;
 #nullable restore
 #else
-        public string DeceasedDate { get; set; }
+        public string DeceasedDate { get => _explicitNullValueDeceasedDate; set { _explicitNullValueDeceasedDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deceased-date"); else _explicitNullProperties?.Remove("deceased-date"); } }
+        private string _explicitNullValueDeceasedDate = default!;
 #endif
         /// <summary>The driversLicenses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemDriversLicensesItem>? DriversLicenses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemDriversLicensesItem>? DriversLicenses { get => _explicitNullValueDriversLicenses; set { _explicitNullValueDriversLicenses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("drivers-licenses"); else _explicitNullProperties?.Remove("drivers-licenses"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemDriversLicensesItem>? _explicitNullValueDriversLicenses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemDriversLicensesItem> DriversLicenses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemDriversLicensesItem> DriversLicenses { get => _explicitNullValueDriversLicenses; set { _explicitNullValueDriversLicenses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("drivers-licenses"); else _explicitNullProperties?.Remove("drivers-licenses"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemDriversLicensesItem> _explicitNullValueDriversLicenses = default!;
 #endif
         /// <summary>The emailAddresses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? EmailAddresses { get; set; }
+        public List<string>? EmailAddresses { get => _explicitNullValueEmailAddresses; set { _explicitNullValueEmailAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email-addresses"); else _explicitNullProperties?.Remove("email-addresses"); } }
+        private List<string>? _explicitNullValueEmailAddresses = default!;
 #nullable restore
 #else
-        public List<string> EmailAddresses { get; set; }
+        public List<string> EmailAddresses { get => _explicitNullValueEmailAddresses; set { _explicitNullValueEmailAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email-addresses"); else _explicitNullProperties?.Remove("email-addresses"); } }
+        private List<string> _explicitNullValueEmailAddresses = default!;
 #endif
         /// <summary>The names property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemNamesItem>? Names { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemNamesItem>? Names { get => _explicitNullValueNames; set { _explicitNullValueNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("names"); else _explicitNullProperties?.Remove("names"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemNamesItem>? _explicitNullValueNames = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemNamesItem> Names { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemNamesItem> Names { get => _explicitNullValueNames; set { _explicitNullValueNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("names"); else _explicitNullProperties?.Remove("names"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemNamesItem> _explicitNullValueNames = default!;
 #endif
         /// <summary>The phoneNumbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PhoneNumbers { get; set; }
+        public List<string>? PhoneNumbers { get => _explicitNullValuePhoneNumbers; set { _explicitNullValuePhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone-numbers"); else _explicitNullProperties?.Remove("phone-numbers"); } }
+        private List<string>? _explicitNullValuePhoneNumbers = default!;
 #nullable restore
 #else
-        public List<string> PhoneNumbers { get; set; }
+        public List<string> PhoneNumbers { get => _explicitNullValuePhoneNumbers; set { _explicitNullValuePhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone-numbers"); else _explicitNullProperties?.Remove("phone-numbers"); } }
+        private List<string> _explicitNullValuePhoneNumbers = default!;
 #endif
         /// <summary>The socialSecurityNumbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SocialSecurityNumbers { get; set; }
+        public List<string>? SocialSecurityNumbers { get => _explicitNullValueSocialSecurityNumbers; set { _explicitNullValueSocialSecurityNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("social-security-numbers"); else _explicitNullProperties?.Remove("social-security-numbers"); } }
+        private List<string>? _explicitNullValueSocialSecurityNumbers = default!;
 #nullable restore
 #else
-        public List<string> SocialSecurityNumbers { get; set; }
+        public List<string> SocialSecurityNumbers { get => _explicitNullValueSocialSecurityNumbers; set { _explicitNullValueSocialSecurityNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("social-security-numbers"); else _explicitNullProperties?.Remove("social-security-numbers"); } }
+        private List<string> _explicitNullValueSocialSecurityNumbers = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -86,7 +119,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -122,7 +155,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("email-addresses", EmailAddresses);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportProfileAttributesAllOf2OmittedIdentityRecordsItemNamesItem>("names", Names);
             writer.WriteCollectionOfPrimitiveValues<string>("phone-numbers", PhoneNumbers);
-            writer.WriteCollectionOfPrimitiveValues<string>("social-security-numbers", SocialSecurityNumbers);
+            writer.WriteCollectionOfPrimitiveValues<string>("social-security-numbers", SocialSecurityNumbers);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -11,710 +11,981 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class InquiryTemplateVersionAttributesTheme : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("border-radius") is { } nullNodeBorderRadius && nullNodeBorderRadius.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BorderRadius = null;
+            if (parseNode.GetChildNode("border-radius-input") is { } nullNodeBorderRadiusInput && nullNodeBorderRadiusInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BorderRadiusInput = null;
+            if (parseNode.GetChildNode("border-radius-modal") is { } nullNodeBorderRadiusModal && nullNodeBorderRadiusModal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BorderRadiusModal = null;
+            if (parseNode.GetChildNode("border-width") is { } nullNodeBorderWidth && nullNodeBorderWidth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BorderWidth = null;
+            if (parseNode.GetChildNode("border-width-input") is { } nullNodeBorderWidthInput && nullNodeBorderWidthInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BorderWidthInput = null;
+            if (parseNode.GetChildNode("button-background-image") is { } nullNodeButtonBackgroundImage && nullNodeButtonBackgroundImage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ButtonBackgroundImage = null;
+            if (parseNode.GetChildNode("button-font-weight") is { } nullNodeButtonFontWeight && nullNodeButtonFontWeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ButtonFontWeight = null;
+            if (parseNode.GetChildNode("button-position") is { } nullNodeButtonPosition && nullNodeButtonPosition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ButtonPosition = null;
+            if (parseNode.GetChildNode("button-shadow-strength") is { } nullNodeButtonShadowStrength && nullNodeButtonShadowStrength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ButtonShadowStrength = null;
+            if (parseNode.GetChildNode("button-text-transform") is { } nullNodeButtonTextTransform && nullNodeButtonTextTransform.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ButtonTextTransform = null;
+            if (parseNode.GetChildNode("camera-support-pictograph-height") is { } nullNodeCameraSupportPictographHeight && nullNodeCameraSupportPictographHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CameraSupportPictographHeight = null;
+            if (parseNode.GetChildNode("camera-support-pictograph-url") is { } nullNodeCameraSupportPictographUrl && nullNodeCameraSupportPictographUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CameraSupportPictographUrl = null;
+            if (parseNode.GetChildNode("color-button-primary") is { } nullNodeColorButtonPrimary && nullNodeColorButtonPrimary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorButtonPrimary = null;
+            if (parseNode.GetChildNode("color-button-primary-fill-disabled") is { } nullNodeColorButtonPrimaryFillDisabled && nullNodeColorButtonPrimaryFillDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorButtonPrimaryFillDisabled = null;
+            if (parseNode.GetChildNode("color-button-secondary") is { } nullNodeColorButtonSecondary && nullNodeColorButtonSecondary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorButtonSecondary = null;
+            if (parseNode.GetChildNode("color-button-secondary-fill") is { } nullNodeColorButtonSecondaryFill && nullNodeColorButtonSecondaryFill.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorButtonSecondaryFill = null;
+            if (parseNode.GetChildNode("color-button-secondary-fill-disabled") is { } nullNodeColorButtonSecondaryFillDisabled && nullNodeColorButtonSecondaryFillDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorButtonSecondaryFillDisabled = null;
+            if (parseNode.GetChildNode("color-divider") is { } nullNodeColorDivider && nullNodeColorDivider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorDivider = null;
+            if (parseNode.GetChildNode("color-dropdown-background") is { } nullNodeColorDropdownBackground && nullNodeColorDropdownBackground.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorDropdownBackground = null;
+            if (parseNode.GetChildNode("color-dropdown-option") is { } nullNodeColorDropdownOption && nullNodeColorDropdownOption.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorDropdownOption = null;
+            if (parseNode.GetChildNode("color-error") is { } nullNodeColorError && nullNodeColorError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorError = null;
+            if (parseNode.GetChildNode("color-font") is { } nullNodeColorFont && nullNodeColorFont.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorFont = null;
+            if (parseNode.GetChildNode("color-font-button-primary") is { } nullNodeColorFontButtonPrimary && nullNodeColorFontButtonPrimary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorFontButtonPrimary = null;
+            if (parseNode.GetChildNode("color-font-button-secondary") is { } nullNodeColorFontButtonSecondary && nullNodeColorFontButtonSecondary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorFontButtonSecondary = null;
+            if (parseNode.GetChildNode("color-font-small") is { } nullNodeColorFontSmall && nullNodeColorFontSmall.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorFontSmall = null;
+            if (parseNode.GetChildNode("color-font-title") is { } nullNodeColorFontTitle && nullNodeColorFontTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorFontTitle = null;
+            if (parseNode.GetChildNode("color-icon-header") is { } nullNodeColorIconHeader && nullNodeColorIconHeader.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorIconHeader = null;
+            if (parseNode.GetChildNode("color-input-background") is { } nullNodeColorInputBackground && nullNodeColorInputBackground.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorInputBackground = null;
+            if (parseNode.GetChildNode("color-input-border") is { } nullNodeColorInputBorder && nullNodeColorInputBorder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorInputBorder = null;
+            if (parseNode.GetChildNode("color-link") is { } nullNodeColorLink && nullNodeColorLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorLink = null;
+            if (parseNode.GetChildNode("color-modal-background") is { } nullNodeColorModalBackground && nullNodeColorModalBackground.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorModalBackground = null;
+            if (parseNode.GetChildNode("color-primary") is { } nullNodeColorPrimary && nullNodeColorPrimary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorPrimary = null;
+            if (parseNode.GetChildNode("color-progress-bar") is { } nullNodeColorProgressBar && nullNodeColorProgressBar.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorProgressBar = null;
+            if (parseNode.GetChildNode("color-success") is { } nullNodeColorSuccess && nullNodeColorSuccess.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorSuccess = null;
+            if (parseNode.GetChildNode("color-warning") is { } nullNodeColorWarning && nullNodeColorWarning.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColorWarning = null;
+            if (parseNode.GetChildNode("device-handoff-terms-text-position") is { } nullNodeDeviceHandoffTermsTextPosition && nullNodeDeviceHandoffTermsTextPosition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceHandoffTermsTextPosition = null;
+            if (parseNode.GetChildNode("document-pictograph-height") is { } nullNodeDocumentPictographHeight && nullNodeDocumentPictographHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentPictographHeight = null;
+            if (parseNode.GetChildNode("document-pictograph-position") is { } nullNodeDocumentPictographPosition && nullNodeDocumentPictographPosition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentPictographPosition = null;
+            if (parseNode.GetChildNode("document-pictograph-url") is { } nullNodeDocumentPictographUrl && nullNodeDocumentPictographUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentPictographUrl = null;
+            if (parseNode.GetChildNode("font-family") is { } nullNodeFontFamily && nullNodeFontFamily.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FontFamily = null;
+            if (parseNode.GetChildNode("font-family-title") is { } nullNodeFontFamilyTitle && nullNodeFontFamilyTitle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FontFamilyTitle = null;
+            if (parseNode.GetChildNode("font-size-body") is { } nullNodeFontSizeBody && nullNodeFontSizeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FontSizeBody = null;
+            if (parseNode.GetChildNode("font-size-header") is { } nullNodeFontSizeHeader && nullNodeFontSizeHeader.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FontSizeHeader = null;
+            if (parseNode.GetChildNode("font-size-small") is { } nullNodeFontSizeSmall && nullNodeFontSizeSmall.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FontSizeSmall = null;
+            if (parseNode.GetChildNode("font-url") is { } nullNodeFontUrl && nullNodeFontUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FontUrl = null;
+            if (parseNode.GetChildNode("government-id-pictograph-position") is { } nullNodeGovernmentIdPictographPosition && nullNodeGovernmentIdPictographPosition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GovernmentIdPictographPosition = null;
+            if (parseNode.GetChildNode("government-id-select-pictograph-height") is { } nullNodeGovernmentIdSelectPictographHeight && nullNodeGovernmentIdSelectPictographHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GovernmentIdSelectPictographHeight = null;
+            if (parseNode.GetChildNode("government-id-select-pictograph-url") is { } nullNodeGovernmentIdSelectPictographUrl && nullNodeGovernmentIdSelectPictographUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GovernmentIdSelectPictographUrl = null;
+            if (parseNode.GetChildNode("header-font-weight") is { } nullNodeHeaderFontWeight && nullNodeHeaderFontWeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeaderFontWeight = null;
+            if (parseNode.GetChildNode("header-margin-bottom") is { } nullNodeHeaderMarginBottom && nullNodeHeaderMarginBottom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HeaderMarginBottom = null;
+            if (parseNode.GetChildNode("icon-color-background") is { } nullNodeIconColorBackground && nullNodeIconColorBackground.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IconColorBackground = null;
+            if (parseNode.GetChildNode("icon-color-government-id-type") is { } nullNodeIconColorGovernmentIdType && nullNodeIconColorGovernmentIdType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IconColorGovernmentIdType = null;
+            if (parseNode.GetChildNode("icon-color-highlight") is { } nullNodeIconColorHighlight && nullNodeIconColorHighlight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IconColorHighlight = null;
+            if (parseNode.GetChildNode("icon-color-primary") is { } nullNodeIconColorPrimary && nullNodeIconColorPrimary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IconColorPrimary = null;
+            if (parseNode.GetChildNode("icon-color-stroke") is { } nullNodeIconColorStroke && nullNodeIconColorStroke.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IconColorStroke = null;
+            if (parseNode.GetChildNode("icon-style") is { } nullNodeIconStyle && nullNodeIconStyle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IconStyle = null;
+            if (parseNode.GetChildNode("id-back-pictograph-height") is { } nullNodeIdBackPictographHeight && nullNodeIdBackPictographHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdBackPictographHeight = null;
+            if (parseNode.GetChildNode("id-back-pictograph-url") is { } nullNodeIdBackPictographUrl && nullNodeIdBackPictographUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdBackPictographUrl = null;
+            if (parseNode.GetChildNode("id-front-pictograph-height") is { } nullNodeIdFrontPictographHeight && nullNodeIdFrontPictographHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdFrontPictographHeight = null;
+            if (parseNode.GetChildNode("id-front-pictograph-url") is { } nullNodeIdFrontPictographUrl && nullNodeIdFrontPictographUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdFrontPictographUrl = null;
+            if (parseNode.GetChildNode("input-style") is { } nullNodeInputStyle && nullNodeInputStyle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InputStyle = null;
+            if (parseNode.GetChildNode("line-height-body") is { } nullNodeLineHeightBody && nullNodeLineHeightBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LineHeightBody = null;
+            if (parseNode.GetChildNode("line-height-header") is { } nullNodeLineHeightHeader && nullNodeLineHeightHeader.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LineHeightHeader = null;
+            if (parseNode.GetChildNode("line-height-small") is { } nullNodeLineHeightSmall && nullNodeLineHeightSmall.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LineHeightSmall = null;
+            if (parseNode.GetChildNode("loading-pictograph-height") is { } nullNodeLoadingPictographHeight && nullNodeLoadingPictographHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadingPictographHeight = null;
+            if (parseNode.GetChildNode("loading-pictograph-url") is { } nullNodeLoadingPictographUrl && nullNodeLoadingPictographUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoadingPictographUrl = null;
+            if (parseNode.GetChildNode("logo") is { } nullNodeLogo && nullNodeLogo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Logo = null;
+            if (parseNode.GetChildNode("logo-data") is { } nullNodeLogoData && nullNodeLogoData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogoData = null;
+            if (parseNode.GetChildNode("logo-filename") is { } nullNodeLogoFilename && nullNodeLogoFilename.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogoFilename = null;
+            if (parseNode.GetChildNode("logo-url") is { } nullNodeLogoUrl && nullNodeLogoUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogoUrl = null;
+            if (parseNode.GetChildNode("navbar-logo-display") is { } nullNodeNavbarLogoDisplay && nullNodeNavbarLogoDisplay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NavbarLogoDisplay = null;
+            if (parseNode.GetChildNode("page-transition") is { } nullNodePageTransition && nullNodePageTransition.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageTransition = null;
+            if (parseNode.GetChildNode("passport-front-pictograph-height") is { } nullNodePassportFrontPictographHeight && nullNodePassportFrontPictographHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PassportFrontPictographHeight = null;
+            if (parseNode.GetChildNode("passport-front-pictograph-url") is { } nullNodePassportFrontPictographUrl && nullNodePassportFrontPictographUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PassportFrontPictographUrl = null;
+            if (parseNode.GetChildNode("passport-signature-pictograph-height") is { } nullNodePassportSignaturePictographHeight && nullNodePassportSignaturePictographHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PassportSignaturePictographHeight = null;
+            if (parseNode.GetChildNode("passport-signature-pictograph-url") is { } nullNodePassportSignaturePictographUrl && nullNodePassportSignaturePictographUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PassportSignaturePictographUrl = null;
+            if (parseNode.GetChildNode("selfie-center-pictograph-height") is { } nullNodeSelfieCenterPictographHeight && nullNodeSelfieCenterPictographHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfieCenterPictographHeight = null;
+            if (parseNode.GetChildNode("selfie-center-pictograph-url") is { } nullNodeSelfieCenterPictographUrl && nullNodeSelfieCenterPictographUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfieCenterPictographUrl = null;
+            if (parseNode.GetChildNode("selfie-left-pictograph-height") is { } nullNodeSelfieLeftPictographHeight && nullNodeSelfieLeftPictographHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfieLeftPictographHeight = null;
+            if (parseNode.GetChildNode("selfie-left-pictograph-url") is { } nullNodeSelfieLeftPictographUrl && nullNodeSelfieLeftPictographUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfieLeftPictographUrl = null;
+            if (parseNode.GetChildNode("selfie-pictograph-height") is { } nullNodeSelfiePictographHeight && nullNodeSelfiePictographHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfiePictographHeight = null;
+            if (parseNode.GetChildNode("selfie-pictograph-url") is { } nullNodeSelfiePictographUrl && nullNodeSelfiePictographUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfiePictographUrl = null;
+            if (parseNode.GetChildNode("selfie-right-pictograph-height") is { } nullNodeSelfieRightPictographHeight && nullNodeSelfieRightPictographHeight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfieRightPictographHeight = null;
+            if (parseNode.GetChildNode("selfie-right-pictograph-url") is { } nullNodeSelfieRightPictographUrl && nullNodeSelfieRightPictographUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfieRightPictographUrl = null;
+            if (parseNode.GetChildNode("text-align") is { } nullNodeTextAlign && nullNodeTextAlign.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextAlign = null;
+            if (parseNode.GetChildNode("text-decoration-line-link") is { } nullNodeTextDecorationLineLink && nullNodeTextDecorationLineLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TextDecorationLineLink = null;
+            if (parseNode.GetChildNode("us-state-input-method") is { } nullNodeUsStateInputMethod && nullNodeUsStateInputMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsStateInputMethod = null;
+            if (parseNode.GetChildNode("vertical-options-style") is { } nullNodeVerticalOptionsStyle && nullNodeVerticalOptionsStyle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerticalOptionsStyle = null;
+        }
+
         /// <summary>The borderRadius property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BorderRadius { get; set; }
+        public string? BorderRadius { get => _explicitNullValueBorderRadius; set { _explicitNullValueBorderRadius = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("border-radius"); else _explicitNullProperties?.Remove("border-radius"); } }
+        private string? _explicitNullValueBorderRadius = default!;
 #nullable restore
 #else
-        public string BorderRadius { get; set; }
+        public string BorderRadius { get => _explicitNullValueBorderRadius; set { _explicitNullValueBorderRadius = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("border-radius"); else _explicitNullProperties?.Remove("border-radius"); } }
+        private string _explicitNullValueBorderRadius = default!;
 #endif
         /// <summary>The borderRadiusInput property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BorderRadiusInput { get; set; }
+        public string? BorderRadiusInput { get => _explicitNullValueBorderRadiusInput; set { _explicitNullValueBorderRadiusInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("border-radius-input"); else _explicitNullProperties?.Remove("border-radius-input"); } }
+        private string? _explicitNullValueBorderRadiusInput = default!;
 #nullable restore
 #else
-        public string BorderRadiusInput { get; set; }
+        public string BorderRadiusInput { get => _explicitNullValueBorderRadiusInput; set { _explicitNullValueBorderRadiusInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("border-radius-input"); else _explicitNullProperties?.Remove("border-radius-input"); } }
+        private string _explicitNullValueBorderRadiusInput = default!;
 #endif
         /// <summary>The borderRadiusModal property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BorderRadiusModal { get; set; }
+        public string? BorderRadiusModal { get => _explicitNullValueBorderRadiusModal; set { _explicitNullValueBorderRadiusModal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("border-radius-modal"); else _explicitNullProperties?.Remove("border-radius-modal"); } }
+        private string? _explicitNullValueBorderRadiusModal = default!;
 #nullable restore
 #else
-        public string BorderRadiusModal { get; set; }
+        public string BorderRadiusModal { get => _explicitNullValueBorderRadiusModal; set { _explicitNullValueBorderRadiusModal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("border-radius-modal"); else _explicitNullProperties?.Remove("border-radius-modal"); } }
+        private string _explicitNullValueBorderRadiusModal = default!;
 #endif
         /// <summary>The borderWidth property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BorderWidth { get; set; }
+        public string? BorderWidth { get => _explicitNullValueBorderWidth; set { _explicitNullValueBorderWidth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("border-width"); else _explicitNullProperties?.Remove("border-width"); } }
+        private string? _explicitNullValueBorderWidth = default!;
 #nullable restore
 #else
-        public string BorderWidth { get; set; }
+        public string BorderWidth { get => _explicitNullValueBorderWidth; set { _explicitNullValueBorderWidth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("border-width"); else _explicitNullProperties?.Remove("border-width"); } }
+        private string _explicitNullValueBorderWidth = default!;
 #endif
         /// <summary>The borderWidthInput property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BorderWidthInput { get; set; }
+        public string? BorderWidthInput { get => _explicitNullValueBorderWidthInput; set { _explicitNullValueBorderWidthInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("border-width-input"); else _explicitNullProperties?.Remove("border-width-input"); } }
+        private string? _explicitNullValueBorderWidthInput = default!;
 #nullable restore
 #else
-        public string BorderWidthInput { get; set; }
+        public string BorderWidthInput { get => _explicitNullValueBorderWidthInput; set { _explicitNullValueBorderWidthInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("border-width-input"); else _explicitNullProperties?.Remove("border-width-input"); } }
+        private string _explicitNullValueBorderWidthInput = default!;
 #endif
         /// <summary>The buttonBackgroundImage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ButtonBackgroundImage { get; set; }
+        public string? ButtonBackgroundImage { get => _explicitNullValueButtonBackgroundImage; set { _explicitNullValueButtonBackgroundImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("button-background-image"); else _explicitNullProperties?.Remove("button-background-image"); } }
+        private string? _explicitNullValueButtonBackgroundImage = default!;
 #nullable restore
 #else
-        public string ButtonBackgroundImage { get; set; }
+        public string ButtonBackgroundImage { get => _explicitNullValueButtonBackgroundImage; set { _explicitNullValueButtonBackgroundImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("button-background-image"); else _explicitNullProperties?.Remove("button-background-image"); } }
+        private string _explicitNullValueButtonBackgroundImage = default!;
 #endif
         /// <summary>The buttonFontWeight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ButtonFontWeight { get; set; }
+        public string? ButtonFontWeight { get => _explicitNullValueButtonFontWeight; set { _explicitNullValueButtonFontWeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("button-font-weight"); else _explicitNullProperties?.Remove("button-font-weight"); } }
+        private string? _explicitNullValueButtonFontWeight = default!;
 #nullable restore
 #else
-        public string ButtonFontWeight { get; set; }
+        public string ButtonFontWeight { get => _explicitNullValueButtonFontWeight; set { _explicitNullValueButtonFontWeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("button-font-weight"); else _explicitNullProperties?.Remove("button-font-weight"); } }
+        private string _explicitNullValueButtonFontWeight = default!;
 #endif
         /// <summary>The buttonPosition property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ButtonPosition { get; set; }
+        public string? ButtonPosition { get => _explicitNullValueButtonPosition; set { _explicitNullValueButtonPosition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("button-position"); else _explicitNullProperties?.Remove("button-position"); } }
+        private string? _explicitNullValueButtonPosition = default!;
 #nullable restore
 #else
-        public string ButtonPosition { get; set; }
+        public string ButtonPosition { get => _explicitNullValueButtonPosition; set { _explicitNullValueButtonPosition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("button-position"); else _explicitNullProperties?.Remove("button-position"); } }
+        private string _explicitNullValueButtonPosition = default!;
 #endif
         /// <summary>The buttonShadowStrength property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ButtonShadowStrength { get; set; }
+        public string? ButtonShadowStrength { get => _explicitNullValueButtonShadowStrength; set { _explicitNullValueButtonShadowStrength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("button-shadow-strength"); else _explicitNullProperties?.Remove("button-shadow-strength"); } }
+        private string? _explicitNullValueButtonShadowStrength = default!;
 #nullable restore
 #else
-        public string ButtonShadowStrength { get; set; }
+        public string ButtonShadowStrength { get => _explicitNullValueButtonShadowStrength; set { _explicitNullValueButtonShadowStrength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("button-shadow-strength"); else _explicitNullProperties?.Remove("button-shadow-strength"); } }
+        private string _explicitNullValueButtonShadowStrength = default!;
 #endif
         /// <summary>The buttonTextTransform property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ButtonTextTransform { get; set; }
+        public string? ButtonTextTransform { get => _explicitNullValueButtonTextTransform; set { _explicitNullValueButtonTextTransform = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("button-text-transform"); else _explicitNullProperties?.Remove("button-text-transform"); } }
+        private string? _explicitNullValueButtonTextTransform = default!;
 #nullable restore
 #else
-        public string ButtonTextTransform { get; set; }
+        public string ButtonTextTransform { get => _explicitNullValueButtonTextTransform; set { _explicitNullValueButtonTextTransform = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("button-text-transform"); else _explicitNullProperties?.Remove("button-text-transform"); } }
+        private string _explicitNullValueButtonTextTransform = default!;
 #endif
         /// <summary>The cameraSupportPictographHeight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CameraSupportPictographHeight { get; set; }
+        public string? CameraSupportPictographHeight { get => _explicitNullValueCameraSupportPictographHeight; set { _explicitNullValueCameraSupportPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("camera-support-pictograph-height"); else _explicitNullProperties?.Remove("camera-support-pictograph-height"); } }
+        private string? _explicitNullValueCameraSupportPictographHeight = default!;
 #nullable restore
 #else
-        public string CameraSupportPictographHeight { get; set; }
+        public string CameraSupportPictographHeight { get => _explicitNullValueCameraSupportPictographHeight; set { _explicitNullValueCameraSupportPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("camera-support-pictograph-height"); else _explicitNullProperties?.Remove("camera-support-pictograph-height"); } }
+        private string _explicitNullValueCameraSupportPictographHeight = default!;
 #endif
         /// <summary>The cameraSupportPictographUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CameraSupportPictographUrl { get; set; }
+        public string? CameraSupportPictographUrl { get => _explicitNullValueCameraSupportPictographUrl; set { _explicitNullValueCameraSupportPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("camera-support-pictograph-url"); else _explicitNullProperties?.Remove("camera-support-pictograph-url"); } }
+        private string? _explicitNullValueCameraSupportPictographUrl = default!;
 #nullable restore
 #else
-        public string CameraSupportPictographUrl { get; set; }
+        public string CameraSupportPictographUrl { get => _explicitNullValueCameraSupportPictographUrl; set { _explicitNullValueCameraSupportPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("camera-support-pictograph-url"); else _explicitNullProperties?.Remove("camera-support-pictograph-url"); } }
+        private string _explicitNullValueCameraSupportPictographUrl = default!;
 #endif
         /// <summary>The colorButtonPrimary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorButtonPrimary { get; set; }
+        public string? ColorButtonPrimary { get => _explicitNullValueColorButtonPrimary; set { _explicitNullValueColorButtonPrimary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-button-primary"); else _explicitNullProperties?.Remove("color-button-primary"); } }
+        private string? _explicitNullValueColorButtonPrimary = default!;
 #nullable restore
 #else
-        public string ColorButtonPrimary { get; set; }
+        public string ColorButtonPrimary { get => _explicitNullValueColorButtonPrimary; set { _explicitNullValueColorButtonPrimary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-button-primary"); else _explicitNullProperties?.Remove("color-button-primary"); } }
+        private string _explicitNullValueColorButtonPrimary = default!;
 #endif
         /// <summary>The colorButtonPrimaryFillDisabled property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorButtonPrimaryFillDisabled { get; set; }
+        public string? ColorButtonPrimaryFillDisabled { get => _explicitNullValueColorButtonPrimaryFillDisabled; set { _explicitNullValueColorButtonPrimaryFillDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-button-primary-fill-disabled"); else _explicitNullProperties?.Remove("color-button-primary-fill-disabled"); } }
+        private string? _explicitNullValueColorButtonPrimaryFillDisabled = default!;
 #nullable restore
 #else
-        public string ColorButtonPrimaryFillDisabled { get; set; }
+        public string ColorButtonPrimaryFillDisabled { get => _explicitNullValueColorButtonPrimaryFillDisabled; set { _explicitNullValueColorButtonPrimaryFillDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-button-primary-fill-disabled"); else _explicitNullProperties?.Remove("color-button-primary-fill-disabled"); } }
+        private string _explicitNullValueColorButtonPrimaryFillDisabled = default!;
 #endif
         /// <summary>The colorButtonSecondary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorButtonSecondary { get; set; }
+        public string? ColorButtonSecondary { get => _explicitNullValueColorButtonSecondary; set { _explicitNullValueColorButtonSecondary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-button-secondary"); else _explicitNullProperties?.Remove("color-button-secondary"); } }
+        private string? _explicitNullValueColorButtonSecondary = default!;
 #nullable restore
 #else
-        public string ColorButtonSecondary { get; set; }
+        public string ColorButtonSecondary { get => _explicitNullValueColorButtonSecondary; set { _explicitNullValueColorButtonSecondary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-button-secondary"); else _explicitNullProperties?.Remove("color-button-secondary"); } }
+        private string _explicitNullValueColorButtonSecondary = default!;
 #endif
         /// <summary>The colorButtonSecondaryFill property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorButtonSecondaryFill { get; set; }
+        public string? ColorButtonSecondaryFill { get => _explicitNullValueColorButtonSecondaryFill; set { _explicitNullValueColorButtonSecondaryFill = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-button-secondary-fill"); else _explicitNullProperties?.Remove("color-button-secondary-fill"); } }
+        private string? _explicitNullValueColorButtonSecondaryFill = default!;
 #nullable restore
 #else
-        public string ColorButtonSecondaryFill { get; set; }
+        public string ColorButtonSecondaryFill { get => _explicitNullValueColorButtonSecondaryFill; set { _explicitNullValueColorButtonSecondaryFill = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-button-secondary-fill"); else _explicitNullProperties?.Remove("color-button-secondary-fill"); } }
+        private string _explicitNullValueColorButtonSecondaryFill = default!;
 #endif
         /// <summary>The colorButtonSecondaryFillDisabled property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorButtonSecondaryFillDisabled { get; set; }
+        public string? ColorButtonSecondaryFillDisabled { get => _explicitNullValueColorButtonSecondaryFillDisabled; set { _explicitNullValueColorButtonSecondaryFillDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-button-secondary-fill-disabled"); else _explicitNullProperties?.Remove("color-button-secondary-fill-disabled"); } }
+        private string? _explicitNullValueColorButtonSecondaryFillDisabled = default!;
 #nullable restore
 #else
-        public string ColorButtonSecondaryFillDisabled { get; set; }
+        public string ColorButtonSecondaryFillDisabled { get => _explicitNullValueColorButtonSecondaryFillDisabled; set { _explicitNullValueColorButtonSecondaryFillDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-button-secondary-fill-disabled"); else _explicitNullProperties?.Remove("color-button-secondary-fill-disabled"); } }
+        private string _explicitNullValueColorButtonSecondaryFillDisabled = default!;
 #endif
         /// <summary>The colorDivider property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorDivider { get; set; }
+        public string? ColorDivider { get => _explicitNullValueColorDivider; set { _explicitNullValueColorDivider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-divider"); else _explicitNullProperties?.Remove("color-divider"); } }
+        private string? _explicitNullValueColorDivider = default!;
 #nullable restore
 #else
-        public string ColorDivider { get; set; }
+        public string ColorDivider { get => _explicitNullValueColorDivider; set { _explicitNullValueColorDivider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-divider"); else _explicitNullProperties?.Remove("color-divider"); } }
+        private string _explicitNullValueColorDivider = default!;
 #endif
         /// <summary>The colorDropdownBackground property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorDropdownBackground { get; set; }
+        public string? ColorDropdownBackground { get => _explicitNullValueColorDropdownBackground; set { _explicitNullValueColorDropdownBackground = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-dropdown-background"); else _explicitNullProperties?.Remove("color-dropdown-background"); } }
+        private string? _explicitNullValueColorDropdownBackground = default!;
 #nullable restore
 #else
-        public string ColorDropdownBackground { get; set; }
+        public string ColorDropdownBackground { get => _explicitNullValueColorDropdownBackground; set { _explicitNullValueColorDropdownBackground = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-dropdown-background"); else _explicitNullProperties?.Remove("color-dropdown-background"); } }
+        private string _explicitNullValueColorDropdownBackground = default!;
 #endif
         /// <summary>The colorDropdownOption property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorDropdownOption { get; set; }
+        public string? ColorDropdownOption { get => _explicitNullValueColorDropdownOption; set { _explicitNullValueColorDropdownOption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-dropdown-option"); else _explicitNullProperties?.Remove("color-dropdown-option"); } }
+        private string? _explicitNullValueColorDropdownOption = default!;
 #nullable restore
 #else
-        public string ColorDropdownOption { get; set; }
+        public string ColorDropdownOption { get => _explicitNullValueColorDropdownOption; set { _explicitNullValueColorDropdownOption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-dropdown-option"); else _explicitNullProperties?.Remove("color-dropdown-option"); } }
+        private string _explicitNullValueColorDropdownOption = default!;
 #endif
         /// <summary>The colorError property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorError { get; set; }
+        public string? ColorError { get => _explicitNullValueColorError; set { _explicitNullValueColorError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-error"); else _explicitNullProperties?.Remove("color-error"); } }
+        private string? _explicitNullValueColorError = default!;
 #nullable restore
 #else
-        public string ColorError { get; set; }
+        public string ColorError { get => _explicitNullValueColorError; set { _explicitNullValueColorError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-error"); else _explicitNullProperties?.Remove("color-error"); } }
+        private string _explicitNullValueColorError = default!;
 #endif
         /// <summary>The colorFont property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorFont { get; set; }
+        public string? ColorFont { get => _explicitNullValueColorFont; set { _explicitNullValueColorFont = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-font"); else _explicitNullProperties?.Remove("color-font"); } }
+        private string? _explicitNullValueColorFont = default!;
 #nullable restore
 #else
-        public string ColorFont { get; set; }
+        public string ColorFont { get => _explicitNullValueColorFont; set { _explicitNullValueColorFont = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-font"); else _explicitNullProperties?.Remove("color-font"); } }
+        private string _explicitNullValueColorFont = default!;
 #endif
         /// <summary>The colorFontButtonPrimary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorFontButtonPrimary { get; set; }
+        public string? ColorFontButtonPrimary { get => _explicitNullValueColorFontButtonPrimary; set { _explicitNullValueColorFontButtonPrimary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-font-button-primary"); else _explicitNullProperties?.Remove("color-font-button-primary"); } }
+        private string? _explicitNullValueColorFontButtonPrimary = default!;
 #nullable restore
 #else
-        public string ColorFontButtonPrimary { get; set; }
+        public string ColorFontButtonPrimary { get => _explicitNullValueColorFontButtonPrimary; set { _explicitNullValueColorFontButtonPrimary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-font-button-primary"); else _explicitNullProperties?.Remove("color-font-button-primary"); } }
+        private string _explicitNullValueColorFontButtonPrimary = default!;
 #endif
         /// <summary>The colorFontButtonSecondary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorFontButtonSecondary { get; set; }
+        public string? ColorFontButtonSecondary { get => _explicitNullValueColorFontButtonSecondary; set { _explicitNullValueColorFontButtonSecondary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-font-button-secondary"); else _explicitNullProperties?.Remove("color-font-button-secondary"); } }
+        private string? _explicitNullValueColorFontButtonSecondary = default!;
 #nullable restore
 #else
-        public string ColorFontButtonSecondary { get; set; }
+        public string ColorFontButtonSecondary { get => _explicitNullValueColorFontButtonSecondary; set { _explicitNullValueColorFontButtonSecondary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-font-button-secondary"); else _explicitNullProperties?.Remove("color-font-button-secondary"); } }
+        private string _explicitNullValueColorFontButtonSecondary = default!;
 #endif
         /// <summary>The colorFontSmall property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorFontSmall { get; set; }
+        public string? ColorFontSmall { get => _explicitNullValueColorFontSmall; set { _explicitNullValueColorFontSmall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-font-small"); else _explicitNullProperties?.Remove("color-font-small"); } }
+        private string? _explicitNullValueColorFontSmall = default!;
 #nullable restore
 #else
-        public string ColorFontSmall { get; set; }
+        public string ColorFontSmall { get => _explicitNullValueColorFontSmall; set { _explicitNullValueColorFontSmall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-font-small"); else _explicitNullProperties?.Remove("color-font-small"); } }
+        private string _explicitNullValueColorFontSmall = default!;
 #endif
         /// <summary>The colorFontTitle property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorFontTitle { get; set; }
+        public string? ColorFontTitle { get => _explicitNullValueColorFontTitle; set { _explicitNullValueColorFontTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-font-title"); else _explicitNullProperties?.Remove("color-font-title"); } }
+        private string? _explicitNullValueColorFontTitle = default!;
 #nullable restore
 #else
-        public string ColorFontTitle { get; set; }
+        public string ColorFontTitle { get => _explicitNullValueColorFontTitle; set { _explicitNullValueColorFontTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-font-title"); else _explicitNullProperties?.Remove("color-font-title"); } }
+        private string _explicitNullValueColorFontTitle = default!;
 #endif
         /// <summary>The colorIconHeader property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorIconHeader { get; set; }
+        public string? ColorIconHeader { get => _explicitNullValueColorIconHeader; set { _explicitNullValueColorIconHeader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-icon-header"); else _explicitNullProperties?.Remove("color-icon-header"); } }
+        private string? _explicitNullValueColorIconHeader = default!;
 #nullable restore
 #else
-        public string ColorIconHeader { get; set; }
+        public string ColorIconHeader { get => _explicitNullValueColorIconHeader; set { _explicitNullValueColorIconHeader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-icon-header"); else _explicitNullProperties?.Remove("color-icon-header"); } }
+        private string _explicitNullValueColorIconHeader = default!;
 #endif
         /// <summary>The colorInputBackground property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorInputBackground { get; set; }
+        public string? ColorInputBackground { get => _explicitNullValueColorInputBackground; set { _explicitNullValueColorInputBackground = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-input-background"); else _explicitNullProperties?.Remove("color-input-background"); } }
+        private string? _explicitNullValueColorInputBackground = default!;
 #nullable restore
 #else
-        public string ColorInputBackground { get; set; }
+        public string ColorInputBackground { get => _explicitNullValueColorInputBackground; set { _explicitNullValueColorInputBackground = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-input-background"); else _explicitNullProperties?.Remove("color-input-background"); } }
+        private string _explicitNullValueColorInputBackground = default!;
 #endif
         /// <summary>The colorInputBorder property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorInputBorder { get; set; }
+        public string? ColorInputBorder { get => _explicitNullValueColorInputBorder; set { _explicitNullValueColorInputBorder = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-input-border"); else _explicitNullProperties?.Remove("color-input-border"); } }
+        private string? _explicitNullValueColorInputBorder = default!;
 #nullable restore
 #else
-        public string ColorInputBorder { get; set; }
+        public string ColorInputBorder { get => _explicitNullValueColorInputBorder; set { _explicitNullValueColorInputBorder = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-input-border"); else _explicitNullProperties?.Remove("color-input-border"); } }
+        private string _explicitNullValueColorInputBorder = default!;
 #endif
         /// <summary>The colorLink property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorLink { get; set; }
+        public string? ColorLink { get => _explicitNullValueColorLink; set { _explicitNullValueColorLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-link"); else _explicitNullProperties?.Remove("color-link"); } }
+        private string? _explicitNullValueColorLink = default!;
 #nullable restore
 #else
-        public string ColorLink { get; set; }
+        public string ColorLink { get => _explicitNullValueColorLink; set { _explicitNullValueColorLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-link"); else _explicitNullProperties?.Remove("color-link"); } }
+        private string _explicitNullValueColorLink = default!;
 #endif
         /// <summary>The colorModalBackground property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorModalBackground { get; set; }
+        public string? ColorModalBackground { get => _explicitNullValueColorModalBackground; set { _explicitNullValueColorModalBackground = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-modal-background"); else _explicitNullProperties?.Remove("color-modal-background"); } }
+        private string? _explicitNullValueColorModalBackground = default!;
 #nullable restore
 #else
-        public string ColorModalBackground { get; set; }
+        public string ColorModalBackground { get => _explicitNullValueColorModalBackground; set { _explicitNullValueColorModalBackground = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-modal-background"); else _explicitNullProperties?.Remove("color-modal-background"); } }
+        private string _explicitNullValueColorModalBackground = default!;
 #endif
         /// <summary>The colorPrimary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorPrimary { get; set; }
+        public string? ColorPrimary { get => _explicitNullValueColorPrimary; set { _explicitNullValueColorPrimary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-primary"); else _explicitNullProperties?.Remove("color-primary"); } }
+        private string? _explicitNullValueColorPrimary = default!;
 #nullable restore
 #else
-        public string ColorPrimary { get; set; }
+        public string ColorPrimary { get => _explicitNullValueColorPrimary; set { _explicitNullValueColorPrimary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-primary"); else _explicitNullProperties?.Remove("color-primary"); } }
+        private string _explicitNullValueColorPrimary = default!;
 #endif
         /// <summary>The colorProgressBar property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorProgressBar { get; set; }
+        public string? ColorProgressBar { get => _explicitNullValueColorProgressBar; set { _explicitNullValueColorProgressBar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-progress-bar"); else _explicitNullProperties?.Remove("color-progress-bar"); } }
+        private string? _explicitNullValueColorProgressBar = default!;
 #nullable restore
 #else
-        public string ColorProgressBar { get; set; }
+        public string ColorProgressBar { get => _explicitNullValueColorProgressBar; set { _explicitNullValueColorProgressBar = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-progress-bar"); else _explicitNullProperties?.Remove("color-progress-bar"); } }
+        private string _explicitNullValueColorProgressBar = default!;
 #endif
         /// <summary>The colorSuccess property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorSuccess { get; set; }
+        public string? ColorSuccess { get => _explicitNullValueColorSuccess; set { _explicitNullValueColorSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-success"); else _explicitNullProperties?.Remove("color-success"); } }
+        private string? _explicitNullValueColorSuccess = default!;
 #nullable restore
 #else
-        public string ColorSuccess { get; set; }
+        public string ColorSuccess { get => _explicitNullValueColorSuccess; set { _explicitNullValueColorSuccess = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-success"); else _explicitNullProperties?.Remove("color-success"); } }
+        private string _explicitNullValueColorSuccess = default!;
 #endif
         /// <summary>The colorWarning property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ColorWarning { get; set; }
+        public string? ColorWarning { get => _explicitNullValueColorWarning; set { _explicitNullValueColorWarning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-warning"); else _explicitNullProperties?.Remove("color-warning"); } }
+        private string? _explicitNullValueColorWarning = default!;
 #nullable restore
 #else
-        public string ColorWarning { get; set; }
+        public string ColorWarning { get => _explicitNullValueColorWarning; set { _explicitNullValueColorWarning = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("color-warning"); else _explicitNullProperties?.Remove("color-warning"); } }
+        private string _explicitNullValueColorWarning = default!;
 #endif
         /// <summary>The deviceHandoffTermsTextPosition property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeviceHandoffTermsTextPosition { get; set; }
+        public string? DeviceHandoffTermsTextPosition { get => _explicitNullValueDeviceHandoffTermsTextPosition; set { _explicitNullValueDeviceHandoffTermsTextPosition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device-handoff-terms-text-position"); else _explicitNullProperties?.Remove("device-handoff-terms-text-position"); } }
+        private string? _explicitNullValueDeviceHandoffTermsTextPosition = default!;
 #nullable restore
 #else
-        public string DeviceHandoffTermsTextPosition { get; set; }
+        public string DeviceHandoffTermsTextPosition { get => _explicitNullValueDeviceHandoffTermsTextPosition; set { _explicitNullValueDeviceHandoffTermsTextPosition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device-handoff-terms-text-position"); else _explicitNullProperties?.Remove("device-handoff-terms-text-position"); } }
+        private string _explicitNullValueDeviceHandoffTermsTextPosition = default!;
 #endif
         /// <summary>The documentPictographHeight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocumentPictographHeight { get; set; }
+        public string? DocumentPictographHeight { get => _explicitNullValueDocumentPictographHeight; set { _explicitNullValueDocumentPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document-pictograph-height"); else _explicitNullProperties?.Remove("document-pictograph-height"); } }
+        private string? _explicitNullValueDocumentPictographHeight = default!;
 #nullable restore
 #else
-        public string DocumentPictographHeight { get; set; }
+        public string DocumentPictographHeight { get => _explicitNullValueDocumentPictographHeight; set { _explicitNullValueDocumentPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document-pictograph-height"); else _explicitNullProperties?.Remove("document-pictograph-height"); } }
+        private string _explicitNullValueDocumentPictographHeight = default!;
 #endif
         /// <summary>The documentPictographPosition property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocumentPictographPosition { get; set; }
+        public string? DocumentPictographPosition { get => _explicitNullValueDocumentPictographPosition; set { _explicitNullValueDocumentPictographPosition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document-pictograph-position"); else _explicitNullProperties?.Remove("document-pictograph-position"); } }
+        private string? _explicitNullValueDocumentPictographPosition = default!;
 #nullable restore
 #else
-        public string DocumentPictographPosition { get; set; }
+        public string DocumentPictographPosition { get => _explicitNullValueDocumentPictographPosition; set { _explicitNullValueDocumentPictographPosition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document-pictograph-position"); else _explicitNullProperties?.Remove("document-pictograph-position"); } }
+        private string _explicitNullValueDocumentPictographPosition = default!;
 #endif
         /// <summary>The documentPictographUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocumentPictographUrl { get; set; }
+        public string? DocumentPictographUrl { get => _explicitNullValueDocumentPictographUrl; set { _explicitNullValueDocumentPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document-pictograph-url"); else _explicitNullProperties?.Remove("document-pictograph-url"); } }
+        private string? _explicitNullValueDocumentPictographUrl = default!;
 #nullable restore
 #else
-        public string DocumentPictographUrl { get; set; }
+        public string DocumentPictographUrl { get => _explicitNullValueDocumentPictographUrl; set { _explicitNullValueDocumentPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document-pictograph-url"); else _explicitNullProperties?.Remove("document-pictograph-url"); } }
+        private string _explicitNullValueDocumentPictographUrl = default!;
 #endif
         /// <summary>The fontFamily property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FontFamily { get; set; }
+        public string? FontFamily { get => _explicitNullValueFontFamily; set { _explicitNullValueFontFamily = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("font-family"); else _explicitNullProperties?.Remove("font-family"); } }
+        private string? _explicitNullValueFontFamily = default!;
 #nullable restore
 #else
-        public string FontFamily { get; set; }
+        public string FontFamily { get => _explicitNullValueFontFamily; set { _explicitNullValueFontFamily = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("font-family"); else _explicitNullProperties?.Remove("font-family"); } }
+        private string _explicitNullValueFontFamily = default!;
 #endif
         /// <summary>The fontFamilyTitle property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FontFamilyTitle { get; set; }
+        public string? FontFamilyTitle { get => _explicitNullValueFontFamilyTitle; set { _explicitNullValueFontFamilyTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("font-family-title"); else _explicitNullProperties?.Remove("font-family-title"); } }
+        private string? _explicitNullValueFontFamilyTitle = default!;
 #nullable restore
 #else
-        public string FontFamilyTitle { get; set; }
+        public string FontFamilyTitle { get => _explicitNullValueFontFamilyTitle; set { _explicitNullValueFontFamilyTitle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("font-family-title"); else _explicitNullProperties?.Remove("font-family-title"); } }
+        private string _explicitNullValueFontFamilyTitle = default!;
 #endif
         /// <summary>The fontSizeBody property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FontSizeBody { get; set; }
+        public string? FontSizeBody { get => _explicitNullValueFontSizeBody; set { _explicitNullValueFontSizeBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("font-size-body"); else _explicitNullProperties?.Remove("font-size-body"); } }
+        private string? _explicitNullValueFontSizeBody = default!;
 #nullable restore
 #else
-        public string FontSizeBody { get; set; }
+        public string FontSizeBody { get => _explicitNullValueFontSizeBody; set { _explicitNullValueFontSizeBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("font-size-body"); else _explicitNullProperties?.Remove("font-size-body"); } }
+        private string _explicitNullValueFontSizeBody = default!;
 #endif
         /// <summary>The fontSizeHeader property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FontSizeHeader { get; set; }
+        public string? FontSizeHeader { get => _explicitNullValueFontSizeHeader; set { _explicitNullValueFontSizeHeader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("font-size-header"); else _explicitNullProperties?.Remove("font-size-header"); } }
+        private string? _explicitNullValueFontSizeHeader = default!;
 #nullable restore
 #else
-        public string FontSizeHeader { get; set; }
+        public string FontSizeHeader { get => _explicitNullValueFontSizeHeader; set { _explicitNullValueFontSizeHeader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("font-size-header"); else _explicitNullProperties?.Remove("font-size-header"); } }
+        private string _explicitNullValueFontSizeHeader = default!;
 #endif
         /// <summary>The fontSizeSmall property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FontSizeSmall { get; set; }
+        public string? FontSizeSmall { get => _explicitNullValueFontSizeSmall; set { _explicitNullValueFontSizeSmall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("font-size-small"); else _explicitNullProperties?.Remove("font-size-small"); } }
+        private string? _explicitNullValueFontSizeSmall = default!;
 #nullable restore
 #else
-        public string FontSizeSmall { get; set; }
+        public string FontSizeSmall { get => _explicitNullValueFontSizeSmall; set { _explicitNullValueFontSizeSmall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("font-size-small"); else _explicitNullProperties?.Remove("font-size-small"); } }
+        private string _explicitNullValueFontSizeSmall = default!;
 #endif
         /// <summary>The fontUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FontUrl { get; set; }
+        public string? FontUrl { get => _explicitNullValueFontUrl; set { _explicitNullValueFontUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("font-url"); else _explicitNullProperties?.Remove("font-url"); } }
+        private string? _explicitNullValueFontUrl = default!;
 #nullable restore
 #else
-        public string FontUrl { get; set; }
+        public string FontUrl { get => _explicitNullValueFontUrl; set { _explicitNullValueFontUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("font-url"); else _explicitNullProperties?.Remove("font-url"); } }
+        private string _explicitNullValueFontUrl = default!;
 #endif
         /// <summary>The governmentIdPictographPosition property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GovernmentIdPictographPosition { get; set; }
+        public string? GovernmentIdPictographPosition { get => _explicitNullValueGovernmentIdPictographPosition; set { _explicitNullValueGovernmentIdPictographPosition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("government-id-pictograph-position"); else _explicitNullProperties?.Remove("government-id-pictograph-position"); } }
+        private string? _explicitNullValueGovernmentIdPictographPosition = default!;
 #nullable restore
 #else
-        public string GovernmentIdPictographPosition { get; set; }
+        public string GovernmentIdPictographPosition { get => _explicitNullValueGovernmentIdPictographPosition; set { _explicitNullValueGovernmentIdPictographPosition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("government-id-pictograph-position"); else _explicitNullProperties?.Remove("government-id-pictograph-position"); } }
+        private string _explicitNullValueGovernmentIdPictographPosition = default!;
 #endif
         /// <summary>The governmentIdSelectPictographHeight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GovernmentIdSelectPictographHeight { get; set; }
+        public string? GovernmentIdSelectPictographHeight { get => _explicitNullValueGovernmentIdSelectPictographHeight; set { _explicitNullValueGovernmentIdSelectPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("government-id-select-pictograph-height"); else _explicitNullProperties?.Remove("government-id-select-pictograph-height"); } }
+        private string? _explicitNullValueGovernmentIdSelectPictographHeight = default!;
 #nullable restore
 #else
-        public string GovernmentIdSelectPictographHeight { get; set; }
+        public string GovernmentIdSelectPictographHeight { get => _explicitNullValueGovernmentIdSelectPictographHeight; set { _explicitNullValueGovernmentIdSelectPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("government-id-select-pictograph-height"); else _explicitNullProperties?.Remove("government-id-select-pictograph-height"); } }
+        private string _explicitNullValueGovernmentIdSelectPictographHeight = default!;
 #endif
         /// <summary>The governmentIdSelectPictographUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GovernmentIdSelectPictographUrl { get; set; }
+        public string? GovernmentIdSelectPictographUrl { get => _explicitNullValueGovernmentIdSelectPictographUrl; set { _explicitNullValueGovernmentIdSelectPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("government-id-select-pictograph-url"); else _explicitNullProperties?.Remove("government-id-select-pictograph-url"); } }
+        private string? _explicitNullValueGovernmentIdSelectPictographUrl = default!;
 #nullable restore
 #else
-        public string GovernmentIdSelectPictographUrl { get; set; }
+        public string GovernmentIdSelectPictographUrl { get => _explicitNullValueGovernmentIdSelectPictographUrl; set { _explicitNullValueGovernmentIdSelectPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("government-id-select-pictograph-url"); else _explicitNullProperties?.Remove("government-id-select-pictograph-url"); } }
+        private string _explicitNullValueGovernmentIdSelectPictographUrl = default!;
 #endif
         /// <summary>The headerFontWeight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HeaderFontWeight { get; set; }
+        public string? HeaderFontWeight { get => _explicitNullValueHeaderFontWeight; set { _explicitNullValueHeaderFontWeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header-font-weight"); else _explicitNullProperties?.Remove("header-font-weight"); } }
+        private string? _explicitNullValueHeaderFontWeight = default!;
 #nullable restore
 #else
-        public string HeaderFontWeight { get; set; }
+        public string HeaderFontWeight { get => _explicitNullValueHeaderFontWeight; set { _explicitNullValueHeaderFontWeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header-font-weight"); else _explicitNullProperties?.Remove("header-font-weight"); } }
+        private string _explicitNullValueHeaderFontWeight = default!;
 #endif
         /// <summary>The headerMarginBottom property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HeaderMarginBottom { get; set; }
+        public string? HeaderMarginBottom { get => _explicitNullValueHeaderMarginBottom; set { _explicitNullValueHeaderMarginBottom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header-margin-bottom"); else _explicitNullProperties?.Remove("header-margin-bottom"); } }
+        private string? _explicitNullValueHeaderMarginBottom = default!;
 #nullable restore
 #else
-        public string HeaderMarginBottom { get; set; }
+        public string HeaderMarginBottom { get => _explicitNullValueHeaderMarginBottom; set { _explicitNullValueHeaderMarginBottom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("header-margin-bottom"); else _explicitNullProperties?.Remove("header-margin-bottom"); } }
+        private string _explicitNullValueHeaderMarginBottom = default!;
 #endif
         /// <summary>The iconColorBackground property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IconColorBackground { get; set; }
+        public string? IconColorBackground { get => _explicitNullValueIconColorBackground; set { _explicitNullValueIconColorBackground = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icon-color-background"); else _explicitNullProperties?.Remove("icon-color-background"); } }
+        private string? _explicitNullValueIconColorBackground = default!;
 #nullable restore
 #else
-        public string IconColorBackground { get; set; }
+        public string IconColorBackground { get => _explicitNullValueIconColorBackground; set { _explicitNullValueIconColorBackground = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icon-color-background"); else _explicitNullProperties?.Remove("icon-color-background"); } }
+        private string _explicitNullValueIconColorBackground = default!;
 #endif
         /// <summary>The iconColorGovernmentIdType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IconColorGovernmentIdType { get; set; }
+        public string? IconColorGovernmentIdType { get => _explicitNullValueIconColorGovernmentIdType; set { _explicitNullValueIconColorGovernmentIdType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icon-color-government-id-type"); else _explicitNullProperties?.Remove("icon-color-government-id-type"); } }
+        private string? _explicitNullValueIconColorGovernmentIdType = default!;
 #nullable restore
 #else
-        public string IconColorGovernmentIdType { get; set; }
+        public string IconColorGovernmentIdType { get => _explicitNullValueIconColorGovernmentIdType; set { _explicitNullValueIconColorGovernmentIdType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icon-color-government-id-type"); else _explicitNullProperties?.Remove("icon-color-government-id-type"); } }
+        private string _explicitNullValueIconColorGovernmentIdType = default!;
 #endif
         /// <summary>The iconColorHighlight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IconColorHighlight { get; set; }
+        public string? IconColorHighlight { get => _explicitNullValueIconColorHighlight; set { _explicitNullValueIconColorHighlight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icon-color-highlight"); else _explicitNullProperties?.Remove("icon-color-highlight"); } }
+        private string? _explicitNullValueIconColorHighlight = default!;
 #nullable restore
 #else
-        public string IconColorHighlight { get; set; }
+        public string IconColorHighlight { get => _explicitNullValueIconColorHighlight; set { _explicitNullValueIconColorHighlight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icon-color-highlight"); else _explicitNullProperties?.Remove("icon-color-highlight"); } }
+        private string _explicitNullValueIconColorHighlight = default!;
 #endif
         /// <summary>The iconColorPrimary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IconColorPrimary { get; set; }
+        public string? IconColorPrimary { get => _explicitNullValueIconColorPrimary; set { _explicitNullValueIconColorPrimary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icon-color-primary"); else _explicitNullProperties?.Remove("icon-color-primary"); } }
+        private string? _explicitNullValueIconColorPrimary = default!;
 #nullable restore
 #else
-        public string IconColorPrimary { get; set; }
+        public string IconColorPrimary { get => _explicitNullValueIconColorPrimary; set { _explicitNullValueIconColorPrimary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icon-color-primary"); else _explicitNullProperties?.Remove("icon-color-primary"); } }
+        private string _explicitNullValueIconColorPrimary = default!;
 #endif
         /// <summary>The iconColorStroke property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IconColorStroke { get; set; }
+        public string? IconColorStroke { get => _explicitNullValueIconColorStroke; set { _explicitNullValueIconColorStroke = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icon-color-stroke"); else _explicitNullProperties?.Remove("icon-color-stroke"); } }
+        private string? _explicitNullValueIconColorStroke = default!;
 #nullable restore
 #else
-        public string IconColorStroke { get; set; }
+        public string IconColorStroke { get => _explicitNullValueIconColorStroke; set { _explicitNullValueIconColorStroke = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icon-color-stroke"); else _explicitNullProperties?.Remove("icon-color-stroke"); } }
+        private string _explicitNullValueIconColorStroke = default!;
 #endif
         /// <summary>The iconStyle property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IconStyle { get; set; }
+        public string? IconStyle { get => _explicitNullValueIconStyle; set { _explicitNullValueIconStyle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icon-style"); else _explicitNullProperties?.Remove("icon-style"); } }
+        private string? _explicitNullValueIconStyle = default!;
 #nullable restore
 #else
-        public string IconStyle { get; set; }
+        public string IconStyle { get => _explicitNullValueIconStyle; set { _explicitNullValueIconStyle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("icon-style"); else _explicitNullProperties?.Remove("icon-style"); } }
+        private string _explicitNullValueIconStyle = default!;
 #endif
         /// <summary>The idBackPictographHeight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdBackPictographHeight { get; set; }
+        public string? IdBackPictographHeight { get => _explicitNullValueIdBackPictographHeight; set { _explicitNullValueIdBackPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id-back-pictograph-height"); else _explicitNullProperties?.Remove("id-back-pictograph-height"); } }
+        private string? _explicitNullValueIdBackPictographHeight = default!;
 #nullable restore
 #else
-        public string IdBackPictographHeight { get; set; }
+        public string IdBackPictographHeight { get => _explicitNullValueIdBackPictographHeight; set { _explicitNullValueIdBackPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id-back-pictograph-height"); else _explicitNullProperties?.Remove("id-back-pictograph-height"); } }
+        private string _explicitNullValueIdBackPictographHeight = default!;
 #endif
         /// <summary>The idBackPictographUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdBackPictographUrl { get; set; }
+        public string? IdBackPictographUrl { get => _explicitNullValueIdBackPictographUrl; set { _explicitNullValueIdBackPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id-back-pictograph-url"); else _explicitNullProperties?.Remove("id-back-pictograph-url"); } }
+        private string? _explicitNullValueIdBackPictographUrl = default!;
 #nullable restore
 #else
-        public string IdBackPictographUrl { get; set; }
+        public string IdBackPictographUrl { get => _explicitNullValueIdBackPictographUrl; set { _explicitNullValueIdBackPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id-back-pictograph-url"); else _explicitNullProperties?.Remove("id-back-pictograph-url"); } }
+        private string _explicitNullValueIdBackPictographUrl = default!;
 #endif
         /// <summary>The idFrontPictographHeight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdFrontPictographHeight { get; set; }
+        public string? IdFrontPictographHeight { get => _explicitNullValueIdFrontPictographHeight; set { _explicitNullValueIdFrontPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id-front-pictograph-height"); else _explicitNullProperties?.Remove("id-front-pictograph-height"); } }
+        private string? _explicitNullValueIdFrontPictographHeight = default!;
 #nullable restore
 #else
-        public string IdFrontPictographHeight { get; set; }
+        public string IdFrontPictographHeight { get => _explicitNullValueIdFrontPictographHeight; set { _explicitNullValueIdFrontPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id-front-pictograph-height"); else _explicitNullProperties?.Remove("id-front-pictograph-height"); } }
+        private string _explicitNullValueIdFrontPictographHeight = default!;
 #endif
         /// <summary>The idFrontPictographUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdFrontPictographUrl { get; set; }
+        public string? IdFrontPictographUrl { get => _explicitNullValueIdFrontPictographUrl; set { _explicitNullValueIdFrontPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id-front-pictograph-url"); else _explicitNullProperties?.Remove("id-front-pictograph-url"); } }
+        private string? _explicitNullValueIdFrontPictographUrl = default!;
 #nullable restore
 #else
-        public string IdFrontPictographUrl { get; set; }
+        public string IdFrontPictographUrl { get => _explicitNullValueIdFrontPictographUrl; set { _explicitNullValueIdFrontPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id-front-pictograph-url"); else _explicitNullProperties?.Remove("id-front-pictograph-url"); } }
+        private string _explicitNullValueIdFrontPictographUrl = default!;
 #endif
         /// <summary>The inputStyle property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InputStyle { get; set; }
+        public string? InputStyle { get => _explicitNullValueInputStyle; set { _explicitNullValueInputStyle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input-style"); else _explicitNullProperties?.Remove("input-style"); } }
+        private string? _explicitNullValueInputStyle = default!;
 #nullable restore
 #else
-        public string InputStyle { get; set; }
+        public string InputStyle { get => _explicitNullValueInputStyle; set { _explicitNullValueInputStyle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("input-style"); else _explicitNullProperties?.Remove("input-style"); } }
+        private string _explicitNullValueInputStyle = default!;
 #endif
         /// <summary>The lineHeightBody property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LineHeightBody { get; set; }
+        public string? LineHeightBody { get => _explicitNullValueLineHeightBody; set { _explicitNullValueLineHeightBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("line-height-body"); else _explicitNullProperties?.Remove("line-height-body"); } }
+        private string? _explicitNullValueLineHeightBody = default!;
 #nullable restore
 #else
-        public string LineHeightBody { get; set; }
+        public string LineHeightBody { get => _explicitNullValueLineHeightBody; set { _explicitNullValueLineHeightBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("line-height-body"); else _explicitNullProperties?.Remove("line-height-body"); } }
+        private string _explicitNullValueLineHeightBody = default!;
 #endif
         /// <summary>The lineHeightHeader property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LineHeightHeader { get; set; }
+        public string? LineHeightHeader { get => _explicitNullValueLineHeightHeader; set { _explicitNullValueLineHeightHeader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("line-height-header"); else _explicitNullProperties?.Remove("line-height-header"); } }
+        private string? _explicitNullValueLineHeightHeader = default!;
 #nullable restore
 #else
-        public string LineHeightHeader { get; set; }
+        public string LineHeightHeader { get => _explicitNullValueLineHeightHeader; set { _explicitNullValueLineHeightHeader = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("line-height-header"); else _explicitNullProperties?.Remove("line-height-header"); } }
+        private string _explicitNullValueLineHeightHeader = default!;
 #endif
         /// <summary>The lineHeightSmall property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LineHeightSmall { get; set; }
+        public string? LineHeightSmall { get => _explicitNullValueLineHeightSmall; set { _explicitNullValueLineHeightSmall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("line-height-small"); else _explicitNullProperties?.Remove("line-height-small"); } }
+        private string? _explicitNullValueLineHeightSmall = default!;
 #nullable restore
 #else
-        public string LineHeightSmall { get; set; }
+        public string LineHeightSmall { get => _explicitNullValueLineHeightSmall; set { _explicitNullValueLineHeightSmall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("line-height-small"); else _explicitNullProperties?.Remove("line-height-small"); } }
+        private string _explicitNullValueLineHeightSmall = default!;
 #endif
         /// <summary>The loadingPictographHeight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LoadingPictographHeight { get; set; }
+        public string? LoadingPictographHeight { get => _explicitNullValueLoadingPictographHeight; set { _explicitNullValueLoadingPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loading-pictograph-height"); else _explicitNullProperties?.Remove("loading-pictograph-height"); } }
+        private string? _explicitNullValueLoadingPictographHeight = default!;
 #nullable restore
 #else
-        public string LoadingPictographHeight { get; set; }
+        public string LoadingPictographHeight { get => _explicitNullValueLoadingPictographHeight; set { _explicitNullValueLoadingPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loading-pictograph-height"); else _explicitNullProperties?.Remove("loading-pictograph-height"); } }
+        private string _explicitNullValueLoadingPictographHeight = default!;
 #endif
         /// <summary>The loadingPictographUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LoadingPictographUrl { get; set; }
+        public string? LoadingPictographUrl { get => _explicitNullValueLoadingPictographUrl; set { _explicitNullValueLoadingPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loading-pictograph-url"); else _explicitNullProperties?.Remove("loading-pictograph-url"); } }
+        private string? _explicitNullValueLoadingPictographUrl = default!;
 #nullable restore
 #else
-        public string LoadingPictographUrl { get; set; }
+        public string LoadingPictographUrl { get => _explicitNullValueLoadingPictographUrl; set { _explicitNullValueLoadingPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loading-pictograph-url"); else _explicitNullProperties?.Remove("loading-pictograph-url"); } }
+        private string _explicitNullValueLoadingPictographUrl = default!;
 #endif
         /// <summary>The logo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Logo { get; set; }
+        public string? Logo { get => _explicitNullValueLogo; set { _explicitNullValueLogo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo"); else _explicitNullProperties?.Remove("logo"); } }
+        private string? _explicitNullValueLogo = default!;
 #nullable restore
 #else
-        public string Logo { get; set; }
+        public string Logo { get => _explicitNullValueLogo; set { _explicitNullValueLogo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo"); else _explicitNullProperties?.Remove("logo"); } }
+        private string _explicitNullValueLogo = default!;
 #endif
         /// <summary>The logoData property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LogoData { get; set; }
+        public string? LogoData { get => _explicitNullValueLogoData; set { _explicitNullValueLogoData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo-data"); else _explicitNullProperties?.Remove("logo-data"); } }
+        private string? _explicitNullValueLogoData = default!;
 #nullable restore
 #else
-        public string LogoData { get; set; }
+        public string LogoData { get => _explicitNullValueLogoData; set { _explicitNullValueLogoData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo-data"); else _explicitNullProperties?.Remove("logo-data"); } }
+        private string _explicitNullValueLogoData = default!;
 #endif
         /// <summary>The logoFilename property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LogoFilename { get; set; }
+        public string? LogoFilename { get => _explicitNullValueLogoFilename; set { _explicitNullValueLogoFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo-filename"); else _explicitNullProperties?.Remove("logo-filename"); } }
+        private string? _explicitNullValueLogoFilename = default!;
 #nullable restore
 #else
-        public string LogoFilename { get; set; }
+        public string LogoFilename { get => _explicitNullValueLogoFilename; set { _explicitNullValueLogoFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo-filename"); else _explicitNullProperties?.Remove("logo-filename"); } }
+        private string _explicitNullValueLogoFilename = default!;
 #endif
         /// <summary>The logoUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LogoUrl { get; set; }
+        public string? LogoUrl { get => _explicitNullValueLogoUrl; set { _explicitNullValueLogoUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo-url"); else _explicitNullProperties?.Remove("logo-url"); } }
+        private string? _explicitNullValueLogoUrl = default!;
 #nullable restore
 #else
-        public string LogoUrl { get; set; }
+        public string LogoUrl { get => _explicitNullValueLogoUrl; set { _explicitNullValueLogoUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("logo-url"); else _explicitNullProperties?.Remove("logo-url"); } }
+        private string _explicitNullValueLogoUrl = default!;
 #endif
         /// <summary>The navbarLogoDisplay property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NavbarLogoDisplay { get; set; }
+        public string? NavbarLogoDisplay { get => _explicitNullValueNavbarLogoDisplay; set { _explicitNullValueNavbarLogoDisplay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("navbar-logo-display"); else _explicitNullProperties?.Remove("navbar-logo-display"); } }
+        private string? _explicitNullValueNavbarLogoDisplay = default!;
 #nullable restore
 #else
-        public string NavbarLogoDisplay { get; set; }
+        public string NavbarLogoDisplay { get => _explicitNullValueNavbarLogoDisplay; set { _explicitNullValueNavbarLogoDisplay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("navbar-logo-display"); else _explicitNullProperties?.Remove("navbar-logo-display"); } }
+        private string _explicitNullValueNavbarLogoDisplay = default!;
 #endif
         /// <summary>The pageTransition property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PageTransition { get; set; }
+        public string? PageTransition { get => _explicitNullValuePageTransition; set { _explicitNullValuePageTransition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page-transition"); else _explicitNullProperties?.Remove("page-transition"); } }
+        private string? _explicitNullValuePageTransition = default!;
 #nullable restore
 #else
-        public string PageTransition { get; set; }
+        public string PageTransition { get => _explicitNullValuePageTransition; set { _explicitNullValuePageTransition = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page-transition"); else _explicitNullProperties?.Remove("page-transition"); } }
+        private string _explicitNullValuePageTransition = default!;
 #endif
         /// <summary>The passportFrontPictographHeight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PassportFrontPictographHeight { get; set; }
+        public string? PassportFrontPictographHeight { get => _explicitNullValuePassportFrontPictographHeight; set { _explicitNullValuePassportFrontPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("passport-front-pictograph-height"); else _explicitNullProperties?.Remove("passport-front-pictograph-height"); } }
+        private string? _explicitNullValuePassportFrontPictographHeight = default!;
 #nullable restore
 #else
-        public string PassportFrontPictographHeight { get; set; }
+        public string PassportFrontPictographHeight { get => _explicitNullValuePassportFrontPictographHeight; set { _explicitNullValuePassportFrontPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("passport-front-pictograph-height"); else _explicitNullProperties?.Remove("passport-front-pictograph-height"); } }
+        private string _explicitNullValuePassportFrontPictographHeight = default!;
 #endif
         /// <summary>The passportFrontPictographUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PassportFrontPictographUrl { get; set; }
+        public string? PassportFrontPictographUrl { get => _explicitNullValuePassportFrontPictographUrl; set { _explicitNullValuePassportFrontPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("passport-front-pictograph-url"); else _explicitNullProperties?.Remove("passport-front-pictograph-url"); } }
+        private string? _explicitNullValuePassportFrontPictographUrl = default!;
 #nullable restore
 #else
-        public string PassportFrontPictographUrl { get; set; }
+        public string PassportFrontPictographUrl { get => _explicitNullValuePassportFrontPictographUrl; set { _explicitNullValuePassportFrontPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("passport-front-pictograph-url"); else _explicitNullProperties?.Remove("passport-front-pictograph-url"); } }
+        private string _explicitNullValuePassportFrontPictographUrl = default!;
 #endif
         /// <summary>The passportSignaturePictographHeight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PassportSignaturePictographHeight { get; set; }
+        public string? PassportSignaturePictographHeight { get => _explicitNullValuePassportSignaturePictographHeight; set { _explicitNullValuePassportSignaturePictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("passport-signature-pictograph-height"); else _explicitNullProperties?.Remove("passport-signature-pictograph-height"); } }
+        private string? _explicitNullValuePassportSignaturePictographHeight = default!;
 #nullable restore
 #else
-        public string PassportSignaturePictographHeight { get; set; }
+        public string PassportSignaturePictographHeight { get => _explicitNullValuePassportSignaturePictographHeight; set { _explicitNullValuePassportSignaturePictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("passport-signature-pictograph-height"); else _explicitNullProperties?.Remove("passport-signature-pictograph-height"); } }
+        private string _explicitNullValuePassportSignaturePictographHeight = default!;
 #endif
         /// <summary>The passportSignaturePictographUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PassportSignaturePictographUrl { get; set; }
+        public string? PassportSignaturePictographUrl { get => _explicitNullValuePassportSignaturePictographUrl; set { _explicitNullValuePassportSignaturePictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("passport-signature-pictograph-url"); else _explicitNullProperties?.Remove("passport-signature-pictograph-url"); } }
+        private string? _explicitNullValuePassportSignaturePictographUrl = default!;
 #nullable restore
 #else
-        public string PassportSignaturePictographUrl { get; set; }
+        public string PassportSignaturePictographUrl { get => _explicitNullValuePassportSignaturePictographUrl; set { _explicitNullValuePassportSignaturePictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("passport-signature-pictograph-url"); else _explicitNullProperties?.Remove("passport-signature-pictograph-url"); } }
+        private string _explicitNullValuePassportSignaturePictographUrl = default!;
 #endif
         /// <summary>The selfieCenterPictographHeight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelfieCenterPictographHeight { get; set; }
+        public string? SelfieCenterPictographHeight { get => _explicitNullValueSelfieCenterPictographHeight; set { _explicitNullValueSelfieCenterPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-center-pictograph-height"); else _explicitNullProperties?.Remove("selfie-center-pictograph-height"); } }
+        private string? _explicitNullValueSelfieCenterPictographHeight = default!;
 #nullable restore
 #else
-        public string SelfieCenterPictographHeight { get; set; }
+        public string SelfieCenterPictographHeight { get => _explicitNullValueSelfieCenterPictographHeight; set { _explicitNullValueSelfieCenterPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-center-pictograph-height"); else _explicitNullProperties?.Remove("selfie-center-pictograph-height"); } }
+        private string _explicitNullValueSelfieCenterPictographHeight = default!;
 #endif
         /// <summary>The selfieCenterPictographUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelfieCenterPictographUrl { get; set; }
+        public string? SelfieCenterPictographUrl { get => _explicitNullValueSelfieCenterPictographUrl; set { _explicitNullValueSelfieCenterPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-center-pictograph-url"); else _explicitNullProperties?.Remove("selfie-center-pictograph-url"); } }
+        private string? _explicitNullValueSelfieCenterPictographUrl = default!;
 #nullable restore
 #else
-        public string SelfieCenterPictographUrl { get; set; }
+        public string SelfieCenterPictographUrl { get => _explicitNullValueSelfieCenterPictographUrl; set { _explicitNullValueSelfieCenterPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-center-pictograph-url"); else _explicitNullProperties?.Remove("selfie-center-pictograph-url"); } }
+        private string _explicitNullValueSelfieCenterPictographUrl = default!;
 #endif
         /// <summary>The selfieLeftPictographHeight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelfieLeftPictographHeight { get; set; }
+        public string? SelfieLeftPictographHeight { get => _explicitNullValueSelfieLeftPictographHeight; set { _explicitNullValueSelfieLeftPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-left-pictograph-height"); else _explicitNullProperties?.Remove("selfie-left-pictograph-height"); } }
+        private string? _explicitNullValueSelfieLeftPictographHeight = default!;
 #nullable restore
 #else
-        public string SelfieLeftPictographHeight { get; set; }
+        public string SelfieLeftPictographHeight { get => _explicitNullValueSelfieLeftPictographHeight; set { _explicitNullValueSelfieLeftPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-left-pictograph-height"); else _explicitNullProperties?.Remove("selfie-left-pictograph-height"); } }
+        private string _explicitNullValueSelfieLeftPictographHeight = default!;
 #endif
         /// <summary>The selfieLeftPictographUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelfieLeftPictographUrl { get; set; }
+        public string? SelfieLeftPictographUrl { get => _explicitNullValueSelfieLeftPictographUrl; set { _explicitNullValueSelfieLeftPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-left-pictograph-url"); else _explicitNullProperties?.Remove("selfie-left-pictograph-url"); } }
+        private string? _explicitNullValueSelfieLeftPictographUrl = default!;
 #nullable restore
 #else
-        public string SelfieLeftPictographUrl { get; set; }
+        public string SelfieLeftPictographUrl { get => _explicitNullValueSelfieLeftPictographUrl; set { _explicitNullValueSelfieLeftPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-left-pictograph-url"); else _explicitNullProperties?.Remove("selfie-left-pictograph-url"); } }
+        private string _explicitNullValueSelfieLeftPictographUrl = default!;
 #endif
         /// <summary>The selfiePictographHeight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelfiePictographHeight { get; set; }
+        public string? SelfiePictographHeight { get => _explicitNullValueSelfiePictographHeight; set { _explicitNullValueSelfiePictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-pictograph-height"); else _explicitNullProperties?.Remove("selfie-pictograph-height"); } }
+        private string? _explicitNullValueSelfiePictographHeight = default!;
 #nullable restore
 #else
-        public string SelfiePictographHeight { get; set; }
+        public string SelfiePictographHeight { get => _explicitNullValueSelfiePictographHeight; set { _explicitNullValueSelfiePictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-pictograph-height"); else _explicitNullProperties?.Remove("selfie-pictograph-height"); } }
+        private string _explicitNullValueSelfiePictographHeight = default!;
 #endif
         /// <summary>The selfiePictographUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelfiePictographUrl { get; set; }
+        public string? SelfiePictographUrl { get => _explicitNullValueSelfiePictographUrl; set { _explicitNullValueSelfiePictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-pictograph-url"); else _explicitNullProperties?.Remove("selfie-pictograph-url"); } }
+        private string? _explicitNullValueSelfiePictographUrl = default!;
 #nullable restore
 #else
-        public string SelfiePictographUrl { get; set; }
+        public string SelfiePictographUrl { get => _explicitNullValueSelfiePictographUrl; set { _explicitNullValueSelfiePictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-pictograph-url"); else _explicitNullProperties?.Remove("selfie-pictograph-url"); } }
+        private string _explicitNullValueSelfiePictographUrl = default!;
 #endif
         /// <summary>The selfieRightPictographHeight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelfieRightPictographHeight { get; set; }
+        public string? SelfieRightPictographHeight { get => _explicitNullValueSelfieRightPictographHeight; set { _explicitNullValueSelfieRightPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-right-pictograph-height"); else _explicitNullProperties?.Remove("selfie-right-pictograph-height"); } }
+        private string? _explicitNullValueSelfieRightPictographHeight = default!;
 #nullable restore
 #else
-        public string SelfieRightPictographHeight { get; set; }
+        public string SelfieRightPictographHeight { get => _explicitNullValueSelfieRightPictographHeight; set { _explicitNullValueSelfieRightPictographHeight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-right-pictograph-height"); else _explicitNullProperties?.Remove("selfie-right-pictograph-height"); } }
+        private string _explicitNullValueSelfieRightPictographHeight = default!;
 #endif
         /// <summary>The selfieRightPictographUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelfieRightPictographUrl { get; set; }
+        public string? SelfieRightPictographUrl { get => _explicitNullValueSelfieRightPictographUrl; set { _explicitNullValueSelfieRightPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-right-pictograph-url"); else _explicitNullProperties?.Remove("selfie-right-pictograph-url"); } }
+        private string? _explicitNullValueSelfieRightPictographUrl = default!;
 #nullable restore
 #else
-        public string SelfieRightPictographUrl { get; set; }
+        public string SelfieRightPictographUrl { get => _explicitNullValueSelfieRightPictographUrl; set { _explicitNullValueSelfieRightPictographUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-right-pictograph-url"); else _explicitNullProperties?.Remove("selfie-right-pictograph-url"); } }
+        private string _explicitNullValueSelfieRightPictographUrl = default!;
 #endif
         /// <summary>The textAlign property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TextAlign { get; set; }
+        public string? TextAlign { get => _explicitNullValueTextAlign; set { _explicitNullValueTextAlign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text-align"); else _explicitNullProperties?.Remove("text-align"); } }
+        private string? _explicitNullValueTextAlign = default!;
 #nullable restore
 #else
-        public string TextAlign { get; set; }
+        public string TextAlign { get => _explicitNullValueTextAlign; set { _explicitNullValueTextAlign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text-align"); else _explicitNullProperties?.Remove("text-align"); } }
+        private string _explicitNullValueTextAlign = default!;
 #endif
         /// <summary>The textDecorationLineLink property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TextDecorationLineLink { get; set; }
+        public string? TextDecorationLineLink { get => _explicitNullValueTextDecorationLineLink; set { _explicitNullValueTextDecorationLineLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text-decoration-line-link"); else _explicitNullProperties?.Remove("text-decoration-line-link"); } }
+        private string? _explicitNullValueTextDecorationLineLink = default!;
 #nullable restore
 #else
-        public string TextDecorationLineLink { get; set; }
+        public string TextDecorationLineLink { get => _explicitNullValueTextDecorationLineLink; set { _explicitNullValueTextDecorationLineLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("text-decoration-line-link"); else _explicitNullProperties?.Remove("text-decoration-line-link"); } }
+        private string _explicitNullValueTextDecorationLineLink = default!;
 #endif
         /// <summary>The usStateInputMethod property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UsStateInputMethod { get; set; }
+        public string? UsStateInputMethod { get => _explicitNullValueUsStateInputMethod; set { _explicitNullValueUsStateInputMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("us-state-input-method"); else _explicitNullProperties?.Remove("us-state-input-method"); } }
+        private string? _explicitNullValueUsStateInputMethod = default!;
 #nullable restore
 #else
-        public string UsStateInputMethod { get; set; }
+        public string UsStateInputMethod { get => _explicitNullValueUsStateInputMethod; set { _explicitNullValueUsStateInputMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("us-state-input-method"); else _explicitNullProperties?.Remove("us-state-input-method"); } }
+        private string _explicitNullValueUsStateInputMethod = default!;
 #endif
         /// <summary>The verticalOptionsStyle property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VerticalOptionsStyle { get; set; }
+        public string? VerticalOptionsStyle { get => _explicitNullValueVerticalOptionsStyle; set { _explicitNullValueVerticalOptionsStyle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vertical-options-style"); else _explicitNullProperties?.Remove("vertical-options-style"); } }
+        private string? _explicitNullValueVerticalOptionsStyle = default!;
 #nullable restore
 #else
-        public string VerticalOptionsStyle { get; set; }
+        public string VerticalOptionsStyle { get => _explicitNullValueVerticalOptionsStyle; set { _explicitNullValueVerticalOptionsStyle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vertical-options-style"); else _explicitNullProperties?.Remove("vertical-options-style"); } }
+        private string _explicitNullValueVerticalOptionsStyle = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -724,7 +995,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesTheme CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesTheme();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersionAttributesTheme(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -918,7 +1189,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("text-align", TextAlign);
             writer.WriteStringValue("text-decoration-line-link", TextDecorationLineLink);
             writer.WriteStringValue("us-state-input-method", UsStateInputMethod);
-            writer.WriteStringValue("vertical-options-style", VerticalOptionsStyle);
+            writer.WriteStringValue("vertical-options-style", VerticalOptionsStyle);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

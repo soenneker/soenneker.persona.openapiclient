@@ -12,22 +12,35 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookVerificationUpdatedTagsRequestDataAttributesContext : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("added-tags") is { } nullNodeAddedTags && nullNodeAddedTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddedTags = null;
+            if (parseNode.GetChildNode("removed-tags") is { } nullNodeRemovedTags && nullNodeRemovedTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemovedTags = null;
+        }
+
         /// <summary>Names of tags added by this update. Empty if none were added.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AddedTags { get; set; }
+        public List<string>? AddedTags { get => _explicitNullValueAddedTags; set { _explicitNullValueAddedTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("added-tags"); else _explicitNullProperties?.Remove("added-tags"); } }
+        private List<string>? _explicitNullValueAddedTags = default!;
 #nullable restore
 #else
-        public List<string> AddedTags { get; set; }
+        public List<string> AddedTags { get => _explicitNullValueAddedTags; set { _explicitNullValueAddedTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("added-tags"); else _explicitNullProperties?.Remove("added-tags"); } }
+        private List<string> _explicitNullValueAddedTags = default!;
 #endif
         /// <summary>Names of tags removed by this update. Empty if none were removed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RemovedTags { get; set; }
+        public List<string>? RemovedTags { get => _explicitNullValueRemovedTags; set { _explicitNullValueRemovedTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("removed-tags"); else _explicitNullProperties?.Remove("removed-tags"); } }
+        private List<string>? _explicitNullValueRemovedTags = default!;
 #nullable restore
 #else
-        public List<string> RemovedTags { get; set; }
+        public List<string> RemovedTags { get => _explicitNullValueRemovedTags; set { _explicitNullValueRemovedTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("removed-tags"); else _explicitNullProperties?.Remove("removed-tags"); } }
+        private List<string> _explicitNullValueRemovedTags = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,7 +50,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.WebhookVerificationUpdatedTagsRequestDataAttributesContext CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.WebhookVerificationUpdatedTagsRequestDataAttributesContext();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.WebhookVerificationUpdatedTagsRequestDataAttributesContext(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +72,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("added-tags", AddedTags);
-            writer.WriteCollectionOfPrimitiveValues<string>("removed-tags", RemovedTags);
+            writer.WriteCollectionOfPrimitiveValues<string>("removed-tags", RemovedTags);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

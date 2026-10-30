@@ -12,7 +12,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DocumentIncludedObjectsItem : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentFile"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,29 +78,34 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var result = new global::Soenneker.Persona.OpenApiClient.Models.DocumentIncludedObjectsItem();
             if("document-file".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.DocumentFile = new global::Soenneker.Persona.OpenApiClient.Models.DocumentFile();
+                
             }
             else if("inquiry".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();
+                
             }
             else if("inquiry-template".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InquiryTemplate = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate();
+                
             }
             else if("inquiry-template-version".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InquiryTemplateVersion = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion();
+                
             }
             else if("template".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.Template = new global::Soenneker.Persona.OpenApiClient.Models.Template();
+                
             }
             else if("transaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.Transaction = new global::Soenneker.Persona.OpenApiClient.Models.Transaction();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("inquiry".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("id") != null && parseNode.GetChildNode("attributes") != null && parseNode.GetChildNode("relationships") != null))();
+            if (result.DocumentFile == null && result.Inquiry == null && result.InquiryTemplate == null && result.InquiryTemplateVersion == null && result.Template == null && result.Transaction == null && matchesUnionBranch0) result.Inquiry = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.Inquiry(), parseNode);
+            if (result.DocumentFile == null && result.Inquiry == null && result.InquiryTemplate == null && result.InquiryTemplateVersion == null && result.Template == null && result.Transaction == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -135,29 +145,44 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (DocumentFile == null && Inquiry == null && InquiryTemplate == null && InquiryTemplateVersion == null && Template == null && Transaction == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (DocumentFile != null && Inquiry == null && InquiryTemplate == null && InquiryTemplateVersion == null && Template == null && Transaction == null) { if (DocumentFile is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DocumentFile); return; }
+            if (Inquiry != null && DocumentFile == null && InquiryTemplate == null && InquiryTemplateVersion == null && Template == null && Transaction == null) { if (Inquiry is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Inquiry); return; }
+            if (InquiryTemplate != null && DocumentFile == null && Inquiry == null && InquiryTemplateVersion == null && Template == null && Transaction == null) { if (InquiryTemplate is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InquiryTemplate); return; }
+            if (InquiryTemplateVersion != null && DocumentFile == null && Inquiry == null && InquiryTemplate == null && Template == null && Transaction == null) { if (InquiryTemplateVersion is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InquiryTemplateVersion); return; }
+            if (Template != null && DocumentFile == null && Inquiry == null && InquiryTemplate == null && InquiryTemplateVersion == null && Transaction == null) { if (Template is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Template); return; }
+            if (Transaction != null && DocumentFile == null && Inquiry == null && InquiryTemplate == null && InquiryTemplateVersion == null && Template == null) { if (Transaction is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Transaction); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(DocumentFile != null)
             {
+                if (DocumentFile is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentFile>(null, DocumentFile);
             }
             else if(Inquiry != null)
             {
+                if (Inquiry is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry>(null, Inquiry);
             }
             else if(InquiryTemplate != null)
             {
+                if (InquiryTemplate is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate>(null, InquiryTemplate);
             }
             else if(InquiryTemplateVersion != null)
             {
+                if (InquiryTemplateVersion is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion>(null, InquiryTemplateVersion);
             }
             else if(Template != null)
             {
+                if (Template is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Template>(null, Template);
             }
             else if(Transaction != null)
             {
+                if (Transaction is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Transaction>(null, Transaction);
             }
         }

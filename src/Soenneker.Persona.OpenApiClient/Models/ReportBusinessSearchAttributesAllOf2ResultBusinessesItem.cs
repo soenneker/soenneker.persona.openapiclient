@@ -11,62 +11,90 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReportBusinessSearchAttributesAllOf2ResultBusinessesItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("addresses") is { } nullNodeAddresses && nullNodeAddresses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Addresses = null;
+            if (parseNode.GetChildNode("business-name") is { } nullNodeBusinessName && nullNodeBusinessName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessName = null;
+            if (parseNode.GetChildNode("employer-identification-number") is { } nullNodeEmployerIdentificationNumber && nullNodeEmployerIdentificationNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmployerIdentificationNumber = null;
+            if (parseNode.GetChildNode("entity-type") is { } nullNodeEntityType && nullNodeEntityType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EntityType = null;
+            if (parseNode.GetChildNode("incorporation-date") is { } nullNodeIncorporationDate && nullNodeIncorporationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncorporationDate = null;
+            if (parseNode.GetChildNode("registration-number") is { } nullNodeRegistrationNumber && nullNodeRegistrationNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistrationNumber = null;
+            if (parseNode.GetChildNode("ubos") is { } nullNodeUbos && nullNodeUbos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ubos = null;
+        }
+
         /// <summary>The addresses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItemAddressesItem>? Addresses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItemAddressesItem>? Addresses { get => _explicitNullValueAddresses; set { _explicitNullValueAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addresses"); else _explicitNullProperties?.Remove("addresses"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItemAddressesItem>? _explicitNullValueAddresses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItemAddressesItem> Addresses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItemAddressesItem> Addresses { get => _explicitNullValueAddresses; set { _explicitNullValueAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addresses"); else _explicitNullProperties?.Remove("addresses"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItemAddressesItem> _explicitNullValueAddresses = default!;
 #endif
         /// <summary>The businessName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BusinessName { get; set; }
+        public string? BusinessName { get => _explicitNullValueBusinessName; set { _explicitNullValueBusinessName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business-name"); else _explicitNullProperties?.Remove("business-name"); } }
+        private string? _explicitNullValueBusinessName = default!;
 #nullable restore
 #else
-        public string BusinessName { get; set; }
+        public string BusinessName { get => _explicitNullValueBusinessName; set { _explicitNullValueBusinessName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business-name"); else _explicitNullProperties?.Remove("business-name"); } }
+        private string _explicitNullValueBusinessName = default!;
 #endif
         /// <summary>US federal tax identifier. Populated on United States results only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EmployerIdentificationNumber { get; set; }
+        public string? EmployerIdentificationNumber { get => _explicitNullValueEmployerIdentificationNumber; set { _explicitNullValueEmployerIdentificationNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("employer-identification-number"); else _explicitNullProperties?.Remove("employer-identification-number"); } }
+        private string? _explicitNullValueEmployerIdentificationNumber = default!;
 #nullable restore
 #else
-        public string EmployerIdentificationNumber { get; set; }
+        public string EmployerIdentificationNumber { get => _explicitNullValueEmployerIdentificationNumber; set { _explicitNullValueEmployerIdentificationNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("employer-identification-number"); else _explicitNullProperties?.Remove("employer-identification-number"); } }
+        private string _explicitNullValueEmployerIdentificationNumber = default!;
 #endif
         /// <summary>Legal form of the business. Best effort — United States results resolved through Dun &amp; Bradstreet do not carry one.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EntityType { get; set; }
+        public string? EntityType { get => _explicitNullValueEntityType; set { _explicitNullValueEntityType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entity-type"); else _explicitNullProperties?.Remove("entity-type"); } }
+        private string? _explicitNullValueEntityType = default!;
 #nullable restore
 #else
-        public string EntityType { get; set; }
+        public string EntityType { get => _explicitNullValueEntityType; set { _explicitNullValueEntityType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entity-type"); else _explicitNullProperties?.Remove("entity-type"); } }
+        private string _explicitNullValueEntityType = default!;
 #endif
         /// <summary>ISO 8601 date of incorporation. Populated on international results only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IncorporationDate { get; set; }
+        public string? IncorporationDate { get => _explicitNullValueIncorporationDate; set { _explicitNullValueIncorporationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("incorporation-date"); else _explicitNullProperties?.Remove("incorporation-date"); } }
+        private string? _explicitNullValueIncorporationDate = default!;
 #nullable restore
 #else
-        public string IncorporationDate { get; set; }
+        public string IncorporationDate { get => _explicitNullValueIncorporationDate; set { _explicitNullValueIncorporationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("incorporation-date"); else _explicitNullProperties?.Remove("incorporation-date"); } }
+        private string _explicitNullValueIncorporationDate = default!;
 #endif
         /// <summary>The registration number issued by the local business registry.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegistrationNumber { get; set; }
+        public string? RegistrationNumber { get => _explicitNullValueRegistrationNumber; set { _explicitNullValueRegistrationNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration-number"); else _explicitNullProperties?.Remove("registration-number"); } }
+        private string? _explicitNullValueRegistrationNumber = default!;
 #nullable restore
 #else
-        public string RegistrationNumber { get; set; }
+        public string RegistrationNumber { get => _explicitNullValueRegistrationNumber; set { _explicitNullValueRegistrationNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration-number"); else _explicitNullProperties?.Remove("registration-number"); } }
+        private string _explicitNullValueRegistrationNumber = default!;
 #endif
         /// <summary>Ultimate Beneficial Owners. Only populated when the report template opts in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItem>? Ubos { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItem>? Ubos { get => _explicitNullValueUbos; set { _explicitNullValueUbos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ubos"); else _explicitNullProperties?.Remove("ubos"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItem>? _explicitNullValueUbos = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItem> Ubos { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItem> Ubos { get => _explicitNullValueUbos; set { _explicitNullValueUbos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ubos"); else _explicitNullProperties?.Remove("ubos"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItem> _explicitNullValueUbos = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -76,7 +104,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -108,7 +136,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("entity-type", EntityType);
             writer.WriteStringValue("incorporation-date", IncorporationDate);
             writer.WriteStringValue("registration-number", RegistrationNumber);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItem>("ubos", Ubos);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessSearchAttributesAllOf2ResultBusinessesItemUbosItem>("ubos", Ubos);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

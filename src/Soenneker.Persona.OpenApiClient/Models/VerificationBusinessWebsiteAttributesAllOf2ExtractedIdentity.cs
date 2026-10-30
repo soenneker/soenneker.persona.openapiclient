@@ -12,38 +12,57 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VerificationBusinessWebsiteAttributesAllOf2ExtractedIdentity : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("addresses") is { } nullNodeAddresses && nullNodeAddresses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Addresses = null;
+            if (parseNode.GetChildNode("business-names") is { } nullNodeBusinessNames && nullNodeBusinessNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessNames = null;
+            if (parseNode.GetChildNode("emails") is { } nullNodeEmails && nullNodeEmails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Emails = null;
+            if (parseNode.GetChildNode("phone-numbers") is { } nullNodePhoneNumbers && nullNodePhoneNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumbers = null;
+        }
+
         /// <summary>Addresses extracted from the website.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>? Addresses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>? Addresses { get => _explicitNullValueAddresses; set { _explicitNullValueAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addresses"); else _explicitNullProperties?.Remove("addresses"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>? _explicitNullValueAddresses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord> Addresses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord> Addresses { get => _explicitNullValueAddresses; set { _explicitNullValueAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addresses"); else _explicitNullProperties?.Remove("addresses"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord> _explicitNullValueAddresses = default!;
 #endif
         /// <summary>Business names extracted from the website.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>? BusinessNames { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>? BusinessNames { get => _explicitNullValueBusinessNames; set { _explicitNullValueBusinessNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business-names"); else _explicitNullProperties?.Remove("business-names"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>? _explicitNullValueBusinessNames = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord> BusinessNames { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord> BusinessNames { get => _explicitNullValueBusinessNames; set { _explicitNullValueBusinessNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business-names"); else _explicitNullProperties?.Remove("business-names"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord> _explicitNullValueBusinessNames = default!;
 #endif
         /// <summary>Email addresses extracted from the website.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>? Emails { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>? Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>? _explicitNullValueEmails = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord> Emails { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord> Emails { get => _explicitNullValueEmails; set { _explicitNullValueEmails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emails"); else _explicitNullProperties?.Remove("emails"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord> _explicitNullValueEmails = default!;
 #endif
         /// <summary>Phone numbers extracted from the website.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>? PhoneNumbers { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>? PhoneNumbers { get => _explicitNullValuePhoneNumbers; set { _explicitNullValuePhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone-numbers"); else _explicitNullProperties?.Remove("phone-numbers"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>? _explicitNullValuePhoneNumbers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord> PhoneNumbers { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord> PhoneNumbers { get => _explicitNullValuePhoneNumbers; set { _explicitNullValuePhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone-numbers"); else _explicitNullProperties?.Remove("phone-numbers"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord> _explicitNullValuePhoneNumbers = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -53,7 +72,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.VerificationBusinessWebsiteAttributesAllOf2ExtractedIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.VerificationBusinessWebsiteAttributesAllOf2ExtractedIdentity();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.VerificationBusinessWebsiteAttributesAllOf2ExtractedIdentity(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,7 +98,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>("addresses", Addresses);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>("business-names", BusinessNames);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>("emails", Emails);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>("phone-numbers", PhoneNumbers);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.BusinessWebsiteExtractedIdentityRecord>("phone-numbers", PhoneNumbers);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

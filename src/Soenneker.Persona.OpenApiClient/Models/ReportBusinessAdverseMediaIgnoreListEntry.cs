@@ -12,42 +12,65 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReportBusinessAdverseMediaIgnoreListEntry : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("entity-id") is { } nullNodeEntityId && nullNodeEntityId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EntityId = null;
+            if (parseNode.GetChildNode("ignored-at") is { } nullNodeIgnoredAt && nullNodeIgnoredAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoredAt = null;
+            if (parseNode.GetChildNode("ignore-reason") is { } nullNodeIgnoreReason && nullNodeIgnoreReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoreReason = null;
+            if (parseNode.GetChildNode("match") is { } nullNodeMatch && nullNodeMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Match = null;
+            if (parseNode.GetChildNode("run-history-completed-at") is { } nullNodeRunHistoryCompletedAt && nullNodeRunHistoryCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunHistoryCompletedAt = null;
+            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+        }
+
         /// <summary>The entityId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EntityId { get; set; }
+        public string? EntityId { get => _explicitNullValueEntityId; set { _explicitNullValueEntityId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entity-id"); else _explicitNullProperties?.Remove("entity-id"); } }
+        private string? _explicitNullValueEntityId = default!;
 #nullable restore
 #else
-        public string EntityId { get; set; }
+        public string EntityId { get => _explicitNullValueEntityId; set { _explicitNullValueEntityId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entity-id"); else _explicitNullProperties?.Remove("entity-id"); } }
+        private string _explicitNullValueEntityId = default!;
 #endif
         /// <summary>The ignoredAt property</summary>
-        public DateTimeOffset? IgnoredAt { get; set; }
+        public DateTimeOffset? IgnoredAt { get => _explicitNullValueIgnoredAt; set { _explicitNullValueIgnoredAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignored-at"); else _explicitNullProperties?.Remove("ignored-at"); } }
+        private DateTimeOffset? _explicitNullValueIgnoredAt = default!;
         /// <summary>The ignoreReason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IgnoreReason { get; set; }
+        public string? IgnoreReason { get => _explicitNullValueIgnoreReason; set { _explicitNullValueIgnoreReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore-reason"); else _explicitNullProperties?.Remove("ignore-reason"); } }
+        private string? _explicitNullValueIgnoreReason = default!;
 #nullable restore
 #else
-        public string IgnoreReason { get; set; }
+        public string IgnoreReason { get => _explicitNullValueIgnoreReason; set { _explicitNullValueIgnoreReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore-reason"); else _explicitNullProperties?.Remove("ignore-reason"); } }
+        private string _explicitNullValueIgnoreReason = default!;
 #endif
         /// <summary>A match that was found (and may have been dismissed) for a Business Adverse Media report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaMatch? Match { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaMatch? Match { get => _explicitNullValueMatch; set { _explicitNullValueMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match"); else _explicitNullProperties?.Remove("match"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaMatch? _explicitNullValueMatch = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaMatch Match { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaMatch Match { get => _explicitNullValueMatch; set { _explicitNullValueMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match"); else _explicitNullProperties?.Remove("match"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaMatch _explicitNullValueMatch = default!;
 #endif
         /// <summary>The runHistoryCompletedAt property</summary>
-        public DateTimeOffset? RunHistoryCompletedAt { get; set; }
+        public DateTimeOffset? RunHistoryCompletedAt { get => _explicitNullValueRunHistoryCompletedAt; set { _explicitNullValueRunHistoryCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("run-history-completed-at"); else _explicitNullProperties?.Remove("run-history-completed-at"); } }
+        private DateTimeOffset? _explicitNullValueRunHistoryCompletedAt = default!;
         /// <summary>The user property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? User { get; set; }
+        public string? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public string User { get; set; }
+        public string User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private string _explicitNullValueUser = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -57,7 +80,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,7 +110,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("ignore-reason", IgnoreReason);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaMatch>("match", Match);
             writer.WriteDateTimeOffsetValue("run-history-completed-at", RunHistoryCompletedAt);
-            writer.WriteStringValue("user", User);
+            writer.WriteStringValue("user", User);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

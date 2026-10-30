@@ -12,38 +12,57 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("client_assertion") is { } nullNodeClientAssertion && nullNodeClientAssertion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientAssertion = null;
+            if (parseNode.GetChildNode("client_assertion_type") is { } nullNodeClientAssertionType && nullNodeClientAssertionType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientAssertionType = null;
+            if (parseNode.GetChildNode("grant_type") is { } nullNodeGrantType && nullNodeGrantType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GrantType = null;
+            if (parseNode.GetChildNode("scope") is { } nullNodeScope && nullNodeScope.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scope = null;
+        }
+
         /// <summary>A signed JWT (RS256 or ES256) with claims: iss, sub (both set to the client_id), aud (the token endpoint URL), jti, iat, and exp (max 5 minutes from now).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientAssertion { get; set; }
+        public string? ClientAssertion { get => _explicitNullValueClientAssertion; set { _explicitNullValueClientAssertion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_assertion"); else _explicitNullProperties?.Remove("client_assertion"); } }
+        private string? _explicitNullValueClientAssertion = default!;
 #nullable restore
 #else
-        public string ClientAssertion { get; set; }
+        public string ClientAssertion { get => _explicitNullValueClientAssertion; set { _explicitNullValueClientAssertion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_assertion"); else _explicitNullProperties?.Remove("client_assertion"); } }
+        private string _explicitNullValueClientAssertion = default!;
 #endif
         /// <summary>Must be &apos;urn:ietf:params:oauth:client-assertion-type:jwt-bearer&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientAssertionType { get; set; }
+        public string? ClientAssertionType { get => _explicitNullValueClientAssertionType; set { _explicitNullValueClientAssertionType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_assertion_type"); else _explicitNullProperties?.Remove("client_assertion_type"); } }
+        private string? _explicitNullValueClientAssertionType = default!;
 #nullable restore
 #else
-        public string ClientAssertionType { get; set; }
+        public string ClientAssertionType { get => _explicitNullValueClientAssertionType; set { _explicitNullValueClientAssertionType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_assertion_type"); else _explicitNullProperties?.Remove("client_assertion_type"); } }
+        private string _explicitNullValueClientAssertionType = default!;
 #endif
         /// <summary>Must be set to &apos;client_credentials&apos;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GrantType { get; set; }
+        public string? GrantType { get => _explicitNullValueGrantType; set { _explicitNullValueGrantType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grant_type"); else _explicitNullProperties?.Remove("grant_type"); } }
+        private string? _explicitNullValueGrantType = default!;
 #nullable restore
 #else
-        public string GrantType { get; set; }
+        public string GrantType { get => _explicitNullValueGrantType; set { _explicitNullValueGrantType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grant_type"); else _explicitNullProperties?.Remove("grant_type"); } }
+        private string _explicitNullValueGrantType = default!;
 #endif
         /// <summary>Optional space-separated list of permissions to request. Must be a subset of the OAuth client&apos;s registered permissions. Defaults to all client permissions if omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Scope { get; set; }
+        public string? Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
+        private string? _explicitNullValueScope = default!;
 #nullable restore
 #else
-        public string Scope { get; set; }
+        public string Scope { get => _explicitNullValueScope; set { _explicitNullValueScope = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scope"); else _explicitNullProperties?.Remove("scope"); } }
+        private string _explicitNullValueScope = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -53,7 +72,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.CreateAccessTokenXWwwFormUrlencodedRequestClientCredentials(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,7 +98,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("client_assertion", ClientAssertion);
             writer.WriteStringValue("client_assertion_type", ClientAssertionType);
             writer.WriteStringValue("grant_type", GrantType);
-            writer.WriteStringValue("scope", Scope);
+            writer.WriteStringValue("scope", Scope);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

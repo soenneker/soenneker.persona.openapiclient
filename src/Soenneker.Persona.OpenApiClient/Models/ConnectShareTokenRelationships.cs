@@ -11,38 +11,57 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ConnectShareTokenRelationships : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("connection") is { } nullNodeConnection && nullNodeConnection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Connection = null;
+            if (parseNode.GetChildNode("creator") is { } nullNodeCreator && nullNodeCreator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Creator = null;
+            if (parseNode.GetChildNode("destination") is { } nullNodeDestination && nullNodeDestination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Destination = null;
+            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+        }
+
         /// <summary>The connection property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsConnection? Connection { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsConnection? Connection { get => _explicitNullValueConnection; set { _explicitNullValueConnection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection"); else _explicitNullProperties?.Remove("connection"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsConnection? _explicitNullValueConnection = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsConnection Connection { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsConnection Connection { get => _explicitNullValueConnection; set { _explicitNullValueConnection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("connection"); else _explicitNullProperties?.Remove("connection"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsConnection _explicitNullValueConnection = default!;
 #endif
         /// <summary>The creator property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsCreator? Creator { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsCreator? Creator { get => _explicitNullValueCreator; set { _explicitNullValueCreator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creator"); else _explicitNullProperties?.Remove("creator"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsCreator? _explicitNullValueCreator = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsCreator Creator { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsCreator Creator { get => _explicitNullValueCreator; set { _explicitNullValueCreator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creator"); else _explicitNullProperties?.Remove("creator"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsCreator _explicitNullValueCreator = default!;
 #endif
         /// <summary>The destination object associated with redemption. For hydration, this is the objectspecified by `destination-id`. For cloning, no destination is set until Persona createsthe destination object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsDestination? Destination { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsDestination? Destination { get => _explicitNullValueDestination; set { _explicitNullValueDestination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination"); else _explicitNullProperties?.Remove("destination"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsDestination? _explicitNullValueDestination = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsDestination Destination { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsDestination Destination { get => _explicitNullValueDestination; set { _explicitNullValueDestination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination"); else _explicitNullProperties?.Remove("destination"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsDestination _explicitNullValueDestination = default!;
 #endif
         /// <summary>The object from which the shared data originated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsSource? Source { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsSource? _explicitNullValueSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsSource Source { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsSource _explicitNullValueSource = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -52,7 +71,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationships CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationships();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationships(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,7 +97,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsConnection>("connection", Connection);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsCreator>("creator", Creator);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsDestination>("destination", Destination);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsSource>("source", Source);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsSource>("source", Source);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

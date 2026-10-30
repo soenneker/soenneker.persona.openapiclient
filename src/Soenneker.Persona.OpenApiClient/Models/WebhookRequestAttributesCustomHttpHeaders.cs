@@ -12,48 +12,70 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookRequestAttributesCustomHttpHeaders : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("Authorization") is { } nullNodeAuthorization && nullNodeAuthorization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Authorization = null;
+            if (parseNode.GetChildNode("Calling-Application") is { } nullNodeCallingApplication && nullNodeCallingApplication.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CallingApplication = null;
+            if (parseNode.GetChildNode("CF-Access-Client-Id") is { } nullNodeCFAccessClientId && nullNodeCFAccessClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CFAccessClientId = null;
+            if (parseNode.GetChildNode("CF-Access-Client-Secret") is { } nullNodeCFAccessClientSecret && nullNodeCFAccessClientSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CFAccessClientSecret = null;
+            if (parseNode.GetChildNode("X-API-Key") is { } nullNodeXAPIKey && nullNodeXAPIKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) XAPIKey = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Authorization property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Authorization { get; set; }
+        public string? Authorization { get => _explicitNullValueAuthorization; set { _explicitNullValueAuthorization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Authorization"); else _explicitNullProperties?.Remove("Authorization"); } }
+        private string? _explicitNullValueAuthorization = default!;
 #nullable restore
 #else
-        public string Authorization { get; set; }
+        public string Authorization { get => _explicitNullValueAuthorization; set { _explicitNullValueAuthorization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Authorization"); else _explicitNullProperties?.Remove("Authorization"); } }
+        private string _explicitNullValueAuthorization = default!;
 #endif
         /// <summary>The CallingApplication property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CallingApplication { get; set; }
+        public string? CallingApplication { get => _explicitNullValueCallingApplication; set { _explicitNullValueCallingApplication = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Calling-Application"); else _explicitNullProperties?.Remove("Calling-Application"); } }
+        private string? _explicitNullValueCallingApplication = default!;
 #nullable restore
 #else
-        public string CallingApplication { get; set; }
+        public string CallingApplication { get => _explicitNullValueCallingApplication; set { _explicitNullValueCallingApplication = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("Calling-Application"); else _explicitNullProperties?.Remove("Calling-Application"); } }
+        private string _explicitNullValueCallingApplication = default!;
 #endif
         /// <summary>The CFAccessClientId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CFAccessClientId { get; set; }
+        public string? CFAccessClientId { get => _explicitNullValueCFAccessClientId; set { _explicitNullValueCFAccessClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CF-Access-Client-Id"); else _explicitNullProperties?.Remove("CF-Access-Client-Id"); } }
+        private string? _explicitNullValueCFAccessClientId = default!;
 #nullable restore
 #else
-        public string CFAccessClientId { get; set; }
+        public string CFAccessClientId { get => _explicitNullValueCFAccessClientId; set { _explicitNullValueCFAccessClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CF-Access-Client-Id"); else _explicitNullProperties?.Remove("CF-Access-Client-Id"); } }
+        private string _explicitNullValueCFAccessClientId = default!;
 #endif
         /// <summary>The CFAccessClientSecret property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CFAccessClientSecret { get; set; }
+        public string? CFAccessClientSecret { get => _explicitNullValueCFAccessClientSecret; set { _explicitNullValueCFAccessClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CF-Access-Client-Secret"); else _explicitNullProperties?.Remove("CF-Access-Client-Secret"); } }
+        private string? _explicitNullValueCFAccessClientSecret = default!;
 #nullable restore
 #else
-        public string CFAccessClientSecret { get; set; }
+        public string CFAccessClientSecret { get => _explicitNullValueCFAccessClientSecret; set { _explicitNullValueCFAccessClientSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("CF-Access-Client-Secret"); else _explicitNullProperties?.Remove("CF-Access-Client-Secret"); } }
+        private string _explicitNullValueCFAccessClientSecret = default!;
 #endif
         /// <summary>The XAPIKey property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? XAPIKey { get; set; }
+        public string? XAPIKey { get => _explicitNullValueXAPIKey; set { _explicitNullValueXAPIKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("X-API-Key"); else _explicitNullProperties?.Remove("X-API-Key"); } }
+        private string? _explicitNullValueXAPIKey = default!;
 #nullable restore
 #else
-        public string XAPIKey { get; set; }
+        public string XAPIKey { get => _explicitNullValueXAPIKey; set { _explicitNullValueXAPIKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("X-API-Key"); else _explicitNullProperties?.Remove("X-API-Key"); } }
+        private string _explicitNullValueXAPIKey = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesCustomHttpHeaders"/> and sets the default values.
@@ -70,7 +92,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesCustomHttpHeaders CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesCustomHttpHeaders();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.WebhookRequestAttributesCustomHttpHeaders(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,6 +121,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("CF-Access-Client-Id", CFAccessClientId);
             writer.WriteStringValue("CF-Access-Client-Secret", CFAccessClientSecret);
             writer.WriteStringValue("X-API-Key", XAPIKey);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

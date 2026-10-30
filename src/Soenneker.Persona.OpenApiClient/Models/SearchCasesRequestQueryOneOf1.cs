@@ -12,14 +12,24 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SearchCasesRequestQueryOneOf1 : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("and") is { } nullNodeAnd && nullNodeAnd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) And = null;
+        }
+
         /// <summary>The and property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.SearchCasesRequestQueryOneOf1AndItem>? And { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.SearchCasesRequestQueryOneOf1AndItem>? And { get => _explicitNullValueAnd; set { _explicitNullValueAnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("and"); else _explicitNullProperties?.Remove("and"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.SearchCasesRequestQueryOneOf1AndItem>? _explicitNullValueAnd = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.SearchCasesRequestQueryOneOf1AndItem> And { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.SearchCasesRequestQueryOneOf1AndItem> And { get => _explicitNullValueAnd; set { _explicitNullValueAnd = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("and"); else _explicitNullProperties?.Remove("and"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.SearchCasesRequestQueryOneOf1AndItem> _explicitNullValueAnd = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -29,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.SearchCasesRequestQueryOneOf1 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.SearchCasesRequestQueryOneOf1();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.SearchCasesRequestQueryOneOf1(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,7 +59,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.SearchCasesRequestQueryOneOf1AndItem>("and", And);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.SearchCasesRequestQueryOneOf1AndItem>("and", And);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

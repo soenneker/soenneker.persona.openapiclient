@@ -12,30 +12,46 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ThemeSetStyles : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("dark") is { } nullNodeDark && nullNodeDark.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dark = null;
+            if (parseNode.GetChildNode("light") is { } nullNodeLight && nullNodeLight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Light = null;
+            if (parseNode.GetChildNode("settings") is { } nullNodeSettings && nullNodeSettings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Settings = null;
+        }
+
         /// <summary>One theme variant: `inquiry` holds flow chrome (navbar, modal, hosted flow), `components` holds the per-component style grid (component → variant → state → properties). Value leaves are typed objects such as `{ unit: hex, value: &quot;#111111&quot; }` (color), `{ unit: px, value: 16 }` (size), `{ x: ..., y: ... }` (dimensions) and `{ bitmask: 15 }` (corner mask). The accepted cells are exactly those of the Code-First theme-set YAML shape; a request containing a non-permitted or mistyped cell at any depth is rejected with a 400 naming each offending path. Values that pass the structural check but cannot be reconciled into the stored theme (for example, shared button properties that disagree between the primary, secondary, and tertiary variants) are rejected with a 422.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant? Dark { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant? Dark { get => _explicitNullValueDark; set { _explicitNullValueDark = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dark"); else _explicitNullProperties?.Remove("dark"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant? _explicitNullValueDark = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant Dark { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant Dark { get => _explicitNullValueDark; set { _explicitNullValueDark = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dark"); else _explicitNullProperties?.Remove("dark"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant _explicitNullValueDark = default!;
 #endif
         /// <summary>One theme variant: `inquiry` holds flow chrome (navbar, modal, hosted flow), `components` holds the per-component style grid (component → variant → state → properties). Value leaves are typed objects such as `{ unit: hex, value: &quot;#111111&quot; }` (color), `{ unit: px, value: 16 }` (size), `{ x: ..., y: ... }` (dimensions) and `{ bitmask: 15 }` (corner mask). The accepted cells are exactly those of the Code-First theme-set YAML shape; a request containing a non-permitted or mistyped cell at any depth is rejected with a 400 naming each offending path. Values that pass the structural check but cannot be reconciled into the stored theme (for example, shared button properties that disagree between the primary, secondary, and tertiary variants) are rejected with a 422.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant? Light { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant? Light { get => _explicitNullValueLight; set { _explicitNullValueLight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("light"); else _explicitNullProperties?.Remove("light"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant? _explicitNullValueLight = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant Light { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant Light { get => _explicitNullValueLight; set { _explicitNullValueLight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("light"); else _explicitNullProperties?.Remove("light"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant _explicitNullValueLight = default!;
 #endif
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetStylesSettings? Settings { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetStylesSettings? Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ThemeSetStylesSettings? _explicitNullValueSettings = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetStylesSettings Settings { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetStylesSettings Settings { get => _explicitNullValueSettings; set { _explicitNullValueSettings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("settings"); else _explicitNullProperties?.Remove("settings"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ThemeSetStylesSettings _explicitNullValueSettings = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,7 +61,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ThemeSetStyles CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ThemeSetStyles();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ThemeSetStyles(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +85,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant>("dark", Dark);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant>("light", Light);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ThemeSetStylesSettings>("settings", Settings);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ThemeSetStylesSettings>("settings", Settings);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

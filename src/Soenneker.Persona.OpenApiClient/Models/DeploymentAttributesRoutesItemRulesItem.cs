@@ -11,22 +11,35 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DeploymentAttributesRoutesItemRulesItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("criteria") is { } nullNodeCriteria && nullNodeCriteria.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Criteria = null;
+            if (parseNode.GetChildNode("strategy") is { } nullNodeStrategy && nullNodeStrategy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Strategy = null;
+        }
+
         /// <summary>A deployment route criteria node: an `and`/`or`/`!` operator tree whose `origin` leaves are either `{ context }` or `{ resource-type, template-id, version }`. Version references carry the version token and its deployment tag object (null when the version is untagged). Each operator&apos;s operand may be a single node or a non-empty array of nodes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria? Criteria { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria? Criteria { get => _explicitNullValueCriteria; set { _explicitNullValueCriteria = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("criteria"); else _explicitNullProperties?.Remove("criteria"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria? _explicitNullValueCriteria = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria Criteria { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria Criteria { get => _explicitNullValueCriteria; set { _explicitNullValueCriteria = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("criteria"); else _explicitNullProperties?.Remove("criteria"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria _explicitNullValueCriteria = default!;
 #endif
         /// <summary>The strategy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategy? Strategy { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategy? Strategy { get => _explicitNullValueStrategy; set { _explicitNullValueStrategy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("strategy"); else _explicitNullProperties?.Remove("strategy"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategy? _explicitNullValueStrategy = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategy Strategy { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategy Strategy { get => _explicitNullValueStrategy; set { _explicitNullValueStrategy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("strategy"); else _explicitNullProperties?.Remove("strategy"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategy _explicitNullValueStrategy = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -36,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +71,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteria>("criteria", Criteria);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategy>("strategy", Strategy);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategy>("strategy", Strategy);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

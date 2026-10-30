@@ -11,30 +11,46 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class WorkflowRunRelationships : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("creator") is { } nullNodeCreator && nullNodeCreator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Creator = null;
+            if (parseNode.GetChildNode("workflow") is { } nullNodeWorkflow && nullNodeWorkflow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workflow = null;
+            if (parseNode.GetChildNode("workflow-version") is { } nullNodeWorkflowVersion && nullNodeWorkflowVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowVersion = null;
+        }
+
         /// <summary>The creator property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreator? Creator { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreator? Creator { get => _explicitNullValueCreator; set { _explicitNullValueCreator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creator"); else _explicitNullProperties?.Remove("creator"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreator? _explicitNullValueCreator = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreator Creator { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreator Creator { get => _explicitNullValueCreator; set { _explicitNullValueCreator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creator"); else _explicitNullProperties?.Remove("creator"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreator _explicitNullValueCreator = default!;
 #endif
         /// <summary>The workflow property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsWorkflow? Workflow { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsWorkflow? Workflow { get => _explicitNullValueWorkflow; set { _explicitNullValueWorkflow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow"); else _explicitNullProperties?.Remove("workflow"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsWorkflow? _explicitNullValueWorkflow = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsWorkflow Workflow { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsWorkflow Workflow { get => _explicitNullValueWorkflow; set { _explicitNullValueWorkflow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow"); else _explicitNullProperties?.Remove("workflow"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsWorkflow _explicitNullValueWorkflow = default!;
 #endif
         /// <summary>The workflowVersion property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsWorkflowVersion? WorkflowVersion { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsWorkflowVersion? WorkflowVersion { get => _explicitNullValueWorkflowVersion; set { _explicitNullValueWorkflowVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow-version"); else _explicitNullProperties?.Remove("workflow-version"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsWorkflowVersion? _explicitNullValueWorkflowVersion = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsWorkflowVersion WorkflowVersion { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsWorkflowVersion WorkflowVersion { get => _explicitNullValueWorkflowVersion; set { _explicitNullValueWorkflowVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("workflow-version"); else _explicitNullProperties?.Remove("workflow-version"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsWorkflowVersion _explicitNullValueWorkflowVersion = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,7 +60,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationships CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationships();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationships(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,7 +84,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreator>("creator", Creator);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsWorkflow>("workflow", Workflow);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsWorkflowVersion>("workflow-version", WorkflowVersion);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsWorkflowVersion>("workflow-version", WorkflowVersion);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

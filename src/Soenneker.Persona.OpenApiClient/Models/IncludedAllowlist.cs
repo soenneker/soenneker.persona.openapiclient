@@ -13,6 +13,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class IncludedAllowlist : IAdditionalDataHolder, IComposedTypeWrapper, IParsable
     {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Per-event-type include configuration. At most one entry per event type.</summary>
@@ -68,25 +72,34 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var result = new global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist();
             if("custom".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.IncludedAllowlistCustom = new global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustom();
+                
             }
             else if("include_all".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.IncludedAllowlistIncludeAll = new global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistIncludeAll();
+                
             }
             else if("include_none".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.IncludedAllowlistIncludeNone = new global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistIncludeNone();
+                
             }
-            else if(parseNode.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.IncludeAllState>() is global::Soenneker.Persona.OpenApiClient.Models.IncludeAllState stateValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString unionEnumValue0 && ("include_all".Equals(unionEnumValue0.GetValue(), global::System.StringComparison.OrdinalIgnoreCase)) && parseNode.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.IncludeAllState>() is global::Soenneker.Persona.OpenApiClient.Models.IncludeAllState stateValue)
             {
                 result.State = stateValue;
             }
-            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem>(global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem> eventTypesValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => item is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) && parseNode.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem>(global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem> eventTypesValue)
             {
                 result.EventTypes = eventTypesValue;
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("state") != null && (parseNode.GetChildNode("state")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("include_all".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("state") != null && (parseNode.GetChildNode("state")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("include_none".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("state") != null && (parseNode.GetChildNode("state")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("custom".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("event-types") != null))();
+            if (result.EventTypes == null && result.IncludedAllowlistCustom == null && result.IncludedAllowlistIncludeAll == null && result.IncludedAllowlistIncludeNone == null && result.State == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.IncludedAllowlistIncludeAll = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistIncludeAll(), parseNode);
+            if (result.EventTypes == null && result.IncludedAllowlistCustom == null && result.IncludedAllowlistIncludeAll == null && result.IncludedAllowlistIncludeNone == null && result.State == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.IncludedAllowlistIncludeNone = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistIncludeNone(), parseNode);
+            if (result.EventTypes == null && result.IncludedAllowlistCustom == null && result.IncludedAllowlistIncludeAll == null && result.IncludedAllowlistIncludeNone == null && result.State == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.IncludedAllowlistCustom = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustom(), parseNode);
+            if (result.EventTypes == null && result.IncludedAllowlistCustom == null && result.IncludedAllowlistIncludeAll == null && result.IncludedAllowlistIncludeNone == null && result.State == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -114,17 +127,26 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (EventTypes == null && IncludedAllowlistCustom == null && IncludedAllowlistIncludeAll == null && IncludedAllowlistIncludeNone == null && State == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (IncludedAllowlistCustom != null && EventTypes == null && IncludedAllowlistIncludeAll == null && IncludedAllowlistIncludeNone == null && State == null) { if (IncludedAllowlistCustom is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, IncludedAllowlistCustom); return; }
+            if (IncludedAllowlistIncludeAll != null && EventTypes == null && IncludedAllowlistCustom == null && IncludedAllowlistIncludeNone == null && State == null) { if (IncludedAllowlistIncludeAll is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, IncludedAllowlistIncludeAll); return; }
+            if (IncludedAllowlistIncludeNone != null && EventTypes == null && IncludedAllowlistCustom == null && IncludedAllowlistIncludeAll == null && State == null) { if (IncludedAllowlistIncludeNone is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, IncludedAllowlistIncludeNone); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(IncludedAllowlistCustom != null)
             {
+                if (IncludedAllowlistCustom is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustom>(null, IncludedAllowlistCustom);
             }
             else if(IncludedAllowlistIncludeAll != null)
             {
+                if (IncludedAllowlistIncludeAll is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistIncludeAll>(null, IncludedAllowlistIncludeAll);
             }
             else if(IncludedAllowlistIncludeNone != null)
             {
+                if (IncludedAllowlistIncludeNone is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistIncludeNone>(null, IncludedAllowlistIncludeNone);
             }
             else if(State != null)
@@ -135,7 +157,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlistCustomEventTypesItem>(null, EventTypes);
             }
-            writer.WriteAdditionalData(AdditionalData);
+            
         }
     }
 }

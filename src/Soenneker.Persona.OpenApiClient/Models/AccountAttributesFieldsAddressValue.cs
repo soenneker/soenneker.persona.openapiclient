@@ -11,54 +11,79 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AccountAttributesFieldsAddressValue : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("city") is { } nullNodeCity && nullNodeCity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) City = null;
+            if (parseNode.GetChildNode("country_code") is { } nullNodeCountryCode && nullNodeCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryCode = null;
+            if (parseNode.GetChildNode("postal_code") is { } nullNodePostalCode && nullNodePostalCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostalCode = null;
+            if (parseNode.GetChildNode("street_1") is { } nullNodeStreet1 && nullNodeStreet1.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Street1 = null;
+            if (parseNode.GetChildNode("street_2") is { } nullNodeStreet2 && nullNodeStreet2.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Street2 = null;
+            if (parseNode.GetChildNode("subdivision") is { } nullNodeSubdivision && nullNodeSubdivision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subdivision = null;
+        }
+
         /// <summary>The city property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCity? City { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCity? City { get => _explicitNullValueCity; set { _explicitNullValueCity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("city"); else _explicitNullProperties?.Remove("city"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCity? _explicitNullValueCity = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCity City { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCity City { get => _explicitNullValueCity; set { _explicitNullValueCity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("city"); else _explicitNullProperties?.Remove("city"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCity _explicitNullValueCity = default!;
 #endif
         /// <summary>The country_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCountryCode? CountryCode { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCountryCode? CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country_code"); else _explicitNullProperties?.Remove("country_code"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCountryCode? _explicitNullValueCountryCode = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCountryCode CountryCode { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCountryCode CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country_code"); else _explicitNullProperties?.Remove("country_code"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCountryCode _explicitNullValueCountryCode = default!;
 #endif
         /// <summary>The postal_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValuePostalCode? PostalCode { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValuePostalCode? PostalCode { get => _explicitNullValuePostalCode; set { _explicitNullValuePostalCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postal_code"); else _explicitNullProperties?.Remove("postal_code"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValuePostalCode? _explicitNullValuePostalCode = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValuePostalCode PostalCode { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValuePostalCode PostalCode { get => _explicitNullValuePostalCode; set { _explicitNullValuePostalCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("postal_code"); else _explicitNullProperties?.Remove("postal_code"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValuePostalCode _explicitNullValuePostalCode = default!;
 #endif
         /// <summary>The street_1 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueStreet1? Street1 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueStreet1? Street1 { get => _explicitNullValueStreet1; set { _explicitNullValueStreet1 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("street_1"); else _explicitNullProperties?.Remove("street_1"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueStreet1? _explicitNullValueStreet1 = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueStreet1 Street1 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueStreet1 Street1 { get => _explicitNullValueStreet1; set { _explicitNullValueStreet1 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("street_1"); else _explicitNullProperties?.Remove("street_1"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueStreet1 _explicitNullValueStreet1 = default!;
 #endif
         /// <summary>The street_2 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueStreet2? Street2 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueStreet2? Street2 { get => _explicitNullValueStreet2; set { _explicitNullValueStreet2 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("street_2"); else _explicitNullProperties?.Remove("street_2"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueStreet2? _explicitNullValueStreet2 = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueStreet2 Street2 { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueStreet2 Street2 { get => _explicitNullValueStreet2; set { _explicitNullValueStreet2 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("street_2"); else _explicitNullProperties?.Remove("street_2"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueStreet2 _explicitNullValueStreet2 = default!;
 #endif
         /// <summary>The subdivision property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueSubdivision? Subdivision { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueSubdivision? Subdivision { get => _explicitNullValueSubdivision; set { _explicitNullValueSubdivision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subdivision"); else _explicitNullProperties?.Remove("subdivision"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueSubdivision? _explicitNullValueSubdivision = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueSubdivision Subdivision { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueSubdivision Subdivision { get => _explicitNullValueSubdivision; set { _explicitNullValueSubdivision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subdivision"); else _explicitNullProperties?.Remove("subdivision"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueSubdivision _explicitNullValueSubdivision = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -68,7 +93,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValue CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValue();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValue(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,7 +123,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValuePostalCode>("postal_code", PostalCode);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueStreet1>("street_1", Street1);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueStreet2>("street_2", Street2);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueSubdivision>("subdivision", Subdivision);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueSubdivision>("subdivision", Subdivision);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

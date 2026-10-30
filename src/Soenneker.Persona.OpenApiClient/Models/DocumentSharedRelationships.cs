@@ -11,54 +11,79 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DocumentSharedRelationships : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("document-files") is { } nullNodeDocumentFiles && nullNodeDocumentFiles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentFiles = null;
+            if (parseNode.GetChildNode("inquiry") is { } nullNodeInquiry && nullNodeInquiry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inquiry = null;
+            if (parseNode.GetChildNode("inquiry-template") is { } nullNodeInquiryTemplate && nullNodeInquiryTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InquiryTemplate = null;
+            if (parseNode.GetChildNode("inquiry-template-version") is { } nullNodeInquiryTemplateVersion && nullNodeInquiryTemplateVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InquiryTemplateVersion = null;
+            if (parseNode.GetChildNode("template") is { } nullNodeTemplate && nullNodeTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Template = null;
+            if (parseNode.GetChildNode("transaction") is { } nullNodeTransaction && nullNodeTransaction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transaction = null;
+        }
+
         /// <summary>The documentFiles property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsDocumentFiles? DocumentFiles { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsDocumentFiles? DocumentFiles { get => _explicitNullValueDocumentFiles; set { _explicitNullValueDocumentFiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document-files"); else _explicitNullProperties?.Remove("document-files"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsDocumentFiles? _explicitNullValueDocumentFiles = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsDocumentFiles DocumentFiles { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsDocumentFiles DocumentFiles { get => _explicitNullValueDocumentFiles; set { _explicitNullValueDocumentFiles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document-files"); else _explicitNullProperties?.Remove("document-files"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsDocumentFiles _explicitNullValueDocumentFiles = default!;
 #endif
         /// <summary>The inquiry property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiry? Inquiry { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiry? Inquiry { get => _explicitNullValueInquiry; set { _explicitNullValueInquiry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry"); else _explicitNullProperties?.Remove("inquiry"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiry? _explicitNullValueInquiry = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiry Inquiry { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiry Inquiry { get => _explicitNullValueInquiry; set { _explicitNullValueInquiry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry"); else _explicitNullProperties?.Remove("inquiry"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiry _explicitNullValueInquiry = default!;
 #endif
         /// <summary>The inquiryTemplate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiryTemplate? InquiryTemplate { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiryTemplate? InquiryTemplate { get => _explicitNullValueInquiryTemplate; set { _explicitNullValueInquiryTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template"); else _explicitNullProperties?.Remove("inquiry-template"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiryTemplate? _explicitNullValueInquiryTemplate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiryTemplate InquiryTemplate { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiryTemplate InquiryTemplate { get => _explicitNullValueInquiryTemplate; set { _explicitNullValueInquiryTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template"); else _explicitNullProperties?.Remove("inquiry-template"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiryTemplate _explicitNullValueInquiryTemplate = default!;
 #endif
         /// <summary>The inquiryTemplateVersion property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiryTemplateVersion? InquiryTemplateVersion { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiryTemplateVersion? InquiryTemplateVersion { get => _explicitNullValueInquiryTemplateVersion; set { _explicitNullValueInquiryTemplateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template-version"); else _explicitNullProperties?.Remove("inquiry-template-version"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiryTemplateVersion? _explicitNullValueInquiryTemplateVersion = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiryTemplateVersion InquiryTemplateVersion { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiryTemplateVersion InquiryTemplateVersion { get => _explicitNullValueInquiryTemplateVersion; set { _explicitNullValueInquiryTemplateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template-version"); else _explicitNullProperties?.Remove("inquiry-template-version"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiryTemplateVersion _explicitNullValueInquiryTemplateVersion = default!;
 #endif
         /// <summary>The template property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsTemplate? Template { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsTemplate? Template { get => _explicitNullValueTemplate; set { _explicitNullValueTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template"); else _explicitNullProperties?.Remove("template"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsTemplate? _explicitNullValueTemplate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsTemplate Template { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsTemplate Template { get => _explicitNullValueTemplate; set { _explicitNullValueTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template"); else _explicitNullProperties?.Remove("template"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsTemplate _explicitNullValueTemplate = default!;
 #endif
         /// <summary>The transaction property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsTransaction? Transaction { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsTransaction? Transaction { get => _explicitNullValueTransaction; set { _explicitNullValueTransaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction"); else _explicitNullProperties?.Remove("transaction"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsTransaction? _explicitNullValueTransaction = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsTransaction Transaction { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsTransaction Transaction { get => _explicitNullValueTransaction; set { _explicitNullValueTransaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction"); else _explicitNullProperties?.Remove("transaction"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsTransaction _explicitNullValueTransaction = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -68,7 +93,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationships CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationships();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationships(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,7 +123,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiryTemplate>("inquiry-template", InquiryTemplate);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsInquiryTemplateVersion>("inquiry-template-version", InquiryTemplateVersion);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsTemplate>("template", Template);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsTransaction>("transaction", Transaction);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentSharedRelationshipsTransaction>("transaction", Transaction);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

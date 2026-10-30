@@ -11,22 +11,35 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UserAuditLogRelationships : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("user") is { } nullNodeUser && nullNodeUser.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) User = null;
+            if (parseNode.GetChildNode("user-session") is { } nullNodeUserSession && nullNodeUserSession.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserSession = null;
+        }
+
         /// <summary>The user property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationshipsUser? User { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationshipsUser? User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationshipsUser? _explicitNullValueUser = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationshipsUser User { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationshipsUser User { get => _explicitNullValueUser; set { _explicitNullValueUser = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user"); else _explicitNullProperties?.Remove("user"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationshipsUser _explicitNullValueUser = default!;
 #endif
         /// <summary>The userSession property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationshipsUserSession? UserSession { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationshipsUserSession? UserSession { get => _explicitNullValueUserSession; set { _explicitNullValueUserSession = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user-session"); else _explicitNullProperties?.Remove("user-session"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationshipsUserSession? _explicitNullValueUserSession = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationshipsUserSession UserSession { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationshipsUserSession UserSession { get => _explicitNullValueUserSession; set { _explicitNullValueUserSession = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user-session"); else _explicitNullProperties?.Remove("user-session"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationshipsUserSession _explicitNullValueUserSession = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -36,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationships CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationships();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationships(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +71,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationshipsUser>("user", User);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationshipsUserSession>("user-session", UserSession);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.UserAuditLogRelationshipsUserSession>("user-session", UserSession);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

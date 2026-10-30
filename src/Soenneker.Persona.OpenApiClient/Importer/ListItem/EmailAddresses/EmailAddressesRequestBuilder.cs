@@ -49,11 +49,11 @@ namespace Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ImportEmailAddressLists201Response?> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.ListItemImporterCsvRequestRequestFormData body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ImportEmailAddressLists201Response?> PostAsync(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ImportEmailAddressLists201Response> PostAsync(global::Soenneker.Persona.OpenApiClient.Models.ListItemImporterCsvRequestRequestFormData body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Persona.OpenApiClient.Models.ImportEmailAddressLists201Response> PostAsync(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -66,6 +66,8 @@ namespace Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses
                 { "409", global::Soenneker.Persona.OpenApiClient.Models.ConflictResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ImportEmailAddressLists201Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ImportEmailAddressLists201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -77,11 +79,11 @@ namespace Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.ListItemImporterCsvRequestRequestFormData body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Persona.OpenApiClient.Models.ListItemImporterCsvRequestRequestFormData body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Importer.ListItem.EmailAddresses.EmailAddressesRequestBuilder.EmailAddressesRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

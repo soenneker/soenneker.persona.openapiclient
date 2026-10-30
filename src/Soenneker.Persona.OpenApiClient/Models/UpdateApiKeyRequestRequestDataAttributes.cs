@@ -11,58 +11,87 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UpdateApiKeyRequestRequestDataAttributes : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("api-attributes-blocklist") is { } nullNodeApiAttributesBlocklist && nullNodeApiAttributesBlocklist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiAttributesBlocklist = null;
+            if (parseNode.GetChildNode("api-key-inflection") is { } nullNodeApiKeyInflection && nullNodeApiKeyInflection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyInflection = null;
+            if (parseNode.GetChildNode("api-version") is { } nullNodeApiVersion && nullNodeApiVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiVersion = null;
+            if (parseNode.GetChildNode("file-access-token-expires-in") is { } nullNodeFileAccessTokenExpiresIn && nullNodeFileAccessTokenExpiresIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileAccessTokenExpiresIn = null;
+            if (parseNode.GetChildNode("ip-address-allowlist") is { } nullNodeIpAddressAllowlist && nullNodeIpAddressAllowlist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAddressAllowlist = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("note") is { } nullNodeNote && nullNodeNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Note = null;
+            if (parseNode.GetChildNode("permissions") is { } nullNodePermissions && nullNodePermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissions = null;
+        }
+
         /// <summary>Attributes blocked from API responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ApiAttributesBlocklist { get; set; }
+        public List<string>? ApiAttributesBlocklist { get => _explicitNullValueApiAttributesBlocklist; set { _explicitNullValueApiAttributesBlocklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-attributes-blocklist"); else _explicitNullProperties?.Remove("api-attributes-blocklist"); } }
+        private List<string>? _explicitNullValueApiAttributesBlocklist = default!;
 #nullable restore
 #else
-        public List<string> ApiAttributesBlocklist { get; set; }
+        public List<string> ApiAttributesBlocklist { get => _explicitNullValueApiAttributesBlocklist; set { _explicitNullValueApiAttributesBlocklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-attributes-blocklist"); else _explicitNullProperties?.Remove("api-attributes-blocklist"); } }
+        private List<string> _explicitNullValueApiAttributesBlocklist = default!;
 #endif
         /// <summary>Default API response key inflection. Default is kebab-case.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiKeyInflection { get; set; }
+        public string? ApiKeyInflection { get => _explicitNullValueApiKeyInflection; set { _explicitNullValueApiKeyInflection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-key-inflection"); else _explicitNullProperties?.Remove("api-key-inflection"); } }
+        private string? _explicitNullValueApiKeyInflection = default!;
 #nullable restore
 #else
-        public string ApiKeyInflection { get; set; }
+        public string ApiKeyInflection { get => _explicitNullValueApiKeyInflection; set { _explicitNullValueApiKeyInflection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-key-inflection"); else _explicitNullProperties?.Remove("api-key-inflection"); } }
+        private string _explicitNullValueApiKeyInflection = default!;
 #endif
         /// <summary>Server API version. More info on versioning can be found [here](https://docs.withpersona.com/versioning).</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiVersion? ApiVersion { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiVersion? ApiVersion { get => _explicitNullValueApiVersion; set { _explicitNullValueApiVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-version"); else _explicitNullProperties?.Remove("api-version"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ApiVersion? _explicitNullValueApiVersion = default!;
         /// <summary>How soon any file access tokens returned in API responses expire. For more info see [Downloading Files](https://docs.withpersona.com/downloading-files).</summary>
-        public int? FileAccessTokenExpiresIn { get; set; }
+        public int? FileAccessTokenExpiresIn { get => _explicitNullValueFileAccessTokenExpiresIn; set { _explicitNullValueFileAccessTokenExpiresIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file-access-token-expires-in"); else _explicitNullProperties?.Remove("file-access-token-expires-in"); } }
+        private int? _explicitNullValueFileAccessTokenExpiresIn = default!;
         /// <summary>IP addresses permitted for use by the API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IpAddressAllowlist { get; set; }
+        public List<string>? IpAddressAllowlist { get => _explicitNullValueIpAddressAllowlist; set { _explicitNullValueIpAddressAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip-address-allowlist"); else _explicitNullProperties?.Remove("ip-address-allowlist"); } }
+        private List<string>? _explicitNullValueIpAddressAllowlist = default!;
 #nullable restore
 #else
-        public List<string> IpAddressAllowlist { get; set; }
+        public List<string> IpAddressAllowlist { get => _explicitNullValueIpAddressAllowlist; set { _explicitNullValueIpAddressAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip-address-allowlist"); else _explicitNullProperties?.Remove("ip-address-allowlist"); } }
+        private List<string> _explicitNullValueIpAddressAllowlist = default!;
 #endif
         /// <summary>Human-readable name of the API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Human readable context about the use of the API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Note { get; set; }
+        public string? Note { get => _explicitNullValueNote; set { _explicitNullValueNote = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("note"); else _explicitNullProperties?.Remove("note"); } }
+        private string? _explicitNullValueNote = default!;
 #nullable restore
 #else
-        public string Note { get; set; }
+        public string Note { get => _explicitNullValueNote; set { _explicitNullValueNote = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("note"); else _explicitNullProperties?.Remove("note"); } }
+        private string _explicitNullValueNote = default!;
 #endif
         /// <summary>Abilities permitted to the API key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Permissions { get; set; }
+        public List<string>? Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private List<string>? _explicitNullValuePermissions = default!;
 #nullable restore
 #else
-        public List<string> Permissions { get; set; }
+        public List<string> Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        private List<string> _explicitNullValuePermissions = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -72,7 +101,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.UpdateApiKeyRequestRequestDataAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.UpdateApiKeyRequestRequestDataAttributes();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.UpdateApiKeyRequestRequestDataAttributes(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -106,7 +135,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("ip-address-allowlist", IpAddressAllowlist);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("note", Note);
-            writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
+            writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

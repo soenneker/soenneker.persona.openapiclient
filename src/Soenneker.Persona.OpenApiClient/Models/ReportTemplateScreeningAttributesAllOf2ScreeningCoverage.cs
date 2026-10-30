@@ -12,17 +12,34 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReportTemplateScreeningAttributesAllOf2ScreeningCoverage : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("business-adverse-media") is { } nullNodeBusinessAdverseMedia && nullNodeBusinessAdverseMedia.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessAdverseMedia = null;
+            if (parseNode.GetChildNode("business-watchlist") is { } nullNodeBusinessWatchlist && nullNodeBusinessWatchlist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessWatchlist = null;
+            if (parseNode.GetChildNode("person-adverse-media") is { } nullNodePersonAdverseMedia && nullNodePersonAdverseMedia.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PersonAdverseMedia = null;
+            if (parseNode.GetChildNode("person-watchlist") is { } nullNodePersonWatchlist && nullNodePersonWatchlist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PersonWatchlist = null;
+            if (parseNode.GetChildNode("politically-exposed-person") is { } nullNodePoliticallyExposedPerson && nullNodePoliticallyExposedPerson.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PoliticallyExposedPerson = null;
+        }
+
         /// <summary>The businessAdverseMedia property</summary>
-        public bool? BusinessAdverseMedia { get; set; }
+        public bool? BusinessAdverseMedia { get => _explicitNullValueBusinessAdverseMedia; set { _explicitNullValueBusinessAdverseMedia = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business-adverse-media"); else _explicitNullProperties?.Remove("business-adverse-media"); } }
+        private bool? _explicitNullValueBusinessAdverseMedia = default!;
         /// <summary>The businessWatchlist property</summary>
-        public bool? BusinessWatchlist { get; set; }
+        public bool? BusinessWatchlist { get => _explicitNullValueBusinessWatchlist; set { _explicitNullValueBusinessWatchlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business-watchlist"); else _explicitNullProperties?.Remove("business-watchlist"); } }
+        private bool? _explicitNullValueBusinessWatchlist = default!;
         /// <summary>The personAdverseMedia property</summary>
-        public bool? PersonAdverseMedia { get; set; }
+        public bool? PersonAdverseMedia { get => _explicitNullValuePersonAdverseMedia; set { _explicitNullValuePersonAdverseMedia = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("person-adverse-media"); else _explicitNullProperties?.Remove("person-adverse-media"); } }
+        private bool? _explicitNullValuePersonAdverseMedia = default!;
         /// <summary>The personWatchlist property</summary>
-        public bool? PersonWatchlist { get; set; }
+        public bool? PersonWatchlist { get => _explicitNullValuePersonWatchlist; set { _explicitNullValuePersonWatchlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("person-watchlist"); else _explicitNullProperties?.Remove("person-watchlist"); } }
+        private bool? _explicitNullValuePersonWatchlist = default!;
         /// <summary>The politicallyExposedPerson property</summary>
-        public bool? PoliticallyExposedPerson { get; set; }
+        public bool? PoliticallyExposedPerson { get => _explicitNullValuePoliticallyExposedPerson; set { _explicitNullValuePoliticallyExposedPerson = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("politically-exposed-person"); else _explicitNullProperties?.Remove("politically-exposed-person"); } }
+        private bool? _explicitNullValuePoliticallyExposedPerson = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -31,7 +48,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateScreeningAttributesAllOf2ScreeningCoverage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateScreeningAttributesAllOf2ScreeningCoverage();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportTemplateScreeningAttributesAllOf2ScreeningCoverage(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +76,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteBoolValue("business-watchlist", BusinessWatchlist);
             writer.WriteBoolValue("person-adverse-media", PersonAdverseMedia);
             writer.WriteBoolValue("person-watchlist", PersonWatchlist);
-            writer.WriteBoolValue("politically-exposed-person", PoliticallyExposedPerson);
+            writer.WriteBoolValue("politically-exposed-person", PoliticallyExposedPerson);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

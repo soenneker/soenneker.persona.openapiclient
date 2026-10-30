@@ -12,64 +12,92 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AccountAttributesFields : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("address") is { } nullNodeAddress && nullNodeAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Address = null;
+            if (parseNode.GetChildNode("birthdate") is { } nullNodeBirthdate && nullNodeBirthdate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Birthdate = null;
+            if (parseNode.GetChildNode("email_address") is { } nullNodeEmailAddress && nullNodeEmailAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailAddress = null;
+            if (parseNode.GetChildNode("identification_numbers") is { } nullNodeIdentificationNumbers && nullNodeIdentificationNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentificationNumbers = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("phone_number") is { } nullNodePhoneNumber && nullNodePhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumber = null;
+            if (parseNode.GetChildNode("selfie_photo") is { } nullNodeSelfiePhoto && nullNodeSelfiePhoto.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfiePhoto = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddress? Address { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddress? Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddress? _explicitNullValueAddress = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddress Address { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddress Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddress _explicitNullValueAddress = default!;
 #endif
         /// <summary>The birthdate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsBirthdate? Birthdate { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsBirthdate? Birthdate { get => _explicitNullValueBirthdate; set { _explicitNullValueBirthdate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthdate"); else _explicitNullProperties?.Remove("birthdate"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsBirthdate? _explicitNullValueBirthdate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsBirthdate Birthdate { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsBirthdate Birthdate { get => _explicitNullValueBirthdate; set { _explicitNullValueBirthdate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthdate"); else _explicitNullProperties?.Remove("birthdate"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsBirthdate _explicitNullValueBirthdate = default!;
 #endif
         /// <summary>The email_address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsEmailAddress? EmailAddress { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsEmailAddress? EmailAddress { get => _explicitNullValueEmailAddress; set { _explicitNullValueEmailAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_address"); else _explicitNullProperties?.Remove("email_address"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsEmailAddress? _explicitNullValueEmailAddress = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsEmailAddress EmailAddress { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsEmailAddress EmailAddress { get => _explicitNullValueEmailAddress; set { _explicitNullValueEmailAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_address"); else _explicitNullProperties?.Remove("email_address"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsEmailAddress _explicitNullValueEmailAddress = default!;
 #endif
         /// <summary>The identification_numbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbers? IdentificationNumbers { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbers? IdentificationNumbers { get => _explicitNullValueIdentificationNumbers; set { _explicitNullValueIdentificationNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identification_numbers"); else _explicitNullProperties?.Remove("identification_numbers"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbers? _explicitNullValueIdentificationNumbers = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbers IdentificationNumbers { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbers IdentificationNumbers { get => _explicitNullValueIdentificationNumbers; set { _explicitNullValueIdentificationNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identification_numbers"); else _explicitNullProperties?.Remove("identification_numbers"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbers _explicitNullValueIdentificationNumbers = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsName? Name { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsName? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsName? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsName Name { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsName Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsName _explicitNullValueName = default!;
 #endif
         /// <summary>The phone_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsPhoneNumber? PhoneNumber { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsPhoneNumber? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsPhoneNumber? _explicitNullValuePhoneNumber = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsPhoneNumber PhoneNumber { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsPhoneNumber PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone_number"); else _explicitNullProperties?.Remove("phone_number"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsPhoneNumber _explicitNullValuePhoneNumber = default!;
 #endif
         /// <summary>The selfie_photo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsSelfiePhoto? SelfiePhoto { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsSelfiePhoto? SelfiePhoto { get => _explicitNullValueSelfiePhoto; set { _explicitNullValueSelfiePhoto = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie_photo"); else _explicitNullProperties?.Remove("selfie_photo"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsSelfiePhoto? _explicitNullValueSelfiePhoto = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsSelfiePhoto SelfiePhoto { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsSelfiePhoto SelfiePhoto { get => _explicitNullValueSelfiePhoto; set { _explicitNullValueSelfiePhoto = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie_photo"); else _explicitNullProperties?.Remove("selfie_photo"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsSelfiePhoto _explicitNullValueSelfiePhoto = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFields"/> and sets the default values.
@@ -86,7 +114,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFields CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFields();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFields(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -119,6 +147,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsName>("name", Name);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsPhoneNumber>("phone_number", PhoneNumber);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsSelfiePhoto>("selfie_photo", SelfiePhoto);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,17 +11,29 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class GenerateARelayClaim200Response : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("claim-payload") is { } nullNodeClaimPayload && nullNodeClaimPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimPayload = null;
+            if (parseNode.GetChildNode("token-consumed") is { } nullNodeTokenConsumed && nullNodeTokenConsumed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenConsumed = null;
+        }
+
         /// <summary>The claim payload. If an `encryption-key-pem` was provided at Relay creation, thisis a base64-encoded RSA OAEP ciphertext that must be decrypted client-side.Otherwise, this is a JSON string containing `claim_type`, `claim_result`, and anoptional `methodology` array.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClaimPayload { get; set; }
+        public string? ClaimPayload { get => _explicitNullValueClaimPayload; set { _explicitNullValueClaimPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claim-payload"); else _explicitNullProperties?.Remove("claim-payload"); } }
+        private string? _explicitNullValueClaimPayload = default!;
 #nullable restore
 #else
-        public string ClaimPayload { get; set; }
+        public string ClaimPayload { get => _explicitNullValueClaimPayload; set { _explicitNullValueClaimPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claim-payload"); else _explicitNullProperties?.Remove("claim-payload"); } }
+        private string _explicitNullValueClaimPayload = default!;
 #endif
         /// <summary>`true` if the Privacy Pass token was consumed by this request. `false` if the underlying claim did not pass and the token was refunded to the client.</summary>
-        public bool? TokenConsumed { get; set; }
+        public bool? TokenConsumed { get => _explicitNullValueTokenConsumed; set { _explicitNullValueTokenConsumed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token-consumed"); else _explicitNullProperties?.Remove("token-consumed"); } }
+        private bool? _explicitNullValueTokenConsumed = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,7 +42,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.GenerateARelayClaim200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.GenerateARelayClaim200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.GenerateARelayClaim200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,7 +64,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("claim-payload", ClaimPayload);
-            writer.WriteBoolValue("token-consumed", TokenConsumed);
+            writer.WriteBoolValue("token-consumed", TokenConsumed);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

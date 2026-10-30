@@ -11,46 +11,68 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DeploymentAttributesRoutesItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("environment") is { } nullNodeEnvironment && nullNodeEnvironment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Environment = null;
+            if (parseNode.GetChildNode("resource-type") is { } nullNodeResourceType && nullNodeResourceType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResourceType = null;
+            if (parseNode.GetChildNode("rules") is { } nullNodeRules && nullNodeRules.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rules = null;
+            if (parseNode.GetChildNode("source-deployment-id") is { } nullNodeSourceDeploymentId && nullNodeSourceDeploymentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceDeploymentId = null;
+            if (parseNode.GetChildNode("template-id") is { } nullNodeTemplateId && nullNodeTemplateId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TemplateId = null;
+        }
+
         /// <summary>The environment the route applies to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemEnvironment? Environment { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemEnvironment? Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemEnvironment? _explicitNullValueEnvironment = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemEnvironment Environment { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemEnvironment Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemEnvironment _explicitNullValueEnvironment = default!;
 #endif
         /// <summary>The platform resource type the route targets. `inquiry-template` is the only supported resource type today; `workflow` and `scheduled-run-config` support is planned for a future deploy-manager release.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResourceType { get; set; }
+        public string? ResourceType { get => _explicitNullValueResourceType; set { _explicitNullValueResourceType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource-type"); else _explicitNullProperties?.Remove("resource-type"); } }
+        private string? _explicitNullValueResourceType = default!;
 #nullable restore
 #else
-        public string ResourceType { get; set; }
+        public string ResourceType { get => _explicitNullValueResourceType; set { _explicitNullValueResourceType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource-type"); else _explicitNullProperties?.Remove("resource-type"); } }
+        private string _explicitNullValueResourceType = default!;
 #endif
         /// <summary>The routing rules evaluated for the key. An empty list undeploys the resource from the environment. Each rule has a strategy and may have a criteria tree with `and`, `or`, and `!` operators over context or resource origins.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItem>? Rules { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItem>? Rules { get => _explicitNullValueRules; set { _explicitNullValueRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rules"); else _explicitNullProperties?.Remove("rules"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItem>? _explicitNullValueRules = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItem> Rules { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItem> Rules { get => _explicitNullValueRules; set { _explicitNullValueRules = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rules"); else _explicitNullProperties?.Remove("rules"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItem> _explicitNullValueRules = default!;
 #endif
         /// <summary>The token of the deployment that wrote this route, when it predates this deployment; null when this deployment wrote it.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceDeploymentId { get; set; }
+        public string? SourceDeploymentId { get => _explicitNullValueSourceDeploymentId; set { _explicitNullValueSourceDeploymentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source-deployment-id"); else _explicitNullProperties?.Remove("source-deployment-id"); } }
+        private string? _explicitNullValueSourceDeploymentId = default!;
 #nullable restore
 #else
-        public string SourceDeploymentId { get; set; }
+        public string SourceDeploymentId { get => _explicitNullValueSourceDeploymentId; set { _explicitNullValueSourceDeploymentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source-deployment-id"); else _explicitNullProperties?.Remove("source-deployment-id"); } }
+        private string _explicitNullValueSourceDeploymentId = default!;
 #endif
         /// <summary>The token of the resource template the route targets.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TemplateId { get; set; }
+        public string? TemplateId { get => _explicitNullValueTemplateId; set { _explicitNullValueTemplateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template-id"); else _explicitNullProperties?.Remove("template-id"); } }
+        private string? _explicitNullValueTemplateId = default!;
 #nullable restore
 #else
-        public string TemplateId { get; set; }
+        public string TemplateId { get => _explicitNullValueTemplateId; set { _explicitNullValueTemplateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template-id"); else _explicitNullProperties?.Remove("template-id"); } }
+        private string _explicitNullValueTemplateId = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -60,7 +82,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,7 +110,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("resource-type", ResourceType);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItem>("rules", Rules);
             writer.WriteStringValue("source-deployment-id", SourceDeploymentId);
-            writer.WriteStringValue("template-id", TemplateId);
+            writer.WriteStringValue("template-id", TemplateId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

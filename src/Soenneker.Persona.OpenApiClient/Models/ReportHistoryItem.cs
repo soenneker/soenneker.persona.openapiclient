@@ -12,7 +12,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ReportHistoryItem : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryDismiss"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,29 +66,42 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryItem();
-            if("dismiss".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ReportHistoryDismiss".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportHistoryDismiss = new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryDismiss();
+                
             }
-            else if("pause".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ReportHistoryPause".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportHistoryPause = new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryPause();
+                
             }
-            else if("resume".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ReportHistoryResume".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportHistoryResume = new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryResume();
+                
             }
-            else if("review".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ReportHistoryReview".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportHistoryReview = new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryReview();
+                
             }
-            else if("run".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("ReportHistoryRun".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ReportHistoryRun = new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryRun();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("dismiss".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("created-at") != null && parseNode.GetChildNode("creator-name") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("run".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("run-type") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("review".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("created-at") != null && parseNode.GetChildNode("creator-name") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("pause".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("created-at") != null && parseNode.GetChildNode("creator-name") != null))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("resume".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("created-at") != null && parseNode.GetChildNode("creator-name") != null))();
+            if (result.ReportHistoryDismiss == null && result.ReportHistoryPause == null && result.ReportHistoryResume == null && result.ReportHistoryReview == null && result.ReportHistoryRun == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4) result.ReportHistoryDismiss = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryDismiss(), parseNode);
+            if (result.ReportHistoryDismiss == null && result.ReportHistoryPause == null && result.ReportHistoryResume == null && result.ReportHistoryReview == null && result.ReportHistoryRun == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4) result.ReportHistoryRun = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryRun(), parseNode);
+            if (result.ReportHistoryDismiss == null && result.ReportHistoryPause == null && result.ReportHistoryResume == null && result.ReportHistoryReview == null && result.ReportHistoryRun == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4) result.ReportHistoryReview = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryReview(), parseNode);
+            if (result.ReportHistoryDismiss == null && result.ReportHistoryPause == null && result.ReportHistoryResume == null && result.ReportHistoryReview == null && result.ReportHistoryRun == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4) result.ReportHistoryPause = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryPause(), parseNode);
+            if (result.ReportHistoryDismiss == null && result.ReportHistoryPause == null && result.ReportHistoryResume == null && result.ReportHistoryReview == null && result.ReportHistoryRun == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.ReportHistoryResume = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryResume(), parseNode);
+            if (result.ReportHistoryDismiss == null && result.ReportHistoryPause == null && result.ReportHistoryResume == null && result.ReportHistoryReview == null && result.ReportHistoryRun == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -119,25 +137,38 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ReportHistoryDismiss == null && ReportHistoryPause == null && ReportHistoryResume == null && ReportHistoryReview == null && ReportHistoryRun == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ReportHistoryDismiss != null && ReportHistoryPause == null && ReportHistoryResume == null && ReportHistoryReview == null && ReportHistoryRun == null) { if (ReportHistoryDismiss is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportHistoryDismiss); return; }
+            if (ReportHistoryPause != null && ReportHistoryDismiss == null && ReportHistoryResume == null && ReportHistoryReview == null && ReportHistoryRun == null) { if (ReportHistoryPause is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportHistoryPause); return; }
+            if (ReportHistoryResume != null && ReportHistoryDismiss == null && ReportHistoryPause == null && ReportHistoryReview == null && ReportHistoryRun == null) { if (ReportHistoryResume is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportHistoryResume); return; }
+            if (ReportHistoryReview != null && ReportHistoryDismiss == null && ReportHistoryPause == null && ReportHistoryResume == null && ReportHistoryRun == null) { if (ReportHistoryReview is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportHistoryReview); return; }
+            if (ReportHistoryRun != null && ReportHistoryDismiss == null && ReportHistoryPause == null && ReportHistoryResume == null && ReportHistoryReview == null) { if (ReportHistoryRun is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ReportHistoryRun); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ReportHistoryDismiss != null)
             {
+                if (ReportHistoryDismiss is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryDismiss>(null, ReportHistoryDismiss);
             }
             else if(ReportHistoryPause != null)
             {
+                if (ReportHistoryPause is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryPause>(null, ReportHistoryPause);
             }
             else if(ReportHistoryResume != null)
             {
+                if (ReportHistoryResume is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryResume>(null, ReportHistoryResume);
             }
             else if(ReportHistoryReview != null)
             {
+                if (ReportHistoryReview is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryReview>(null, ReportHistoryReview);
             }
             else if(ReportHistoryRun != null)
             {
+                if (ReportHistoryRun is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportHistoryRun>(null, ReportHistoryRun);
             }
         }

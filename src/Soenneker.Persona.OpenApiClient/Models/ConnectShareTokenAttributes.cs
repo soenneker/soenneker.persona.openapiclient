@@ -11,59 +11,93 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ConnectShareTokenAttributes : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("direction") is { } nullNodeDirection && nullNodeDirection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Direction = null;
+            if (parseNode.GetChildNode("expires-at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("failed-at") is { } nullNodeFailedAt && nullNodeFailedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedAt = null;
+            if (parseNode.GetChildNode("failure-reason") is { } nullNodeFailureReason && nullNodeFailureReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureReason = null;
+            if (parseNode.GetChildNode("pending-at") is { } nullNodePendingAt && nullNodePendingAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingAt = null;
+            if (parseNode.GetChildNode("redeemed-at") is { } nullNodeRedeemedAt && nullNodeRedeemedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedeemedAt = null;
+            if (parseNode.GetChildNode("redeem-mode") is { } nullNodeRedeemMode && nullNodeRedeemMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedeemMode = null;
+            if (parseNode.GetChildNode("source-data") is { } nullNodeSourceData && nullNodeSourceData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceData = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("updated-at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>When this share token was created</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Whether this share token is outbound (your organization is the source) or inbound (your organization is the destination). One of `outbound` or `inbound`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Direction { get; set; }
+        public string? Direction { get => _explicitNullValueDirection; set { _explicitNullValueDirection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("direction"); else _explicitNullProperties?.Remove("direction"); } }
+        private string? _explicitNullValueDirection = default!;
 #nullable restore
 #else
-        public string Direction { get; set; }
+        public string Direction { get => _explicitNullValueDirection; set { _explicitNullValueDirection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("direction"); else _explicitNullProperties?.Remove("direction"); } }
+        private string _explicitNullValueDirection = default!;
 #endif
         /// <summary>When this share token expires</summary>
-        public DateTimeOffset? ExpiresAt { get; set; }
+        public DateTimeOffset? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires-at"); else _explicitNullProperties?.Remove("expires-at"); } }
+        private DateTimeOffset? _explicitNullValueExpiresAt = default!;
         /// <summary>When this share token failed</summary>
-        public DateTimeOffset? FailedAt { get; set; }
+        public DateTimeOffset? FailedAt { get => _explicitNullValueFailedAt; set { _explicitNullValueFailedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed-at"); else _explicitNullProperties?.Remove("failed-at"); } }
+        private DateTimeOffset? _explicitNullValueFailedAt = default!;
         /// <summary>The reason the share token failed, if applicable. One of `source_not_found`, `source_redacted`, `import_failed`, or `unrecoverable_error`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FailureReason { get; set; }
+        public string? FailureReason { get => _explicitNullValueFailureReason; set { _explicitNullValueFailureReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure-reason"); else _explicitNullProperties?.Remove("failure-reason"); } }
+        private string? _explicitNullValueFailureReason = default!;
 #nullable restore
 #else
-        public string FailureReason { get; set; }
+        public string FailureReason { get => _explicitNullValueFailureReason; set { _explicitNullValueFailureReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failure-reason"); else _explicitNullProperties?.Remove("failure-reason"); } }
+        private string _explicitNullValueFailureReason = default!;
 #endif
         /// <summary>When this share token started processing</summary>
-        public DateTimeOffset? PendingAt { get; set; }
+        public DateTimeOffset? PendingAt { get => _explicitNullValuePendingAt; set { _explicitNullValuePendingAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending-at"); else _explicitNullProperties?.Remove("pending-at"); } }
+        private DateTimeOffset? _explicitNullValuePendingAt = default!;
         /// <summary>When this share token was redeemed</summary>
-        public DateTimeOffset? RedeemedAt { get; set; }
+        public DateTimeOffset? RedeemedAt { get => _explicitNullValueRedeemedAt; set { _explicitNullValueRedeemedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redeemed-at"); else _explicitNullProperties?.Remove("redeemed-at"); } }
+        private DateTimeOffset? _explicitNullValueRedeemedAt = default!;
         /// <summary>How this Share Token was redeemed. Set to `hydrate` when `destination-id` is providedor `clone` when `destination-id` is omitted. Null until redemption is initiated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RedeemMode { get; set; }
+        public string? RedeemMode { get => _explicitNullValueRedeemMode; set { _explicitNullValueRedeemMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redeem-mode"); else _explicitNullProperties?.Remove("redeem-mode"); } }
+        private string? _explicitNullValueRedeemMode = default!;
 #nullable restore
 #else
-        public string RedeemMode { get; set; }
+        public string RedeemMode { get => _explicitNullValueRedeemMode; set { _explicitNullValueRedeemMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redeem-mode"); else _explicitNullProperties?.Remove("redeem-mode"); } }
+        private string _explicitNullValueRedeemMode = default!;
 #endif
         /// <summary>PII-filtered snapshot of the share token&apos;s source object.Present only when `peek-source-data=true` was passed on theshow endpoint, the caller is the destination organization, andthe destination organization has access to the source datapeek capability. Omitted from list responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributesSourceData? SourceData { get; set; }
+        public UntypedNode? SourceData { get => _explicitNullValueSourceData; set { _explicitNullValueSourceData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source-data"); else _explicitNullProperties?.Remove("source-data"); } }
+        private UntypedNode? _explicitNullValueSourceData = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributesSourceData SourceData { get; set; }
+        public UntypedNode SourceData { get => _explicitNullValueSourceData; set { _explicitNullValueSourceData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source-data"); else _explicitNullProperties?.Remove("source-data"); } }
+        private UntypedNode _explicitNullValueSourceData = default!;
 #endif
         /// <summary>The status of the share token. One of `created`, `pending`, `redeemed`, `expired`, or `failed`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get; set; }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get; set; }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>When this share token was last updated</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated-at"); else _explicitNullProperties?.Remove("updated-at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -72,7 +106,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributes(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -90,7 +124,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "pending-at", n => { PendingAt = n.GetDateTimeOffsetValue(); } },
                 { "redeem-mode", n => { RedeemMode = n.GetStringValue(); } },
                 { "redeemed-at", n => { RedeemedAt = n.GetDateTimeOffsetValue(); } },
-                { "source-data", n => { SourceData = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributesSourceData>(global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributesSourceData.CreateFromDiscriminatorValue); } },
+                { "source-data", n => { SourceData = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -110,9 +144,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("pending-at", PendingAt);
             writer.WriteDateTimeOffsetValue("redeemed-at", RedeemedAt);
             writer.WriteStringValue("redeem-mode", RedeemMode);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenAttributesSourceData>("source-data", SourceData);
+            writer.WriteObjectValue<UntypedNode>("source-data", SourceData);
             writer.WriteStringValue("status", Status);
-            writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);
+            writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -11,78 +11,112 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReportBusinessNonprofitAttributesAllOf2ResultCaAgDetails : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("as-of-date") is { } nullNodeAsOfDate && nullNodeAsOfDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AsOfDate = null;
+            if (parseNode.GetChildNode("initial-registration-date") is { } nullNodeInitialRegistrationDate && nullNodeInitialRegistrationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InitialRegistrationDate = null;
+            if (parseNode.GetChildNode("issue-date") is { } nullNodeIssueDate && nullNodeIssueDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueDate = null;
+            if (parseNode.GetChildNode("last-renewal-date") is { } nullNodeLastRenewalDate && nullNodeLastRenewalDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastRenewalDate = null;
+            if (parseNode.GetChildNode("most-recent-ag") is { } nullNodeMostRecentAg && nullNodeMostRecentAg.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MostRecentAg = null;
+            if (parseNode.GetChildNode("registry-status") is { } nullNodeRegistryStatus && nullNodeRegistryStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistryStatus = null;
+            if (parseNode.GetChildNode("state-charity-reg-num") is { } nullNodeStateCharityRegNum && nullNodeStateCharityRegNum.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StateCharityRegNum = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("status-set-date") is { } nullNodeStatusSetDate && nullNodeStatusSetDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusSetDate = null;
+        }
+
         /// <summary>The asOfDate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AsOfDate { get; set; }
+        public string? AsOfDate { get => _explicitNullValueAsOfDate; set { _explicitNullValueAsOfDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("as-of-date"); else _explicitNullProperties?.Remove("as-of-date"); } }
+        private string? _explicitNullValueAsOfDate = default!;
 #nullable restore
 #else
-        public string AsOfDate { get; set; }
+        public string AsOfDate { get => _explicitNullValueAsOfDate; set { _explicitNullValueAsOfDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("as-of-date"); else _explicitNullProperties?.Remove("as-of-date"); } }
+        private string _explicitNullValueAsOfDate = default!;
 #endif
         /// <summary>The initial California charity registration date, when supplied by the Persona registry lookup. Null for Candid-sourced reports.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InitialRegistrationDate { get; set; }
+        public string? InitialRegistrationDate { get => _explicitNullValueInitialRegistrationDate; set { _explicitNullValueInitialRegistrationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initial-registration-date"); else _explicitNullProperties?.Remove("initial-registration-date"); } }
+        private string? _explicitNullValueInitialRegistrationDate = default!;
 #nullable restore
 #else
-        public string InitialRegistrationDate { get; set; }
+        public string InitialRegistrationDate { get => _explicitNullValueInitialRegistrationDate; set { _explicitNullValueInitialRegistrationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("initial-registration-date"); else _explicitNullProperties?.Remove("initial-registration-date"); } }
+        private string _explicitNullValueInitialRegistrationDate = default!;
 #endif
         /// <summary>The issueDate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IssueDate { get; set; }
+        public string? IssueDate { get => _explicitNullValueIssueDate; set { _explicitNullValueIssueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue-date"); else _explicitNullProperties?.Remove("issue-date"); } }
+        private string? _explicitNullValueIssueDate = default!;
 #nullable restore
 #else
-        public string IssueDate { get; set; }
+        public string IssueDate { get => _explicitNullValueIssueDate; set { _explicitNullValueIssueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue-date"); else _explicitNullProperties?.Remove("issue-date"); } }
+        private string _explicitNullValueIssueDate = default!;
 #endif
         /// <summary>The lastRenewalDate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastRenewalDate { get; set; }
+        public string? LastRenewalDate { get => _explicitNullValueLastRenewalDate; set { _explicitNullValueLastRenewalDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last-renewal-date"); else _explicitNullProperties?.Remove("last-renewal-date"); } }
+        private string? _explicitNullValueLastRenewalDate = default!;
 #nullable restore
 #else
-        public string LastRenewalDate { get; set; }
+        public string LastRenewalDate { get => _explicitNullValueLastRenewalDate; set { _explicitNullValueLastRenewalDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last-renewal-date"); else _explicitNullProperties?.Remove("last-renewal-date"); } }
+        private string _explicitNullValueLastRenewalDate = default!;
 #endif
         /// <summary>The mostRecentAg property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MostRecentAg { get; set; }
+        public string? MostRecentAg { get => _explicitNullValueMostRecentAg; set { _explicitNullValueMostRecentAg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("most-recent-ag"); else _explicitNullProperties?.Remove("most-recent-ag"); } }
+        private string? _explicitNullValueMostRecentAg = default!;
 #nullable restore
 #else
-        public string MostRecentAg { get; set; }
+        public string MostRecentAg { get => _explicitNullValueMostRecentAg; set { _explicitNullValueMostRecentAg = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("most-recent-ag"); else _explicitNullProperties?.Remove("most-recent-ag"); } }
+        private string _explicitNullValueMostRecentAg = default!;
 #endif
         /// <summary>The registryStatus property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegistryStatus { get; set; }
+        public string? RegistryStatus { get => _explicitNullValueRegistryStatus; set { _explicitNullValueRegistryStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry-status"); else _explicitNullProperties?.Remove("registry-status"); } }
+        private string? _explicitNullValueRegistryStatus = default!;
 #nullable restore
 #else
-        public string RegistryStatus { get; set; }
+        public string RegistryStatus { get => _explicitNullValueRegistryStatus; set { _explicitNullValueRegistryStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry-status"); else _explicitNullProperties?.Remove("registry-status"); } }
+        private string _explicitNullValueRegistryStatus = default!;
 #endif
         /// <summary>The stateCharityRegNum property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StateCharityRegNum { get; set; }
+        public string? StateCharityRegNum { get => _explicitNullValueStateCharityRegNum; set { _explicitNullValueStateCharityRegNum = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state-charity-reg-num"); else _explicitNullProperties?.Remove("state-charity-reg-num"); } }
+        private string? _explicitNullValueStateCharityRegNum = default!;
 #nullable restore
 #else
-        public string StateCharityRegNum { get; set; }
+        public string StateCharityRegNum { get => _explicitNullValueStateCharityRegNum; set { _explicitNullValueStateCharityRegNum = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state-charity-reg-num"); else _explicitNullProperties?.Remove("state-charity-reg-num"); } }
+        private string _explicitNullValueStateCharityRegNum = default!;
 #endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get; set; }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get; set; }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>The statusSetDate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StatusSetDate { get; set; }
+        public string? StatusSetDate { get => _explicitNullValueStatusSetDate; set { _explicitNullValueStatusSetDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status-set-date"); else _explicitNullProperties?.Remove("status-set-date"); } }
+        private string? _explicitNullValueStatusSetDate = default!;
 #nullable restore
 #else
-        public string StatusSetDate { get; set; }
+        public string StatusSetDate { get => _explicitNullValueStatusSetDate; set { _explicitNullValueStatusSetDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status-set-date"); else _explicitNullProperties?.Remove("status-set-date"); } }
+        private string _explicitNullValueStatusSetDate = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -92,7 +126,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultCaAgDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultCaAgDetails();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessNonprofitAttributesAllOf2ResultCaAgDetails(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -128,7 +164,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("registry-status", RegistryStatus);
             writer.WriteStringValue("state-charity-reg-num", StateCharityRegNum);
             writer.WriteStringValue("status", Status);
-            writer.WriteStringValue("status-set-date", StatusSetDate);
+            writer.WriteStringValue("status-set-date", StatusSetDate);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

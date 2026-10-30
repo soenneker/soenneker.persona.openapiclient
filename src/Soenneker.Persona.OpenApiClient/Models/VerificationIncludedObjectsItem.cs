@@ -12,7 +12,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VerificationIncludedObjectsItem : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.Account"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -121,53 +126,62 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var result = new global::Soenneker.Persona.OpenApiClient.Models.VerificationIncludedObjectsItem();
             if("account".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.Account = new global::Soenneker.Persona.OpenApiClient.Models.Account();
+                
             }
             else if("document/generic".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.DocumentGeneric = new global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric();
+                
             }
             else if("document/government-id".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.DocumentGovernmentId = new global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentId();
+                
             }
             else if("document/government-id-nfc".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.DocumentGovernmentIdNfc = new global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentIdNfc();
+                
             }
             else if("document/mdoc".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.DocumentMdoc = new global::Soenneker.Persona.OpenApiClient.Models.DocumentMdoc();
+                
             }
             else if("inquiry".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.Inquiry = new global::Soenneker.Persona.OpenApiClient.Models.Inquiry();
+                
             }
             else if("inquiry-template".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InquiryTemplate = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate();
+                
             }
             else if("inquiry-template-version".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.InquiryTemplateVersion = new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion();
+                
             }
             else if("template".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.Template = new global::Soenneker.Persona.OpenApiClient.Models.Template();
+                
             }
             else if("transaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.Transaction = new global::Soenneker.Persona.OpenApiClient.Models.Transaction();
+                
             }
             else if("verification-template/aamva".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.VerificationTemplate = new global::Soenneker.Persona.OpenApiClient.Models.VerificationTemplate();
+                
             }
             else if("verification-template-version/aamva".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.VerificationTemplateVersion = new global::Soenneker.Persona.OpenApiClient.Models.VerificationTemplateVersion();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("inquiry".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("id") != null && parseNode.GetChildNode("attributes") != null && parseNode.GetChildNode("relationships") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && parseNode.GetChildNode("id") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && parseNode.GetChildNode("id") != null))();
+            if (result.Account == null && result.DocumentGeneric == null && result.DocumentGovernmentId == null && result.DocumentGovernmentIdNfc == null && result.DocumentMdoc == null && result.Inquiry == null && result.InquiryTemplate == null && result.InquiryTemplateVersion == null && result.Template == null && result.Transaction == null && result.VerificationTemplate == null && result.VerificationTemplateVersion == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.Inquiry = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.Inquiry(), parseNode);
+            if (result.Account == null && result.DocumentGeneric == null && result.DocumentGovernmentId == null && result.DocumentGovernmentIdNfc == null && result.DocumentMdoc == null && result.Inquiry == null && result.InquiryTemplate == null && result.InquiryTemplateVersion == null && result.Template == null && result.Transaction == null && result.VerificationTemplate == null && result.VerificationTemplateVersion == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.VerificationTemplate = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.VerificationTemplate(), parseNode);
+            if (result.Account == null && result.DocumentGeneric == null && result.DocumentGovernmentId == null && result.DocumentGovernmentIdNfc == null && result.DocumentMdoc == null && result.Inquiry == null && result.InquiryTemplate == null && result.InquiryTemplateVersion == null && result.Template == null && result.Transaction == null && result.VerificationTemplate == null && result.VerificationTemplateVersion == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.VerificationTemplateVersion = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.VerificationTemplateVersion(), parseNode);
+            if (result.Account == null && result.DocumentGeneric == null && result.DocumentGovernmentId == null && result.DocumentGovernmentIdNfc == null && result.DocumentMdoc == null && result.Inquiry == null && result.InquiryTemplate == null && result.InquiryTemplateVersion == null && result.Template == null && result.Transaction == null && result.VerificationTemplate == null && result.VerificationTemplateVersion == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -231,53 +245,80 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Account == null && DocumentGeneric == null && DocumentGovernmentId == null && DocumentGovernmentIdNfc == null && DocumentMdoc == null && Inquiry == null && InquiryTemplate == null && InquiryTemplateVersion == null && Template == null && Transaction == null && VerificationTemplate == null && VerificationTemplateVersion == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (Account != null && DocumentGeneric == null && DocumentGovernmentId == null && DocumentGovernmentIdNfc == null && DocumentMdoc == null && Inquiry == null && InquiryTemplate == null && InquiryTemplateVersion == null && Template == null && Transaction == null && VerificationTemplate == null && VerificationTemplateVersion == null) { if (Account is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Account); return; }
+            if (DocumentGeneric != null && Account == null && DocumentGovernmentId == null && DocumentGovernmentIdNfc == null && DocumentMdoc == null && Inquiry == null && InquiryTemplate == null && InquiryTemplateVersion == null && Template == null && Transaction == null && VerificationTemplate == null && VerificationTemplateVersion == null) { if (DocumentGeneric is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DocumentGeneric); return; }
+            if (DocumentGovernmentId != null && Account == null && DocumentGeneric == null && DocumentGovernmentIdNfc == null && DocumentMdoc == null && Inquiry == null && InquiryTemplate == null && InquiryTemplateVersion == null && Template == null && Transaction == null && VerificationTemplate == null && VerificationTemplateVersion == null) { if (DocumentGovernmentId is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DocumentGovernmentId); return; }
+            if (DocumentGovernmentIdNfc != null && Account == null && DocumentGeneric == null && DocumentGovernmentId == null && DocumentMdoc == null && Inquiry == null && InquiryTemplate == null && InquiryTemplateVersion == null && Template == null && Transaction == null && VerificationTemplate == null && VerificationTemplateVersion == null) { if (DocumentGovernmentIdNfc is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DocumentGovernmentIdNfc); return; }
+            if (DocumentMdoc != null && Account == null && DocumentGeneric == null && DocumentGovernmentId == null && DocumentGovernmentIdNfc == null && Inquiry == null && InquiryTemplate == null && InquiryTemplateVersion == null && Template == null && Transaction == null && VerificationTemplate == null && VerificationTemplateVersion == null) { if (DocumentMdoc is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DocumentMdoc); return; }
+            if (Inquiry != null && Account == null && DocumentGeneric == null && DocumentGovernmentId == null && DocumentGovernmentIdNfc == null && DocumentMdoc == null && InquiryTemplate == null && InquiryTemplateVersion == null && Template == null && Transaction == null && VerificationTemplate == null && VerificationTemplateVersion == null) { if (Inquiry is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Inquiry); return; }
+            if (InquiryTemplate != null && Account == null && DocumentGeneric == null && DocumentGovernmentId == null && DocumentGovernmentIdNfc == null && DocumentMdoc == null && Inquiry == null && InquiryTemplateVersion == null && Template == null && Transaction == null && VerificationTemplate == null && VerificationTemplateVersion == null) { if (InquiryTemplate is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InquiryTemplate); return; }
+            if (InquiryTemplateVersion != null && Account == null && DocumentGeneric == null && DocumentGovernmentId == null && DocumentGovernmentIdNfc == null && DocumentMdoc == null && Inquiry == null && InquiryTemplate == null && Template == null && Transaction == null && VerificationTemplate == null && VerificationTemplateVersion == null) { if (InquiryTemplateVersion is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, InquiryTemplateVersion); return; }
+            if (Template != null && Account == null && DocumentGeneric == null && DocumentGovernmentId == null && DocumentGovernmentIdNfc == null && DocumentMdoc == null && Inquiry == null && InquiryTemplate == null && InquiryTemplateVersion == null && Transaction == null && VerificationTemplate == null && VerificationTemplateVersion == null) { if (Template is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Template); return; }
+            if (Transaction != null && Account == null && DocumentGeneric == null && DocumentGovernmentId == null && DocumentGovernmentIdNfc == null && DocumentMdoc == null && Inquiry == null && InquiryTemplate == null && InquiryTemplateVersion == null && Template == null && VerificationTemplate == null && VerificationTemplateVersion == null) { if (Transaction is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Transaction); return; }
+            if (VerificationTemplate != null && Account == null && DocumentGeneric == null && DocumentGovernmentId == null && DocumentGovernmentIdNfc == null && DocumentMdoc == null && Inquiry == null && InquiryTemplate == null && InquiryTemplateVersion == null && Template == null && Transaction == null && VerificationTemplateVersion == null) { if (VerificationTemplate is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, VerificationTemplate); return; }
+            if (VerificationTemplateVersion != null && Account == null && DocumentGeneric == null && DocumentGovernmentId == null && DocumentGovernmentIdNfc == null && DocumentMdoc == null && Inquiry == null && InquiryTemplate == null && InquiryTemplateVersion == null && Template == null && Transaction == null && VerificationTemplate == null) { if (VerificationTemplateVersion is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, VerificationTemplateVersion); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(Account != null)
             {
+                if (Account is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Account>(null, Account);
             }
             else if(DocumentGeneric != null)
             {
+                if (DocumentGeneric is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric>(null, DocumentGeneric);
             }
             else if(DocumentGovernmentId != null)
             {
+                if (DocumentGovernmentId is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentId>(null, DocumentGovernmentId);
             }
             else if(DocumentGovernmentIdNfc != null)
             {
+                if (DocumentGovernmentIdNfc is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentIdNfc>(null, DocumentGovernmentIdNfc);
             }
             else if(DocumentMdoc != null)
             {
+                if (DocumentMdoc is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentMdoc>(null, DocumentMdoc);
             }
             else if(Inquiry != null)
             {
+                if (Inquiry is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Inquiry>(null, Inquiry);
             }
             else if(InquiryTemplate != null)
             {
+                if (InquiryTemplate is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplate>(null, InquiryTemplate);
             }
             else if(InquiryTemplateVersion != null)
             {
+                if (InquiryTemplateVersion is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateVersion>(null, InquiryTemplateVersion);
             }
             else if(Template != null)
             {
+                if (Template is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Template>(null, Template);
             }
             else if(Transaction != null)
             {
+                if (Transaction is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.Transaction>(null, Transaction);
             }
             else if(VerificationTemplate != null)
             {
+                if (VerificationTemplate is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationTemplate>(null, VerificationTemplate);
             }
             else if(VerificationTemplateVersion != null)
             {
+                if (VerificationTemplateVersion is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationTemplateVersion>(null, VerificationTemplateVersion);
             }
         }

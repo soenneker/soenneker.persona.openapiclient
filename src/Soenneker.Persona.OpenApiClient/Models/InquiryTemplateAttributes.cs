@@ -11,54 +11,79 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class InquiryTemplateAttributes : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("embedded-flow-domain-allowlist") is { } nullNodeEmbeddedFlowDomainAllowlist && nullNodeEmbeddedFlowDomainAllowlist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmbeddedFlowDomainAllowlist = null;
+            if (parseNode.GetChildNode("field-schemas") is { } nullNodeFieldSchemas && nullNodeFieldSchemas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FieldSchemas = null;
+            if (parseNode.GetChildNode("hosted-flow-redirect-uri-schemes") is { } nullNodeHostedFlowRedirectUriSchemes && nullNodeHostedFlowRedirectUriSchemes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HostedFlowRedirectUriSchemes = null;
+            if (parseNode.GetChildNode("hosted-flow-subdomains") is { } nullNodeHostedFlowSubdomains && nullNodeHostedFlowSubdomains.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HostedFlowSubdomains = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+        }
+
         /// <summary>List of domains allowed for embedded flows</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? EmbeddedFlowDomainAllowlist { get; set; }
+        public List<string>? EmbeddedFlowDomainAllowlist { get => _explicitNullValueEmbeddedFlowDomainAllowlist; set { _explicitNullValueEmbeddedFlowDomainAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("embedded-flow-domain-allowlist"); else _explicitNullProperties?.Remove("embedded-flow-domain-allowlist"); } }
+        private List<string>? _explicitNullValueEmbeddedFlowDomainAllowlist = default!;
 #nullable restore
 #else
-        public List<string> EmbeddedFlowDomainAllowlist { get; set; }
+        public List<string> EmbeddedFlowDomainAllowlist { get => _explicitNullValueEmbeddedFlowDomainAllowlist; set { _explicitNullValueEmbeddedFlowDomainAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("embedded-flow-domain-allowlist"); else _explicitNullProperties?.Remove("embedded-flow-domain-allowlist"); } }
+        private List<string> _explicitNullValueEmbeddedFlowDomainAllowlist = default!;
 #endif
         /// <summary>The fieldSchemas property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.FieldSchema>? FieldSchemas { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.FieldSchema>? FieldSchemas { get => _explicitNullValueFieldSchemas; set { _explicitNullValueFieldSchemas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field-schemas"); else _explicitNullProperties?.Remove("field-schemas"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.FieldSchema>? _explicitNullValueFieldSchemas = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.FieldSchema> FieldSchemas { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.FieldSchema> FieldSchemas { get => _explicitNullValueFieldSchemas; set { _explicitNullValueFieldSchemas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field-schemas"); else _explicitNullProperties?.Remove("field-schemas"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.FieldSchema> _explicitNullValueFieldSchemas = default!;
 #endif
         /// <summary>An allowlist that specifies the URI schemes for redirect after completion of a Hosted Flow.This can be used to implement deep linking for mobile integrations. If this list is empty,all URLs with the URI scheme http or https are allowed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? HostedFlowRedirectUriSchemes { get; set; }
+        public List<string>? HostedFlowRedirectUriSchemes { get => _explicitNullValueHostedFlowRedirectUriSchemes; set { _explicitNullValueHostedFlowRedirectUriSchemes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hosted-flow-redirect-uri-schemes"); else _explicitNullProperties?.Remove("hosted-flow-redirect-uri-schemes"); } }
+        private List<string>? _explicitNullValueHostedFlowRedirectUriSchemes = default!;
 #nullable restore
 #else
-        public List<string> HostedFlowRedirectUriSchemes { get; set; }
+        public List<string> HostedFlowRedirectUriSchemes { get => _explicitNullValueHostedFlowRedirectUriSchemes; set { _explicitNullValueHostedFlowRedirectUriSchemes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hosted-flow-redirect-uri-schemes"); else _explicitNullProperties?.Remove("hosted-flow-redirect-uri-schemes"); } }
+        private List<string> _explicitNullValueHostedFlowRedirectUriSchemes = default!;
 #endif
         /// <summary>The subdomain that your hosted flow can be hosted on (e.g. &quot;mycompany.withpersona.com&quot;)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? HostedFlowSubdomains { get; set; }
+        public List<string>? HostedFlowSubdomains { get => _explicitNullValueHostedFlowSubdomains; set { _explicitNullValueHostedFlowSubdomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hosted-flow-subdomains"); else _explicitNullProperties?.Remove("hosted-flow-subdomains"); } }
+        private List<string>? _explicitNullValueHostedFlowSubdomains = default!;
 #nullable restore
 #else
-        public List<string> HostedFlowSubdomains { get; set; }
+        public List<string> HostedFlowSubdomains { get => _explicitNullValueHostedFlowSubdomains; set { _explicitNullValueHostedFlowSubdomains = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hosted-flow-subdomains"); else _explicitNullProperties?.Remove("hosted-flow-subdomains"); } }
+        private List<string> _explicitNullValueHostedFlowSubdomains = default!;
 #endif
         /// <summary>Name of the Inquiry Template</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>Possible values:- active- inactiveDo not assume this is a static enumeration; Persona may add new valuesin the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get; set; }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get; set; }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -68,7 +93,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateAttributes();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.InquiryTemplateAttributes(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,7 +123,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("hosted-flow-redirect-uri-schemes", HostedFlowRedirectUriSchemes);
             writer.WriteCollectionOfPrimitiveValues<string>("hosted-flow-subdomains", HostedFlowSubdomains);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("status", Status);
+            writer.WriteStringValue("status", Status);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

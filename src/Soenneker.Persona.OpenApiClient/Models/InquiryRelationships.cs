@@ -11,94 +11,134 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class InquiryRelationships : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("account") is { } nullNodeAccount && nullNodeAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Account = null;
+            if (parseNode.GetChildNode("documents") is { } nullNodeDocuments && nullNodeDocuments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Documents = null;
+            if (parseNode.GetChildNode("inquiry-template") is { } nullNodeInquiryTemplate && nullNodeInquiryTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InquiryTemplate = null;
+            if (parseNode.GetChildNode("inquiry-template-version") is { } nullNodeInquiryTemplateVersion && nullNodeInquiryTemplateVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InquiryTemplateVersion = null;
+            if (parseNode.GetChildNode("reports") is { } nullNodeReports && nullNodeReports.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reports = null;
+            if (parseNode.GetChildNode("reviewer") is { } nullNodeReviewer && nullNodeReviewer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reviewer = null;
+            if (parseNode.GetChildNode("selfies") is { } nullNodeSelfies && nullNodeSelfies.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Selfies = null;
+            if (parseNode.GetChildNode("sessions") is { } nullNodeSessions && nullNodeSessions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sessions = null;
+            if (parseNode.GetChildNode("template") is { } nullNodeTemplate && nullNodeTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Template = null;
+            if (parseNode.GetChildNode("transaction") is { } nullNodeTransaction && nullNodeTransaction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transaction = null;
+            if (parseNode.GetChildNode("verifications") is { } nullNodeVerifications && nullNodeVerifications.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Verifications = null;
+        }
+
         /// <summary>The account property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsAccount? Account { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsAccount? Account { get => _explicitNullValueAccount; set { _explicitNullValueAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account"); else _explicitNullProperties?.Remove("account"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsAccount? _explicitNullValueAccount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsAccount Account { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsAccount Account { get => _explicitNullValueAccount; set { _explicitNullValueAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account"); else _explicitNullProperties?.Remove("account"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsAccount _explicitNullValueAccount = default!;
 #endif
         /// <summary>The documents property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsDocuments? Documents { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsDocuments? Documents { get => _explicitNullValueDocuments; set { _explicitNullValueDocuments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documents"); else _explicitNullProperties?.Remove("documents"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsDocuments? _explicitNullValueDocuments = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsDocuments Documents { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsDocuments Documents { get => _explicitNullValueDocuments; set { _explicitNullValueDocuments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documents"); else _explicitNullProperties?.Remove("documents"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsDocuments _explicitNullValueDocuments = default!;
 #endif
         /// <summary>Only present for Dynamic Flow inquiries</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsInquiryTemplate? InquiryTemplate { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsInquiryTemplate? InquiryTemplate { get => _explicitNullValueInquiryTemplate; set { _explicitNullValueInquiryTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template"); else _explicitNullProperties?.Remove("inquiry-template"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsInquiryTemplate? _explicitNullValueInquiryTemplate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsInquiryTemplate InquiryTemplate { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsInquiryTemplate InquiryTemplate { get => _explicitNullValueInquiryTemplate; set { _explicitNullValueInquiryTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template"); else _explicitNullProperties?.Remove("inquiry-template"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsInquiryTemplate _explicitNullValueInquiryTemplate = default!;
 #endif
         /// <summary>Only present for Dynamic Flow inquiries</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsInquiryTemplateVersion? InquiryTemplateVersion { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsInquiryTemplateVersion? InquiryTemplateVersion { get => _explicitNullValueInquiryTemplateVersion; set { _explicitNullValueInquiryTemplateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template-version"); else _explicitNullProperties?.Remove("inquiry-template-version"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsInquiryTemplateVersion? _explicitNullValueInquiryTemplateVersion = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsInquiryTemplateVersion InquiryTemplateVersion { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsInquiryTemplateVersion InquiryTemplateVersion { get => _explicitNullValueInquiryTemplateVersion; set { _explicitNullValueInquiryTemplateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template-version"); else _explicitNullProperties?.Remove("inquiry-template-version"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsInquiryTemplateVersion _explicitNullValueInquiryTemplateVersion = default!;
 #endif
         /// <summary>The reports property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReports? Reports { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReports? Reports { get => _explicitNullValueReports; set { _explicitNullValueReports = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reports"); else _explicitNullProperties?.Remove("reports"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReports? _explicitNullValueReports = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReports Reports { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReports Reports { get => _explicitNullValueReports; set { _explicitNullValueReports = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reports"); else _explicitNullProperties?.Remove("reports"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReports _explicitNullValueReports = default!;
 #endif
         /// <summary>Actor that decisioned the Inquiry. `data` is `null` while the Inquiry has not been decisioned. Once decisioned, `data.type` and `data.id` identify the reviewer: - `user` + `user_*` — a dashboard user reviewed and decisioned the Inquiry. - `workflow` + `wfl_*` — Workflows 1.0 auto-decisioned the Inquiry. - `workflow-run` + `wfr_*` — Workflows 2.0 auto-decisioned the Inquiry  (the dominant case in automation-heavy organizations).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer? Reviewer { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer? Reviewer { get => _explicitNullValueReviewer; set { _explicitNullValueReviewer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer"); else _explicitNullProperties?.Remove("reviewer"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer? _explicitNullValueReviewer = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer Reviewer { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer Reviewer { get => _explicitNullValueReviewer; set { _explicitNullValueReviewer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("reviewer"); else _explicitNullProperties?.Remove("reviewer"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsReviewer _explicitNullValueReviewer = default!;
 #endif
         /// <summary>The selfies property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsSelfies? Selfies { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsSelfies? Selfies { get => _explicitNullValueSelfies; set { _explicitNullValueSelfies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfies"); else _explicitNullProperties?.Remove("selfies"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsSelfies? _explicitNullValueSelfies = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsSelfies Selfies { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsSelfies Selfies { get => _explicitNullValueSelfies; set { _explicitNullValueSelfies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfies"); else _explicitNullProperties?.Remove("selfies"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsSelfies _explicitNullValueSelfies = default!;
 #endif
         /// <summary>The sessions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsSessions? Sessions { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsSessions? Sessions { get => _explicitNullValueSessions; set { _explicitNullValueSessions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sessions"); else _explicitNullProperties?.Remove("sessions"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsSessions? _explicitNullValueSessions = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsSessions Sessions { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsSessions Sessions { get => _explicitNullValueSessions; set { _explicitNullValueSessions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sessions"); else _explicitNullProperties?.Remove("sessions"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsSessions _explicitNullValueSessions = default!;
 #endif
         /// <summary>Only present for Legacy 2.0 inquiries</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsTemplate? Template { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsTemplate? Template { get => _explicitNullValueTemplate; set { _explicitNullValueTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template"); else _explicitNullProperties?.Remove("template"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsTemplate? _explicitNullValueTemplate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsTemplate Template { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsTemplate Template { get => _explicitNullValueTemplate; set { _explicitNullValueTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template"); else _explicitNullProperties?.Remove("template"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsTemplate _explicitNullValueTemplate = default!;
 #endif
         /// <summary>The transaction property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsTransaction? Transaction { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsTransaction? Transaction { get => _explicitNullValueTransaction; set { _explicitNullValueTransaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction"); else _explicitNullProperties?.Remove("transaction"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsTransaction? _explicitNullValueTransaction = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsTransaction Transaction { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsTransaction Transaction { get => _explicitNullValueTransaction; set { _explicitNullValueTransaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction"); else _explicitNullProperties?.Remove("transaction"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsTransaction _explicitNullValueTransaction = default!;
 #endif
         /// <summary>The verifications property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsVerifications? Verifications { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsVerifications? Verifications { get => _explicitNullValueVerifications; set { _explicitNullValueVerifications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verifications"); else _explicitNullProperties?.Remove("verifications"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsVerifications? _explicitNullValueVerifications = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsVerifications Verifications { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsVerifications Verifications { get => _explicitNullValueVerifications; set { _explicitNullValueVerifications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verifications"); else _explicitNullProperties?.Remove("verifications"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsVerifications _explicitNullValueVerifications = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -108,7 +148,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationships CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationships();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationships(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -148,7 +188,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsSessions>("sessions", Sessions);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsTemplate>("template", Template);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsTransaction>("transaction", Transaction);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsVerifications>("verifications", Verifications);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryRelationshipsVerifications>("verifications", Verifications);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -11,48 +11,72 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateABatchJobRequestDataAttributes : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("account-type-id") is { } nullNodeAccountTypeId && nullNodeAccountTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountTypeId = null;
+            if (parseNode.GetChildNode("emit-events") is { } nullNodeEmitEvents && nullNodeEmitEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmitEvents = null;
+            if (parseNode.GetChildNode("lookup-field") is { } nullNodeLookupField && nullNodeLookupField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LookupField = null;
+            if (parseNode.GetChildNode("object") is { } nullNodeObject && nullNodeObject.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Object = null;
+            if (parseNode.GetChildNode("operation") is { } nullNodeOperation && nullNodeOperation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Operation = null;
+            if (parseNode.GetChildNode("rows") is { } nullNodeRows && nullNodeRows.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rows = null;
+        }
+
         /// <summary>The default Account Type token to use for rows that create a new Account and don&apos;t specify their own `account_type_id`. Only applicable when `object` is `account`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountTypeId { get; set; }
+        public string? AccountTypeId { get => _explicitNullValueAccountTypeId; set { _explicitNullValueAccountTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account-type-id"); else _explicitNullProperties?.Remove("account-type-id"); } }
+        private string? _explicitNullValueAccountTypeId = default!;
 #nullable restore
 #else
-        public string AccountTypeId { get; set; }
+        public string AccountTypeId { get => _explicitNullValueAccountTypeId; set { _explicitNullValueAccountTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account-type-id"); else _explicitNullProperties?.Remove("account-type-id"); } }
+        private string _explicitNullValueAccountTypeId = default!;
 #endif
         /// <summary>Whether to emit events for objects affected by this run. Defaults to `true`. When `false` and `object` is `account`: suppresses the `account.updated-fields` event, and suppresses `account.tag-added` / `account.tag-removed` (so workflows and webhooks that trigger on those events do not run for this row). When `false` and `object` is `inquiry`: has no effect today, since updating an Inquiry&apos;s tags or fields through this endpoint does not emit any event regardless of this flag. In both cases, this only suppresses events -- it never affects the write itself, and Elasticsearch reindexing and the graph Kafka sync are not events and always run.</summary>
-        public bool? EmitEvents { get; set; }
+        public bool? EmitEvents { get => _explicitNullValueEmitEvents; set { _explicitNullValueEmitEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("emit-events"); else _explicitNullProperties?.Remove("emit-events"); } }
+        private bool? _explicitNullValueEmitEvents = default!;
         /// <summary>The field used to find the object each row applies to. One of `token` or `reference_id`. `token` is required for `object: inquiry`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LookupField { get; set; }
+        public string? LookupField { get => _explicitNullValueLookupField; set { _explicitNullValueLookupField = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lookup-field"); else _explicitNullProperties?.Remove("lookup-field"); } }
+        private string? _explicitNullValueLookupField = default!;
 #nullable restore
 #else
-        public string LookupField { get; set; }
+        public string LookupField { get => _explicitNullValueLookupField; set { _explicitNullValueLookupField = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lookup-field"); else _explicitNullProperties?.Remove("lookup-field"); } }
+        private string _explicitNullValueLookupField = default!;
 #endif
         /// <summary>The kind of object each row updates. One of `account` or `inquiry`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Object { get; set; }
+        public string? Object { get => _explicitNullValueObject; set { _explicitNullValueObject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object"); else _explicitNullProperties?.Remove("object"); } }
+        private string? _explicitNullValueObject = default!;
 #nullable restore
 #else
-        public string Object { get; set; }
+        public string Object { get => _explicitNullValueObject; set { _explicitNullValueObject = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("object"); else _explicitNullProperties?.Remove("object"); } }
+        private string _explicitNullValueObject = default!;
 #endif
         /// <summary>Whether to only update existing objects, or create them if they don&apos;t already exist. One of `update` or `upsert`. `upsert` is only supported for `object: account`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Operation { get; set; }
+        public string? Operation { get => _explicitNullValueOperation; set { _explicitNullValueOperation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operation"); else _explicitNullProperties?.Remove("operation"); } }
+        private string? _explicitNullValueOperation = default!;
 #nullable restore
 #else
-        public string Operation { get; set; }
+        public string Operation { get => _explicitNullValueOperation; set { _explicitNullValueOperation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operation"); else _explicitNullProperties?.Remove("operation"); } }
+        private string _explicitNullValueOperation = default!;
 #endif
         /// <summary>The rows to process, up to 1000 rows per request. Each row is a flat object whose keys are field names (for example `reference_id`, `token`, `account_type_id`, or a custom field key) and whose values are the data to write.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.CreateABatchJobRequestDataAttributesRowsItem>? Rows { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.CreateABatchJobRequestDataAttributesRowsItem>? Rows { get => _explicitNullValueRows; set { _explicitNullValueRows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rows"); else _explicitNullProperties?.Remove("rows"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.CreateABatchJobRequestDataAttributesRowsItem>? _explicitNullValueRows = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.CreateABatchJobRequestDataAttributesRowsItem> Rows { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.CreateABatchJobRequestDataAttributesRowsItem> Rows { get => _explicitNullValueRows; set { _explicitNullValueRows = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rows"); else _explicitNullProperties?.Remove("rows"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.CreateABatchJobRequestDataAttributesRowsItem> _explicitNullValueRows = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.CreateABatchJobRequestDataAttributes"/> and sets the default values.
@@ -69,7 +93,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.CreateABatchJobRequestDataAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.CreateABatchJobRequestDataAttributes();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.CreateABatchJobRequestDataAttributes(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,7 +123,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("lookup-field", LookupField);
             writer.WriteStringValue("object", Object);
             writer.WriteStringValue("operation", Operation);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.CreateABatchJobRequestDataAttributesRowsItem>("rows", Rows);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.CreateABatchJobRequestDataAttributesRowsItem>("rows", Rows);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -11,30 +11,46 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class UpdateACaseRequestDataAttributes : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("attachments") is { } nullNodeAttachments && nullNodeAttachments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attachments = null;
+            if (parseNode.GetChildNode("case-queue-id") is { } nullNodeCaseQueueId && nullNodeCaseQueueId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaseQueueId = null;
+            if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+        }
+
         /// <summary>List of PDF and image files to add to this case.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributesAttachmentsItem>? Attachments { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributesAttachmentsItem>? Attachments { get => _explicitNullValueAttachments; set { _explicitNullValueAttachments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attachments"); else _explicitNullProperties?.Remove("attachments"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributesAttachmentsItem>? _explicitNullValueAttachments = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributesAttachmentsItem> Attachments { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributesAttachmentsItem> Attachments { get => _explicitNullValueAttachments; set { _explicitNullValueAttachments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attachments"); else _explicitNullProperties?.Remove("attachments"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributesAttachmentsItem> _explicitNullValueAttachments = default!;
 #endif
         /// <summary>ID of the case queue to put this case in. Set to null to remove case from case queue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CaseQueueId { get; set; }
+        public string? CaseQueueId { get => _explicitNullValueCaseQueueId; set { _explicitNullValueCaseQueueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case-queue-id"); else _explicitNullProperties?.Remove("case-queue-id"); } }
+        private string? _explicitNullValueCaseQueueId = default!;
 #nullable restore
 #else
-        public string CaseQueueId { get; set; }
+        public string CaseQueueId { get => _explicitNullValueCaseQueueId; set { _explicitNullValueCaseQueueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case-queue-id"); else _explicitNullProperties?.Remove("case-queue-id"); } }
+        private string _explicitNullValueCaseQueueId = default!;
 #endif
         /// <summary>JSON key-value pairs of field name to field value. Schema is defined by your Case Template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributesFields? Fields { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributesFields? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributesFields? _explicitNullValueFields = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributesFields Fields { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributesFields Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributesFields _explicitNullValueFields = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,7 +60,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributes();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributes(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,7 +84,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributesAttachmentsItem>("attachments", Attachments);
             writer.WriteStringValue("case-queue-id", CaseQueueId);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributesFields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.UpdateACaseRequestDataAttributesFields>("fields", Fields);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

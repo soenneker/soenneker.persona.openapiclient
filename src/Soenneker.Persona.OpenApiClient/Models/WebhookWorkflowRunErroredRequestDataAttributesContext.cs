@@ -12,24 +12,37 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookWorkflowRunErroredRequestDataAttributesContext : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
+            if (parseNode.GetChildNode("errored-step") is { } nullNodeErroredStep && nullNodeErroredStep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErroredStep = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Why the run errored. `null` when the run errored before this property existed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextError? Error { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextError? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextError? _explicitNullValueError = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextError Error { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextError Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextError _explicitNullValueError = default!;
 #endif
         /// <summary>The step that errored. `null` when the run failed as a whole rather than at a step (for example, it expired), or when the run errored before this property existed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep? ErroredStep { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep? ErroredStep { get => _explicitNullValueErroredStep; set { _explicitNullValueErroredStep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errored-step"); else _explicitNullProperties?.Remove("errored-step"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep? _explicitNullValueErroredStep = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep ErroredStep { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep ErroredStep { get => _explicitNullValueErroredStep; set { _explicitNullValueErroredStep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errored-step"); else _explicitNullProperties?.Remove("errored-step"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep _explicitNullValueErroredStep = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContext"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContext CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContext();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContext(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextError>("error", Error);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookWorkflowRunErroredRequestDataAttributesContextErroredStep>("errored-step", ErroredStep);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

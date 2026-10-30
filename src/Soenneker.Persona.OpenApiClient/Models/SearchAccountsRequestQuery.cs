@@ -12,7 +12,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SearchAccountsRequestQuery : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,21 +62,32 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var result = new global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQuery();
             if("SearchAccountsRequestQueryOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SearchAccountsRequestQueryOneOf1 = new global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf1();
+                
             }
             else if("SearchAccountsRequestQueryOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SearchAccountsRequestQueryOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf2();
+                
             }
             else if("SearchAccountsRequestQueryOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SearchAccountsRequestQueryOneOf3 = new global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf3();
+                
             }
             else if("SearchAccountsRequestQueryOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SearchAccountsRequestQueryOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf4();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("and") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("or") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("not") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("attribute") != null && parseNode.GetChildNode("operator") != null && parseNode.GetChildNode("value") != null))();
+            if (result.SearchAccountsRequestQueryOneOf1 == null && result.SearchAccountsRequestQueryOneOf2 == null && result.SearchAccountsRequestQueryOneOf3 == null && result.SearchAccountsRequestQueryOneOf4 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.SearchAccountsRequestQueryOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf1(), parseNode);
+            if (result.SearchAccountsRequestQueryOneOf1 == null && result.SearchAccountsRequestQueryOneOf2 == null && result.SearchAccountsRequestQueryOneOf3 == null && result.SearchAccountsRequestQueryOneOf4 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.SearchAccountsRequestQueryOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf2(), parseNode);
+            if (result.SearchAccountsRequestQueryOneOf1 == null && result.SearchAccountsRequestQueryOneOf2 == null && result.SearchAccountsRequestQueryOneOf3 == null && result.SearchAccountsRequestQueryOneOf4 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.SearchAccountsRequestQueryOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf3(), parseNode);
+            if (result.SearchAccountsRequestQueryOneOf1 == null && result.SearchAccountsRequestQueryOneOf2 == null && result.SearchAccountsRequestQueryOneOf3 == null && result.SearchAccountsRequestQueryOneOf4 == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.SearchAccountsRequestQueryOneOf4 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf4(), parseNode);
+            if (result.SearchAccountsRequestQueryOneOf1 == null && result.SearchAccountsRequestQueryOneOf2 == null && result.SearchAccountsRequestQueryOneOf3 == null && result.SearchAccountsRequestQueryOneOf4 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,21 +119,32 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (SearchAccountsRequestQueryOneOf1 == null && SearchAccountsRequestQueryOneOf2 == null && SearchAccountsRequestQueryOneOf3 == null && SearchAccountsRequestQueryOneOf4 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (SearchAccountsRequestQueryOneOf1 != null && SearchAccountsRequestQueryOneOf2 == null && SearchAccountsRequestQueryOneOf3 == null && SearchAccountsRequestQueryOneOf4 == null) { if (SearchAccountsRequestQueryOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SearchAccountsRequestQueryOneOf1); return; }
+            if (SearchAccountsRequestQueryOneOf2 != null && SearchAccountsRequestQueryOneOf1 == null && SearchAccountsRequestQueryOneOf3 == null && SearchAccountsRequestQueryOneOf4 == null) { if (SearchAccountsRequestQueryOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SearchAccountsRequestQueryOneOf2); return; }
+            if (SearchAccountsRequestQueryOneOf3 != null && SearchAccountsRequestQueryOneOf1 == null && SearchAccountsRequestQueryOneOf2 == null && SearchAccountsRequestQueryOneOf4 == null) { if (SearchAccountsRequestQueryOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SearchAccountsRequestQueryOneOf3); return; }
+            if (SearchAccountsRequestQueryOneOf4 != null && SearchAccountsRequestQueryOneOf1 == null && SearchAccountsRequestQueryOneOf2 == null && SearchAccountsRequestQueryOneOf3 == null) { if (SearchAccountsRequestQueryOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SearchAccountsRequestQueryOneOf4); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(SearchAccountsRequestQueryOneOf1 != null)
             {
+                if (SearchAccountsRequestQueryOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf1>(null, SearchAccountsRequestQueryOneOf1);
             }
             else if(SearchAccountsRequestQueryOneOf2 != null)
             {
+                if (SearchAccountsRequestQueryOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf2>(null, SearchAccountsRequestQueryOneOf2);
             }
             else if(SearchAccountsRequestQueryOneOf3 != null)
             {
+                if (SearchAccountsRequestQueryOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf3>(null, SearchAccountsRequestQueryOneOf3);
             }
             else if(SearchAccountsRequestQueryOneOf4 != null)
             {
+                if (SearchAccountsRequestQueryOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchAccountsRequestQueryOneOf4>(null, SearchAccountsRequestQueryOneOf4);
             }
         }

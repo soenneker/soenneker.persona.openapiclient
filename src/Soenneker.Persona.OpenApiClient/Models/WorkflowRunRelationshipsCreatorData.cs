@@ -12,7 +12,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowRunRelationshipsCreatorData : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,21 +70,24 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var result = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorData();
             if("WorkflowRunRelationshipsCreatorDataOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WorkflowRunRelationshipsCreatorDataOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf2();
+                
             }
             else if("WorkflowRunRelationshipsCreatorDataOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WorkflowRunRelationshipsCreatorDataOneOf3 = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf3();
+                
             }
             else if("WorkflowRunRelationshipsCreatorDataOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WorkflowRunRelationshipsCreatorDataOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf4();
+                
             }
             else if("WorkflowRunRelationshipsCreatorDataOneOf5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.WorkflowRunRelationshipsCreatorDataOneOf5 = new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf5();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            if (result.WorkflowRunRelationshipsCreatorDataMember1 == null && result.WorkflowRunRelationshipsCreatorDataOneOf2 == null && result.WorkflowRunRelationshipsCreatorDataOneOf3 == null && result.WorkflowRunRelationshipsCreatorDataOneOf4 == null && result.WorkflowRunRelationshipsCreatorDataOneOf5 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -115,25 +123,37 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (WorkflowRunRelationshipsCreatorDataMember1 == null && WorkflowRunRelationshipsCreatorDataOneOf2 == null && WorkflowRunRelationshipsCreatorDataOneOf3 == null && WorkflowRunRelationshipsCreatorDataOneOf4 == null && WorkflowRunRelationshipsCreatorDataOneOf5 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (WorkflowRunRelationshipsCreatorDataOneOf2 != null && WorkflowRunRelationshipsCreatorDataMember1 == null && WorkflowRunRelationshipsCreatorDataOneOf3 == null && WorkflowRunRelationshipsCreatorDataOneOf4 == null && WorkflowRunRelationshipsCreatorDataOneOf5 == null) { if (WorkflowRunRelationshipsCreatorDataOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WorkflowRunRelationshipsCreatorDataOneOf2); return; }
+            if (WorkflowRunRelationshipsCreatorDataOneOf3 != null && WorkflowRunRelationshipsCreatorDataMember1 == null && WorkflowRunRelationshipsCreatorDataOneOf2 == null && WorkflowRunRelationshipsCreatorDataOneOf4 == null && WorkflowRunRelationshipsCreatorDataOneOf5 == null) { if (WorkflowRunRelationshipsCreatorDataOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WorkflowRunRelationshipsCreatorDataOneOf3); return; }
+            if (WorkflowRunRelationshipsCreatorDataOneOf4 != null && WorkflowRunRelationshipsCreatorDataMember1 == null && WorkflowRunRelationshipsCreatorDataOneOf2 == null && WorkflowRunRelationshipsCreatorDataOneOf3 == null && WorkflowRunRelationshipsCreatorDataOneOf5 == null) { if (WorkflowRunRelationshipsCreatorDataOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WorkflowRunRelationshipsCreatorDataOneOf4); return; }
+            if (WorkflowRunRelationshipsCreatorDataOneOf5 != null && WorkflowRunRelationshipsCreatorDataMember1 == null && WorkflowRunRelationshipsCreatorDataOneOf2 == null && WorkflowRunRelationshipsCreatorDataOneOf3 == null && WorkflowRunRelationshipsCreatorDataOneOf4 == null) { if (WorkflowRunRelationshipsCreatorDataOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, WorkflowRunRelationshipsCreatorDataOneOf5); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(WorkflowRunRelationshipsCreatorDataMember1 != null)
             {
+                if (WorkflowRunRelationshipsCreatorDataMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataMember1>(null, WorkflowRunRelationshipsCreatorDataMember1);
             }
             else if(WorkflowRunRelationshipsCreatorDataOneOf2 != null)
             {
+                if (WorkflowRunRelationshipsCreatorDataOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf2>(null, WorkflowRunRelationshipsCreatorDataOneOf2);
             }
             else if(WorkflowRunRelationshipsCreatorDataOneOf3 != null)
             {
+                if (WorkflowRunRelationshipsCreatorDataOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf3>(null, WorkflowRunRelationshipsCreatorDataOneOf3);
             }
             else if(WorkflowRunRelationshipsCreatorDataOneOf4 != null)
             {
+                if (WorkflowRunRelationshipsCreatorDataOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf4>(null, WorkflowRunRelationshipsCreatorDataOneOf4);
             }
             else if(WorkflowRunRelationshipsCreatorDataOneOf5 != null)
             {
+                if (WorkflowRunRelationshipsCreatorDataOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunRelationshipsCreatorDataOneOf5>(null, WorkflowRunRelationshipsCreatorDataOneOf5);
             }
         }

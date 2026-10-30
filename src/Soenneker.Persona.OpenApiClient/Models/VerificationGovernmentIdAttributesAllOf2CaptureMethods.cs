@@ -12,22 +12,35 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class VerificationGovernmentIdAttributesAllOf2CaptureMethods : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("back") is { } nullNodeBack && nullNodeBack.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Back = null;
+            if (parseNode.GetChildNode("front") is { } nullNodeFront && nullNodeFront.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Front = null;
+        }
+
         /// <summary>The back property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Back { get; set; }
+        public string? Back { get => _explicitNullValueBack; set { _explicitNullValueBack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("back"); else _explicitNullProperties?.Remove("back"); } }
+        private string? _explicitNullValueBack = default!;
 #nullable restore
 #else
-        public string Back { get; set; }
+        public string Back { get => _explicitNullValueBack; set { _explicitNullValueBack = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("back"); else _explicitNullProperties?.Remove("back"); } }
+        private string _explicitNullValueBack = default!;
 #endif
         /// <summary>The front property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Front { get; set; }
+        public string? Front { get => _explicitNullValueFront; set { _explicitNullValueFront = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("front"); else _explicitNullProperties?.Remove("front"); } }
+        private string? _explicitNullValueFront = default!;
 #nullable restore
 #else
-        public string Front { get; set; }
+        public string Front { get => _explicitNullValueFront; set { _explicitNullValueFront = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("front"); else _explicitNullProperties?.Remove("front"); } }
+        private string _explicitNullValueFront = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,7 +50,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2CaptureMethods CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2CaptureMethods();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdAttributesAllOf2CaptureMethods(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +74,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("back", Back);
-            writer.WriteStringValue("front", Front);
+            writer.WriteStringValue("front", Front);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

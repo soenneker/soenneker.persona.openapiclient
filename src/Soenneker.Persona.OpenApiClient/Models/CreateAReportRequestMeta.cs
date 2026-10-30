@@ -11,40 +11,61 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateAReportRequestMeta : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("auto-create-account") is { } nullNodeAutoCreateAccount && nullNodeAutoCreateAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoCreateAccount = null;
+            if (parseNode.GetChildNode("auto-create-account-reference-id") is { } nullNodeAutoCreateAccountReferenceId && nullNodeAutoCreateAccountReferenceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoCreateAccountReferenceId = null;
+            if (parseNode.GetChildNode("auto-create-account-type-id") is { } nullNodeAutoCreateAccountTypeId && nullNodeAutoCreateAccountTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoCreateAccountTypeId = null;
+            if (parseNode.GetChildNode("processing-mode") is { } nullNodeProcessingMode && nullNodeProcessingMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProcessingMode = null;
+            if (parseNode.GetChildNode("request-flags") is { } nullNodeRequestFlags && nullNodeRequestFlags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequestFlags = null;
+        }
+
         /// <summary>If true, automatically create an Account for the user if one does not exist. Default is true.</summary>
-        public bool? AutoCreateAccount { get; set; }
+        public bool? AutoCreateAccount { get => _explicitNullValueAutoCreateAccount; set { _explicitNullValueAutoCreateAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-account"); else _explicitNullProperties?.Remove("auto-create-account"); } }
+        private bool? _explicitNullValueAutoCreateAccount = default!;
         /// <summary>If `auto-create-account` is true, this Report will be attached to the Account with this reference ID, or a new Account will be created with this reference ID if one does not exist.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AutoCreateAccountReferenceId { get; set; }
+        public string? AutoCreateAccountReferenceId { get => _explicitNullValueAutoCreateAccountReferenceId; set { _explicitNullValueAutoCreateAccountReferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-account-reference-id"); else _explicitNullProperties?.Remove("auto-create-account-reference-id"); } }
+        private string? _explicitNullValueAutoCreateAccountReferenceId = default!;
 #nullable restore
 #else
-        public string AutoCreateAccountReferenceId { get; set; }
+        public string AutoCreateAccountReferenceId { get => _explicitNullValueAutoCreateAccountReferenceId; set { _explicitNullValueAutoCreateAccountReferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-account-reference-id"); else _explicitNullProperties?.Remove("auto-create-account-reference-id"); } }
+        private string _explicitNullValueAutoCreateAccountReferenceId = default!;
 #endif
         /// <summary>If `auto-create-account` is true, the type ID to use for the Account. If not provided, the default type ID for the organization will be used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AutoCreateAccountTypeId { get; set; }
+        public string? AutoCreateAccountTypeId { get => _explicitNullValueAutoCreateAccountTypeId; set { _explicitNullValueAutoCreateAccountTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-account-type-id"); else _explicitNullProperties?.Remove("auto-create-account-type-id"); } }
+        private string? _explicitNullValueAutoCreateAccountTypeId = default!;
 #nullable restore
 #else
-        public string AutoCreateAccountTypeId { get; set; }
+        public string AutoCreateAccountTypeId { get => _explicitNullValueAutoCreateAccountTypeId; set { _explicitNullValueAutoCreateAccountTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-account-type-id"); else _explicitNullProperties?.Remove("auto-create-account-type-id"); } }
+        private string _explicitNullValueAutoCreateAccountTypeId = default!;
 #endif
         /// <summary>The processing mode for the report.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProcessingMode { get; set; }
+        public string? ProcessingMode { get => _explicitNullValueProcessingMode; set { _explicitNullValueProcessingMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("processing-mode"); else _explicitNullProperties?.Remove("processing-mode"); } }
+        private string? _explicitNullValueProcessingMode = default!;
 #nullable restore
 #else
-        public string ProcessingMode { get; set; }
+        public string ProcessingMode { get => _explicitNullValueProcessingMode; set { _explicitNullValueProcessingMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("processing-mode"); else _explicitNullProperties?.Remove("processing-mode"); } }
+        private string _explicitNullValueProcessingMode = default!;
 #endif
         /// <summary>The requestFlags property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RequestFlags { get; set; }
+        public List<string>? RequestFlags { get => _explicitNullValueRequestFlags; set { _explicitNullValueRequestFlags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request-flags"); else _explicitNullProperties?.Remove("request-flags"); } }
+        private List<string>? _explicitNullValueRequestFlags = default!;
 #nullable restore
 #else
-        public List<string> RequestFlags { get; set; }
+        public List<string> RequestFlags { get => _explicitNullValueRequestFlags; set { _explicitNullValueRequestFlags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("request-flags"); else _explicitNullProperties?.Remove("request-flags"); } }
+        private List<string> _explicitNullValueRequestFlags = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -54,7 +75,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.CreateAReportRequestMeta CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.CreateAReportRequestMeta();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.CreateAReportRequestMeta(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,7 +103,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("auto-create-account-reference-id", AutoCreateAccountReferenceId);
             writer.WriteStringValue("auto-create-account-type-id", AutoCreateAccountTypeId);
             writer.WriteStringValue("processing-mode", ProcessingMode);
-            writer.WriteCollectionOfPrimitiveValues<string>("request-flags", RequestFlags);
+            writer.WriteCollectionOfPrimitiveValues<string>("request-flags", RequestFlags);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -11,30 +11,46 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RequestARelayChallenge200Response : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("challenge") is { } nullNodeChallenge && nullNodeChallenge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Challenge = null;
+            if (parseNode.GetChildNode("token-key") is { } nullNodeTokenKey && nullNodeTokenKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenKey = null;
+            if (parseNode.GetChildNode("token-key-id") is { } nullNodeTokenKeyId && nullNodeTokenKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenKeyId = null;
+        }
+
         /// <summary>base64url-encoded PrivateToken challenge object (RFC 9577). Pass this to the Privacy Pass issuance flow to obtain a token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Challenge { get; set; }
+        public string? Challenge { get => _explicitNullValueChallenge; set { _explicitNullValueChallenge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("challenge"); else _explicitNullProperties?.Remove("challenge"); } }
+        private string? _explicitNullValueChallenge = default!;
 #nullable restore
 #else
-        public string Challenge { get; set; }
+        public string Challenge { get => _explicitNullValueChallenge; set { _explicitNullValueChallenge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("challenge"); else _explicitNullProperties?.Remove("challenge"); } }
+        private string _explicitNullValueChallenge = default!;
 #endif
         /// <summary>base64url-encoded DER public key used to issue the token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TokenKey { get; set; }
+        public string? TokenKey { get => _explicitNullValueTokenKey; set { _explicitNullValueTokenKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token-key"); else _explicitNullProperties?.Remove("token-key"); } }
+        private string? _explicitNullValueTokenKey = default!;
 #nullable restore
 #else
-        public string TokenKey { get; set; }
+        public string TokenKey { get => _explicitNullValueTokenKey; set { _explicitNullValueTokenKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token-key"); else _explicitNullProperties?.Remove("token-key"); } }
+        private string _explicitNullValueTokenKey = default!;
 #endif
         /// <summary>hex-encoded SHA-256 of `token-key`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TokenKeyId { get; set; }
+        public string? TokenKeyId { get => _explicitNullValueTokenKeyId; set { _explicitNullValueTokenKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token-key-id"); else _explicitNullProperties?.Remove("token-key-id"); } }
+        private string? _explicitNullValueTokenKeyId = default!;
 #nullable restore
 #else
-        public string TokenKeyId { get; set; }
+        public string TokenKeyId { get => _explicitNullValueTokenKeyId; set { _explicitNullValueTokenKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token-key-id"); else _explicitNullProperties?.Remove("token-key-id"); } }
+        private string _explicitNullValueTokenKeyId = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,7 +60,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallenge200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallenge200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallenge200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,7 +84,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("challenge", Challenge);
             writer.WriteStringValue("token-key", TokenKey);
-            writer.WriteStringValue("token-key-id", TokenKeyId);
+            writer.WriteStringValue("token-key-id", TokenKeyId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

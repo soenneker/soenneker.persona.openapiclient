@@ -11,30 +11,46 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DeviceAttributes : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("browser-fingerprint") is { } nullNodeBrowserFingerprint && nullNodeBrowserFingerprint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrowserFingerprint = null;
+            if (parseNode.GetChildNode("device-fingerprint") is { } nullNodeDeviceFingerprint && nullNodeDeviceFingerprint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceFingerprint = null;
+            if (parseNode.GetChildNode("device-vendor-id") is { } nullNodeDeviceVendorId && nullNodeDeviceVendorId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceVendorId = null;
+        }
+
         /// <summary>The browserFingerprint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BrowserFingerprint { get; set; }
+        public string? BrowserFingerprint { get => _explicitNullValueBrowserFingerprint; set { _explicitNullValueBrowserFingerprint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("browser-fingerprint"); else _explicitNullProperties?.Remove("browser-fingerprint"); } }
+        private string? _explicitNullValueBrowserFingerprint = default!;
 #nullable restore
 #else
-        public string BrowserFingerprint { get; set; }
+        public string BrowserFingerprint { get => _explicitNullValueBrowserFingerprint; set { _explicitNullValueBrowserFingerprint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("browser-fingerprint"); else _explicitNullProperties?.Remove("browser-fingerprint"); } }
+        private string _explicitNullValueBrowserFingerprint = default!;
 #endif
         /// <summary>The deviceFingerprint property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeviceFingerprint { get; set; }
+        public string? DeviceFingerprint { get => _explicitNullValueDeviceFingerprint; set { _explicitNullValueDeviceFingerprint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device-fingerprint"); else _explicitNullProperties?.Remove("device-fingerprint"); } }
+        private string? _explicitNullValueDeviceFingerprint = default!;
 #nullable restore
 #else
-        public string DeviceFingerprint { get; set; }
+        public string DeviceFingerprint { get => _explicitNullValueDeviceFingerprint; set { _explicitNullValueDeviceFingerprint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device-fingerprint"); else _explicitNullProperties?.Remove("device-fingerprint"); } }
+        private string _explicitNullValueDeviceFingerprint = default!;
 #endif
         /// <summary>The deviceVendorId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeviceVendorId { get; set; }
+        public string? DeviceVendorId { get => _explicitNullValueDeviceVendorId; set { _explicitNullValueDeviceVendorId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device-vendor-id"); else _explicitNullProperties?.Remove("device-vendor-id"); } }
+        private string? _explicitNullValueDeviceVendorId = default!;
 #nullable restore
 #else
-        public string DeviceVendorId { get; set; }
+        public string DeviceVendorId { get => _explicitNullValueDeviceVendorId; set { _explicitNullValueDeviceVendorId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device-vendor-id"); else _explicitNullProperties?.Remove("device-vendor-id"); } }
+        private string _explicitNullValueDeviceVendorId = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,7 +60,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.DeviceAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.DeviceAttributes();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.DeviceAttributes(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,7 +84,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("browser-fingerprint", BrowserFingerprint);
             writer.WriteStringValue("device-fingerprint", DeviceFingerprint);
-            writer.WriteStringValue("device-vendor-id", DeviceVendorId);
+            writer.WriteStringValue("device-vendor-id", DeviceVendorId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

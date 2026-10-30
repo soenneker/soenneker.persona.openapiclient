@@ -11,22 +11,35 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RunAccountActionRequestData : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("account-action-id") is { } nullNodeAccountActionId && nullNodeAccountActionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountActionId = null;
+            if (parseNode.GetChildNode("parameters") is { } nullNodeParameters && nullNodeParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Parameters = null;
+        }
+
         /// <summary>The ID of the account action to run</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountActionId { get; set; }
+        public string? AccountActionId { get => _explicitNullValueAccountActionId; set { _explicitNullValueAccountActionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account-action-id"); else _explicitNullProperties?.Remove("account-action-id"); } }
+        private string? _explicitNullValueAccountActionId = default!;
 #nullable restore
 #else
-        public string AccountActionId { get; set; }
+        public string AccountActionId { get => _explicitNullValueAccountActionId; set { _explicitNullValueAccountActionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("account-action-id"); else _explicitNullProperties?.Remove("account-action-id"); } }
+        private string _explicitNullValueAccountActionId = default!;
 #endif
         /// <summary>Parameters required by the account action. File values must be uploaded as an object with `filename` and base64-encoded `data`; references to existing stored files are rejected with a 400.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.RunAccountActionRequestDataParameters? Parameters { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.RunAccountActionRequestDataParameters? Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.RunAccountActionRequestDataParameters? _explicitNullValueParameters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.RunAccountActionRequestDataParameters Parameters { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.RunAccountActionRequestDataParameters Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.RunAccountActionRequestDataParameters _explicitNullValueParameters = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -36,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.RunAccountActionRequestData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.RunAccountActionRequestData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RunAccountActionRequestData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +71,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("account-action-id", AccountActionId);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RunAccountActionRequestDataParameters>("parameters", Parameters);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RunAccountActionRequestDataParameters>("parameters", Parameters);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

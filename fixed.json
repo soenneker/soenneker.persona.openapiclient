@@ -299,12 +299,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateAnAccount200Response"
+                  "$ref": "#/components/schemas/CreateAnAccountSuccessResponse"
                 },
                 "examples": {
                   "Success": {
                     "$ref": "#/components/examples/account"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateAnAccount200Response"
                 }
               }
             }
@@ -334,12 +337,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateAnAccount201Response"
+                  "$ref": "#/components/schemas/CreateAnAccountSuccessResponse"
                 },
                 "examples": {
                   "Created": {
                     "$ref": "#/components/examples/account"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateAnAccount201Response"
                 }
               }
             }
@@ -2158,11 +2164,16 @@
             "$ref": "#/components/parameters/fields-query-parameter"
           },
           {
-            "name": "filter",
+            "name": "filter[name]",
             "in": "query",
-            "style": "deepObject",
-            "explode": true,
+            "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
+              "type": "string",
+              "description": "Filter API keys by name"
+            },
+            "x-client-original-query-schema": {
               "type": "object",
               "properties": {
                 "name": {
@@ -2799,11 +2810,41 @@
             "$ref": "#/components/parameters/fields-query-parameter"
           },
           {
-            "name": "filter",
+            "name": "filter[status]",
             "in": "query",
-            "style": "deepObject",
-            "explode": true,
+            "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
+              "type": "string",
+              "description": "Filter connections by status"
+            },
+            "x-client-original-query-schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "description": "Filter connections by status"
+                },
+                "destination-organization-id": {
+                  "type": "string",
+                  "description": "Filter connections by destination organization ID \u2014 the organization authorized to access data through the connection."
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "filter[destination-organization-id]",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "description": "Filter connections by destination organization ID \u2014 the organization authorized to access data through the connection."
+            },
+            "x-client-original-query-schema": {
               "type": "object",
               "properties": {
                 "status": {
@@ -8047,11 +8088,74 @@
             "$ref": "#/components/parameters/fields-query-parameter"
           },
           {
-            "name": "filter",
+            "name": "filter[name]",
             "in": "query",
-            "style": "deepObject",
-            "explode": true,
+            "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
+              "type": "string",
+              "description": "Comma separated list of event names"
+            },
+            "x-client-original-query-schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Comma separated list of event names"
+                },
+                "object-id": {
+                  "type": "string",
+                  "description": "Comma separated list of object ids"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Comma separated list of event ids"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "filter[object-id]",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "description": "Comma separated list of object ids"
+            },
+            "x-client-original-query-schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Comma separated list of event names"
+                },
+                "object-id": {
+                  "type": "string",
+                  "description": "Comma separated list of object ids"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Comma separated list of event ids"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "filter[id]",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "description": "Comma separated list of event ids"
+            },
+            "x-client-original-query-schema": {
               "type": "object",
               "properties": {
                 "name": {
@@ -17889,11 +17993,34 @@
             "$ref": "#/components/parameters/fields-query-parameter"
           },
           {
-            "name": "filter",
+            "name": "filter[status]",
             "in": "query",
-            "style": "deepObject",
-            "explode": true,
+            "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
+              "enum": [
+                "active",
+                "archived"
+              ],
+              "type": "string",
+              "description": "Filter lists by status",
+              "x-ms-enum": {
+                "name": "FilterLeftBracketStatusRightBracket",
+                "modelAsString": false,
+                "values": [
+                  {
+                    "value": "active",
+                    "name": "Active"
+                  },
+                  {
+                    "value": "archived",
+                    "name": "Archived"
+                  }
+                ]
+              }
+            },
+            "x-client-original-query-schema": {
               "type": "object",
               "properties": {
                 "status": {
@@ -19078,11 +19205,41 @@
             "$ref": "#/components/parameters/fields-query-parameter"
           },
           {
-            "name": "filter",
+            "name": "filter[reference-id]",
             "in": "query",
-            "style": "deepObject",
-            "explode": true,
+            "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
+              "type": "string",
+              "description": "Filter reports by reference ID"
+            },
+            "x-client-original-query-schema": {
+              "type": "object",
+              "properties": {
+                "reference-id": {
+                  "type": "string",
+                  "description": "Filter reports by reference ID"
+                },
+                "account-id": {
+                  "type": "string",
+                  "description": "Filter reports by account ID"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          {
+            "name": "filter[account-id]",
+            "in": "query",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "description": "Filter reports by account ID"
+            },
+            "x-client-original-query-schema": {
               "type": "object",
               "properties": {
                 "reference-id": {
@@ -21707,12 +21864,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateATransaction200Response"
+                  "$ref": "#/components/schemas/CreateATransactionSuccessResponse"
                 },
                 "examples": {
                   "Success": {
                     "$ref": "#/components/examples/transaction"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateATransaction200Response"
                 }
               }
             }
@@ -21742,12 +21902,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateATransaction201Response"
+                  "$ref": "#/components/schemas/CreateATransactionSuccessResponse"
                 },
                 "examples": {
                   "Created": {
                     "$ref": "#/components/examples/transaction"
                   }
+                },
+                "x-client-original-success-schema": {
+                  "$ref": "#/components/schemas/CreateATransaction201Response"
                 }
               }
             }
@@ -27462,11 +27625,16 @@
             "$ref": "#/components/parameters/fields-query-parameter"
           },
           {
-            "name": "filter",
+            "name": "filter[status]",
             "in": "query",
-            "style": "deepObject",
-            "explode": true,
+            "required": false,
+            "style": "form",
+            "explode": false,
             "schema": {
+              "type": "string",
+              "description": "Filter workflow runs by workflow id"
+            },
+            "x-client-original-query-schema": {
               "type": "object",
               "properties": {
                 "status": {
@@ -28945,10 +29113,6 @@
         "description": "PII-filtered snapshot of an Account source object. Carries the account\u0027s filtered scalar\nattributes under \u0060peekable-attributes\u0060, and the account\u0027s standard and custom user-space\nfields under \u0060peekable-attributes.fields\u0060.\n"
       },
       "SourceDataRelatedObject": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/SourceDataVerificationDatabase"
@@ -28993,12 +29157,7 @@
             "$ref": "#/components/schemas/SourceDataAccount"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "connect/source-data/verification/database": "#/components/schemas/SourceDataVerificationDatabase",
@@ -29201,10 +29360,6 @@
         "description": "PII-filtered snapshot of a Watchlist report. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nReport subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
       },
       "SourceData": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/SourceDataInquiry"
@@ -29261,13 +29416,8 @@
             "$ref": "#/components/schemas/SourceDataReportWatchlist"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "A PII-filtered snapshot of a Share Token\u0027s source object. \u0060type\u0060 discriminates the underlying source-object type and dispatches to the matching per-subclass schema; see each subschema for shape details.",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "connect/source-data/inquiry": "#/components/schemas/SourceDataInquiry",
@@ -36608,16 +36758,279 @@
         }
       },
       "ConnectShareTokenAttributesSourceData": {
-        "unevaluatedProperties": {
-          "not": {}
-        },
-        "type": "object",
-        "allOf": [
+        "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n",
+        "oneOf": [
           {
-            "$ref": "#/components/schemas/SourceData"
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataInquiry"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataVerificationDatabase"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataVerificationDatabaseTin"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataVerificationDatabaseBusiness"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataVerificationBusinessWebsite"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataVerificationDatabaseUkDvla"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataVerificationDatabaseStandard"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataVerificationDatabasePhoneCarrier"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataVerificationPhoneNumberSilentNetworkAuthentication"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataVerificationPhoneNumber"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataVerificationEmailAddress"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataAccount"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataTxn"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataReportAdverseMedia"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataReportEmailAddress"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataReportPoliticallyExposedPerson"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataReportScreening"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataReportWatchlist"
+              }
+            ],
+            "type": "object"
           }
-        ],
-        "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+        ]
       },
       "ReportAddressLookupAttributes": {
         "unevaluatedProperties": {
@@ -49627,10 +50040,6 @@
         }
       },
       "ReportHistoryItem": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/ReportHistoryDismiss"
@@ -49648,12 +50057,7 @@
             "$ref": "#/components/schemas/ReportHistoryResume"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "run": "#/components/schemas/ReportHistoryRun",
@@ -50009,19 +50413,32 @@
       },
       "SelfieIncludedObjectsItem": {
         "required": [
-          "type"
+          "type",
+          "id",
+          "attributes",
+          "relationships"
         ],
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/Inquiry"
-          }
-        ],
+        "type": "object",
         "properties": {
           "type": {
+            "$ref": "#/components/schemas/InquiryType"
+          },
+          "id": {
+            "examples": [
+              "inq_5FrMN7NAGgFdGGysCDd7DaBW"
+            ],
             "type": "string"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/InquiryAttributes"
+          },
+          "relationships": {
+            "$ref": "#/components/schemas/InquiryRelationships"
           }
         },
-        "discriminator": {
+        "additionalProperties": false,
+        "description": "An Inquiry object",
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "inquiry": "#/components/schemas/Inquiry"
@@ -60062,10 +60479,17 @@
           "title": {
             "examples": [
               "Must be authenticated to access this endpoint",
-              "Token is invalid"
+              "Token is invalid",
+              "API key belongs to an archived environment"
             ],
             "type": "string",
             "description": "Unauthorized"
+          },
+          "details": {
+            "examples": [
+              "The API key used for this request belongs to an archived environment. Use a key from an active environment."
+            ],
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -100430,6 +100854,26 @@
             }
           ]
         }
+      },
+      "CreateAnAccountSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/CreateAnAccount200Response"
+          },
+          {
+            "$ref": "#/components/schemas/CreateAnAccount201Response"
+          }
+        ]
+      },
+      "CreateATransactionSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/CreateATransaction200Response"
+          },
+          {
+            "$ref": "#/components/schemas/CreateATransaction201Response"
+          }
+        ]
       }
     },
     "responses": {

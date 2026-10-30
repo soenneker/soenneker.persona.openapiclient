@@ -12,7 +12,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListItemFieldRelationshipsCreatorData : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemFieldRelationshipsCreatorDataMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,21 +70,24 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var result = new global::Soenneker.Persona.OpenApiClient.Models.ListItemFieldRelationshipsCreatorData();
             if("ListItemFieldRelationshipsCreatorDataOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemFieldRelationshipsCreatorDataOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemFieldRelationshipsCreatorDataOneOf2();
+                
             }
             else if("ListItemFieldRelationshipsCreatorDataOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemFieldRelationshipsCreatorDataOneOf3 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemFieldRelationshipsCreatorDataOneOf3();
+                
             }
             else if("ListItemFieldRelationshipsCreatorDataOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemFieldRelationshipsCreatorDataOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemFieldRelationshipsCreatorDataOneOf4();
+                
             }
             else if("ListItemFieldRelationshipsCreatorDataOneOf5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemFieldRelationshipsCreatorDataOneOf5 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemFieldRelationshipsCreatorDataOneOf5();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            if (result.ListItemFieldRelationshipsCreatorDataMember1 == null && result.ListItemFieldRelationshipsCreatorDataOneOf2 == null && result.ListItemFieldRelationshipsCreatorDataOneOf3 == null && result.ListItemFieldRelationshipsCreatorDataOneOf4 == null && result.ListItemFieldRelationshipsCreatorDataOneOf5 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -115,25 +123,37 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ListItemFieldRelationshipsCreatorDataMember1 == null && ListItemFieldRelationshipsCreatorDataOneOf2 == null && ListItemFieldRelationshipsCreatorDataOneOf3 == null && ListItemFieldRelationshipsCreatorDataOneOf4 == null && ListItemFieldRelationshipsCreatorDataOneOf5 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ListItemFieldRelationshipsCreatorDataOneOf2 != null && ListItemFieldRelationshipsCreatorDataMember1 == null && ListItemFieldRelationshipsCreatorDataOneOf3 == null && ListItemFieldRelationshipsCreatorDataOneOf4 == null && ListItemFieldRelationshipsCreatorDataOneOf5 == null) { if (ListItemFieldRelationshipsCreatorDataOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListItemFieldRelationshipsCreatorDataOneOf2); return; }
+            if (ListItemFieldRelationshipsCreatorDataOneOf3 != null && ListItemFieldRelationshipsCreatorDataMember1 == null && ListItemFieldRelationshipsCreatorDataOneOf2 == null && ListItemFieldRelationshipsCreatorDataOneOf4 == null && ListItemFieldRelationshipsCreatorDataOneOf5 == null) { if (ListItemFieldRelationshipsCreatorDataOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListItemFieldRelationshipsCreatorDataOneOf3); return; }
+            if (ListItemFieldRelationshipsCreatorDataOneOf4 != null && ListItemFieldRelationshipsCreatorDataMember1 == null && ListItemFieldRelationshipsCreatorDataOneOf2 == null && ListItemFieldRelationshipsCreatorDataOneOf3 == null && ListItemFieldRelationshipsCreatorDataOneOf5 == null) { if (ListItemFieldRelationshipsCreatorDataOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListItemFieldRelationshipsCreatorDataOneOf4); return; }
+            if (ListItemFieldRelationshipsCreatorDataOneOf5 != null && ListItemFieldRelationshipsCreatorDataMember1 == null && ListItemFieldRelationshipsCreatorDataOneOf2 == null && ListItemFieldRelationshipsCreatorDataOneOf3 == null && ListItemFieldRelationshipsCreatorDataOneOf4 == null) { if (ListItemFieldRelationshipsCreatorDataOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListItemFieldRelationshipsCreatorDataOneOf5); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ListItemFieldRelationshipsCreatorDataMember1 != null)
             {
+                if (ListItemFieldRelationshipsCreatorDataMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemFieldRelationshipsCreatorDataMember1>(null, ListItemFieldRelationshipsCreatorDataMember1);
             }
             else if(ListItemFieldRelationshipsCreatorDataOneOf2 != null)
             {
+                if (ListItemFieldRelationshipsCreatorDataOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemFieldRelationshipsCreatorDataOneOf2>(null, ListItemFieldRelationshipsCreatorDataOneOf2);
             }
             else if(ListItemFieldRelationshipsCreatorDataOneOf3 != null)
             {
+                if (ListItemFieldRelationshipsCreatorDataOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemFieldRelationshipsCreatorDataOneOf3>(null, ListItemFieldRelationshipsCreatorDataOneOf3);
             }
             else if(ListItemFieldRelationshipsCreatorDataOneOf4 != null)
             {
+                if (ListItemFieldRelationshipsCreatorDataOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemFieldRelationshipsCreatorDataOneOf4>(null, ListItemFieldRelationshipsCreatorDataOneOf4);
             }
             else if(ListItemFieldRelationshipsCreatorDataOneOf5 != null)
             {
+                if (ListItemFieldRelationshipsCreatorDataOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemFieldRelationshipsCreatorDataOneOf5>(null, ListItemFieldRelationshipsCreatorDataOneOf5);
             }
         }

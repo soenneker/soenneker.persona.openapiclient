@@ -12,46 +12,68 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateACaseRequestDataAttributes : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("case-queue-id") is { } nullNodeCaseQueueId && nullNodeCaseQueueId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaseQueueId = null;
+            if (parseNode.GetChildNode("case-template-id") is { } nullNodeCaseTemplateId && nullNodeCaseTemplateId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaseTemplateId = null;
+            if (parseNode.GetChildNode("creator-email-address") is { } nullNodeCreatorEmailAddress && nullNodeCreatorEmailAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatorEmailAddress = null;
+            if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+        }
+
         /// <summary>ID of the case queue to put this case in</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CaseQueueId { get; set; }
+        public string? CaseQueueId { get => _explicitNullValueCaseQueueId; set { _explicitNullValueCaseQueueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case-queue-id"); else _explicitNullProperties?.Remove("case-queue-id"); } }
+        private string? _explicitNullValueCaseQueueId = default!;
 #nullable restore
 #else
-        public string CaseQueueId { get; set; }
+        public string CaseQueueId { get => _explicitNullValueCaseQueueId; set { _explicitNullValueCaseQueueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case-queue-id"); else _explicitNullProperties?.Remove("case-queue-id"); } }
+        private string _explicitNullValueCaseQueueId = default!;
 #endif
         /// <summary>ID of the case template for this case</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CaseTemplateId { get; set; }
+        public string? CaseTemplateId { get => _explicitNullValueCaseTemplateId; set { _explicitNullValueCaseTemplateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case-template-id"); else _explicitNullProperties?.Remove("case-template-id"); } }
+        private string? _explicitNullValueCaseTemplateId = default!;
 #nullable restore
 #else
-        public string CaseTemplateId { get; set; }
+        public string CaseTemplateId { get => _explicitNullValueCaseTemplateId; set { _explicitNullValueCaseTemplateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("case-template-id"); else _explicitNullProperties?.Remove("case-template-id"); } }
+        private string _explicitNullValueCaseTemplateId = default!;
 #endif
         /// <summary>Email of the user creating this case in the organization</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatorEmailAddress { get; set; }
+        public string? CreatorEmailAddress { get => _explicitNullValueCreatorEmailAddress; set { _explicitNullValueCreatorEmailAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creator-email-address"); else _explicitNullProperties?.Remove("creator-email-address"); } }
+        private string? _explicitNullValueCreatorEmailAddress = default!;
 #nullable restore
 #else
-        public string CreatorEmailAddress { get; set; }
+        public string CreatorEmailAddress { get => _explicitNullValueCreatorEmailAddress; set { _explicitNullValueCreatorEmailAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("creator-email-address"); else _explicitNullProperties?.Remove("creator-email-address"); } }
+        private string _explicitNullValueCreatorEmailAddress = default!;
 #endif
         /// <summary>JSON key-value pairs of field name to field value. Schema is defined by your Case Template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.CreateACaseRequestDataAttributesFields? Fields { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CreateACaseRequestDataAttributesFields? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CreateACaseRequestDataAttributesFields? _explicitNullValueFields = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.CreateACaseRequestDataAttributesFields Fields { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CreateACaseRequestDataAttributesFields Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CreateACaseRequestDataAttributesFields _explicitNullValueFields = default!;
 #endif
         /// <summary>Names of tags to add to this case. Tags that don&apos;t exist are created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get; set; }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -61,7 +83,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.CreateACaseRequestDataAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.CreateACaseRequestDataAttributes();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.CreateACaseRequestDataAttributes(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,7 +111,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("case-template-id", CaseTemplateId);
             writer.WriteStringValue("creator-email-address", CreatorEmailAddress);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CreateACaseRequestDataAttributesFields>("fields", Fields);
-            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

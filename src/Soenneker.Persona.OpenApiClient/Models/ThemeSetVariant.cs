@@ -12,30 +12,46 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ThemeSetVariant : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("components") is { } nullNodeComponents && nullNodeComponents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Components = null;
+            if (parseNode.GetChildNode("inquiry") is { } nullNodeInquiry && nullNodeInquiry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inquiry = null;
+            if (parseNode.GetChildNode("step-assets") is { } nullNodeStepAssets && nullNodeStepAssets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StepAssets = null;
+        }
+
         /// <summary>The components property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantComponentsProperty? Components { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantComponentsProperty? Components { get => _explicitNullValueComponents; set { _explicitNullValueComponents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("components"); else _explicitNullProperties?.Remove("components"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantComponentsProperty? _explicitNullValueComponents = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantComponentsProperty Components { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantComponentsProperty Components { get => _explicitNullValueComponents; set { _explicitNullValueComponents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("components"); else _explicitNullProperties?.Remove("components"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantComponentsProperty _explicitNullValueComponents = default!;
 #endif
         /// <summary>The inquiry property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantInquiryProperty? Inquiry { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantInquiryProperty? Inquiry { get => _explicitNullValueInquiry; set { _explicitNullValueInquiry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry"); else _explicitNullProperties?.Remove("inquiry"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantInquiryProperty? _explicitNullValueInquiry = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantInquiryProperty Inquiry { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantInquiryProperty Inquiry { get => _explicitNullValueInquiry; set { _explicitNullValueInquiry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry"); else _explicitNullProperties?.Remove("inquiry"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantInquiryProperty _explicitNullValueInquiry = default!;
 #endif
         /// <summary>The stepAssets property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantStepAssetsProperty? StepAssets { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantStepAssetsProperty? StepAssets { get => _explicitNullValueStepAssets; set { _explicitNullValueStepAssets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step-assets"); else _explicitNullProperties?.Remove("step-assets"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantStepAssetsProperty? _explicitNullValueStepAssets = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantStepAssetsProperty StepAssets { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantStepAssetsProperty StepAssets { get => _explicitNullValueStepAssets; set { _explicitNullValueStepAssets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step-assets"); else _explicitNullProperties?.Remove("step-assets"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantStepAssetsProperty _explicitNullValueStepAssets = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -45,7 +61,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariant(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +85,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantComponentsProperty>("components", Components);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantInquiryProperty>("inquiry", Inquiry);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantStepAssetsProperty>("step-assets", StepAssets);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ThemeSetVariantStepAssetsProperty>("step-assets", StepAssets);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

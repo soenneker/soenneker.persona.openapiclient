@@ -11,46 +11,68 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RetrieveInquiryTemplateTranslations200ResponseDataAttributesTranslationsItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("attribute-name") is { } nullNodeAttributeName && nullNodeAttributeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttributeName = null;
+            if (parseNode.GetChildNode("component") is { } nullNodeComponent && nullNodeComponent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Component = null;
+            if (parseNode.GetChildNode("locale-values") is { } nullNodeLocaleValues && nullNodeLocaleValues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LocaleValues = null;
+            if (parseNode.GetChildNode("step") is { } nullNodeStep && nullNodeStep.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Step = null;
+            if (parseNode.GetChildNode("step-display-name") is { } nullNodeStepDisplayName && nullNodeStepDisplayName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StepDisplayName = null;
+        }
+
         /// <summary>The attributeName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AttributeName { get; set; }
+        public string? AttributeName { get => _explicitNullValueAttributeName; set { _explicitNullValueAttributeName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attribute-name"); else _explicitNullProperties?.Remove("attribute-name"); } }
+        private string? _explicitNullValueAttributeName = default!;
 #nullable restore
 #else
-        public string AttributeName { get; set; }
+        public string AttributeName { get => _explicitNullValueAttributeName; set { _explicitNullValueAttributeName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attribute-name"); else _explicitNullProperties?.Remove("attribute-name"); } }
+        private string _explicitNullValueAttributeName = default!;
 #endif
         /// <summary>The component property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Component { get; set; }
+        public string? Component { get => _explicitNullValueComponent; set { _explicitNullValueComponent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("component"); else _explicitNullProperties?.Remove("component"); } }
+        private string? _explicitNullValueComponent = default!;
 #nullable restore
 #else
-        public string Component { get; set; }
+        public string Component { get => _explicitNullValueComponent; set { _explicitNullValueComponent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("component"); else _explicitNullProperties?.Remove("component"); } }
+        private string _explicitNullValueComponent = default!;
 #endif
         /// <summary>The localeValues property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200ResponseDataAttributesTranslationsItemLocaleValuesItem>? LocaleValues { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200ResponseDataAttributesTranslationsItemLocaleValuesItem>? LocaleValues { get => _explicitNullValueLocaleValues; set { _explicitNullValueLocaleValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locale-values"); else _explicitNullProperties?.Remove("locale-values"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200ResponseDataAttributesTranslationsItemLocaleValuesItem>? _explicitNullValueLocaleValues = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200ResponseDataAttributesTranslationsItemLocaleValuesItem> LocaleValues { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200ResponseDataAttributesTranslationsItemLocaleValuesItem> LocaleValues { get => _explicitNullValueLocaleValues; set { _explicitNullValueLocaleValues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locale-values"); else _explicitNullProperties?.Remove("locale-values"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200ResponseDataAttributesTranslationsItemLocaleValuesItem> _explicitNullValueLocaleValues = default!;
 #endif
         /// <summary>The step property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Step { get; set; }
+        public string? Step { get => _explicitNullValueStep; set { _explicitNullValueStep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step"); else _explicitNullProperties?.Remove("step"); } }
+        private string? _explicitNullValueStep = default!;
 #nullable restore
 #else
-        public string Step { get; set; }
+        public string Step { get => _explicitNullValueStep; set { _explicitNullValueStep = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step"); else _explicitNullProperties?.Remove("step"); } }
+        private string _explicitNullValueStep = default!;
 #endif
         /// <summary>The stepDisplayName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? StepDisplayName { get; set; }
+        public string? StepDisplayName { get => _explicitNullValueStepDisplayName; set { _explicitNullValueStepDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step-display-name"); else _explicitNullProperties?.Remove("step-display-name"); } }
+        private string? _explicitNullValueStepDisplayName = default!;
 #nullable restore
 #else
-        public string StepDisplayName { get; set; }
+        public string StepDisplayName { get => _explicitNullValueStepDisplayName; set { _explicitNullValueStepDisplayName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("step-display-name"); else _explicitNullProperties?.Remove("step-display-name"); } }
+        private string _explicitNullValueStepDisplayName = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -60,7 +82,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200ResponseDataAttributesTranslationsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200ResponseDataAttributesTranslationsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200ResponseDataAttributesTranslationsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,7 +110,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("component", Component);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.RetrieveInquiryTemplateTranslations200ResponseDataAttributesTranslationsItemLocaleValuesItem>("locale-values", LocaleValues);
             writer.WriteStringValue("step", Step);
-            writer.WriteStringValue("step-display-name", StepDisplayName);
+            writer.WriteStringValue("step-display-name", StepDisplayName);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

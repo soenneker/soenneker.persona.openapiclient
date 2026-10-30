@@ -12,7 +12,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListItemBrowserFingerprintRelationshipsCreatorData : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprintRelationshipsCreatorDataMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,21 +70,24 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var result = new global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprintRelationshipsCreatorData();
             if("ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2();
+                
             }
             else if("ListItemBrowserFingerprintRelationshipsCreatorDataOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf3 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf3();
+                
             }
             else if("ListItemBrowserFingerprintRelationshipsCreatorDataOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf4();
+                
             }
             else if("ListItemBrowserFingerprintRelationshipsCreatorDataOneOf5".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf5 = new global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf5();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            if (result.ListItemBrowserFingerprintRelationshipsCreatorDataMember1 == null && result.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2 == null && result.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf3 == null && result.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf4 == null && result.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf5 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -115,25 +123,37 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ListItemBrowserFingerprintRelationshipsCreatorDataMember1 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf3 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf4 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf5 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2 != null && ListItemBrowserFingerprintRelationshipsCreatorDataMember1 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf3 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf4 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf5 == null) { if (ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2); return; }
+            if (ListItemBrowserFingerprintRelationshipsCreatorDataOneOf3 != null && ListItemBrowserFingerprintRelationshipsCreatorDataMember1 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf4 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf5 == null) { if (ListItemBrowserFingerprintRelationshipsCreatorDataOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListItemBrowserFingerprintRelationshipsCreatorDataOneOf3); return; }
+            if (ListItemBrowserFingerprintRelationshipsCreatorDataOneOf4 != null && ListItemBrowserFingerprintRelationshipsCreatorDataMember1 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf3 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf5 == null) { if (ListItemBrowserFingerprintRelationshipsCreatorDataOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListItemBrowserFingerprintRelationshipsCreatorDataOneOf4); return; }
+            if (ListItemBrowserFingerprintRelationshipsCreatorDataOneOf5 != null && ListItemBrowserFingerprintRelationshipsCreatorDataMember1 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf3 == null && ListItemBrowserFingerprintRelationshipsCreatorDataOneOf4 == null) { if (ListItemBrowserFingerprintRelationshipsCreatorDataOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListItemBrowserFingerprintRelationshipsCreatorDataOneOf5); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ListItemBrowserFingerprintRelationshipsCreatorDataMember1 != null)
             {
+                if (ListItemBrowserFingerprintRelationshipsCreatorDataMember1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprintRelationshipsCreatorDataMember1>(null, ListItemBrowserFingerprintRelationshipsCreatorDataMember1);
             }
             else if(ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2 != null)
             {
+                if (ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2>(null, ListItemBrowserFingerprintRelationshipsCreatorDataOneOf2);
             }
             else if(ListItemBrowserFingerprintRelationshipsCreatorDataOneOf3 != null)
             {
+                if (ListItemBrowserFingerprintRelationshipsCreatorDataOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf3>(null, ListItemBrowserFingerprintRelationshipsCreatorDataOneOf3);
             }
             else if(ListItemBrowserFingerprintRelationshipsCreatorDataOneOf4 != null)
             {
+                if (ListItemBrowserFingerprintRelationshipsCreatorDataOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf4>(null, ListItemBrowserFingerprintRelationshipsCreatorDataOneOf4);
             }
             else if(ListItemBrowserFingerprintRelationshipsCreatorDataOneOf5 != null)
             {
+                if (ListItemBrowserFingerprintRelationshipsCreatorDataOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListItemBrowserFingerprintRelationshipsCreatorDataOneOf5>(null, ListItemBrowserFingerprintRelationshipsCreatorDataOneOf5);
             }
         }

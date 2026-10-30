@@ -12,80 +12,116 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("addresses") is { } nullNodeAddresses && nullNodeAddresses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Addresses = null;
+            if (parseNode.GetChildNode("documents-status") is { } nullNodeDocumentsStatus && nullNodeDocumentsStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentsStatus = null;
+            if (parseNode.GetChildNode("file-number") is { } nullNodeFileNumber && nullNodeFileNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileNumber = null;
+            if (parseNode.GetChildNode("issue-date") is { } nullNodeIssueDate && nullNodeIssueDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueDate = null;
+            if (parseNode.GetChildNode("issuing-authority") is { } nullNodeIssuingAuthority && nullNodeIssuingAuthority.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssuingAuthority = null;
+            if (parseNode.GetChildNode("registered-name") is { } nullNodeRegisteredName && nullNodeRegisteredName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegisteredName = null;
+            if (parseNode.GetChildNode("registration-state") is { } nullNodeRegistrationState && nullNodeRegistrationState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistrationState = null;
+            if (parseNode.GetChildNode("registration-type") is { } nullNodeRegistrationType && nullNodeRegistrationType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistrationType = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>The addresses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemAddressesItem>? Addresses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemAddressesItem>? Addresses { get => _explicitNullValueAddresses; set { _explicitNullValueAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addresses"); else _explicitNullProperties?.Remove("addresses"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemAddressesItem>? _explicitNullValueAddresses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemAddressesItem> Addresses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemAddressesItem> Addresses { get => _explicitNullValueAddresses; set { _explicitNullValueAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addresses"); else _explicitNullProperties?.Remove("addresses"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemAddressesItem> _explicitNullValueAddresses = default!;
 #endif
         /// <summary>The document enrichment status (`pending`, `completed`, or `errored`). Null when document enrichment was not requested for this registry record.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocumentsStatus { get; set; }
+        public string? DocumentsStatus { get => _explicitNullValueDocumentsStatus; set { _explicitNullValueDocumentsStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documents-status"); else _explicitNullProperties?.Remove("documents-status"); } }
+        private string? _explicitNullValueDocumentsStatus = default!;
 #nullable restore
 #else
-        public string DocumentsStatus { get; set; }
+        public string DocumentsStatus { get => _explicitNullValueDocumentsStatus; set { _explicitNullValueDocumentsStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documents-status"); else _explicitNullProperties?.Remove("documents-status"); } }
+        private string _explicitNullValueDocumentsStatus = default!;
 #endif
         /// <summary>Official registration number</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FileNumber { get; set; }
+        public string? FileNumber { get => _explicitNullValueFileNumber; set { _explicitNullValueFileNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file-number"); else _explicitNullProperties?.Remove("file-number"); } }
+        private string? _explicitNullValueFileNumber = default!;
 #nullable restore
 #else
-        public string FileNumber { get; set; }
+        public string FileNumber { get => _explicitNullValueFileNumber; set { _explicitNullValueFileNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file-number"); else _explicitNullProperties?.Remove("file-number"); } }
+        private string _explicitNullValueFileNumber = default!;
 #endif
         /// <summary>Date the registration was issued</summary>
-        public Date? IssueDate { get; set; }
+        public Date? IssueDate { get => _explicitNullValueIssueDate; set { _explicitNullValueIssueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue-date"); else _explicitNullProperties?.Remove("issue-date"); } }
+        private Date? _explicitNullValueIssueDate = default!;
         /// <summary>Authority that issued the registration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IssuingAuthority { get; set; }
+        public string? IssuingAuthority { get => _explicitNullValueIssuingAuthority; set { _explicitNullValueIssuingAuthority = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuing-authority"); else _explicitNullProperties?.Remove("issuing-authority"); } }
+        private string? _explicitNullValueIssuingAuthority = default!;
 #nullable restore
 #else
-        public string IssuingAuthority { get; set; }
+        public string IssuingAuthority { get => _explicitNullValueIssuingAuthority; set { _explicitNullValueIssuingAuthority = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuing-authority"); else _explicitNullProperties?.Remove("issuing-authority"); } }
+        private string _explicitNullValueIssuingAuthority = default!;
 #endif
         /// <summary>Official registered business name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegisteredName { get; set; }
+        public string? RegisteredName { get => _explicitNullValueRegisteredName; set { _explicitNullValueRegisteredName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registered-name"); else _explicitNullProperties?.Remove("registered-name"); } }
+        private string? _explicitNullValueRegisteredName = default!;
 #nullable restore
 #else
-        public string RegisteredName { get; set; }
+        public string RegisteredName { get => _explicitNullValueRegisteredName; set { _explicitNullValueRegisteredName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registered-name"); else _explicitNullProperties?.Remove("registered-name"); } }
+        private string _explicitNullValueRegisteredName = default!;
 #endif
         /// <summary>State/subdivision where business is registered</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegistrationState { get; set; }
+        public string? RegistrationState { get => _explicitNullValueRegistrationState; set { _explicitNullValueRegistrationState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration-state"); else _explicitNullProperties?.Remove("registration-state"); } }
+        private string? _explicitNullValueRegistrationState = default!;
 #nullable restore
 #else
-        public string RegistrationState { get; set; }
+        public string RegistrationState { get => _explicitNullValueRegistrationState; set { _explicitNullValueRegistrationState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration-state"); else _explicitNullProperties?.Remove("registration-state"); } }
+        private string _explicitNullValueRegistrationState = default!;
 #endif
         /// <summary>Type of registration (e.g. domestic, foreign)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegistrationType { get; set; }
+        public string? RegistrationType { get => _explicitNullValueRegistrationType; set { _explicitNullValueRegistrationType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration-type"); else _explicitNullProperties?.Remove("registration-type"); } }
+        private string? _explicitNullValueRegistrationType = default!;
 #nullable restore
 #else
-        public string RegistrationType { get; set; }
+        public string RegistrationType { get => _explicitNullValueRegistrationType; set { _explicitNullValueRegistrationType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registration-type"); else _explicitNullProperties?.Remove("registration-type"); } }
+        private string _explicitNullValueRegistrationType = default!;
 #endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemStatus? Status { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemStatus? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemStatus Status { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemStatus Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemStatus _explicitNullValueStatus = default!;
 #endif
         /// <summary>The type of registry record</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Type { get; set; }
+        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string? _explicitNullValueType = default!;
 #nullable restore
 #else
-        public string Type { get; set; }
+        public string Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private string _explicitNullValueType = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -95,7 +131,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -133,7 +169,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("registration-state", RegistrationState);
             writer.WriteStringValue("registration-type", RegistrationType);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItemStatus>("status", Status);
-            writer.WriteStringValue("type", Type);
+            writer.WriteStringValue("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

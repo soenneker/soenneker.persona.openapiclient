@@ -12,7 +12,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Document : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,11 +59,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.Persona.OpenApiClient.Models.Document();
-            result.DocumentGeneric = new global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric();
-            result.DocumentGovernmentId = new global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentId();
-            result.DocumentGovernmentIdNfc = new global::Soenneker.Persona.OpenApiClient.Models.DocumentGovernmentIdNfc();
-            result.DocumentMdoc = new global::Soenneker.Persona.OpenApiClient.Models.DocumentMdoc();
-            return result;
+            
+            
+            
+            
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            if (result.DocumentGeneric == null && result.DocumentGovernmentId == null && result.DocumentGovernmentIdNfc == null && result.DocumentMdoc == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +86,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (DocumentGeneric == null && DocumentGovernmentId == null && DocumentGovernmentIdNfc == null && DocumentMdoc == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (DocumentGeneric != null && DocumentGovernmentId == null && DocumentGovernmentIdNfc == null && DocumentMdoc == null) { if (DocumentGeneric is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DocumentGeneric); return; }
+            if (DocumentGovernmentId != null && DocumentGeneric == null && DocumentGovernmentIdNfc == null && DocumentMdoc == null) { if (DocumentGovernmentId is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DocumentGovernmentId); return; }
+            if (DocumentGovernmentIdNfc != null && DocumentGeneric == null && DocumentGovernmentId == null && DocumentMdoc == null) { if (DocumentGovernmentIdNfc is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DocumentGovernmentIdNfc); return; }
+            if (DocumentMdoc != null && DocumentGeneric == null && DocumentGovernmentId == null && DocumentGovernmentIdNfc == null) { if (DocumentMdoc is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DocumentMdoc); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DocumentGeneric>(null, DocumentGeneric, DocumentGovernmentId, DocumentGovernmentIdNfc, DocumentMdoc);
         }

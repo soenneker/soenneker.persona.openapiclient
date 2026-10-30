@@ -12,7 +12,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Importer : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterAccount"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,37 +94,40 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var result = new global::Soenneker.Persona.OpenApiClient.Models.Importer();
             if("importer/account".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ImporterAccount = new global::Soenneker.Persona.OpenApiClient.Models.ImporterAccount();
+                
             }
             else if("importer/list-item/email-address".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ImporterListItemEmailAddress = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemEmailAddress();
+                
             }
             else if("importer/list-item/field".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ImporterListItemField = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemField();
+                
             }
             else if("importer/list-item/geolocation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ImporterListItemGeolocation = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGeolocation();
+                
             }
             else if("importer/list-item/government-id-number".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ImporterListItemGovernmentIdNumber = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGovernmentIdNumber();
+                
             }
             else if("importer/list-item/ip-address".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ImporterListItemIpAddress = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemIpAddress();
+                
             }
             else if("importer/list-item/name".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ImporterListItemName = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemName();
+                
             }
             else if("importer/list-item/phone-number".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.ImporterListItemPhoneNumber = new global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemPhoneNumber();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            if (result.ImporterAccount == null && result.ImporterListItemEmailAddress == null && result.ImporterListItemField == null && result.ImporterListItemGeolocation == null && result.ImporterListItemGovernmentIdNumber == null && result.ImporterListItemIpAddress == null && result.ImporterListItemName == null && result.ImporterListItemPhoneNumber == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -167,37 +175,56 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ImporterAccount == null && ImporterListItemEmailAddress == null && ImporterListItemField == null && ImporterListItemGeolocation == null && ImporterListItemGovernmentIdNumber == null && ImporterListItemIpAddress == null && ImporterListItemName == null && ImporterListItemPhoneNumber == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ImporterAccount != null && ImporterListItemEmailAddress == null && ImporterListItemField == null && ImporterListItemGeolocation == null && ImporterListItemGovernmentIdNumber == null && ImporterListItemIpAddress == null && ImporterListItemName == null && ImporterListItemPhoneNumber == null) { if (ImporterAccount is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ImporterAccount); return; }
+            if (ImporterListItemEmailAddress != null && ImporterAccount == null && ImporterListItemField == null && ImporterListItemGeolocation == null && ImporterListItemGovernmentIdNumber == null && ImporterListItemIpAddress == null && ImporterListItemName == null && ImporterListItemPhoneNumber == null) { if (ImporterListItemEmailAddress is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ImporterListItemEmailAddress); return; }
+            if (ImporterListItemField != null && ImporterAccount == null && ImporterListItemEmailAddress == null && ImporterListItemGeolocation == null && ImporterListItemGovernmentIdNumber == null && ImporterListItemIpAddress == null && ImporterListItemName == null && ImporterListItemPhoneNumber == null) { if (ImporterListItemField is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ImporterListItemField); return; }
+            if (ImporterListItemGeolocation != null && ImporterAccount == null && ImporterListItemEmailAddress == null && ImporterListItemField == null && ImporterListItemGovernmentIdNumber == null && ImporterListItemIpAddress == null && ImporterListItemName == null && ImporterListItemPhoneNumber == null) { if (ImporterListItemGeolocation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ImporterListItemGeolocation); return; }
+            if (ImporterListItemGovernmentIdNumber != null && ImporterAccount == null && ImporterListItemEmailAddress == null && ImporterListItemField == null && ImporterListItemGeolocation == null && ImporterListItemIpAddress == null && ImporterListItemName == null && ImporterListItemPhoneNumber == null) { if (ImporterListItemGovernmentIdNumber is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ImporterListItemGovernmentIdNumber); return; }
+            if (ImporterListItemIpAddress != null && ImporterAccount == null && ImporterListItemEmailAddress == null && ImporterListItemField == null && ImporterListItemGeolocation == null && ImporterListItemGovernmentIdNumber == null && ImporterListItemName == null && ImporterListItemPhoneNumber == null) { if (ImporterListItemIpAddress is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ImporterListItemIpAddress); return; }
+            if (ImporterListItemName != null && ImporterAccount == null && ImporterListItemEmailAddress == null && ImporterListItemField == null && ImporterListItemGeolocation == null && ImporterListItemGovernmentIdNumber == null && ImporterListItemIpAddress == null && ImporterListItemPhoneNumber == null) { if (ImporterListItemName is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ImporterListItemName); return; }
+            if (ImporterListItemPhoneNumber != null && ImporterAccount == null && ImporterListItemEmailAddress == null && ImporterListItemField == null && ImporterListItemGeolocation == null && ImporterListItemGovernmentIdNumber == null && ImporterListItemIpAddress == null && ImporterListItemName == null) { if (ImporterListItemPhoneNumber is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ImporterListItemPhoneNumber); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(ImporterAccount != null)
             {
+                if (ImporterAccount is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterAccount>(null, ImporterAccount);
             }
             else if(ImporterListItemEmailAddress != null)
             {
+                if (ImporterListItemEmailAddress is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemEmailAddress>(null, ImporterListItemEmailAddress);
             }
             else if(ImporterListItemField != null)
             {
+                if (ImporterListItemField is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemField>(null, ImporterListItemField);
             }
             else if(ImporterListItemGeolocation != null)
             {
+                if (ImporterListItemGeolocation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGeolocation>(null, ImporterListItemGeolocation);
             }
             else if(ImporterListItemGovernmentIdNumber != null)
             {
+                if (ImporterListItemGovernmentIdNumber is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemGovernmentIdNumber>(null, ImporterListItemGovernmentIdNumber);
             }
             else if(ImporterListItemIpAddress != null)
             {
+                if (ImporterListItemIpAddress is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemIpAddress>(null, ImporterListItemIpAddress);
             }
             else if(ImporterListItemName != null)
             {
+                if (ImporterListItemName is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemName>(null, ImporterListItemName);
             }
             else if(ImporterListItemPhoneNumber != null)
             {
+                if (ImporterListItemPhoneNumber is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ImporterListItemPhoneNumber>(null, ImporterListItemPhoneNumber);
             }
         }

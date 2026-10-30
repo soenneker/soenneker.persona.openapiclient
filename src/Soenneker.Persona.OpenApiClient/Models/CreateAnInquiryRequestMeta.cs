@@ -11,37 +11,64 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateAnInquiryRequestMeta : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("auto-create-account") is { } nullNodeAutoCreateAccount && nullNodeAutoCreateAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoCreateAccount = null;
+            if (parseNode.GetChildNode("auto-create-account-reference-id") is { } nullNodeAutoCreateAccountReferenceId && nullNodeAutoCreateAccountReferenceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoCreateAccountReferenceId = null;
+            if (parseNode.GetChildNode("auto-create-account-type-id") is { } nullNodeAutoCreateAccountTypeId && nullNodeAutoCreateAccountTypeId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoCreateAccountTypeId = null;
+            if (parseNode.GetChildNode("auto-create-inquiry-session") is { } nullNodeAutoCreateInquirySession && nullNodeAutoCreateInquirySession.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoCreateInquirySession = null;
+            if (parseNode.GetChildNode("auto-create-one-time-link") is { } nullNodeAutoCreateOneTimeLink && nullNodeAutoCreateOneTimeLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoCreateOneTimeLink = null;
+            if (parseNode.GetChildNode("expiration-after-create-interval-seconds") is { } nullNodeExpirationAfterCreateIntervalSeconds && nullNodeExpirationAfterCreateIntervalSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpirationAfterCreateIntervalSeconds = null;
+            if (parseNode.GetChildNode("expiration-after-resume-interval-seconds") is { } nullNodeExpirationAfterResumeIntervalSeconds && nullNodeExpirationAfterResumeIntervalSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpirationAfterResumeIntervalSeconds = null;
+            if (parseNode.GetChildNode("expiration-after-start-interval-seconds") is { } nullNodeExpirationAfterStartIntervalSeconds && nullNodeExpirationAfterStartIntervalSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpirationAfterStartIntervalSeconds = null;
+            if (parseNode.GetChildNode("one-time-link-expiration-seconds") is { } nullNodeOneTimeLinkExpirationSeconds && nullNodeOneTimeLinkExpirationSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OneTimeLinkExpirationSeconds = null;
+        }
+
         /// <summary>If true, automatically create an Account for the user if one does not exist. Default is true.</summary>
-        public bool? AutoCreateAccount { get; set; }
+        public bool? AutoCreateAccount { get => _explicitNullValueAutoCreateAccount; set { _explicitNullValueAutoCreateAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-account"); else _explicitNullProperties?.Remove("auto-create-account"); } }
+        private bool? _explicitNullValueAutoCreateAccount = default!;
         /// <summary>If `auto-create-account` is true, this Inquiry will be attached to the Account with this reference ID, or a new Account will be created with this reference ID if one does not exist.Will error if passed when `auto-create-account` is false.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AutoCreateAccountReferenceId { get; set; }
+        public string? AutoCreateAccountReferenceId { get => _explicitNullValueAutoCreateAccountReferenceId; set { _explicitNullValueAutoCreateAccountReferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-account-reference-id"); else _explicitNullProperties?.Remove("auto-create-account-reference-id"); } }
+        private string? _explicitNullValueAutoCreateAccountReferenceId = default!;
 #nullable restore
 #else
-        public string AutoCreateAccountReferenceId { get; set; }
+        public string AutoCreateAccountReferenceId { get => _explicitNullValueAutoCreateAccountReferenceId; set { _explicitNullValueAutoCreateAccountReferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-account-reference-id"); else _explicitNullProperties?.Remove("auto-create-account-reference-id"); } }
+        private string _explicitNullValueAutoCreateAccountReferenceId = default!;
 #endif
         /// <summary>If `auto-create-account` is true, the type ID to use for the Account. If not provided, the default type ID for the organization will be used.If `auto-create-account-reference-id` is present and corresponds to an existing Account, `auto-create-account-type-id` will be ignored.Will error if passed when `auto-create-account` is false.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AutoCreateAccountTypeId { get; set; }
+        public string? AutoCreateAccountTypeId { get => _explicitNullValueAutoCreateAccountTypeId; set { _explicitNullValueAutoCreateAccountTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-account-type-id"); else _explicitNullProperties?.Remove("auto-create-account-type-id"); } }
+        private string? _explicitNullValueAutoCreateAccountTypeId = default!;
 #nullable restore
 #else
-        public string AutoCreateAccountTypeId { get; set; }
+        public string AutoCreateAccountTypeId { get => _explicitNullValueAutoCreateAccountTypeId; set { _explicitNullValueAutoCreateAccountTypeId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-account-type-id"); else _explicitNullProperties?.Remove("auto-create-account-type-id"); } }
+        private string _explicitNullValueAutoCreateAccountTypeId = default!;
 #endif
         /// <summary>If true, automatically create an Inquiry Session token for the Inquiry.</summary>
-        public bool? AutoCreateInquirySession { get; set; }
+        public bool? AutoCreateInquirySession { get => _explicitNullValueAutoCreateInquirySession; set { _explicitNullValueAutoCreateInquirySession = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-inquiry-session"); else _explicitNullProperties?.Remove("auto-create-inquiry-session"); } }
+        private bool? _explicitNullValueAutoCreateInquirySession = default!;
         /// <summary>If true, automatically create a One-Time Link URL for the Inquiry.</summary>
-        public bool? AutoCreateOneTimeLink { get; set; }
+        public bool? AutoCreateOneTimeLink { get => _explicitNullValueAutoCreateOneTimeLink; set { _explicitNullValueAutoCreateOneTimeLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto-create-one-time-link"); else _explicitNullProperties?.Remove("auto-create-one-time-link"); } }
+        private bool? _explicitNullValueAutoCreateOneTimeLink = default!;
         /// <summary>Time interval from inquiry creation after which an Inquiry expires and the flow can no longer be accessed. Overrides value set at the template level.</summary>
-        public int? ExpirationAfterCreateIntervalSeconds { get; set; }
+        public int? ExpirationAfterCreateIntervalSeconds { get => _explicitNullValueExpirationAfterCreateIntervalSeconds; set { _explicitNullValueExpirationAfterCreateIntervalSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiration-after-create-interval-seconds"); else _explicitNullProperties?.Remove("expiration-after-create-interval-seconds"); } }
+        private int? _explicitNullValueExpirationAfterCreateIntervalSeconds = default!;
         /// <summary>Time interval from inquiry start after which an Inquiry expires and the flow can no longer be accessed. Overrides value set at the template level.</summary>
-        public int? ExpirationAfterResumeIntervalSeconds { get; set; }
+        public int? ExpirationAfterResumeIntervalSeconds { get => _explicitNullValueExpirationAfterResumeIntervalSeconds; set { _explicitNullValueExpirationAfterResumeIntervalSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiration-after-resume-interval-seconds"); else _explicitNullProperties?.Remove("expiration-after-resume-interval-seconds"); } }
+        private int? _explicitNullValueExpirationAfterResumeIntervalSeconds = default!;
         /// <summary>Time interval from inquiry start after which an Inquiry expires and the flow can no longer be accessed. Overrides value set at the template level.</summary>
-        public int? ExpirationAfterStartIntervalSeconds { get; set; }
+        public int? ExpirationAfterStartIntervalSeconds { get => _explicitNullValueExpirationAfterStartIntervalSeconds; set { _explicitNullValueExpirationAfterStartIntervalSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiration-after-start-interval-seconds"); else _explicitNullProperties?.Remove("expiration-after-start-interval-seconds"); } }
+        private int? _explicitNullValueExpirationAfterStartIntervalSeconds = default!;
         /// <summary>Time interval after which Device Handoff one time links expire. Overrides value set at the template level.</summary>
-        public int? OneTimeLinkExpirationSeconds { get; set; }
+        public int? OneTimeLinkExpirationSeconds { get => _explicitNullValueOneTimeLinkExpirationSeconds; set { _explicitNullValueOneTimeLinkExpirationSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("one-time-link-expiration-seconds"); else _explicitNullProperties?.Remove("one-time-link-expiration-seconds"); } }
+        private int? _explicitNullValueOneTimeLinkExpirationSeconds = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -50,7 +77,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestMeta CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestMeta();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.CreateAnInquiryRequestMeta(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,7 +113,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteIntValue("expiration-after-create-interval-seconds", ExpirationAfterCreateIntervalSeconds);
             writer.WriteIntValue("expiration-after-resume-interval-seconds", ExpirationAfterResumeIntervalSeconds);
             writer.WriteIntValue("expiration-after-start-interval-seconds", ExpirationAfterStartIntervalSeconds);
-            writer.WriteIntValue("one-time-link-expiration-seconds", OneTimeLinkExpirationSeconds);
+            writer.WriteIntValue("one-time-link-expiration-seconds", OneTimeLinkExpirationSeconds);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

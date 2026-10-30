@@ -11,128 +11,180 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReportBusinessLookupAttributesAllOf2Result : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("addresses") is { } nullNodeAddresses && nullNodeAddresses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Addresses = null;
+            if (parseNode.GetChildNode("agents") is { } nullNodeAgents && nullNodeAgents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Agents = null;
+            if (parseNode.GetChildNode("aliases") is { } nullNodeAliases && nullNodeAliases.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Aliases = null;
+            if (parseNode.GetChildNode("date-of-incorporation") is { } nullNodeDateOfIncorporation && nullNodeDateOfIncorporation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DateOfIncorporation = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("headcount") is { } nullNodeHeadcount && nullNodeHeadcount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Headcount = null;
+            if (parseNode.GetChildNode("identifiers") is { } nullNodeIdentifiers && nullNodeIdentifiers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Identifiers = null;
+            if (parseNode.GetChildNode("industry-classifications") is { } nullNodeIndustryClassifications && nullNodeIndustryClassifications.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IndustryClassifications = null;
+            if (parseNode.GetChildNode("legal-entity-type") is { } nullNodeLegalEntityType && nullNodeLegalEntityType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LegalEntityType = null;
+            if (parseNode.GetChildNode("legal-status") is { } nullNodeLegalStatus && nullNodeLegalStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LegalStatus = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("officers") is { } nullNodeOfficers && nullNodeOfficers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Officers = null;
+            if (parseNode.GetChildNode("phone-numbers") is { } nullNodePhoneNumbers && nullNodePhoneNumbers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumbers = null;
+            if (parseNode.GetChildNode("sources") is { } nullNodeSources && nullNodeSources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sources = null;
+            if (parseNode.GetChildNode("websites") is { } nullNodeWebsites && nullNodeWebsites.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Websites = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The addresses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultAddressesItem>? Addresses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultAddressesItem>? Addresses { get => _explicitNullValueAddresses; set { _explicitNullValueAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addresses"); else _explicitNullProperties?.Remove("addresses"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultAddressesItem>? _explicitNullValueAddresses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultAddressesItem> Addresses { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultAddressesItem> Addresses { get => _explicitNullValueAddresses; set { _explicitNullValueAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addresses"); else _explicitNullProperties?.Remove("addresses"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultAddressesItem> _explicitNullValueAddresses = default!;
 #endif
         /// <summary>The agents property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultAgentsItem>? Agents { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultAgentsItem>? Agents { get => _explicitNullValueAgents; set { _explicitNullValueAgents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agents"); else _explicitNullProperties?.Remove("agents"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultAgentsItem>? _explicitNullValueAgents = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultAgentsItem> Agents { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultAgentsItem> Agents { get => _explicitNullValueAgents; set { _explicitNullValueAgents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agents"); else _explicitNullProperties?.Remove("agents"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultAgentsItem> _explicitNullValueAgents = default!;
 #endif
         /// <summary>The aliases property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Aliases { get; set; }
+        public List<string>? Aliases { get => _explicitNullValueAliases; set { _explicitNullValueAliases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aliases"); else _explicitNullProperties?.Remove("aliases"); } }
+        private List<string>? _explicitNullValueAliases = default!;
 #nullable restore
 #else
-        public List<string> Aliases { get; set; }
+        public List<string> Aliases { get => _explicitNullValueAliases; set { _explicitNullValueAliases = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("aliases"); else _explicitNullProperties?.Remove("aliases"); } }
+        private List<string> _explicitNullValueAliases = default!;
 #endif
         /// <summary>The dateOfIncorporation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultDateOfIncorporation? DateOfIncorporation { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultDateOfIncorporation? DateOfIncorporation { get => _explicitNullValueDateOfIncorporation; set { _explicitNullValueDateOfIncorporation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date-of-incorporation"); else _explicitNullProperties?.Remove("date-of-incorporation"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultDateOfIncorporation? _explicitNullValueDateOfIncorporation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultDateOfIncorporation DateOfIncorporation { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultDateOfIncorporation DateOfIncorporation { get => _explicitNullValueDateOfIncorporation; set { _explicitNullValueDateOfIncorporation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date-of-incorporation"); else _explicitNullProperties?.Remove("date-of-incorporation"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultDateOfIncorporation _explicitNullValueDateOfIncorporation = default!;
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The headcount property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Headcount { get; set; }
+        public string? Headcount { get => _explicitNullValueHeadcount; set { _explicitNullValueHeadcount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headcount"); else _explicitNullProperties?.Remove("headcount"); } }
+        private string? _explicitNullValueHeadcount = default!;
 #nullable restore
 #else
-        public string Headcount { get; set; }
+        public string Headcount { get => _explicitNullValueHeadcount; set { _explicitNullValueHeadcount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("headcount"); else _explicitNullProperties?.Remove("headcount"); } }
+        private string _explicitNullValueHeadcount = default!;
 #endif
         /// <summary>The identifiers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultIdentifiersItem>? Identifiers { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultIdentifiersItem>? Identifiers { get => _explicitNullValueIdentifiers; set { _explicitNullValueIdentifiers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identifiers"); else _explicitNullProperties?.Remove("identifiers"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultIdentifiersItem>? _explicitNullValueIdentifiers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultIdentifiersItem> Identifiers { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultIdentifiersItem> Identifiers { get => _explicitNullValueIdentifiers; set { _explicitNullValueIdentifiers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identifiers"); else _explicitNullProperties?.Remove("identifiers"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultIdentifiersItem> _explicitNullValueIdentifiers = default!;
 #endif
         /// <summary>The industryClassifications property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultIndustryClassificationsItem>? IndustryClassifications { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultIndustryClassificationsItem>? IndustryClassifications { get => _explicitNullValueIndustryClassifications; set { _explicitNullValueIndustryClassifications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("industry-classifications"); else _explicitNullProperties?.Remove("industry-classifications"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultIndustryClassificationsItem>? _explicitNullValueIndustryClassifications = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultIndustryClassificationsItem> IndustryClassifications { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultIndustryClassificationsItem> IndustryClassifications { get => _explicitNullValueIndustryClassifications; set { _explicitNullValueIndustryClassifications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("industry-classifications"); else _explicitNullProperties?.Remove("industry-classifications"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultIndustryClassificationsItem> _explicitNullValueIndustryClassifications = default!;
 #endif
         /// <summary>The legalEntityType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LegalEntityType { get; set; }
+        public string? LegalEntityType { get => _explicitNullValueLegalEntityType; set { _explicitNullValueLegalEntityType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("legal-entity-type"); else _explicitNullProperties?.Remove("legal-entity-type"); } }
+        private string? _explicitNullValueLegalEntityType = default!;
 #nullable restore
 #else
-        public string LegalEntityType { get; set; }
+        public string LegalEntityType { get => _explicitNullValueLegalEntityType; set { _explicitNullValueLegalEntityType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("legal-entity-type"); else _explicitNullProperties?.Remove("legal-entity-type"); } }
+        private string _explicitNullValueLegalEntityType = default!;
 #endif
         /// <summary>The legalStatus property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LegalStatus { get; set; }
+        public string? LegalStatus { get => _explicitNullValueLegalStatus; set { _explicitNullValueLegalStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("legal-status"); else _explicitNullProperties?.Remove("legal-status"); } }
+        private string? _explicitNullValueLegalStatus = default!;
 #nullable restore
 #else
-        public string LegalStatus { get; set; }
+        public string LegalStatus { get => _explicitNullValueLegalStatus; set { _explicitNullValueLegalStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("legal-status"); else _explicitNullProperties?.Remove("legal-status"); } }
+        private string _explicitNullValueLegalStatus = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The officers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultOfficersItem>? Officers { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultOfficersItem>? Officers { get => _explicitNullValueOfficers; set { _explicitNullValueOfficers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("officers"); else _explicitNullProperties?.Remove("officers"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultOfficersItem>? _explicitNullValueOfficers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultOfficersItem> Officers { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultOfficersItem> Officers { get => _explicitNullValueOfficers; set { _explicitNullValueOfficers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("officers"); else _explicitNullProperties?.Remove("officers"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultOfficersItem> _explicitNullValueOfficers = default!;
 #endif
         /// <summary>The phoneNumbers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? PhoneNumbers { get; set; }
+        public List<string>? PhoneNumbers { get => _explicitNullValuePhoneNumbers; set { _explicitNullValuePhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone-numbers"); else _explicitNullProperties?.Remove("phone-numbers"); } }
+        private List<string>? _explicitNullValuePhoneNumbers = default!;
 #nullable restore
 #else
-        public List<string> PhoneNumbers { get; set; }
+        public List<string> PhoneNumbers { get => _explicitNullValuePhoneNumbers; set { _explicitNullValuePhoneNumbers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone-numbers"); else _explicitNullProperties?.Remove("phone-numbers"); } }
+        private List<string> _explicitNullValuePhoneNumbers = default!;
 #endif
         /// <summary>The sources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultSourcesItem>? Sources { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultSourcesItem>? Sources { get => _explicitNullValueSources; set { _explicitNullValueSources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sources"); else _explicitNullProperties?.Remove("sources"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultSourcesItem>? _explicitNullValueSources = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultSourcesItem> Sources { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultSourcesItem> Sources { get => _explicitNullValueSources; set { _explicitNullValueSources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sources"); else _explicitNullProperties?.Remove("sources"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultSourcesItem> _explicitNullValueSources = default!;
 #endif
         /// <summary>The websites property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Websites { get; set; }
+        public List<string>? Websites { get => _explicitNullValueWebsites; set { _explicitNullValueWebsites = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("websites"); else _explicitNullProperties?.Remove("websites"); } }
+        private List<string>? _explicitNullValueWebsites = default!;
 #nullable restore
 #else
-        public List<string> Websites { get; set; }
+        public List<string> Websites { get => _explicitNullValueWebsites; set { _explicitNullValueWebsites = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("websites"); else _explicitNullProperties?.Remove("websites"); } }
+        private List<string> _explicitNullValueWebsites = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Result"/> and sets the default values.
@@ -149,7 +201,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Result CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Result();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Result(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -198,6 +252,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<string>("phone-numbers", PhoneNumbers);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultSourcesItem>("sources", Sources);
             writer.WriteCollectionOfPrimitiveValues<string>("websites", Websites);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

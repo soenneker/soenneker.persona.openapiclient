@@ -11,33 +11,51 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CreateAGraphQueryRequestDataAttributes : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("graph-query-template-id") is { } nullNodeGraphQueryTemplateId && nullNodeGraphQueryTemplateId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GraphQueryTemplateId = null;
+            if (parseNode.GetChildNode("parameter-map") is { } nullNodeParameterMap && nullNodeParameterMap.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ParameterMap = null;
+            if (parseNode.GetChildNode("timeout-in-seconds") is { } nullNodeTimeoutInSeconds && nullNodeTimeoutInSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeoutInSeconds = null;
+            if (parseNode.GetChildNode("variable-map") is { } nullNodeVariableMap && nullNodeVariableMap.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VariableMap = null;
+        }
+
         /// <summary>The graphQueryTemplateId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GraphQueryTemplateId { get; set; }
+        public string? GraphQueryTemplateId { get => _explicitNullValueGraphQueryTemplateId; set { _explicitNullValueGraphQueryTemplateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("graph-query-template-id"); else _explicitNullProperties?.Remove("graph-query-template-id"); } }
+        private string? _explicitNullValueGraphQueryTemplateId = default!;
 #nullable restore
 #else
-        public string GraphQueryTemplateId { get; set; }
+        public string GraphQueryTemplateId { get => _explicitNullValueGraphQueryTemplateId; set { _explicitNullValueGraphQueryTemplateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("graph-query-template-id"); else _explicitNullProperties?.Remove("graph-query-template-id"); } }
+        private string _explicitNullValueGraphQueryTemplateId = default!;
 #endif
         /// <summary>Required. JSON key-value pairs of parameter name to value. Schema is defined by your Graph Query Template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributesParameterMap? ParameterMap { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributesParameterMap? ParameterMap { get => _explicitNullValueParameterMap; set { _explicitNullValueParameterMap = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameter-map"); else _explicitNullProperties?.Remove("parameter-map"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributesParameterMap? _explicitNullValueParameterMap = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributesParameterMap ParameterMap { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributesParameterMap ParameterMap { get => _explicitNullValueParameterMap; set { _explicitNullValueParameterMap = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameter-map"); else _explicitNullProperties?.Remove("parameter-map"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributesParameterMap _explicitNullValueParameterMap = default!;
 #endif
         /// <summary>Number of seconds from now to timeout the graph query. Must be greater than 0 and less than 60.</summary>
-        public int? TimeoutInSeconds { get; set; }
+        public int? TimeoutInSeconds { get => _explicitNullValueTimeoutInSeconds; set { _explicitNullValueTimeoutInSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeout-in-seconds"); else _explicitNullProperties?.Remove("timeout-in-seconds"); } }
+        private int? _explicitNullValueTimeoutInSeconds = default!;
         /// <summary>Deprecated, use parameter-map instead.JSON key-value pairs of variable name to value. Schema is defined by your Graph Query Template.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributesVariableMap? VariableMap { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributesVariableMap? VariableMap { get => _explicitNullValueVariableMap; set { _explicitNullValueVariableMap = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variable-map"); else _explicitNullProperties?.Remove("variable-map"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributesVariableMap? _explicitNullValueVariableMap = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributesVariableMap VariableMap { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributesVariableMap VariableMap { get => _explicitNullValueVariableMap; set { _explicitNullValueVariableMap = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("variable-map"); else _explicitNullProperties?.Remove("variable-map"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributesVariableMap _explicitNullValueVariableMap = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,7 +65,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributes();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributes(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,7 +91,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("graph-query-template-id", GraphQueryTemplateId);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributesParameterMap>("parameter-map", ParameterMap);
             writer.WriteIntValue("timeout-in-seconds", TimeoutInSeconds);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributesVariableMap>("variable-map", VariableMap);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CreateAGraphQueryRequestDataAttributesVariableMap>("variable-map", VariableMap);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

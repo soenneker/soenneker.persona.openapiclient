@@ -12,31 +12,55 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ImporterPipelineRunAttributesRunData : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("column-names") is { } nullNodeColumnNames && nullNodeColumnNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ColumnNames = null;
+            if (parseNode.GetChildNode("created-count") is { } nullNodeCreatedCount && nullNodeCreatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedCount = null;
+            if (parseNode.GetChildNode("error-count") is { } nullNodeErrorCount && nullNodeErrorCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorCount = null;
+            if (parseNode.GetChildNode("estimated-total-count") is { } nullNodeEstimatedTotalCount && nullNodeEstimatedTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EstimatedTotalCount = null;
+            if (parseNode.GetChildNode("row-count") is { } nullNodeRowCount && nullNodeRowCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RowCount = null;
+            if (parseNode.GetChildNode("rows-read") is { } nullNodeRowsRead && nullNodeRowsRead.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RowsRead = null;
+            if (parseNode.GetChildNode("success-count") is { } nullNodeSuccessCount && nullNodeSuccessCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessCount = null;
+            if (parseNode.GetChildNode("updated-count") is { } nullNodeUpdatedCount && nullNodeUpdatedCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedCount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Names of columns being processed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ColumnNames { get; set; }
+        public List<string>? ColumnNames { get => _explicitNullValueColumnNames; set { _explicitNullValueColumnNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("column-names"); else _explicitNullProperties?.Remove("column-names"); } }
+        private List<string>? _explicitNullValueColumnNames = default!;
 #nullable restore
 #else
-        public List<string> ColumnNames { get; set; }
+        public List<string> ColumnNames { get => _explicitNullValueColumnNames; set { _explicitNullValueColumnNames = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("column-names"); else _explicitNullProperties?.Remove("column-names"); } }
+        private List<string> _explicitNullValueColumnNames = default!;
 #endif
         /// <summary>Number of new records created</summary>
-        public int? CreatedCount { get; set; }
+        public int? CreatedCount { get => _explicitNullValueCreatedCount; set { _explicitNullValueCreatedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-count"); else _explicitNullProperties?.Remove("created-count"); } }
+        private int? _explicitNullValueCreatedCount = default!;
         /// <summary>Number of errors encountered</summary>
-        public int? ErrorCount { get; set; }
+        public int? ErrorCount { get => _explicitNullValueErrorCount; set { _explicitNullValueErrorCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error-count"); else _explicitNullProperties?.Remove("error-count"); } }
+        private int? _explicitNullValueErrorCount = default!;
         /// <summary>Estimated total number of rows to process</summary>
-        public int? EstimatedTotalCount { get; set; }
+        public int? EstimatedTotalCount { get => _explicitNullValueEstimatedTotalCount; set { _explicitNullValueEstimatedTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("estimated-total-count"); else _explicitNullProperties?.Remove("estimated-total-count"); } }
+        private int? _explicitNullValueEstimatedTotalCount = default!;
         /// <summary>Total number of rows processed</summary>
-        public int? RowCount { get; set; }
+        public int? RowCount { get => _explicitNullValueRowCount; set { _explicitNullValueRowCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("row-count"); else _explicitNullProperties?.Remove("row-count"); } }
+        private int? _explicitNullValueRowCount = default!;
         /// <summary>Number of rows read from the source</summary>
-        public int? RowsRead { get; set; }
+        public int? RowsRead { get => _explicitNullValueRowsRead; set { _explicitNullValueRowsRead = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rows-read"); else _explicitNullProperties?.Remove("rows-read"); } }
+        private int? _explicitNullValueRowsRead = default!;
         /// <summary>Number of rows successfully processed</summary>
-        public int? SuccessCount { get; set; }
+        public int? SuccessCount { get => _explicitNullValueSuccessCount; set { _explicitNullValueSuccessCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("success-count"); else _explicitNullProperties?.Remove("success-count"); } }
+        private int? _explicitNullValueSuccessCount = default!;
         /// <summary>Number of existing records updated</summary>
-        public int? UpdatedCount { get; set; }
+        public int? UpdatedCount { get => _explicitNullValueUpdatedCount; set { _explicitNullValueUpdatedCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated-count"); else _explicitNullProperties?.Remove("updated-count"); } }
+        private int? _explicitNullValueUpdatedCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.ImporterPipelineRunAttributesRunData"/> and sets the default values.
         /// </summary>
@@ -52,7 +76,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ImporterPipelineRunAttributesRunData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ImporterPipelineRunAttributesRunData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ImporterPipelineRunAttributesRunData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,6 +111,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteIntValue("rows-read", RowsRead);
             writer.WriteIntValue("success-count", SuccessCount);
             writer.WriteIntValue("updated-count", UpdatedCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

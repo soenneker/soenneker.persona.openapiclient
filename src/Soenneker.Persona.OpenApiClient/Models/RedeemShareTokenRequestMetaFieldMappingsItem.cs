@@ -11,22 +11,35 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RedeemShareTokenRequestMetaFieldMappingsItem : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("destination-field-name") is { } nullNodeDestinationFieldName && nullNodeDestinationFieldName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationFieldName = null;
+            if (parseNode.GetChildNode("source-field-name") is { } nullNodeSourceFieldName && nullNodeSourceFieldName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceFieldName = null;
+        }
+
         /// <summary>The name of the field in the destination object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DestinationFieldName { get; set; }
+        public string? DestinationFieldName { get => _explicitNullValueDestinationFieldName; set { _explicitNullValueDestinationFieldName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination-field-name"); else _explicitNullProperties?.Remove("destination-field-name"); } }
+        private string? _explicitNullValueDestinationFieldName = default!;
 #nullable restore
 #else
-        public string DestinationFieldName { get; set; }
+        public string DestinationFieldName { get => _explicitNullValueDestinationFieldName; set { _explicitNullValueDestinationFieldName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination-field-name"); else _explicitNullProperties?.Remove("destination-field-name"); } }
+        private string _explicitNullValueDestinationFieldName = default!;
 #endif
         /// <summary>The name of the field in the source object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceFieldName { get; set; }
+        public string? SourceFieldName { get => _explicitNullValueSourceFieldName; set { _explicitNullValueSourceFieldName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source-field-name"); else _explicitNullProperties?.Remove("source-field-name"); } }
+        private string? _explicitNullValueSourceFieldName = default!;
 #nullable restore
 #else
-        public string SourceFieldName { get; set; }
+        public string SourceFieldName { get => _explicitNullValueSourceFieldName; set { _explicitNullValueSourceFieldName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source-field-name"); else _explicitNullProperties?.Remove("source-field-name"); } }
+        private string _explicitNullValueSourceFieldName = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -36,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMetaFieldMappingsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMetaFieldMappingsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RedeemShareTokenRequestMetaFieldMappingsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +71,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("destination-field-name", DestinationFieldName);
-            writer.WriteStringValue("source-field-name", SourceFieldName);
+            writer.WriteStringValue("source-field-name", SourceFieldName);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

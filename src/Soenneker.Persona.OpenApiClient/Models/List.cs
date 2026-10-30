@@ -12,7 +12,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class List : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListsBrowserFingerprints"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,15 +91,18 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var result = new global::Soenneker.Persona.OpenApiClient.Models.List();
-            result.ListsBrowserFingerprints = new global::Soenneker.Persona.OpenApiClient.Models.ListsBrowserFingerprints();
-            result.ListsCountries = new global::Soenneker.Persona.OpenApiClient.Models.ListsCountries();
-            result.ListsEmailAddresses = new global::Soenneker.Persona.OpenApiClient.Models.ListsEmailAddresses();
-            result.ListsGeolocations = new global::Soenneker.Persona.OpenApiClient.Models.ListsGeolocations();
-            result.ListsGovernmentIdNumbers = new global::Soenneker.Persona.OpenApiClient.Models.ListsGovernmentIdNumbers();
-            result.ListsIpAddresses = new global::Soenneker.Persona.OpenApiClient.Models.ListsIpAddresses();
-            result.ListsNames = new global::Soenneker.Persona.OpenApiClient.Models.ListsNames();
-            result.ListsPhoneNumbers = new global::Soenneker.Persona.OpenApiClient.Models.ListsPhoneNumbers();
-            return result;
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            if (result.ListsBrowserFingerprints == null && result.ListsCountries == null && result.ListsEmailAddresses == null && result.ListsGeolocations == null && result.ListsGovernmentIdNumbers == null && result.ListsIpAddresses == null && result.ListsNames == null && result.ListsPhoneNumbers == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -114,6 +122,17 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (ListsBrowserFingerprints == null && ListsCountries == null && ListsEmailAddresses == null && ListsGeolocations == null && ListsGovernmentIdNumbers == null && ListsIpAddresses == null && ListsNames == null && ListsPhoneNumbers == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (ListsBrowserFingerprints != null && ListsCountries == null && ListsEmailAddresses == null && ListsGeolocations == null && ListsGovernmentIdNumbers == null && ListsIpAddresses == null && ListsNames == null && ListsPhoneNumbers == null) { if (ListsBrowserFingerprints is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListsBrowserFingerprints); return; }
+            if (ListsCountries != null && ListsBrowserFingerprints == null && ListsEmailAddresses == null && ListsGeolocations == null && ListsGovernmentIdNumbers == null && ListsIpAddresses == null && ListsNames == null && ListsPhoneNumbers == null) { if (ListsCountries is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListsCountries); return; }
+            if (ListsEmailAddresses != null && ListsBrowserFingerprints == null && ListsCountries == null && ListsGeolocations == null && ListsGovernmentIdNumbers == null && ListsIpAddresses == null && ListsNames == null && ListsPhoneNumbers == null) { if (ListsEmailAddresses is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListsEmailAddresses); return; }
+            if (ListsGeolocations != null && ListsBrowserFingerprints == null && ListsCountries == null && ListsEmailAddresses == null && ListsGovernmentIdNumbers == null && ListsIpAddresses == null && ListsNames == null && ListsPhoneNumbers == null) { if (ListsGeolocations is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListsGeolocations); return; }
+            if (ListsGovernmentIdNumbers != null && ListsBrowserFingerprints == null && ListsCountries == null && ListsEmailAddresses == null && ListsGeolocations == null && ListsIpAddresses == null && ListsNames == null && ListsPhoneNumbers == null) { if (ListsGovernmentIdNumbers is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListsGovernmentIdNumbers); return; }
+            if (ListsIpAddresses != null && ListsBrowserFingerprints == null && ListsCountries == null && ListsEmailAddresses == null && ListsGeolocations == null && ListsGovernmentIdNumbers == null && ListsNames == null && ListsPhoneNumbers == null) { if (ListsIpAddresses is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListsIpAddresses); return; }
+            if (ListsNames != null && ListsBrowserFingerprints == null && ListsCountries == null && ListsEmailAddresses == null && ListsGeolocations == null && ListsGovernmentIdNumbers == null && ListsIpAddresses == null && ListsPhoneNumbers == null) { if (ListsNames is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListsNames); return; }
+            if (ListsPhoneNumbers != null && ListsBrowserFingerprints == null && ListsCountries == null && ListsEmailAddresses == null && ListsGeolocations == null && ListsGovernmentIdNumbers == null && ListsIpAddresses == null && ListsNames == null) { if (ListsPhoneNumbers is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, ListsPhoneNumbers); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ListsBrowserFingerprints>(null, ListsBrowserFingerprints, ListsCountries, ListsEmailAddresses, ListsGeolocations, ListsGovernmentIdNumbers, ListsIpAddresses, ListsNames, ListsPhoneNumbers);
         }

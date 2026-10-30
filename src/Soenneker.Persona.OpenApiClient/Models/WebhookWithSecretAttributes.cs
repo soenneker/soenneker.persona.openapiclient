@@ -11,108 +11,157 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class WebhookWithSecretAttributes : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("api-attributes-blocklist") is { } nullNodeApiAttributesBlocklist && nullNodeApiAttributesBlocklist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiAttributesBlocklist = null;
+            if (parseNode.GetChildNode("api-key-inflection") is { } nullNodeApiKeyInflection && nullNodeApiKeyInflection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyInflection = null;
+            if (parseNode.GetChildNode("api-version") is { } nullNodeApiVersion && nullNodeApiVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiVersion = null;
+            if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("enabled-events") is { } nullNodeEnabledEvents && nullNodeEnabledEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnabledEvents = null;
+            if (parseNode.GetChildNode("file-access-token-expires-in") is { } nullNodeFileAccessTokenExpiresIn && nullNodeFileAccessTokenExpiresIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileAccessTokenExpiresIn = null;
+            if (parseNode.GetChildNode("included-allowlist") is { } nullNodeIncludedAllowlist && nullNodeIncludedAllowlist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IncludedAllowlist = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("payload-filter") is { } nullNodePayloadFilter && nullNodePayloadFilter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PayloadFilter = null;
+            if (parseNode.GetChildNode("relationship-allowlist") is { } nullNodeRelationshipAllowlist && nullNodeRelationshipAllowlist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelationshipAllowlist = null;
+            if (parseNode.GetChildNode("secret") is { } nullNodeSecret && nullNodeSecret.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Secret = null;
+            if (parseNode.GetChildNode("secrets") is { } nullNodeSecrets && nullNodeSecrets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Secrets = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("url") is { } nullNodeUrl && nullNodeUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Url = null;
+        }
+
         /// <summary>The apiAttributesBlocklist property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ApiAttributesBlocklist { get; set; }
+        public List<string>? ApiAttributesBlocklist { get => _explicitNullValueApiAttributesBlocklist; set { _explicitNullValueApiAttributesBlocklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-attributes-blocklist"); else _explicitNullProperties?.Remove("api-attributes-blocklist"); } }
+        private List<string>? _explicitNullValueApiAttributesBlocklist = default!;
 #nullable restore
 #else
-        public List<string> ApiAttributesBlocklist { get; set; }
+        public List<string> ApiAttributesBlocklist { get => _explicitNullValueApiAttributesBlocklist; set { _explicitNullValueApiAttributesBlocklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-attributes-blocklist"); else _explicitNullProperties?.Remove("api-attributes-blocklist"); } }
+        private List<string> _explicitNullValueApiAttributesBlocklist = default!;
 #endif
         /// <summary>The apiKeyInflection property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiKeyInflection { get; set; }
+        public string? ApiKeyInflection { get => _explicitNullValueApiKeyInflection; set { _explicitNullValueApiKeyInflection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-key-inflection"); else _explicitNullProperties?.Remove("api-key-inflection"); } }
+        private string? _explicitNullValueApiKeyInflection = default!;
 #nullable restore
 #else
-        public string ApiKeyInflection { get; set; }
+        public string ApiKeyInflection { get => _explicitNullValueApiKeyInflection; set { _explicitNullValueApiKeyInflection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-key-inflection"); else _explicitNullProperties?.Remove("api-key-inflection"); } }
+        private string _explicitNullValueApiKeyInflection = default!;
 #endif
         /// <summary>Server API version. More info on versioning can be found [here](https://docs.withpersona.com/versioning).</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiVersion? ApiVersion { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiVersion? ApiVersion { get => _explicitNullValueApiVersion; set { _explicitNullValueApiVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-version"); else _explicitNullProperties?.Remove("api-version"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.ApiVersion? _explicitNullValueApiVersion = default!;
         /// <summary>The createdAt property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The enabledEvents property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? EnabledEvents { get; set; }
+        public List<string>? EnabledEvents { get => _explicitNullValueEnabledEvents; set { _explicitNullValueEnabledEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled-events"); else _explicitNullProperties?.Remove("enabled-events"); } }
+        private List<string>? _explicitNullValueEnabledEvents = default!;
 #nullable restore
 #else
-        public List<string> EnabledEvents { get; set; }
+        public List<string> EnabledEvents { get => _explicitNullValueEnabledEvents; set { _explicitNullValueEnabledEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled-events"); else _explicitNullProperties?.Remove("enabled-events"); } }
+        private List<string> _explicitNullValueEnabledEvents = default!;
 #endif
         /// <summary>The fileAccessTokenExpiresIn property</summary>
-        public int? FileAccessTokenExpiresIn { get; set; }
+        public int? FileAccessTokenExpiresIn { get => _explicitNullValueFileAccessTokenExpiresIn; set { _explicitNullValueFileAccessTokenExpiresIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file-access-token-expires-in"); else _explicitNullProperties?.Remove("file-access-token-expires-in"); } }
+        private int? _explicitNullValueFileAccessTokenExpiresIn = default!;
         /// <summary>The includedAllowlist property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist? IncludedAllowlist { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist? IncludedAllowlist { get => _explicitNullValueIncludedAllowlist; set { _explicitNullValueIncludedAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("included-allowlist"); else _explicitNullProperties?.Remove("included-allowlist"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist? _explicitNullValueIncludedAllowlist = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist IncludedAllowlist { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist IncludedAllowlist { get => _explicitNullValueIncludedAllowlist; set { _explicitNullValueIncludedAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("included-allowlist"); else _explicitNullProperties?.Remove("included-allowlist"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.IncludedAllowlist _explicitNullValueIncludedAllowlist = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The payloadFilter property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesPayloadFilterProperty? PayloadFilter { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesPayloadFilterProperty? PayloadFilter { get => _explicitNullValuePayloadFilter; set { _explicitNullValuePayloadFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload-filter"); else _explicitNullProperties?.Remove("payload-filter"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesPayloadFilterProperty? _explicitNullValuePayloadFilter = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesPayloadFilterProperty PayloadFilter { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesPayloadFilterProperty PayloadFilter { get => _explicitNullValuePayloadFilter; set { _explicitNullValuePayloadFilter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload-filter"); else _explicitNullProperties?.Remove("payload-filter"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesPayloadFilterProperty _explicitNullValuePayloadFilter = default!;
 #endif
         /// <summary>Controls whether relationships are serialized in webhook payload objects. The default is `include_all`. The object shape leaves room for future granular relationship configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist? RelationshipAllowlist { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist? RelationshipAllowlist { get => _explicitNullValueRelationshipAllowlist; set { _explicitNullValueRelationshipAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationship-allowlist"); else _explicitNullProperties?.Remove("relationship-allowlist"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist? _explicitNullValueRelationshipAllowlist = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist RelationshipAllowlist { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist RelationshipAllowlist { get => _explicitNullValueRelationshipAllowlist; set { _explicitNullValueRelationshipAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationship-allowlist"); else _explicitNullProperties?.Remove("relationship-allowlist"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.RelationshipAllowlist _explicitNullValueRelationshipAllowlist = default!;
 #endif
         /// <summary>secret is deprecated in favor of secrets</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Secret { get; set; }
+        public string? Secret { get => _explicitNullValueSecret; set { _explicitNullValueSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret"); else _explicitNullProperties?.Remove("secret"); } }
+        private string? _explicitNullValueSecret = default!;
 #nullable restore
 #else
-        public string Secret { get; set; }
+        public string Secret { get => _explicitNullValueSecret; set { _explicitNullValueSecret = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secret"); else _explicitNullProperties?.Remove("secret"); } }
+        private string _explicitNullValueSecret = default!;
 #endif
         /// <summary>The secrets property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesSecretsItem>? Secrets { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesSecretsItem>? Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesSecretsItem>? _explicitNullValueSecrets = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesSecretsItem> Secrets { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesSecretsItem> Secrets { get => _explicitNullValueSecrets; set { _explicitNullValueSecrets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secrets"); else _explicitNullProperties?.Remove("secrets"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesSecretsItem> _explicitNullValueSecrets = default!;
 #endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get; set; }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get; set; }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string? _explicitNullValueUrl = default!;
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get => _explicitNullValueUrl; set { _explicitNullValueUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("url"); else _explicitNullProperties?.Remove("url"); } }
+        private string _explicitNullValueUrl = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -122,7 +171,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributes();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributes(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -170,7 +219,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("secret", Secret);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WebhookWithSecretAttributesSecretsItem>("secrets", Secrets);
             writer.WriteStringValue("status", Status);
-            writer.WriteStringValue("url", Url);
+            writer.WriteStringValue("url", Url);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

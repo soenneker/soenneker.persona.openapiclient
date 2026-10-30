@@ -11,30 +11,46 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class AccountAttributesFieldsNameValue : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("first") is { } nullNodeFirst && nullNodeFirst.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) First = null;
+            if (parseNode.GetChildNode("last") is { } nullNodeLast && nullNodeLast.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Last = null;
+            if (parseNode.GetChildNode("middle") is { } nullNodeMiddle && nullNodeMiddle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Middle = null;
+        }
+
         /// <summary>The first property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueFirst? First { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueFirst? First { get => _explicitNullValueFirst; set { _explicitNullValueFirst = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first"); else _explicitNullProperties?.Remove("first"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueFirst? _explicitNullValueFirst = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueFirst First { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueFirst First { get => _explicitNullValueFirst; set { _explicitNullValueFirst = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first"); else _explicitNullProperties?.Remove("first"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueFirst _explicitNullValueFirst = default!;
 #endif
         /// <summary>The last property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueLast? Last { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueLast? Last { get => _explicitNullValueLast; set { _explicitNullValueLast = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last"); else _explicitNullProperties?.Remove("last"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueLast? _explicitNullValueLast = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueLast Last { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueLast Last { get => _explicitNullValueLast; set { _explicitNullValueLast = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last"); else _explicitNullProperties?.Remove("last"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueLast _explicitNullValueLast = default!;
 #endif
         /// <summary>The middle property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueMiddle? Middle { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueMiddle? Middle { get => _explicitNullValueMiddle; set { _explicitNullValueMiddle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("middle"); else _explicitNullProperties?.Remove("middle"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueMiddle? _explicitNullValueMiddle = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueMiddle Middle { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueMiddle Middle { get => _explicitNullValueMiddle; set { _explicitNullValueMiddle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("middle"); else _explicitNullProperties?.Remove("middle"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueMiddle _explicitNullValueMiddle = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,7 +60,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValue CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValue();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValue(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,7 +84,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueFirst>("first", First);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueLast>("last", Last);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueMiddle>("middle", Middle);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsNameValueMiddle>("middle", Middle);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

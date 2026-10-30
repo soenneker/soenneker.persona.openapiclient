@@ -12,48 +12,72 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ReportBusinessRegistrationsLookupAttributesAllOf2Result : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("business-name") is { } nullNodeBusinessName && nullNodeBusinessName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessName = null;
+            if (parseNode.GetChildNode("formation-country") is { } nullNodeFormationCountry && nullNodeFormationCountry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormationCountry = null;
+            if (parseNode.GetChildNode("formation-date") is { } nullNodeFormationDate && nullNodeFormationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormationDate = null;
+            if (parseNode.GetChildNode("formation-subdivision") is { } nullNodeFormationSubdivision && nullNodeFormationSubdivision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormationSubdivision = null;
+            if (parseNode.GetChildNode("legal-entity-type") is { } nullNodeLegalEntityType && nullNodeLegalEntityType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LegalEntityType = null;
+            if (parseNode.GetChildNode("registry-records") is { } nullNodeRegistryRecords && nullNodeRegistryRecords.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegistryRecords = null;
+        }
+
         /// <summary>The name of the business</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BusinessName { get; set; }
+        public string? BusinessName { get => _explicitNullValueBusinessName; set { _explicitNullValueBusinessName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business-name"); else _explicitNullProperties?.Remove("business-name"); } }
+        private string? _explicitNullValueBusinessName = default!;
 #nullable restore
 #else
-        public string BusinessName { get; set; }
+        public string BusinessName { get => _explicitNullValueBusinessName; set { _explicitNullValueBusinessName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business-name"); else _explicitNullProperties?.Remove("business-name"); } }
+        private string _explicitNullValueBusinessName = default!;
 #endif
         /// <summary>The country where the business was formed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FormationCountry { get; set; }
+        public string? FormationCountry { get => _explicitNullValueFormationCountry; set { _explicitNullValueFormationCountry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formation-country"); else _explicitNullProperties?.Remove("formation-country"); } }
+        private string? _explicitNullValueFormationCountry = default!;
 #nullable restore
 #else
-        public string FormationCountry { get; set; }
+        public string FormationCountry { get => _explicitNullValueFormationCountry; set { _explicitNullValueFormationCountry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formation-country"); else _explicitNullProperties?.Remove("formation-country"); } }
+        private string _explicitNullValueFormationCountry = default!;
 #endif
         /// <summary>The date the business was formed</summary>
-        public Date? FormationDate { get; set; }
+        public Date? FormationDate { get => _explicitNullValueFormationDate; set { _explicitNullValueFormationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formation-date"); else _explicitNullProperties?.Remove("formation-date"); } }
+        private Date? _explicitNullValueFormationDate = default!;
         /// <summary>The subdivision where the business was formed</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FormationSubdivision { get; set; }
+        public string? FormationSubdivision { get => _explicitNullValueFormationSubdivision; set { _explicitNullValueFormationSubdivision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formation-subdivision"); else _explicitNullProperties?.Remove("formation-subdivision"); } }
+        private string? _explicitNullValueFormationSubdivision = default!;
 #nullable restore
 #else
-        public string FormationSubdivision { get; set; }
+        public string FormationSubdivision { get => _explicitNullValueFormationSubdivision; set { _explicitNullValueFormationSubdivision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formation-subdivision"); else _explicitNullProperties?.Remove("formation-subdivision"); } }
+        private string _explicitNullValueFormationSubdivision = default!;
 #endif
         /// <summary>The type of legal entity</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LegalEntityType { get; set; }
+        public string? LegalEntityType { get => _explicitNullValueLegalEntityType; set { _explicitNullValueLegalEntityType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("legal-entity-type"); else _explicitNullProperties?.Remove("legal-entity-type"); } }
+        private string? _explicitNullValueLegalEntityType = default!;
 #nullable restore
 #else
-        public string LegalEntityType { get; set; }
+        public string LegalEntityType { get => _explicitNullValueLegalEntityType; set { _explicitNullValueLegalEntityType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("legal-entity-type"); else _explicitNullProperties?.Remove("legal-entity-type"); } }
+        private string _explicitNullValueLegalEntityType = default!;
 #endif
         /// <summary>List of business registration records</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItem>? RegistryRecords { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItem>? RegistryRecords { get => _explicitNullValueRegistryRecords; set { _explicitNullValueRegistryRecords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry-records"); else _explicitNullProperties?.Remove("registry-records"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItem>? _explicitNullValueRegistryRecords = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItem> RegistryRecords { get; set; }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItem> RegistryRecords { get => _explicitNullValueRegistryRecords; set { _explicitNullValueRegistryRecords = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("registry-records"); else _explicitNullProperties?.Remove("registry-records"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItem> _explicitNullValueRegistryRecords = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -63,7 +87,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2Result CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2Result();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2Result(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,7 +117,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateValue("formation-date", FormationDate);
             writer.WriteStringValue("formation-subdivision", FormationSubdivision);
             writer.WriteStringValue("legal-entity-type", LegalEntityType);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItem>("registry-records", RegistryRecords);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessRegistrationsLookupAttributesAllOf2ResultRegistryRecordsItem>("registry-records", RegistryRecords);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -12,7 +12,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SearchWebhookEventsRequestQuery : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,21 +62,32 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var result = new global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQuery();
             if("SearchWebhookEventsRequestQueryOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SearchWebhookEventsRequestQueryOneOf1 = new global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf1();
+                
             }
             else if("SearchWebhookEventsRequestQueryOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SearchWebhookEventsRequestQueryOneOf2 = new global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf2();
+                
             }
             else if("SearchWebhookEventsRequestQueryOneOf3".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SearchWebhookEventsRequestQueryOneOf3 = new global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf3();
+                
             }
             else if("SearchWebhookEventsRequestQueryOneOf4".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SearchWebhookEventsRequestQueryOneOf4 = new global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf4();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("and") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("or") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("not") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("attribute") != null && parseNode.GetChildNode("operator") != null && parseNode.GetChildNode("value") != null))();
+            if (result.SearchWebhookEventsRequestQueryOneOf1 == null && result.SearchWebhookEventsRequestQueryOneOf2 == null && result.SearchWebhookEventsRequestQueryOneOf3 == null && result.SearchWebhookEventsRequestQueryOneOf4 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.SearchWebhookEventsRequestQueryOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf1(), parseNode);
+            if (result.SearchWebhookEventsRequestQueryOneOf1 == null && result.SearchWebhookEventsRequestQueryOneOf2 == null && result.SearchWebhookEventsRequestQueryOneOf3 == null && result.SearchWebhookEventsRequestQueryOneOf4 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.SearchWebhookEventsRequestQueryOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf2(), parseNode);
+            if (result.SearchWebhookEventsRequestQueryOneOf1 == null && result.SearchWebhookEventsRequestQueryOneOf2 == null && result.SearchWebhookEventsRequestQueryOneOf3 == null && result.SearchWebhookEventsRequestQueryOneOf4 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.SearchWebhookEventsRequestQueryOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf3(), parseNode);
+            if (result.SearchWebhookEventsRequestQueryOneOf1 == null && result.SearchWebhookEventsRequestQueryOneOf2 == null && result.SearchWebhookEventsRequestQueryOneOf3 == null && result.SearchWebhookEventsRequestQueryOneOf4 == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.SearchWebhookEventsRequestQueryOneOf4 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf4(), parseNode);
+            if (result.SearchWebhookEventsRequestQueryOneOf1 == null && result.SearchWebhookEventsRequestQueryOneOf2 == null && result.SearchWebhookEventsRequestQueryOneOf3 == null && result.SearchWebhookEventsRequestQueryOneOf4 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,21 +119,32 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (SearchWebhookEventsRequestQueryOneOf1 == null && SearchWebhookEventsRequestQueryOneOf2 == null && SearchWebhookEventsRequestQueryOneOf3 == null && SearchWebhookEventsRequestQueryOneOf4 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (SearchWebhookEventsRequestQueryOneOf1 != null && SearchWebhookEventsRequestQueryOneOf2 == null && SearchWebhookEventsRequestQueryOneOf3 == null && SearchWebhookEventsRequestQueryOneOf4 == null) { if (SearchWebhookEventsRequestQueryOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SearchWebhookEventsRequestQueryOneOf1); return; }
+            if (SearchWebhookEventsRequestQueryOneOf2 != null && SearchWebhookEventsRequestQueryOneOf1 == null && SearchWebhookEventsRequestQueryOneOf3 == null && SearchWebhookEventsRequestQueryOneOf4 == null) { if (SearchWebhookEventsRequestQueryOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SearchWebhookEventsRequestQueryOneOf2); return; }
+            if (SearchWebhookEventsRequestQueryOneOf3 != null && SearchWebhookEventsRequestQueryOneOf1 == null && SearchWebhookEventsRequestQueryOneOf2 == null && SearchWebhookEventsRequestQueryOneOf4 == null) { if (SearchWebhookEventsRequestQueryOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SearchWebhookEventsRequestQueryOneOf3); return; }
+            if (SearchWebhookEventsRequestQueryOneOf4 != null && SearchWebhookEventsRequestQueryOneOf1 == null && SearchWebhookEventsRequestQueryOneOf2 == null && SearchWebhookEventsRequestQueryOneOf3 == null) { if (SearchWebhookEventsRequestQueryOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SearchWebhookEventsRequestQueryOneOf4); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(SearchWebhookEventsRequestQueryOneOf1 != null)
             {
+                if (SearchWebhookEventsRequestQueryOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf1>(null, SearchWebhookEventsRequestQueryOneOf1);
             }
             else if(SearchWebhookEventsRequestQueryOneOf2 != null)
             {
+                if (SearchWebhookEventsRequestQueryOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf2>(null, SearchWebhookEventsRequestQueryOneOf2);
             }
             else if(SearchWebhookEventsRequestQueryOneOf3 != null)
             {
+                if (SearchWebhookEventsRequestQueryOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf3>(null, SearchWebhookEventsRequestQueryOneOf3);
             }
             else if(SearchWebhookEventsRequestQueryOneOf4 != null)
             {
+                if (SearchWebhookEventsRequestQueryOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.SearchWebhookEventsRequestQueryOneOf4>(null, SearchWebhookEventsRequestQueryOneOf4);
             }
         }

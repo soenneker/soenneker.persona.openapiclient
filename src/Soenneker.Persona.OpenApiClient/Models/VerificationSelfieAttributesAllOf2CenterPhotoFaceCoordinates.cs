@@ -11,40 +11,59 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class VerificationSelfieAttributesAllOf2CenterPhotoFaceCoordinates : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bottom-left") is { } nullNodeBottomLeft && nullNodeBottomLeft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BottomLeft = null;
+            if (parseNode.GetChildNode("bottom-right") is { } nullNodeBottomRight && nullNodeBottomRight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BottomRight = null;
+            if (parseNode.GetChildNode("top-left") is { } nullNodeTopLeft && nullNodeTopLeft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopLeft = null;
+            if (parseNode.GetChildNode("top-right") is { } nullNodeTopRight && nullNodeTopRight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopRight = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The bottomLeft property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? BottomLeft { get; set; }
+        public List<double?>? BottomLeft { get => _explicitNullValueBottomLeft; set { _explicitNullValueBottomLeft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bottom-left"); else _explicitNullProperties?.Remove("bottom-left"); } }
+        private List<double?>? _explicitNullValueBottomLeft = default!;
 #nullable restore
 #else
-        public List<double?> BottomLeft { get; set; }
+        public List<double?> BottomLeft { get => _explicitNullValueBottomLeft; set { _explicitNullValueBottomLeft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bottom-left"); else _explicitNullProperties?.Remove("bottom-left"); } }
+        private List<double?> _explicitNullValueBottomLeft = default!;
 #endif
         /// <summary>The bottomRight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? BottomRight { get; set; }
+        public List<double?>? BottomRight { get => _explicitNullValueBottomRight; set { _explicitNullValueBottomRight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bottom-right"); else _explicitNullProperties?.Remove("bottom-right"); } }
+        private List<double?>? _explicitNullValueBottomRight = default!;
 #nullable restore
 #else
-        public List<double?> BottomRight { get; set; }
+        public List<double?> BottomRight { get => _explicitNullValueBottomRight; set { _explicitNullValueBottomRight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bottom-right"); else _explicitNullProperties?.Remove("bottom-right"); } }
+        private List<double?> _explicitNullValueBottomRight = default!;
 #endif
         /// <summary>The topLeft property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? TopLeft { get; set; }
+        public List<double?>? TopLeft { get => _explicitNullValueTopLeft; set { _explicitNullValueTopLeft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top-left"); else _explicitNullProperties?.Remove("top-left"); } }
+        private List<double?>? _explicitNullValueTopLeft = default!;
 #nullable restore
 #else
-        public List<double?> TopLeft { get; set; }
+        public List<double?> TopLeft { get => _explicitNullValueTopLeft; set { _explicitNullValueTopLeft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top-left"); else _explicitNullProperties?.Remove("top-left"); } }
+        private List<double?> _explicitNullValueTopLeft = default!;
 #endif
         /// <summary>The topRight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? TopRight { get; set; }
+        public List<double?>? TopRight { get => _explicitNullValueTopRight; set { _explicitNullValueTopRight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top-right"); else _explicitNullProperties?.Remove("top-right"); } }
+        private List<double?>? _explicitNullValueTopRight = default!;
 #nullable restore
 #else
-        public List<double?> TopRight { get; set; }
+        public List<double?> TopRight { get => _explicitNullValueTopRight; set { _explicitNullValueTopRight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top-right"); else _explicitNullProperties?.Remove("top-right"); } }
+        private List<double?> _explicitNullValueTopRight = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributesAllOf2CenterPhotoFaceCoordinates"/> and sets the default values.
@@ -61,7 +80,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributesAllOf2CenterPhotoFaceCoordinates CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributesAllOf2CenterPhotoFaceCoordinates();
+            // Preserve a nullable root response.
+            if (parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) return null!;
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.VerificationSelfieAttributesAllOf2CenterPhotoFaceCoordinates(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,6 +109,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteCollectionOfPrimitiveValues<double?>("bottom-right", BottomRight);
             writer.WriteCollectionOfPrimitiveValues<double?>("top-left", TopLeft);
             writer.WriteCollectionOfPrimitiveValues<double?>("top-right", TopRight);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,204 +11,299 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class InquirySessionAttributes : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("browser-full-version") is { } nullNodeBrowserFullVersion && nullNodeBrowserFullVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrowserFullVersion = null;
+            if (parseNode.GetChildNode("browser-name") is { } nullNodeBrowserName && nullNodeBrowserName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrowserName = null;
+            if (parseNode.GetChildNode("country-code") is { } nullNodeCountryCode && nullNodeCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryCode = null;
+            if (parseNode.GetChildNode("country-name") is { } nullNodeCountryName && nullNodeCountryName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryName = null;
+            if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("device-handoff-method") is { } nullNodeDeviceHandoffMethod && nullNodeDeviceHandoffMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceHandoffMethod = null;
+            if (parseNode.GetChildNode("device-name") is { } nullNodeDeviceName && nullNodeDeviceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceName = null;
+            if (parseNode.GetChildNode("device-type") is { } nullNodeDeviceType && nullNodeDeviceType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceType = null;
+            if (parseNode.GetChildNode("expired-at") is { } nullNodeExpiredAt && nullNodeExpiredAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiredAt = null;
+            if (parseNode.GetChildNode("gps-country-code") is { } nullNodeGpsCountryCode && nullNodeGpsCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GpsCountryCode = null;
+            if (parseNode.GetChildNode("gps-latitude") is { } nullNodeGpsLatitude && nullNodeGpsLatitude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GpsLatitude = null;
+            if (parseNode.GetChildNode("gps-longitude") is { } nullNodeGpsLongitude && nullNodeGpsLongitude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GpsLongitude = null;
+            if (parseNode.GetChildNode("gps-precision") is { } nullNodeGpsPrecision && nullNodeGpsPrecision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GpsPrecision = null;
+            if (parseNode.GetChildNode("ip-address") is { } nullNodeIpAddress && nullNodeIpAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAddress = null;
+            if (parseNode.GetChildNode("ip-connection-type") is { } nullNodeIpConnectionType && nullNodeIpConnectionType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpConnectionType = null;
+            if (parseNode.GetChildNode("ip-isp") is { } nullNodeIpIsp && nullNodeIpIsp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpIsp = null;
+            if (parseNode.GetChildNode("is-datacenter") is { } nullNodeIsDatacenter && nullNodeIsDatacenter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsDatacenter = null;
+            if (parseNode.GetChildNode("is-proxy") is { } nullNodeIsProxy && nullNodeIsProxy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsProxy = null;
+            if (parseNode.GetChildNode("is-tor") is { } nullNodeIsTor && nullNodeIsTor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsTor = null;
+            if (parseNode.GetChildNode("is-vpn") is { } nullNodeIsVpn && nullNodeIsVpn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsVpn = null;
+            if (parseNode.GetChildNode("latitude") is { } nullNodeLatitude && nullNodeLatitude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Latitude = null;
+            if (parseNode.GetChildNode("longitude") is { } nullNodeLongitude && nullNodeLongitude.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Longitude = null;
+            if (parseNode.GetChildNode("mobile-sdk-full-version") is { } nullNodeMobileSdkFullVersion && nullNodeMobileSdkFullVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MobileSdkFullVersion = null;
+            if (parseNode.GetChildNode("mobile-sdk-name") is { } nullNodeMobileSdkName && nullNodeMobileSdkName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MobileSdkName = null;
+            if (parseNode.GetChildNode("network-organization") is { } nullNodeNetworkOrganization && nullNodeNetworkOrganization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetworkOrganization = null;
+            if (parseNode.GetChildNode("os-full-version") is { } nullNodeOsFullVersion && nullNodeOsFullVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OsFullVersion = null;
+            if (parseNode.GetChildNode("os-name") is { } nullNodeOsName && nullNodeOsName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OsName = null;
+            if (parseNode.GetChildNode("region-code") is { } nullNodeRegionCode && nullNodeRegionCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionCode = null;
+            if (parseNode.GetChildNode("region-name") is { } nullNodeRegionName && nullNodeRegionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RegionName = null;
+            if (parseNode.GetChildNode("started-at") is { } nullNodeStartedAt && nullNodeStartedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartedAt = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("threat-level") is { } nullNodeThreatLevel && nullNodeThreatLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ThreatLevel = null;
+            if (parseNode.GetChildNode("user-agent") is { } nullNodeUserAgent && nullNodeUserAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAgent = null;
+        }
+
         /// <summary>The browserFullVersion property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BrowserFullVersion { get; set; }
+        public string? BrowserFullVersion { get => _explicitNullValueBrowserFullVersion; set { _explicitNullValueBrowserFullVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("browser-full-version"); else _explicitNullProperties?.Remove("browser-full-version"); } }
+        private string? _explicitNullValueBrowserFullVersion = default!;
 #nullable restore
 #else
-        public string BrowserFullVersion { get; set; }
+        public string BrowserFullVersion { get => _explicitNullValueBrowserFullVersion; set { _explicitNullValueBrowserFullVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("browser-full-version"); else _explicitNullProperties?.Remove("browser-full-version"); } }
+        private string _explicitNullValueBrowserFullVersion = default!;
 #endif
         /// <summary>The browserName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BrowserName { get; set; }
+        public string? BrowserName { get => _explicitNullValueBrowserName; set { _explicitNullValueBrowserName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("browser-name"); else _explicitNullProperties?.Remove("browser-name"); } }
+        private string? _explicitNullValueBrowserName = default!;
 #nullable restore
 #else
-        public string BrowserName { get; set; }
+        public string BrowserName { get => _explicitNullValueBrowserName; set { _explicitNullValueBrowserName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("browser-name"); else _explicitNullProperties?.Remove("browser-name"); } }
+        private string _explicitNullValueBrowserName = default!;
 #endif
         /// <summary>The countryCode property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CountryCode { get; set; }
+        public string? CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country-code"); else _explicitNullProperties?.Remove("country-code"); } }
+        private string? _explicitNullValueCountryCode = default!;
 #nullable restore
 #else
-        public string CountryCode { get; set; }
+        public string CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country-code"); else _explicitNullProperties?.Remove("country-code"); } }
+        private string _explicitNullValueCountryCode = default!;
 #endif
         /// <summary>The countryName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CountryName { get; set; }
+        public string? CountryName { get => _explicitNullValueCountryName; set { _explicitNullValueCountryName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country-name"); else _explicitNullProperties?.Remove("country-name"); } }
+        private string? _explicitNullValueCountryName = default!;
 #nullable restore
 #else
-        public string CountryName { get; set; }
+        public string CountryName { get => _explicitNullValueCountryName; set { _explicitNullValueCountryName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country-name"); else _explicitNullProperties?.Remove("country-name"); } }
+        private string _explicitNullValueCountryName = default!;
 #endif
         /// <summary>The createdAt property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The deviceHandoffMethod property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeviceHandoffMethod { get; set; }
+        public string? DeviceHandoffMethod { get => _explicitNullValueDeviceHandoffMethod; set { _explicitNullValueDeviceHandoffMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device-handoff-method"); else _explicitNullProperties?.Remove("device-handoff-method"); } }
+        private string? _explicitNullValueDeviceHandoffMethod = default!;
 #nullable restore
 #else
-        public string DeviceHandoffMethod { get; set; }
+        public string DeviceHandoffMethod { get => _explicitNullValueDeviceHandoffMethod; set { _explicitNullValueDeviceHandoffMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device-handoff-method"); else _explicitNullProperties?.Remove("device-handoff-method"); } }
+        private string _explicitNullValueDeviceHandoffMethod = default!;
 #endif
         /// <summary>The deviceName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeviceName { get; set; }
+        public string? DeviceName { get => _explicitNullValueDeviceName; set { _explicitNullValueDeviceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device-name"); else _explicitNullProperties?.Remove("device-name"); } }
+        private string? _explicitNullValueDeviceName = default!;
 #nullable restore
 #else
-        public string DeviceName { get; set; }
+        public string DeviceName { get => _explicitNullValueDeviceName; set { _explicitNullValueDeviceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device-name"); else _explicitNullProperties?.Remove("device-name"); } }
+        private string _explicitNullValueDeviceName = default!;
 #endif
         /// <summary>The deviceType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DeviceType { get; set; }
+        public string? DeviceType { get => _explicitNullValueDeviceType; set { _explicitNullValueDeviceType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device-type"); else _explicitNullProperties?.Remove("device-type"); } }
+        private string? _explicitNullValueDeviceType = default!;
 #nullable restore
 #else
-        public string DeviceType { get; set; }
+        public string DeviceType { get => _explicitNullValueDeviceType; set { _explicitNullValueDeviceType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("device-type"); else _explicitNullProperties?.Remove("device-type"); } }
+        private string _explicitNullValueDeviceType = default!;
 #endif
         /// <summary>The expiredAt property</summary>
-        public DateTimeOffset? ExpiredAt { get; set; }
+        public DateTimeOffset? ExpiredAt { get => _explicitNullValueExpiredAt; set { _explicitNullValueExpiredAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expired-at"); else _explicitNullProperties?.Remove("expired-at"); } }
+        private DateTimeOffset? _explicitNullValueExpiredAt = default!;
         /// <summary>ISO 3166-1 alpha-2 country code stored from the session&apos;s GPS coordinates. Null when it has not been stored, including for sessions created before this value existed; null does not mean a GPS country cannot be derived.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GpsCountryCode { get; set; }
+        public string? GpsCountryCode { get => _explicitNullValueGpsCountryCode; set { _explicitNullValueGpsCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gps-country-code"); else _explicitNullProperties?.Remove("gps-country-code"); } }
+        private string? _explicitNullValueGpsCountryCode = default!;
 #nullable restore
 #else
-        public string GpsCountryCode { get; set; }
+        public string GpsCountryCode { get => _explicitNullValueGpsCountryCode; set { _explicitNullValueGpsCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gps-country-code"); else _explicitNullProperties?.Remove("gps-country-code"); } }
+        private string _explicitNullValueGpsCountryCode = default!;
 #endif
         /// <summary>The gpsLatitude property</summary>
-        public double? GpsLatitude { get; set; }
+        public double? GpsLatitude { get => _explicitNullValueGpsLatitude; set { _explicitNullValueGpsLatitude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gps-latitude"); else _explicitNullProperties?.Remove("gps-latitude"); } }
+        private double? _explicitNullValueGpsLatitude = default!;
         /// <summary>The gpsLongitude property</summary>
-        public double? GpsLongitude { get; set; }
+        public double? GpsLongitude { get => _explicitNullValueGpsLongitude; set { _explicitNullValueGpsLongitude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gps-longitude"); else _explicitNullProperties?.Remove("gps-longitude"); } }
+        private double? _explicitNullValueGpsLongitude = default!;
         /// <summary>The gpsPrecision property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GpsPrecision { get; set; }
+        public string? GpsPrecision { get => _explicitNullValueGpsPrecision; set { _explicitNullValueGpsPrecision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gps-precision"); else _explicitNullProperties?.Remove("gps-precision"); } }
+        private string? _explicitNullValueGpsPrecision = default!;
 #nullable restore
 #else
-        public string GpsPrecision { get; set; }
+        public string GpsPrecision { get => _explicitNullValueGpsPrecision; set { _explicitNullValueGpsPrecision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gps-precision"); else _explicitNullProperties?.Remove("gps-precision"); } }
+        private string _explicitNullValueGpsPrecision = default!;
 #endif
         /// <summary>The ipAddress property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IpAddress { get; set; }
+        public string? IpAddress { get => _explicitNullValueIpAddress; set { _explicitNullValueIpAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip-address"); else _explicitNullProperties?.Remove("ip-address"); } }
+        private string? _explicitNullValueIpAddress = default!;
 #nullable restore
 #else
-        public string IpAddress { get; set; }
+        public string IpAddress { get => _explicitNullValueIpAddress; set { _explicitNullValueIpAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip-address"); else _explicitNullProperties?.Remove("ip-address"); } }
+        private string _explicitNullValueIpAddress = default!;
 #endif
         /// <summary>The ipConnectionType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IpConnectionType { get; set; }
+        public string? IpConnectionType { get => _explicitNullValueIpConnectionType; set { _explicitNullValueIpConnectionType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip-connection-type"); else _explicitNullProperties?.Remove("ip-connection-type"); } }
+        private string? _explicitNullValueIpConnectionType = default!;
 #nullable restore
 #else
-        public string IpConnectionType { get; set; }
+        public string IpConnectionType { get => _explicitNullValueIpConnectionType; set { _explicitNullValueIpConnectionType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip-connection-type"); else _explicitNullProperties?.Remove("ip-connection-type"); } }
+        private string _explicitNullValueIpConnectionType = default!;
 #endif
         /// <summary>The ipIsp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IpIsp { get; set; }
+        public string? IpIsp { get => _explicitNullValueIpIsp; set { _explicitNullValueIpIsp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip-isp"); else _explicitNullProperties?.Remove("ip-isp"); } }
+        private string? _explicitNullValueIpIsp = default!;
 #nullable restore
 #else
-        public string IpIsp { get; set; }
+        public string IpIsp { get => _explicitNullValueIpIsp; set { _explicitNullValueIpIsp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip-isp"); else _explicitNullProperties?.Remove("ip-isp"); } }
+        private string _explicitNullValueIpIsp = default!;
 #endif
         /// <summary>The isDatacenter property</summary>
-        public bool? IsDatacenter { get; set; }
+        public bool? IsDatacenter { get => _explicitNullValueIsDatacenter; set { _explicitNullValueIsDatacenter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is-datacenter"); else _explicitNullProperties?.Remove("is-datacenter"); } }
+        private bool? _explicitNullValueIsDatacenter = default!;
         /// <summary>The isProxy property</summary>
-        public bool? IsProxy { get; set; }
+        public bool? IsProxy { get => _explicitNullValueIsProxy; set { _explicitNullValueIsProxy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is-proxy"); else _explicitNullProperties?.Remove("is-proxy"); } }
+        private bool? _explicitNullValueIsProxy = default!;
         /// <summary>The isTor property</summary>
-        public bool? IsTor { get; set; }
+        public bool? IsTor { get => _explicitNullValueIsTor; set { _explicitNullValueIsTor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is-tor"); else _explicitNullProperties?.Remove("is-tor"); } }
+        private bool? _explicitNullValueIsTor = default!;
         /// <summary>The isVpn property</summary>
-        public bool? IsVpn { get; set; }
+        public bool? IsVpn { get => _explicitNullValueIsVpn; set { _explicitNullValueIsVpn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is-vpn"); else _explicitNullProperties?.Remove("is-vpn"); } }
+        private bool? _explicitNullValueIsVpn = default!;
         /// <summary>The latitude property</summary>
-        public double? Latitude { get; set; }
+        public double? Latitude { get => _explicitNullValueLatitude; set { _explicitNullValueLatitude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("latitude"); else _explicitNullProperties?.Remove("latitude"); } }
+        private double? _explicitNullValueLatitude = default!;
         /// <summary>The longitude property</summary>
-        public double? Longitude { get; set; }
+        public double? Longitude { get => _explicitNullValueLongitude; set { _explicitNullValueLongitude = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("longitude"); else _explicitNullProperties?.Remove("longitude"); } }
+        private double? _explicitNullValueLongitude = default!;
         /// <summary>The mobileSdkFullVersion property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MobileSdkFullVersion { get; set; }
+        public string? MobileSdkFullVersion { get => _explicitNullValueMobileSdkFullVersion; set { _explicitNullValueMobileSdkFullVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile-sdk-full-version"); else _explicitNullProperties?.Remove("mobile-sdk-full-version"); } }
+        private string? _explicitNullValueMobileSdkFullVersion = default!;
 #nullable restore
 #else
-        public string MobileSdkFullVersion { get; set; }
+        public string MobileSdkFullVersion { get => _explicitNullValueMobileSdkFullVersion; set { _explicitNullValueMobileSdkFullVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile-sdk-full-version"); else _explicitNullProperties?.Remove("mobile-sdk-full-version"); } }
+        private string _explicitNullValueMobileSdkFullVersion = default!;
 #endif
         /// <summary>The mobileSdkName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MobileSdkName { get; set; }
+        public string? MobileSdkName { get => _explicitNullValueMobileSdkName; set { _explicitNullValueMobileSdkName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile-sdk-name"); else _explicitNullProperties?.Remove("mobile-sdk-name"); } }
+        private string? _explicitNullValueMobileSdkName = default!;
 #nullable restore
 #else
-        public string MobileSdkName { get; set; }
+        public string MobileSdkName { get => _explicitNullValueMobileSdkName; set { _explicitNullValueMobileSdkName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mobile-sdk-name"); else _explicitNullProperties?.Remove("mobile-sdk-name"); } }
+        private string _explicitNullValueMobileSdkName = default!;
 #endif
         /// <summary>The networkOrganization property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NetworkOrganization { get; set; }
+        public string? NetworkOrganization { get => _explicitNullValueNetworkOrganization; set { _explicitNullValueNetworkOrganization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network-organization"); else _explicitNullProperties?.Remove("network-organization"); } }
+        private string? _explicitNullValueNetworkOrganization = default!;
 #nullable restore
 #else
-        public string NetworkOrganization { get; set; }
+        public string NetworkOrganization { get => _explicitNullValueNetworkOrganization; set { _explicitNullValueNetworkOrganization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network-organization"); else _explicitNullProperties?.Remove("network-organization"); } }
+        private string _explicitNullValueNetworkOrganization = default!;
 #endif
         /// <summary>The osFullVersion property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OsFullVersion { get; set; }
+        public string? OsFullVersion { get => _explicitNullValueOsFullVersion; set { _explicitNullValueOsFullVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("os-full-version"); else _explicitNullProperties?.Remove("os-full-version"); } }
+        private string? _explicitNullValueOsFullVersion = default!;
 #nullable restore
 #else
-        public string OsFullVersion { get; set; }
+        public string OsFullVersion { get => _explicitNullValueOsFullVersion; set { _explicitNullValueOsFullVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("os-full-version"); else _explicitNullProperties?.Remove("os-full-version"); } }
+        private string _explicitNullValueOsFullVersion = default!;
 #endif
         /// <summary>The osName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OsName { get; set; }
+        public string? OsName { get => _explicitNullValueOsName; set { _explicitNullValueOsName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("os-name"); else _explicitNullProperties?.Remove("os-name"); } }
+        private string? _explicitNullValueOsName = default!;
 #nullable restore
 #else
-        public string OsName { get; set; }
+        public string OsName { get => _explicitNullValueOsName; set { _explicitNullValueOsName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("os-name"); else _explicitNullProperties?.Remove("os-name"); } }
+        private string _explicitNullValueOsName = default!;
 #endif
         /// <summary>The regionCode property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegionCode { get; set; }
+        public string? RegionCode { get => _explicitNullValueRegionCode; set { _explicitNullValueRegionCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region-code"); else _explicitNullProperties?.Remove("region-code"); } }
+        private string? _explicitNullValueRegionCode = default!;
 #nullable restore
 #else
-        public string RegionCode { get; set; }
+        public string RegionCode { get => _explicitNullValueRegionCode; set { _explicitNullValueRegionCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region-code"); else _explicitNullProperties?.Remove("region-code"); } }
+        private string _explicitNullValueRegionCode = default!;
 #endif
         /// <summary>The regionName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RegionName { get; set; }
+        public string? RegionName { get => _explicitNullValueRegionName; set { _explicitNullValueRegionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region-name"); else _explicitNullProperties?.Remove("region-name"); } }
+        private string? _explicitNullValueRegionName = default!;
 #nullable restore
 #else
-        public string RegionName { get; set; }
+        public string RegionName { get => _explicitNullValueRegionName; set { _explicitNullValueRegionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("region-name"); else _explicitNullProperties?.Remove("region-name"); } }
+        private string _explicitNullValueRegionName = default!;
 #endif
         /// <summary>The startedAt property</summary>
-        public DateTimeOffset? StartedAt { get; set; }
+        public DateTimeOffset? StartedAt { get => _explicitNullValueStartedAt; set { _explicitNullValueStartedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("started-at"); else _explicitNullProperties?.Remove("started-at"); } }
+        private DateTimeOffset? _explicitNullValueStartedAt = default!;
         /// <summary>Possible values:- new- active- expiredDo not assume this is a static enumeration; Persona may add new valuesin the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get; set; }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get; set; }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>The threatLevel property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ThreatLevel { get; set; }
+        public string? ThreatLevel { get => _explicitNullValueThreatLevel; set { _explicitNullValueThreatLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threat-level"); else _explicitNullProperties?.Remove("threat-level"); } }
+        private string? _explicitNullValueThreatLevel = default!;
 #nullable restore
 #else
-        public string ThreatLevel { get; set; }
+        public string ThreatLevel { get => _explicitNullValueThreatLevel; set { _explicitNullValueThreatLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("threat-level"); else _explicitNullProperties?.Remove("threat-level"); } }
+        private string _explicitNullValueThreatLevel = default!;
 #endif
         /// <summary>The userAgent property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserAgent { get; set; }
+        public string? UserAgent { get => _explicitNullValueUserAgent; set { _explicitNullValueUserAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user-agent"); else _explicitNullProperties?.Remove("user-agent"); } }
+        private string? _explicitNullValueUserAgent = default!;
 #nullable restore
 #else
-        public string UserAgent { get; set; }
+        public string UserAgent { get => _explicitNullValueUserAgent; set { _explicitNullValueUserAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user-agent"); else _explicitNullProperties?.Remove("user-agent"); } }
+        private string _explicitNullValueUserAgent = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -218,7 +313,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.InquirySessionAttributes CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.InquirySessionAttributes();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.InquirySessionAttributes(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -302,7 +397,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("started-at", StartedAt);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("threat-level", ThreatLevel);
-            writer.WriteStringValue("user-agent", UserAgent);
+            writer.WriteStringValue("user-agent", UserAgent);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

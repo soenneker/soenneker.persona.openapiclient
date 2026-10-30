@@ -11,17 +11,29 @@ namespace Soenneker.Persona.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class RequestARelayChallengeRequest : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("claim-type") is { } nullNodeClaimType && nullNodeClaimType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimType = null;
+            if (parseNode.GetChildNode("sandbox") is { } nullNodeSandbox && nullNodeSandbox.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sandbox = null;
+        }
+
         /// <summary>Possible values:- live_human_presence- age_over18_germany- age_over18_united_kingdom- age_over18_verified- age_over18_france- age_over18_italy- age_over18_brazil- age_over18_australia- age_over16_australia- age_over21_verifiedDo not assume this is a static enumeration; Persona may add new claimtypes in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClaimType { get; set; }
+        public string? ClaimType { get => _explicitNullValueClaimType; set { _explicitNullValueClaimType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claim-type"); else _explicitNullProperties?.Remove("claim-type"); } }
+        private string? _explicitNullValueClaimType = default!;
 #nullable restore
 #else
-        public string ClaimType { get; set; }
+        public string ClaimType { get => _explicitNullValueClaimType; set { _explicitNullValueClaimType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claim-type"); else _explicitNullProperties?.Remove("claim-type"); } }
+        private string _explicitNullValueClaimType = default!;
 #endif
         /// <summary>When true, Persona issues a sandbox-namespace challenge, redeemable only against sandbox Relays. When omitted or false, Persona issues a challenge for the claim-type namespace.</summary>
-        public bool? Sandbox { get; set; }
+        public bool? Sandbox { get => _explicitNullValueSandbox; set { _explicitNullValueSandbox = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sandbox"); else _explicitNullProperties?.Remove("sandbox"); } }
+        private bool? _explicitNullValueSandbox = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -30,7 +42,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public static global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallengeRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallengeRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RequestARelayChallengeRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,7 +64,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("claim-type", ClaimType);
-            writer.WriteBoolValue("sandbox", Sandbox);
+            writer.WriteBoolValue("sandbox", Sandbox);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

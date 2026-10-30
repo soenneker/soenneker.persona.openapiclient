@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("blind-sig") is { } nullNodeBlindSig && nullNodeBlindSig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlindSig = null;
+            if (parseNode.GetChildNode("blind-sig") is null) { _explicitNullValueBlindSig = default!; _explicitNullProperties?.Remove("blind-sig"); }
+            else if (parseNode.GetChildNode("blind-sig") is { } nullNodeBlindSig && nullNodeBlindSig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlindSig = null;
         }
 
         /// <summary>The base64url-encoded blind signature. Unblind this client-side to produce the Privacy Pass token.</summary>

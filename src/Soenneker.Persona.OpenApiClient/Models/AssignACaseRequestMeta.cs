@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("user-email-address") is { } nullNodeUserEmailAddress && nullNodeUserEmailAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserEmailAddress = null;
+            if (parseNode.GetChildNode("user-email-address") is null) { _explicitNullValueUserEmailAddress = default!; _explicitNullProperties?.Remove("user-email-address"); }
+            else if (parseNode.GetChildNode("user-email-address") is { } nullNodeUserEmailAddress && nullNodeUserEmailAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserEmailAddress = null;
         }
 
         /// <summary>Email address of the Persona user to whom to assign this case</summary>

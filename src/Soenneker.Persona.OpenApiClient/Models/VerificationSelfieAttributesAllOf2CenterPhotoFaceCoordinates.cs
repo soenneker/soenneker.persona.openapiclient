@@ -17,10 +17,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bottom-left") is { } nullNodeBottomLeft && nullNodeBottomLeft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BottomLeft = null;
-            if (parseNode.GetChildNode("bottom-right") is { } nullNodeBottomRight && nullNodeBottomRight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BottomRight = null;
-            if (parseNode.GetChildNode("top-left") is { } nullNodeTopLeft && nullNodeTopLeft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopLeft = null;
-            if (parseNode.GetChildNode("top-right") is { } nullNodeTopRight && nullNodeTopRight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopRight = null;
+            if (parseNode.GetChildNode("bottom-left") is null) { _explicitNullValueBottomLeft = default!; _explicitNullProperties?.Remove("bottom-left"); }
+            else if (parseNode.GetChildNode("bottom-left") is { } nullNodeBottomLeft && nullNodeBottomLeft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BottomLeft = null;
+            if (parseNode.GetChildNode("bottom-right") is null) { _explicitNullValueBottomRight = default!; _explicitNullProperties?.Remove("bottom-right"); }
+            else if (parseNode.GetChildNode("bottom-right") is { } nullNodeBottomRight && nullNodeBottomRight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BottomRight = null;
+            if (parseNode.GetChildNode("top-left") is null) { _explicitNullValueTopLeft = default!; _explicitNullProperties?.Remove("top-left"); }
+            else if (parseNode.GetChildNode("top-left") is { } nullNodeTopLeft && nullNodeTopLeft.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopLeft = null;
+            if (parseNode.GetChildNode("top-right") is null) { _explicitNullValueTopRight = default!; _explicitNullProperties?.Remove("top-right"); }
+            else if (parseNode.GetChildNode("top-right") is { } nullNodeTopRight && nullNodeTopRight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopRight = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The bottomLeft property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? BottomLeft { get => _explicitNullValueBottomLeft; set { _explicitNullValueBottomLeft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bottom-left"); else _explicitNullProperties?.Remove("bottom-left"); } }
+        public List<double?>? BottomLeft { get => _explicitNullValueBottomLeft; set { _explicitNullValueBottomLeft = value; AdditionalData?.Remove("bottom-left"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bottom-left"); else _explicitNullProperties?.Remove("bottom-left"); } }
         private List<double?>? _explicitNullValueBottomLeft = default!;
 #nullable restore
 #else
-        public List<double?> BottomLeft { get => _explicitNullValueBottomLeft; set { _explicitNullValueBottomLeft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bottom-left"); else _explicitNullProperties?.Remove("bottom-left"); } }
+        public List<double?> BottomLeft { get => _explicitNullValueBottomLeft; set { _explicitNullValueBottomLeft = value; AdditionalData?.Remove("bottom-left"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bottom-left"); else _explicitNullProperties?.Remove("bottom-left"); } }
         private List<double?> _explicitNullValueBottomLeft = default!;
 #endif
         /// <summary>The bottomRight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? BottomRight { get => _explicitNullValueBottomRight; set { _explicitNullValueBottomRight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bottom-right"); else _explicitNullProperties?.Remove("bottom-right"); } }
+        public List<double?>? BottomRight { get => _explicitNullValueBottomRight; set { _explicitNullValueBottomRight = value; AdditionalData?.Remove("bottom-right"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bottom-right"); else _explicitNullProperties?.Remove("bottom-right"); } }
         private List<double?>? _explicitNullValueBottomRight = default!;
 #nullable restore
 #else
-        public List<double?> BottomRight { get => _explicitNullValueBottomRight; set { _explicitNullValueBottomRight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bottom-right"); else _explicitNullProperties?.Remove("bottom-right"); } }
+        public List<double?> BottomRight { get => _explicitNullValueBottomRight; set { _explicitNullValueBottomRight = value; AdditionalData?.Remove("bottom-right"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bottom-right"); else _explicitNullProperties?.Remove("bottom-right"); } }
         private List<double?> _explicitNullValueBottomRight = default!;
 #endif
         /// <summary>The topLeft property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? TopLeft { get => _explicitNullValueTopLeft; set { _explicitNullValueTopLeft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top-left"); else _explicitNullProperties?.Remove("top-left"); } }
+        public List<double?>? TopLeft { get => _explicitNullValueTopLeft; set { _explicitNullValueTopLeft = value; AdditionalData?.Remove("top-left"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top-left"); else _explicitNullProperties?.Remove("top-left"); } }
         private List<double?>? _explicitNullValueTopLeft = default!;
 #nullable restore
 #else
-        public List<double?> TopLeft { get => _explicitNullValueTopLeft; set { _explicitNullValueTopLeft = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top-left"); else _explicitNullProperties?.Remove("top-left"); } }
+        public List<double?> TopLeft { get => _explicitNullValueTopLeft; set { _explicitNullValueTopLeft = value; AdditionalData?.Remove("top-left"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top-left"); else _explicitNullProperties?.Remove("top-left"); } }
         private List<double?> _explicitNullValueTopLeft = default!;
 #endif
         /// <summary>The topRight property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<double?>? TopRight { get => _explicitNullValueTopRight; set { _explicitNullValueTopRight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top-right"); else _explicitNullProperties?.Remove("top-right"); } }
+        public List<double?>? TopRight { get => _explicitNullValueTopRight; set { _explicitNullValueTopRight = value; AdditionalData?.Remove("top-right"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top-right"); else _explicitNullProperties?.Remove("top-right"); } }
         private List<double?>? _explicitNullValueTopRight = default!;
 #nullable restore
 #else
-        public List<double?> TopRight { get => _explicitNullValueTopRight; set { _explicitNullValueTopRight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top-right"); else _explicitNullProperties?.Remove("top-right"); } }
+        public List<double?> TopRight { get => _explicitNullValueTopRight; set { _explicitNullValueTopRight = value; AdditionalData?.Remove("top-right"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("top-right"); else _explicitNullProperties?.Remove("top-right"); } }
         private List<double?> _explicitNullValueTopRight = default!;
 #endif
         /// <summary>

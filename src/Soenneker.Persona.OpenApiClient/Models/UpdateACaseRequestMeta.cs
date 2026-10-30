@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("sla-expires-in-seconds") is { } nullNodeSlaExpiresInSeconds && nullNodeSlaExpiresInSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlaExpiresInSeconds = null;
+            if (parseNode.GetChildNode("sla-expires-in-seconds") is null) { _explicitNullValueSlaExpiresInSeconds = default!; _explicitNullProperties?.Remove("sla-expires-in-seconds"); }
+            else if (parseNode.GetChildNode("sla-expires-in-seconds") is { } nullNodeSlaExpiresInSeconds && nullNodeSlaExpiresInSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlaExpiresInSeconds = null;
         }
 
         /// <summary>Number of seconds from now when SLA expires (max of 90 days). Set to null to clear SLA.</summary>

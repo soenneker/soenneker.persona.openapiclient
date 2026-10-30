@@ -85,7 +85,7 @@ namespace Soenneker.Persona.OpenApiClient.Webhooks.Item.Disable
         public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Webhooks.Item.Disable.DisableRequestBuilder.DisableRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.withpersona.com/api/v1", "/webhooks/{webhookId}/disable", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

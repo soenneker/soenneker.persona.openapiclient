@@ -17,31 +17,35 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("processed-at") is { } nullNodeProcessedAt && nullNodeProcessedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProcessedAt = null;
-            if (parseNode.GetChildNode("processed-at-ts") is { } nullNodeProcessedAtTs && nullNodeProcessedAtTs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProcessedAtTs = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("created-at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created-at"); }
+            else if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("processed-at") is null) { _explicitNullValueProcessedAt = default!; _explicitNullProperties?.Remove("processed-at"); }
+            else if (parseNode.GetChildNode("processed-at") is { } nullNodeProcessedAt && nullNodeProcessedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProcessedAt = null;
+            if (parseNode.GetChildNode("processed-at-ts") is null) { _explicitNullValueProcessedAtTs = default!; _explicitNullProperties?.Remove("processed-at-ts"); }
+            else if (parseNode.GetChildNode("processed-at-ts") is { } nullNodeProcessedAtTs && nullNodeProcessedAtTs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProcessedAtTs = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The createdAt property</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The processedAt property</summary>
-        public DateTimeOffset? ProcessedAt { get => _explicitNullValueProcessedAt; set { _explicitNullValueProcessedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("processed-at"); else _explicitNullProperties?.Remove("processed-at"); } }
+        public DateTimeOffset? ProcessedAt { get => _explicitNullValueProcessedAt; set { _explicitNullValueProcessedAt = value; AdditionalData?.Remove("processed-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("processed-at"); else _explicitNullProperties?.Remove("processed-at"); } }
         private DateTimeOffset? _explicitNullValueProcessedAt = default!;
         /// <summary>The processedAtTs property</summary>
-        public int? ProcessedAtTs { get => _explicitNullValueProcessedAtTs; set { _explicitNullValueProcessedAtTs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("processed-at-ts"); else _explicitNullProperties?.Remove("processed-at-ts"); } }
+        public int? ProcessedAtTs { get => _explicitNullValueProcessedAtTs; set { _explicitNullValueProcessedAtTs = value; AdditionalData?.Remove("processed-at-ts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("processed-at-ts"); else _explicitNullProperties?.Remove("processed-at-ts"); } }
         private int? _explicitNullValueProcessedAtTs = default!;
         /// <summary>Possible values:- initiated- submitted- processed- erroredDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>

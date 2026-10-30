@@ -18,8 +18,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("error-count") is { } nullNodeErrorCount && nullNodeErrorCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorCount = null;
-            if (parseNode.GetChildNode("global-errors") is { } nullNodeGlobalErrors && nullNodeGlobalErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalErrors = null;
+            if (parseNode.GetChildNode("error-count") is null) { _explicitNullValueErrorCount = default!; _explicitNullProperties?.Remove("error-count"); }
+            else if (parseNode.GetChildNode("error-count") is { } nullNodeErrorCount && nullNodeErrorCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorCount = null;
+            if (parseNode.GetChildNode("global-errors") is null) { _explicitNullValueGlobalErrors = default!; _explicitNullProperties?.Remove("global-errors"); }
+            else if (parseNode.GetChildNode("global-errors") is { } nullNodeGlobalErrors && nullNodeGlobalErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GlobalErrors = null;
         }
 
         /// <summary>Total number of rows that failed to process, across the whole run (not just this page).</summary>

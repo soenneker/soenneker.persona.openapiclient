@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("blinded-token") is { } nullNodeBlindedToken && nullNodeBlindedToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlindedToken = null;
-            if (parseNode.GetChildNode("key-id") is { } nullNodeKeyId && nullNodeKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyId = null;
+            if (parseNode.GetChildNode("blinded-token") is null) { _explicitNullValueBlindedToken = default!; _explicitNullProperties?.Remove("blinded-token"); }
+            else if (parseNode.GetChildNode("blinded-token") is { } nullNodeBlindedToken && nullNodeBlindedToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlindedToken = null;
+            if (parseNode.GetChildNode("key-id") is null) { _explicitNullValueKeyId = default!; _explicitNullProperties?.Remove("key-id"); }
+            else if (parseNode.GetChildNode("key-id") is { } nullNodeKeyId && nullNodeKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyId = null;
         }
 
         /// <summary>The base64url-encoded blinded token to be signed. Produced client-side by blinding a token input with the issuer public key identified by `key-id`.</summary>

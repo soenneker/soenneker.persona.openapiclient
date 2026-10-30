@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("relation-schema-key") is { } nullNodeRelationSchemaKey && nullNodeRelationSchemaKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelationSchemaKey = null;
-            if (parseNode.GetChildNode("target-object-id") is { } nullNodeTargetObjectId && nullNodeTargetObjectId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetObjectId = null;
+            if (parseNode.GetChildNode("relation-schema-key") is null) { _explicitNullValueRelationSchemaKey = default!; _explicitNullProperties?.Remove("relation-schema-key"); }
+            else if (parseNode.GetChildNode("relation-schema-key") is { } nullNodeRelationSchemaKey && nullNodeRelationSchemaKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelationSchemaKey = null;
+            if (parseNode.GetChildNode("target-object-id") is null) { _explicitNullValueTargetObjectId = default!; _explicitNullProperties?.Remove("target-object-id"); }
+            else if (parseNode.GetChildNode("target-object-id") is { } nullNodeTargetObjectId && nullNodeTargetObjectId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetObjectId = null;
         }
 
         /// <summary>Key of the relation schema to add. Valid keys are **defined by the relation schemas configured for your organization**, not by this API, so the accepted set varies per organization and per object type. A key outside that set is rejected with `No relation schema found for &apos;&lt;key&gt;&apos;`.</summary>

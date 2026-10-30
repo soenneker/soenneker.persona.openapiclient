@@ -81,7 +81,7 @@ namespace Soenneker.Persona.OpenApiClient.ApiLogs.Item
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.ApiLogs.Item.WithApiLogItemRequestBuilder.WithApiLogItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.withpersona.com/api/v1", "/api-logs/{apiLogId}", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

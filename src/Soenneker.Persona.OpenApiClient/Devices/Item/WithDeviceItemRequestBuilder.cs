@@ -83,7 +83,7 @@ namespace Soenneker.Persona.OpenApiClient.Devices.Item
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Devices.Item.WithDeviceItemRequestBuilder.WithDeviceItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.withpersona.com/api/v1", "/devices/{deviceId}", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

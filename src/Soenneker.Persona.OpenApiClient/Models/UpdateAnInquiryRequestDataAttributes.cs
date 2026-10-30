@@ -17,10 +17,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
-            if (parseNode.GetChildNode("note") is { } nullNodeNote && nullNodeNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Note = null;
-            if (parseNode.GetChildNode("redirect-uri") is { } nullNodeRedirectUri && nullNodeRedirectUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedirectUri = null;
-            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("fields") is null) { _explicitNullValueFields = default!; _explicitNullProperties?.Remove("fields"); }
+            else if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+            if (parseNode.GetChildNode("note") is null) { _explicitNullValueNote = default!; _explicitNullProperties?.Remove("note"); }
+            else if (parseNode.GetChildNode("note") is { } nullNodeNote && nullNodeNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Note = null;
+            if (parseNode.GetChildNode("redirect-uri") is null) { _explicitNullValueRedirectUri = default!; _explicitNullProperties?.Remove("redirect-uri"); }
+            else if (parseNode.GetChildNode("redirect-uri") is { } nullNodeRedirectUri && nullNodeRedirectUri.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedirectUri = null;
+            if (parseNode.GetChildNode("tags") is null) { _explicitNullValueTags = default!; _explicitNullProperties?.Remove("tags"); }
+            else if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
         }
 
         /// <summary>JSON key-value pairs of field name to field value. Schema is defined by your Inquiry Template.</summary>

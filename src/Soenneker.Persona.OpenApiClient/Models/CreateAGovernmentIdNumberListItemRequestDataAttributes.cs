@@ -17,10 +17,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("id-class") is { } nullNodeIdClass && nullNodeIdClass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdClass = null;
-            if (parseNode.GetChildNode("id-number") is { } nullNodeIdNumber && nullNodeIdNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdNumber = null;
-            if (parseNode.GetChildNode("list-id") is { } nullNodeListId && nullNodeListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ListId = null;
-            if (parseNode.GetChildNode("note") is { } nullNodeNote && nullNodeNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Note = null;
+            if (parseNode.GetChildNode("id-class") is null) { _explicitNullValueIdClass = default!; _explicitNullProperties?.Remove("id-class"); }
+            else if (parseNode.GetChildNode("id-class") is { } nullNodeIdClass && nullNodeIdClass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdClass = null;
+            if (parseNode.GetChildNode("id-number") is null) { _explicitNullValueIdNumber = default!; _explicitNullProperties?.Remove("id-number"); }
+            else if (parseNode.GetChildNode("id-number") is { } nullNodeIdNumber && nullNodeIdNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdNumber = null;
+            if (parseNode.GetChildNode("list-id") is null) { _explicitNullValueListId = default!; _explicitNullProperties?.Remove("list-id"); }
+            else if (parseNode.GetChildNode("list-id") is { } nullNodeListId && nullNodeListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ListId = null;
+            if (parseNode.GetChildNode("note") is null) { _explicitNullValueNote = default!; _explicitNullProperties?.Remove("note"); }
+            else if (parseNode.GetChildNode("note") is { } nullNodeNote && nullNodeNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Note = null;
         }
 
         /// <summary>Common values for id-class include `&apos;pp&apos;` for passport and`&apos;dl&apos;` for driver license.</summary>

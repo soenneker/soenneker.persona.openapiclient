@@ -18,8 +18,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("added-tags") is { } nullNodeAddedTags && nullNodeAddedTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddedTags = null;
-            if (parseNode.GetChildNode("removed-tags") is { } nullNodeRemovedTags && nullNodeRemovedTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemovedTags = null;
+            if (parseNode.GetChildNode("added-tags") is null) { _explicitNullValueAddedTags = default!; _explicitNullProperties?.Remove("added-tags"); }
+            else if (parseNode.GetChildNode("added-tags") is { } nullNodeAddedTags && nullNodeAddedTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddedTags = null;
+            if (parseNode.GetChildNode("removed-tags") is null) { _explicitNullValueRemovedTags = default!; _explicitNullProperties?.Remove("removed-tags"); }
+            else if (parseNode.GetChildNode("removed-tags") is { } nullNodeRemovedTags && nullNodeRemovedTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemovedTags = null;
         }
 
         /// <summary>Names of tags added by this update. Empty if none were added.</summary>

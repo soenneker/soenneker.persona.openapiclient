@@ -17,21 +17,36 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("completed-at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
-            if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("has-match") is { } nullNodeHasMatch && nullNodeHasMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasMatch = null;
-            if (parseNode.GetChildNode("ignore-list-entity") is { } nullNodeIgnoreListEntity && nullNodeIgnoreListEntity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoreListEntity = null;
-            if (parseNode.GetChildNode("ignore-list-media") is { } nullNodeIgnoreListMedia && nullNodeIgnoreListMedia.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoreListMedia = null;
-            if (parseNode.GetChildNode("is-continuous") is { } nullNodeIsContinuous && nullNodeIsContinuous.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsContinuous = null;
-            if (parseNode.GetChildNode("is-recurring") is { } nullNodeIsRecurring && nullNodeIsRecurring.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsRecurring = null;
-            if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
-            if (parseNode.GetChildNode("redacted-at") is { } nullNodeRedactedAt && nullNodeRedactedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedactedAt = null;
-            if (parseNode.GetChildNode("related-sources") is { } nullNodeRelatedSources && nullNodeRelatedSources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelatedSources = null;
-            if (parseNode.GetChildNode("report-template-version-name") is { } nullNodeReportTemplateVersionName && nullNodeReportTemplateVersionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportTemplateVersionName = null;
-            if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
-            if (parseNode.GetChildNode("term") is { } nullNodeTerm && nullNodeTerm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Term = null;
+            if (parseNode.GetChildNode("completed-at") is null) { _explicitNullValueCompletedAt = default!; _explicitNullProperties?.Remove("completed-at"); }
+            else if (parseNode.GetChildNode("completed-at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
+            if (parseNode.GetChildNode("created-at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created-at"); }
+            else if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("has-match") is null) { _explicitNullValueHasMatch = default!; _explicitNullProperties?.Remove("has-match"); }
+            else if (parseNode.GetChildNode("has-match") is { } nullNodeHasMatch && nullNodeHasMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasMatch = null;
+            if (parseNode.GetChildNode("ignore-list-entity") is null) { _explicitNullValueIgnoreListEntity = default!; _explicitNullProperties?.Remove("ignore-list-entity"); }
+            else if (parseNode.GetChildNode("ignore-list-entity") is { } nullNodeIgnoreListEntity && nullNodeIgnoreListEntity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoreListEntity = null;
+            if (parseNode.GetChildNode("ignore-list-media") is null) { _explicitNullValueIgnoreListMedia = default!; _explicitNullProperties?.Remove("ignore-list-media"); }
+            else if (parseNode.GetChildNode("ignore-list-media") is { } nullNodeIgnoreListMedia && nullNodeIgnoreListMedia.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IgnoreListMedia = null;
+            if (parseNode.GetChildNode("is-continuous") is null) { _explicitNullValueIsContinuous = default!; _explicitNullProperties?.Remove("is-continuous"); }
+            else if (parseNode.GetChildNode("is-continuous") is { } nullNodeIsContinuous && nullNodeIsContinuous.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsContinuous = null;
+            if (parseNode.GetChildNode("is-recurring") is null) { _explicitNullValueIsRecurring = default!; _explicitNullProperties?.Remove("is-recurring"); }
+            else if (parseNode.GetChildNode("is-recurring") is { } nullNodeIsRecurring && nullNodeIsRecurring.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsRecurring = null;
+            if (parseNode.GetChildNode("query") is null) { _explicitNullValueQuery = default!; _explicitNullProperties?.Remove("query"); }
+            else if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
+            if (parseNode.GetChildNode("redacted-at") is null) { _explicitNullValueRedactedAt = default!; _explicitNullProperties?.Remove("redacted-at"); }
+            else if (parseNode.GetChildNode("redacted-at") is { } nullNodeRedactedAt && nullNodeRedactedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedactedAt = null;
+            if (parseNode.GetChildNode("related-sources") is null) { _explicitNullValueRelatedSources = default!; _explicitNullProperties?.Remove("related-sources"); }
+            else if (parseNode.GetChildNode("related-sources") is { } nullNodeRelatedSources && nullNodeRelatedSources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelatedSources = null;
+            if (parseNode.GetChildNode("report-template-version-name") is null) { _explicitNullValueReportTemplateVersionName = default!; _explicitNullProperties?.Remove("report-template-version-name"); }
+            else if (parseNode.GetChildNode("report-template-version-name") is { } nullNodeReportTemplateVersionName && nullNodeReportTemplateVersionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportTemplateVersionName = null;
+            if (parseNode.GetChildNode("result") is null) { _explicitNullValueResult = default!; _explicitNullProperties?.Remove("result"); }
+            else if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("tags") is null) { _explicitNullValueTags = default!; _explicitNullProperties?.Remove("tags"); }
+            else if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("term") is null) { _explicitNullValueTerm = default!; _explicitNullProperties?.Remove("term"); }
+            else if (parseNode.GetChildNode("term") is { } nullNodeTerm && nullNodeTerm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Term = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -39,130 +54,130 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The time the report completed processing in ISO 8601 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed-at"); else _explicitNullProperties?.Remove("completed-at"); } }
+        public string? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed-at"); else _explicitNullProperties?.Remove("completed-at"); } }
         private string? _explicitNullValueCompletedAt = default!;
 #nullable restore
 #else
-        public string CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed-at"); else _explicitNullProperties?.Remove("completed-at"); } }
+        public string CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed-at"); else _explicitNullProperties?.Remove("completed-at"); } }
         private string _explicitNullValueCompletedAt = default!;
 #endif
         /// <summary>The time the report was created in ISO 8601 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
+        public string? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
         private string? _explicitNullValueCreatedAt = default!;
 #nullable restore
 #else
-        public string CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
+        public string CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
         private string _explicitNullValueCreatedAt = default!;
 #endif
         /// <summary>Whether or not the report matched</summary>
-        public bool? HasMatch { get => _explicitNullValueHasMatch; set { _explicitNullValueHasMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has-match"); else _explicitNullProperties?.Remove("has-match"); } }
+        public bool? HasMatch { get => _explicitNullValueHasMatch; set { _explicitNullValueHasMatch = value; AdditionalData?.Remove("has-match"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has-match"); else _explicitNullProperties?.Remove("has-match"); } }
         private bool? _explicitNullValueHasMatch = default!;
         /// <summary>Entities that have been fully dismissed, and the details of that dismissal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry>? IgnoreListEntity { get => _explicitNullValueIgnoreListEntity; set { _explicitNullValueIgnoreListEntity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore-list-entity"); else _explicitNullProperties?.Remove("ignore-list-entity"); } }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry>? IgnoreListEntity { get => _explicitNullValueIgnoreListEntity; set { _explicitNullValueIgnoreListEntity = value; AdditionalData?.Remove("ignore-list-entity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore-list-entity"); else _explicitNullProperties?.Remove("ignore-list-entity"); } }
         private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry>? _explicitNullValueIgnoreListEntity = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry> IgnoreListEntity { get => _explicitNullValueIgnoreListEntity; set { _explicitNullValueIgnoreListEntity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore-list-entity"); else _explicitNullProperties?.Remove("ignore-list-entity"); } }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry> IgnoreListEntity { get => _explicitNullValueIgnoreListEntity; set { _explicitNullValueIgnoreListEntity = value; AdditionalData?.Remove("ignore-list-entity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore-list-entity"); else _explicitNullProperties?.Remove("ignore-list-entity"); } }
         private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry> _explicitNullValueIgnoreListEntity = default!;
 #endif
         /// <summary>Media that have been individually dismissed for a matched entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry>? IgnoreListMedia { get => _explicitNullValueIgnoreListMedia; set { _explicitNullValueIgnoreListMedia = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore-list-media"); else _explicitNullProperties?.Remove("ignore-list-media"); } }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry>? IgnoreListMedia { get => _explicitNullValueIgnoreListMedia; set { _explicitNullValueIgnoreListMedia = value; AdditionalData?.Remove("ignore-list-media"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore-list-media"); else _explicitNullProperties?.Remove("ignore-list-media"); } }
         private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry>? _explicitNullValueIgnoreListMedia = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry> IgnoreListMedia { get => _explicitNullValueIgnoreListMedia; set { _explicitNullValueIgnoreListMedia = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore-list-media"); else _explicitNullProperties?.Remove("ignore-list-media"); } }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry> IgnoreListMedia { get => _explicitNullValueIgnoreListMedia; set { _explicitNullValueIgnoreListMedia = value; AdditionalData?.Remove("ignore-list-media"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ignore-list-media"); else _explicitNullProperties?.Remove("ignore-list-media"); } }
         private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaIgnoreListEntry> _explicitNullValueIgnoreListMedia = default!;
 #endif
         /// <summary>Whether or not this report has been run more than once</summary>
-        public bool? IsContinuous { get => _explicitNullValueIsContinuous; set { _explicitNullValueIsContinuous = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is-continuous"); else _explicitNullProperties?.Remove("is-continuous"); } }
+        public bool? IsContinuous { get => _explicitNullValueIsContinuous; set { _explicitNullValueIsContinuous = value; AdditionalData?.Remove("is-continuous"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is-continuous"); else _explicitNullProperties?.Remove("is-continuous"); } }
         private bool? _explicitNullValueIsContinuous = default!;
         /// <summary>Whether or not this report is scheduled to run in the future</summary>
-        public bool? IsRecurring { get => _explicitNullValueIsRecurring; set { _explicitNullValueIsRecurring = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is-recurring"); else _explicitNullProperties?.Remove("is-recurring"); } }
+        public bool? IsRecurring { get => _explicitNullValueIsRecurring; set { _explicitNullValueIsRecurring = value; AdditionalData?.Remove("is-recurring"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is-recurring"); else _explicitNullProperties?.Remove("is-recurring"); } }
         private bool? _explicitNullValueIsRecurring = default!;
         /// <summary>The query property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Query? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Query? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; AdditionalData?.Remove("query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Query? _explicitNullValueQuery = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Query Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Query Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; AdditionalData?.Remove("query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Query _explicitNullValueQuery = default!;
 #endif
         /// <summary>The time the report was redacted in ISO 8601 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RedactedAt { get => _explicitNullValueRedactedAt; set { _explicitNullValueRedactedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted-at"); else _explicitNullProperties?.Remove("redacted-at"); } }
+        public string? RedactedAt { get => _explicitNullValueRedactedAt; set { _explicitNullValueRedactedAt = value; AdditionalData?.Remove("redacted-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted-at"); else _explicitNullProperties?.Remove("redacted-at"); } }
         private string? _explicitNullValueRedactedAt = default!;
 #nullable restore
 #else
-        public string RedactedAt { get => _explicitNullValueRedactedAt; set { _explicitNullValueRedactedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted-at"); else _explicitNullProperties?.Remove("redacted-at"); } }
+        public string RedactedAt { get => _explicitNullValueRedactedAt; set { _explicitNullValueRedactedAt = value; AdditionalData?.Remove("redacted-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted-at"); else _explicitNullProperties?.Remove("redacted-at"); } }
         private string _explicitNullValueRedactedAt = default!;
 #endif
         /// <summary>The sources that matched for the search</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItem>? RelatedSources { get => _explicitNullValueRelatedSources; set { _explicitNullValueRelatedSources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("related-sources"); else _explicitNullProperties?.Remove("related-sources"); } }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItem>? RelatedSources { get => _explicitNullValueRelatedSources; set { _explicitNullValueRelatedSources = value; AdditionalData?.Remove("related-sources"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("related-sources"); else _explicitNullProperties?.Remove("related-sources"); } }
         private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItem>? _explicitNullValueRelatedSources = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItem> RelatedSources { get => _explicitNullValueRelatedSources; set { _explicitNullValueRelatedSources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("related-sources"); else _explicitNullProperties?.Remove("related-sources"); } }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItem> RelatedSources { get => _explicitNullValueRelatedSources; set { _explicitNullValueRelatedSources = value; AdditionalData?.Remove("related-sources"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("related-sources"); else _explicitNullProperties?.Remove("related-sources"); } }
         private List<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2RelatedSourcesItem> _explicitNullValueRelatedSources = default!;
 #endif
         /// <summary>The name of the report template version used for this report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReportTemplateVersionName { get => _explicitNullValueReportTemplateVersionName; set { _explicitNullValueReportTemplateVersionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report-template-version-name"); else _explicitNullProperties?.Remove("report-template-version-name"); } }
+        public string? ReportTemplateVersionName { get => _explicitNullValueReportTemplateVersionName; set { _explicitNullValueReportTemplateVersionName = value; AdditionalData?.Remove("report-template-version-name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report-template-version-name"); else _explicitNullProperties?.Remove("report-template-version-name"); } }
         private string? _explicitNullValueReportTemplateVersionName = default!;
 #nullable restore
 #else
-        public string ReportTemplateVersionName { get => _explicitNullValueReportTemplateVersionName; set { _explicitNullValueReportTemplateVersionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report-template-version-name"); else _explicitNullProperties?.Remove("report-template-version-name"); } }
+        public string ReportTemplateVersionName { get => _explicitNullValueReportTemplateVersionName; set { _explicitNullValueReportTemplateVersionName = value; AdditionalData?.Remove("report-template-version-name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report-template-version-name"); else _explicitNullProperties?.Remove("report-template-version-name"); } }
         private string _explicitNullValueReportTemplateVersionName = default!;
 #endif
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Result? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Result? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Result? _explicitNullValueResult = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Result Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Result Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessAdverseMediaAttributesAllOf2Result _explicitNullValueResult = default!;
 #endif
         /// <summary>The status of the reportPossible values:- pending- ready- erroredDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>Tags on the report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>The search term for the adverse media report, typically the name of the business.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Term { get => _explicitNullValueTerm; set { _explicitNullValueTerm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("term"); else _explicitNullProperties?.Remove("term"); } }
+        public string? Term { get => _explicitNullValueTerm; set { _explicitNullValueTerm = value; AdditionalData?.Remove("term"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("term"); else _explicitNullProperties?.Remove("term"); } }
         private string? _explicitNullValueTerm = default!;
 #nullable restore
 #else
-        public string Term { get => _explicitNullValueTerm; set { _explicitNullValueTerm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("term"); else _explicitNullProperties?.Remove("term"); } }
+        public string Term { get => _explicitNullValueTerm; set { _explicitNullValueTerm = value; AdditionalData?.Remove("term"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("term"); else _explicitNullProperties?.Remove("term"); } }
         private string _explicitNullValueTerm = default!;
 #endif
         /// <summary>

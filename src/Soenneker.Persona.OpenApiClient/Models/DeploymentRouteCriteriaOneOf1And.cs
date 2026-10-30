@@ -44,7 +44,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteriaOneOf1And();
-            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteria>(global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteria.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteria> deploymentRouteCriteriaValue)
+            if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && global::System.Linq.Enumerable.All(((global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray)parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue)).GetValue(), item => item is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject) && parseNode.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteria>(global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteria.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteCriteria> deploymentRouteCriteriaValue)
             {
                 result.DeploymentRouteCriteria = deploymentRouteCriteriaValue;
             }
@@ -59,6 +59,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(DeploymentRouteCriteriaOneOf1AndDeploymentRouteCriteria != null)
             {
                 return DeploymentRouteCriteriaOneOf1AndDeploymentRouteCriteria.GetFieldDeserializers();

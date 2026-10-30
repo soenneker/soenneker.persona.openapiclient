@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("creator") is { } nullNodeCreator && nullNodeCreator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Creator = null;
+            if (parseNode.GetChildNode("creator") is null) { _explicitNullValueCreator = default!; _explicitNullProperties?.Remove("creator"); }
+            else if (parseNode.GetChildNode("creator") is { } nullNodeCreator && nullNodeCreator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Creator = null;
         }
 
         /// <summary>The creator property</summary>

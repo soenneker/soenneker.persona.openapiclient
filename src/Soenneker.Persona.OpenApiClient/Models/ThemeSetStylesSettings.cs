@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("preferred-theme-variant") is { } nullNodePreferredThemeVariant && nullNodePreferredThemeVariant.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreferredThemeVariant = null;
-            if (parseNode.GetChildNode("use-dark-theme") is { } nullNodeUseDarkTheme && nullNodeUseDarkTheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseDarkTheme = null;
+            if (parseNode.GetChildNode("preferred-theme-variant") is null) { _explicitNullValuePreferredThemeVariant = default!; _explicitNullProperties?.Remove("preferred-theme-variant"); }
+            else if (parseNode.GetChildNode("preferred-theme-variant") is { } nullNodePreferredThemeVariant && nullNodePreferredThemeVariant.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreferredThemeVariant = null;
+            if (parseNode.GetChildNode("use-dark-theme") is null) { _explicitNullValueUseDarkTheme = default!; _explicitNullProperties?.Remove("use-dark-theme"); }
+            else if (parseNode.GetChildNode("use-dark-theme") is { } nullNodeUseDarkTheme && nullNodeUseDarkTheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseDarkTheme = null;
         }
 
         /// <summary>Variant served when no device preference applies — one of &quot;light&quot; or &quot;dark&quot;.</summary>

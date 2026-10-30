@@ -81,7 +81,7 @@ namespace Soenneker.Persona.OpenApiClient.WorkflowVersions
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.WorkflowVersions.WorkflowVersionsRequestBuilder.WorkflowVersionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.withpersona.com/api/v1", "/workflow-versions", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

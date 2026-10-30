@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("expires-in-seconds") is { } nullNodeExpiresInSeconds && nullNodeExpiresInSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresInSeconds = null;
+            if (parseNode.GetChildNode("expires-in-seconds") is null) { _explicitNullValueExpiresInSeconds = default!; _explicitNullProperties?.Remove("expires-in-seconds"); }
+            else if (parseNode.GetChildNode("expires-in-seconds") is { } nullNodeExpiresInSeconds && nullNodeExpiresInSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresInSeconds = null;
         }
 
         /// <summary>Number of seconds from now to expire the key (max of 30 days)</summary>

@@ -18,9 +18,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("components") is { } nullNodeComponents && nullNodeComponents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Components = null;
-            if (parseNode.GetChildNode("inquiry") is { } nullNodeInquiry && nullNodeInquiry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inquiry = null;
-            if (parseNode.GetChildNode("step-assets") is { } nullNodeStepAssets && nullNodeStepAssets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StepAssets = null;
+            if (parseNode.GetChildNode("components") is null) { _explicitNullValueComponents = default!; _explicitNullProperties?.Remove("components"); }
+            else if (parseNode.GetChildNode("components") is { } nullNodeComponents && nullNodeComponents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Components = null;
+            if (parseNode.GetChildNode("inquiry") is null) { _explicitNullValueInquiry = default!; _explicitNullProperties?.Remove("inquiry"); }
+            else if (parseNode.GetChildNode("inquiry") is { } nullNodeInquiry && nullNodeInquiry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inquiry = null;
+            if (parseNode.GetChildNode("step-assets") is null) { _explicitNullValueStepAssets = default!; _explicitNullProperties?.Remove("step-assets"); }
+            else if (parseNode.GetChildNode("step-assets") is { } nullNodeStepAssets && nullNodeStepAssets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StepAssets = null;
         }
 
         /// <summary>The components property</summary>

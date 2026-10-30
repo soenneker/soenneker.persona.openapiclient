@@ -17,25 +17,34 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("accounts") is { } nullNodeAccounts && nullNodeAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Accounts = null;
-            if (parseNode.GetChildNode("document") is { } nullNodeDocument && nullNodeDocument.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Document = null;
-            if (parseNode.GetChildNode("inquiry") is { } nullNodeInquiry && nullNodeInquiry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inquiry = null;
-            if (parseNode.GetChildNode("inquiry-template") is { } nullNodeInquiryTemplate && nullNodeInquiryTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InquiryTemplate = null;
-            if (parseNode.GetChildNode("inquiry-template-version") is { } nullNodeInquiryTemplateVersion && nullNodeInquiryTemplateVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InquiryTemplateVersion = null;
-            if (parseNode.GetChildNode("template") is { } nullNodeTemplate && nullNodeTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Template = null;
-            if (parseNode.GetChildNode("transaction") is { } nullNodeTransaction && nullNodeTransaction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transaction = null;
-            if (parseNode.GetChildNode("verification-template") is { } nullNodeVerificationTemplate && nullNodeVerificationTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationTemplate = null;
-            if (parseNode.GetChildNode("verification-template-version") is { } nullNodeVerificationTemplateVersion && nullNodeVerificationTemplateVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationTemplateVersion = null;
+            if (parseNode.GetChildNode("accounts") is null) { _explicitNullValueAccounts = default!; _explicitNullProperties?.Remove("accounts"); }
+            else if (parseNode.GetChildNode("accounts") is { } nullNodeAccounts && nullNodeAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Accounts = null;
+            if (parseNode.GetChildNode("document") is null) { _explicitNullValueDocument = default!; _explicitNullProperties?.Remove("document"); }
+            else if (parseNode.GetChildNode("document") is { } nullNodeDocument && nullNodeDocument.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Document = null;
+            if (parseNode.GetChildNode("inquiry") is null) { _explicitNullValueInquiry = default!; _explicitNullProperties?.Remove("inquiry"); }
+            else if (parseNode.GetChildNode("inquiry") is { } nullNodeInquiry && nullNodeInquiry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inquiry = null;
+            if (parseNode.GetChildNode("inquiry-template") is null) { _explicitNullValueInquiryTemplate = default!; _explicitNullProperties?.Remove("inquiry-template"); }
+            else if (parseNode.GetChildNode("inquiry-template") is { } nullNodeInquiryTemplate && nullNodeInquiryTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InquiryTemplate = null;
+            if (parseNode.GetChildNode("inquiry-template-version") is null) { _explicitNullValueInquiryTemplateVersion = default!; _explicitNullProperties?.Remove("inquiry-template-version"); }
+            else if (parseNode.GetChildNode("inquiry-template-version") is { } nullNodeInquiryTemplateVersion && nullNodeInquiryTemplateVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InquiryTemplateVersion = null;
+            if (parseNode.GetChildNode("template") is null) { _explicitNullValueTemplate = default!; _explicitNullProperties?.Remove("template"); }
+            else if (parseNode.GetChildNode("template") is { } nullNodeTemplate && nullNodeTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Template = null;
+            if (parseNode.GetChildNode("transaction") is null) { _explicitNullValueTransaction = default!; _explicitNullProperties?.Remove("transaction"); }
+            else if (parseNode.GetChildNode("transaction") is { } nullNodeTransaction && nullNodeTransaction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Transaction = null;
+            if (parseNode.GetChildNode("verification-template") is null) { _explicitNullValueVerificationTemplate = default!; _explicitNullProperties?.Remove("verification-template"); }
+            else if (parseNode.GetChildNode("verification-template") is { } nullNodeVerificationTemplate && nullNodeVerificationTemplate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationTemplate = null;
+            if (parseNode.GetChildNode("verification-template-version") is null) { _explicitNullValueVerificationTemplateVersion = default!; _explicitNullProperties?.Remove("verification-template-version"); }
+            else if (parseNode.GetChildNode("verification-template-version") is { } nullNodeVerificationTemplateVersion && nullNodeVerificationTemplateVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationTemplateVersion = null;
         }
 
         /// <summary>The accounts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts? Accounts { get => _explicitNullValueAccounts; set { _explicitNullValueAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accounts"); else _explicitNullProperties?.Remove("accounts"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts? Accounts { get => _explicitNullValueAccounts; set { _explicitNullValueAccounts = value; AdditionalData?.Remove("accounts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accounts"); else _explicitNullProperties?.Remove("accounts"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts? _explicitNullValueAccounts = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts Accounts { get => _explicitNullValueAccounts; set { _explicitNullValueAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accounts"); else _explicitNullProperties?.Remove("accounts"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts Accounts { get => _explicitNullValueAccounts; set { _explicitNullValueAccounts = value; AdditionalData?.Remove("accounts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accounts"); else _explicitNullProperties?.Remove("accounts"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts _explicitNullValueAccounts = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -43,81 +52,81 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The document property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdRelationshipsAllOf2Document? Document { get => _explicitNullValueDocument; set { _explicitNullValueDocument = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document"); else _explicitNullProperties?.Remove("document"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdRelationshipsAllOf2Document? Document { get => _explicitNullValueDocument; set { _explicitNullValueDocument = value; AdditionalData?.Remove("document"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document"); else _explicitNullProperties?.Remove("document"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdRelationshipsAllOf2Document? _explicitNullValueDocument = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdRelationshipsAllOf2Document Document { get => _explicitNullValueDocument; set { _explicitNullValueDocument = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document"); else _explicitNullProperties?.Remove("document"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdRelationshipsAllOf2Document Document { get => _explicitNullValueDocument; set { _explicitNullValueDocument = value; AdditionalData?.Remove("document"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document"); else _explicitNullProperties?.Remove("document"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationGovernmentIdRelationshipsAllOf2Document _explicitNullValueDocument = default!;
 #endif
         /// <summary>The inquiry linked to the verification</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry? Inquiry { get => _explicitNullValueInquiry; set { _explicitNullValueInquiry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry"); else _explicitNullProperties?.Remove("inquiry"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry? Inquiry { get => _explicitNullValueInquiry; set { _explicitNullValueInquiry = value; AdditionalData?.Remove("inquiry"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry"); else _explicitNullProperties?.Remove("inquiry"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry? _explicitNullValueInquiry = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry Inquiry { get => _explicitNullValueInquiry; set { _explicitNullValueInquiry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry"); else _explicitNullProperties?.Remove("inquiry"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry Inquiry { get => _explicitNullValueInquiry; set { _explicitNullValueInquiry = value; AdditionalData?.Remove("inquiry"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry"); else _explicitNullProperties?.Remove("inquiry"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry _explicitNullValueInquiry = default!;
 #endif
         /// <summary>The inquiryTemplate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate? InquiryTemplate { get => _explicitNullValueInquiryTemplate; set { _explicitNullValueInquiryTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template"); else _explicitNullProperties?.Remove("inquiry-template"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate? InquiryTemplate { get => _explicitNullValueInquiryTemplate; set { _explicitNullValueInquiryTemplate = value; AdditionalData?.Remove("inquiry-template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template"); else _explicitNullProperties?.Remove("inquiry-template"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate? _explicitNullValueInquiryTemplate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate InquiryTemplate { get => _explicitNullValueInquiryTemplate; set { _explicitNullValueInquiryTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template"); else _explicitNullProperties?.Remove("inquiry-template"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate InquiryTemplate { get => _explicitNullValueInquiryTemplate; set { _explicitNullValueInquiryTemplate = value; AdditionalData?.Remove("inquiry-template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template"); else _explicitNullProperties?.Remove("inquiry-template"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplate _explicitNullValueInquiryTemplate = default!;
 #endif
         /// <summary>The inquiryTemplateVersion property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion? InquiryTemplateVersion { get => _explicitNullValueInquiryTemplateVersion; set { _explicitNullValueInquiryTemplateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template-version"); else _explicitNullProperties?.Remove("inquiry-template-version"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion? InquiryTemplateVersion { get => _explicitNullValueInquiryTemplateVersion; set { _explicitNullValueInquiryTemplateVersion = value; AdditionalData?.Remove("inquiry-template-version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template-version"); else _explicitNullProperties?.Remove("inquiry-template-version"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion? _explicitNullValueInquiryTemplateVersion = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion InquiryTemplateVersion { get => _explicitNullValueInquiryTemplateVersion; set { _explicitNullValueInquiryTemplateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template-version"); else _explicitNullProperties?.Remove("inquiry-template-version"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion InquiryTemplateVersion { get => _explicitNullValueInquiryTemplateVersion; set { _explicitNullValueInquiryTemplateVersion = value; AdditionalData?.Remove("inquiry-template-version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-template-version"); else _explicitNullProperties?.Remove("inquiry-template-version"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiryTemplateVersion _explicitNullValueInquiryTemplateVersion = default!;
 #endif
         /// <summary>The template property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTemplate? Template { get => _explicitNullValueTemplate; set { _explicitNullValueTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template"); else _explicitNullProperties?.Remove("template"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTemplate? Template { get => _explicitNullValueTemplate; set { _explicitNullValueTemplate = value; AdditionalData?.Remove("template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template"); else _explicitNullProperties?.Remove("template"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTemplate? _explicitNullValueTemplate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTemplate Template { get => _explicitNullValueTemplate; set { _explicitNullValueTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template"); else _explicitNullProperties?.Remove("template"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTemplate Template { get => _explicitNullValueTemplate; set { _explicitNullValueTemplate = value; AdditionalData?.Remove("template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("template"); else _explicitNullProperties?.Remove("template"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTemplate _explicitNullValueTemplate = default!;
 #endif
         /// <summary>The transaction property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTransaction? Transaction { get => _explicitNullValueTransaction; set { _explicitNullValueTransaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction"); else _explicitNullProperties?.Remove("transaction"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTransaction? Transaction { get => _explicitNullValueTransaction; set { _explicitNullValueTransaction = value; AdditionalData?.Remove("transaction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction"); else _explicitNullProperties?.Remove("transaction"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTransaction? _explicitNullValueTransaction = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTransaction Transaction { get => _explicitNullValueTransaction; set { _explicitNullValueTransaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction"); else _explicitNullProperties?.Remove("transaction"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTransaction Transaction { get => _explicitNullValueTransaction; set { _explicitNullValueTransaction = value; AdditionalData?.Remove("transaction"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction"); else _explicitNullProperties?.Remove("transaction"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsTransaction _explicitNullValueTransaction = default!;
 #endif
         /// <summary>The verificationTemplate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplate? VerificationTemplate { get => _explicitNullValueVerificationTemplate; set { _explicitNullValueVerificationTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification-template"); else _explicitNullProperties?.Remove("verification-template"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplate? VerificationTemplate { get => _explicitNullValueVerificationTemplate; set { _explicitNullValueVerificationTemplate = value; AdditionalData?.Remove("verification-template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification-template"); else _explicitNullProperties?.Remove("verification-template"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplate? _explicitNullValueVerificationTemplate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplate VerificationTemplate { get => _explicitNullValueVerificationTemplate; set { _explicitNullValueVerificationTemplate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification-template"); else _explicitNullProperties?.Remove("verification-template"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplate VerificationTemplate { get => _explicitNullValueVerificationTemplate; set { _explicitNullValueVerificationTemplate = value; AdditionalData?.Remove("verification-template"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification-template"); else _explicitNullProperties?.Remove("verification-template"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplate _explicitNullValueVerificationTemplate = default!;
 #endif
         /// <summary>The verificationTemplateVersion property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplateVersion? VerificationTemplateVersion { get => _explicitNullValueVerificationTemplateVersion; set { _explicitNullValueVerificationTemplateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification-template-version"); else _explicitNullProperties?.Remove("verification-template-version"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplateVersion? VerificationTemplateVersion { get => _explicitNullValueVerificationTemplateVersion; set { _explicitNullValueVerificationTemplateVersion = value; AdditionalData?.Remove("verification-template-version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification-template-version"); else _explicitNullProperties?.Remove("verification-template-version"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplateVersion? _explicitNullValueVerificationTemplateVersion = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplateVersion VerificationTemplateVersion { get => _explicitNullValueVerificationTemplateVersion; set { _explicitNullValueVerificationTemplateVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification-template-version"); else _explicitNullProperties?.Remove("verification-template-version"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplateVersion VerificationTemplateVersion { get => _explicitNullValueVerificationTemplateVersion; set { _explicitNullValueVerificationTemplateVersion = value; AdditionalData?.Remove("verification-template-version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verification-template-version"); else _explicitNullProperties?.Remove("verification-template-version"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsVerificationTemplateVersion _explicitNullValueVerificationTemplateVersion = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("telesign-risk-score") is { } nullNodeTelesignRiskScore && nullNodeTelesignRiskScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelesignRiskScore = null;
+            if (parseNode.GetChildNode("telesign-risk-score") is null) { _explicitNullValueTelesignRiskScore = default!; _explicitNullProperties?.Remove("telesign-risk-score"); }
+            else if (parseNode.GetChildNode("telesign-risk-score") is { } nullNodeTelesignRiskScore && nullNodeTelesignRiskScore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TelesignRiskScore = null;
         }
 
         /// <summary>The telesignRiskScore property</summary>

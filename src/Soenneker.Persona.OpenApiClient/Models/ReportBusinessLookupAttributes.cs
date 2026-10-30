@@ -17,28 +17,50 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("completed-at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
-            if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("has-match") is { } nullNodeHasMatch && nullNodeHasMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasMatch = null;
-            if (parseNode.GetChildNode("is-continuous") is { } nullNodeIsContinuous && nullNodeIsContinuous.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsContinuous = null;
-            if (parseNode.GetChildNode("is-recurring") is { } nullNodeIsRecurring && nullNodeIsRecurring.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsRecurring = null;
-            if (parseNode.GetChildNode("match-status-address") is { } nullNodeMatchStatusAddress && nullNodeMatchStatusAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusAddress = null;
-            if (parseNode.GetChildNode("match-status-address-city") is { } nullNodeMatchStatusAddressCity && nullNodeMatchStatusAddressCity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusAddressCity = null;
-            if (parseNode.GetChildNode("match-status-address-postal-code") is { } nullNodeMatchStatusAddressPostalCode && nullNodeMatchStatusAddressPostalCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusAddressPostalCode = null;
-            if (parseNode.GetChildNode("match-status-address-street") is { } nullNodeMatchStatusAddressStreet && nullNodeMatchStatusAddressStreet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusAddressStreet = null;
-            if (parseNode.GetChildNode("match-status-address-subdivision") is { } nullNodeMatchStatusAddressSubdivision && nullNodeMatchStatusAddressSubdivision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusAddressSubdivision = null;
-            if (parseNode.GetChildNode("match-status-associated-person") is { } nullNodeMatchStatusAssociatedPerson && nullNodeMatchStatusAssociatedPerson.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusAssociatedPerson = null;
-            if (parseNode.GetChildNode("match-status-business-name") is { } nullNodeMatchStatusBusinessName && nullNodeMatchStatusBusinessName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusBusinessName = null;
-            if (parseNode.GetChildNode("match-status-ein") is { } nullNodeMatchStatusEin && nullNodeMatchStatusEin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusEin = null;
-            if (parseNode.GetChildNode("match-status-phone-number") is { } nullNodeMatchStatusPhoneNumber && nullNodeMatchStatusPhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusPhoneNumber = null;
-            if (parseNode.GetChildNode("match-status-strength") is { } nullNodeMatchStatusStrength && nullNodeMatchStatusStrength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusStrength = null;
-            if (parseNode.GetChildNode("match-status-website") is { } nullNodeMatchStatusWebsite && nullNodeMatchStatusWebsite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusWebsite = null;
-            if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
-            if (parseNode.GetChildNode("redacted-at") is { } nullNodeRedactedAt && nullNodeRedactedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedactedAt = null;
-            if (parseNode.GetChildNode("report-template-version-name") is { } nullNodeReportTemplateVersionName && nullNodeReportTemplateVersionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportTemplateVersionName = null;
-            if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("completed-at") is null) { _explicitNullValueCompletedAt = default!; _explicitNullProperties?.Remove("completed-at"); }
+            else if (parseNode.GetChildNode("completed-at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
+            if (parseNode.GetChildNode("created-at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created-at"); }
+            else if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("has-match") is null) { _explicitNullValueHasMatch = default!; _explicitNullProperties?.Remove("has-match"); }
+            else if (parseNode.GetChildNode("has-match") is { } nullNodeHasMatch && nullNodeHasMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasMatch = null;
+            if (parseNode.GetChildNode("is-continuous") is null) { _explicitNullValueIsContinuous = default!; _explicitNullProperties?.Remove("is-continuous"); }
+            else if (parseNode.GetChildNode("is-continuous") is { } nullNodeIsContinuous && nullNodeIsContinuous.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsContinuous = null;
+            if (parseNode.GetChildNode("is-recurring") is null) { _explicitNullValueIsRecurring = default!; _explicitNullProperties?.Remove("is-recurring"); }
+            else if (parseNode.GetChildNode("is-recurring") is { } nullNodeIsRecurring && nullNodeIsRecurring.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsRecurring = null;
+            if (parseNode.GetChildNode("match-status-address") is null) { _explicitNullValueMatchStatusAddress = default!; _explicitNullProperties?.Remove("match-status-address"); }
+            else if (parseNode.GetChildNode("match-status-address") is { } nullNodeMatchStatusAddress && nullNodeMatchStatusAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusAddress = null;
+            if (parseNode.GetChildNode("match-status-address-city") is null) { _explicitNullValueMatchStatusAddressCity = default!; _explicitNullProperties?.Remove("match-status-address-city"); }
+            else if (parseNode.GetChildNode("match-status-address-city") is { } nullNodeMatchStatusAddressCity && nullNodeMatchStatusAddressCity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusAddressCity = null;
+            if (parseNode.GetChildNode("match-status-address-postal-code") is null) { _explicitNullValueMatchStatusAddressPostalCode = default!; _explicitNullProperties?.Remove("match-status-address-postal-code"); }
+            else if (parseNode.GetChildNode("match-status-address-postal-code") is { } nullNodeMatchStatusAddressPostalCode && nullNodeMatchStatusAddressPostalCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusAddressPostalCode = null;
+            if (parseNode.GetChildNode("match-status-address-street") is null) { _explicitNullValueMatchStatusAddressStreet = default!; _explicitNullProperties?.Remove("match-status-address-street"); }
+            else if (parseNode.GetChildNode("match-status-address-street") is { } nullNodeMatchStatusAddressStreet && nullNodeMatchStatusAddressStreet.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusAddressStreet = null;
+            if (parseNode.GetChildNode("match-status-address-subdivision") is null) { _explicitNullValueMatchStatusAddressSubdivision = default!; _explicitNullProperties?.Remove("match-status-address-subdivision"); }
+            else if (parseNode.GetChildNode("match-status-address-subdivision") is { } nullNodeMatchStatusAddressSubdivision && nullNodeMatchStatusAddressSubdivision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusAddressSubdivision = null;
+            if (parseNode.GetChildNode("match-status-associated-person") is null) { _explicitNullValueMatchStatusAssociatedPerson = default!; _explicitNullProperties?.Remove("match-status-associated-person"); }
+            else if (parseNode.GetChildNode("match-status-associated-person") is { } nullNodeMatchStatusAssociatedPerson && nullNodeMatchStatusAssociatedPerson.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusAssociatedPerson = null;
+            if (parseNode.GetChildNode("match-status-business-name") is null) { _explicitNullValueMatchStatusBusinessName = default!; _explicitNullProperties?.Remove("match-status-business-name"); }
+            else if (parseNode.GetChildNode("match-status-business-name") is { } nullNodeMatchStatusBusinessName && nullNodeMatchStatusBusinessName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusBusinessName = null;
+            if (parseNode.GetChildNode("match-status-ein") is null) { _explicitNullValueMatchStatusEin = default!; _explicitNullProperties?.Remove("match-status-ein"); }
+            else if (parseNode.GetChildNode("match-status-ein") is { } nullNodeMatchStatusEin && nullNodeMatchStatusEin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusEin = null;
+            if (parseNode.GetChildNode("match-status-phone-number") is null) { _explicitNullValueMatchStatusPhoneNumber = default!; _explicitNullProperties?.Remove("match-status-phone-number"); }
+            else if (parseNode.GetChildNode("match-status-phone-number") is { } nullNodeMatchStatusPhoneNumber && nullNodeMatchStatusPhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusPhoneNumber = null;
+            if (parseNode.GetChildNode("match-status-strength") is null) { _explicitNullValueMatchStatusStrength = default!; _explicitNullProperties?.Remove("match-status-strength"); }
+            else if (parseNode.GetChildNode("match-status-strength") is { } nullNodeMatchStatusStrength && nullNodeMatchStatusStrength.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusStrength = null;
+            if (parseNode.GetChildNode("match-status-website") is null) { _explicitNullValueMatchStatusWebsite = default!; _explicitNullProperties?.Remove("match-status-website"); }
+            else if (parseNode.GetChildNode("match-status-website") is { } nullNodeMatchStatusWebsite && nullNodeMatchStatusWebsite.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatchStatusWebsite = null;
+            if (parseNode.GetChildNode("query") is null) { _explicitNullValueQuery = default!; _explicitNullProperties?.Remove("query"); }
+            else if (parseNode.GetChildNode("query") is { } nullNodeQuery && nullNodeQuery.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Query = null;
+            if (parseNode.GetChildNode("redacted-at") is null) { _explicitNullValueRedactedAt = default!; _explicitNullProperties?.Remove("redacted-at"); }
+            else if (parseNode.GetChildNode("redacted-at") is { } nullNodeRedactedAt && nullNodeRedactedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedactedAt = null;
+            if (parseNode.GetChildNode("report-template-version-name") is null) { _explicitNullValueReportTemplateVersionName = default!; _explicitNullProperties?.Remove("report-template-version-name"); }
+            else if (parseNode.GetChildNode("report-template-version-name") is { } nullNodeReportTemplateVersionName && nullNodeReportTemplateVersionName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReportTemplateVersionName = null;
+            if (parseNode.GetChildNode("result") is null) { _explicitNullValueResult = default!; _explicitNullProperties?.Remove("result"); }
+            else if (parseNode.GetChildNode("result") is { } nullNodeResult && nullNodeResult.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Result = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("tags") is null) { _explicitNullValueTags = default!; _explicitNullProperties?.Remove("tags"); }
+            else if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -46,200 +68,200 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The time the report completed processing in ISO 8601 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed-at"); else _explicitNullProperties?.Remove("completed-at"); } }
+        public string? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed-at"); else _explicitNullProperties?.Remove("completed-at"); } }
         private string? _explicitNullValueCompletedAt = default!;
 #nullable restore
 #else
-        public string CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed-at"); else _explicitNullProperties?.Remove("completed-at"); } }
+        public string CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed-at"); else _explicitNullProperties?.Remove("completed-at"); } }
         private string _explicitNullValueCompletedAt = default!;
 #endif
         /// <summary>The time the report was created in ISO 8601 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
+        public string? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
         private string? _explicitNullValueCreatedAt = default!;
 #nullable restore
 #else
-        public string CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
+        public string CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
         private string _explicitNullValueCreatedAt = default!;
 #endif
         /// <summary>Whether or not the report matched</summary>
-        public bool? HasMatch { get => _explicitNullValueHasMatch; set { _explicitNullValueHasMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has-match"); else _explicitNullProperties?.Remove("has-match"); } }
+        public bool? HasMatch { get => _explicitNullValueHasMatch; set { _explicitNullValueHasMatch = value; AdditionalData?.Remove("has-match"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has-match"); else _explicitNullProperties?.Remove("has-match"); } }
         private bool? _explicitNullValueHasMatch = default!;
         /// <summary>Whether or not this report has been run more than once</summary>
-        public bool? IsContinuous { get => _explicitNullValueIsContinuous; set { _explicitNullValueIsContinuous = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is-continuous"); else _explicitNullProperties?.Remove("is-continuous"); } }
+        public bool? IsContinuous { get => _explicitNullValueIsContinuous; set { _explicitNullValueIsContinuous = value; AdditionalData?.Remove("is-continuous"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is-continuous"); else _explicitNullProperties?.Remove("is-continuous"); } }
         private bool? _explicitNullValueIsContinuous = default!;
         /// <summary>Whether or not this report is scheduled to run in the future</summary>
-        public bool? IsRecurring { get => _explicitNullValueIsRecurring; set { _explicitNullValueIsRecurring = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is-recurring"); else _explicitNullProperties?.Remove("is-recurring"); } }
+        public bool? IsRecurring { get => _explicitNullValueIsRecurring; set { _explicitNullValueIsRecurring = value; AdditionalData?.Remove("is-recurring"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is-recurring"); else _explicitNullProperties?.Remove("is-recurring"); } }
         private bool? _explicitNullValueIsRecurring = default!;
         /// <summary>Possible values:- not_applicable- match- partial_match- no_match- unavailable- unknownDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MatchStatusAddress { get => _explicitNullValueMatchStatusAddress; set { _explicitNullValueMatchStatusAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address"); else _explicitNullProperties?.Remove("match-status-address"); } }
+        public string? MatchStatusAddress { get => _explicitNullValueMatchStatusAddress; set { _explicitNullValueMatchStatusAddress = value; AdditionalData?.Remove("match-status-address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address"); else _explicitNullProperties?.Remove("match-status-address"); } }
         private string? _explicitNullValueMatchStatusAddress = default!;
 #nullable restore
 #else
-        public string MatchStatusAddress { get => _explicitNullValueMatchStatusAddress; set { _explicitNullValueMatchStatusAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address"); else _explicitNullProperties?.Remove("match-status-address"); } }
+        public string MatchStatusAddress { get => _explicitNullValueMatchStatusAddress; set { _explicitNullValueMatchStatusAddress = value; AdditionalData?.Remove("match-status-address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address"); else _explicitNullProperties?.Remove("match-status-address"); } }
         private string _explicitNullValueMatchStatusAddress = default!;
 #endif
         /// <summary>Possible values:- not_applicable- match- partial_match- no_match- unavailable- unknownDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MatchStatusAddressCity { get => _explicitNullValueMatchStatusAddressCity; set { _explicitNullValueMatchStatusAddressCity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-city"); else _explicitNullProperties?.Remove("match-status-address-city"); } }
+        public string? MatchStatusAddressCity { get => _explicitNullValueMatchStatusAddressCity; set { _explicitNullValueMatchStatusAddressCity = value; AdditionalData?.Remove("match-status-address-city"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-city"); else _explicitNullProperties?.Remove("match-status-address-city"); } }
         private string? _explicitNullValueMatchStatusAddressCity = default!;
 #nullable restore
 #else
-        public string MatchStatusAddressCity { get => _explicitNullValueMatchStatusAddressCity; set { _explicitNullValueMatchStatusAddressCity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-city"); else _explicitNullProperties?.Remove("match-status-address-city"); } }
+        public string MatchStatusAddressCity { get => _explicitNullValueMatchStatusAddressCity; set { _explicitNullValueMatchStatusAddressCity = value; AdditionalData?.Remove("match-status-address-city"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-city"); else _explicitNullProperties?.Remove("match-status-address-city"); } }
         private string _explicitNullValueMatchStatusAddressCity = default!;
 #endif
         /// <summary>Possible values:- not_applicable- match- partial_match- no_match- unavailable- unknownDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MatchStatusAddressPostalCode { get => _explicitNullValueMatchStatusAddressPostalCode; set { _explicitNullValueMatchStatusAddressPostalCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-postal-code"); else _explicitNullProperties?.Remove("match-status-address-postal-code"); } }
+        public string? MatchStatusAddressPostalCode { get => _explicitNullValueMatchStatusAddressPostalCode; set { _explicitNullValueMatchStatusAddressPostalCode = value; AdditionalData?.Remove("match-status-address-postal-code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-postal-code"); else _explicitNullProperties?.Remove("match-status-address-postal-code"); } }
         private string? _explicitNullValueMatchStatusAddressPostalCode = default!;
 #nullable restore
 #else
-        public string MatchStatusAddressPostalCode { get => _explicitNullValueMatchStatusAddressPostalCode; set { _explicitNullValueMatchStatusAddressPostalCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-postal-code"); else _explicitNullProperties?.Remove("match-status-address-postal-code"); } }
+        public string MatchStatusAddressPostalCode { get => _explicitNullValueMatchStatusAddressPostalCode; set { _explicitNullValueMatchStatusAddressPostalCode = value; AdditionalData?.Remove("match-status-address-postal-code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-postal-code"); else _explicitNullProperties?.Remove("match-status-address-postal-code"); } }
         private string _explicitNullValueMatchStatusAddressPostalCode = default!;
 #endif
         /// <summary>Possible values:- not_applicable- match- partial_match- no_match- unavailable- unknownDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MatchStatusAddressStreet { get => _explicitNullValueMatchStatusAddressStreet; set { _explicitNullValueMatchStatusAddressStreet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-street"); else _explicitNullProperties?.Remove("match-status-address-street"); } }
+        public string? MatchStatusAddressStreet { get => _explicitNullValueMatchStatusAddressStreet; set { _explicitNullValueMatchStatusAddressStreet = value; AdditionalData?.Remove("match-status-address-street"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-street"); else _explicitNullProperties?.Remove("match-status-address-street"); } }
         private string? _explicitNullValueMatchStatusAddressStreet = default!;
 #nullable restore
 #else
-        public string MatchStatusAddressStreet { get => _explicitNullValueMatchStatusAddressStreet; set { _explicitNullValueMatchStatusAddressStreet = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-street"); else _explicitNullProperties?.Remove("match-status-address-street"); } }
+        public string MatchStatusAddressStreet { get => _explicitNullValueMatchStatusAddressStreet; set { _explicitNullValueMatchStatusAddressStreet = value; AdditionalData?.Remove("match-status-address-street"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-street"); else _explicitNullProperties?.Remove("match-status-address-street"); } }
         private string _explicitNullValueMatchStatusAddressStreet = default!;
 #endif
         /// <summary>Possible values:- not_applicable- match- partial_match- no_match- unavailable- unknownDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MatchStatusAddressSubdivision { get => _explicitNullValueMatchStatusAddressSubdivision; set { _explicitNullValueMatchStatusAddressSubdivision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-subdivision"); else _explicitNullProperties?.Remove("match-status-address-subdivision"); } }
+        public string? MatchStatusAddressSubdivision { get => _explicitNullValueMatchStatusAddressSubdivision; set { _explicitNullValueMatchStatusAddressSubdivision = value; AdditionalData?.Remove("match-status-address-subdivision"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-subdivision"); else _explicitNullProperties?.Remove("match-status-address-subdivision"); } }
         private string? _explicitNullValueMatchStatusAddressSubdivision = default!;
 #nullable restore
 #else
-        public string MatchStatusAddressSubdivision { get => _explicitNullValueMatchStatusAddressSubdivision; set { _explicitNullValueMatchStatusAddressSubdivision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-subdivision"); else _explicitNullProperties?.Remove("match-status-address-subdivision"); } }
+        public string MatchStatusAddressSubdivision { get => _explicitNullValueMatchStatusAddressSubdivision; set { _explicitNullValueMatchStatusAddressSubdivision = value; AdditionalData?.Remove("match-status-address-subdivision"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-address-subdivision"); else _explicitNullProperties?.Remove("match-status-address-subdivision"); } }
         private string _explicitNullValueMatchStatusAddressSubdivision = default!;
 #endif
         /// <summary>Possible values:- not_applicable- match- partial_match- no_match- unavailable- unknownDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MatchStatusAssociatedPerson { get => _explicitNullValueMatchStatusAssociatedPerson; set { _explicitNullValueMatchStatusAssociatedPerson = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-associated-person"); else _explicitNullProperties?.Remove("match-status-associated-person"); } }
+        public string? MatchStatusAssociatedPerson { get => _explicitNullValueMatchStatusAssociatedPerson; set { _explicitNullValueMatchStatusAssociatedPerson = value; AdditionalData?.Remove("match-status-associated-person"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-associated-person"); else _explicitNullProperties?.Remove("match-status-associated-person"); } }
         private string? _explicitNullValueMatchStatusAssociatedPerson = default!;
 #nullable restore
 #else
-        public string MatchStatusAssociatedPerson { get => _explicitNullValueMatchStatusAssociatedPerson; set { _explicitNullValueMatchStatusAssociatedPerson = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-associated-person"); else _explicitNullProperties?.Remove("match-status-associated-person"); } }
+        public string MatchStatusAssociatedPerson { get => _explicitNullValueMatchStatusAssociatedPerson; set { _explicitNullValueMatchStatusAssociatedPerson = value; AdditionalData?.Remove("match-status-associated-person"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-associated-person"); else _explicitNullProperties?.Remove("match-status-associated-person"); } }
         private string _explicitNullValueMatchStatusAssociatedPerson = default!;
 #endif
         /// <summary>Possible values:- not_applicable- match- partial_match- no_match- unavailable- unknownDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MatchStatusBusinessName { get => _explicitNullValueMatchStatusBusinessName; set { _explicitNullValueMatchStatusBusinessName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-business-name"); else _explicitNullProperties?.Remove("match-status-business-name"); } }
+        public string? MatchStatusBusinessName { get => _explicitNullValueMatchStatusBusinessName; set { _explicitNullValueMatchStatusBusinessName = value; AdditionalData?.Remove("match-status-business-name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-business-name"); else _explicitNullProperties?.Remove("match-status-business-name"); } }
         private string? _explicitNullValueMatchStatusBusinessName = default!;
 #nullable restore
 #else
-        public string MatchStatusBusinessName { get => _explicitNullValueMatchStatusBusinessName; set { _explicitNullValueMatchStatusBusinessName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-business-name"); else _explicitNullProperties?.Remove("match-status-business-name"); } }
+        public string MatchStatusBusinessName { get => _explicitNullValueMatchStatusBusinessName; set { _explicitNullValueMatchStatusBusinessName = value; AdditionalData?.Remove("match-status-business-name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-business-name"); else _explicitNullProperties?.Remove("match-status-business-name"); } }
         private string _explicitNullValueMatchStatusBusinessName = default!;
 #endif
         /// <summary>Possible values:- not_applicable- match- partial_match- no_match- unavailable- unknownDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MatchStatusEin { get => _explicitNullValueMatchStatusEin; set { _explicitNullValueMatchStatusEin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-ein"); else _explicitNullProperties?.Remove("match-status-ein"); } }
+        public string? MatchStatusEin { get => _explicitNullValueMatchStatusEin; set { _explicitNullValueMatchStatusEin = value; AdditionalData?.Remove("match-status-ein"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-ein"); else _explicitNullProperties?.Remove("match-status-ein"); } }
         private string? _explicitNullValueMatchStatusEin = default!;
 #nullable restore
 #else
-        public string MatchStatusEin { get => _explicitNullValueMatchStatusEin; set { _explicitNullValueMatchStatusEin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-ein"); else _explicitNullProperties?.Remove("match-status-ein"); } }
+        public string MatchStatusEin { get => _explicitNullValueMatchStatusEin; set { _explicitNullValueMatchStatusEin = value; AdditionalData?.Remove("match-status-ein"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-ein"); else _explicitNullProperties?.Remove("match-status-ein"); } }
         private string _explicitNullValueMatchStatusEin = default!;
 #endif
         /// <summary>Possible values:- not_applicable- match- partial_match- no_match- unavailable- unknownDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MatchStatusPhoneNumber { get => _explicitNullValueMatchStatusPhoneNumber; set { _explicitNullValueMatchStatusPhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-phone-number"); else _explicitNullProperties?.Remove("match-status-phone-number"); } }
+        public string? MatchStatusPhoneNumber { get => _explicitNullValueMatchStatusPhoneNumber; set { _explicitNullValueMatchStatusPhoneNumber = value; AdditionalData?.Remove("match-status-phone-number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-phone-number"); else _explicitNullProperties?.Remove("match-status-phone-number"); } }
         private string? _explicitNullValueMatchStatusPhoneNumber = default!;
 #nullable restore
 #else
-        public string MatchStatusPhoneNumber { get => _explicitNullValueMatchStatusPhoneNumber; set { _explicitNullValueMatchStatusPhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-phone-number"); else _explicitNullProperties?.Remove("match-status-phone-number"); } }
+        public string MatchStatusPhoneNumber { get => _explicitNullValueMatchStatusPhoneNumber; set { _explicitNullValueMatchStatusPhoneNumber = value; AdditionalData?.Remove("match-status-phone-number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-phone-number"); else _explicitNullProperties?.Remove("match-status-phone-number"); } }
         private string _explicitNullValueMatchStatusPhoneNumber = default!;
 #endif
         /// <summary>Possible values:- not_applicable- match- partial_match- no_match- unavailable- unknownDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MatchStatusStrength { get => _explicitNullValueMatchStatusStrength; set { _explicitNullValueMatchStatusStrength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-strength"); else _explicitNullProperties?.Remove("match-status-strength"); } }
+        public string? MatchStatusStrength { get => _explicitNullValueMatchStatusStrength; set { _explicitNullValueMatchStatusStrength = value; AdditionalData?.Remove("match-status-strength"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-strength"); else _explicitNullProperties?.Remove("match-status-strength"); } }
         private string? _explicitNullValueMatchStatusStrength = default!;
 #nullable restore
 #else
-        public string MatchStatusStrength { get => _explicitNullValueMatchStatusStrength; set { _explicitNullValueMatchStatusStrength = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-strength"); else _explicitNullProperties?.Remove("match-status-strength"); } }
+        public string MatchStatusStrength { get => _explicitNullValueMatchStatusStrength; set { _explicitNullValueMatchStatusStrength = value; AdditionalData?.Remove("match-status-strength"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-strength"); else _explicitNullProperties?.Remove("match-status-strength"); } }
         private string _explicitNullValueMatchStatusStrength = default!;
 #endif
         /// <summary>Possible values:- not_applicable- match- partial_match- no_match- unavailable- unknownDo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MatchStatusWebsite { get => _explicitNullValueMatchStatusWebsite; set { _explicitNullValueMatchStatusWebsite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-website"); else _explicitNullProperties?.Remove("match-status-website"); } }
+        public string? MatchStatusWebsite { get => _explicitNullValueMatchStatusWebsite; set { _explicitNullValueMatchStatusWebsite = value; AdditionalData?.Remove("match-status-website"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-website"); else _explicitNullProperties?.Remove("match-status-website"); } }
         private string? _explicitNullValueMatchStatusWebsite = default!;
 #nullable restore
 #else
-        public string MatchStatusWebsite { get => _explicitNullValueMatchStatusWebsite; set { _explicitNullValueMatchStatusWebsite = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-website"); else _explicitNullProperties?.Remove("match-status-website"); } }
+        public string MatchStatusWebsite { get => _explicitNullValueMatchStatusWebsite; set { _explicitNullValueMatchStatusWebsite = value; AdditionalData?.Remove("match-status-website"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("match-status-website"); else _explicitNullProperties?.Remove("match-status-website"); } }
         private string _explicitNullValueMatchStatusWebsite = default!;
 #endif
         /// <summary>The query property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Query? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Query? Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; AdditionalData?.Remove("query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Query? _explicitNullValueQuery = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Query Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Query Query { get => _explicitNullValueQuery; set { _explicitNullValueQuery = value; AdditionalData?.Remove("query"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("query"); else _explicitNullProperties?.Remove("query"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Query _explicitNullValueQuery = default!;
 #endif
         /// <summary>The time the report was redacted in ISO 8601 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RedactedAt { get => _explicitNullValueRedactedAt; set { _explicitNullValueRedactedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted-at"); else _explicitNullProperties?.Remove("redacted-at"); } }
+        public string? RedactedAt { get => _explicitNullValueRedactedAt; set { _explicitNullValueRedactedAt = value; AdditionalData?.Remove("redacted-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted-at"); else _explicitNullProperties?.Remove("redacted-at"); } }
         private string? _explicitNullValueRedactedAt = default!;
 #nullable restore
 #else
-        public string RedactedAt { get => _explicitNullValueRedactedAt; set { _explicitNullValueRedactedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted-at"); else _explicitNullProperties?.Remove("redacted-at"); } }
+        public string RedactedAt { get => _explicitNullValueRedactedAt; set { _explicitNullValueRedactedAt = value; AdditionalData?.Remove("redacted-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted-at"); else _explicitNullProperties?.Remove("redacted-at"); } }
         private string _explicitNullValueRedactedAt = default!;
 #endif
         /// <summary>The name of the report template version used for this report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReportTemplateVersionName { get => _explicitNullValueReportTemplateVersionName; set { _explicitNullValueReportTemplateVersionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report-template-version-name"); else _explicitNullProperties?.Remove("report-template-version-name"); } }
+        public string? ReportTemplateVersionName { get => _explicitNullValueReportTemplateVersionName; set { _explicitNullValueReportTemplateVersionName = value; AdditionalData?.Remove("report-template-version-name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report-template-version-name"); else _explicitNullProperties?.Remove("report-template-version-name"); } }
         private string? _explicitNullValueReportTemplateVersionName = default!;
 #nullable restore
 #else
-        public string ReportTemplateVersionName { get => _explicitNullValueReportTemplateVersionName; set { _explicitNullValueReportTemplateVersionName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report-template-version-name"); else _explicitNullProperties?.Remove("report-template-version-name"); } }
+        public string ReportTemplateVersionName { get => _explicitNullValueReportTemplateVersionName; set { _explicitNullValueReportTemplateVersionName = value; AdditionalData?.Remove("report-template-version-name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("report-template-version-name"); else _explicitNullProperties?.Remove("report-template-version-name"); } }
         private string _explicitNullValueReportTemplateVersionName = default!;
 #endif
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Result? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Result? Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Result? _explicitNullValueResult = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Result Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Result Result { get => _explicitNullValueResult; set { _explicitNullValueResult = value; AdditionalData?.Remove("result"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result"); else _explicitNullProperties?.Remove("result"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2Result _explicitNullValueResult = default!;
 #endif
         /// <summary>The status of the reportPossible values:- pending- ready- erroredDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>Tags on the report</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>

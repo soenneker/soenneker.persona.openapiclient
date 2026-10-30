@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("api-key") is { } nullNodeApiKey && nullNodeApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKey = null;
+            if (parseNode.GetChildNode("api-key") is null) { _explicitNullValueApiKey = default!; _explicitNullProperties?.Remove("api-key"); }
+            else if (parseNode.GetChildNode("api-key") is { } nullNodeApiKey && nullNodeApiKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKey = null;
         }
 
         /// <summary>The API key that made this request, if any.</summary>

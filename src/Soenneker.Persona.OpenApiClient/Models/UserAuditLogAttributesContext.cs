@@ -18,7 +18,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("inquiry-id") is { } nullNodeInquiryId && nullNodeInquiryId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InquiryId = null;
+            if (parseNode.GetChildNode("inquiry-id") is null) { _explicitNullValueInquiryId = default!; _explicitNullProperties?.Remove("inquiry-id"); }
+            else if (parseNode.GetChildNode("inquiry-id") is { } nullNodeInquiryId && nullNodeInquiryId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InquiryId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>ID of the inquiry created -- this property is only present when path is /api/internal/dashboard/v1/inquiries and method is POST</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InquiryId { get => _explicitNullValueInquiryId; set { _explicitNullValueInquiryId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-id"); else _explicitNullProperties?.Remove("inquiry-id"); } }
+        public string? InquiryId { get => _explicitNullValueInquiryId; set { _explicitNullValueInquiryId = value; AdditionalData?.Remove("inquiry-id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-id"); else _explicitNullProperties?.Remove("inquiry-id"); } }
         private string? _explicitNullValueInquiryId = default!;
 #nullable restore
 #else
-        public string InquiryId { get => _explicitNullValueInquiryId; set { _explicitNullValueInquiryId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-id"); else _explicitNullProperties?.Remove("inquiry-id"); } }
+        public string InquiryId { get => _explicitNullValueInquiryId; set { _explicitNullValueInquiryId = value; AdditionalData?.Remove("inquiry-id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("inquiry-id"); else _explicitNullProperties?.Remove("inquiry-id"); } }
         private string _explicitNullValueInquiryId = default!;
 #endif
         /// <summary>

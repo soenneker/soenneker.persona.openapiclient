@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("origin") is { } nullNodeOrigin && nullNodeOrigin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Origin = null;
+            if (parseNode.GetChildNode("origin") is null) { _explicitNullValueOrigin = default!; _explicitNullProperties?.Remove("origin"); }
+            else if (parseNode.GetChildNode("origin") is { } nullNodeOrigin && nullNodeOrigin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Origin = null;
         }
 
         /// <summary>The origin property</summary>

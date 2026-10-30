@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ip-address") is { } nullNodeIpAddress && nullNodeIpAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAddress = null;
+            if (parseNode.GetChildNode("ip-address") is null) { _explicitNullValueIpAddress = default!; _explicitNullProperties?.Remove("ip-address"); }
+            else if (parseNode.GetChildNode("ip-address") is { } nullNodeIpAddress && nullNodeIpAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAddress = null;
         }
 
         /// <summary>The IP address that was looked up.</summary>

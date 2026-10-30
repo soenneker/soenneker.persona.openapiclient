@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("destination-field-name") is { } nullNodeDestinationFieldName && nullNodeDestinationFieldName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationFieldName = null;
-            if (parseNode.GetChildNode("source-field-name") is { } nullNodeSourceFieldName && nullNodeSourceFieldName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceFieldName = null;
+            if (parseNode.GetChildNode("destination-field-name") is null) { _explicitNullValueDestinationFieldName = default!; _explicitNullProperties?.Remove("destination-field-name"); }
+            else if (parseNode.GetChildNode("destination-field-name") is { } nullNodeDestinationFieldName && nullNodeDestinationFieldName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationFieldName = null;
+            if (parseNode.GetChildNode("source-field-name") is null) { _explicitNullValueSourceFieldName = default!; _explicitNullProperties?.Remove("source-field-name"); }
+            else if (parseNode.GetChildNode("source-field-name") is { } nullNodeSourceFieldName && nullNodeSourceFieldName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceFieldName = null;
         }
 
         /// <summary>The name of the field in the destination object.</summary>

@@ -17,9 +17,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("error-message") is { } nullNodeErrorMessage && nullNodeErrorMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorMessage = null;
-            if (parseNode.GetChildNode("row") is { } nullNodeRow && nullNodeRow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Row = null;
-            if (parseNode.GetChildNode("row-number") is { } nullNodeRowNumber && nullNodeRowNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RowNumber = null;
+            if (parseNode.GetChildNode("error-message") is null) { _explicitNullValueErrorMessage = default!; _explicitNullProperties?.Remove("error-message"); }
+            else if (parseNode.GetChildNode("error-message") is { } nullNodeErrorMessage && nullNodeErrorMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorMessage = null;
+            if (parseNode.GetChildNode("row") is null) { _explicitNullValueRow = default!; _explicitNullProperties?.Remove("row"); }
+            else if (parseNode.GetChildNode("row") is { } nullNodeRow && nullNodeRow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Row = null;
+            if (parseNode.GetChildNode("row-number") is null) { _explicitNullValueRowNumber = default!; _explicitNullProperties?.Remove("row-number"); }
+            else if (parseNode.GetChildNode("row-number") is { } nullNodeRowNumber && nullNodeRowNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RowNumber = null;
         }
 
         /// <summary>The errorMessage property</summary>

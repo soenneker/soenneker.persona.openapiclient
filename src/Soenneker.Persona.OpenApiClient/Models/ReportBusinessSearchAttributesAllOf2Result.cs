@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("businesses") is { } nullNodeBusinesses && nullNodeBusinesses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Businesses = null;
-            if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
+            if (parseNode.GetChildNode("businesses") is null) { _explicitNullValueBusinesses = default!; _explicitNullProperties?.Remove("businesses"); }
+            else if (parseNode.GetChildNode("businesses") is { } nullNodeBusinesses && nullNodeBusinesses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Businesses = null;
+            if (parseNode.GetChildNode("error") is null) { _explicitNullValueError = default!; _explicitNullProperties?.Remove("error"); }
+            else if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
         }
 
         /// <summary>Candidate businesses matching the query, most relevant first.</summary>

@@ -17,9 +17,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("country-code") is { } nullNodeCountryCode && nullNodeCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryCode = null;
-            if (parseNode.GetChildNode("list-id") is { } nullNodeListId && nullNodeListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ListId = null;
-            if (parseNode.GetChildNode("note") is { } nullNodeNote && nullNodeNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Note = null;
+            if (parseNode.GetChildNode("country-code") is null) { _explicitNullValueCountryCode = default!; _explicitNullProperties?.Remove("country-code"); }
+            else if (parseNode.GetChildNode("country-code") is { } nullNodeCountryCode && nullNodeCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryCode = null;
+            if (parseNode.GetChildNode("list-id") is null) { _explicitNullValueListId = default!; _explicitNullProperties?.Remove("list-id"); }
+            else if (parseNode.GetChildNode("list-id") is { } nullNodeListId && nullNodeListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ListId = null;
+            if (parseNode.GetChildNode("note") is null) { _explicitNullValueNote = default!; _explicitNullProperties?.Remove("note"); }
+            else if (parseNode.GetChildNode("note") is { } nullNodeNote && nullNodeNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Note = null;
         }
 
         /// <summary>Country code to add to list.</summary>

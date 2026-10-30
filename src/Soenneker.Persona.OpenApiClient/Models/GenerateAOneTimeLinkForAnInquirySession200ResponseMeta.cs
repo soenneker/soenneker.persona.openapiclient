@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("one-time-link") is { } nullNodeOneTimeLink && nullNodeOneTimeLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OneTimeLink = null;
-            if (parseNode.GetChildNode("one-time-link-short") is { } nullNodeOneTimeLinkShort && nullNodeOneTimeLinkShort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OneTimeLinkShort = null;
+            if (parseNode.GetChildNode("one-time-link") is null) { _explicitNullValueOneTimeLink = default!; _explicitNullProperties?.Remove("one-time-link"); }
+            else if (parseNode.GetChildNode("one-time-link") is { } nullNodeOneTimeLink && nullNodeOneTimeLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OneTimeLink = null;
+            if (parseNode.GetChildNode("one-time-link-short") is null) { _explicitNullValueOneTimeLinkShort = default!; _explicitNullProperties?.Remove("one-time-link-short"); }
+            else if (parseNode.GetChildNode("one-time-link-short") is { } nullNodeOneTimeLinkShort && nullNodeOneTimeLinkShort.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OneTimeLinkShort = null;
         }
 
         /// <summary>The oneTimeLink property</summary>

@@ -17,18 +17,19 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("!") is { } nullNodeExclamation && nullNodeExclamation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Exclamation = null;
+            if (parseNode.GetChildNode("!") is null) { _explicitNullValueExclamation = default!; _explicitNullProperties?.Remove("!"); }
+            else if (parseNode.GetChildNode("!") is { } nullNodeExclamation && nullNodeExclamation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Exclamation = null;
         }
 
         /// <summary>The Exclamation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3Composed? Exclamation { get => _explicitNullValueExclamation; set { _explicitNullValueExclamation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("!"); else _explicitNullProperties?.Remove("!"); } }
-        private global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3Composed? _explicitNullValueExclamation = default!;
+        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And? Exclamation { get => _explicitNullValueExclamation; set { _explicitNullValueExclamation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("!"); else _explicitNullProperties?.Remove("!"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And? _explicitNullValueExclamation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3Composed Exclamation { get => _explicitNullValueExclamation; set { _explicitNullValueExclamation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("!"); else _explicitNullProperties?.Remove("!"); } }
-        private global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3Composed _explicitNullValueExclamation = default!;
+        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And Exclamation { get => _explicitNullValueExclamation; set { _explicitNullValueExclamation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("!"); else _explicitNullProperties?.Remove("!"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And _explicitNullValueExclamation = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -48,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "!", n => { Exclamation = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3Composed>(global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3Composed.CreateFromDiscriminatorValue); } },
+                { "!", n => { Exclamation = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And>(global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +59,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3Composed>("!", Exclamation);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And>("!", Exclamation);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

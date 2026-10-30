@@ -54,10 +54,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("context") != null))();
-            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("resource-type") != null && parseNode.GetChildNode("template-id") != null))();
-            if (result.RouteCriteriaOneOf4OriginOneOf1 == null && result.RouteCriteriaOneOf4OriginOneOf2 == null && matchesUnionBranch0 && !matchesUnionBranch1) result.RouteCriteriaOneOf4OriginOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf4OriginOneOf1(), parseNode);
-            if (result.RouteCriteriaOneOf4OriginOneOf1 == null && result.RouteCriteriaOneOf4OriginOneOf2 == null && matchesUnionBranch1 && !matchesUnionBranch0) result.RouteCriteriaOneOf4OriginOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf4OriginOneOf2(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("context") && (!shapeMembers1.ContainsKey("context") || (((shapeMembers1["context"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "context"))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("resource-type") && shapeMembers1.ContainsKey("template-id") && (!shapeMembers1.ContainsKey("resource-type") || (((shapeMembers1["resource-type"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("template-id") || (((shapeMembers1["template-id"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && (!shapeMembers1.ContainsKey("version") || ((((shapeMembers1["version"] == null || shapeMembers1["version"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull)) || (shapeMembers1["version"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (shapeMembers1["version"] is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject6 || (shapeObject6.GetValue() is var shapeMembers7 && (shapeMembers7.ContainsKey("token") && shapeMembers7.ContainsKey("tag") && (!shapeMembers7.ContainsKey("token") || (((shapeMembers7["token"] is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString)))) && global::System.Linq.Enumerable.All(shapeMembers7.Keys, key => key == "token" || key == "tag")))))) && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "resource-type" || key == "template-id" || key == "version"))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            if (matchesUnionBranch1) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.RouteCriteriaOneOf4OriginOneOf1 == null && result.RouteCriteriaOneOf4OriginOneOf2 == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.RouteCriteriaOneOf4OriginOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf4OriginOneOf1(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.RouteCriteriaOneOf4OriginOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf4OriginOneOf2(), parseNode);
             if (result.RouteCriteriaOneOf4OriginOneOf1 == null && result.RouteCriteriaOneOf4OriginOneOf2 == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -67,6 +71,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(RouteCriteriaOneOf4OriginOneOf1 != null)
             {
                 return RouteCriteriaOneOf4OriginOneOf1.GetFieldDeserializers();
@@ -85,8 +91,11 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (RouteCriteriaOneOf4OriginOneOf1 == null && RouteCriteriaOneOf4OriginOneOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (RouteCriteriaOneOf4OriginOneOf1 != null && RouteCriteriaOneOf4OriginOneOf2 == null) { if (RouteCriteriaOneOf4OriginOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RouteCriteriaOneOf4OriginOneOf1); return; }
-            if (RouteCriteriaOneOf4OriginOneOf2 != null && RouteCriteriaOneOf4OriginOneOf1 == null) { if (RouteCriteriaOneOf4OriginOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RouteCriteriaOneOf4OriginOneOf2); return; }
+            int selectedUnionBranches = 0;
+            if (RouteCriteriaOneOf4OriginOneOf1 != null) selectedUnionBranches++;
+            if (RouteCriteriaOneOf4OriginOneOf2 != null) selectedUnionBranches++;
+            if (RouteCriteriaOneOf4OriginOneOf1 != null && selectedUnionBranches == 1) { if (RouteCriteriaOneOf4OriginOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RouteCriteriaOneOf4OriginOneOf1); return; }
+            if (RouteCriteriaOneOf4OriginOneOf2 != null && selectedUnionBranches == 1) { if (RouteCriteriaOneOf4OriginOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RouteCriteriaOneOf4OriginOneOf2); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(RouteCriteriaOneOf4OriginOneOf1 != null)

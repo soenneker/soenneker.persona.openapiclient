@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("criteria") is { } nullNodeCriteria && nullNodeCriteria.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Criteria = null;
-            if (parseNode.GetChildNode("strategy") is { } nullNodeStrategy && nullNodeStrategy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Strategy = null;
+            if (parseNode.GetChildNode("criteria") is null) { _explicitNullValueCriteria = default!; _explicitNullProperties?.Remove("criteria"); }
+            else if (parseNode.GetChildNode("criteria") is { } nullNodeCriteria && nullNodeCriteria.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Criteria = null;
+            if (parseNode.GetChildNode("strategy") is null) { _explicitNullValueStrategy = default!; _explicitNullProperties?.Remove("strategy"); }
+            else if (parseNode.GetChildNode("strategy") is { } nullNodeStrategy && nullNodeStrategy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Strategy = null;
         }
 
         /// <summary>A deployment route criteria node: an `and`/`or`/`!` operator tree whose `origin` leaves are either `{ context }` or `{ resource-type, template-id, version }`. Version references carry the version token and its serialized deployment tag (null when the version is untagged). Each operator&apos;s operand may be a single node or a non-empty array of nodes.</summary>

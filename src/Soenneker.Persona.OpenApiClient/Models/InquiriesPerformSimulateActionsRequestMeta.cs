@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("simulate-actions") is { } nullNodeSimulateActions && nullNodeSimulateActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimulateActions = null;
+            if (parseNode.GetChildNode("simulate-actions") is null) { _explicitNullValueSimulateActions = default!; _explicitNullProperties?.Remove("simulate-actions"); }
+            else if (parseNode.GetChildNode("simulate-actions") is { } nullNodeSimulateActions && nullNodeSimulateActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimulateActions = null;
         }
 
         /// <summary>The simulateActions property</summary>

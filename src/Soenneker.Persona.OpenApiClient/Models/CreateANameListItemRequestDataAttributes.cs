@@ -17,10 +17,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("list-id") is { } nullNodeListId && nullNodeListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ListId = null;
-            if (parseNode.GetChildNode("name-first") is { } nullNodeNameFirst && nullNodeNameFirst.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameFirst = null;
-            if (parseNode.GetChildNode("name-last") is { } nullNodeNameLast && nullNodeNameLast.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameLast = null;
-            if (parseNode.GetChildNode("note") is { } nullNodeNote && nullNodeNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Note = null;
+            if (parseNode.GetChildNode("list-id") is null) { _explicitNullValueListId = default!; _explicitNullProperties?.Remove("list-id"); }
+            else if (parseNode.GetChildNode("list-id") is { } nullNodeListId && nullNodeListId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ListId = null;
+            if (parseNode.GetChildNode("name-first") is null) { _explicitNullValueNameFirst = default!; _explicitNullProperties?.Remove("name-first"); }
+            else if (parseNode.GetChildNode("name-first") is { } nullNodeNameFirst && nullNodeNameFirst.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameFirst = null;
+            if (parseNode.GetChildNode("name-last") is null) { _explicitNullValueNameLast = default!; _explicitNullProperties?.Remove("name-last"); }
+            else if (parseNode.GetChildNode("name-last") is { } nullNodeNameLast && nullNodeNameLast.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameLast = null;
+            if (parseNode.GetChildNode("note") is null) { _explicitNullValueNote = default!; _explicitNullProperties?.Remove("note"); }
+            else if (parseNode.GetChildNode("note") is { } nullNodeNote && nullNodeNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Note = null;
         }
 
         /// <summary>ID of the list to add this item to. List must be a Name List.</summary>

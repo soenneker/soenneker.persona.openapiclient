@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("claim-payload") is { } nullNodeClaimPayload && nullNodeClaimPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimPayload = null;
-            if (parseNode.GetChildNode("token-consumed") is { } nullNodeTokenConsumed && nullNodeTokenConsumed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenConsumed = null;
+            if (parseNode.GetChildNode("claim-payload") is null) { _explicitNullValueClaimPayload = default!; _explicitNullProperties?.Remove("claim-payload"); }
+            else if (parseNode.GetChildNode("claim-payload") is { } nullNodeClaimPayload && nullNodeClaimPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimPayload = null;
+            if (parseNode.GetChildNode("token-consumed") is null) { _explicitNullValueTokenConsumed = default!; _explicitNullProperties?.Remove("token-consumed"); }
+            else if (parseNode.GetChildNode("token-consumed") is { } nullNodeTokenConsumed && nullNodeTokenConsumed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenConsumed = null;
         }
 
         /// <summary>The claim payload. If an `encryption-key-pem` was provided at Relay creation, thisis a base64-encoded RSA OAEP ciphertext that must be decrypted client-side.Otherwise, this is a JSON string containing `claim_type`, `claim_result`, and anoptional `methodology` array.</summary>

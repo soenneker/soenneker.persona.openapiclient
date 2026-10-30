@@ -18,19 +18,32 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("address-city") is { } nullNodeAddressCity && nullNodeAddressCity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddressCity = null;
-            if (parseNode.GetChildNode("address-country-code") is { } nullNodeAddressCountryCode && nullNodeAddressCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddressCountryCode = null;
-            if (parseNode.GetChildNode("address-postal-code") is { } nullNodeAddressPostalCode && nullNodeAddressPostalCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddressPostalCode = null;
-            if (parseNode.GetChildNode("address-street-1") is { } nullNodeAddressStreet1 && nullNodeAddressStreet1.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddressStreet1 = null;
-            if (parseNode.GetChildNode("address-street-2") is { } nullNodeAddressStreet2 && nullNodeAddressStreet2.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddressStreet2 = null;
-            if (parseNode.GetChildNode("address-subdivision") is { } nullNodeAddressSubdivision && nullNodeAddressSubdivision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddressSubdivision = null;
-            if (parseNode.GetChildNode("birthdate") is { } nullNodeBirthdate && nullNodeBirthdate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Birthdate = null;
-            if (parseNode.GetChildNode("email-address") is { } nullNodeEmailAddress && nullNodeEmailAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailAddress = null;
-            if (parseNode.GetChildNode("identification-number") is { } nullNodeIdentificationNumber && nullNodeIdentificationNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentificationNumber = null;
-            if (parseNode.GetChildNode("name-first") is { } nullNodeNameFirst && nullNodeNameFirst.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameFirst = null;
-            if (parseNode.GetChildNode("name-last") is { } nullNodeNameLast && nullNodeNameLast.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameLast = null;
-            if (parseNode.GetChildNode("name-middle") is { } nullNodeNameMiddle && nullNodeNameMiddle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameMiddle = null;
-            if (parseNode.GetChildNode("phone-number") is { } nullNodePhoneNumber && nullNodePhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumber = null;
+            if (parseNode.GetChildNode("address-city") is null) { _explicitNullValueAddressCity = default!; _explicitNullProperties?.Remove("address-city"); }
+            else if (parseNode.GetChildNode("address-city") is { } nullNodeAddressCity && nullNodeAddressCity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddressCity = null;
+            if (parseNode.GetChildNode("address-country-code") is null) { _explicitNullValueAddressCountryCode = default!; _explicitNullProperties?.Remove("address-country-code"); }
+            else if (parseNode.GetChildNode("address-country-code") is { } nullNodeAddressCountryCode && nullNodeAddressCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddressCountryCode = null;
+            if (parseNode.GetChildNode("address-postal-code") is null) { _explicitNullValueAddressPostalCode = default!; _explicitNullProperties?.Remove("address-postal-code"); }
+            else if (parseNode.GetChildNode("address-postal-code") is { } nullNodeAddressPostalCode && nullNodeAddressPostalCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddressPostalCode = null;
+            if (parseNode.GetChildNode("address-street-1") is null) { _explicitNullValueAddressStreet1 = default!; _explicitNullProperties?.Remove("address-street-1"); }
+            else if (parseNode.GetChildNode("address-street-1") is { } nullNodeAddressStreet1 && nullNodeAddressStreet1.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddressStreet1 = null;
+            if (parseNode.GetChildNode("address-street-2") is null) { _explicitNullValueAddressStreet2 = default!; _explicitNullProperties?.Remove("address-street-2"); }
+            else if (parseNode.GetChildNode("address-street-2") is { } nullNodeAddressStreet2 && nullNodeAddressStreet2.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddressStreet2 = null;
+            if (parseNode.GetChildNode("address-subdivision") is null) { _explicitNullValueAddressSubdivision = default!; _explicitNullProperties?.Remove("address-subdivision"); }
+            else if (parseNode.GetChildNode("address-subdivision") is { } nullNodeAddressSubdivision && nullNodeAddressSubdivision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddressSubdivision = null;
+            if (parseNode.GetChildNode("birthdate") is null) { _explicitNullValueBirthdate = default!; _explicitNullProperties?.Remove("birthdate"); }
+            else if (parseNode.GetChildNode("birthdate") is { } nullNodeBirthdate && nullNodeBirthdate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Birthdate = null;
+            if (parseNode.GetChildNode("email-address") is null) { _explicitNullValueEmailAddress = default!; _explicitNullProperties?.Remove("email-address"); }
+            else if (parseNode.GetChildNode("email-address") is { } nullNodeEmailAddress && nullNodeEmailAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailAddress = null;
+            if (parseNode.GetChildNode("identification-number") is null) { _explicitNullValueIdentificationNumber = default!; _explicitNullProperties?.Remove("identification-number"); }
+            else if (parseNode.GetChildNode("identification-number") is { } nullNodeIdentificationNumber && nullNodeIdentificationNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentificationNumber = null;
+            if (parseNode.GetChildNode("name-first") is null) { _explicitNullValueNameFirst = default!; _explicitNullProperties?.Remove("name-first"); }
+            else if (parseNode.GetChildNode("name-first") is { } nullNodeNameFirst && nullNodeNameFirst.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameFirst = null;
+            if (parseNode.GetChildNode("name-last") is null) { _explicitNullValueNameLast = default!; _explicitNullProperties?.Remove("name-last"); }
+            else if (parseNode.GetChildNode("name-last") is { } nullNodeNameLast && nullNodeNameLast.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameLast = null;
+            if (parseNode.GetChildNode("name-middle") is null) { _explicitNullValueNameMiddle = default!; _explicitNullProperties?.Remove("name-middle"); }
+            else if (parseNode.GetChildNode("name-middle") is { } nullNodeNameMiddle && nullNodeNameMiddle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameMiddle = null;
+            if (parseNode.GetChildNode("phone-number") is null) { _explicitNullValuePhoneNumber = default!; _explicitNullProperties?.Remove("phone-number"); }
+            else if (parseNode.GetChildNode("phone-number") is { } nullNodePhoneNumber && nullNodePhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumber = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,131 +51,131 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>City of residence address. Not all international addresses use this attribute.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressCity? AddressCity { get => _explicitNullValueAddressCity; set { _explicitNullValueAddressCity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-city"); else _explicitNullProperties?.Remove("address-city"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressCity? AddressCity { get => _explicitNullValueAddressCity; set { _explicitNullValueAddressCity = value; AdditionalData?.Remove("address-city"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-city"); else _explicitNullProperties?.Remove("address-city"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressCity? _explicitNullValueAddressCity = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressCity AddressCity { get => _explicitNullValueAddressCity; set { _explicitNullValueAddressCity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-city"); else _explicitNullProperties?.Remove("address-city"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressCity AddressCity { get => _explicitNullValueAddressCity; set { _explicitNullValueAddressCity = value; AdditionalData?.Remove("address-city"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-city"); else _explicitNullProperties?.Remove("address-city"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressCity _explicitNullValueAddressCity = default!;
 #endif
         /// <summary>ISO 3166-1 alpha 2 country code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressCountryCode? AddressCountryCode { get => _explicitNullValueAddressCountryCode; set { _explicitNullValueAddressCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-country-code"); else _explicitNullProperties?.Remove("address-country-code"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressCountryCode? AddressCountryCode { get => _explicitNullValueAddressCountryCode; set { _explicitNullValueAddressCountryCode = value; AdditionalData?.Remove("address-country-code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-country-code"); else _explicitNullProperties?.Remove("address-country-code"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressCountryCode? _explicitNullValueAddressCountryCode = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressCountryCode AddressCountryCode { get => _explicitNullValueAddressCountryCode; set { _explicitNullValueAddressCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-country-code"); else _explicitNullProperties?.Remove("address-country-code"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressCountryCode AddressCountryCode { get => _explicitNullValueAddressCountryCode; set { _explicitNullValueAddressCountryCode = value; AdditionalData?.Remove("address-country-code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-country-code"); else _explicitNullProperties?.Remove("address-country-code"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressCountryCode _explicitNullValueAddressCountryCode = default!;
 #endif
         /// <summary>ZIP or postal code of residence address. Not all international addresses use this attribute.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressPostalCode? AddressPostalCode { get => _explicitNullValueAddressPostalCode; set { _explicitNullValueAddressPostalCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-postal-code"); else _explicitNullProperties?.Remove("address-postal-code"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressPostalCode? AddressPostalCode { get => _explicitNullValueAddressPostalCode; set { _explicitNullValueAddressPostalCode = value; AdditionalData?.Remove("address-postal-code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-postal-code"); else _explicitNullProperties?.Remove("address-postal-code"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressPostalCode? _explicitNullValueAddressPostalCode = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressPostalCode AddressPostalCode { get => _explicitNullValueAddressPostalCode; set { _explicitNullValueAddressPostalCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-postal-code"); else _explicitNullProperties?.Remove("address-postal-code"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressPostalCode AddressPostalCode { get => _explicitNullValueAddressPostalCode; set { _explicitNullValueAddressPostalCode = value; AdditionalData?.Remove("address-postal-code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-postal-code"); else _explicitNullProperties?.Remove("address-postal-code"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressPostalCode _explicitNullValueAddressPostalCode = default!;
 #endif
         /// <summary>The addressStreet1 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressStreet1? AddressStreet1 { get => _explicitNullValueAddressStreet1; set { _explicitNullValueAddressStreet1 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-street-1"); else _explicitNullProperties?.Remove("address-street-1"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressStreet1? AddressStreet1 { get => _explicitNullValueAddressStreet1; set { _explicitNullValueAddressStreet1 = value; AdditionalData?.Remove("address-street-1"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-street-1"); else _explicitNullProperties?.Remove("address-street-1"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressStreet1? _explicitNullValueAddressStreet1 = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressStreet1 AddressStreet1 { get => _explicitNullValueAddressStreet1; set { _explicitNullValueAddressStreet1 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-street-1"); else _explicitNullProperties?.Remove("address-street-1"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressStreet1 AddressStreet1 { get => _explicitNullValueAddressStreet1; set { _explicitNullValueAddressStreet1 = value; AdditionalData?.Remove("address-street-1"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-street-1"); else _explicitNullProperties?.Remove("address-street-1"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressStreet1 _explicitNullValueAddressStreet1 = default!;
 #endif
         /// <summary>The addressStreet2 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressStreet2? AddressStreet2 { get => _explicitNullValueAddressStreet2; set { _explicitNullValueAddressStreet2 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-street-2"); else _explicitNullProperties?.Remove("address-street-2"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressStreet2? AddressStreet2 { get => _explicitNullValueAddressStreet2; set { _explicitNullValueAddressStreet2 = value; AdditionalData?.Remove("address-street-2"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-street-2"); else _explicitNullProperties?.Remove("address-street-2"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressStreet2? _explicitNullValueAddressStreet2 = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressStreet2 AddressStreet2 { get => _explicitNullValueAddressStreet2; set { _explicitNullValueAddressStreet2 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-street-2"); else _explicitNullProperties?.Remove("address-street-2"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressStreet2 AddressStreet2 { get => _explicitNullValueAddressStreet2; set { _explicitNullValueAddressStreet2 = value; AdditionalData?.Remove("address-street-2"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-street-2"); else _explicitNullProperties?.Remove("address-street-2"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressStreet2 _explicitNullValueAddressStreet2 = default!;
 #endif
         /// <summary>State or subdivision of residence address. In the US, this should be the unabbreviated name. Not all international addresses use this attribute.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressSubdivision? AddressSubdivision { get => _explicitNullValueAddressSubdivision; set { _explicitNullValueAddressSubdivision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-subdivision"); else _explicitNullProperties?.Remove("address-subdivision"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressSubdivision? AddressSubdivision { get => _explicitNullValueAddressSubdivision; set { _explicitNullValueAddressSubdivision = value; AdditionalData?.Remove("address-subdivision"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-subdivision"); else _explicitNullProperties?.Remove("address-subdivision"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressSubdivision? _explicitNullValueAddressSubdivision = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressSubdivision AddressSubdivision { get => _explicitNullValueAddressSubdivision; set { _explicitNullValueAddressSubdivision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-subdivision"); else _explicitNullProperties?.Remove("address-subdivision"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressSubdivision AddressSubdivision { get => _explicitNullValueAddressSubdivision; set { _explicitNullValueAddressSubdivision = value; AdditionalData?.Remove("address-subdivision"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address-subdivision"); else _explicitNullProperties?.Remove("address-subdivision"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsAddressSubdivision _explicitNullValueAddressSubdivision = default!;
 #endif
         /// <summary>The birthdate property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsBirthdate? Birthdate { get => _explicitNullValueBirthdate; set { _explicitNullValueBirthdate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthdate"); else _explicitNullProperties?.Remove("birthdate"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsBirthdate? Birthdate { get => _explicitNullValueBirthdate; set { _explicitNullValueBirthdate = value; AdditionalData?.Remove("birthdate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthdate"); else _explicitNullProperties?.Remove("birthdate"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsBirthdate? _explicitNullValueBirthdate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsBirthdate Birthdate { get => _explicitNullValueBirthdate; set { _explicitNullValueBirthdate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthdate"); else _explicitNullProperties?.Remove("birthdate"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsBirthdate Birthdate { get => _explicitNullValueBirthdate; set { _explicitNullValueBirthdate = value; AdditionalData?.Remove("birthdate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthdate"); else _explicitNullProperties?.Remove("birthdate"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsBirthdate _explicitNullValueBirthdate = default!;
 #endif
         /// <summary>The emailAddress property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsEmailAddress? EmailAddress { get => _explicitNullValueEmailAddress; set { _explicitNullValueEmailAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email-address"); else _explicitNullProperties?.Remove("email-address"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsEmailAddress? EmailAddress { get => _explicitNullValueEmailAddress; set { _explicitNullValueEmailAddress = value; AdditionalData?.Remove("email-address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email-address"); else _explicitNullProperties?.Remove("email-address"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsEmailAddress? _explicitNullValueEmailAddress = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsEmailAddress EmailAddress { get => _explicitNullValueEmailAddress; set { _explicitNullValueEmailAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email-address"); else _explicitNullProperties?.Remove("email-address"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsEmailAddress EmailAddress { get => _explicitNullValueEmailAddress; set { _explicitNullValueEmailAddress = value; AdditionalData?.Remove("email-address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email-address"); else _explicitNullProperties?.Remove("email-address"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsEmailAddress _explicitNullValueEmailAddress = default!;
 #endif
         /// <summary>The identificationNumber property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsIdentificationNumber? IdentificationNumber { get => _explicitNullValueIdentificationNumber; set { _explicitNullValueIdentificationNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identification-number"); else _explicitNullProperties?.Remove("identification-number"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsIdentificationNumber? IdentificationNumber { get => _explicitNullValueIdentificationNumber; set { _explicitNullValueIdentificationNumber = value; AdditionalData?.Remove("identification-number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identification-number"); else _explicitNullProperties?.Remove("identification-number"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsIdentificationNumber? _explicitNullValueIdentificationNumber = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsIdentificationNumber IdentificationNumber { get => _explicitNullValueIdentificationNumber; set { _explicitNullValueIdentificationNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identification-number"); else _explicitNullProperties?.Remove("identification-number"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsIdentificationNumber IdentificationNumber { get => _explicitNullValueIdentificationNumber; set { _explicitNullValueIdentificationNumber = value; AdditionalData?.Remove("identification-number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identification-number"); else _explicitNullProperties?.Remove("identification-number"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsIdentificationNumber _explicitNullValueIdentificationNumber = default!;
 #endif
         /// <summary>The nameFirst property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameFirst? NameFirst { get => _explicitNullValueNameFirst; set { _explicitNullValueNameFirst = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-first"); else _explicitNullProperties?.Remove("name-first"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameFirst? NameFirst { get => _explicitNullValueNameFirst; set { _explicitNullValueNameFirst = value; AdditionalData?.Remove("name-first"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-first"); else _explicitNullProperties?.Remove("name-first"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameFirst? _explicitNullValueNameFirst = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameFirst NameFirst { get => _explicitNullValueNameFirst; set { _explicitNullValueNameFirst = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-first"); else _explicitNullProperties?.Remove("name-first"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameFirst NameFirst { get => _explicitNullValueNameFirst; set { _explicitNullValueNameFirst = value; AdditionalData?.Remove("name-first"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-first"); else _explicitNullProperties?.Remove("name-first"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameFirst _explicitNullValueNameFirst = default!;
 #endif
         /// <summary>The nameLast property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameLast? NameLast { get => _explicitNullValueNameLast; set { _explicitNullValueNameLast = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-last"); else _explicitNullProperties?.Remove("name-last"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameLast? NameLast { get => _explicitNullValueNameLast; set { _explicitNullValueNameLast = value; AdditionalData?.Remove("name-last"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-last"); else _explicitNullProperties?.Remove("name-last"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameLast? _explicitNullValueNameLast = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameLast NameLast { get => _explicitNullValueNameLast; set { _explicitNullValueNameLast = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-last"); else _explicitNullProperties?.Remove("name-last"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameLast NameLast { get => _explicitNullValueNameLast; set { _explicitNullValueNameLast = value; AdditionalData?.Remove("name-last"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-last"); else _explicitNullProperties?.Remove("name-last"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameLast _explicitNullValueNameLast = default!;
 #endif
         /// <summary>The nameMiddle property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameMiddle? NameMiddle { get => _explicitNullValueNameMiddle; set { _explicitNullValueNameMiddle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-middle"); else _explicitNullProperties?.Remove("name-middle"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameMiddle? NameMiddle { get => _explicitNullValueNameMiddle; set { _explicitNullValueNameMiddle = value; AdditionalData?.Remove("name-middle"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-middle"); else _explicitNullProperties?.Remove("name-middle"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameMiddle? _explicitNullValueNameMiddle = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameMiddle NameMiddle { get => _explicitNullValueNameMiddle; set { _explicitNullValueNameMiddle = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-middle"); else _explicitNullProperties?.Remove("name-middle"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameMiddle NameMiddle { get => _explicitNullValueNameMiddle; set { _explicitNullValueNameMiddle = value; AdditionalData?.Remove("name-middle"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-middle"); else _explicitNullProperties?.Remove("name-middle"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsNameMiddle _explicitNullValueNameMiddle = default!;
 #endif
         /// <summary>The phoneNumber property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsPhoneNumber? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone-number"); else _explicitNullProperties?.Remove("phone-number"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsPhoneNumber? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; AdditionalData?.Remove("phone-number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone-number"); else _explicitNullProperties?.Remove("phone-number"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsPhoneNumber? _explicitNullValuePhoneNumber = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsPhoneNumber PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone-number"); else _explicitNullProperties?.Remove("phone-number"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsPhoneNumber PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; AdditionalData?.Remove("phone-number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone-number"); else _explicitNullProperties?.Remove("phone-number"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesFieldsPhoneNumber _explicitNullValuePhoneNumber = default!;
 #endif
         /// <summary>

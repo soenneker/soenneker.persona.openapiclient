@@ -30,18 +30,18 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The Exclamation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3Composed? Exclamation { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And? Exclamation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3Composed Exclamation { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And Exclamation { get; set; }
 #endif
         /// <summary>The or property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf2Or? Or { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And? Or { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf2Or Or { get; set; }
+        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And Or { get; set; }
 #endif
         /// <summary>The origin property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -118,14 +118,20 @@ namespace Soenneker.Persona.OpenApiClient.Models
             }
             
             var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
-            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("and") != null))();
-            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("or") != null))();
-            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("!") != null))();
-            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("origin") != null))();
-            if (result.And == null && result.Exclamation == null && result.Or == null && result.Origin == null && result.RouteCriteriaOneOf1 == null && result.RouteCriteriaOneOf2 == null && result.RouteCriteriaOneOf3 == null && result.RouteCriteriaOneOf4 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.RouteCriteriaOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1(), parseNode);
-            if (result.And == null && result.Exclamation == null && result.Or == null && result.Origin == null && result.RouteCriteriaOneOf1 == null && result.RouteCriteriaOneOf2 == null && result.RouteCriteriaOneOf3 == null && result.RouteCriteriaOneOf4 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.RouteCriteriaOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf2(), parseNode);
-            if (result.And == null && result.Exclamation == null && result.Or == null && result.Origin == null && result.RouteCriteriaOneOf1 == null && result.RouteCriteriaOneOf2 == null && result.RouteCriteriaOneOf3 == null && result.RouteCriteriaOneOf4 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.RouteCriteriaOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3(), parseNode);
-            if (result.And == null && result.Exclamation == null && result.Or == null && result.Origin == null && result.RouteCriteriaOneOf1 == null && result.RouteCriteriaOneOf2 == null && result.RouteCriteriaOneOf3 == null && result.RouteCriteriaOneOf4 == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.RouteCriteriaOneOf4 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf4(), parseNode);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("and") && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "and"))))))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("or") && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "or"))))))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("!") && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "!"))))))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => ((unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject)) && (unionPayload is not global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject shapeObject0 || (shapeObject0.GetValue() is var shapeMembers1 && (shapeMembers1.ContainsKey("origin") && global::System.Linq.Enumerable.All(shapeMembers1.Keys, key => key == "origin"))))))();
+            int matchingUnionBranches = 0;
+            if (matchesUnionBranch0) matchingUnionBranches++;
+            if (matchesUnionBranch1) matchingUnionBranches++;
+            if (matchesUnionBranch2) matchingUnionBranches++;
+            if (matchesUnionBranch3) matchingUnionBranches++;
+            bool noSelectedUnionBranch = result.And == null && result.Exclamation == null && result.Or == null && result.Origin == null && result.RouteCriteriaOneOf1 == null && result.RouteCriteriaOneOf2 == null && result.RouteCriteriaOneOf3 == null && result.RouteCriteriaOneOf4 == null;
+            if (noSelectedUnionBranch && matchesUnionBranch0 && matchingUnionBranches == 1) result.RouteCriteriaOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch1 && matchingUnionBranches == 1) result.RouteCriteriaOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf2(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch2 && matchingUnionBranches == 1) result.RouteCriteriaOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3(), parseNode);
+            if (noSelectedUnionBranch && matchesUnionBranch3 && matchingUnionBranches == 1) result.RouteCriteriaOneOf4 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf4(), parseNode);
             if (result.And == null && result.Exclamation == null && result.Or == null && result.Origin == null && result.RouteCriteriaOneOf1 == null && result.RouteCriteriaOneOf2 == null && result.RouteCriteriaOneOf3 == null && result.RouteCriteriaOneOf4 == null) result.UnrecognizedValue = unionPayload;
 return result;
         }
@@ -135,6 +141,8 @@ return result;
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
+            if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawFields) { var fields = new global::System.Collections.Generic.Dictionary<string, global::System.Action<IParseNode>>(); foreach (var entry in rawFields.GetValue()) fields[entry.Key] = _ => { }; return fields; }
+
             if(And != null)
             {
                 return And.GetFieldDeserializers();
@@ -177,10 +185,19 @@ return result;
         {
             if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
             if (And == null && Exclamation == null && Or == null && Origin == null && RouteCriteriaOneOf1 == null && RouteCriteriaOneOf2 == null && RouteCriteriaOneOf3 == null && RouteCriteriaOneOf4 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
-            if (RouteCriteriaOneOf1 != null && And == null && Exclamation == null && Or == null && Origin == null && RouteCriteriaOneOf2 == null && RouteCriteriaOneOf3 == null && RouteCriteriaOneOf4 == null) { if (RouteCriteriaOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RouteCriteriaOneOf1); return; }
-            if (RouteCriteriaOneOf2 != null && And == null && Exclamation == null && Or == null && Origin == null && RouteCriteriaOneOf1 == null && RouteCriteriaOneOf3 == null && RouteCriteriaOneOf4 == null) { if (RouteCriteriaOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RouteCriteriaOneOf2); return; }
-            if (RouteCriteriaOneOf3 != null && And == null && Exclamation == null && Or == null && Origin == null && RouteCriteriaOneOf1 == null && RouteCriteriaOneOf2 == null && RouteCriteriaOneOf4 == null) { if (RouteCriteriaOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RouteCriteriaOneOf3); return; }
-            if (RouteCriteriaOneOf4 != null && And == null && Exclamation == null && Or == null && Origin == null && RouteCriteriaOneOf1 == null && RouteCriteriaOneOf2 == null && RouteCriteriaOneOf3 == null) { if (RouteCriteriaOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RouteCriteriaOneOf4); return; }
+            int selectedUnionBranches = 0;
+            if (And != null) selectedUnionBranches++;
+            if (Exclamation != null) selectedUnionBranches++;
+            if (Or != null) selectedUnionBranches++;
+            if (Origin != null) selectedUnionBranches++;
+            if (RouteCriteriaOneOf1 != null) selectedUnionBranches++;
+            if (RouteCriteriaOneOf2 != null) selectedUnionBranches++;
+            if (RouteCriteriaOneOf3 != null) selectedUnionBranches++;
+            if (RouteCriteriaOneOf4 != null) selectedUnionBranches++;
+            if (RouteCriteriaOneOf1 != null && selectedUnionBranches == 1) { if (RouteCriteriaOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RouteCriteriaOneOf1); return; }
+            if (RouteCriteriaOneOf2 != null && selectedUnionBranches == 1) { if (RouteCriteriaOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RouteCriteriaOneOf2); return; }
+            if (RouteCriteriaOneOf3 != null && selectedUnionBranches == 1) { if (RouteCriteriaOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RouteCriteriaOneOf3); return; }
+            if (RouteCriteriaOneOf4 != null && selectedUnionBranches == 1) { if (RouteCriteriaOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RouteCriteriaOneOf4); return; }
 
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(And != null)
@@ -191,12 +208,12 @@ return result;
             else if(Exclamation != null)
             {
                 if (Exclamation is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf3Composed>(null, Exclamation);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And>(null, Exclamation);
             }
             else if(Or != null)
             {
                 if (Or is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
-                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf2Or>(null, Or);
+                writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And>(null, Or);
             }
             else if(Origin != null)
             {

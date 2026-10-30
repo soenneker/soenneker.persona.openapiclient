@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("account-statuses") is { } nullNodeAccountStatuses && nullNodeAccountStatuses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountStatuses = null;
-            if (parseNode.GetChildNode("default-account-status") is { } nullNodeDefaultAccountStatus && nullNodeDefaultAccountStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultAccountStatus = null;
+            if (parseNode.GetChildNode("account-statuses") is null) { _explicitNullValueAccountStatuses = default!; _explicitNullProperties?.Remove("account-statuses"); }
+            else if (parseNode.GetChildNode("account-statuses") is { } nullNodeAccountStatuses && nullNodeAccountStatuses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountStatuses = null;
+            if (parseNode.GetChildNode("default-account-status") is null) { _explicitNullValueDefaultAccountStatus = default!; _explicitNullProperties?.Remove("default-account-status"); }
+            else if (parseNode.GetChildNode("default-account-status") is { } nullNodeDefaultAccountStatus && nullNodeDefaultAccountStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DefaultAccountStatus = null;
         }
 
         /// <summary>The accountStatuses property</summary>

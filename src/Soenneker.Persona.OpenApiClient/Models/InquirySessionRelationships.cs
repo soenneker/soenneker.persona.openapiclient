@@ -17,9 +17,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("device") is { } nullNodeDevice && nullNodeDevice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Device = null;
-            if (parseNode.GetChildNode("inquiry") is { } nullNodeInquiry && nullNodeInquiry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inquiry = null;
-            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("device") is null) { _explicitNullValueDevice = default!; _explicitNullProperties?.Remove("device"); }
+            else if (parseNode.GetChildNode("device") is { } nullNodeDevice && nullNodeDevice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Device = null;
+            if (parseNode.GetChildNode("inquiry") is null) { _explicitNullValueInquiry = default!; _explicitNullProperties?.Remove("inquiry"); }
+            else if (parseNode.GetChildNode("inquiry") is { } nullNodeInquiry && nullNodeInquiry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Inquiry = null;
+            if (parseNode.GetChildNode("network") is null) { _explicitNullValueNetwork = default!; _explicitNullProperties?.Remove("network"); }
+            else if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
         }
 
         /// <summary>The device property</summary>

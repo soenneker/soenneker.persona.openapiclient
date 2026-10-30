@@ -17,9 +17,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("first") is { } nullNodeFirst && nullNodeFirst.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) First = null;
-            if (parseNode.GetChildNode("last") is { } nullNodeLast && nullNodeLast.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Last = null;
-            if (parseNode.GetChildNode("middle") is { } nullNodeMiddle && nullNodeMiddle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Middle = null;
+            if (parseNode.GetChildNode("first") is null) { _explicitNullValueFirst = default!; _explicitNullProperties?.Remove("first"); }
+            else if (parseNode.GetChildNode("first") is { } nullNodeFirst && nullNodeFirst.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) First = null;
+            if (parseNode.GetChildNode("last") is null) { _explicitNullValueLast = default!; _explicitNullProperties?.Remove("last"); }
+            else if (parseNode.GetChildNode("last") is { } nullNodeLast && nullNodeLast.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Last = null;
+            if (parseNode.GetChildNode("middle") is null) { _explicitNullValueMiddle = default!; _explicitNullProperties?.Remove("middle"); }
+            else if (parseNode.GetChildNode("middle") is { } nullNodeMiddle && nullNodeMiddle.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Middle = null;
         }
 
         /// <summary>The first property</summary>

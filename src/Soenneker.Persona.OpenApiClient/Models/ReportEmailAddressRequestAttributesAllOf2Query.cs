@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("email-address") is { } nullNodeEmailAddress && nullNodeEmailAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailAddress = null;
+            if (parseNode.GetChildNode("email-address") is null) { _explicitNullValueEmailAddress = default!; _explicitNullProperties?.Remove("email-address"); }
+            else if (parseNode.GetChildNode("email-address") is { } nullNodeEmailAddress && nullNodeEmailAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailAddress = null;
         }
 
         /// <summary>The email address to search.</summary>

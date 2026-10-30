@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("address-country-code") is { } nullNodeAddressCountryCode && nullNodeAddressCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddressCountryCode = null;
-            if (parseNode.GetChildNode("term") is { } nullNodeTerm && nullNodeTerm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Term = null;
+            if (parseNode.GetChildNode("address-country-code") is null) { _explicitNullValueAddressCountryCode = default!; _explicitNullProperties?.Remove("address-country-code"); }
+            else if (parseNode.GetChildNode("address-country-code") is { } nullNodeAddressCountryCode && nullNodeAddressCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddressCountryCode = null;
+            if (parseNode.GetChildNode("term") is null) { _explicitNullValueTerm = default!; _explicitNullProperties?.Remove("term"); }
+            else if (parseNode.GetChildNode("term") is { } nullNodeTerm && nullNodeTerm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Term = null;
         }
 
         /// <summary>ISO 3166-1 alpha-2 country code.</summary>

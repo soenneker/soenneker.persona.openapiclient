@@ -17,9 +17,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("email-address") is { } nullNodeEmailAddress && nullNodeEmailAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailAddress = null;
-            if (parseNode.GetChildNode("name-first") is { } nullNodeNameFirst && nullNodeNameFirst.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameFirst = null;
-            if (parseNode.GetChildNode("name-last") is { } nullNodeNameLast && nullNodeNameLast.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameLast = null;
+            if (parseNode.GetChildNode("email-address") is null) { _explicitNullValueEmailAddress = default!; _explicitNullProperties?.Remove("email-address"); }
+            else if (parseNode.GetChildNode("email-address") is { } nullNodeEmailAddress && nullNodeEmailAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailAddress = null;
+            if (parseNode.GetChildNode("name-first") is null) { _explicitNullValueNameFirst = default!; _explicitNullProperties?.Remove("name-first"); }
+            else if (parseNode.GetChildNode("name-first") is { } nullNodeNameFirst && nullNodeNameFirst.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameFirst = null;
+            if (parseNode.GetChildNode("name-last") is null) { _explicitNullValueNameLast = default!; _explicitNullProperties?.Remove("name-last"); }
+            else if (parseNode.GetChildNode("name-last") is { } nullNodeNameLast && nullNodeNameLast.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameLast = null;
         }
 
         /// <summary>The emailAddress property</summary>

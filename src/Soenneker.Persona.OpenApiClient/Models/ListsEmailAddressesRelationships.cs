@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("list-items") is { } nullNodeListItems && nullNodeListItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ListItems = null;
+            if (parseNode.GetChildNode("list-items") is null) { _explicitNullValueListItems = default!; _explicitNullProperties?.Remove("list-items"); }
+            else if (parseNode.GetChildNode("list-items") is { } nullNodeListItems && nullNodeListItems.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ListItems = null;
         }
 
         /// <summary>The listItems property</summary>

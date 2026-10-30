@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("claim-type") is { } nullNodeClaimType && nullNodeClaimType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimType = null;
-            if (parseNode.GetChildNode("sandbox") is { } nullNodeSandbox && nullNodeSandbox.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sandbox = null;
+            if (parseNode.GetChildNode("claim-type") is null) { _explicitNullValueClaimType = default!; _explicitNullProperties?.Remove("claim-type"); }
+            else if (parseNode.GetChildNode("claim-type") is { } nullNodeClaimType && nullNodeClaimType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimType = null;
+            if (parseNode.GetChildNode("sandbox") is null) { _explicitNullValueSandbox = default!; _explicitNullProperties?.Remove("sandbox"); }
+            else if (parseNode.GetChildNode("sandbox") is { } nullNodeSandbox && nullNodeSandbox.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sandbox = null;
         }
 
         /// <summary>Possible values:- live_human_presence- age_over18_germany- age_over18_united_kingdom- age_over18_verified- age_over18_france- age_over18_italy- age_over18_brazil- age_over18_australia- age_over16_australia- age_over21_verifiedDo not assume this is a static enumeration; Persona may add new claimtypes in the future without a versioned update.</summary>

@@ -18,7 +18,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("not") is { } nullNodeNot && nullNodeNot.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Not = null;
+            if (parseNode.GetChildNode("not") is null) { _explicitNullValueNot = default!; _explicitNullProperties?.Remove("not"); }
+            else if (parseNode.GetChildNode("not") is { } nullNodeNot && nullNodeNot.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Not = null;
         }
 
         /// <summary>The not property</summary>

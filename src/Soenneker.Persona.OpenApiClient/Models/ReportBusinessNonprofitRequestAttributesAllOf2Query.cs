@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ein") is { } nullNodeEin && nullNodeEin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ein = null;
+            if (parseNode.GetChildNode("ein") is null) { _explicitNullValueEin = default!; _explicitNullProperties?.Remove("ein"); }
+            else if (parseNode.GetChildNode("ein") is { } nullNodeEin && nullNodeEin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ein = null;
         }
 
         /// <summary>The nine-digit Employer Identification Number of the nonprofit.</summary>

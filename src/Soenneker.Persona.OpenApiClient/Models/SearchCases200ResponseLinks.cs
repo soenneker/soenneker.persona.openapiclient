@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("next") is { } nullNodeNext && nullNodeNext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Next = null;
-            if (parseNode.GetChildNode("prev") is { } nullNodePrev && nullNodePrev.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prev = null;
+            if (parseNode.GetChildNode("next") is null) { _explicitNullValueNext = default!; _explicitNullProperties?.Remove("next"); }
+            else if (parseNode.GetChildNode("next") is { } nullNodeNext && nullNodeNext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Next = null;
+            if (parseNode.GetChildNode("prev") is null) { _explicitNullValuePrev = default!; _explicitNullProperties?.Remove("prev"); }
+            else if (parseNode.GetChildNode("prev") is { } nullNodePrev && nullNodePrev.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Prev = null;
         }
 
         /// <summary>URL pointing to the next page of data, or null if on the last page. Must be used with POST request and original request body.</summary>

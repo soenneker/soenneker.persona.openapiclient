@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+            if (parseNode.GetChildNode("fields") is null) { _explicitNullValueFields = default!; _explicitNullProperties?.Remove("fields"); }
+            else if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
         }
 
         /// <summary>JSON key-value pairs of field name to field value. Schema is defined by the trigger payload schema on your Workflow Version. File values must be uploaded as an object with `filename` and base64-encoded `data`; references to existing stored files are rejected with a 400.</summary>

@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("name-full") is { } nullNodeNameFull && nullNodeNameFull.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameFull = null;
+            if (parseNode.GetChildNode("name-full") is null) { _explicitNullValueNameFull = default!; _explicitNullProperties?.Remove("name-full"); }
+            else if (parseNode.GetChildNode("name-full") is { } nullNodeNameFull && nullNodeNameFull.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameFull = null;
         }
 
         /// <summary>The nameFull property</summary>

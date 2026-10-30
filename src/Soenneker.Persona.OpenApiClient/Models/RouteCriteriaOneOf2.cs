@@ -17,18 +17,19 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("or") is { } nullNodeOr && nullNodeOr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Or = null;
+            if (parseNode.GetChildNode("or") is null) { _explicitNullValueOr = default!; _explicitNullProperties?.Remove("or"); }
+            else if (parseNode.GetChildNode("or") is { } nullNodeOr && nullNodeOr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Or = null;
         }
 
         /// <summary>The or property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf2Or? Or { get => _explicitNullValueOr; set { _explicitNullValueOr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("or"); else _explicitNullProperties?.Remove("or"); } }
-        private global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf2Or? _explicitNullValueOr = default!;
+        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And? Or { get => _explicitNullValueOr; set { _explicitNullValueOr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("or"); else _explicitNullProperties?.Remove("or"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And? _explicitNullValueOr = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf2Or Or { get => _explicitNullValueOr; set { _explicitNullValueOr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("or"); else _explicitNullProperties?.Remove("or"); } }
-        private global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf2Or _explicitNullValueOr = default!;
+        public global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And Or { get => _explicitNullValueOr; set { _explicitNullValueOr = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("or"); else _explicitNullProperties?.Remove("or"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And _explicitNullValueOr = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -48,7 +49,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "or", n => { Or = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf2Or>(global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf2Or.CreateFromDiscriminatorValue); } },
+                { "or", n => { Or = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And>(global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,7 +59,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf2Or>("or", Or);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.RouteCriteriaOneOf1And>("or", Or);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

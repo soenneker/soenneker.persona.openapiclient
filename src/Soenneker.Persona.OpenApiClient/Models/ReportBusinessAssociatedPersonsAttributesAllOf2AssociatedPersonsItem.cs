@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("names") is { } nullNodeNames && nullNodeNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Names = null;
-            if (parseNode.GetChildNode("positions") is { } nullNodePositions && nullNodePositions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Positions = null;
+            if (parseNode.GetChildNode("names") is null) { _explicitNullValueNames = default!; _explicitNullProperties?.Remove("names"); }
+            else if (parseNode.GetChildNode("names") is { } nullNodeNames && nullNodeNames.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Names = null;
+            if (parseNode.GetChildNode("positions") is null) { _explicitNullValuePositions = default!; _explicitNullProperties?.Remove("positions"); }
+            else if (parseNode.GetChildNode("positions") is { } nullNodePositions && nullNodePositions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Positions = null;
         }
 
         /// <summary>Names associated with the person</summary>

@@ -18,7 +18,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("or") is { } nullNodeOr && nullNodeOr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Or = null;
+            if (parseNode.GetChildNode("or") is null) { _explicitNullValueOr = default!; _explicitNullProperties?.Remove("or"); }
+            else if (parseNode.GetChildNode("or") is { } nullNodeOr && nullNodeOr.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Or = null;
         }
 
         /// <summary>The or property</summary>

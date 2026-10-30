@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("inquiry-id") is { } nullNodeInquiryId && nullNodeInquiryId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InquiryId = null;
+            if (parseNode.GetChildNode("inquiry-id") is null) { _explicitNullValueInquiryId = default!; _explicitNullProperties?.Remove("inquiry-id"); }
+            else if (parseNode.GetChildNode("inquiry-id") is { } nullNodeInquiryId && nullNodeInquiryId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InquiryId = null;
         }
 
         /// <summary>Inquiry ID of the session</summary>

@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("upsert-by") is { } nullNodeUpsertBy && nullNodeUpsertBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpsertBy = null;
+            if (parseNode.GetChildNode("upsert-by") is null) { _explicitNullValueUpsertBy = default!; _explicitNullProperties?.Remove("upsert-by"); }
+            else if (parseNode.GetChildNode("upsert-by") is { } nullNodeUpsertBy && nullNodeUpsertBy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpsertBy = null;
         }
 
         /// <summary>The field name to use for upserting the account. This field must be unique across all accounts for the given account type.</summary>

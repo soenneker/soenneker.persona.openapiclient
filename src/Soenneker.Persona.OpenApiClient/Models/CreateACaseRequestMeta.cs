@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("object-ids") is { } nullNodeObjectIds && nullNodeObjectIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObjectIds = null;
-            if (parseNode.GetChildNode("sla-expires-in-seconds") is { } nullNodeSlaExpiresInSeconds && nullNodeSlaExpiresInSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlaExpiresInSeconds = null;
+            if (parseNode.GetChildNode("object-ids") is null) { _explicitNullValueObjectIds = default!; _explicitNullProperties?.Remove("object-ids"); }
+            else if (parseNode.GetChildNode("object-ids") is { } nullNodeObjectIds && nullNodeObjectIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObjectIds = null;
+            if (parseNode.GetChildNode("sla-expires-in-seconds") is null) { _explicitNullValueSlaExpiresInSeconds = default!; _explicitNullProperties?.Remove("sla-expires-in-seconds"); }
+            else if (parseNode.GetChildNode("sla-expires-in-seconds") is { } nullNodeSlaExpiresInSeconds && nullNodeSlaExpiresInSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlaExpiresInSeconds = null;
         }
 
         /// <summary>Array of Persona object IDs that should be related to this case. The following object types are supported- accounts, documents, graph queries, inquiries, reports, report runs, sars, transactions, and, verifications.</summary>

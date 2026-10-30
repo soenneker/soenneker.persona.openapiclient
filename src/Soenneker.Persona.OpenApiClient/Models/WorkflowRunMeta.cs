@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("processing-time-seconds") is { } nullNodeProcessingTimeSeconds && nullNodeProcessingTimeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProcessingTimeSeconds = null;
+            if (parseNode.GetChildNode("processing-time-seconds") is null) { _explicitNullValueProcessingTimeSeconds = default!; _explicitNullProperties?.Remove("processing-time-seconds"); }
+            else if (parseNode.GetChildNode("processing-time-seconds") is { } nullNodeProcessingTimeSeconds && nullNodeProcessingTimeSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProcessingTimeSeconds = null;
         }
 
         /// <summary>The processingTimeSeconds property</summary>

@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("tag-id") is { } nullNodeTagId && nullNodeTagId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TagId = null;
-            if (parseNode.GetChildNode("tag-name") is { } nullNodeTagName && nullNodeTagName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TagName = null;
+            if (parseNode.GetChildNode("tag-id") is null) { _explicitNullValueTagId = default!; _explicitNullProperties?.Remove("tag-id"); }
+            else if (parseNode.GetChildNode("tag-id") is { } nullNodeTagId && nullNodeTagId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TagId = null;
+            if (parseNode.GetChildNode("tag-name") is null) { _explicitNullValueTagName = default!; _explicitNullProperties?.Remove("tag-name"); }
+            else if (parseNode.GetChildNode("tag-name") is { } nullNodeTagName && nullNodeTagName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TagName = null;
         }
 
         /// <summary>ID of the tag to remove from the Report.</summary>

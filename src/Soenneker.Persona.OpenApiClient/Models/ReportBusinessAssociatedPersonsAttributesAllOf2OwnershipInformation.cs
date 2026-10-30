@@ -18,7 +18,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("owners") is { } nullNodeOwners && nullNodeOwners.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Owners = null;
+            if (parseNode.GetChildNode("owners") is null) { _explicitNullValueOwners = default!; _explicitNullProperties?.Remove("owners"); }
+            else if (parseNode.GetChildNode("owners") is { } nullNodeOwners && nullNodeOwners.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Owners = null;
         }
 
         /// <summary>List of owners. Empty when no ownership data is available.</summary>

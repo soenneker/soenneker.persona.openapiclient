@@ -17,64 +17,71 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("archived-at") is { } nullNodeArchivedAt && nullNodeArchivedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ArchivedAt = null;
-            if (parseNode.GetChildNode("deactivated-at") is { } nullNodeDeactivatedAt && nullNodeDeactivatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeactivatedAt = null;
-            if (parseNode.GetChildNode("redaction-policy") is { } nullNodeRedactionPolicy && nullNodeRedactionPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedactionPolicy = null;
-            if (parseNode.GetChildNode("required") is { } nullNodeRequired && nullNodeRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Required = null;
-            if (parseNode.GetChildNode("source-key-path") is { } nullNodeSourceKeyPath && nullNodeSourceKeyPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceKeyPath = null;
-            if (parseNode.GetChildNode("target") is { } nullNodeTarget && nullNodeTarget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Target = null;
-            if (parseNode.GetChildNode("write-policy") is { } nullNodeWritePolicy && nullNodeWritePolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WritePolicy = null;
+            if (parseNode.GetChildNode("archived-at") is null) { _explicitNullValueArchivedAt = default!; _explicitNullProperties?.Remove("archived-at"); }
+            else if (parseNode.GetChildNode("archived-at") is { } nullNodeArchivedAt && nullNodeArchivedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ArchivedAt = null;
+            if (parseNode.GetChildNode("deactivated-at") is null) { _explicitNullValueDeactivatedAt = default!; _explicitNullProperties?.Remove("deactivated-at"); }
+            else if (parseNode.GetChildNode("deactivated-at") is { } nullNodeDeactivatedAt && nullNodeDeactivatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeactivatedAt = null;
+            if (parseNode.GetChildNode("redaction-policy") is null) { _explicitNullValueRedactionPolicy = default!; _explicitNullProperties?.Remove("redaction-policy"); }
+            else if (parseNode.GetChildNode("redaction-policy") is { } nullNodeRedactionPolicy && nullNodeRedactionPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedactionPolicy = null;
+            if (parseNode.GetChildNode("required") is null) { _explicitNullValueRequired = default!; _explicitNullProperties?.Remove("required"); }
+            else if (parseNode.GetChildNode("required") is { } nullNodeRequired && nullNodeRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Required = null;
+            if (parseNode.GetChildNode("source-key-path") is null) { _explicitNullValueSourceKeyPath = default!; _explicitNullProperties?.Remove("source-key-path"); }
+            else if (parseNode.GetChildNode("source-key-path") is { } nullNodeSourceKeyPath && nullNodeSourceKeyPath.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceKeyPath = null;
+            if (parseNode.GetChildNode("target") is null) { _explicitNullValueTarget = default!; _explicitNullProperties?.Remove("target"); }
+            else if (parseNode.GetChildNode("target") is { } nullNodeTarget && nullNodeTarget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Target = null;
+            if (parseNode.GetChildNode("write-policy") is null) { _explicitNullValueWritePolicy = default!; _explicitNullProperties?.Remove("write-policy"); }
+            else if (parseNode.GetChildNode("write-policy") is { } nullNodeWritePolicy && nullNodeWritePolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WritePolicy = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The archivedAt property</summary>
-        public DateTimeOffset? ArchivedAt { get => _explicitNullValueArchivedAt; set { _explicitNullValueArchivedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("archived-at"); else _explicitNullProperties?.Remove("archived-at"); } }
+        public DateTimeOffset? ArchivedAt { get => _explicitNullValueArchivedAt; set { _explicitNullValueArchivedAt = value; AdditionalData?.Remove("archived-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("archived-at"); else _explicitNullProperties?.Remove("archived-at"); } }
         private DateTimeOffset? _explicitNullValueArchivedAt = default!;
         /// <summary>The deactivatedAt property</summary>
-        public DateTimeOffset? DeactivatedAt { get => _explicitNullValueDeactivatedAt; set { _explicitNullValueDeactivatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deactivated-at"); else _explicitNullProperties?.Remove("deactivated-at"); } }
+        public DateTimeOffset? DeactivatedAt { get => _explicitNullValueDeactivatedAt; set { _explicitNullValueDeactivatedAt = value; AdditionalData?.Remove("deactivated-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deactivated-at"); else _explicitNullProperties?.Remove("deactivated-at"); } }
         private DateTimeOffset? _explicitNullValueDeactivatedAt = default!;
         /// <summary>Whether the field&apos;s value may be redacted on request.Possible values:- `none` — value is redactable- `never` — value is never redactedDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RedactionPolicy { get => _explicitNullValueRedactionPolicy; set { _explicitNullValueRedactionPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redaction-policy"); else _explicitNullProperties?.Remove("redaction-policy"); } }
+        public string? RedactionPolicy { get => _explicitNullValueRedactionPolicy; set { _explicitNullValueRedactionPolicy = value; AdditionalData?.Remove("redaction-policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redaction-policy"); else _explicitNullProperties?.Remove("redaction-policy"); } }
         private string? _explicitNullValueRedactionPolicy = default!;
 #nullable restore
 #else
-        public string RedactionPolicy { get => _explicitNullValueRedactionPolicy; set { _explicitNullValueRedactionPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redaction-policy"); else _explicitNullProperties?.Remove("redaction-policy"); } }
+        public string RedactionPolicy { get => _explicitNullValueRedactionPolicy; set { _explicitNullValueRedactionPolicy = value; AdditionalData?.Remove("redaction-policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redaction-policy"); else _explicitNullProperties?.Remove("redaction-policy"); } }
         private string _explicitNullValueRedactionPolicy = default!;
 #endif
         /// <summary>The required property</summary>
-        public bool? Required { get => _explicitNullValueRequired; set { _explicitNullValueRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required"); else _explicitNullProperties?.Remove("required"); } }
+        public bool? Required { get => _explicitNullValueRequired; set { _explicitNullValueRequired = value; AdditionalData?.Remove("required"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required"); else _explicitNullProperties?.Remove("required"); } }
         private bool? _explicitNullValueRequired = default!;
         /// <summary>When the field schema is an alias, the dotted key path of the source field; absent for non-alias schemas.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceKeyPath { get => _explicitNullValueSourceKeyPath; set { _explicitNullValueSourceKeyPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source-key-path"); else _explicitNullProperties?.Remove("source-key-path"); } }
+        public string? SourceKeyPath { get => _explicitNullValueSourceKeyPath; set { _explicitNullValueSourceKeyPath = value; AdditionalData?.Remove("source-key-path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source-key-path"); else _explicitNullProperties?.Remove("source-key-path"); } }
         private string? _explicitNullValueSourceKeyPath = default!;
 #nullable restore
 #else
-        public string SourceKeyPath { get => _explicitNullValueSourceKeyPath; set { _explicitNullValueSourceKeyPath = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source-key-path"); else _explicitNullProperties?.Remove("source-key-path"); } }
+        public string SourceKeyPath { get => _explicitNullValueSourceKeyPath; set { _explicitNullValueSourceKeyPath = value; AdditionalData?.Remove("source-key-path"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source-key-path"); else _explicitNullProperties?.Remove("source-key-path"); } }
         private string _explicitNullValueSourceKeyPath = default!;
 #endif
         /// <summary>Customer-facing identifier for the specific Relation subtype this field points to — `document-generic`, `document-government-id`, `document-government-id-nfc`, `document-mdoc`, `document-qr-code`, or `selfie`. Use this on a future write API to specify which relation kind to create.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
+        public string? Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; AdditionalData?.Remove("target"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
         private string? _explicitNullValueTarget = default!;
 #nullable restore
 #else
-        public string Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
+        public string Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; AdditionalData?.Remove("target"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
         private string _explicitNullValueTarget = default!;
 #endif
         /// <summary>Whether the field&apos;s value may be overwritten after it is first set.Possible values:- `none` — value may be overwritten on subsequent writes- `write_once` — subsequent writes are rejected once a value is setDo not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WritePolicy { get => _explicitNullValueWritePolicy; set { _explicitNullValueWritePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("write-policy"); else _explicitNullProperties?.Remove("write-policy"); } }
+        public string? WritePolicy { get => _explicitNullValueWritePolicy; set { _explicitNullValueWritePolicy = value; AdditionalData?.Remove("write-policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("write-policy"); else _explicitNullProperties?.Remove("write-policy"); } }
         private string? _explicitNullValueWritePolicy = default!;
 #nullable restore
 #else
-        public string WritePolicy { get => _explicitNullValueWritePolicy; set { _explicitNullValueWritePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("write-policy"); else _explicitNullProperties?.Remove("write-policy"); } }
+        public string WritePolicy { get => _explicitNullValueWritePolicy; set { _explicitNullValueWritePolicy = value; AdditionalData?.Remove("write-policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("write-policy"); else _explicitNullProperties?.Remove("write-policy"); } }
         private string _explicitNullValueWritePolicy = default!;
 #endif
         /// <summary>

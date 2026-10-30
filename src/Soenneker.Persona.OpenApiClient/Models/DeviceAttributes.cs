@@ -17,9 +17,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("browser-fingerprint") is { } nullNodeBrowserFingerprint && nullNodeBrowserFingerprint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrowserFingerprint = null;
-            if (parseNode.GetChildNode("device-fingerprint") is { } nullNodeDeviceFingerprint && nullNodeDeviceFingerprint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceFingerprint = null;
-            if (parseNode.GetChildNode("device-vendor-id") is { } nullNodeDeviceVendorId && nullNodeDeviceVendorId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceVendorId = null;
+            if (parseNode.GetChildNode("browser-fingerprint") is null) { _explicitNullValueBrowserFingerprint = default!; _explicitNullProperties?.Remove("browser-fingerprint"); }
+            else if (parseNode.GetChildNode("browser-fingerprint") is { } nullNodeBrowserFingerprint && nullNodeBrowserFingerprint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrowserFingerprint = null;
+            if (parseNode.GetChildNode("device-fingerprint") is null) { _explicitNullValueDeviceFingerprint = default!; _explicitNullProperties?.Remove("device-fingerprint"); }
+            else if (parseNode.GetChildNode("device-fingerprint") is { } nullNodeDeviceFingerprint && nullNodeDeviceFingerprint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceFingerprint = null;
+            if (parseNode.GetChildNode("device-vendor-id") is null) { _explicitNullValueDeviceVendorId = default!; _explicitNullProperties?.Remove("device-vendor-id"); }
+            else if (parseNode.GetChildNode("device-vendor-id") is { } nullNodeDeviceVendorId && nullNodeDeviceVendorId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeviceVendorId = null;
         }
 
         /// <summary>The browserFingerprint property</summary>

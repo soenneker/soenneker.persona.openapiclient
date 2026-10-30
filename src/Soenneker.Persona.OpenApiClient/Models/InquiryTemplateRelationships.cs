@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("latest-published-version") is { } nullNodeLatestPublishedVersion && nullNodeLatestPublishedVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LatestPublishedVersion = null;
+            if (parseNode.GetChildNode("latest-published-version") is null) { _explicitNullValueLatestPublishedVersion = default!; _explicitNullProperties?.Remove("latest-published-version"); }
+            else if (parseNode.GetChildNode("latest-published-version") is { } nullNodeLatestPublishedVersion && nullNodeLatestPublishedVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LatestPublishedVersion = null;
         }
 
         /// <summary>The latestPublishedVersion property</summary>

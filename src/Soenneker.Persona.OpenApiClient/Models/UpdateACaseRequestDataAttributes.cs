@@ -17,9 +17,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("attachments") is { } nullNodeAttachments && nullNodeAttachments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attachments = null;
-            if (parseNode.GetChildNode("case-queue-id") is { } nullNodeCaseQueueId && nullNodeCaseQueueId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaseQueueId = null;
-            if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+            if (parseNode.GetChildNode("attachments") is null) { _explicitNullValueAttachments = default!; _explicitNullProperties?.Remove("attachments"); }
+            else if (parseNode.GetChildNode("attachments") is { } nullNodeAttachments && nullNodeAttachments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attachments = null;
+            if (parseNode.GetChildNode("case-queue-id") is null) { _explicitNullValueCaseQueueId = default!; _explicitNullProperties?.Remove("case-queue-id"); }
+            else if (parseNode.GetChildNode("case-queue-id") is { } nullNodeCaseQueueId && nullNodeCaseQueueId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaseQueueId = null;
+            if (parseNode.GetChildNode("fields") is null) { _explicitNullValueFields = default!; _explicitNullProperties?.Remove("fields"); }
+            else if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
         }
 
         /// <summary>List of PDF and image files to add to this case.</summary>

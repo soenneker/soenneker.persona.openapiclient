@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("workflow-run-id") is { } nullNodeWorkflowRunId && nullNodeWorkflowRunId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowRunId = null;
+            if (parseNode.GetChildNode("workflow-run-id") is null) { _explicitNullValueWorkflowRunId = default!; _explicitNullProperties?.Remove("workflow-run-id"); }
+            else if (parseNode.GetChildNode("workflow-run-id") is { } nullNodeWorkflowRunId && nullNodeWorkflowRunId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowRunId = null;
         }
 
         /// <summary>The ID of the workflow run created by this action</summary>

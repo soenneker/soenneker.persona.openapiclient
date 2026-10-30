@@ -85,7 +85,7 @@ namespace Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics
         public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Transactions.Item.RedactBiometrics.RedactBiometricsRequestBuilder.RedactBiometricsRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.withpersona.com/api/v1", "/transactions/{transactionId}/redact-biometrics", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

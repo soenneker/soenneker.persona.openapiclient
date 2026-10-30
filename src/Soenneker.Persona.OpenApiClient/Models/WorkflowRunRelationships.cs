@@ -17,9 +17,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("creator") is { } nullNodeCreator && nullNodeCreator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Creator = null;
-            if (parseNode.GetChildNode("workflow") is { } nullNodeWorkflow && nullNodeWorkflow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workflow = null;
-            if (parseNode.GetChildNode("workflow-version") is { } nullNodeWorkflowVersion && nullNodeWorkflowVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowVersion = null;
+            if (parseNode.GetChildNode("creator") is null) { _explicitNullValueCreator = default!; _explicitNullProperties?.Remove("creator"); }
+            else if (parseNode.GetChildNode("creator") is { } nullNodeCreator && nullNodeCreator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Creator = null;
+            if (parseNode.GetChildNode("workflow") is null) { _explicitNullValueWorkflow = default!; _explicitNullProperties?.Remove("workflow"); }
+            else if (parseNode.GetChildNode("workflow") is { } nullNodeWorkflow && nullNodeWorkflow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Workflow = null;
+            if (parseNode.GetChildNode("workflow-version") is null) { _explicitNullValueWorkflowVersion = default!; _explicitNullProperties?.Remove("workflow-version"); }
+            else if (parseNode.GetChildNode("workflow-version") is { } nullNodeWorkflowVersion && nullNodeWorkflowVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowVersion = null;
         }
 
         /// <summary>The creator property</summary>

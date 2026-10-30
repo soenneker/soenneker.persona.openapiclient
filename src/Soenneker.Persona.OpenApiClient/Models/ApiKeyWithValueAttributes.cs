@@ -17,18 +17,30 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("api-attributes-blocklist") is { } nullNodeApiAttributesBlocklist && nullNodeApiAttributesBlocklist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiAttributesBlocklist = null;
-            if (parseNode.GetChildNode("api-key-inflection") is { } nullNodeApiKeyInflection && nullNodeApiKeyInflection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyInflection = null;
-            if (parseNode.GetChildNode("api-version") is { } nullNodeApiVersion && nullNodeApiVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiVersion = null;
-            if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("expires-at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
-            if (parseNode.GetChildNode("file-access-token-expires-in") is { } nullNodeFileAccessTokenExpiresIn && nullNodeFileAccessTokenExpiresIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileAccessTokenExpiresIn = null;
-            if (parseNode.GetChildNode("ip-address-allowlist") is { } nullNodeIpAddressAllowlist && nullNodeIpAddressAllowlist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAddressAllowlist = null;
-            if (parseNode.GetChildNode("last-used-at") is { } nullNodeLastUsedAt && nullNodeLastUsedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastUsedAt = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("note") is { } nullNodeNote && nullNodeNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Note = null;
-            if (parseNode.GetChildNode("permissions") is { } nullNodePermissions && nullNodePermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissions = null;
-            if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
+            if (parseNode.GetChildNode("api-attributes-blocklist") is null) { _explicitNullValueApiAttributesBlocklist = default!; _explicitNullProperties?.Remove("api-attributes-blocklist"); }
+            else if (parseNode.GetChildNode("api-attributes-blocklist") is { } nullNodeApiAttributesBlocklist && nullNodeApiAttributesBlocklist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiAttributesBlocklist = null;
+            if (parseNode.GetChildNode("api-key-inflection") is null) { _explicitNullValueApiKeyInflection = default!; _explicitNullProperties?.Remove("api-key-inflection"); }
+            else if (parseNode.GetChildNode("api-key-inflection") is { } nullNodeApiKeyInflection && nullNodeApiKeyInflection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiKeyInflection = null;
+            if (parseNode.GetChildNode("api-version") is null) { _explicitNullValueApiVersion = default!; _explicitNullProperties?.Remove("api-version"); }
+            else if (parseNode.GetChildNode("api-version") is { } nullNodeApiVersion && nullNodeApiVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApiVersion = null;
+            if (parseNode.GetChildNode("created-at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created-at"); }
+            else if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("expires-at") is null) { _explicitNullValueExpiresAt = default!; _explicitNullProperties?.Remove("expires-at"); }
+            else if (parseNode.GetChildNode("expires-at") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("file-access-token-expires-in") is null) { _explicitNullValueFileAccessTokenExpiresIn = default!; _explicitNullProperties?.Remove("file-access-token-expires-in"); }
+            else if (parseNode.GetChildNode("file-access-token-expires-in") is { } nullNodeFileAccessTokenExpiresIn && nullNodeFileAccessTokenExpiresIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FileAccessTokenExpiresIn = null;
+            if (parseNode.GetChildNode("ip-address-allowlist") is null) { _explicitNullValueIpAddressAllowlist = default!; _explicitNullProperties?.Remove("ip-address-allowlist"); }
+            else if (parseNode.GetChildNode("ip-address-allowlist") is { } nullNodeIpAddressAllowlist && nullNodeIpAddressAllowlist.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IpAddressAllowlist = null;
+            if (parseNode.GetChildNode("last-used-at") is null) { _explicitNullValueLastUsedAt = default!; _explicitNullProperties?.Remove("last-used-at"); }
+            else if (parseNode.GetChildNode("last-used-at") is { } nullNodeLastUsedAt && nullNodeLastUsedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastUsedAt = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("note") is null) { _explicitNullValueNote = default!; _explicitNullProperties?.Remove("note"); }
+            else if (parseNode.GetChildNode("note") is { } nullNodeNote && nullNodeNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Note = null;
+            if (parseNode.GetChildNode("permissions") is null) { _explicitNullValuePermissions = default!; _explicitNullProperties?.Remove("permissions"); }
+            else if (parseNode.GetChildNode("permissions") is { } nullNodePermissions && nullNodePermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permissions = null;
+            if (parseNode.GetChildNode("value") is null) { _explicitNullValueValue = default!; _explicitNullProperties?.Remove("value"); }
+            else if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -36,100 +48,100 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The apiAttributesBlocklist property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? ApiAttributesBlocklist { get => _explicitNullValueApiAttributesBlocklist; set { _explicitNullValueApiAttributesBlocklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-attributes-blocklist"); else _explicitNullProperties?.Remove("api-attributes-blocklist"); } }
+        public List<string>? ApiAttributesBlocklist { get => _explicitNullValueApiAttributesBlocklist; set { _explicitNullValueApiAttributesBlocklist = value; AdditionalData?.Remove("api-attributes-blocklist"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-attributes-blocklist"); else _explicitNullProperties?.Remove("api-attributes-blocklist"); } }
         private List<string>? _explicitNullValueApiAttributesBlocklist = default!;
 #nullable restore
 #else
-        public List<string> ApiAttributesBlocklist { get => _explicitNullValueApiAttributesBlocklist; set { _explicitNullValueApiAttributesBlocklist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-attributes-blocklist"); else _explicitNullProperties?.Remove("api-attributes-blocklist"); } }
+        public List<string> ApiAttributesBlocklist { get => _explicitNullValueApiAttributesBlocklist; set { _explicitNullValueApiAttributesBlocklist = value; AdditionalData?.Remove("api-attributes-blocklist"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-attributes-blocklist"); else _explicitNullProperties?.Remove("api-attributes-blocklist"); } }
         private List<string> _explicitNullValueApiAttributesBlocklist = default!;
 #endif
         /// <summary>The apiKeyInflection property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApiKeyInflection { get => _explicitNullValueApiKeyInflection; set { _explicitNullValueApiKeyInflection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-key-inflection"); else _explicitNullProperties?.Remove("api-key-inflection"); } }
+        public string? ApiKeyInflection { get => _explicitNullValueApiKeyInflection; set { _explicitNullValueApiKeyInflection = value; AdditionalData?.Remove("api-key-inflection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-key-inflection"); else _explicitNullProperties?.Remove("api-key-inflection"); } }
         private string? _explicitNullValueApiKeyInflection = default!;
 #nullable restore
 #else
-        public string ApiKeyInflection { get => _explicitNullValueApiKeyInflection; set { _explicitNullValueApiKeyInflection = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-key-inflection"); else _explicitNullProperties?.Remove("api-key-inflection"); } }
+        public string ApiKeyInflection { get => _explicitNullValueApiKeyInflection; set { _explicitNullValueApiKeyInflection = value; AdditionalData?.Remove("api-key-inflection"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-key-inflection"); else _explicitNullProperties?.Remove("api-key-inflection"); } }
         private string _explicitNullValueApiKeyInflection = default!;
 #endif
         /// <summary>Server API version. More info on versioning can be found [here](https://docs.withpersona.com/versioning).</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.ApiVersion? ApiVersion { get => _explicitNullValueApiVersion; set { _explicitNullValueApiVersion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-version"); else _explicitNullProperties?.Remove("api-version"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.ApiVersion? ApiVersion { get => _explicitNullValueApiVersion; set { _explicitNullValueApiVersion = value; AdditionalData?.Remove("api-version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("api-version"); else _explicitNullProperties?.Remove("api-version"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.ApiVersion? _explicitNullValueApiVersion = default!;
         /// <summary>The createdAt property</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The expiresAt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires-at"); else _explicitNullProperties?.Remove("expires-at"); } }
+        public string? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires-at"); else _explicitNullProperties?.Remove("expires-at"); } }
         private string? _explicitNullValueExpiresAt = default!;
 #nullable restore
 #else
-        public string ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires-at"); else _explicitNullProperties?.Remove("expires-at"); } }
+        public string ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; AdditionalData?.Remove("expires-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expires-at"); else _explicitNullProperties?.Remove("expires-at"); } }
         private string _explicitNullValueExpiresAt = default!;
 #endif
         /// <summary>The fileAccessTokenExpiresIn property</summary>
-        public int? FileAccessTokenExpiresIn { get => _explicitNullValueFileAccessTokenExpiresIn; set { _explicitNullValueFileAccessTokenExpiresIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file-access-token-expires-in"); else _explicitNullProperties?.Remove("file-access-token-expires-in"); } }
+        public int? FileAccessTokenExpiresIn { get => _explicitNullValueFileAccessTokenExpiresIn; set { _explicitNullValueFileAccessTokenExpiresIn = value; AdditionalData?.Remove("file-access-token-expires-in"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file-access-token-expires-in"); else _explicitNullProperties?.Remove("file-access-token-expires-in"); } }
         private int? _explicitNullValueFileAccessTokenExpiresIn = default!;
         /// <summary>The ipAddressAllowlist property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IpAddressAllowlist { get => _explicitNullValueIpAddressAllowlist; set { _explicitNullValueIpAddressAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip-address-allowlist"); else _explicitNullProperties?.Remove("ip-address-allowlist"); } }
+        public List<string>? IpAddressAllowlist { get => _explicitNullValueIpAddressAllowlist; set { _explicitNullValueIpAddressAllowlist = value; AdditionalData?.Remove("ip-address-allowlist"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip-address-allowlist"); else _explicitNullProperties?.Remove("ip-address-allowlist"); } }
         private List<string>? _explicitNullValueIpAddressAllowlist = default!;
 #nullable restore
 #else
-        public List<string> IpAddressAllowlist { get => _explicitNullValueIpAddressAllowlist; set { _explicitNullValueIpAddressAllowlist = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip-address-allowlist"); else _explicitNullProperties?.Remove("ip-address-allowlist"); } }
+        public List<string> IpAddressAllowlist { get => _explicitNullValueIpAddressAllowlist; set { _explicitNullValueIpAddressAllowlist = value; AdditionalData?.Remove("ip-address-allowlist"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ip-address-allowlist"); else _explicitNullProperties?.Remove("ip-address-allowlist"); } }
         private List<string> _explicitNullValueIpAddressAllowlist = default!;
 #endif
         /// <summary>The lastUsedAt property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastUsedAt { get => _explicitNullValueLastUsedAt; set { _explicitNullValueLastUsedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last-used-at"); else _explicitNullProperties?.Remove("last-used-at"); } }
+        public string? LastUsedAt { get => _explicitNullValueLastUsedAt; set { _explicitNullValueLastUsedAt = value; AdditionalData?.Remove("last-used-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last-used-at"); else _explicitNullProperties?.Remove("last-used-at"); } }
         private string? _explicitNullValueLastUsedAt = default!;
 #nullable restore
 #else
-        public string LastUsedAt { get => _explicitNullValueLastUsedAt; set { _explicitNullValueLastUsedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last-used-at"); else _explicitNullProperties?.Remove("last-used-at"); } }
+        public string LastUsedAt { get => _explicitNullValueLastUsedAt; set { _explicitNullValueLastUsedAt = value; AdditionalData?.Remove("last-used-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last-used-at"); else _explicitNullProperties?.Remove("last-used-at"); } }
         private string _explicitNullValueLastUsedAt = default!;
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The note property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Note { get => _explicitNullValueNote; set { _explicitNullValueNote = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("note"); else _explicitNullProperties?.Remove("note"); } }
+        public string? Note { get => _explicitNullValueNote; set { _explicitNullValueNote = value; AdditionalData?.Remove("note"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("note"); else _explicitNullProperties?.Remove("note"); } }
         private string? _explicitNullValueNote = default!;
 #nullable restore
 #else
-        public string Note { get => _explicitNullValueNote; set { _explicitNullValueNote = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("note"); else _explicitNullProperties?.Remove("note"); } }
+        public string Note { get => _explicitNullValueNote; set { _explicitNullValueNote = value; AdditionalData?.Remove("note"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("note"); else _explicitNullProperties?.Remove("note"); } }
         private string _explicitNullValueNote = default!;
 #endif
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        public List<string>? Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; AdditionalData?.Remove("permissions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
         private List<string>? _explicitNullValuePermissions = default!;
 #nullable restore
 #else
-        public List<string> Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
+        public List<string> Permissions { get => _explicitNullValuePermissions; set { _explicitNullValuePermissions = value; AdditionalData?.Remove("permissions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissions"); else _explicitNullProperties?.Remove("permissions"); } }
         private List<string> _explicitNullValuePermissions = default!;
 #endif
         /// <summary>The API Key value. This should be treated with the utmost security.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        public string? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
         private string? _explicitNullValueValue = default!;
 #nullable restore
 #else
-        public string Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        public string Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
         private string _explicitNullValueValue = default!;
 #endif
         /// <summary>
@@ -159,7 +171,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "api-attributes-blocklist", n => { ApiAttributesBlocklist = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "api-key-inflection", n => { ApiKeyInflection = n.GetStringValue(); } },
-                { "api-version", n => { ApiVersion = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ApiVersion>(); } },
+                { "api-version", n => { var parsed = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ApiVersion>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueApiVersion = default; _explicitNullProperties?.Remove("api-version"); AdditionalData["api-version"] = unknown; } else { ApiVersion = parsed; AdditionalData.Remove("api-version"); } } },
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "expires-at", n => { ExpiresAt = n.GetStringValue(); } },
                 { "file-access-token-expires-in", n => { FileAccessTokenExpiresIn = n.GetIntValue(); } },

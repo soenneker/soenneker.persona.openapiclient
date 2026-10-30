@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("crypto-address") is { } nullNodeCryptoAddress && nullNodeCryptoAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CryptoAddress = null;
+            if (parseNode.GetChildNode("crypto-address") is null) { _explicitNullValueCryptoAddress = default!; _explicitNullProperties?.Remove("crypto-address"); }
+            else if (parseNode.GetChildNode("crypto-address") is { } nullNodeCryptoAddress && nullNodeCryptoAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CryptoAddress = null;
         }
 
         /// <summary>The cryptoAddress property</summary>

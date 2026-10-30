@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("object-ids") is { } nullNodeObjectIds && nullNodeObjectIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObjectIds = null;
+            if (parseNode.GetChildNode("object-ids") is null) { _explicitNullValueObjectIds = default!; _explicitNullProperties?.Remove("object-ids"); }
+            else if (parseNode.GetChildNode("object-ids") is { } nullNodeObjectIds && nullNodeObjectIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObjectIds = null;
         }
 
         /// <summary>Array of Persona object IDs to detach from this transaction. The following object types are supported- documents, inquiries, reports, and verifications.</summary>

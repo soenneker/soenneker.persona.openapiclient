@@ -17,9 +17,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("dismiss-type") is { } nullNodeDismissType && nullNodeDismissType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissType = null;
-            if (parseNode.GetChildNode("entity-id") is { } nullNodeEntityId && nullNodeEntityId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EntityId = null;
-            if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
+            if (parseNode.GetChildNode("dismiss-type") is null) { _explicitNullValueDismissType = default!; _explicitNullProperties?.Remove("dismiss-type"); }
+            else if (parseNode.GetChildNode("dismiss-type") is { } nullNodeDismissType && nullNodeDismissType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DismissType = null;
+            if (parseNode.GetChildNode("entity-id") is null) { _explicitNullValueEntityId = default!; _explicitNullProperties?.Remove("entity-id"); }
+            else if (parseNode.GetChildNode("entity-id") is { } nullNodeEntityId && nullNodeEntityId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EntityId = null;
+            if (parseNode.GetChildNode("reason") is null) { _explicitNullValueReason = default!; _explicitNullProperties?.Remove("reason"); }
+            else if (parseNode.GetChildNode("reason") is { } nullNodeReason && nullNodeReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Reason = null;
         }
 
         /// <summary>required in case of Adverse Media and Business Adverse Media. &quot;entity&quot; - refers to one of several individuals or businesses found by the report. &quot;media&quot; - refers to specific article about that &quot;entity&quot;</summary>

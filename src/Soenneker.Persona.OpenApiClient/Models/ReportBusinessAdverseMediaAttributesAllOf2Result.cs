@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("adverse-media") is { } nullNodeAdverseMedia && nullNodeAdverseMedia.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdverseMedia = null;
+            if (parseNode.GetChildNode("adverse-media") is null) { _explicitNullValueAdverseMedia = default!; _explicitNullProperties?.Remove("adverse-media"); }
+            else if (parseNode.GetChildNode("adverse-media") is { } nullNodeAdverseMedia && nullNodeAdverseMedia.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdverseMedia = null;
         }
 
         /// <summary>A list of adverse media articles related to the business.</summary>

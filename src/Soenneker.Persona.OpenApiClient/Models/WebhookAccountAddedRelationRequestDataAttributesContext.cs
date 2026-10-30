@@ -18,9 +18,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("relation-schema-key") is { } nullNodeRelationSchemaKey && nullNodeRelationSchemaKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelationSchemaKey = null;
-            if (parseNode.GetChildNode("target-account-id") is { } nullNodeTargetAccountId && nullNodeTargetAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetAccountId = null;
-            if (parseNode.GetChildNode("target-txn-id") is { } nullNodeTargetTxnId && nullNodeTargetTxnId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetTxnId = null;
+            if (parseNode.GetChildNode("relation-schema-key") is null) { _explicitNullValueRelationSchemaKey = default!; _explicitNullProperties?.Remove("relation-schema-key"); }
+            else if (parseNode.GetChildNode("relation-schema-key") is { } nullNodeRelationSchemaKey && nullNodeRelationSchemaKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RelationSchemaKey = null;
+            if (parseNode.GetChildNode("target-account-id") is null) { _explicitNullValueTargetAccountId = default!; _explicitNullProperties?.Remove("target-account-id"); }
+            else if (parseNode.GetChildNode("target-account-id") is { } nullNodeTargetAccountId && nullNodeTargetAccountId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetAccountId = null;
+            if (parseNode.GetChildNode("target-txn-id") is null) { _explicitNullValueTargetTxnId = default!; _explicitNullProperties?.Remove("target-txn-id"); }
+            else if (parseNode.GetChildNode("target-txn-id") is { } nullNodeTargetTxnId && nullNodeTargetTxnId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetTxnId = null;
         }
 
         /// <summary>The key of the relationship schema connecting this Account to the related object.</summary>

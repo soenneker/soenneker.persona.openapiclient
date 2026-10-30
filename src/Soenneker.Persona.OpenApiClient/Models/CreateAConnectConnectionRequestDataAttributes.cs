@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("destination-organization-id") is { } nullNodeDestinationOrganizationId && nullNodeDestinationOrganizationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationOrganizationId = null;
+            if (parseNode.GetChildNode("destination-organization-id") is null) { _explicitNullValueDestinationOrganizationId = default!; _explicitNullProperties?.Remove("destination-organization-id"); }
+            else if (parseNode.GetChildNode("destination-organization-id") is { } nullNodeDestinationOrganizationId && nullNodeDestinationOrganizationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationOrganizationId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The organization ID that will be authorized to access objects through this connection</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DestinationOrganizationId { get => _explicitNullValueDestinationOrganizationId; set { _explicitNullValueDestinationOrganizationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination-organization-id"); else _explicitNullProperties?.Remove("destination-organization-id"); } }
+        public string? DestinationOrganizationId { get => _explicitNullValueDestinationOrganizationId; set { _explicitNullValueDestinationOrganizationId = value; AdditionalData?.Remove("destination-organization-id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination-organization-id"); else _explicitNullProperties?.Remove("destination-organization-id"); } }
         private string? _explicitNullValueDestinationOrganizationId = default!;
 #nullable restore
 #else
-        public string DestinationOrganizationId { get => _explicitNullValueDestinationOrganizationId; set { _explicitNullValueDestinationOrganizationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination-organization-id"); else _explicitNullProperties?.Remove("destination-organization-id"); } }
+        public string DestinationOrganizationId { get => _explicitNullValueDestinationOrganizationId; set { _explicitNullValueDestinationOrganizationId = value; AdditionalData?.Remove("destination-organization-id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination-organization-id"); else _explicitNullProperties?.Remove("destination-organization-id"); } }
         private string _explicitNullValueDestinationOrganizationId = default!;
 #endif
         /// <summary>

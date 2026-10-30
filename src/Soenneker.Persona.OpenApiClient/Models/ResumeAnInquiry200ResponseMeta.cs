@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("session-token") is { } nullNodeSessionToken && nullNodeSessionToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionToken = null;
+            if (parseNode.GetChildNode("session-token") is null) { _explicitNullValueSessionToken = default!; _explicitNullProperties?.Remove("session-token"); }
+            else if (parseNode.GetChildNode("session-token") is { } nullNodeSessionToken && nullNodeSessionToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SessionToken = null;
         }
 
         /// <summary>The sessionToken property</summary>

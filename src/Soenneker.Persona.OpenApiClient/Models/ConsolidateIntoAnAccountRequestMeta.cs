@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("source-account-ids") is { } nullNodeSourceAccountIds && nullNodeSourceAccountIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceAccountIds = null;
+            if (parseNode.GetChildNode("source-account-ids") is null) { _explicitNullValueSourceAccountIds = default!; _explicitNullProperties?.Remove("source-account-ids"); }
+            else if (parseNode.GetChildNode("source-account-ids") is { } nullNodeSourceAccountIds && nullNodeSourceAccountIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceAccountIds = null;
         }
 
         /// <summary>A list of Account IDs that need to be consolidated into the destination Account.</summary>

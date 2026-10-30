@@ -18,34 +18,37 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("archive-after-completion") is { } nullNodeArchiveAfterCompletion && nullNodeArchiveAfterCompletion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ArchiveAfterCompletion = null;
-            if (parseNode.GetChildNode("destination") is { } nullNodeDestination && nullNodeDestination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Destination = null;
-            if (parseNode.GetChildNode("sync-mode") is { } nullNodeSyncMode && nullNodeSyncMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SyncMode = null;
+            if (parseNode.GetChildNode("archive-after-completion") is null) { _explicitNullValueArchiveAfterCompletion = default!; _explicitNullProperties?.Remove("archive-after-completion"); }
+            else if (parseNode.GetChildNode("archive-after-completion") is { } nullNodeArchiveAfterCompletion && nullNodeArchiveAfterCompletion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ArchiveAfterCompletion = null;
+            if (parseNode.GetChildNode("destination") is null) { _explicitNullValueDestination = default!; _explicitNullProperties?.Remove("destination"); }
+            else if (parseNode.GetChildNode("destination") is { } nullNodeDestination && nullNodeDestination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Destination = null;
+            if (parseNode.GetChildNode("sync-mode") is null) { _explicitNullValueSyncMode = default!; _explicitNullProperties?.Remove("sync-mode"); }
+            else if (parseNode.GetChildNode("sync-mode") is { } nullNodeSyncMode && nullNodeSyncMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SyncMode = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to archive the pipeline after completion</summary>
-        public bool? ArchiveAfterCompletion { get => _explicitNullValueArchiveAfterCompletion; set { _explicitNullValueArchiveAfterCompletion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("archive-after-completion"); else _explicitNullProperties?.Remove("archive-after-completion"); } }
+        public bool? ArchiveAfterCompletion { get => _explicitNullValueArchiveAfterCompletion; set { _explicitNullValueArchiveAfterCompletion = value; AdditionalData?.Remove("archive-after-completion"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("archive-after-completion"); else _explicitNullProperties?.Remove("archive-after-completion"); } }
         private bool? _explicitNullValueArchiveAfterCompletion = default!;
         /// <summary>Target destination for imported data</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Destination { get => _explicitNullValueDestination; set { _explicitNullValueDestination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination"); else _explicitNullProperties?.Remove("destination"); } }
+        public string? Destination { get => _explicitNullValueDestination; set { _explicitNullValueDestination = value; AdditionalData?.Remove("destination"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination"); else _explicitNullProperties?.Remove("destination"); } }
         private string? _explicitNullValueDestination = default!;
 #nullable restore
 #else
-        public string Destination { get => _explicitNullValueDestination; set { _explicitNullValueDestination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination"); else _explicitNullProperties?.Remove("destination"); } }
+        public string Destination { get => _explicitNullValueDestination; set { _explicitNullValueDestination = value; AdditionalData?.Remove("destination"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destination"); else _explicitNullProperties?.Remove("destination"); } }
         private string _explicitNullValueDestination = default!;
 #endif
         /// <summary>How data should be synced. Possible values include `upsert`, `insert`, and `update`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SyncMode { get => _explicitNullValueSyncMode; set { _explicitNullValueSyncMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sync-mode"); else _explicitNullProperties?.Remove("sync-mode"); } }
+        public string? SyncMode { get => _explicitNullValueSyncMode; set { _explicitNullValueSyncMode = value; AdditionalData?.Remove("sync-mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sync-mode"); else _explicitNullProperties?.Remove("sync-mode"); } }
         private string? _explicitNullValueSyncMode = default!;
 #nullable restore
 #else
-        public string SyncMode { get => _explicitNullValueSyncMode; set { _explicitNullValueSyncMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sync-mode"); else _explicitNullProperties?.Remove("sync-mode"); } }
+        public string SyncMode { get => _explicitNullValueSyncMode; set { _explicitNullValueSyncMode = value; AdditionalData?.Remove("sync-mode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sync-mode"); else _explicitNullProperties?.Remove("sync-mode"); } }
         private string _explicitNullValueSyncMode = default!;
 #endif
         /// <summary>

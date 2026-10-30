@@ -17,8 +17,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("raw") is { } nullNodeRaw && nullNodeRaw.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Raw = null;
-            if (parseNode.GetChildNode("standardized") is { } nullNodeStandardized && nullNodeStandardized.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Standardized = null;
+            if (parseNode.GetChildNode("raw") is null) { _explicitNullValueRaw = default!; _explicitNullProperties?.Remove("raw"); }
+            else if (parseNode.GetChildNode("raw") is { } nullNodeRaw && nullNodeRaw.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Raw = null;
+            if (parseNode.GetChildNode("standardized") is null) { _explicitNullValueStandardized = default!; _explicitNullProperties?.Remove("standardized"); }
+            else if (parseNode.GetChildNode("standardized") is { } nullNodeStandardized && nullNodeStandardized.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Standardized = null;
         }
 
         /// <summary>Status on the registry record</summary>

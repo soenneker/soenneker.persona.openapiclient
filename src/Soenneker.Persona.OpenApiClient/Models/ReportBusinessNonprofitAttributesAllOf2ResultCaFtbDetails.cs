@@ -17,9 +17,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("most-recent-ftb") is { } nullNodeMostRecentFtb && nullNodeMostRecentFtb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MostRecentFtb = null;
-            if (parseNode.GetChildNode("revocation-status") is { } nullNodeRevocationStatus && nullNodeRevocationStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RevocationStatus = null;
-            if (parseNode.GetChildNode("revocation-status-date") is { } nullNodeRevocationStatusDate && nullNodeRevocationStatusDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RevocationStatusDate = null;
+            if (parseNode.GetChildNode("most-recent-ftb") is null) { _explicitNullValueMostRecentFtb = default!; _explicitNullProperties?.Remove("most-recent-ftb"); }
+            else if (parseNode.GetChildNode("most-recent-ftb") is { } nullNodeMostRecentFtb && nullNodeMostRecentFtb.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MostRecentFtb = null;
+            if (parseNode.GetChildNode("revocation-status") is null) { _explicitNullValueRevocationStatus = default!; _explicitNullProperties?.Remove("revocation-status"); }
+            else if (parseNode.GetChildNode("revocation-status") is { } nullNodeRevocationStatus && nullNodeRevocationStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RevocationStatus = null;
+            if (parseNode.GetChildNode("revocation-status-date") is null) { _explicitNullValueRevocationStatusDate = default!; _explicitNullProperties?.Remove("revocation-status-date"); }
+            else if (parseNode.GetChildNode("revocation-status-date") is { } nullNodeRevocationStatusDate && nullNodeRevocationStatusDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RevocationStatusDate = null;
         }
 
         /// <summary>The mostRecentFtb property</summary>

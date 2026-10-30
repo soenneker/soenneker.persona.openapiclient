@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("expires-in-seconds") is { } nullNodeExpiresInSeconds && nullNodeExpiresInSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresInSeconds = null;
+            if (parseNode.GetChildNode("expires-in-seconds") is null) { _explicitNullValueExpiresInSeconds = default!; _explicitNullProperties?.Remove("expires-in-seconds"); }
+            else if (parseNode.GetChildNode("expires-in-seconds") is { } nullNodeExpiresInSeconds && nullNodeExpiresInSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresInSeconds = null;
         }
 
         /// <summary>Number of seconds the current secret stays active after rotation. During this window Persona signs each webhook event with both the old and new secrets. Defaults to `0`, which expires the old secret immediately. Set it long enough to deploy the new secret to your endpoint.If the webhook already has an expiring secret, this instead sets that secret&apos;s expiration to this many seconds from now. It can only move the expiration sooner.</summary>

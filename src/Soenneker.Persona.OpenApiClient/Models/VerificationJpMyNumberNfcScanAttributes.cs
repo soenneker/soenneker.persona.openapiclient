@@ -18,37 +18,68 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("address") is { } nullNodeAddress && nullNodeAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Address = null;
-            if (parseNode.GetChildNode("auth-cert-expiration-date") is { } nullNodeAuthCertExpirationDate && nullNodeAuthCertExpirationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthCertExpirationDate = null;
-            if (parseNode.GetChildNode("birthdate") is { } nullNodeBirthdate && nullNodeBirthdate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Birthdate = null;
-            if (parseNode.GetChildNode("checks") is { } nullNodeChecks && nullNodeChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Checks = null;
-            if (parseNode.GetChildNode("completed-at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
-            if (parseNode.GetChildNode("completed-at-ts") is { } nullNodeCompletedAtTs && nullNodeCompletedAtTs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAtTs = null;
-            if (parseNode.GetChildNode("country-code") is { } nullNodeCountryCode && nullNodeCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryCode = null;
-            if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("created-at-ts") is { } nullNodeCreatedAtTs && nullNodeCreatedAtTs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAtTs = null;
-            if (parseNode.GetChildNode("drivers-license-expiration-date") is { } nullNodeDriversLicenseExpirationDate && nullNodeDriversLicenseExpirationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DriversLicenseExpirationDate = null;
-            if (parseNode.GetChildNode("expiration-date") is { } nullNodeExpirationDate && nullNodeExpirationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpirationDate = null;
-            if (parseNode.GetChildNode("face-image") is { } nullNodeFaceImage && nullNodeFaceImage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FaceImage = null;
-            if (parseNode.GetChildNode("gender") is { } nullNodeGender && nullNodeGender.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Gender = null;
-            if (parseNode.GetChildNode("identification-class") is { } nullNodeIdentificationClass && nullNodeIdentificationClass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentificationClass = null;
-            if (parseNode.GetChildNode("identification-number") is { } nullNodeIdentificationNumber && nullNodeIdentificationNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentificationNumber = null;
-            if (parseNode.GetChildNode("kana-name") is { } nullNodeKanaName && nullNodeKanaName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KanaName = null;
-            if (parseNode.GetChildNode("license-number") is { } nullNodeLicenseNumber && nullNodeLicenseNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LicenseNumber = null;
-            if (parseNode.GetChildNode("license-restrictions") is { } nullNodeLicenseRestrictions && nullNodeLicenseRestrictions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LicenseRestrictions = null;
-            if (parseNode.GetChildNode("my-number-card-expiration-date") is { } nullNodeMyNumberCardExpirationDate && nullNodeMyNumberCardExpirationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MyNumberCardExpirationDate = null;
-            if (parseNode.GetChildNode("name-full") is { } nullNodeNameFull && nullNodeNameFull.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameFull = null;
-            if (parseNode.GetChildNode("operation") is { } nullNodeOperation && nullNodeOperation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Operation = null;
-            if (parseNode.GetChildNode("redacted-at") is { } nullNodeRedactedAt && nullNodeRedactedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedactedAt = null;
-            if (parseNode.GetChildNode("residence-card-expiration-date") is { } nullNodeResidenceCardExpirationDate && nullNodeResidenceCardExpirationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResidenceCardExpirationDate = null;
-            if (parseNode.GetChildNode("selfie-photo") is { } nullNodeSelfiePhoto && nullNodeSelfiePhoto.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfiePhoto = null;
-            if (parseNode.GetChildNode("sex") is { } nullNodeSex && nullNodeSex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sex = null;
-            if (parseNode.GetChildNode("signing-cert-expiration-date") is { } nullNodeSigningCertExpirationDate && nullNodeSigningCertExpirationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SigningCertExpirationDate = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("submitted-at") is { } nullNodeSubmittedAt && nullNodeSubmittedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubmittedAt = null;
-            if (parseNode.GetChildNode("submitted-at-ts") is { } nullNodeSubmittedAtTs && nullNodeSubmittedAtTs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubmittedAtTs = null;
-            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
-            if (parseNode.GetChildNode("vehicle-classes") is { } nullNodeVehicleClasses && nullNodeVehicleClasses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VehicleClasses = null;
+            if (parseNode.GetChildNode("address") is null) { _explicitNullValueAddress = default!; _explicitNullProperties?.Remove("address"); }
+            else if (parseNode.GetChildNode("address") is { } nullNodeAddress && nullNodeAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Address = null;
+            if (parseNode.GetChildNode("auth-cert-expiration-date") is null) { _explicitNullValueAuthCertExpirationDate = default!; _explicitNullProperties?.Remove("auth-cert-expiration-date"); }
+            else if (parseNode.GetChildNode("auth-cert-expiration-date") is { } nullNodeAuthCertExpirationDate && nullNodeAuthCertExpirationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthCertExpirationDate = null;
+            if (parseNode.GetChildNode("birthdate") is null) { _explicitNullValueBirthdate = default!; _explicitNullProperties?.Remove("birthdate"); }
+            else if (parseNode.GetChildNode("birthdate") is { } nullNodeBirthdate && nullNodeBirthdate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Birthdate = null;
+            if (parseNode.GetChildNode("checks") is null) { _explicitNullValueChecks = default!; _explicitNullProperties?.Remove("checks"); }
+            else if (parseNode.GetChildNode("checks") is { } nullNodeChecks && nullNodeChecks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Checks = null;
+            if (parseNode.GetChildNode("completed-at") is null) { _explicitNullValueCompletedAt = default!; _explicitNullProperties?.Remove("completed-at"); }
+            else if (parseNode.GetChildNode("completed-at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
+            if (parseNode.GetChildNode("completed-at-ts") is null) { _explicitNullValueCompletedAtTs = default!; _explicitNullProperties?.Remove("completed-at-ts"); }
+            else if (parseNode.GetChildNode("completed-at-ts") is { } nullNodeCompletedAtTs && nullNodeCompletedAtTs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAtTs = null;
+            if (parseNode.GetChildNode("country-code") is null) { _explicitNullValueCountryCode = default!; _explicitNullProperties?.Remove("country-code"); }
+            else if (parseNode.GetChildNode("country-code") is { } nullNodeCountryCode && nullNodeCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryCode = null;
+            if (parseNode.GetChildNode("created-at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created-at"); }
+            else if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("created-at-ts") is null) { _explicitNullValueCreatedAtTs = default!; _explicitNullProperties?.Remove("created-at-ts"); }
+            else if (parseNode.GetChildNode("created-at-ts") is { } nullNodeCreatedAtTs && nullNodeCreatedAtTs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAtTs = null;
+            if (parseNode.GetChildNode("drivers-license-expiration-date") is null) { _explicitNullValueDriversLicenseExpirationDate = default!; _explicitNullProperties?.Remove("drivers-license-expiration-date"); }
+            else if (parseNode.GetChildNode("drivers-license-expiration-date") is { } nullNodeDriversLicenseExpirationDate && nullNodeDriversLicenseExpirationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DriversLicenseExpirationDate = null;
+            if (parseNode.GetChildNode("expiration-date") is null) { _explicitNullValueExpirationDate = default!; _explicitNullProperties?.Remove("expiration-date"); }
+            else if (parseNode.GetChildNode("expiration-date") is { } nullNodeExpirationDate && nullNodeExpirationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpirationDate = null;
+            if (parseNode.GetChildNode("face-image") is null) { _explicitNullValueFaceImage = default!; _explicitNullProperties?.Remove("face-image"); }
+            else if (parseNode.GetChildNode("face-image") is { } nullNodeFaceImage && nullNodeFaceImage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FaceImage = null;
+            if (parseNode.GetChildNode("gender") is null) { _explicitNullValueGender = default!; _explicitNullProperties?.Remove("gender"); }
+            else if (parseNode.GetChildNode("gender") is { } nullNodeGender && nullNodeGender.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Gender = null;
+            if (parseNode.GetChildNode("identification-class") is null) { _explicitNullValueIdentificationClass = default!; _explicitNullProperties?.Remove("identification-class"); }
+            else if (parseNode.GetChildNode("identification-class") is { } nullNodeIdentificationClass && nullNodeIdentificationClass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentificationClass = null;
+            if (parseNode.GetChildNode("identification-number") is null) { _explicitNullValueIdentificationNumber = default!; _explicitNullProperties?.Remove("identification-number"); }
+            else if (parseNode.GetChildNode("identification-number") is { } nullNodeIdentificationNumber && nullNodeIdentificationNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentificationNumber = null;
+            if (parseNode.GetChildNode("kana-name") is null) { _explicitNullValueKanaName = default!; _explicitNullProperties?.Remove("kana-name"); }
+            else if (parseNode.GetChildNode("kana-name") is { } nullNodeKanaName && nullNodeKanaName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KanaName = null;
+            if (parseNode.GetChildNode("license-number") is null) { _explicitNullValueLicenseNumber = default!; _explicitNullProperties?.Remove("license-number"); }
+            else if (parseNode.GetChildNode("license-number") is { } nullNodeLicenseNumber && nullNodeLicenseNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LicenseNumber = null;
+            if (parseNode.GetChildNode("license-restrictions") is null) { _explicitNullValueLicenseRestrictions = default!; _explicitNullProperties?.Remove("license-restrictions"); }
+            else if (parseNode.GetChildNode("license-restrictions") is { } nullNodeLicenseRestrictions && nullNodeLicenseRestrictions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LicenseRestrictions = null;
+            if (parseNode.GetChildNode("my-number-card-expiration-date") is null) { _explicitNullValueMyNumberCardExpirationDate = default!; _explicitNullProperties?.Remove("my-number-card-expiration-date"); }
+            else if (parseNode.GetChildNode("my-number-card-expiration-date") is { } nullNodeMyNumberCardExpirationDate && nullNodeMyNumberCardExpirationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MyNumberCardExpirationDate = null;
+            if (parseNode.GetChildNode("name-full") is null) { _explicitNullValueNameFull = default!; _explicitNullProperties?.Remove("name-full"); }
+            else if (parseNode.GetChildNode("name-full") is { } nullNodeNameFull && nullNodeNameFull.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NameFull = null;
+            if (parseNode.GetChildNode("operation") is null) { _explicitNullValueOperation = default!; _explicitNullProperties?.Remove("operation"); }
+            else if (parseNode.GetChildNode("operation") is { } nullNodeOperation && nullNodeOperation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Operation = null;
+            if (parseNode.GetChildNode("redacted-at") is null) { _explicitNullValueRedactedAt = default!; _explicitNullProperties?.Remove("redacted-at"); }
+            else if (parseNode.GetChildNode("redacted-at") is { } nullNodeRedactedAt && nullNodeRedactedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedactedAt = null;
+            if (parseNode.GetChildNode("residence-card-expiration-date") is null) { _explicitNullValueResidenceCardExpirationDate = default!; _explicitNullProperties?.Remove("residence-card-expiration-date"); }
+            else if (parseNode.GetChildNode("residence-card-expiration-date") is { } nullNodeResidenceCardExpirationDate && nullNodeResidenceCardExpirationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResidenceCardExpirationDate = null;
+            if (parseNode.GetChildNode("selfie-photo") is null) { _explicitNullValueSelfiePhoto = default!; _explicitNullProperties?.Remove("selfie-photo"); }
+            else if (parseNode.GetChildNode("selfie-photo") is { } nullNodeSelfiePhoto && nullNodeSelfiePhoto.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfiePhoto = null;
+            if (parseNode.GetChildNode("sex") is null) { _explicitNullValueSex = default!; _explicitNullProperties?.Remove("sex"); }
+            else if (parseNode.GetChildNode("sex") is { } nullNodeSex && nullNodeSex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sex = null;
+            if (parseNode.GetChildNode("signing-cert-expiration-date") is null) { _explicitNullValueSigningCertExpirationDate = default!; _explicitNullProperties?.Remove("signing-cert-expiration-date"); }
+            else if (parseNode.GetChildNode("signing-cert-expiration-date") is { } nullNodeSigningCertExpirationDate && nullNodeSigningCertExpirationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SigningCertExpirationDate = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("submitted-at") is null) { _explicitNullValueSubmittedAt = default!; _explicitNullProperties?.Remove("submitted-at"); }
+            else if (parseNode.GetChildNode("submitted-at") is { } nullNodeSubmittedAt && nullNodeSubmittedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubmittedAt = null;
+            if (parseNode.GetChildNode("submitted-at-ts") is null) { _explicitNullValueSubmittedAtTs = default!; _explicitNullProperties?.Remove("submitted-at-ts"); }
+            else if (parseNode.GetChildNode("submitted-at-ts") is { } nullNodeSubmittedAtTs && nullNodeSubmittedAtTs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubmittedAtTs = null;
+            if (parseNode.GetChildNode("tags") is null) { _explicitNullValueTags = default!; _explicitNullProperties?.Remove("tags"); }
+            else if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("vehicle-classes") is null) { _explicitNullValueVehicleClasses = default!; _explicitNullProperties?.Remove("vehicle-classes"); }
+            else if (parseNode.GetChildNode("vehicle-classes") is { } nullNodeVehicleClasses && nullNodeVehicleClasses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VehicleClasses = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -56,216 +87,216 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        public string? Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; AdditionalData?.Remove("address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
         private string? _explicitNullValueAddress = default!;
 #nullable restore
 #else
-        public string Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        public string Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; AdditionalData?.Remove("address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
         private string _explicitNullValueAddress = default!;
 #endif
         /// <summary>Expiration date of the authentication certificate read from the card, set when an authentication signature operation was performed.</summary>
-        public Date? AuthCertExpirationDate { get => _explicitNullValueAuthCertExpirationDate; set { _explicitNullValueAuthCertExpirationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth-cert-expiration-date"); else _explicitNullProperties?.Remove("auth-cert-expiration-date"); } }
+        public Date? AuthCertExpirationDate { get => _explicitNullValueAuthCertExpirationDate; set { _explicitNullValueAuthCertExpirationDate = value; AdditionalData?.Remove("auth-cert-expiration-date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auth-cert-expiration-date"); else _explicitNullProperties?.Remove("auth-cert-expiration-date"); } }
         private Date? _explicitNullValueAuthCertExpirationDate = default!;
         /// <summary>The birthdate property</summary>
-        public Date? Birthdate { get => _explicitNullValueBirthdate; set { _explicitNullValueBirthdate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthdate"); else _explicitNullProperties?.Remove("birthdate"); } }
+        public Date? Birthdate { get => _explicitNullValueBirthdate; set { _explicitNullValueBirthdate = value; AdditionalData?.Remove("birthdate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthdate"); else _explicitNullProperties?.Remove("birthdate"); } }
         private Date? _explicitNullValueBirthdate = default!;
         /// <summary>The checks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>? Checks { get => _explicitNullValueChecks; set { _explicitNullValueChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checks"); else _explicitNullProperties?.Remove("checks"); } }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>? Checks { get => _explicitNullValueChecks; set { _explicitNullValueChecks = value; AdditionalData?.Remove("checks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checks"); else _explicitNullProperties?.Remove("checks"); } }
         private List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem>? _explicitNullValueChecks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem> Checks { get => _explicitNullValueChecks; set { _explicitNullValueChecks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checks"); else _explicitNullProperties?.Remove("checks"); } }
+        public List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem> Checks { get => _explicitNullValueChecks; set { _explicitNullValueChecks = value; AdditionalData?.Remove("checks"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("checks"); else _explicitNullProperties?.Remove("checks"); } }
         private List<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedAttributesChecksItem> _explicitNullValueChecks = default!;
 #endif
         /// <summary>The time the verification was completed in ISO 8601 format</summary>
-        public DateTimeOffset? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed-at"); else _explicitNullProperties?.Remove("completed-at"); } }
+        public DateTimeOffset? CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed-at"); else _explicitNullProperties?.Remove("completed-at"); } }
         private DateTimeOffset? _explicitNullValueCompletedAt = default!;
         /// <summary>The time the verification was completed in Unix timestamp format</summary>
-        public int? CompletedAtTs { get => _explicitNullValueCompletedAtTs; set { _explicitNullValueCompletedAtTs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed-at-ts"); else _explicitNullProperties?.Remove("completed-at-ts"); } }
+        public int? CompletedAtTs { get => _explicitNullValueCompletedAtTs; set { _explicitNullValueCompletedAtTs = value; AdditionalData?.Remove("completed-at-ts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed-at-ts"); else _explicitNullProperties?.Remove("completed-at-ts"); } }
         private int? _explicitNullValueCompletedAtTs = default!;
         /// <summary>ISO 3166-1 alpha 2 country code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country-code"); else _explicitNullProperties?.Remove("country-code"); } }
+        public string? CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; AdditionalData?.Remove("country-code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country-code"); else _explicitNullProperties?.Remove("country-code"); } }
         private string? _explicitNullValueCountryCode = default!;
 #nullable restore
 #else
-        public string CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country-code"); else _explicitNullProperties?.Remove("country-code"); } }
+        public string CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; AdditionalData?.Remove("country-code"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country-code"); else _explicitNullProperties?.Remove("country-code"); } }
         private string _explicitNullValueCountryCode = default!;
 #endif
         /// <summary>The time the verification was created in ISO 8601 format</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The time the verification was created in Unix timestamp format</summary>
-        public int? CreatedAtTs { get => _explicitNullValueCreatedAtTs; set { _explicitNullValueCreatedAtTs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at-ts"); else _explicitNullProperties?.Remove("created-at-ts"); } }
+        public int? CreatedAtTs { get => _explicitNullValueCreatedAtTs; set { _explicitNullValueCreatedAtTs = value; AdditionalData?.Remove("created-at-ts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at-ts"); else _explicitNullProperties?.Remove("created-at-ts"); } }
         private int? _explicitNullValueCreatedAtTs = default!;
         /// <summary>Expiration date read from a driver&apos;s license, set when a driver&apos;s license read operation was performed.</summary>
-        public Date? DriversLicenseExpirationDate { get => _explicitNullValueDriversLicenseExpirationDate; set { _explicitNullValueDriversLicenseExpirationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("drivers-license-expiration-date"); else _explicitNullProperties?.Remove("drivers-license-expiration-date"); } }
+        public Date? DriversLicenseExpirationDate { get => _explicitNullValueDriversLicenseExpirationDate; set { _explicitNullValueDriversLicenseExpirationDate = value; AdditionalData?.Remove("drivers-license-expiration-date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("drivers-license-expiration-date"); else _explicitNullProperties?.Remove("drivers-license-expiration-date"); } }
         private Date? _explicitNullValueDriversLicenseExpirationDate = default!;
         /// <summary>The expirationDate property</summary>
-        public Date? ExpirationDate { get => _explicitNullValueExpirationDate; set { _explicitNullValueExpirationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiration-date"); else _explicitNullProperties?.Remove("expiration-date"); } }
+        public Date? ExpirationDate { get => _explicitNullValueExpirationDate; set { _explicitNullValueExpirationDate = value; AdditionalData?.Remove("expiration-date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiration-date"); else _explicitNullProperties?.Remove("expiration-date"); } }
         private Date? _explicitNullValueExpirationDate = default!;
         /// <summary>Face image extracted from the NFC card, when present. Deprecated in favor of `selfie-photo`.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesFaceImage? FaceImage { get => _explicitNullValueFaceImage; set { _explicitNullValueFaceImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("face-image"); else _explicitNullProperties?.Remove("face-image"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesFaceImage? FaceImage { get => _explicitNullValueFaceImage; set { _explicitNullValueFaceImage = value; AdditionalData?.Remove("face-image"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("face-image"); else _explicitNullProperties?.Remove("face-image"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesFaceImage? _explicitNullValueFaceImage = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesFaceImage FaceImage { get => _explicitNullValueFaceImage; set { _explicitNullValueFaceImage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("face-image"); else _explicitNullProperties?.Remove("face-image"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesFaceImage FaceImage { get => _explicitNullValueFaceImage; set { _explicitNullValueFaceImage = value; AdditionalData?.Remove("face-image"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("face-image"); else _explicitNullProperties?.Remove("face-image"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesFaceImage _explicitNullValueFaceImage = default!;
 #endif
         /// <summary>Deprecated in favor of `sex`</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Gender { get => _explicitNullValueGender; set { _explicitNullValueGender = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gender"); else _explicitNullProperties?.Remove("gender"); } }
+        public string? Gender { get => _explicitNullValueGender; set { _explicitNullValueGender = value; AdditionalData?.Remove("gender"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gender"); else _explicitNullProperties?.Remove("gender"); } }
         private string? _explicitNullValueGender = default!;
 #nullable restore
 #else
-        public string Gender { get => _explicitNullValueGender; set { _explicitNullValueGender = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gender"); else _explicitNullProperties?.Remove("gender"); } }
+        public string Gender { get => _explicitNullValueGender; set { _explicitNullValueGender = value; AdditionalData?.Remove("gender"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gender"); else _explicitNullProperties?.Remove("gender"); } }
         private string _explicitNullValueGender = default!;
 #endif
         /// <summary>Persona-standard document class of the scanned card, derived from the scan operation (e.g. &quot;myn&quot; for My Number card, &quot;dl&quot; for driver&apos;s license, &quot;rp&quot; for residence card).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdentificationClass { get => _explicitNullValueIdentificationClass; set { _explicitNullValueIdentificationClass = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identification-class"); else _explicitNullProperties?.Remove("identification-class"); } }
+        public string? IdentificationClass { get => _explicitNullValueIdentificationClass; set { _explicitNullValueIdentificationClass = value; AdditionalData?.Remove("identification-class"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identification-class"); else _explicitNullProperties?.Remove("identification-class"); } }
         private string? _explicitNullValueIdentificationClass = default!;
 #nullable restore
 #else
-        public string IdentificationClass { get => _explicitNullValueIdentificationClass; set { _explicitNullValueIdentificationClass = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identification-class"); else _explicitNullProperties?.Remove("identification-class"); } }
+        public string IdentificationClass { get => _explicitNullValueIdentificationClass; set { _explicitNullValueIdentificationClass = value; AdditionalData?.Remove("identification-class"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identification-class"); else _explicitNullProperties?.Remove("identification-class"); } }
         private string _explicitNullValueIdentificationClass = default!;
 #endif
         /// <summary>Identification number on the scanned card — the driver&apos;s license number (DL operations) or residence card number (res_read).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IdentificationNumber { get => _explicitNullValueIdentificationNumber; set { _explicitNullValueIdentificationNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identification-number"); else _explicitNullProperties?.Remove("identification-number"); } }
+        public string? IdentificationNumber { get => _explicitNullValueIdentificationNumber; set { _explicitNullValueIdentificationNumber = value; AdditionalData?.Remove("identification-number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identification-number"); else _explicitNullProperties?.Remove("identification-number"); } }
         private string? _explicitNullValueIdentificationNumber = default!;
 #nullable restore
 #else
-        public string IdentificationNumber { get => _explicitNullValueIdentificationNumber; set { _explicitNullValueIdentificationNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identification-number"); else _explicitNullProperties?.Remove("identification-number"); } }
+        public string IdentificationNumber { get => _explicitNullValueIdentificationNumber; set { _explicitNullValueIdentificationNumber = value; AdditionalData?.Remove("identification-number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("identification-number"); else _explicitNullProperties?.Remove("identification-number"); } }
         private string _explicitNullValueIdentificationNumber = default!;
 #endif
         /// <summary>The kanaName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KanaName { get => _explicitNullValueKanaName; set { _explicitNullValueKanaName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kana-name"); else _explicitNullProperties?.Remove("kana-name"); } }
+        public string? KanaName { get => _explicitNullValueKanaName; set { _explicitNullValueKanaName = value; AdditionalData?.Remove("kana-name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kana-name"); else _explicitNullProperties?.Remove("kana-name"); } }
         private string? _explicitNullValueKanaName = default!;
 #nullable restore
 #else
-        public string KanaName { get => _explicitNullValueKanaName; set { _explicitNullValueKanaName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kana-name"); else _explicitNullProperties?.Remove("kana-name"); } }
+        public string KanaName { get => _explicitNullValueKanaName; set { _explicitNullValueKanaName = value; AdditionalData?.Remove("kana-name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kana-name"); else _explicitNullProperties?.Remove("kana-name"); } }
         private string _explicitNullValueKanaName = default!;
 #endif
         /// <summary>Identification number scanned from drivers license. Deprecated in favor of identification-number.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LicenseNumber { get => _explicitNullValueLicenseNumber; set { _explicitNullValueLicenseNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license-number"); else _explicitNullProperties?.Remove("license-number"); } }
+        public string? LicenseNumber { get => _explicitNullValueLicenseNumber; set { _explicitNullValueLicenseNumber = value; AdditionalData?.Remove("license-number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license-number"); else _explicitNullProperties?.Remove("license-number"); } }
         private string? _explicitNullValueLicenseNumber = default!;
 #nullable restore
 #else
-        public string LicenseNumber { get => _explicitNullValueLicenseNumber; set { _explicitNullValueLicenseNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license-number"); else _explicitNullProperties?.Remove("license-number"); } }
+        public string LicenseNumber { get => _explicitNullValueLicenseNumber; set { _explicitNullValueLicenseNumber = value; AdditionalData?.Remove("license-number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license-number"); else _explicitNullProperties?.Remove("license-number"); } }
         private string _explicitNullValueLicenseNumber = default!;
 #endif
         /// <summary>Restrictions in effect on the bearer&apos;s driver&apos;s license, captured as free text from a scanned driver&apos;s license.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? LicenseRestrictions { get => _explicitNullValueLicenseRestrictions; set { _explicitNullValueLicenseRestrictions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license-restrictions"); else _explicitNullProperties?.Remove("license-restrictions"); } }
+        public List<string>? LicenseRestrictions { get => _explicitNullValueLicenseRestrictions; set { _explicitNullValueLicenseRestrictions = value; AdditionalData?.Remove("license-restrictions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license-restrictions"); else _explicitNullProperties?.Remove("license-restrictions"); } }
         private List<string>? _explicitNullValueLicenseRestrictions = default!;
 #nullable restore
 #else
-        public List<string> LicenseRestrictions { get => _explicitNullValueLicenseRestrictions; set { _explicitNullValueLicenseRestrictions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license-restrictions"); else _explicitNullProperties?.Remove("license-restrictions"); } }
+        public List<string> LicenseRestrictions { get => _explicitNullValueLicenseRestrictions; set { _explicitNullValueLicenseRestrictions = value; AdditionalData?.Remove("license-restrictions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("license-restrictions"); else _explicitNullProperties?.Remove("license-restrictions"); } }
         private List<string> _explicitNullValueLicenseRestrictions = default!;
 #endif
         /// <summary>Expiration date read from the My Number card, set when a My Number card read operation was performed.</summary>
-        public Date? MyNumberCardExpirationDate { get => _explicitNullValueMyNumberCardExpirationDate; set { _explicitNullValueMyNumberCardExpirationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("my-number-card-expiration-date"); else _explicitNullProperties?.Remove("my-number-card-expiration-date"); } }
+        public Date? MyNumberCardExpirationDate { get => _explicitNullValueMyNumberCardExpirationDate; set { _explicitNullValueMyNumberCardExpirationDate = value; AdditionalData?.Remove("my-number-card-expiration-date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("my-number-card-expiration-date"); else _explicitNullProperties?.Remove("my-number-card-expiration-date"); } }
         private Date? _explicitNullValueMyNumberCardExpirationDate = default!;
         /// <summary>The nameFull property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NameFull { get => _explicitNullValueNameFull; set { _explicitNullValueNameFull = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-full"); else _explicitNullProperties?.Remove("name-full"); } }
+        public string? NameFull { get => _explicitNullValueNameFull; set { _explicitNullValueNameFull = value; AdditionalData?.Remove("name-full"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-full"); else _explicitNullProperties?.Remove("name-full"); } }
         private string? _explicitNullValueNameFull = default!;
 #nullable restore
 #else
-        public string NameFull { get => _explicitNullValueNameFull; set { _explicitNullValueNameFull = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-full"); else _explicitNullProperties?.Remove("name-full"); } }
+        public string NameFull { get => _explicitNullValueNameFull; set { _explicitNullValueNameFull = value; AdditionalData?.Remove("name-full"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name-full"); else _explicitNullProperties?.Remove("name-full"); } }
         private string _explicitNullValueNameFull = default!;
 #endif
         /// <summary>The operation performed against the NFC card.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Operation { get => _explicitNullValueOperation; set { _explicitNullValueOperation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operation"); else _explicitNullProperties?.Remove("operation"); } }
+        public string? Operation { get => _explicitNullValueOperation; set { _explicitNullValueOperation = value; AdditionalData?.Remove("operation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operation"); else _explicitNullProperties?.Remove("operation"); } }
         private string? _explicitNullValueOperation = default!;
 #nullable restore
 #else
-        public string Operation { get => _explicitNullValueOperation; set { _explicitNullValueOperation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operation"); else _explicitNullProperties?.Remove("operation"); } }
+        public string Operation { get => _explicitNullValueOperation; set { _explicitNullValueOperation = value; AdditionalData?.Remove("operation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operation"); else _explicitNullProperties?.Remove("operation"); } }
         private string _explicitNullValueOperation = default!;
 #endif
         /// <summary>The time the verification was redacted in ISO 8601 format</summary>
-        public DateTimeOffset? RedactedAt { get => _explicitNullValueRedactedAt; set { _explicitNullValueRedactedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted-at"); else _explicitNullProperties?.Remove("redacted-at"); } }
+        public DateTimeOffset? RedactedAt { get => _explicitNullValueRedactedAt; set { _explicitNullValueRedactedAt = value; AdditionalData?.Remove("redacted-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redacted-at"); else _explicitNullProperties?.Remove("redacted-at"); } }
         private DateTimeOffset? _explicitNullValueRedactedAt = default!;
         /// <summary>Expiration date read from a residence card, set when a residence card read operation was performed.</summary>
-        public Date? ResidenceCardExpirationDate { get => _explicitNullValueResidenceCardExpirationDate; set { _explicitNullValueResidenceCardExpirationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("residence-card-expiration-date"); else _explicitNullProperties?.Remove("residence-card-expiration-date"); } }
+        public Date? ResidenceCardExpirationDate { get => _explicitNullValueResidenceCardExpirationDate; set { _explicitNullValueResidenceCardExpirationDate = value; AdditionalData?.Remove("residence-card-expiration-date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("residence-card-expiration-date"); else _explicitNullProperties?.Remove("residence-card-expiration-date"); } }
         private Date? _explicitNullValueResidenceCardExpirationDate = default!;
         /// <summary>Portrait photo of the bearer extracted from the NFC card, when present.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto? SelfiePhoto { get => _explicitNullValueSelfiePhoto; set { _explicitNullValueSelfiePhoto = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-photo"); else _explicitNullProperties?.Remove("selfie-photo"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto? SelfiePhoto { get => _explicitNullValueSelfiePhoto; set { _explicitNullValueSelfiePhoto = value; AdditionalData?.Remove("selfie-photo"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-photo"); else _explicitNullProperties?.Remove("selfie-photo"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto? _explicitNullValueSelfiePhoto = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto SelfiePhoto { get => _explicitNullValueSelfiePhoto; set { _explicitNullValueSelfiePhoto = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-photo"); else _explicitNullProperties?.Remove("selfie-photo"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto SelfiePhoto { get => _explicitNullValueSelfiePhoto; set { _explicitNullValueSelfiePhoto = value; AdditionalData?.Remove("selfie-photo"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfie-photo"); else _explicitNullProperties?.Remove("selfie-photo"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesAllOf2SelfiePhoto _explicitNullValueSelfiePhoto = default!;
 #endif
         /// <summary>Extracted sex designation from the scanned card.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Sex { get => _explicitNullValueSex; set { _explicitNullValueSex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sex"); else _explicitNullProperties?.Remove("sex"); } }
+        public string? Sex { get => _explicitNullValueSex; set { _explicitNullValueSex = value; AdditionalData?.Remove("sex"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sex"); else _explicitNullProperties?.Remove("sex"); } }
         private string? _explicitNullValueSex = default!;
 #nullable restore
 #else
-        public string Sex { get => _explicitNullValueSex; set { _explicitNullValueSex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sex"); else _explicitNullProperties?.Remove("sex"); } }
+        public string Sex { get => _explicitNullValueSex; set { _explicitNullValueSex = value; AdditionalData?.Remove("sex"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sex"); else _explicitNullProperties?.Remove("sex"); } }
         private string _explicitNullValueSex = default!;
 #endif
         /// <summary>Expiration date of the signing certificate read from the card, set when a digital signature operation was performed.</summary>
-        public Date? SigningCertExpirationDate { get => _explicitNullValueSigningCertExpirationDate; set { _explicitNullValueSigningCertExpirationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signing-cert-expiration-date"); else _explicitNullProperties?.Remove("signing-cert-expiration-date"); } }
+        public Date? SigningCertExpirationDate { get => _explicitNullValueSigningCertExpirationDate; set { _explicitNullValueSigningCertExpirationDate = value; AdditionalData?.Remove("signing-cert-expiration-date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signing-cert-expiration-date"); else _explicitNullProperties?.Remove("signing-cert-expiration-date"); } }
         private Date? _explicitNullValueSigningCertExpirationDate = default!;
         /// <summary>The status of the verificationPossible values:- initiated- submitted- tentatively_passed (only for `verification/document` and `verification/qes-infocert`)- tentatively_failed (only for `verification/database-business` and `verification/database-business-footprint`)- passed- failed- requires_retry- skipped- canceled- confirmed (only for `verification/email-address` and `verification/phone-number`)Do not assume this is a static enumeration; Persona may add new values inthe future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>The time the verification was submitted in ISO 8601 format</summary>
-        public DateTimeOffset? SubmittedAt { get => _explicitNullValueSubmittedAt; set { _explicitNullValueSubmittedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submitted-at"); else _explicitNullProperties?.Remove("submitted-at"); } }
+        public DateTimeOffset? SubmittedAt { get => _explicitNullValueSubmittedAt; set { _explicitNullValueSubmittedAt = value; AdditionalData?.Remove("submitted-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submitted-at"); else _explicitNullProperties?.Remove("submitted-at"); } }
         private DateTimeOffset? _explicitNullValueSubmittedAt = default!;
         /// <summary>The time the verification was submitted in Unix timestamp format</summary>
-        public int? SubmittedAtTs { get => _explicitNullValueSubmittedAtTs; set { _explicitNullValueSubmittedAtTs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submitted-at-ts"); else _explicitNullProperties?.Remove("submitted-at-ts"); } }
+        public int? SubmittedAtTs { get => _explicitNullValueSubmittedAtTs; set { _explicitNullValueSubmittedAtTs = value; AdditionalData?.Remove("submitted-at-ts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submitted-at-ts"); else _explicitNullProperties?.Remove("submitted-at-ts"); } }
         private int? _explicitNullValueSubmittedAtTs = default!;
         /// <summary>Tags on the verification</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; AdditionalData?.Remove("tags"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
         private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>Vehicle classes the bearer is licensed for, extracted from a scanned driver&apos;s license.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesVehicleClasses? VehicleClasses { get => _explicitNullValueVehicleClasses; set { _explicitNullValueVehicleClasses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vehicle-classes"); else _explicitNullProperties?.Remove("vehicle-classes"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesVehicleClasses? VehicleClasses { get => _explicitNullValueVehicleClasses; set { _explicitNullValueVehicleClasses = value; AdditionalData?.Remove("vehicle-classes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vehicle-classes"); else _explicitNullProperties?.Remove("vehicle-classes"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesVehicleClasses? _explicitNullValueVehicleClasses = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesVehicleClasses VehicleClasses { get => _explicitNullValueVehicleClasses; set { _explicitNullValueVehicleClasses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vehicle-classes"); else _explicitNullProperties?.Remove("vehicle-classes"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesVehicleClasses VehicleClasses { get => _explicitNullValueVehicleClasses; set { _explicitNullValueVehicleClasses = value; AdditionalData?.Remove("vehicle-classes"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vehicle-classes"); else _explicitNullProperties?.Remove("vehicle-classes"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.VerificationJpMyNumberNfcScanAttributesVehicleClasses _explicitNullValueVehicleClasses = default!;
 #endif
         /// <summary>

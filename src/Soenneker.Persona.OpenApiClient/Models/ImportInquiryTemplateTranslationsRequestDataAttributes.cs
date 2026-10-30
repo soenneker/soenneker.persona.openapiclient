@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("translations") is { } nullNodeTranslations && nullNodeTranslations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Translations = null;
+            if (parseNode.GetChildNode("translations") is null) { _explicitNullValueTranslations = default!; _explicitNullProperties?.Remove("translations"); }
+            else if (parseNode.GetChildNode("translations") is { } nullNodeTranslations && nullNodeTranslations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Translations = null;
         }
 
         /// <summary>The translations property</summary>

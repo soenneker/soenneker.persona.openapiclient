@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("importer-pipeline") is { } nullNodeImporterPipeline && nullNodeImporterPipeline.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImporterPipeline = null;
+            if (parseNode.GetChildNode("importer-pipeline") is null) { _explicitNullValueImporterPipeline = default!; _explicitNullProperties?.Remove("importer-pipeline"); }
+            else if (parseNode.GetChildNode("importer-pipeline") is { } nullNodeImporterPipeline && nullNodeImporterPipeline.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImporterPipeline = null;
         }
 
         /// <summary>The importerPipeline property</summary>

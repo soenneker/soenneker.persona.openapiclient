@@ -17,10 +17,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("day") is { } nullNodeDay && nullNodeDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Day = null;
-            if (parseNode.GetChildNode("granularity") is { } nullNodeGranularity && nullNodeGranularity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Granularity = null;
-            if (parseNode.GetChildNode("month") is { } nullNodeMonth && nullNodeMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Month = null;
-            if (parseNode.GetChildNode("year") is { } nullNodeYear && nullNodeYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Year = null;
+            if (parseNode.GetChildNode("day") is null) { _explicitNullValueDay = default!; _explicitNullProperties?.Remove("day"); }
+            else if (parseNode.GetChildNode("day") is { } nullNodeDay && nullNodeDay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Day = null;
+            if (parseNode.GetChildNode("granularity") is null) { _explicitNullValueGranularity = default!; _explicitNullProperties?.Remove("granularity"); }
+            else if (parseNode.GetChildNode("granularity") is { } nullNodeGranularity && nullNodeGranularity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Granularity = null;
+            if (parseNode.GetChildNode("month") is null) { _explicitNullValueMonth = default!; _explicitNullProperties?.Remove("month"); }
+            else if (parseNode.GetChildNode("month") is { } nullNodeMonth && nullNodeMonth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Month = null;
+            if (parseNode.GetChildNode("year") is null) { _explicitNullValueYear = default!; _explicitNullProperties?.Remove("year"); }
+            else if (parseNode.GetChildNode("year") is { } nullNodeYear && nullNodeYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Year = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,41 +32,41 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The day property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Day { get => _explicitNullValueDay; set { _explicitNullValueDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("day"); else _explicitNullProperties?.Remove("day"); } }
+        public string? Day { get => _explicitNullValueDay; set { _explicitNullValueDay = value; AdditionalData?.Remove("day"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("day"); else _explicitNullProperties?.Remove("day"); } }
         private string? _explicitNullValueDay = default!;
 #nullable restore
 #else
-        public string Day { get => _explicitNullValueDay; set { _explicitNullValueDay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("day"); else _explicitNullProperties?.Remove("day"); } }
+        public string Day { get => _explicitNullValueDay; set { _explicitNullValueDay = value; AdditionalData?.Remove("day"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("day"); else _explicitNullProperties?.Remove("day"); } }
         private string _explicitNullValueDay = default!;
 #endif
         /// <summary>The granularity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Granularity { get => _explicitNullValueGranularity; set { _explicitNullValueGranularity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("granularity"); else _explicitNullProperties?.Remove("granularity"); } }
+        public string? Granularity { get => _explicitNullValueGranularity; set { _explicitNullValueGranularity = value; AdditionalData?.Remove("granularity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("granularity"); else _explicitNullProperties?.Remove("granularity"); } }
         private string? _explicitNullValueGranularity = default!;
 #nullable restore
 #else
-        public string Granularity { get => _explicitNullValueGranularity; set { _explicitNullValueGranularity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("granularity"); else _explicitNullProperties?.Remove("granularity"); } }
+        public string Granularity { get => _explicitNullValueGranularity; set { _explicitNullValueGranularity = value; AdditionalData?.Remove("granularity"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("granularity"); else _explicitNullProperties?.Remove("granularity"); } }
         private string _explicitNullValueGranularity = default!;
 #endif
         /// <summary>The month property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Month { get => _explicitNullValueMonth; set { _explicitNullValueMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month"); else _explicitNullProperties?.Remove("month"); } }
+        public string? Month { get => _explicitNullValueMonth; set { _explicitNullValueMonth = value; AdditionalData?.Remove("month"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month"); else _explicitNullProperties?.Remove("month"); } }
         private string? _explicitNullValueMonth = default!;
 #nullable restore
 #else
-        public string Month { get => _explicitNullValueMonth; set { _explicitNullValueMonth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month"); else _explicitNullProperties?.Remove("month"); } }
+        public string Month { get => _explicitNullValueMonth; set { _explicitNullValueMonth = value; AdditionalData?.Remove("month"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("month"); else _explicitNullProperties?.Remove("month"); } }
         private string _explicitNullValueMonth = default!;
 #endif
         /// <summary>The year property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Year { get => _explicitNullValueYear; set { _explicitNullValueYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("year"); else _explicitNullProperties?.Remove("year"); } }
+        public string? Year { get => _explicitNullValueYear; set { _explicitNullValueYear = value; AdditionalData?.Remove("year"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("year"); else _explicitNullProperties?.Remove("year"); } }
         private string? _explicitNullValueYear = default!;
 #nullable restore
 #else
-        public string Year { get => _explicitNullValueYear; set { _explicitNullValueYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("year"); else _explicitNullProperties?.Remove("year"); } }
+        public string Year { get => _explicitNullValueYear; set { _explicitNullValueYear = value; AdditionalData?.Remove("year"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("year"); else _explicitNullProperties?.Remove("year"); } }
         private string _explicitNullValueYear = default!;
 #endif
         /// <summary>

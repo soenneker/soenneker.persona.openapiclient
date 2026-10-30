@@ -18,8 +18,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("attribute") is { } nullNodeAttribute && nullNodeAttribute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attribute = null;
-            if (parseNode.GetChildNode("direction") is { } nullNodeDirection && nullNodeDirection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Direction = null;
+            if (parseNode.GetChildNode("attribute") is null) { _explicitNullValueAttribute = default!; _explicitNullProperties?.Remove("attribute"); }
+            else if (parseNode.GetChildNode("attribute") is { } nullNodeAttribute && nullNodeAttribute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attribute = null;
+            if (parseNode.GetChildNode("direction") is null) { _explicitNullValueDirection = default!; _explicitNullProperties?.Remove("direction"); }
+            else if (parseNode.GetChildNode("direction") is { } nullNodeDirection && nullNodeDirection.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Direction = null;
         }
 
         /// <summary>The attribute name to sort by. Only `updated_at` is supported.</summary>

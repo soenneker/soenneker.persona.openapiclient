@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("destination-id") is { } nullNodeDestinationId && nullNodeDestinationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationId = null;
+            if (parseNode.GetChildNode("destination-id") is null) { _explicitNullValueDestinationId = default!; _explicitNullProperties?.Remove("destination-id"); }
+            else if (parseNode.GetChildNode("destination-id") is { } nullNodeDestinationId && nullNodeDestinationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationId = null;
         }
 
         /// <summary>The ID of the existing destination object to hydrate. Omit this attribute, orthe entire request body, to clone the source into a new destination object.</summary>

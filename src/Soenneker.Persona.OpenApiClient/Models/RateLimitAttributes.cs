@@ -17,9 +17,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("limit") is { } nullNodeLimit && nullNodeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limit = null;
-            if (parseNode.GetChildNode("remaining") is { } nullNodeRemaining && nullNodeRemaining.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Remaining = null;
-            if (parseNode.GetChildNode("seconds-to-reset") is { } nullNodeSecondsToReset && nullNodeSecondsToReset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecondsToReset = null;
+            if (parseNode.GetChildNode("limit") is null) { _explicitNullValueLimit = default!; _explicitNullProperties?.Remove("limit"); }
+            else if (parseNode.GetChildNode("limit") is { } nullNodeLimit && nullNodeLimit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limit = null;
+            if (parseNode.GetChildNode("remaining") is null) { _explicitNullValueRemaining = default!; _explicitNullProperties?.Remove("remaining"); }
+            else if (parseNode.GetChildNode("remaining") is { } nullNodeRemaining && nullNodeRemaining.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Remaining = null;
+            if (parseNode.GetChildNode("seconds-to-reset") is null) { _explicitNullValueSecondsToReset = default!; _explicitNullProperties?.Remove("seconds-to-reset"); }
+            else if (parseNode.GetChildNode("seconds-to-reset") is { } nullNodeSecondsToReset && nullNodeSecondsToReset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecondsToReset = null;
         }
 
         /// <summary>The maximum number of requests allowed in the current time window</summary>

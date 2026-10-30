@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("business-name") is { } nullNodeBusinessName && nullNodeBusinessName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessName = null;
+            if (parseNode.GetChildNode("business-name") is null) { _explicitNullValueBusinessName = default!; _explicitNullProperties?.Remove("business-name"); }
+            else if (parseNode.GetChildNode("business-name") is { } nullNodeBusinessName && nullNodeBusinessName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BusinessName = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The businessName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BusinessName { get => _explicitNullValueBusinessName; set { _explicitNullValueBusinessName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business-name"); else _explicitNullProperties?.Remove("business-name"); } }
+        public string? BusinessName { get => _explicitNullValueBusinessName; set { _explicitNullValueBusinessName = value; AdditionalData?.Remove("business-name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business-name"); else _explicitNullProperties?.Remove("business-name"); } }
         private string? _explicitNullValueBusinessName = default!;
 #nullable restore
 #else
-        public string BusinessName { get => _explicitNullValueBusinessName; set { _explicitNullValueBusinessName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business-name"); else _explicitNullProperties?.Remove("business-name"); } }
+        public string BusinessName { get => _explicitNullValueBusinessName; set { _explicitNullValueBusinessName = value; AdditionalData?.Remove("business-name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("business-name"); else _explicitNullProperties?.Remove("business-name"); } }
         private string _explicitNullValueBusinessName = default!;
 #endif
         /// <summary>

@@ -17,9 +17,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("connection-id") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
-            if (parseNode.GetChildNode("expires-in-seconds") is { } nullNodeExpiresInSeconds && nullNodeExpiresInSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresInSeconds = null;
-            if (parseNode.GetChildNode("source-id") is { } nullNodeSourceId && nullNodeSourceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceId = null;
+            if (parseNode.GetChildNode("connection-id") is null) { _explicitNullValueConnectionId = default!; _explicitNullProperties?.Remove("connection-id"); }
+            else if (parseNode.GetChildNode("connection-id") is { } nullNodeConnectionId && nullNodeConnectionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConnectionId = null;
+            if (parseNode.GetChildNode("expires-in-seconds") is null) { _explicitNullValueExpiresInSeconds = default!; _explicitNullProperties?.Remove("expires-in-seconds"); }
+            else if (parseNode.GetChildNode("expires-in-seconds") is { } nullNodeExpiresInSeconds && nullNodeExpiresInSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresInSeconds = null;
+            if (parseNode.GetChildNode("source-id") is null) { _explicitNullValueSourceId = default!; _explicitNullProperties?.Remove("source-id"); }
+            else if (parseNode.GetChildNode("source-id") is { } nullNodeSourceId && nullNodeSourceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceId = null;
         }
 
         /// <summary>The ID of the connect connection</summary>

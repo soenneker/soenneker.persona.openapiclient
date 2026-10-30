@@ -17,27 +17,30 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("payload") is { } nullNodePayload && nullNodePayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Payload = null;
+            if (parseNode.GetChildNode("created-at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created-at"); }
+            else if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("payload") is null) { _explicitNullValuePayload = default!; _explicitNullProperties?.Remove("payload"); }
+            else if (parseNode.GetChildNode("payload") is { } nullNodePayload && nullNodePayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Payload = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Datetime when the event was created.</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("created-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The name property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountUpdatedFieldsName? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.AccountUpdatedFieldsName? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.AccountUpdatedFieldsName? _explicitNullValueName = default!;
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookAccountUpdatedFieldsRequestDataAttributesPayload? Payload { get => _explicitNullValuePayload; set { _explicitNullValuePayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload"); else _explicitNullProperties?.Remove("payload"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookAccountUpdatedFieldsRequestDataAttributesPayload? Payload { get => _explicitNullValuePayload; set { _explicitNullValuePayload = value; AdditionalData?.Remove("payload"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload"); else _explicitNullProperties?.Remove("payload"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.WebhookAccountUpdatedFieldsRequestDataAttributesPayload? _explicitNullValuePayload = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.WebhookAccountUpdatedFieldsRequestDataAttributesPayload Payload { get => _explicitNullValuePayload; set { _explicitNullValuePayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload"); else _explicitNullProperties?.Remove("payload"); } }
+        public global::Soenneker.Persona.OpenApiClient.Models.WebhookAccountUpdatedFieldsRequestDataAttributesPayload Payload { get => _explicitNullValuePayload; set { _explicitNullValuePayload = value; AdditionalData?.Remove("payload"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payload"); else _explicitNullProperties?.Remove("payload"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.WebhookAccountUpdatedFieldsRequestDataAttributesPayload _explicitNullValuePayload = default!;
 #endif
         /// <summary>
@@ -66,7 +69,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "name", n => { Name = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.AccountUpdatedFieldsName>(); } },
+                { "name", n => { var parsed = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.AccountUpdatedFieldsName>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueName = default; _explicitNullProperties?.Remove("name"); AdditionalData["name"] = unknown; } else { Name = parsed; AdditionalData.Remove("name"); } } },
                 { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WebhookAccountUpdatedFieldsRequestDataAttributesPayload>(global::Soenneker.Persona.OpenApiClient.Models.WebhookAccountUpdatedFieldsRequestDataAttributesPayload.CreateFromDiscriminatorValue); } },
             };
         }

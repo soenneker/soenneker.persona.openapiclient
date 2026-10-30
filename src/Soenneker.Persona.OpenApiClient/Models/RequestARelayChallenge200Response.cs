@@ -17,9 +17,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("challenge") is { } nullNodeChallenge && nullNodeChallenge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Challenge = null;
-            if (parseNode.GetChildNode("token-key") is { } nullNodeTokenKey && nullNodeTokenKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenKey = null;
-            if (parseNode.GetChildNode("token-key-id") is { } nullNodeTokenKeyId && nullNodeTokenKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenKeyId = null;
+            if (parseNode.GetChildNode("challenge") is null) { _explicitNullValueChallenge = default!; _explicitNullProperties?.Remove("challenge"); }
+            else if (parseNode.GetChildNode("challenge") is { } nullNodeChallenge && nullNodeChallenge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Challenge = null;
+            if (parseNode.GetChildNode("token-key") is null) { _explicitNullValueTokenKey = default!; _explicitNullProperties?.Remove("token-key"); }
+            else if (parseNode.GetChildNode("token-key") is { } nullNodeTokenKey && nullNodeTokenKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenKey = null;
+            if (parseNode.GetChildNode("token-key-id") is null) { _explicitNullValueTokenKeyId = default!; _explicitNullProperties?.Remove("token-key-id"); }
+            else if (parseNode.GetChildNode("token-key-id") is { } nullNodeTokenKeyId && nullNodeTokenKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenKeyId = null;
         }
 
         /// <summary>base64url-encoded PrivateToken challenge object (RFC 9577). Pass this to the Privacy Pass issuance flow to obtain a token.</summary>

@@ -17,7 +17,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("run-sync") is { } nullNodeRunSync && nullNodeRunSync.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunSync = null;
+            if (parseNode.GetChildNode("run-sync") is null) { _explicitNullValueRunSync = default!; _explicitNullProperties?.Remove("run-sync"); }
+            else if (parseNode.GetChildNode("run-sync") is { } nullNodeRunSync && nullNodeRunSync.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RunSync = null;
         }
 
         /// <summary>If true, the query will run synchronously and results will be returned in the response. If false, the query will run asynchronously and you will have to poll for results.</summary>

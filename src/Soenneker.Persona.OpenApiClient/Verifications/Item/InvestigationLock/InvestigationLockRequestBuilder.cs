@@ -85,7 +85,7 @@ namespace Soenneker.Persona.OpenApiClient.Verifications.Item.InvestigationLock
         public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::Soenneker.Persona.OpenApiClient.Verifications.Item.InvestigationLock.InvestigationLockRequestBuilder.InvestigationLockRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.withpersona.com/api/v1", "/verifications/{verificationId}/investigation-lock", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

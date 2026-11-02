@@ -149,8 +149,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         private string _explicitNullValuePhoneRiskRecommendation = default!;
 #endif
         /// <summary>Risk score out of 1000</summary>
-        public int? PhoneRiskScore { get => _explicitNullValuePhoneRiskScore; set { _explicitNullValuePhoneRiskScore = value; AdditionalData?.Remove("phone-risk-score"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone-risk-score"); else _explicitNullProperties?.Remove("phone-risk-score"); } }
-        private int? _explicitNullValuePhoneRiskScore = default!;
+        public long? PhoneRiskScore { get => _explicitNullValuePhoneRiskScore; set { _explicitNullValuePhoneRiskScore = value; AdditionalData?.Remove("phone-risk-score"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone-risk-score"); else _explicitNullProperties?.Remove("phone-risk-score"); } }
+        private long? _explicitNullValuePhoneRiskScore = default!;
         /// <summary>The risk of a fraudulent SIM swapPossible values:- very-low- low- medium- high- N/ADo not assume this is a static enumeration; Persona may add newvalues in the future without a versioned update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -257,7 +257,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "phone-number", n => { PhoneNumber = n.GetStringValue(); } },
                 { "phone-risk-level", n => { PhoneRiskLevel = n.GetStringValue(); } },
                 { "phone-risk-recommendation", n => { PhoneRiskRecommendation = n.GetStringValue(); } },
-                { "phone-risk-score", n => { PhoneRiskScore = n.GetIntValue(); } },
+                { "phone-risk-score", n => { PhoneRiskScore = n.GetLongValue(); } },
                 { "phone-risk-sim-swap", n => { PhoneRiskSimSwap = n.GetStringValue(); } },
                 { "phone-subdivision", n => { PhoneSubdivision = n.GetStringValue(); } },
                 { "phone-type", n => { PhoneType = n.GetStringValue(); } },
@@ -285,7 +285,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("phone-number", PhoneNumber);
             writer.WriteStringValue("phone-risk-level", PhoneRiskLevel);
             writer.WriteStringValue("phone-risk-recommendation", PhoneRiskRecommendation);
-            writer.WriteIntValue("phone-risk-score", PhoneRiskScore);
+            writer.WriteLongValue("phone-risk-score", PhoneRiskScore);
             writer.WriteStringValue("phone-risk-sim-swap", PhoneRiskSimSwap);
             writer.WriteStringValue("phone-subdivision", PhoneSubdivision);
             writer.WriteStringValue("phone-type", PhoneType);

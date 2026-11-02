@@ -212,8 +212,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public bool? EmailIsValidMx { get => _explicitNullValueEmailIsValidMx; set { _explicitNullValueEmailIsValidMx = value; AdditionalData?.Remove("email-is-valid-mx"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email-is-valid-mx"); else _explicitNullProperties?.Remove("email-is-valid-mx"); } }
         private bool? _explicitNullValueEmailIsValidMx = default!;
         /// <summary>How many days it has been since the email was last seen (Deprecated)</summary>
-        public int? EmailLastSeenDays { get => _explicitNullValueEmailLastSeenDays; set { _explicitNullValueEmailLastSeenDays = value; AdditionalData?.Remove("email-last-seen-days"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email-last-seen-days"); else _explicitNullProperties?.Remove("email-last-seen-days"); } }
-        private int? _explicitNullValueEmailLastSeenDays = default!;
+        public long? EmailLastSeenDays { get => _explicitNullValueEmailLastSeenDays; set { _explicitNullValueEmailLastSeenDays = value; AdditionalData?.Remove("email-last-seen-days"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email-last-seen-days"); else _explicitNullProperties?.Remove("email-last-seen-days"); } }
+        private long? _explicitNullValueEmailLastSeenDays = default!;
         /// <summary>Whether the email has ever been detected for suspected malicious activity (Deprecated)</summary>
         public bool? EmailMaliciousActivityDetected { get => _explicitNullValueEmailMaliciousActivityDetected; set { _explicitNullValueEmailMaliciousActivityDetected = value; AdditionalData?.Remove("email-malicious-activity-detected"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email-malicious-activity-detected"); else _explicitNullProperties?.Remove("email-malicious-activity-detected"); } }
         private bool? _explicitNullValueEmailMaliciousActivityDetected = default!;
@@ -333,7 +333,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "email-is-spoofable", n => { EmailIsSpoofable = n.GetBoolValue(); } },
                 { "email-is-suspicious", n => { EmailIsSuspicious = n.GetBoolValue(); } },
                 { "email-is-valid-mx", n => { EmailIsValidMx = n.GetBoolValue(); } },
-                { "email-last-seen-days", n => { EmailLastSeenDays = n.GetIntValue(); } },
+                { "email-last-seen-days", n => { EmailLastSeenDays = n.GetLongValue(); } },
                 { "email-malicious-activity-detected", n => { EmailMaliciousActivityDetected = n.GetBoolValue(); } },
                 { "email-malicious-activity-detected-recent", n => { EmailMaliciousActivityDetectedRecent = n.GetBoolValue(); } },
                 { "email-reference-count", n => { EmailReferenceCount = n.GetIntValue(); } },
@@ -380,7 +380,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteBoolValue("email-is-spoofable", EmailIsSpoofable);
             writer.WriteBoolValue("email-is-suspicious", EmailIsSuspicious);
             writer.WriteBoolValue("email-is-valid-mx", EmailIsValidMx);
-            writer.WriteIntValue("email-last-seen-days", EmailLastSeenDays);
+            writer.WriteLongValue("email-last-seen-days", EmailLastSeenDays);
             writer.WriteBoolValue("email-malicious-activity-detected", EmailMaliciousActivityDetected);
             writer.WriteBoolValue("email-malicious-activity-detected-recent", EmailMaliciousActivityDetectedRecent);
             writer.WriteIntValue("email-reference-count", EmailReferenceCount);

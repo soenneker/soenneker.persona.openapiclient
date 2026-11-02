@@ -51,12 +51,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "document-file" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentIncludedObjectsItemDocumentIncludedObjectsItemOneOf6(),
+                "document-file" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentIncludedObjectsItemOneOf6Variant(),
                 "inquiry" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentIncludedObjectsItemInquiry(),
-                "inquiry-template" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentIncludedObjectsItemDocumentIncludedObjectsItemOneOf2(),
-                "inquiry-template-version" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentIncludedObjectsItemDocumentIncludedObjectsItemOneOf3(),
-                "template" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentIncludedObjectsItemDocumentIncludedObjectsItemOneOf4(),
-                "transaction" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentIncludedObjectsItemDocumentIncludedObjectsItemOneOf5(),
+                "inquiry-template" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentIncludedObjectsItemOneOf2Variant(),
+                "inquiry-template-version" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentIncludedObjectsItemOneOf3Variant(),
+                "template" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentIncludedObjectsItemOneOf4Variant(),
+                "transaction" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentIncludedObjectsItemOneOf5Variant(),
                 _ => new global::Soenneker.Persona.OpenApiClient.Models.DocumentIncludedObjectsItem(),
             };
         }

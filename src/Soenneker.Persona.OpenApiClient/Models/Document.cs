@@ -51,10 +51,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "document/generic" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentDocumentAnyOf1(),
-                "document/government-id" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentDocumentAnyOf2(),
-                "document/government-id-nfc" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentDocumentAnyOf3(),
-                "document/mdoc" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentDocumentAnyOf4(),
+                "document/generic" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentAnyOf1Variant(),
+                "document/government-id" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentAnyOf2Variant(),
+                "document/government-id-nfc" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentAnyOf3Variant(),
+                "document/mdoc" => new global::Soenneker.Persona.OpenApiClient.Models.DocumentAnyOf4Variant(),
                 _ => new global::Soenneker.Persona.OpenApiClient.Models.Document(),
             };
         }

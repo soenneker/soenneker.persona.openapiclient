@@ -51,14 +51,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "list/browser-fingerprint" => new global::Soenneker.Persona.OpenApiClient.Models.ListListAnyOf1(),
-                "list/country" => new global::Soenneker.Persona.OpenApiClient.Models.ListListAnyOf2(),
-                "list/email-address" => new global::Soenneker.Persona.OpenApiClient.Models.ListListAnyOf3(),
-                "list/geolocation" => new global::Soenneker.Persona.OpenApiClient.Models.ListListAnyOf4(),
-                "list/government-id-number" => new global::Soenneker.Persona.OpenApiClient.Models.ListListAnyOf5(),
-                "list/ip-address" => new global::Soenneker.Persona.OpenApiClient.Models.ListListAnyOf6(),
-                "list/name" => new global::Soenneker.Persona.OpenApiClient.Models.ListListAnyOf7(),
-                "list/phone-number" => new global::Soenneker.Persona.OpenApiClient.Models.ListListAnyOf8(),
+                "list/browser-fingerprint" => new global::Soenneker.Persona.OpenApiClient.Models.ListAnyOf1Variant(),
+                "list/country" => new global::Soenneker.Persona.OpenApiClient.Models.ListAnyOf2Variant(),
+                "list/email-address" => new global::Soenneker.Persona.OpenApiClient.Models.ListAnyOf3Variant(),
+                "list/geolocation" => new global::Soenneker.Persona.OpenApiClient.Models.ListAnyOf4Variant(),
+                "list/government-id-number" => new global::Soenneker.Persona.OpenApiClient.Models.ListAnyOf5Variant(),
+                "list/ip-address" => new global::Soenneker.Persona.OpenApiClient.Models.ListAnyOf6Variant(),
+                "list/name" => new global::Soenneker.Persona.OpenApiClient.Models.ListAnyOf7Variant(),
+                "list/phone-number" => new global::Soenneker.Persona.OpenApiClient.Models.ListAnyOf8Variant(),
                 _ => new global::Soenneker.Persona.OpenApiClient.Models.List(),
             };
         }

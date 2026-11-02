@@ -51,11 +51,11 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "event" => new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItemWorkflowRunIncludedObjectsItemOneOf3(),
-                "scheduled-run" => new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItemWorkflowRunIncludedObjectsItemOneOf5(),
-                "user" => new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItemWorkflowRunIncludedObjectsItemOneOf4(),
-                "workflow" => new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItemWorkflowRunIncludedObjectsItemOneOf1(),
-                "workflow-version" => new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItemWorkflowRunIncludedObjectsItemOneOf2(),
+                "event" => new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItemOneOf3Variant(),
+                "scheduled-run" => new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItemOneOf5Variant(),
+                "user" => new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItemOneOf4Variant(),
+                "workflow" => new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItemOneOf1Variant(),
+                "workflow-version" => new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItemOneOf2Variant(),
                 _ => new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItem(),
             };
         }

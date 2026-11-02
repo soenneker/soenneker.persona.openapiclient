@@ -51,14 +51,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
-                "importer/account" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterImporterOneOf1(),
-                "importer/list-item/email-address" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterImporterOneOf2(),
-                "importer/list-item/field" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterImporterOneOf3(),
-                "importer/list-item/geolocation" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterImporterOneOf4(),
-                "importer/list-item/government-id-number" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterImporterOneOf5(),
-                "importer/list-item/ip-address" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterImporterOneOf6(),
-                "importer/list-item/name" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterImporterOneOf7(),
-                "importer/list-item/phone-number" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterImporterOneOf8(),
+                "importer/account" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterOneOf1Variant(),
+                "importer/list-item/email-address" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterOneOf2Variant(),
+                "importer/list-item/field" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterOneOf3Variant(),
+                "importer/list-item/geolocation" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterOneOf4Variant(),
+                "importer/list-item/government-id-number" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterOneOf5Variant(),
+                "importer/list-item/ip-address" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterOneOf6Variant(),
+                "importer/list-item/name" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterOneOf7Variant(),
+                "importer/list-item/phone-number" => new global::Soenneker.Persona.OpenApiClient.Models.ImporterOneOf8Variant(),
                 _ => new global::Soenneker.Persona.OpenApiClient.Models.Importer(),
             };
         }

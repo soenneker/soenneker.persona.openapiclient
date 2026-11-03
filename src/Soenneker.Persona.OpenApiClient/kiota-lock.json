@@ -2,7 +2,7 @@
   "descriptionHash": "704AB68C5A3BC3104FA4CD2AEFD14659E777EFB0F798F381A1F74B065BD93DA998D128EB90C8F87799C6450FC68E9A90F70723D29724160936570444A213B067",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.37.0",
+  "kiotaVersion": "1.38.0",
   "clientClassName": "PersonaOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Persona.OpenApiClient",

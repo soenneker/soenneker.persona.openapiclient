@@ -34,7 +34,7 @@ namespace Soenneker.Persona.OpenApiClient.Reports.Item.Run
         {
         }
         /// <summary>
-        /// Re-runs a continuously monitored report immediately, outside of its existing recurrence schedule.
+        /// Re-runs a continuously monitored report immediately, outside of its existing recurrence schedule. Connect-cloned reports are snapshots and cannot be re-run; re-running one returns HTTP 409 with error code `resource_state_conflict`.
         /// Full documentation for this API on the Persona website. <see href="https://docs.withpersona.com/api-reference/reports/report-action-re-run-report" />
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ReportActionReRunReport200Response"/></returns>
@@ -72,7 +72,7 @@ namespace Soenneker.Persona.OpenApiClient.Reports.Item.Run
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ReportActionReRunReport200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ReportActionReRunReport200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Re-runs a continuously monitored report immediately, outside of its existing recurrence schedule.
+        /// Re-runs a continuously monitored report immediately, outside of its existing recurrence schedule. Connect-cloned reports are snapshots and cannot be re-run; re-running one returns HTTP 409 with error code `resource_state_conflict`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -100,7 +100,7 @@ namespace Soenneker.Persona.OpenApiClient.Reports.Item.Run
             return new global::Soenneker.Persona.OpenApiClient.Reports.Item.Run.RunRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Re-runs a continuously monitored report immediately, outside of its existing recurrence schedule.
+        /// Re-runs a continuously monitored report immediately, outside of its existing recurrence schedule. Connect-cloned reports are snapshots and cannot be re-run; re-running one returns HTTP 409 with error code `resource_state_conflict`.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RunRequestBuilderPostQueryParameters 

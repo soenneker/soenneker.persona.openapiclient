@@ -17,12 +17,17 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("ref-type") is null) { _explicitNullValueRefType = default!; _explicitNullProperties?.Remove("ref-type"); }
+            else if (parseNode.GetChildNode("ref-type") is { } nullNodeRefType && nullNodeRefType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefType = null;
             if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
             else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
             if (parseNode.GetChildNode("version") is null) { _explicitNullValueVersion = default!; _explicitNullProperties?.Remove("version"); }
             else if (parseNode.GetChildNode("version") is { } nullNodeVersion && nullNodeVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Version = null;
         }
 
+        /// <summary>The strategy runs the named version.</summary>
+        public global::Soenneker.Persona.OpenApiClient.Models.VersionRefType? RefType { get => _explicitNullValueRefType; set { _explicitNullValueRefType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref-type"); else _explicitNullProperties?.Remove("ref-type"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.VersionRefType? _explicitNullValueRefType = default!;
         /// <summary>The type property</summary>
         public global::Soenneker.Persona.OpenApiClient.Models.ConstantType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.ConstantType? _explicitNullValueType = default!;
@@ -54,6 +59,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "ref-type", n => { RefType = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.VersionRefType>(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ConstantType>(); } },
                 { "version", n => { Version = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategyOneOf1Version>(global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategyOneOf1Version.CreateFromDiscriminatorValue); } },
             };
@@ -65,6 +71,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.VersionRefType>("ref-type", RefType);
             writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.ConstantType>("type", Type);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategyOneOf1Version>("version", Version);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             

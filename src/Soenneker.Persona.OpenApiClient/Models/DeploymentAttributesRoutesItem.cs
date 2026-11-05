@@ -39,7 +39,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemEnvironment Environment { get => _explicitNullValueEnvironment; set { _explicitNullValueEnvironment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("environment"); else _explicitNullProperties?.Remove("environment"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemEnvironment _explicitNullValueEnvironment = default!;
 #endif
-        /// <summary>The platform resource type the route targets. `inquiry-template` is the only supported resource type today; `workflow` and `scheduled-run-config` support is planned for a future deploy-manager release.</summary>
+        /// <summary>The platform resource type the route targets. The deployments endpoints return `inquiry-template` routes only; a `deployment.completed` event also carries `workflow` routes. `scheduled-run-config` support is planned for a future deploy-manager release.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ResourceType { get => _explicitNullValueResourceType; set { _explicitNullValueResourceType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource-type"); else _explicitNullProperties?.Remove("resource-type"); } }

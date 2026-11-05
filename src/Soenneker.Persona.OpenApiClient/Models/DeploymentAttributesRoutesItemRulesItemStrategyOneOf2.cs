@@ -17,25 +17,18 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("ref-type") is null) { _explicitNullValueRefType = default!; _explicitNullProperties?.Remove("ref-type"); }
+            else if (parseNode.GetChildNode("ref-type") is { } nullNodeRefType && nullNodeRefType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefType = null;
             if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
             else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
-            if (parseNode.GetChildNode("version-refs") is null) { _explicitNullValueVersionRefs = default!; _explicitNullProperties?.Remove("version-refs"); }
-            else if (parseNode.GetChildNode("version-refs") is { } nullNodeVersionRefs && nullNodeVersionRefs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VersionRefs = null;
         }
 
+        /// <summary>The strategy starts no run (&quot;don&apos;t run&quot;) and names no version.</summary>
+        public global::Soenneker.Persona.OpenApiClient.Models.NoopRefType? RefType { get => _explicitNullValueRefType; set { _explicitNullValueRefType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ref-type"); else _explicitNullProperties?.Remove("ref-type"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.NoopRefType? _explicitNullValueRefType = default!;
         /// <summary>The type property</summary>
-        public global::Soenneker.Persona.OpenApiClient.Models.WeightedRandomType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
-        private global::Soenneker.Persona.OpenApiClient.Models.WeightedRandomType? _explicitNullValueType = default!;
-        /// <summary>The versionRefs property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategyOneOf2VersionRefsItem>? VersionRefs { get => _explicitNullValueVersionRefs; set { _explicitNullValueVersionRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version-refs"); else _explicitNullProperties?.Remove("version-refs"); } }
-        private List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategyOneOf2VersionRefsItem>? _explicitNullValueVersionRefs = default!;
-#nullable restore
-#else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategyOneOf2VersionRefsItem> VersionRefs { get => _explicitNullValueVersionRefs; set { _explicitNullValueVersionRefs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version-refs"); else _explicitNullProperties?.Remove("version-refs"); } }
-        private List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategyOneOf2VersionRefsItem> _explicitNullValueVersionRefs = default!;
-#endif
+        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategyOneOf2Type? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategyOneOf2Type? _explicitNullValueType = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -54,8 +47,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WeightedRandomType>(); } },
-                { "version-refs", n => { VersionRefs = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategyOneOf2VersionRefsItem>(global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategyOneOf2VersionRefsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "ref-type", n => { RefType = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.NoopRefType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategyOneOf2Type>(); } },
             };
         }
         /// <summary>
@@ -65,8 +58,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.WeightedRandomType>("type", Type);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategyOneOf2VersionRefsItem>("version-refs", VersionRefs);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.NoopRefType>("ref-type", RefType);
+            writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItemRulesItemStrategyOneOf2Type>("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

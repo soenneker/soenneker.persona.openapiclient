@@ -21,6 +21,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if (parseNode.GetChildNode("city") is { } nullNodeCity && nullNodeCity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) City = null;
             if (parseNode.GetChildNode("country-code") is null) { _explicitNullValueCountryCode = default!; _explicitNullProperties?.Remove("country-code"); }
             else if (parseNode.GetChildNode("country-code") is { } nullNodeCountryCode && nullNodeCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryCode = null;
+            if (parseNode.GetChildNode("full") is null) { _explicitNullValueFull = default!; _explicitNullProperties?.Remove("full"); }
+            else if (parseNode.GetChildNode("full") is { } nullNodeFull && nullNodeFull.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Full = null;
             if (parseNode.GetChildNode("postal-code") is null) { _explicitNullValuePostalCode = default!; _explicitNullProperties?.Remove("postal-code"); }
             else if (parseNode.GetChildNode("postal-code") is { } nullNodePostalCode && nullNodePostalCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PostalCode = null;
             if (parseNode.GetChildNode("street-1") is null) { _explicitNullValueStreet1 = default!; _explicitNullProperties?.Remove("street-1"); }
@@ -52,6 +54,16 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country-code"); else _explicitNullProperties?.Remove("country-code"); } }
         private string _explicitNullValueCountryCode = default!;
+#endif
+        /// <summary>Full unstructured address</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Full { get => _explicitNullValueFull; set { _explicitNullValueFull = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full"); else _explicitNullProperties?.Remove("full"); } }
+        private string? _explicitNullValueFull = default!;
+#nullable restore
+#else
+        public string Full { get => _explicitNullValueFull; set { _explicitNullValueFull = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full"); else _explicitNullProperties?.Remove("full"); } }
+        private string _explicitNullValueFull = default!;
 #endif
         /// <summary>Postal code</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -123,6 +135,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             {
                 { "city", n => { City = n.GetStringValue(); } },
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
+                { "full", n => { Full = n.GetStringValue(); } },
                 { "postal-code", n => { PostalCode = n.GetStringValue(); } },
                 { "street-1", n => { Street1 = n.GetStringValue(); } },
                 { "street-2", n => { Street2 = n.GetStringValue(); } },
@@ -139,6 +152,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("city", City);
             writer.WriteStringValue("country-code", CountryCode);
+            writer.WriteStringValue("full", Full);
             writer.WriteStringValue("postal-code", PostalCode);
             writer.WriteStringValue("street-1", Street1);
             writer.WriteStringValue("street-2", Street2);

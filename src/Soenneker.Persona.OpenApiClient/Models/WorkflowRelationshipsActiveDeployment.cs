@@ -8,8 +8,9 @@ using System;
 namespace Soenneker.Persona.OpenApiClient.Models
 {
     /// <summary>
-    /// latest active deployment
+    /// latest active deployment. Deprecated; use `deployment-routes`.
     /// </summary>
+    [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WorkflowRelationshipsActiveDeployment : IParsable
     , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {

@@ -51,6 +51,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             return mappingValue switch
             {
+                "deployment-route" => new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItemOneOf6Variant(),
                 "event" => new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItemOneOf3Variant(),
                 "scheduled-run" => new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItemOneOf5Variant(),
                 "user" => new global::Soenneker.Persona.OpenApiClient.Models.WorkflowRunIncludedObjectsItemOneOf4Variant(),

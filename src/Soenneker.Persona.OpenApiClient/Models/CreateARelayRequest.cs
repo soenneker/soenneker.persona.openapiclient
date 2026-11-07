@@ -19,6 +19,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("claim-type") is null) { _explicitNullValueClaimType = default!; _explicitNullProperties?.Remove("claim-type"); }
             else if (parseNode.GetChildNode("claim-type") is { } nullNodeClaimType && nullNodeClaimType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimType = null;
+            if (parseNode.GetChildNode("encryption-key-jwk") is null) { _explicitNullValueEncryptionKeyJwk = default!; _explicitNullProperties?.Remove("encryption-key-jwk"); }
+            else if (parseNode.GetChildNode("encryption-key-jwk") is { } nullNodeEncryptionKeyJwk && nullNodeEncryptionKeyJwk.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncryptionKeyJwk = null;
             if (parseNode.GetChildNode("encryption-key-pem") is null) { _explicitNullValueEncryptionKeyPem = default!; _explicitNullProperties?.Remove("encryption-key-pem"); }
             else if (parseNode.GetChildNode("encryption-key-pem") is { } nullNodeEncryptionKeyPem && nullNodeEncryptionKeyPem.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncryptionKeyPem = null;
             if (parseNode.GetChildNode("sandbox") is null) { _explicitNullValueSandbox = default!; _explicitNullProperties?.Remove("sandbox"); }
@@ -35,7 +37,18 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public string ClaimType { get => _explicitNullValueClaimType; set { _explicitNullValueClaimType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claim-type"); else _explicitNullProperties?.Remove("claim-type"); } }
         private string _explicitNullValueClaimType = default!;
 #endif
-        /// <summary>RSA public key (PEM-encoded, 2048-4096 bits). When non-null, claim payloads returned by subsequent reads will be encrypted with RSA OAEP. Pass `null` to receive unencrypted claim payloads.</summary>
+        /// <summary>Recommended. RSA public key as a JWK (2048-4096 bits) with `kty` `RSA`, `alg` `RSA-OAEP-256`, and `n` and `e`, where `e` must be odd and at least 65537 (`AQAB`). `use`, if present, must be `enc`; `key_ops`, if present, must include `encrypt` or `wrapKey`; private key members are rejected. Claim payloads returned by subsequent reads are compact JWEs (`alg` `RSA-OAEP-256`, `enc` `A256GCM`). An empty or invalid JWK is rejected with a 400. Pass `null` to receive unencrypted claim payloads. At least one of `encryption-key-jwk` or `encryption-key-pem` must be sent, and both cannot be non-null.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.CreateARelayRequestEncryptionKeyJwk? EncryptionKeyJwk { get => _explicitNullValueEncryptionKeyJwk; set { _explicitNullValueEncryptionKeyJwk = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryption-key-jwk"); else _explicitNullProperties?.Remove("encryption-key-jwk"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CreateARelayRequestEncryptionKeyJwk? _explicitNullValueEncryptionKeyJwk = default!;
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.CreateARelayRequestEncryptionKeyJwk EncryptionKeyJwk { get => _explicitNullValueEncryptionKeyJwk; set { _explicitNullValueEncryptionKeyJwk = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryption-key-jwk"); else _explicitNullProperties?.Remove("encryption-key-jwk"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.CreateARelayRequestEncryptionKeyJwk _explicitNullValueEncryptionKeyJwk = default!;
+#endif
+        /// <summary>Deprecated; use `encryption-key-jwk`. RSA public key (PEM-encoded, 2048-4096 bits). When non-null, claim payloads returned by subsequent reads will be encrypted with RSA OAEP (SHA-1), which limits the payload to about 214 bytes for a 2048-bit key. Pass `null` to receive unencrypted claim payloads.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? EncryptionKeyPem { get => _explicitNullValueEncryptionKeyPem; set { _explicitNullValueEncryptionKeyPem = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryption-key-pem"); else _explicitNullProperties?.Remove("encryption-key-pem"); } }
@@ -67,6 +80,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "claim-type", n => { ClaimType = n.GetStringValue(); } },
+                { "encryption-key-jwk", n => { EncryptionKeyJwk = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CreateARelayRequestEncryptionKeyJwk>(global::Soenneker.Persona.OpenApiClient.Models.CreateARelayRequestEncryptionKeyJwk.CreateFromDiscriminatorValue); } },
                 { "encryption-key-pem", n => { EncryptionKeyPem = n.GetStringValue(); } },
                 { "sandbox", n => { Sandbox = n.GetBoolValue(); } },
             };
@@ -79,6 +93,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("claim-type", ClaimType);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.CreateARelayRequestEncryptionKeyJwk>("encryption-key-jwk", EncryptionKeyJwk);
             writer.WriteStringValue("encryption-key-pem", EncryptionKeyPem);
             writer.WriteBoolValue("sandbox", Sandbox);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             

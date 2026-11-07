@@ -8,9 +8,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
     public enum InquiryIncludedObjectsItemOneOf81_type
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "workflow-run")]
+        [EnumMember(Value = "deployment-route")]
         #pragma warning disable CS1591
-        WorkflowRun,
+        DeploymentRoute,
         #pragma warning restore CS1591
     }
 }

@@ -20933,6 +20933,7 @@
                   "Success": {
                     "value": {
                       "claim-payload": "{\u0022claim_type\u0022:\u0022live_human_presence\u0022,\u0022claim_result\u0022:\u0022passed\u0022,\u0022methodology\u0022:[]}",
+                      "claim-payload-encryption": "none",
                       "token-consumed": true
                     }
                   }
@@ -46906,6 +46907,22 @@
           }
         ]
       },
+      "DeploymentRouteAttributesRulesItemStrategy": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf2"
+          },
+          {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3"
+          }
+        ]
+      },
       "WorkflowRunRelationshipsCreatorData": {
         "unevaluatedProperties": {
           "not": {}
@@ -47172,6 +47189,9 @@
           },
           {
             "$ref": "#/components/schemas/InquiryIncludedObjectsItemOneOf81"
+          },
+          {
+            "$ref": "#/components/schemas/InquiryIncludedObjectsItemOneOf82"
           }
         ],
         "x-client-original-discriminator": {
@@ -47259,6 +47279,7 @@
             "verification/selfie": "#/components/schemas/VerificationSelfie",
             "verification/verifiable-credential": "#/components/schemas/VerificationVerifiableCredential",
             "workflow": "#/components/schemas/Workflow",
+            "deployment-route": "#/components/schemas/DeploymentRoute",
             "workflow-run": "#/components/schemas/WorkflowRun"
           }
         }
@@ -49916,7 +49937,8 @@
             "workflow-version": "#/components/schemas/WorkflowVersion",
             "event": "#/components/schemas/EventType",
             "user": "#/components/schemas/User",
-            "scheduled-run": "#/components/schemas/ScheduledRun"
+            "scheduled-run": "#/components/schemas/ScheduledRun",
+            "deployment-route": "#/components/schemas/DeploymentRoute"
           }
         },
         "discriminator": {
@@ -49926,7 +49948,8 @@
             "workflow-version": "#/components/schemas/WorkflowRunIncludedObjectsItemOneOf2Variant",
             "event": "#/components/schemas/WorkflowRunIncludedObjectsItemOneOf3Variant",
             "user": "#/components/schemas/WorkflowRunIncludedObjectsItemOneOf4Variant",
-            "scheduled-run": "#/components/schemas/WorkflowRunIncludedObjectsItemOneOf5Variant"
+            "scheduled-run": "#/components/schemas/WorkflowRunIncludedObjectsItemOneOf5Variant",
+            "deployment-route": "#/components/schemas/WorkflowRunIncludedObjectsItemOneOf6Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -49945,6 +49968,9 @@
             },
             {
               "$ref": "#/components/schemas/WorkflowRunIncludedObjectsItemOneOf5"
+            },
+            {
+              "$ref": "#/components/schemas/WorkflowRunIncludedObjectsItemOneOf6"
             }
           ],
           "x-client-original-discriminator": {
@@ -49954,7 +49980,8 @@
               "workflow-version": "#/components/schemas/WorkflowVersion",
               "event": "#/components/schemas/EventType",
               "user": "#/components/schemas/User",
-              "scheduled-run": "#/components/schemas/ScheduledRun"
+              "scheduled-run": "#/components/schemas/ScheduledRun",
+              "deployment-route": "#/components/schemas/DeploymentRoute"
             }
           },
           "discriminator": {
@@ -49964,7 +49991,8 @@
               "workflow-version": "#/components/schemas/WorkflowRunIncludedObjectsItemOneOf2",
               "event": "#/components/schemas/WorkflowRunIncludedObjectsItemOneOf3",
               "user": "#/components/schemas/WorkflowRunIncludedObjectsItemOneOf4",
-              "scheduled-run": "#/components/schemas/WorkflowRunIncludedObjectsItemOneOf5"
+              "scheduled-run": "#/components/schemas/WorkflowRunIncludedObjectsItemOneOf5",
+              "deployment-route": "#/components/schemas/WorkflowRunIncludedObjectsItemOneOf6"
             }
           }
         },
@@ -50214,6 +50242,61 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/InquiryTemplateVersionAttributesDeploymentsItemRulesItemStrategyOneOf2VersionRefsItem"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentRouteAttributesRulesItemStrategyOneOf1": {
+        "required": [
+          "type",
+          "ref-type",
+          "version"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf1Type"
+          },
+          "ref-type": {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf1RefType"
+          },
+          "version": {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf1Version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentRouteAttributesRulesItemStrategyOneOf2": {
+        "required": [
+          "type",
+          "ref-type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf2Type"
+          },
+          "ref-type": {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf2RefType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentRouteAttributesRulesItemStrategyOneOf3": {
+        "required": [
+          "type",
+          "version-refs"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3Type"
+          },
+          "version-refs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItem"
             }
           }
         },
@@ -51127,6 +51210,26 @@
         ],
         "description": "The version\u0027s serialized deployment tag, when one was minted."
       },
+      "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItem": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1"
+          },
+          {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "ref-type",
+          "mapping": {
+            "version": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1",
+            "noop": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2"
+          }
+        }
+      },
       "ReportBusinessSearchRequestAttributesAllOf2Query": {
         "anyOf": [
           {
@@ -51247,6 +51350,64 @@
           "created-at": {
             "type": "string",
             "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1": {
+        "required": [
+          "ref-type",
+          "version",
+          "weight"
+        ],
+        "type": "object",
+        "properties": {
+          "ref-type": {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1RefType"
+          },
+          "version": {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1Version"
+          },
+          "weight": {
+            "examples": [
+              10
+            ],
+            "type": "integer",
+            "description": "The ref\u0027s weight within the weighted split."
+          },
+          "label": {
+            "examples": [
+              "treatment"
+            ],
+            "type": "string",
+            "description": "The arm of the split this ref is, \u0060treatment\u0060 or \u0060control\u0060."
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2": {
+        "required": [
+          "ref-type",
+          "weight"
+        ],
+        "type": "object",
+        "properties": {
+          "ref-type": {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2RefType"
+          },
+          "weight": {
+            "examples": [
+              90
+            ],
+            "type": "integer",
+            "description": "The ref\u0027s weight within the weighted split."
+          },
+          "label": {
+            "examples": [
+              "control"
+            ],
+            "type": "string",
+            "description": "The arm of the split this ref is, \u0060treatment\u0060 or \u0060control\u0060."
           }
         },
         "additionalProperties": false
@@ -53634,6 +53795,56 @@
           },
           "active-deployment": {
             "$ref": "#/components/schemas/WorkflowRelationshipsActiveDeployment"
+          },
+          "deployment-routes": {
+            "$ref": "#/components/schemas/WorkflowRelationshipsDeploymentRoutes"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentRouteAttributes": {
+        "type": "object",
+        "properties": {
+          "resource-type": {
+            "examples": [
+              "workflow"
+            ],
+            "type": "string",
+            "description": "The platform resource type the route targets."
+          },
+          "template-id": {
+            "examples": [
+              "wfl_3JqAR9ddLRVZLK5z4yD8oeHB"
+            ],
+            "type": "string",
+            "description": "The token of the resource template the route targets."
+          },
+          "environment": {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesEnvironment"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItem"
+            },
+            "description": "The routing rules evaluated for the key. A \u0060noop\u0060 ref runs nothing, and a weighted split\u0027s refs carry the label of their arm, \u0060treatment\u0060 or \u0060control\u0060."
+          },
+          "created-at": {
+            "examples": [
+              "2026-10-29T11:00:00.000Z"
+            ],
+            "type": "string",
+            "description": "When this environment\u0027s route was written.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentRouteRelationships": {
+        "type": "object",
+        "properties": {
+          "deployment": {
+            "$ref": "#/components/schemas/DeploymentRouteRelationshipsDeployment"
           }
         },
         "additionalProperties": false
@@ -57360,6 +57571,26 @@
         },
         "description": "The portrait photo extracted from the mobile document credential."
       },
+      "DeploymentRouteAttributesRulesItemStrategyOneOf1Version": {
+        "required": [
+          "token",
+          "tag"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "examples": [
+              "wfv_ZW6bqnQGWw1fzT3N3Brd8mKS"
+            ],
+            "type": "string",
+            "description": "The resource version\u0027s token."
+          },
+          "tag": {
+            "$ref": "#/components/schemas/VersionTag"
+          }
+        },
+        "additionalProperties": false
+      },
       "ReportScreeningAttributesAllOf2Query": {
         "type": [
           "null",
@@ -58632,6 +58863,26 @@
         "properties": {
           "token": {
             "type": "string"
+          },
+          "tag": {
+            "$ref": "#/components/schemas/VersionTag"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1Version": {
+        "required": [
+          "token",
+          "tag"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "examples": [
+              "wfv_ZW6bqnQGWw1fzT3N3Brd8mKS"
+            ],
+            "type": "string",
+            "description": "The resource version\u0027s token."
           },
           "tag": {
             "$ref": "#/components/schemas/VersionTag"
@@ -60253,7 +60504,69 @@
           }
         },
         "additionalProperties": false,
-        "description": "latest active deployment"
+        "description": "latest active deployment. Deprecated; use \u0060deployment-routes\u0060.",
+        "deprecated": true
+      },
+      "WorkflowRelationshipsDeploymentRoutes": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WorkflowRelationshipsDeploymentRoutesDataItem"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "description": "The workflow\u0027s current deployment route in the caller\u0027s environment: the API key\u0027s on a request, the webhook\u0027s on a delivery. Empty when the workflow isn\u0027t deployed there. Visible to any credential that can read the workflow, as \u0060active-deployment\u0060 is."
+      },
+      "DeploymentRouteAttributesEnvironment": {
+        "required": [
+          "token",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "examples": [
+              "env_2VpXc7nMqZwKjRfLsGdYb8Ht"
+            ],
+            "type": "string"
+          },
+          "name": {
+            "examples": [
+              "production"
+            ],
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The environment the route applies to."
+      },
+      "DeploymentRouteAttributesRulesItem": {
+        "required": [
+          "strategy"
+        ],
+        "type": "object",
+        "properties": {
+          "criteria": {
+            "$ref": "#/components/schemas/RouteCriteria"
+          },
+          "strategy": {
+            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategy"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentRouteRelationshipsDeployment": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/DeploymentRouteRelationshipsDeploymentData"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The deployment that wrote the route."
       },
       "WorkflowRunRelationshipsCreator": {
         "type": "object",
@@ -64262,6 +64575,30 @@
         },
         "additionalProperties": false
       },
+      "WorkflowRelationshipsDeploymentRoutesDataItem": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/WorkflowRelationshipsDeploymentRoutesDataItemType"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeploymentRouteRelationshipsDeploymentData": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/DeploymentRouteRelationshipsDeploymentDataType"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "WorkflowRunRelationshipsWorkflowData": {
         "type": "object",
         "properties": {
@@ -67722,8 +68059,7 @@
       },
       "CreateARelayRequest": {
         "required": [
-          "claim-type",
-          "encryption-key-pem"
+          "claim-type"
         ],
         "type": "object",
         "properties": {
@@ -67734,12 +68070,16 @@
             "type": "string",
             "description": "Possible values:\n- live_human_presence\n- age_over18_germany\n- age_over18_united_kingdom\n- age_over18_verified\n- age_over18_france\n- age_over18_italy\n- age_over18_brazil\n- age_over18_australia\n- age_over16_australia\n- age_over21_verified\n\nDo not assume this is a static enumeration; Persona may add new claim\ntypes in the future without a versioned update."
           },
+          "encryption-key-jwk": {
+            "$ref": "#/components/schemas/CreateARelayRequestEncryptionKeyJwk"
+          },
           "encryption-key-pem": {
             "type": [
               "null",
               "string"
             ],
-            "description": "RSA public key (PEM-encoded, 2048-4096 bits). When non-null, claim payloads returned by subsequent reads will be encrypted with RSA OAEP. Pass \u0060null\u0060 to receive unencrypted claim payloads."
+            "description": "Deprecated; use \u0060encryption-key-jwk\u0060. RSA public key (PEM-encoded, 2048-4096 bits). When non-null, claim payloads returned by subsequent reads will be encrypted with RSA OAEP (SHA-1), which limits the payload to about 214 bytes for a 2048-bit key. Pass \u0060null\u0060 to receive unencrypted claim payloads.",
+            "deprecated": true
           },
           "sandbox": {
             "examples": [
@@ -67838,13 +68178,21 @@
       "GenerateARelayClaim200Response": {
         "required": [
           "claim-payload",
+          "claim-payload-encryption",
           "token-consumed"
         ],
         "type": "object",
         "properties": {
           "claim-payload": {
             "type": "string",
-            "description": "The claim payload. If an \u0060encryption-key-pem\u0060 was provided at Relay creation, this\nis a base64-encoded RSA OAEP ciphertext that must be decrypted client-side.\nOtherwise, this is a JSON string containing \u0060claim_type\u0060, \u0060claim_result\u0060, and an\noptional \u0060methodology\u0060 array."
+            "description": "The claim payload. If an \u0060encryption-key-jwk\u0060 was provided at Relay creation, this\nis a compact JWE (\u0060RSA-OAEP-256\u0060 / \u0060A256GCM\u0060). If an \u0060encryption-key-pem\u0060 was\nprovided, this is a base64-encoded RSA OAEP (SHA-1) ciphertext. Either must be\ndecrypted client-side. Otherwise, this is a JSON string containing \u0060claim_type\u0060,\n\u0060claim_result\u0060, and an optional \u0060methodology\u0060 array."
+          },
+          "claim-payload-encryption": {
+            "examples": [
+              "jwe"
+            ],
+            "type": "string",
+            "description": "How \u0060claim-payload\u0060 is encrypted. Possible values:\n- jwe: compact JWE, from \u0060encryption-key-jwk\u0060\n- rsa_oaep: base64 RSA OAEP (SHA-1) ciphertext, from \u0060encryption-key-pem\u0060\n- none: unencrypted JSON string\n\nDo not assume this is a static enumeration; Persona may add new values in the\nfuture without a versioned update."
           },
           "token-consumed": {
             "type": "boolean",
@@ -74394,6 +74742,22 @@
           }
         },
         "additionalProperties": false
+      },
+      "CreateARelayRequestEncryptionKeyJwk": {
+        "examples": [
+          {
+            "kty": "RSA",
+            "alg": "RSA-OAEP-256",
+            "use": "enc",
+            "n": "0vx7agoebGcQSuuPiLJXZptN9nndrQmbXEps2aiAFbWhM78LhWx4cbbfAAtVT86zwu1RK7aPFFxuhDR1L6tSoc_BJECPebWKRXjBZCiFV4n3oknjhMstn64tZ_2W-5JsGY4Hc5n9yBXArwl93lqt7_RN5w6Cf0h4QyQ5v-65YGjQR0_FDW2QvzqY368QQMicAtaSqzs8KJZgnYb9c7d0zgdAZHzu6qMQvRL5hajrn1n91CbOpbISD08qNLyrdkt-bFTWhAI4vMQFh6WeZu0fM4lFd2NcRwr3XPksINHaQ-G_xBniIqbw0Ls1jF44-csFCur-kEgU8awapJzKnqDKgw",
+            "e": "AQAB"
+          }
+        ],
+        "type": [
+          "null",
+          "object"
+        ],
+        "description": "Recommended. RSA public key as a JWK (2048-4096 bits) with \u0060kty\u0060 \u0060RSA\u0060, \u0060alg\u0060 \u0060RSA-OAEP-256\u0060, and \u0060n\u0060 and \u0060e\u0060, where \u0060e\u0060 must be odd and at least 65537 (\u0060AQAB\u0060). \u0060use\u0060, if present, must be \u0060enc\u0060; \u0060key_ops\u0060, if present, must include \u0060encrypt\u0060 or \u0060wrapKey\u0060; private key members are rejected. Claim payloads returned by subsequent reads are compact JWEs (\u0060alg\u0060 \u0060RSA-OAEP-256\u0060, \u0060enc\u0060 \u0060A256GCM\u0060). An empty or invalid JWK is rejected with a 400. Pass \u0060null\u0060 to receive unencrypted claim payloads. At least one of \u0060encryption-key-jwk\u0060 or \u0060encryption-key-pem\u0060 must be sent, and both cannot be non-null."
       },
       "GenerateARelayClaim401ResponseErrorsItem": {
         "required": [
@@ -88925,6 +89289,93 @@
           ]
         }
       },
+      "DeploymentRouteAttributesRulesItemStrategyOneOf1Type": {
+        "enum": [
+          "constant"
+        ],
+        "type": "string",
+        "x-client-original-const": "constant",
+        "x-ms-enum": {
+          "name": "DeploymentRouteAttributesRulesItemStrategyOneOf1Type",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "constant",
+              "name": "Constant"
+            }
+          ]
+        }
+      },
+      "DeploymentRouteAttributesRulesItemStrategyOneOf1RefType": {
+        "enum": [
+          "version"
+        ],
+        "type": "string",
+        "description": "The strategy runs the named version.",
+        "x-client-original-const": "version",
+        "x-ms-enum": {
+          "name": "DeploymentRouteAttributesRulesItemStrategyOneOf1RefType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "version",
+              "name": "Version"
+            }
+          ]
+        }
+      },
+      "DeploymentRouteAttributesRulesItemStrategyOneOf2Type": {
+        "enum": [
+          "constant"
+        ],
+        "type": "string",
+        "x-client-original-const": "constant",
+        "x-ms-enum": {
+          "name": "DeploymentRouteAttributesRulesItemStrategyOneOf2Type",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "constant",
+              "name": "Constant"
+            }
+          ]
+        }
+      },
+      "DeploymentRouteAttributesRulesItemStrategyOneOf2RefType": {
+        "enum": [
+          "noop"
+        ],
+        "type": "string",
+        "description": "The strategy starts no run (\u0022don\u0027t run\u0022) and names no version.",
+        "x-client-original-const": "noop",
+        "x-ms-enum": {
+          "name": "DeploymentRouteAttributesRulesItemStrategyOneOf2RefType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "noop",
+              "name": "Noop"
+            }
+          ]
+        }
+      },
+      "DeploymentRouteAttributesRulesItemStrategyOneOf3Type": {
+        "enum": [
+          "weighted-random"
+        ],
+        "type": "string",
+        "x-client-original-const": "weighted-random",
+        "x-ms-enum": {
+          "name": "DeploymentRouteAttributesRulesItemStrategyOneOf3Type",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "weighted-random",
+              "name": "WeightedRandom"
+            }
+          ]
+        }
+      },
       "AdministratorType": {
         "enum": [
           "administrator"
@@ -89879,6 +90330,42 @@
           ]
         }
       },
+      "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1RefType": {
+        "enum": [
+          "version"
+        ],
+        "type": "string",
+        "description": "This share of runs gets the named version.",
+        "x-client-original-const": "version",
+        "x-ms-enum": {
+          "name": "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1RefType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "version",
+              "name": "Version"
+            }
+          ]
+        }
+      },
+      "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2RefType": {
+        "enum": [
+          "noop"
+        ],
+        "type": "string",
+        "description": "This share of runs starts no run (\u0022don\u0027t run\u0022) and names no version.",
+        "x-client-original-const": "noop",
+        "x-ms-enum": {
+          "name": "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2RefType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "noop",
+              "name": "Noop"
+            }
+          ]
+        }
+      },
       "ReportSharedRelationshipsInquiryDataType": {
         "enum": [
           "inquiry"
@@ -90640,6 +91127,40 @@
             {
               "value": "workflow-version",
               "name": "WorkflowVersion"
+            }
+          ]
+        }
+      },
+      "WorkflowRelationshipsDeploymentRoutesDataItemType": {
+        "enum": [
+          "deployment-route"
+        ],
+        "type": "string",
+        "x-client-original-const": "deployment-route",
+        "x-ms-enum": {
+          "name": "WorkflowRelationshipsDeploymentRoutesDataItemType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "deployment-route",
+              "name": "DeploymentRoute"
+            }
+          ]
+        }
+      },
+      "DeploymentRouteRelationshipsDeploymentDataType": {
+        "enum": [
+          "deployment"
+        ],
+        "type": "string",
+        "x-client-original-const": "deployment",
+        "x-ms-enum": {
+          "name": "DeploymentRouteRelationshipsDeploymentDataType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "deployment",
+              "name": "Deployment"
             }
           ]
         }
@@ -97422,6 +97943,44 @@
         "additionalProperties": false
       },
       "InquiryIncludedObjectsItemOneOf81": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "deployment-route"
+            ],
+            "type": "string",
+            "x-client-original-const": "deployment-route",
+            "x-ms-enum": {
+              "name": "Type",
+              "modelAsString": false,
+              "values": [
+                {
+                  "value": "deployment-route",
+                  "name": "DeploymentRoute"
+                }
+              ]
+            }
+          },
+          "id": {
+            "examples": [
+              "dplr_4MqX8vNcR2bPwYkL9sTgD3eH"
+            ],
+            "type": "string"
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/DeploymentRouteAttributes"
+          },
+          "relationships": {
+            "$ref": "#/components/schemas/DeploymentRouteRelationships"
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "additionalProperties": false
+      },
+      "InquiryIncludedObjectsItemOneOf82": {
         "type": "object",
         "properties": {
           "type": {
@@ -104620,6 +105179,51 @@
               },
               "attributes": {
                 "$ref": "#/components/schemas/ScheduledRunAttributes"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "WorkflowRunIncludedObjectsItemOneOf6Variant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/WorkflowRunIncludedObjectsItem"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "enum": [
+                  "deployment-route"
+                ],
+                "type": "string",
+                "x-client-original-const": "deployment-route",
+                "x-ms-enum": {
+                  "name": "Type",
+                  "modelAsString": false,
+                  "values": [
+                    {
+                      "value": "deployment-route",
+                      "name": "DeploymentRoute"
+                    }
+                  ]
+                }
+              },
+              "id": {
+                "examples": [
+                  "dplr_4MqX8vNcR2bPwYkL9sTgD3eH"
+                ],
+                "type": "string"
+              },
+              "attributes": {
+                "$ref": "#/components/schemas/DeploymentRouteAttributes"
+              },
+              "relationships": {
+                "$ref": "#/components/schemas/DeploymentRouteRelationships"
               }
             },
             "required": [
@@ -137227,6 +137831,28 @@
       "additionalProperties": false,
       "description": "A Workflow object"
     },
+    "DeploymentRoute": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/DeploymentRouteType"
+        },
+        "id": {
+          "examples": [
+            "dplr_4MqX8vNcR2bPwYkL9sTgD3eH"
+          ],
+          "type": "string"
+        },
+        "attributes": {
+          "$ref": "#/components/schemas/DeploymentRouteAttributes"
+        },
+        "relationships": {
+          "$ref": "#/components/schemas/DeploymentRouteRelationships"
+        }
+      },
+      "additionalProperties": false,
+      "description": "A Deployment Route object: the routing rules one environment\u0027s current deployment applies to a resource template."
+    },
     "InquiryIncludedObjects": {
       "type": "array",
       "items": {
@@ -145291,6 +145917,23 @@
         ]
       }
     },
+    "DeploymentRouteType": {
+      "enum": [
+        "deployment-route"
+      ],
+      "type": "string",
+      "x-client-original-const": "deployment-route",
+      "x-ms-enum": {
+        "name": "DeploymentRouteType",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "deployment-route",
+            "name": "DeploymentRoute"
+          }
+        ]
+      }
+    },
     "NetworkType": {
       "enum": [
         "network"
@@ -150229,6 +150872,44 @@
         },
         "attributes": {
           "$ref": "#/components/schemas/ScheduledRunAttributes"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "WorkflowRunIncludedObjectsItemOneOf6": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": [
+            "deployment-route"
+          ],
+          "type": "string",
+          "x-client-original-const": "deployment-route",
+          "x-ms-enum": {
+            "name": "Type",
+            "modelAsString": false,
+            "values": [
+              {
+                "value": "deployment-route",
+                "name": "DeploymentRoute"
+              }
+            ]
+          }
+        },
+        "id": {
+          "examples": [
+            "dplr_4MqX8vNcR2bPwYkL9sTgD3eH"
+          ],
+          "type": "string"
+        },
+        "attributes": {
+          "$ref": "#/components/schemas/DeploymentRouteAttributes"
+        },
+        "relationships": {
+          "$ref": "#/components/schemas/DeploymentRouteRelationships"
         }
       },
       "required": [

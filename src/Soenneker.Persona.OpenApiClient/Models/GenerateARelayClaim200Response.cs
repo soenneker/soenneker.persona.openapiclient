@@ -19,11 +19,13 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("claim-payload") is null) { _explicitNullValueClaimPayload = default!; _explicitNullProperties?.Remove("claim-payload"); }
             else if (parseNode.GetChildNode("claim-payload") is { } nullNodeClaimPayload && nullNodeClaimPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimPayload = null;
+            if (parseNode.GetChildNode("claim-payload-encryption") is null) { _explicitNullValueClaimPayloadEncryption = default!; _explicitNullProperties?.Remove("claim-payload-encryption"); }
+            else if (parseNode.GetChildNode("claim-payload-encryption") is { } nullNodeClaimPayloadEncryption && nullNodeClaimPayloadEncryption.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimPayloadEncryption = null;
             if (parseNode.GetChildNode("token-consumed") is null) { _explicitNullValueTokenConsumed = default!; _explicitNullProperties?.Remove("token-consumed"); }
             else if (parseNode.GetChildNode("token-consumed") is { } nullNodeTokenConsumed && nullNodeTokenConsumed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenConsumed = null;
         }
 
-        /// <summary>The claim payload. If an `encryption-key-pem` was provided at Relay creation, thisis a base64-encoded RSA OAEP ciphertext that must be decrypted client-side.Otherwise, this is a JSON string containing `claim_type`, `claim_result`, and anoptional `methodology` array.</summary>
+        /// <summary>The claim payload. If an `encryption-key-jwk` was provided at Relay creation, thisis a compact JWE (`RSA-OAEP-256` / `A256GCM`). If an `encryption-key-pem` wasprovided, this is a base64-encoded RSA OAEP (SHA-1) ciphertext. Either must bedecrypted client-side. Otherwise, this is a JSON string containing `claim_type`,`claim_result`, and an optional `methodology` array.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ClaimPayload { get => _explicitNullValueClaimPayload; set { _explicitNullValueClaimPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claim-payload"); else _explicitNullProperties?.Remove("claim-payload"); } }
@@ -32,6 +34,16 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string ClaimPayload { get => _explicitNullValueClaimPayload; set { _explicitNullValueClaimPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claim-payload"); else _explicitNullProperties?.Remove("claim-payload"); } }
         private string _explicitNullValueClaimPayload = default!;
+#endif
+        /// <summary>How `claim-payload` is encrypted. Possible values:- jwe: compact JWE, from `encryption-key-jwk`- rsa_oaep: base64 RSA OAEP (SHA-1) ciphertext, from `encryption-key-pem`- none: unencrypted JSON stringDo not assume this is a static enumeration; Persona may add new values in thefuture without a versioned update.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClaimPayloadEncryption { get => _explicitNullValueClaimPayloadEncryption; set { _explicitNullValueClaimPayloadEncryption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claim-payload-encryption"); else _explicitNullProperties?.Remove("claim-payload-encryption"); } }
+        private string? _explicitNullValueClaimPayloadEncryption = default!;
+#nullable restore
+#else
+        public string ClaimPayloadEncryption { get => _explicitNullValueClaimPayloadEncryption; set { _explicitNullValueClaimPayloadEncryption = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claim-payload-encryption"); else _explicitNullProperties?.Remove("claim-payload-encryption"); } }
+        private string _explicitNullValueClaimPayloadEncryption = default!;
 #endif
         /// <summary>`true` if the Privacy Pass token was consumed by this request. `false` if the underlying claim did not pass and the token was refunded to the client.</summary>
         public bool? TokenConsumed { get => _explicitNullValueTokenConsumed; set { _explicitNullValueTokenConsumed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token-consumed"); else _explicitNullProperties?.Remove("token-consumed"); } }
@@ -55,6 +67,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "claim-payload", n => { ClaimPayload = n.GetStringValue(); } },
+                { "claim-payload-encryption", n => { ClaimPayloadEncryption = n.GetStringValue(); } },
                 { "token-consumed", n => { TokenConsumed = n.GetBoolValue(); } },
             };
         }
@@ -66,6 +79,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("claim-payload", ClaimPayload);
+            writer.WriteStringValue("claim-payload-encryption", ClaimPayloadEncryption);
             writer.WriteBoolValue("token-consumed", TokenConsumed);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }

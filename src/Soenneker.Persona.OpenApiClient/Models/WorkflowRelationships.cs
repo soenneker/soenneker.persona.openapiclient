@@ -19,11 +19,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("active-deployment") is null) { _explicitNullValueActiveDeployment = default!; _explicitNullProperties?.Remove("active-deployment"); }
             else if (parseNode.GetChildNode("active-deployment") is { } nullNodeActiveDeployment && nullNodeActiveDeployment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ActiveDeployment = null;
+            if (parseNode.GetChildNode("deployment-routes") is null) { _explicitNullValueDeploymentRoutes = default!; _explicitNullProperties?.Remove("deployment-routes"); }
+            else if (parseNode.GetChildNode("deployment-routes") is { } nullNodeDeploymentRoutes && nullNodeDeploymentRoutes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeploymentRoutes = null;
             if (parseNode.GetChildNode("latest-published-version") is null) { _explicitNullValueLatestPublishedVersion = default!; _explicitNullProperties?.Remove("latest-published-version"); }
             else if (parseNode.GetChildNode("latest-published-version") is { } nullNodeLatestPublishedVersion && nullNodeLatestPublishedVersion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LatestPublishedVersion = null;
         }
 
-        /// <summary>latest active deployment</summary>
+        /// <summary>latest active deployment. Deprecated; use `deployment-routes`.</summary>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeployment? ActiveDeployment { get => _explicitNullValueActiveDeployment; set { _explicitNullValueActiveDeployment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active-deployment"); else _explicitNullProperties?.Remove("active-deployment"); } }
@@ -32,6 +35,16 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeployment ActiveDeployment { get => _explicitNullValueActiveDeployment; set { _explicitNullValueActiveDeployment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active-deployment"); else _explicitNullProperties?.Remove("active-deployment"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeployment _explicitNullValueActiveDeployment = default!;
+#endif
+        /// <summary>The workflow&apos;s current deployment route in the caller&apos;s environment: the API key&apos;s on a request, the webhook&apos;s on a delivery. Empty when the workflow isn&apos;t deployed there. Visible to any credential that can read the workflow, as `active-deployment` is.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsDeploymentRoutes? DeploymentRoutes { get => _explicitNullValueDeploymentRoutes; set { _explicitNullValueDeploymentRoutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment-routes"); else _explicitNullProperties?.Remove("deployment-routes"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsDeploymentRoutes? _explicitNullValueDeploymentRoutes = default!;
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsDeploymentRoutes DeploymentRoutes { get => _explicitNullValueDeploymentRoutes; set { _explicitNullValueDeploymentRoutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployment-routes"); else _explicitNullProperties?.Remove("deployment-routes"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsDeploymentRoutes _explicitNullValueDeploymentRoutes = default!;
 #endif
         /// <summary>latest published version</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,6 +75,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "active-deployment", n => { ActiveDeployment = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeployment>(global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeployment.CreateFromDiscriminatorValue); } },
+                { "deployment-routes", n => { DeploymentRoutes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsDeploymentRoutes>(global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsDeploymentRoutes.CreateFromDiscriminatorValue); } },
                 { "latest-published-version", n => { LatestPublishedVersion = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsLatestPublishedVersion>(global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsLatestPublishedVersion.CreateFromDiscriminatorValue); } },
             };
         }
@@ -73,6 +87,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsActiveDeployment>("active-deployment", ActiveDeployment);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsDeploymentRoutes>("deployment-routes", DeploymentRoutes);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.WorkflowRelationshipsLatestPublishedVersion>("latest-published-version", LatestPublishedVersion);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }

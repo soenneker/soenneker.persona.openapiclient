@@ -19,6 +19,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("completed-at") is null) { _explicitNullValueCompletedAt = default!; _explicitNullProperties?.Remove("completed-at"); }
             else if (parseNode.GetChildNode("completed-at") is { } nullNodeCompletedAt && nullNodeCompletedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CompletedAt = null;
+            if (parseNode.GetChildNode("compliance-blocked") is null) { _explicitNullValueComplianceBlocked = default!; _explicitNullProperties?.Remove("compliance-blocked"); }
+            else if (parseNode.GetChildNode("compliance-blocked") is { } nullNodeComplianceBlocked && nullNodeComplianceBlocked.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ComplianceBlocked = null;
             if (parseNode.GetChildNode("created-at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created-at"); }
             else if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
             if (parseNode.GetChildNode("has-match") is null) { _explicitNullValueHasMatch = default!; _explicitNullProperties?.Remove("has-match"); }
@@ -69,6 +71,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public string CompletedAt { get => _explicitNullValueCompletedAt; set { _explicitNullValueCompletedAt = value; AdditionalData?.Remove("completed-at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("completed-at"); else _explicitNullProperties?.Remove("completed-at"); } }
         private string _explicitNullValueCompletedAt = default!;
 #endif
+        /// <summary>Whether the phone data provider declined to process this phone number forlegal compliance reasons, for example because the consumer submitted a datadeletion or opt-out request under a privacy law such as the California DeleteAct.When `true`, the report is `ready` with `has-match` set to `false` and no phoneor risk data. This is not the same as a phone number that was looked up and notfound: treat it as &quot;consumer opted out&quot; rather than &quot;no match&quot;, and route theindividual to manual review or an alternate verification method.</summary>
+        public bool? ComplianceBlocked { get => _explicitNullValueComplianceBlocked; set { _explicitNullValueComplianceBlocked = value; AdditionalData?.Remove("compliance-blocked"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compliance-blocked"); else _explicitNullProperties?.Remove("compliance-blocked"); } }
+        private bool? _explicitNullValueComplianceBlocked = default!;
         /// <summary>The time the report was created in ISO 8601 format</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -247,6 +252,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "completed-at", n => { CompletedAt = n.GetStringValue(); } },
+                { "compliance-blocked", n => { ComplianceBlocked = n.GetBoolValue(); } },
                 { "created-at", n => { CreatedAt = n.GetStringValue(); } },
                 { "has-match", n => { HasMatch = n.GetBoolValue(); } },
                 { "is-continuous", n => { IsContinuous = n.GetBoolValue(); } },
@@ -275,6 +281,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("completed-at", CompletedAt);
+            writer.WriteBoolValue("compliance-blocked", ComplianceBlocked);
             writer.WriteStringValue("created-at", CreatedAt);
             writer.WriteBoolValue("has-match", HasMatch);
             writer.WriteBoolValue("is-continuous", IsContinuous);

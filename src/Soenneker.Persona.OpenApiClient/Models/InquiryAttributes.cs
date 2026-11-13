@@ -41,6 +41,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if (parseNode.GetChildNode("next-step-name") is { } nullNodeNextStepName && nullNodeNextStepName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextStepName = null;
             if (parseNode.GetChildNode("note") is null) { _explicitNullValueNote = default!; _explicitNullProperties?.Remove("note"); }
             else if (parseNode.GetChildNode("note") is { } nullNodeNote && nullNodeNote.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Note = null;
+            if (parseNode.GetChildNode("pdf-snapshot") is null) { _explicitNullValuePdfSnapshot = default!; _explicitNullProperties?.Remove("pdf-snapshot"); }
+            else if (parseNode.GetChildNode("pdf-snapshot") is { } nullNodePdfSnapshot && nullNodePdfSnapshot.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PdfSnapshot = null;
+            if (parseNode.GetChildNode("pdf-snapshot-at") is null) { _explicitNullValuePdfSnapshotAt = default!; _explicitNullProperties?.Remove("pdf-snapshot-at"); }
+            else if (parseNode.GetChildNode("pdf-snapshot-at") is { } nullNodePdfSnapshotAt && nullNodePdfSnapshotAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PdfSnapshotAt = null;
             if (parseNode.GetChildNode("previous-step-name") is null) { _explicitNullValuePreviousStepName = default!; _explicitNullProperties?.Remove("previous-step-name"); }
             else if (parseNode.GetChildNode("previous-step-name") is { } nullNodePreviousStepName && nullNodePreviousStepName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreviousStepName = null;
             if (parseNode.GetChildNode("redacted-at") is null) { _explicitNullValueRedactedAt = default!; _explicitNullProperties?.Remove("redacted-at"); }
@@ -130,6 +134,19 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public string Note { get => _explicitNullValueNote; set { _explicitNullValueNote = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("note"); else _explicitNullProperties?.Remove("note"); } }
         private string _explicitNullValueNote = default!;
 #endif
+        /// <summary>The pdfSnapshot property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.FileObject? PdfSnapshot { get => _explicitNullValuePdfSnapshot; set { _explicitNullValuePdfSnapshot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pdf-snapshot"); else _explicitNullProperties?.Remove("pdf-snapshot"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.FileObject? _explicitNullValuePdfSnapshot = default!;
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.FileObject PdfSnapshot { get => _explicitNullValuePdfSnapshot; set { _explicitNullValuePdfSnapshot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pdf-snapshot"); else _explicitNullProperties?.Remove("pdf-snapshot"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.FileObject _explicitNullValuePdfSnapshot = default!;
+#endif
+        /// <summary>When `pdf-snapshot` was recorded. The PDF is stored in the same write as the decision it shows, so this equals that decision&apos;s `decisioned-at`. A later decision made other than by those actions leaves it unchanged. `null` when `pdf-snapshot` is.</summary>
+        public DateTimeOffset? PdfSnapshotAt { get => _explicitNullValuePdfSnapshotAt; set { _explicitNullValuePdfSnapshotAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pdf-snapshot-at"); else _explicitNullProperties?.Remove("pdf-snapshot-at"); } }
+        private DateTimeOffset? _explicitNullValuePdfSnapshotAt = default!;
         /// <summary>The previousStepName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -219,6 +236,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "marked-for-review-at", n => { MarkedForReviewAt = n.GetDateTimeOffsetValue(); } },
                 { "next-step-name", n => { NextStepName = n.GetStringValue(); } },
                 { "note", n => { Note = n.GetStringValue(); } },
+                { "pdf-snapshot", n => { PdfSnapshot = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FileObject>(global::Soenneker.Persona.OpenApiClient.Models.FileObject.CreateFromDiscriminatorValue); } },
+                { "pdf-snapshot-at", n => { PdfSnapshotAt = n.GetDateTimeOffsetValue(); } },
                 { "previous-step-name", n => { PreviousStepName = n.GetStringValue(); } },
                 { "redacted-at", n => { RedactedAt = n.GetDateTimeOffsetValue(); } },
                 { "reference-id", n => { ReferenceId = n.GetStringValue(); } },
@@ -248,6 +267,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteDateTimeOffsetValue("marked-for-review-at", MarkedForReviewAt);
             writer.WriteStringValue("next-step-name", NextStepName);
             writer.WriteStringValue("note", Note);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.FileObject>("pdf-snapshot", PdfSnapshot);
+            writer.WriteDateTimeOffsetValue("pdf-snapshot-at", PdfSnapshotAt);
             writer.WriteStringValue("previous-step-name", PreviousStepName);
             writer.WriteDateTimeOffsetValue("redacted-at", RedactedAt);
             writer.WriteStringValue("reference-id", ReferenceId);

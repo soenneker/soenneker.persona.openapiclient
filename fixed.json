@@ -20612,7 +20612,7 @@
                 "Created": {
                   "value": {
                     "claim-type": "live_human_presence",
-                    "encryption-key-pem": null
+                    "encryption-key-jwk": null
                   }
                 }
               }
@@ -68092,6 +68092,13 @@
           "encryption-key-jwk": {
             "$ref": "#/components/schemas/CreateARelayRequestEncryptionKeyJwk"
           },
+          "sandbox": {
+            "examples": [
+              true
+            ],
+            "type": "boolean",
+            "description": "When true, the Relay is created in a sandbox environment and uses the sandbox Privacy Pass namespace; sandbox passes are only redeemable against sandbox Relays. When omitted or false, the Relay is created in a production environment and uses the claim-type namespace."
+          },
           "encryption-key-pem": {
             "type": [
               "null",
@@ -68099,13 +68106,6 @@
             ],
             "description": "Deprecated; use \u0060encryption-key-jwk\u0060. RSA public key (PEM-encoded, 2048-4096 bits). When non-null, claim payloads returned by subsequent reads will be encrypted with RSA OAEP (SHA-1), which limits the payload to about 214 bytes for a 2048-bit key. Pass \u0060null\u0060 to receive unencrypted claim payloads.",
             "deprecated": true
-          },
-          "sandbox": {
-            "examples": [
-              true
-            ],
-            "type": "boolean",
-            "description": "When true, the Relay is created in a sandbox environment and uses the sandbox Privacy Pass namespace; sandbox passes are only redeemable against sandbox Relays. When omitted or false, the Relay is created in a production environment and uses the claim-type namespace."
           }
         },
         "additionalProperties": false

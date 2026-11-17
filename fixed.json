@@ -30944,6 +30944,106 @@
         },
         "description": "PII-filtered snapshot of an Adverse Media report. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nReport subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
       },
+      "SourceDataReportBusinessAdverseMedia": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Business Adverse Media Report Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SourceDataReportBusinessAdverseMediaType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataReportBusinessAdverseMediaPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Business Adverse Media report. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nReport subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
+      "SourceDataReportBusinessAssociatedPersons": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Business Associated Persons Report Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SourceDataReportBusinessAssociatedPersonsType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataReportBusinessAssociatedPersonsPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Business Associated Persons report. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nReport subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
+      "SourceDataReportBusinessRegistrationsLookup": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Business Registrations Lookup Report Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SourceDataReportBusinessRegistrationsLookupType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataReportBusinessRegistrationsLookupPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Business Registrations Lookup report. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nReport subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
+      "SourceDataReportBusinessWatchlist": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Business Watchlist Report Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SourceDataReportBusinessWatchlistType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataReportBusinessWatchlistPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Business Watchlist report. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nReport subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
       "SourceDataReportEmailAddress": {
         "unevaluatedProperties": {
           "not": {}
@@ -36479,6 +36579,66 @@
               },
               {
                 "$ref": "#/components/schemas/SourceDataReportAdverseMedia"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataReportBusinessAdverseMedia"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataReportBusinessAssociatedPersons"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataReportBusinessRegistrationsLookup"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataReportBusinessWatchlist"
               }
             ],
             "type": "object"
@@ -63539,6 +63699,10 @@
               "inquiry",
               "txn",
               "verification",
+              "report/business-adverse-media",
+              "report/business-associated-persons",
+              "report/business-registrations-lookup",
+              "report/business-watchlist",
               "report/email-address",
               "report/politically-exposed-person",
               "report/screening"
@@ -63570,6 +63734,10 @@
               "inquiry",
               "txn",
               "verification/database",
+              "report/business-adverse-media",
+              "report/business-associated-persons",
+              "report/business-registrations-lookup",
+              "report/business-watchlist",
               "report/email-address",
               "report/politically-exposed-person",
               "report/screening"
@@ -72033,6 +72201,102 @@
         }
       },
       "SourceDataReportAdverseMediaPeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        },
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
+      "SourceDataReportBusinessAdverseMediaType": {
+        "enum": [
+          "connect/source-data/report/business-adverse-media"
+        ],
+        "type": "string",
+        "x-client-original-const": "connect/source-data/report/business-adverse-media",
+        "x-ms-enum": {
+          "name": "SourceDataReportBusinessAdverseMediaType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/report/business-adverse-media",
+              "name": "ConnectSourceDataReportBusinessAdverseMedia"
+            }
+          ]
+        }
+      },
+      "SourceDataReportBusinessAdverseMediaPeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        },
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
+      "SourceDataReportBusinessAssociatedPersonsType": {
+        "enum": [
+          "connect/source-data/report/business-associated-persons"
+        ],
+        "type": "string",
+        "x-client-original-const": "connect/source-data/report/business-associated-persons",
+        "x-ms-enum": {
+          "name": "SourceDataReportBusinessAssociatedPersonsType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/report/business-associated-persons",
+              "name": "ConnectSourceDataReportBusinessAssociatedPersons"
+            }
+          ]
+        }
+      },
+      "SourceDataReportBusinessAssociatedPersonsPeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        },
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
+      "SourceDataReportBusinessRegistrationsLookupType": {
+        "enum": [
+          "connect/source-data/report/business-registrations-lookup"
+        ],
+        "type": "string",
+        "x-client-original-const": "connect/source-data/report/business-registrations-lookup",
+        "x-ms-enum": {
+          "name": "SourceDataReportBusinessRegistrationsLookupType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/report/business-registrations-lookup",
+              "name": "ConnectSourceDataReportBusinessRegistrationsLookup"
+            }
+          ]
+        }
+      },
+      "SourceDataReportBusinessRegistrationsLookupPeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        },
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
+      "SourceDataReportBusinessWatchlistType": {
+        "enum": [
+          "connect/source-data/report/business-watchlist"
+        ],
+        "type": "string",
+        "x-client-original-const": "connect/source-data/report/business-watchlist",
+        "x-ms-enum": {
+          "name": "SourceDataReportBusinessWatchlistType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/report/business-watchlist",
+              "name": "ConnectSourceDataReportBusinessWatchlist"
+            }
+          ]
+        }
+      },
+      "SourceDataReportBusinessWatchlistPeekableAttributes": {
         "type": "object",
         "additionalProperties": {
           "$ref": "#/components/schemas/SourceDataPeekableAttribute"
@@ -136496,6 +136760,18 @@
           "$ref": "#/components/schemas/SourceDataReportAdverseMedia"
         },
         {
+          "$ref": "#/components/schemas/SourceDataReportBusinessAdverseMedia"
+        },
+        {
+          "$ref": "#/components/schemas/SourceDataReportBusinessAssociatedPersons"
+        },
+        {
+          "$ref": "#/components/schemas/SourceDataReportBusinessRegistrationsLookup"
+        },
+        {
+          "$ref": "#/components/schemas/SourceDataReportBusinessWatchlist"
+        },
+        {
           "$ref": "#/components/schemas/SourceDataReportEmailAddress"
         },
         {
@@ -136529,6 +136805,10 @@
           "connect/source-data/account": "#/components/schemas/SourceDataAccount",
           "connect/source-data/txn": "#/components/schemas/SourceDataTxn",
           "connect/source-data/report/adverse-media": "#/components/schemas/SourceDataReportAdverseMedia",
+          "connect/source-data/report/business-adverse-media": "#/components/schemas/SourceDataReportBusinessAdverseMedia",
+          "connect/source-data/report/business-associated-persons": "#/components/schemas/SourceDataReportBusinessAssociatedPersons",
+          "connect/source-data/report/business-registrations-lookup": "#/components/schemas/SourceDataReportBusinessRegistrationsLookup",
+          "connect/source-data/report/business-watchlist": "#/components/schemas/SourceDataReportBusinessWatchlist",
           "connect/source-data/report/email-address": "#/components/schemas/SourceDataReportEmailAddress",
           "connect/source-data/report/politically-exposed-person": "#/components/schemas/SourceDataReportPoliticallyExposedPerson",
           "connect/source-data/report/screening": "#/components/schemas/SourceDataReportScreening",
@@ -136555,6 +136835,10 @@
           "connect/source-data/account": "#/components/schemas/SourceDataAccount",
           "connect/source-data/txn": "#/components/schemas/SourceDataTxn",
           "connect/source-data/report/adverse-media": "#/components/schemas/SourceDataReportAdverseMedia",
+          "connect/source-data/report/business-adverse-media": "#/components/schemas/SourceDataReportBusinessAdverseMedia",
+          "connect/source-data/report/business-associated-persons": "#/components/schemas/SourceDataReportBusinessAssociatedPersons",
+          "connect/source-data/report/business-registrations-lookup": "#/components/schemas/SourceDataReportBusinessRegistrationsLookup",
+          "connect/source-data/report/business-watchlist": "#/components/schemas/SourceDataReportBusinessWatchlist",
           "connect/source-data/report/email-address": "#/components/schemas/SourceDataReportEmailAddress",
           "connect/source-data/report/politically-exposed-person": "#/components/schemas/SourceDataReportPoliticallyExposedPerson",
           "connect/source-data/report/screening": "#/components/schemas/SourceDataReportScreening",
@@ -139072,6 +139356,74 @@
         },
         "peekable-attributes": {
           "$ref": "#/components/schemas/SourceDataReportAdverseMediaAllOf2PeekableAttributesProperty"
+        }
+      }
+    },
+    "SourceDataReportBusinessAdverseMediaAllOf2": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ConnectSourceDataReportBusinessAdverseMediaType"
+        },
+        "id": {
+          "examples": [
+            "rep_ABC123"
+          ],
+          "type": "string"
+        },
+        "peekable-attributes": {
+          "$ref": "#/components/schemas/SourceDataReportBusinessAdverseMediaAllOf2PeekableAttributesProperty"
+        }
+      }
+    },
+    "SourceDataReportBusinessAssociatedPersonsAllOf2": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ConnectSourceDataReportBusinessAssociatedPersonsType"
+        },
+        "id": {
+          "examples": [
+            "rep_ABC123"
+          ],
+          "type": "string"
+        },
+        "peekable-attributes": {
+          "$ref": "#/components/schemas/SourceDataReportBusinessAssociatedPersonsAllOf2PeekableAttributesProperty"
+        }
+      }
+    },
+    "SourceDataReportBusinessRegistrationsLookupAllOf2": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ConnectSourceDataReportBusinessRegistrationsLookupType"
+        },
+        "id": {
+          "examples": [
+            "rep_ABC123"
+          ],
+          "type": "string"
+        },
+        "peekable-attributes": {
+          "$ref": "#/components/schemas/SourceDataReportBusinessRegistrationsLookupAllOf2PeekableAttributesProperty"
+        }
+      }
+    },
+    "SourceDataReportBusinessWatchlistAllOf2": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ConnectSourceDataReportBusinessWatchlistType"
+        },
+        "id": {
+          "examples": [
+            "rep_ABC123"
+          ],
+          "type": "string"
+        },
+        "peekable-attributes": {
+          "$ref": "#/components/schemas/SourceDataReportBusinessWatchlistAllOf2PeekableAttributesProperty"
         }
       }
     },
@@ -144414,6 +144766,30 @@
         "$ref": "#/components/schemas/SourceDataPeekableAttribute"
       }
     },
+    "SourceDataReportBusinessAdverseMediaAllOf2PeekableAttributes": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+      }
+    },
+    "SourceDataReportBusinessAssociatedPersonsAllOf2PeekableAttributes": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+      }
+    },
+    "SourceDataReportBusinessRegistrationsLookupAllOf2PeekableAttributes": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+      }
+    },
+    "SourceDataReportBusinessWatchlistAllOf2PeekableAttributes": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+      }
+    },
     "SourceDataReportEmailAddressAllOf2PeekableAttributes": {
       "type": "object",
       "additionalProperties": {
@@ -144838,6 +145214,30 @@
       }
     },
     "SourceDataReportAdverseMediaAllOf2PeekableAttributesProperty": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+      }
+    },
+    "SourceDataReportBusinessAdverseMediaAllOf2PeekableAttributesProperty": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+      }
+    },
+    "SourceDataReportBusinessAssociatedPersonsAllOf2PeekableAttributesProperty": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+      }
+    },
+    "SourceDataReportBusinessRegistrationsLookupAllOf2PeekableAttributesProperty": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+      }
+    },
+    "SourceDataReportBusinessWatchlistAllOf2PeekableAttributesProperty": {
       "type": "object",
       "additionalProperties": {
         "$ref": "#/components/schemas/SourceDataPeekableAttribute"
@@ -146686,6 +147086,74 @@
           {
             "value": "connect/source-data/report/adverse-media",
             "name": "ConnectSourceDataReportAdverseMedia"
+          }
+        ]
+      }
+    },
+    "ConnectSourceDataReportBusinessAdverseMediaType": {
+      "enum": [
+        "connect/source-data/report/business-adverse-media"
+      ],
+      "type": "string",
+      "x-client-original-const": "connect/source-data/report/business-adverse-media",
+      "x-ms-enum": {
+        "name": "ConnectSourceDataReportBusinessAdverseMediaType",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "connect/source-data/report/business-adverse-media",
+            "name": "ConnectSourceDataReportBusinessAdverseMedia"
+          }
+        ]
+      }
+    },
+    "ConnectSourceDataReportBusinessAssociatedPersonsType": {
+      "enum": [
+        "connect/source-data/report/business-associated-persons"
+      ],
+      "type": "string",
+      "x-client-original-const": "connect/source-data/report/business-associated-persons",
+      "x-ms-enum": {
+        "name": "ConnectSourceDataReportBusinessAssociatedPersonsType",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "connect/source-data/report/business-associated-persons",
+            "name": "ConnectSourceDataReportBusinessAssociatedPersons"
+          }
+        ]
+      }
+    },
+    "ConnectSourceDataReportBusinessRegistrationsLookupType": {
+      "enum": [
+        "connect/source-data/report/business-registrations-lookup"
+      ],
+      "type": "string",
+      "x-client-original-const": "connect/source-data/report/business-registrations-lookup",
+      "x-ms-enum": {
+        "name": "ConnectSourceDataReportBusinessRegistrationsLookupType",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "connect/source-data/report/business-registrations-lookup",
+            "name": "ConnectSourceDataReportBusinessRegistrationsLookup"
+          }
+        ]
+      }
+    },
+    "ConnectSourceDataReportBusinessWatchlistType": {
+      "enum": [
+        "connect/source-data/report/business-watchlist"
+      ],
+      "type": "string",
+      "x-client-original-const": "connect/source-data/report/business-watchlist",
+      "x-ms-enum": {
+        "name": "ConnectSourceDataReportBusinessWatchlistType",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "connect/source-data/report/business-watchlist",
+            "name": "ConnectSourceDataReportBusinessWatchlist"
           }
         ]
       }

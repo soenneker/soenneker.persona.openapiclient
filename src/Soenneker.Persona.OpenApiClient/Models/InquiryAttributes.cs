@@ -144,7 +144,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public global::Soenneker.Persona.OpenApiClient.Models.FileObject PdfSnapshot { get => _explicitNullValuePdfSnapshot; set { _explicitNullValuePdfSnapshot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pdf-snapshot"); else _explicitNullProperties?.Remove("pdf-snapshot"); } }
         private global::Soenneker.Persona.OpenApiClient.Models.FileObject _explicitNullValuePdfSnapshot = default!;
 #endif
-        /// <summary>When `pdf-snapshot` was recorded. The PDF is stored in the same write as the decision it shows, so this equals that decision&apos;s `decisioned-at`. A later decision made other than by those actions leaves it unchanged. `null` when `pdf-snapshot` is.</summary>
+        /// <summary>When `pdf-snapshot` was recorded. The PDF is stored in the same write as the decision it shows, so this equals that decision&apos;s `decisioned-at`, or `marked-for-review-at` when the Inquiry was marked for review. A later decision made other than by those actions leaves it unchanged. `null` when `pdf-snapshot` is.</summary>
         public DateTimeOffset? PdfSnapshotAt { get => _explicitNullValuePdfSnapshotAt; set { _explicitNullValuePdfSnapshotAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pdf-snapshot-at"); else _explicitNullProperties?.Remove("pdf-snapshot-at"); } }
         private DateTimeOffset? _explicitNullValuePdfSnapshotAt = default!;
         /// <summary>The previousStepName property</summary>
@@ -222,7 +222,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(22)
             {
                 { "behaviors", n => { Behaviors = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesBehaviorsProperty>(global::Soenneker.Persona.OpenApiClient.Models.InquiryAttributesBehaviorsProperty.CreateFromDiscriminatorValue); } },
                 { "completed-at", n => { CompletedAt = n.GetDateTimeOffsetValue(); } },

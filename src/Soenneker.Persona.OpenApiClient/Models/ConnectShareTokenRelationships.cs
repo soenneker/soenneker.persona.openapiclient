@@ -83,7 +83,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "connection", n => { Connection = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsConnection>(global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsConnection.CreateFromDiscriminatorValue); } },
                 { "creator", n => { Creator = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsCreator>(global::Soenneker.Persona.OpenApiClient.Models.ConnectShareTokenRelationshipsCreator.CreateFromDiscriminatorValue); } },

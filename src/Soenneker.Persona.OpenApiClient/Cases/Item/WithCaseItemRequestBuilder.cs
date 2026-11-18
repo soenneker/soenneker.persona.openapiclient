@@ -9,6 +9,7 @@ using Soenneker.Persona.OpenApiClient.Cases.Item.AddTag;
 using Soenneker.Persona.OpenApiClient.Cases.Item.Assign;
 using Soenneker.Persona.OpenApiClient.Cases.Item.RemoveObjects;
 using Soenneker.Persona.OpenApiClient.Cases.Item.RemoveTag;
+using Soenneker.Persona.OpenApiClient.Cases.Item.RequestAgentReview;
 using Soenneker.Persona.OpenApiClient.Cases.Item.SetStatus;
 using Soenneker.Persona.OpenApiClient.Cases.Item.SetTags;
 using Soenneker.Persona.OpenApiClient.Models;
@@ -54,6 +55,11 @@ namespace Soenneker.Persona.OpenApiClient.Cases.Item
         public global::Soenneker.Persona.OpenApiClient.Cases.Item.RemoveTag.RemoveTagRequestBuilder RemoveTag
         {
             get => new global::Soenneker.Persona.OpenApiClient.Cases.Item.RemoveTag.RemoveTagRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The requestAgentReview property</summary>
+        public global::Soenneker.Persona.OpenApiClient.Cases.Item.RequestAgentReview.RequestAgentReviewRequestBuilder RequestAgentReview
+        {
+            get => new global::Soenneker.Persona.OpenApiClient.Cases.Item.RequestAgentReview.RequestAgentReviewRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The setStatus property</summary>
         public global::Soenneker.Persona.OpenApiClient.Cases.Item.SetStatus.SetStatusRequestBuilder SetStatus

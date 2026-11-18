@@ -113,7 +113,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "addresses", n => { Addresses = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultIdentifiersItemAddressesItem>(global::Soenneker.Persona.OpenApiClient.Models.ReportBusinessLookupAttributesAllOf2ResultIdentifiersItemAddressesItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "country", n => { Country = n.GetStringValue(); } },

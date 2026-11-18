@@ -107,7 +107,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "city", n => { City = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCity>(global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCity.CreateFromDiscriminatorValue); } },
                 { "country_code", n => { CountryCode = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCountryCode>(global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsAddressValueCountryCode.CreateFromDiscriminatorValue); } },

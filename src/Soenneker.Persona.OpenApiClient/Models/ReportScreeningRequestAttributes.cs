@@ -93,7 +93,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "account-id", n => { AccountId = n.GetStringValue(); } },
                 { "query", n => { Query = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningRequestAttributesAllOf2Query>(global::Soenneker.Persona.OpenApiClient.Models.ReportScreeningRequestAttributesAllOf2Query.CreateFromDiscriminatorValue); } },

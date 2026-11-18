@@ -152,7 +152,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "accounts", n => { Accounts = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsAccounts.CreateFromDiscriminatorValue); } },
                 { "inquiry", n => { Inquiry = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry>(global::Soenneker.Persona.OpenApiClient.Models.VerificationSharedRelationshipsInquiry.CreateFromDiscriminatorValue); } },

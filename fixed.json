@@ -6368,15 +6368,15 @@
                           "resolution": null,
                           "created-at": "2021-06-30T20:37:18.678Z",
                           "updated-at": "2021-08-26T18:24:19.695Z",
-                          "assigned-at": null,
+                          "assigned-at": "2021-08-26T18:24:19.695Z",
                           "resolved-at": null,
                           "redacted-at": null,
                           "sla-expires-at": null,
                           "creator-id": "wfl_yKynZZiuPz1R5qm9JFyBnnLB",
                           "creator-type": "workflow-run",
                           "assignee-id": "foo@bar.com",
-                          "assigner-id": "foo@bar.com",
-                          "assigner-type": "user",
+                          "assigner-id": null,
+                          "assigner-type": null,
                           "resolver-id": null,
                           "resolver-type": null,
                           "updater-id": null,
@@ -6461,6 +6461,207 @@
           "429": {
             "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
             "$ref": "#/components/responses/too-many-requests"
+          }
+        },
+        "x-persona-product": "Cases"
+      }
+    },
+    "/cases/{caseId}/request-agent-review": {
+      "post": {
+        "tags": [
+          "Cases"
+        ],
+        "summary": "Request an agent review of a Case",
+        "description": "Has an AI agent review a Case. If the agent is already reviewing the Case, it re-reviews it with the latest case information. This does not change the Case\u0027s assignee.",
+        "externalDocs": {
+          "description": "Full documentation for this API on the Persona website.",
+          "url": "https://docs.withpersona.com/api-reference/cases/request-agent-review-for-a-case"
+        },
+        "operationId": "RequestAgentReviewForACase",
+        "parameters": [
+          {
+            "description": "Determines casing for the API response.",
+            "$ref": "#/components/parameters/key-inflection-header"
+          },
+          {
+            "description": "Ensures the request is idempotent.",
+            "$ref": "#/components/parameters/idempotency-key-header"
+          },
+          {
+            "$ref": "#/components/parameters/persona-version-header"
+          },
+          {
+            "description": "A comma-separated list of relationship paths. This can be used to customize which related resources will be fully serialized in the \u0060included\u0060 key in the response. See [Serialization](https://docs.withpersona.com/serialization#inclusion-of-related-resources) for more details.",
+            "$ref": "#/components/parameters/include-query-parameter"
+          },
+          {
+            "description": "Comma-separated list(s) of attributes to include in the response. This can be used to customize which attributes will be serialized in the response. See [Serialization](https://docs.withpersona.com/serialization#sparse-fieldsets) for more details.",
+            "$ref": "#/components/parameters/fields-query-parameter"
+          },
+          {
+            "name": "caseId",
+            "in": "path",
+            "description": "ID of the case to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestAgentReviewForACaseRequest"
+              },
+              "examples": {
+                "Success": {
+                  "$ref": "#/components/examples/request-agent-review"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "This endpoint returns a Case object and (optionally) its related objects in \u0060included\u0060.",
+            "headers": {
+              "RateLimit-Limit": {
+                "$ref": "#/components/headers/rate-limit-limit"
+              },
+              "RateLimit-Remaining": {
+                "$ref": "#/components/headers/rate-limit-remaining"
+              },
+              "RateLimit-Reset": {
+                "$ref": "#/components/headers/rate-limit-reset"
+              },
+              "Request-Id": {
+                "$ref": "#/components/headers/request-id"
+              },
+              "Persona-Environment-Id": {
+                "$ref": "#/components/headers/persona-environment-id"
+              },
+              "Persona-Organization-Id": {
+                "$ref": "#/components/headers/persona-organization-id"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestAgentReviewForACase200Response"
+                },
+                "examples": {
+                  "Success": {
+                    "value": {
+                      "data": {
+                        "type": "case",
+                        "id": "case_3maVhdLzdGftRZCvxfqazVL1",
+                        "attributes": {
+                          "status": "open",
+                          "name": "WATC-16",
+                          "resolution": null,
+                          "created-at": "2021-06-30T20:37:18.678Z",
+                          "updated-at": "2021-08-26T18:24:19.695Z",
+                          "assigned-at": "2021-08-26T18:24:19.695Z",
+                          "resolved-at": null,
+                          "redacted-at": null,
+                          "sla-expires-at": null,
+                          "creator-id": "wfl_yKynZZiuPz1R5qm9JFyBnnLB",
+                          "creator-type": "workflow-run",
+                          "assignee-id": "foo@bar.com",
+                          "assigner-id": null,
+                          "assigner-type": null,
+                          "resolver-id": null,
+                          "resolver-type": null,
+                          "updater-id": null,
+                          "updater-type": null,
+                          "tags": [],
+                          "fields": {},
+                          "attachments": []
+                        },
+                        "relationships": {
+                          "case-template": {
+                            "data": {
+                              "type": "case-template",
+                              "id": "ctmpl_6HheND7s14a2o7fg33iHqhg7"
+                            }
+                          },
+                          "case-queue": {
+                            "data": {
+                              "type": "case-queue",
+                              "id": "cqueue_7JRbkcdbx9fTossK98NJvRZcmk1"
+                            }
+                          },
+                          "case-comments": {
+                            "data": []
+                          },
+                          "accounts": {
+                            "data": []
+                          },
+                          "inquiries": {
+                            "data": [
+                              {
+                                "type": "inquiry",
+                                "id": "inq_29Yd6kF6xWVFgemm5WTxhxvf"
+                              }
+                            ]
+                          },
+                          "reports": {
+                            "data": [
+                              {
+                                "type": "report/watchlist",
+                                "id": "rep_PN3xspEwWCWWRp1eGpedaSNj"
+                              }
+                            ]
+                          },
+                          "verifications": {
+                            "data": []
+                          },
+                          "txns": {
+                            "data": []
+                          }
+                        }
+                      },
+                      "meta": {
+                        "agent-conversation-id": "agc_FHq6TkhMFNcxPh4bHvo1r5Ks"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was unacceptable, often due to invalid parameters.",
+            "$ref": "#/components/responses/bad-request"
+          },
+          "401": {
+            "description": "An invalid API key was provided.",
+            "$ref": "#/components/responses/unauthorized"
+          },
+          "403": {
+            "description": "The given API key doesn\u2019t have permissions to perform the request or a quota has been exceeded.",
+            "$ref": "#/components/responses/forbidden"
+          },
+          "404": {
+            "description": "The requested resource doesn\u2019t exist.",
+            "$ref": "#/components/responses/not-found"
+          },
+          "409": {
+            "description": "The request conflicts with another request, often due to attempting to create a duplicate resource.",
+            "$ref": "#/components/responses/conflict"
+          },
+          "422": {
+            "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
+          "429": {
+            "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
+            "$ref": "#/components/responses/too-many-requests"
+          },
+          "503": {
+            "description": "Something went wrong on Persona\u2019s end. These are rare.",
+            "$ref": "#/components/responses/service-unavailable"
           }
         },
         "x-persona-product": "Cases"
@@ -52693,7 +52894,7 @@
               "null",
               "string"
             ],
-            "description": "When \u0060pdf-snapshot\u0060 was recorded. The PDF is stored in the same write as the decision it shows, so this equals that decision\u0027s \u0060decisioned-at\u0060. A later decision made other than by those actions leaves it unchanged. \u0060null\u0060 when \u0060pdf-snapshot\u0060 is.",
+            "description": "When \u0060pdf-snapshot\u0060 was recorded. The PDF is stored in the same write as the decision it shows, so this equals that decision\u0027s \u0060decisioned-at\u0060, or \u0060marked-for-review-at\u0060 when the Inquiry was marked for review. A later decision made other than by those actions leaves it unchanged. \u0060null\u0060 when \u0060pdf-snapshot\u0060 is.",
             "format": "date-time"
           },
           "previous-step-name": {
@@ -66922,6 +67123,40 @@
         },
         "additionalProperties": false
       },
+      "RequestAgentReviewForACaseRequest": {
+        "required": [
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/RequestAgentReviewForACaseRequestMeta"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequestAgentReviewForACase200Response": {
+        "required": [
+          "data",
+          "meta"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CaseType"
+          },
+          "included": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CasesIncludedObjectsItem"
+            }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/RequestAgentReviewForACase200ResponseMeta"
+          }
+        },
+        "additionalProperties": false
+      },
       "SetStatusForACaseRequest": {
         "type": "object",
         "properties": {
@@ -74004,6 +74239,35 @@
           "user-email-address": {
             "type": "string",
             "description": "Email address of the Persona user to whom to assign this case"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequestAgentReviewForACaseRequestMeta": {
+        "required": [
+          "agent-id"
+        ],
+        "type": "object",
+        "properties": {
+          "agent-id": {
+            "type": "string",
+            "description": "ID of the AI agent that should review this case"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequestAgentReviewForACase200ResponseMeta": {
+        "required": [
+          "agent-conversation-id"
+        ],
+        "type": "object",
+        "properties": {
+          "agent-conversation-id": {
+            "examples": [
+              "agc_FHq6TkhMFNcxPh4bHvo1r5Ks"
+            ],
+            "type": "string",
+            "description": "ID of the agent conversation reviewing the case."
           }
         },
         "additionalProperties": false
@@ -107497,6 +107761,13 @@
         "value": {
           "meta": {
             "user-email-address": "name@domain.com"
+          }
+        }
+      },
+      "request-agent-review": {
+        "value": {
+          "meta": {
+            "agent-id": "agt_ZDrKwC3pVzSMZLJ7bEvBuSqU"
           }
         }
       },

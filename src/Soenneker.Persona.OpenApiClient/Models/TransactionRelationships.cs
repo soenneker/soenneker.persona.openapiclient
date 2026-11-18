@@ -95,7 +95,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "related-objects", n => { RelatedObjects = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsRelatedObjects>(global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsRelatedObjects.CreateFromDiscriminatorValue); } },
                 { "reviewer", n => { Reviewer = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsReviewer>(global::Soenneker.Persona.OpenApiClient.Models.TransactionRelationshipsReviewer.CreateFromDiscriminatorValue); } },

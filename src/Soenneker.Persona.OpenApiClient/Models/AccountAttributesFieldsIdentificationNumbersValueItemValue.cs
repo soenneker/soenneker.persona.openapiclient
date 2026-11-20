@@ -17,8 +17,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("hashed_identification_number") is null) { _explicitNullValueHashedIdentificationNumber = default!; _explicitNullProperties?.Remove("hashed_identification_number"); }
-            else if (parseNode.GetChildNode("hashed_identification_number") is { } nullNodeHashedIdentificationNumber && nullNodeHashedIdentificationNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HashedIdentificationNumber = null;
             if (parseNode.GetChildNode("identification_class") is null) { _explicitNullValueIdentificationClass = default!; _explicitNullProperties?.Remove("identification_class"); }
             else if (parseNode.GetChildNode("identification_class") is { } nullNodeIdentificationClass && nullNodeIdentificationClass.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IdentificationClass = null;
             if (parseNode.GetChildNode("identification_number") is null) { _explicitNullValueIdentificationNumber = default!; _explicitNullProperties?.Remove("identification_number"); }
@@ -27,16 +25,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if (parseNode.GetChildNode("issuing_country") is { } nullNodeIssuingCountry && nullNodeIssuingCountry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssuingCountry = null;
         }
 
-        /// <summary>A SHA-256 hash of the identification number, keyed on organization, country code, identification class, and issuing subdivision. Stable across re-verifications of the same document for the same organization. Null when the identification number has not been hashed.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueHashedIdentificationNumber? HashedIdentificationNumber { get => _explicitNullValueHashedIdentificationNumber; set { _explicitNullValueHashedIdentificationNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hashed_identification_number"); else _explicitNullProperties?.Remove("hashed_identification_number"); } }
-        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueHashedIdentificationNumber? _explicitNullValueHashedIdentificationNumber = default!;
-#nullable restore
-#else
-        public global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueHashedIdentificationNumber HashedIdentificationNumber { get => _explicitNullValueHashedIdentificationNumber; set { _explicitNullValueHashedIdentificationNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hashed_identification_number"); else _explicitNullProperties?.Remove("hashed_identification_number"); } }
-        private global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueHashedIdentificationNumber _explicitNullValueHashedIdentificationNumber = default!;
-#endif
         /// <summary>The identification_class property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,9 +71,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(4)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                { "hashed_identification_number", n => { HashedIdentificationNumber = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueHashedIdentificationNumber>(global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueHashedIdentificationNumber.CreateFromDiscriminatorValue); } },
                 { "identification_class", n => { IdentificationClass = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueIdentificationClass>(global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueIdentificationClass.CreateFromDiscriminatorValue); } },
                 { "identification_number", n => { IdentificationNumber = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueIdentificationNumber>(global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueIdentificationNumber.CreateFromDiscriminatorValue); } },
                 { "issuing_country", n => { IssuingCountry = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueIssuingCountry>(global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueIssuingCountry.CreateFromDiscriminatorValue); } },
@@ -98,7 +85,6 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueHashedIdentificationNumber>("hashed_identification_number", HashedIdentificationNumber);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueIdentificationClass>("identification_class", IdentificationClass);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueIdentificationNumber>("identification_number", IdentificationNumber);
             writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.AccountAttributesFieldsIdentificationNumbersValueItemValueIssuingCountry>("issuing_country", IssuingCountry);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);

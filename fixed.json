@@ -8066,7 +8066,7 @@
           "Deployments"
         ],
         "summary": "List all Deployments",
-        "description": "Returns a list of your organization\u0027s deployments, newest first. Results are returned in reverse chronological order.\nEach deployment\u0027s \u0060routes\u0060 carry the effective state as of that deployment \u2014 the newest route per (resource template, environment) key at or before it. Pass \u0060filter[changes-only]=true\u0060 to render only the rows each deployment wrote, so the list reads as a change history. \u0060filter[environment-id]\u0060 and \u0060filter[template-id]\u0060 narrow both the deployments listed and the routes each one carries.\nThis endpoint requires a production API key; sandbox API keys receive 401.",
+        "description": "Returns a list of your organization\u0027s deployments, newest first. Results are returned in reverse chronological order.\nEach deployment\u0027s \u0060routes\u0060 carry the effective state as of that deployment \u2014 the newest route per (resource template, environment) key at or before it. Pass \u0060filter[changes-only]=true\u0060 to render only the rows each deployment wrote, so the list reads as a change history. \u0060filter[environment-id]\u0060 and \u0060filter[template-id]\u0060 narrow both the deployments listed and the routes each one carries. A deployment can carry at most 1,000 routes; when one would carry more, the request returns 422, and these filters narrow it.\nThis endpoint requires a production API key; sandbox API keys receive 401.",
         "operationId": "ListAllDeployments",
         "parameters": [
           {
@@ -8107,7 +8107,7 @@
                     "itmpl_H5wJqL8vNrXmPyKsTdGc2Vz"
                   ],
                   "type": "string",
-                  "description": "Filter deployments and routes to a single resource template."
+                  "description": "Only deployments that changed a route of this Inquiry Template or Workflow, each with only that resource\u0027s routes. A Workflow lists nothing for an organization that doesn\u0027t use the Workflow Deployment Manager."
                 },
                 "changes-only": {
                   "examples": [
@@ -8173,6 +8173,10 @@
             "description": "The requested resource doesn\u2019t exist.",
             "$ref": "#/components/responses/not-found"
           },
+          "422": {
+            "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
+            "$ref": "#/components/responses/unprocessable-entity"
+          },
           "429": {
             "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
             "$ref": "#/components/responses/too-many-requests"
@@ -8187,7 +8191,7 @@
           "Deployments"
         ],
         "summary": "Retrieve a Deployment",
-        "description": "Retrieves a single deployment. Its \u0060routes\u0060 carry the effective state as of it \u2014 the newest route per (resource template, environment) key at or before the deployment, across every environment and template \u2014 including routes written by earlier deployments. Because the response is a snapshot, it can look similar to the list endpoint; it does not list other deployments.\nThis endpoint does not accept filters. To see only the routes a deployment wrote, use the list endpoint with \u0060filter[changes-only]=true\u0060.\nThis endpoint requires a production API key; sandbox API keys receive 401.",
+        "description": "Retrieves a single deployment. Its \u0060routes\u0060 carry the effective state as of it \u2014 the newest route per (resource template, environment) key at or before the deployment, across every environment and template \u2014 including routes written by earlier deployments. Because the response is a snapshot, it can look similar to the list endpoint; it does not list other deployments.\nThis endpoint does not accept filters. To see only the routes a deployment wrote, use the list endpoint with \u0060filter[changes-only]=true\u0060. A deployment can carry at most 1,000 routes; when its state spans more, this endpoint returns 422, and the list endpoint\u0027s filters narrow it.\nThis endpoint requires a production API key; sandbox API keys receive 401.",
         "operationId": "RetrieveADeployment",
         "parameters": [
           {
@@ -8265,6 +8269,10 @@
           "404": {
             "description": "The requested resource doesn\u2019t exist.",
             "$ref": "#/components/responses/not-found"
+          },
+          "422": {
+            "description": "The request modifies the resource in an unacceptable way, often due to an invalid action or parameter.",
+            "$ref": "#/components/responses/unprocessable-entity"
           },
           "429": {
             "description": "Your organization\u2019s rate limit has been exceeded. We recommend an exponential backoff on requests.",
@@ -29962,7 +29970,7 @@
           "Workflows"
         ],
         "summary": "List all Workflow Versions",
-        "description": "Retrieves the published versions and current draft version of a Workflow. Archived versions are not returned.\n\nProvide the Workflow ID in \u0060filter[workflow-id]\u0060, which you can copy from the Workflow in your Persona dashboard. The \u0060live\u0060, \u0060rollout-label\u0060, and \u0060rollout-percentage\u0060 attributes are relative to the environment your API key belongs to: a version live in Production is not live in Sandbox. Sandbox API keys are supported, and report \u0060live: false\u0060 for every version of a Workflow that is only deployed to Production.",
+        "description": "Retrieves the published versions and current draft version of a Workflow. Archived versions are not returned.\n\nProvide the Workflow ID in \u0060filter[workflow-id]\u0060, which you can copy from the Workflow in your Persona dashboard. The \u0060live\u0060, \u0060rollout-label\u0060, and \u0060rollout-percentage\u0060 attributes are relative to the environment your API key belongs to: a version live in Production is not live in Sandbox. Sandbox API keys are supported, and report \u0060live: false\u0060 for every version of a Workflow that is only deployed to Production.\n\nFor an organization that uses the Workflow Deployment Manager, a Production API key that can read the Workflow also gets each version\u0027s \u0060deployments\u0060 and \u0060version-tag\u0060. Sandbox API keys don\u0027t. \u0060live\u0060, \u0060rollout-label\u0060 and \u0060rollout-percentage\u0060 still describe your API key\u0027s environment only. Each of a version\u0027s \u0060deployments\u0060 has the same shape as a route in a Deployment\u0027s \u0060routes\u0060 from the Deployments API, not the shape of an Inquiry Template Version\u0027s \u0060deployments\u0060.",
         "externalDocs": {
           "description": "Full documentation for this API on the Persona website.",
           "url": "https://docs.withpersona.com/api-reference/workflow-versions/list-all-workflow-versions"
@@ -32527,6 +32535,47 @@
           }
         ],
         "description": "The version\u0027s deployment tag, when one was minted."
+      },
+      "DeploymentRoute": {
+        "type": "object",
+        "properties": {
+          "resource-type": {
+            "examples": [
+              "inquiry-template",
+              "workflow"
+            ],
+            "type": "string",
+            "description": "The platform resource type the route targets: \u0060inquiry-template\u0060, or \u0060workflow\u0060 for an organization that uses the Workflow Deployment Manager. A \u0060deployment.completed\u0060 event keeps the routes it was sent with. \u0060scheduled-run-config\u0060 support is planned for a future deploy-manager release."
+          },
+          "template-id": {
+            "examples": [
+              "itmpl_H5wJqL8vNrXmPyKsTdGc2Vz"
+            ],
+            "type": "string",
+            "description": "The token of the resource template the route targets: an Inquiry Template or a Workflow."
+          },
+          "environment": {
+            "$ref": "#/components/schemas/DeploymentRouteEnvironment"
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeploymentRouteRulesItem"
+            },
+            "description": "The routing rules evaluated for the key. An empty list undeploys the resource from the environment. Each rule has a strategy and may have a criteria tree with \u0060and\u0060, \u0060or\u0060, and \u0060!\u0060 operators over context or resource origins."
+          },
+          "source-deployment-id": {
+            "examples": [
+              "dply_1AbCdEfGhIjKlMnOpQrStUv"
+            ],
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The token of the deployment that wrote this route. On a Deployment, set only when the route predates that deployment, and null when that deployment wrote it."
+          }
+        },
+        "additionalProperties": false
       },
       "Deployment": {
         "type": "object",
@@ -42184,19 +42233,19 @@
         },
         "additionalProperties": false
       },
-      "DeploymentAttributesRoutesItemRulesItemStrategy": {
+      "DeploymentRouteRulesItemStrategy": {
         "unevaluatedProperties": {
           "not": {}
         },
         "oneOf": [
           {
-            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf1"
+            "$ref": "#/components/schemas/DeploymentRouteRulesItemStrategyOneOf1"
           },
           {
-            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf2"
+            "$ref": "#/components/schemas/DeploymentRouteRulesItemStrategyOneOf2"
           },
           {
-            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf3"
+            "$ref": "#/components/schemas/DeploymentRouteRulesItemStrategyOneOf3"
           }
         ]
       },
@@ -47273,19 +47322,19 @@
           }
         ]
       },
-      "DeploymentRouteAttributesRulesItemStrategy": {
+      "DeploymentRoute2AttributesRulesItemStrategy": {
         "unevaluatedProperties": {
           "not": {}
         },
         "oneOf": [
           {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf1"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf1"
           },
           {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf2"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf2"
           },
           {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf3"
           }
         ]
       },
@@ -47645,7 +47694,7 @@
             "verification/selfie": "#/components/schemas/VerificationSelfie",
             "verification/verifiable-credential": "#/components/schemas/VerificationVerifiableCredential",
             "workflow": "#/components/schemas/Workflow",
-            "deployment-route": "#/components/schemas/DeploymentRoute",
+            "deployment-route": "#/components/schemas/DeploymentRoute2",
             "workflow-run": "#/components/schemas/WorkflowRun"
           }
         }
@@ -50304,7 +50353,7 @@
             "event": "#/components/schemas/EventType",
             "user": "#/components/schemas/User",
             "scheduled-run": "#/components/schemas/ScheduledRun",
-            "deployment-route": "#/components/schemas/DeploymentRoute"
+            "deployment-route": "#/components/schemas/DeploymentRoute2"
           }
         },
         "discriminator": {
@@ -50347,7 +50396,7 @@
               "event": "#/components/schemas/EventType",
               "user": "#/components/schemas/User",
               "scheduled-run": "#/components/schemas/ScheduledRun",
-              "deployment-route": "#/components/schemas/DeploymentRoute"
+              "deployment-route": "#/components/schemas/DeploymentRoute2"
             }
           },
           "discriminator": {
@@ -50473,7 +50522,7 @@
         ],
         "x-inheritable": true
       },
-      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf1": {
+      "DeploymentRouteRulesItemStrategyOneOf1": {
         "required": [
           "type",
           "ref-type",
@@ -50488,12 +50537,12 @@
             "$ref": "#/components/schemas/VersionRefType"
           },
           "version": {
-            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf1Version"
+            "$ref": "#/components/schemas/DeploymentRouteRulesItemStrategyOneOf1Version"
           }
         },
         "additionalProperties": false
       },
-      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf2": {
+      "DeploymentRouteRulesItemStrategyOneOf2": {
         "required": [
           "type",
           "ref-type"
@@ -50501,7 +50550,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf2Type"
+            "$ref": "#/components/schemas/DeploymentRouteRulesItemStrategyOneOf2Type"
           },
           "ref-type": {
             "$ref": "#/components/schemas/NoopRefType"
@@ -50509,7 +50558,7 @@
         },
         "additionalProperties": false
       },
-      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf3": {
+      "DeploymentRouteRulesItemStrategyOneOf3": {
         "required": [
           "type",
           "version-refs"
@@ -50522,7 +50571,7 @@
           "version-refs": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItem"
+              "$ref": "#/components/schemas/DeploymentRouteRulesItemStrategyOneOf3VersionRefsItem"
             }
           }
         },
@@ -50613,7 +50662,7 @@
         },
         "additionalProperties": false
       },
-      "DeploymentRouteAttributesRulesItemStrategyOneOf1": {
+      "DeploymentRoute2AttributesRulesItemStrategyOneOf1": {
         "required": [
           "type",
           "ref-type",
@@ -50622,18 +50671,18 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf1Type"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf1Type"
           },
           "ref-type": {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf1RefType"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf1RefType"
           },
           "version": {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf1Version"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf1Version"
           }
         },
         "additionalProperties": false
       },
-      "DeploymentRouteAttributesRulesItemStrategyOneOf2": {
+      "DeploymentRoute2AttributesRulesItemStrategyOneOf2": {
         "required": [
           "type",
           "ref-type"
@@ -50641,15 +50690,15 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf2Type"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf2Type"
           },
           "ref-type": {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf2RefType"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf2RefType"
           }
         },
         "additionalProperties": false
       },
-      "DeploymentRouteAttributesRulesItemStrategyOneOf3": {
+      "DeploymentRoute2AttributesRulesItemStrategyOneOf3": {
         "required": [
           "type",
           "version-refs"
@@ -50657,12 +50706,12 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3Type"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf3Type"
           },
           "version-refs": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItem"
+              "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItem"
             }
           }
         },
@@ -51471,23 +51520,23 @@
         },
         "additionalProperties": false
       },
-      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItem": {
+      "DeploymentRouteRulesItemStrategyOneOf3VersionRefsItem": {
         "unevaluatedProperties": {
           "not": {}
         },
         "oneOf": [
           {
-            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItemOneOf1"
+            "$ref": "#/components/schemas/DeploymentRouteRulesItemStrategyOneOf3VersionRefsItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItemOneOf2"
+            "$ref": "#/components/schemas/DeploymentRouteRulesItemStrategyOneOf3VersionRefsItemOneOf2"
           }
         ],
         "discriminator": {
           "propertyName": "ref-type",
           "mapping": {
-            "version": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItemOneOf1",
-            "noop": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItemOneOf2"
+            "version": "#/components/schemas/DeploymentRouteRulesItemStrategyOneOf3VersionRefsItemOneOf1",
+            "noop": "#/components/schemas/DeploymentRouteRulesItemStrategyOneOf3VersionRefsItemOneOf2"
           }
         }
       },
@@ -51576,23 +51625,23 @@
         ],
         "description": "The version\u0027s serialized deployment tag, when one was minted."
       },
-      "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItem": {
+      "DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItem": {
         "unevaluatedProperties": {
           "not": {}
         },
         "oneOf": [
           {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1"
           },
           {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2"
           }
         ],
         "discriminator": {
           "propertyName": "ref-type",
           "mapping": {
-            "version": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1",
-            "noop": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2"
+            "version": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1",
+            "noop": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2"
           }
         }
       },
@@ -51607,7 +51656,7 @@
         ],
         "x-inheritable": true
       },
-      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItemOneOf1": {
+      "DeploymentRouteRulesItemStrategyOneOf3VersionRefsItemOneOf1": {
         "required": [
           "ref-type",
           "version",
@@ -51616,10 +51665,10 @@
         "type": "object",
         "properties": {
           "ref-type": {
-            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItemOneOf1RefType"
+            "$ref": "#/components/schemas/DeploymentRouteRulesItemStrategyOneOf3VersionRefsItemOneOf1RefType"
           },
           "version": {
-            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItemOneOf1Version"
+            "$ref": "#/components/schemas/DeploymentRouteRulesItemStrategyOneOf3VersionRefsItemOneOf1Version"
           },
           "weight": {
             "examples": [
@@ -51631,7 +51680,7 @@
         },
         "additionalProperties": false
       },
-      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItemOneOf2": {
+      "DeploymentRouteRulesItemStrategyOneOf3VersionRefsItemOneOf2": {
         "required": [
           "ref-type",
           "weight"
@@ -51639,7 +51688,7 @@
         "type": "object",
         "properties": {
           "ref-type": {
-            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItemOneOf2RefType"
+            "$ref": "#/components/schemas/DeploymentRouteRulesItemStrategyOneOf3VersionRefsItemOneOf2RefType"
           },
           "weight": {
             "examples": [
@@ -51720,7 +51769,7 @@
         },
         "additionalProperties": false
       },
-      "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1": {
+      "DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1": {
         "required": [
           "ref-type",
           "version",
@@ -51729,10 +51778,10 @@
         "type": "object",
         "properties": {
           "ref-type": {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1RefType"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1RefType"
           },
           "version": {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1Version"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1Version"
           },
           "weight": {
             "examples": [
@@ -51751,7 +51800,7 @@
         },
         "additionalProperties": false
       },
-      "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2": {
+      "DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2": {
         "required": [
           "ref-type",
           "weight"
@@ -51759,7 +51808,7 @@
         "type": "object",
         "properties": {
           "ref-type": {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2RefType"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2RefType"
           },
           "weight": {
             "examples": [
@@ -53299,6 +53348,44 @@
         },
         "additionalProperties": false
       },
+      "DeploymentRouteEnvironment": {
+        "required": [
+          "token",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "examples": [
+              "env_2VpXc7nMqZwKjRfLsGdYb8Ht"
+            ],
+            "type": "string"
+          },
+          "name": {
+            "examples": [
+              "production"
+            ],
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The environment the route applies to."
+      },
+      "DeploymentRouteRulesItem": {
+        "required": [
+          "strategy"
+        ],
+        "type": "object",
+        "properties": {
+          "criteria": {
+            "$ref": "#/components/schemas/RouteCriteria"
+          },
+          "strategy": {
+            "$ref": "#/components/schemas/DeploymentRouteRulesItemStrategy"
+          }
+        },
+        "additionalProperties": false
+      },
       "DeploymentAttributes": {
         "type": "object",
         "properties": {
@@ -53312,7 +53399,7 @@
           "routes": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DeploymentAttributesRoutesItem"
+              "$ref": "#/components/schemas/DeploymentRoute"
             },
             "description": "The routes this deployment puts in force. Each route binds a (resource template, environment) key to a rules tree. Without \u0060filter[changes-only]\u0060 this is the effective state as of the deployment \u2014 including routes written by earlier deployments \u2014 so a route whose \u0060source-deployment-id\u0060 is set was authored by the deployment named there. With \u0060filter[changes-only]\u0060 it is exactly the rows this deployment wrote."
           }
@@ -54182,7 +54269,7 @@
         },
         "additionalProperties": false
       },
-      "DeploymentRouteAttributes": {
+      "DeploymentRoute2Attributes": {
         "type": "object",
         "properties": {
           "resource-type": {
@@ -54200,12 +54287,12 @@
             "description": "The token of the resource template the route targets."
           },
           "environment": {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesEnvironment"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesEnvironment"
           },
           "rules": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItem"
+              "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItem"
             },
             "description": "The routing rules evaluated for the key. A \u0060noop\u0060 ref runs nothing, and a weighted split\u0027s refs carry the label of their arm, \u0060treatment\u0060 or \u0060control\u0060."
           },
@@ -54220,11 +54307,11 @@
         },
         "additionalProperties": false
       },
-      "DeploymentRouteRelationships": {
+      "DeploymentRoute2Relationships": {
         "type": "object",
         "properties": {
           "deployment": {
-            "$ref": "#/components/schemas/DeploymentRouteRelationshipsDeployment"
+            "$ref": "#/components/schemas/DeploymentRoute2RelationshipsDeployment"
           }
         },
         "additionalProperties": false
@@ -55232,6 +55319,16 @@
               "integer"
             ],
             "description": "The share of traffic this version receives in the environment of the requesting API key or delivering webhook. Null when the version is not live \u2014 including while the Workflow is paused or archived \u2014 and for organizations whose deployments do not model a per-version traffic share."
+          },
+          "version-tag": {
+            "$ref": "#/components/schemas/VersionTag"
+          },
+          "deployments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeploymentRoute"
+            },
+            "description": "Deployment routes currently sending traffic to this version, one per environment. A paused or archived workflow sends no traffic, and \u0060live\u0060 says whether this version is running. Its routes stay listed unless deactivating it replaced them with routes that run nothing. A route runs one version, or splits traffic between two (one of which may run nothing), and its version references carry each version\u0027s token and tag. Each item has the same shape as a route in a Deployment\u0027s \u0060routes\u0060 from the Deployments API, and its \u0060source-deployment-id\u0060 names the deployment that wrote it. Omitted under the same conditions as \u0060version-tag\u0060."
           },
           "last-updater": {
             "examples": [
@@ -57792,7 +57889,7 @@
         },
         "additionalProperties": false
       },
-      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf1Version": {
+      "DeploymentRouteRulesItemStrategyOneOf1Version": {
         "required": [
           "token",
           "tag"
@@ -57951,7 +58048,7 @@
         },
         "description": "The portrait photo extracted from the mobile document credential."
       },
-      "DeploymentRouteAttributesRulesItemStrategyOneOf1Version": {
+      "DeploymentRoute2AttributesRulesItemStrategyOneOf1Version": {
         "required": [
           "token",
           "tag"
@@ -59234,7 +59331,7 @@
         },
         "additionalProperties": false
       },
-      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItemOneOf1Version": {
+      "DeploymentRouteRulesItemStrategyOneOf3VersionRefsItemOneOf1Version": {
         "required": [
           "token",
           "tag"
@@ -59250,7 +59347,7 @@
         },
         "additionalProperties": false
       },
-      "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1Version": {
+      "DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1Version": {
         "required": [
           "token",
           "tag"
@@ -60049,46 +60146,6 @@
           },
           "metadata": {
             "$ref": "#/components/schemas/ExtractionResponsesItemResultsItemMetadataProperty"
-          }
-        },
-        "additionalProperties": false
-      },
-      "DeploymentAttributesRoutesItem": {
-        "type": "object",
-        "properties": {
-          "resource-type": {
-            "examples": [
-              "inquiry-template"
-            ],
-            "type": "string",
-            "description": "The platform resource type the route targets. The deployments endpoints return \u0060inquiry-template\u0060 routes only; a \u0060deployment.completed\u0060 event also carries \u0060workflow\u0060 routes. \u0060scheduled-run-config\u0060 support is planned for a future deploy-manager release."
-          },
-          "template-id": {
-            "examples": [
-              "itmpl_H5wJqL8vNrXmPyKsTdGc2Vz"
-            ],
-            "type": "string",
-            "description": "The token of the resource template the route targets."
-          },
-          "environment": {
-            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemEnvironment"
-          },
-          "rules": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItem"
-            },
-            "description": "The routing rules evaluated for the key. An empty list undeploys the resource from the environment. Each rule has a strategy and may have a criteria tree with \u0060and\u0060, \u0060or\u0060, and \u0060!\u0060 operators over context or resource origins."
-          },
-          "source-deployment-id": {
-            "examples": [
-              "dply_1AbCdEfGhIjKlMnOpQrStUv"
-            ],
-            "type": [
-              "null",
-              "string"
-            ],
-            "description": "The token of the deployment that wrote this route, when it predates this deployment; null when this deployment wrote it."
           }
         },
         "additionalProperties": false
@@ -60900,7 +60957,7 @@
         "additionalProperties": false,
         "description": "The workflow\u0027s current deployment route in the caller\u0027s environment: the API key\u0027s on a request, the webhook\u0027s on a delivery. Empty when the workflow isn\u0027t deployed there. Visible to any credential that can read the workflow, as \u0060active-deployment\u0060 is."
       },
-      "DeploymentRouteAttributesEnvironment": {
+      "DeploymentRoute2AttributesEnvironment": {
         "required": [
           "token",
           "name"
@@ -60923,7 +60980,7 @@
         "additionalProperties": false,
         "description": "The environment the route applies to."
       },
-      "DeploymentRouteAttributesRulesItem": {
+      "DeploymentRoute2AttributesRulesItem": {
         "required": [
           "strategy"
         ],
@@ -60933,16 +60990,16 @@
             "$ref": "#/components/schemas/RouteCriteria"
           },
           "strategy": {
-            "$ref": "#/components/schemas/DeploymentRouteAttributesRulesItemStrategy"
+            "$ref": "#/components/schemas/DeploymentRoute2AttributesRulesItemStrategy"
           }
         },
         "additionalProperties": false
       },
-      "DeploymentRouteRelationshipsDeployment": {
+      "DeploymentRoute2RelationshipsDeployment": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/DeploymentRouteRelationshipsDeploymentData"
+            "$ref": "#/components/schemas/DeploymentRoute2RelationshipsDeploymentData"
           }
         },
         "additionalProperties": false,
@@ -64712,44 +64769,6 @@
         },
         "additionalProperties": false
       },
-      "DeploymentAttributesRoutesItemEnvironment": {
-        "required": [
-          "token",
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "token": {
-            "examples": [
-              "env_2VpXc7nMqZwKjRfLsGdYb8Ht"
-            ],
-            "type": "string"
-          },
-          "name": {
-            "examples": [
-              "production"
-            ],
-            "type": "string"
-          }
-        },
-        "additionalProperties": false,
-        "description": "The environment the route applies to."
-      },
-      "DeploymentAttributesRoutesItemRulesItem": {
-        "required": [
-          "strategy"
-        ],
-        "type": "object",
-        "properties": {
-          "criteria": {
-            "$ref": "#/components/schemas/RouteCriteria"
-          },
-          "strategy": {
-            "$ref": "#/components/schemas/DeploymentAttributesRoutesItemRulesItemStrategy"
-          }
-        },
-        "additionalProperties": false
-      },
       "InquiryTemplateRelationshipsLatestPublishedVersionData": {
         "type": [
           "null",
@@ -64975,11 +64994,11 @@
         },
         "additionalProperties": false
       },
-      "DeploymentRouteRelationshipsDeploymentData": {
+      "DeploymentRoute2RelationshipsDeploymentData": {
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/DeploymentRouteRelationshipsDeploymentDataType"
+            "$ref": "#/components/schemas/DeploymentRoute2RelationshipsDeploymentDataType"
           },
           "id": {
             "type": "string"
@@ -89725,14 +89744,14 @@
           ]
         }
       },
-      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf2Type": {
+      "DeploymentRouteRulesItemStrategyOneOf2Type": {
         "enum": [
           "constant"
         ],
         "type": "string",
         "x-client-original-const": "constant",
         "x-ms-enum": {
-          "name": "DeploymentAttributesRoutesItemRulesItemStrategyOneOf2Type",
+          "name": "DeploymentRouteRulesItemStrategyOneOf2Type",
           "modelAsString": false,
           "values": [
             {
@@ -89811,14 +89830,14 @@
           ]
         }
       },
-      "DeploymentRouteAttributesRulesItemStrategyOneOf1Type": {
+      "DeploymentRoute2AttributesRulesItemStrategyOneOf1Type": {
         "enum": [
           "constant"
         ],
         "type": "string",
         "x-client-original-const": "constant",
         "x-ms-enum": {
-          "name": "DeploymentRouteAttributesRulesItemStrategyOneOf1Type",
+          "name": "DeploymentRoute2AttributesRulesItemStrategyOneOf1Type",
           "modelAsString": false,
           "values": [
             {
@@ -89828,7 +89847,7 @@
           ]
         }
       },
-      "DeploymentRouteAttributesRulesItemStrategyOneOf1RefType": {
+      "DeploymentRoute2AttributesRulesItemStrategyOneOf1RefType": {
         "enum": [
           "version"
         ],
@@ -89836,7 +89855,7 @@
         "description": "The strategy runs the named version.",
         "x-client-original-const": "version",
         "x-ms-enum": {
-          "name": "DeploymentRouteAttributesRulesItemStrategyOneOf1RefType",
+          "name": "DeploymentRoute2AttributesRulesItemStrategyOneOf1RefType",
           "modelAsString": false,
           "values": [
             {
@@ -89846,14 +89865,14 @@
           ]
         }
       },
-      "DeploymentRouteAttributesRulesItemStrategyOneOf2Type": {
+      "DeploymentRoute2AttributesRulesItemStrategyOneOf2Type": {
         "enum": [
           "constant"
         ],
         "type": "string",
         "x-client-original-const": "constant",
         "x-ms-enum": {
-          "name": "DeploymentRouteAttributesRulesItemStrategyOneOf2Type",
+          "name": "DeploymentRoute2AttributesRulesItemStrategyOneOf2Type",
           "modelAsString": false,
           "values": [
             {
@@ -89863,7 +89882,7 @@
           ]
         }
       },
-      "DeploymentRouteAttributesRulesItemStrategyOneOf2RefType": {
+      "DeploymentRoute2AttributesRulesItemStrategyOneOf2RefType": {
         "enum": [
           "noop"
         ],
@@ -89871,7 +89890,7 @@
         "description": "The strategy starts no run (\u0022don\u0027t run\u0022) and names no version.",
         "x-client-original-const": "noop",
         "x-ms-enum": {
-          "name": "DeploymentRouteAttributesRulesItemStrategyOneOf2RefType",
+          "name": "DeploymentRoute2AttributesRulesItemStrategyOneOf2RefType",
           "modelAsString": false,
           "values": [
             {
@@ -89881,14 +89900,14 @@
           ]
         }
       },
-      "DeploymentRouteAttributesRulesItemStrategyOneOf3Type": {
+      "DeploymentRoute2AttributesRulesItemStrategyOneOf3Type": {
         "enum": [
           "weighted-random"
         ],
         "type": "string",
         "x-client-original-const": "weighted-random",
         "x-ms-enum": {
-          "name": "DeploymentRouteAttributesRulesItemStrategyOneOf3Type",
+          "name": "DeploymentRoute2AttributesRulesItemStrategyOneOf3Type",
           "modelAsString": false,
           "values": [
             {
@@ -90816,7 +90835,7 @@
           ]
         }
       },
-      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItemOneOf1RefType": {
+      "DeploymentRouteRulesItemStrategyOneOf3VersionRefsItemOneOf1RefType": {
         "enum": [
           "version"
         ],
@@ -90824,7 +90843,7 @@
         "description": "This share of runs gets the named version.",
         "x-client-original-const": "version",
         "x-ms-enum": {
-          "name": "DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItemOneOf1RefType",
+          "name": "DeploymentRouteRulesItemStrategyOneOf3VersionRefsItemOneOf1RefType",
           "modelAsString": false,
           "values": [
             {
@@ -90834,7 +90853,7 @@
           ]
         }
       },
-      "DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItemOneOf2RefType": {
+      "DeploymentRouteRulesItemStrategyOneOf3VersionRefsItemOneOf2RefType": {
         "enum": [
           "noop"
         ],
@@ -90842,7 +90861,7 @@
         "description": "This share of runs starts no run (\u0022don\u0027t run\u0022) and names no version.",
         "x-client-original-const": "noop",
         "x-ms-enum": {
-          "name": "DeploymentAttributesRoutesItemRulesItemStrategyOneOf3VersionRefsItemOneOf2RefType",
+          "name": "DeploymentRouteRulesItemStrategyOneOf3VersionRefsItemOneOf2RefType",
           "modelAsString": false,
           "values": [
             {
@@ -90852,7 +90871,7 @@
           ]
         }
       },
-      "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1RefType": {
+      "DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1RefType": {
         "enum": [
           "version"
         ],
@@ -90860,7 +90879,7 @@
         "description": "This share of runs gets the named version.",
         "x-client-original-const": "version",
         "x-ms-enum": {
-          "name": "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1RefType",
+          "name": "DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItemOneOf1RefType",
           "modelAsString": false,
           "values": [
             {
@@ -90870,7 +90889,7 @@
           ]
         }
       },
-      "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2RefType": {
+      "DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2RefType": {
         "enum": [
           "noop"
         ],
@@ -90878,7 +90897,7 @@
         "description": "This share of runs starts no run (\u0022don\u0027t run\u0022) and names no version.",
         "x-client-original-const": "noop",
         "x-ms-enum": {
-          "name": "DeploymentRouteAttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2RefType",
+          "name": "DeploymentRoute2AttributesRulesItemStrategyOneOf3VersionRefsItemOneOf2RefType",
           "modelAsString": false,
           "values": [
             {
@@ -91670,14 +91689,14 @@
           ]
         }
       },
-      "DeploymentRouteRelationshipsDeploymentDataType": {
+      "DeploymentRoute2RelationshipsDeploymentDataType": {
         "enum": [
           "deployment"
         ],
         "type": "string",
         "x-client-original-const": "deployment",
         "x-ms-enum": {
-          "name": "DeploymentRouteRelationshipsDeploymentDataType",
+          "name": "DeploymentRoute2RelationshipsDeploymentDataType",
           "modelAsString": false,
           "values": [
             {
@@ -98491,10 +98510,10 @@
             "type": "string"
           },
           "attributes": {
-            "$ref": "#/components/schemas/DeploymentRouteAttributes"
+            "$ref": "#/components/schemas/DeploymentRoute2Attributes"
           },
           "relationships": {
-            "$ref": "#/components/schemas/DeploymentRouteRelationships"
+            "$ref": "#/components/schemas/DeploymentRoute2Relationships"
           }
         },
         "required": [
@@ -105742,10 +105761,10 @@
                 "type": "string"
               },
               "attributes": {
-                "$ref": "#/components/schemas/DeploymentRouteAttributes"
+                "$ref": "#/components/schemas/DeploymentRoute2Attributes"
               },
               "relationships": {
-                "$ref": "#/components/schemas/DeploymentRouteRelationships"
+                "$ref": "#/components/schemas/DeploymentRoute2Relationships"
               }
             },
             "required": [
@@ -112737,6 +112756,8 @@
                 "live": false,
                 "rollout-label": null,
                 "rollout-percentage": null,
+                "version-tag": null,
+                "deployments": [],
                 "last-updater": "taylor@example.com",
                 "inputs": [
                   {
@@ -112774,6 +112795,55 @@
                 "live": true,
                 "rollout-label": "treatment",
                 "rollout-percentage": 25,
+                "version-tag": {
+                  "name": "5",
+                  "description": "Add manual review escalation",
+                  "created-at": "2026-03-26T18:29:41.000Z"
+                },
+                "deployments": [
+                  {
+                    "resource-type": "workflow",
+                    "template-id": "wfl_3VghhbvDc7UuUNT8uZrqZjsk",
+                    "environment": {
+                      "token": "env_2VpXc7nMqZwKjRfLsGdYb8Ht",
+                      "name": "production"
+                    },
+                    "rules": [
+                      {
+                        "strategy": {
+                          "type": "weighted-random",
+                          "version-refs": [
+                            {
+                              "ref-type": "version",
+                              "version": {
+                                "token": "wfv_TREATMENT123",
+                                "tag": {
+                                  "name": "5",
+                                  "description": "Add manual review escalation",
+                                  "created-at": "2026-03-26T18:29:41.000Z"
+                                }
+                              },
+                              "weight": 25
+                            },
+                            {
+                              "ref-type": "version",
+                              "version": {
+                                "token": "wfv_CONTROL123",
+                                "tag": {
+                                  "name": "4",
+                                  "description": "Initial published version",
+                                  "created-at": "2026-03-20T18:29:41.000Z"
+                                }
+                              },
+                              "weight": 75
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "source-deployment-id": "dply_7KqH4xVnR2bPmYwL9sTgD3cE"
+                  }
+                ],
                 "last-updater": "alex@example.com",
                 "inputs": [
                   {
@@ -112811,6 +112881,55 @@
                 "live": true,
                 "rollout-label": "control",
                 "rollout-percentage": 75,
+                "version-tag": {
+                  "name": "4",
+                  "description": "Initial published version",
+                  "created-at": "2026-03-20T18:29:41.000Z"
+                },
+                "deployments": [
+                  {
+                    "resource-type": "workflow",
+                    "template-id": "wfl_3VghhbvDc7UuUNT8uZrqZjsk",
+                    "environment": {
+                      "token": "env_2VpXc7nMqZwKjRfLsGdYb8Ht",
+                      "name": "production"
+                    },
+                    "rules": [
+                      {
+                        "strategy": {
+                          "type": "weighted-random",
+                          "version-refs": [
+                            {
+                              "ref-type": "version",
+                              "version": {
+                                "token": "wfv_TREATMENT123",
+                                "tag": {
+                                  "name": "5",
+                                  "description": "Add manual review escalation",
+                                  "created-at": "2026-03-26T18:29:41.000Z"
+                                }
+                              },
+                              "weight": 25
+                            },
+                            {
+                              "ref-type": "version",
+                              "version": {
+                                "token": "wfv_CONTROL123",
+                                "tag": {
+                                  "name": "4",
+                                  "description": "Initial published version",
+                                  "created-at": "2026-03-20T18:29:41.000Z"
+                                }
+                              },
+                              "weight": 75
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "source-deployment-id": "dply_7KqH4xVnR2bPmYwL9sTgD3cE"
+                  }
+                ],
                 "last-updater": null,
                 "inputs": [
                   {
@@ -117663,6 +117782,48 @@
                                   "created-at": "2026-03-26T18:29:41.000Z"
                                 }
                               }
+                            }
+                          }
+                        ],
+                        "source-deployment-id": null
+                      },
+                      {
+                        "resource-type": "workflow",
+                        "template-id": "wfl_p6YpUH4NhqVf8n4ducnoPSVa",
+                        "environment": {
+                          "token": "env_2VpXc7nMqZwKjRfLsGdYb8Ht",
+                          "name": "production"
+                        },
+                        "rules": [
+                          {
+                            "strategy": {
+                              "type": "weighted-random",
+                              "version-refs": [
+                                {
+                                  "ref-type": "version",
+                                  "version": {
+                                    "token": "wfv_8NqRt3WxLmKpYvHdGs5JcBzF",
+                                    "tag": {
+                                      "name": "4",
+                                      "description": "Route high-risk inquiries to manual review",
+                                      "created-at": "2026-09-28T16:02:11.000Z"
+                                    }
+                                  },
+                                  "weight": 80
+                                },
+                                {
+                                  "ref-type": "version",
+                                  "version": {
+                                    "token": "wfv_2HtVxQm7NpLrKcYwDs9GbJfZ",
+                                    "tag": {
+                                      "name": "5",
+                                      "description": "Add a sanctions check before approval",
+                                      "created-at": "2026-10-01T18:20:05.000Z"
+                                    }
+                                  },
+                                  "weight": 20
+                                }
+                              ]
                             }
                           }
                         ],
@@ -138398,7 +138559,7 @@
       "additionalProperties": false,
       "description": "A Workflow object"
     },
-    "DeploymentRoute": {
+    "DeploymentRoute2": {
       "type": "object",
       "properties": {
         "type": {
@@ -138411,10 +138572,10 @@
           "type": "string"
         },
         "attributes": {
-          "$ref": "#/components/schemas/DeploymentRouteAttributes"
+          "$ref": "#/components/schemas/DeploymentRoute2Attributes"
         },
         "relationships": {
-          "$ref": "#/components/schemas/DeploymentRouteRelationships"
+          "$ref": "#/components/schemas/DeploymentRoute2Relationships"
         }
       },
       "additionalProperties": false,
@@ -151662,10 +151823,10 @@
           "type": "string"
         },
         "attributes": {
-          "$ref": "#/components/schemas/DeploymentRouteAttributes"
+          "$ref": "#/components/schemas/DeploymentRoute2Attributes"
         },
         "relationships": {
-          "$ref": "#/components/schemas/DeploymentRouteRelationships"
+          "$ref": "#/components/schemas/DeploymentRoute2Relationships"
         }
       },
       "required": [

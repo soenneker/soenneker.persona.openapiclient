@@ -29,12 +29,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The routes this deployment puts in force. Each route binds a (resource template, environment) key to a rules tree. Without `filter[changes-only]` this is the effective state as of the deployment — including routes written by earlier deployments — so a route whose `source-deployment-id` is set was authored by the deployment named there. With `filter[changes-only]` it is exactly the rows this deployment wrote.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItem>? Routes { get => _explicitNullValueRoutes; set { _explicitNullValueRoutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routes"); else _explicitNullProperties?.Remove("routes"); } }
-        private List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItem>? _explicitNullValueRoutes = default!;
+        public List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute>? Routes { get => _explicitNullValueRoutes; set { _explicitNullValueRoutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routes"); else _explicitNullProperties?.Remove("routes"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute>? _explicitNullValueRoutes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItem> Routes { get => _explicitNullValueRoutes; set { _explicitNullValueRoutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routes"); else _explicitNullProperties?.Remove("routes"); } }
-        private List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItem> _explicitNullValueRoutes = default!;
+        public List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute> Routes { get => _explicitNullValueRoutes; set { _explicitNullValueRoutes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routes"); else _explicitNullProperties?.Remove("routes"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute> _explicitNullValueRoutes = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -55,7 +55,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "routes", n => { Routes = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItem>(global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "routes", n => { Routes = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute>(global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DeploymentAttributesRoutesItem>("routes", Routes);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute>("routes", Routes);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
     }

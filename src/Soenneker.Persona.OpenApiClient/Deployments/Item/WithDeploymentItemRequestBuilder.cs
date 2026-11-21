@@ -34,7 +34,7 @@ namespace Soenneker.Persona.OpenApiClient.Deployments.Item
         {
         }
         /// <summary>
-        /// Retrieves a single deployment. Its `routes` carry the effective state as of it — the newest route per (resource template, environment) key at or before the deployment, across every environment and template — including routes written by earlier deployments. Because the response is a snapshot, it can look similar to the list endpoint; it does not list other deployments.This endpoint does not accept filters. To see only the routes a deployment wrote, use the list endpoint with `filter[changes-only]=true`.This endpoint requires a production API key; sandbox API keys receive 401.
+        /// Retrieves a single deployment. Its `routes` carry the effective state as of it — the newest route per (resource template, environment) key at or before the deployment, across every environment and template — including routes written by earlier deployments. Because the response is a snapshot, it can look similar to the list endpoint; it does not list other deployments.This endpoint does not accept filters. To see only the routes a deployment wrote, use the list endpoint with `filter[changes-only]=true`. A deployment can carry at most 1,000 routes; when its state spans more, this endpoint returns 422, and the list endpoint&apos;s filters narrow it.This endpoint requires a production API key; sandbox API keys receive 401.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.RetrieveADeployment200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -43,6 +43,7 @@ namespace Soenneker.Persona.OpenApiClient.Deployments.Item
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,6 +61,7 @@ namespace Soenneker.Persona.OpenApiClient.Deployments.Item
                 { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -67,7 +69,7 @@ namespace Soenneker.Persona.OpenApiClient.Deployments.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.RetrieveADeployment200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.RetrieveADeployment200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves a single deployment. Its `routes` carry the effective state as of it — the newest route per (resource template, environment) key at or before the deployment, across every environment and template — including routes written by earlier deployments. Because the response is a snapshot, it can look similar to the list endpoint; it does not list other deployments.This endpoint does not accept filters. To see only the routes a deployment wrote, use the list endpoint with `filter[changes-only]=true`.This endpoint requires a production API key; sandbox API keys receive 401.
+        /// Retrieves a single deployment. Its `routes` carry the effective state as of it — the newest route per (resource template, environment) key at or before the deployment, across every environment and template — including routes written by earlier deployments. Because the response is a snapshot, it can look similar to the list endpoint; it does not list other deployments.This endpoint does not accept filters. To see only the routes a deployment wrote, use the list endpoint with `filter[changes-only]=true`. A deployment can carry at most 1,000 routes; when its state spans more, this endpoint returns 422, and the list endpoint&apos;s filters narrow it.This endpoint requires a production API key; sandbox API keys receive 401.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -95,7 +97,7 @@ namespace Soenneker.Persona.OpenApiClient.Deployments.Item
             return new global::Soenneker.Persona.OpenApiClient.Deployments.Item.WithDeploymentItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Retrieves a single deployment. Its `routes` carry the effective state as of it — the newest route per (resource template, environment) key at or before the deployment, across every environment and template — including routes written by earlier deployments. Because the response is a snapshot, it can look similar to the list endpoint; it does not list other deployments.This endpoint does not accept filters. To see only the routes a deployment wrote, use the list endpoint with `filter[changes-only]=true`.This endpoint requires a production API key; sandbox API keys receive 401.
+        /// Retrieves a single deployment. Its `routes` carry the effective state as of it — the newest route per (resource template, environment) key at or before the deployment, across every environment and template — including routes written by earlier deployments. Because the response is a snapshot, it can look similar to the list endpoint; it does not list other deployments.This endpoint does not accept filters. To see only the routes a deployment wrote, use the list endpoint with `filter[changes-only]=true`. A deployment can carry at most 1,000 routes; when its state spans more, this endpoint returns 422, and the list endpoint&apos;s filters narrow it.This endpoint requires a production API key; sandbox API keys receive 401.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithDeploymentItemRequestBuilderGetQueryParameters 

@@ -30,12 +30,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The attributes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteAttributes? Attributes { get => _explicitNullValueAttributes; set { _explicitNullValueAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attributes"); else _explicitNullProperties?.Remove("attributes"); } }
-        private global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteAttributes? _explicitNullValueAttributes = default!;
+        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute2Attributes? Attributes { get => _explicitNullValueAttributes; set { _explicitNullValueAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attributes"); else _explicitNullProperties?.Remove("attributes"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute2Attributes? _explicitNullValueAttributes = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteAttributes Attributes { get => _explicitNullValueAttributes; set { _explicitNullValueAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attributes"); else _explicitNullProperties?.Remove("attributes"); } }
-        private global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteAttributes _explicitNullValueAttributes = default!;
+        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute2Attributes Attributes { get => _explicitNullValueAttributes; set { _explicitNullValueAttributes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attributes"); else _explicitNullProperties?.Remove("attributes"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute2Attributes _explicitNullValueAttributes = default!;
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,12 +50,12 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The relationships property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteRelationships? Relationships { get => _explicitNullValueRelationships; set { _explicitNullValueRelationships = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationships"); else _explicitNullProperties?.Remove("relationships"); } }
-        private global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteRelationships? _explicitNullValueRelationships = default!;
+        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute2Relationships? Relationships { get => _explicitNullValueRelationships; set { _explicitNullValueRelationships = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationships"); else _explicitNullProperties?.Remove("relationships"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute2Relationships? _explicitNullValueRelationships = default!;
 #nullable restore
 #else
-        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteRelationships Relationships { get => _explicitNullValueRelationships; set { _explicitNullValueRelationships = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationships"); else _explicitNullProperties?.Remove("relationships"); } }
-        private global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteRelationships _explicitNullValueRelationships = default!;
+        public global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute2Relationships Relationships { get => _explicitNullValueRelationships; set { _explicitNullValueRelationships = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationships"); else _explicitNullProperties?.Remove("relationships"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute2Relationships _explicitNullValueRelationships = default!;
 #endif
         /// <summary>The type property</summary>
         public global::Soenneker.Persona.OpenApiClient.Models.InquiryIncludedObjectsItemOneOf81_type? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
@@ -78,9 +78,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>(4)
             {
-                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteAttributes>(global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteAttributes.CreateFromDiscriminatorValue); } },
+                { "attributes", n => { Attributes = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute2Attributes>(global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute2Attributes.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteRelationships>(global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteRelationships.CreateFromDiscriminatorValue); } },
+                { "relationships", n => { Relationships = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute2Relationships>(global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute2Relationships.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryIncludedObjectsItemOneOf81_type>(); } },
             };
         }
@@ -91,9 +91,9 @@ namespace Soenneker.Persona.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteAttributes>("attributes", Attributes);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute2Attributes>("attributes", Attributes);
             writer.WriteStringValue("id", Id);
-            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRouteRelationships>("relationships", Relationships);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute2Relationships>("relationships", Relationships);
             writer.WriteEnumValue<global::Soenneker.Persona.OpenApiClient.Models.InquiryIncludedObjectsItemOneOf81_type>("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }

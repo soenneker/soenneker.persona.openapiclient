@@ -47,7 +47,7 @@ namespace Soenneker.Persona.OpenApiClient.Deployments
         {
         }
         /// <summary>
-        /// Returns a list of your organization&apos;s deployments, newest first. Results are returned in reverse chronological order.Each deployment&apos;s `routes` carry the effective state as of that deployment — the newest route per (resource template, environment) key at or before it. Pass `filter[changes-only]=true` to render only the rows each deployment wrote, so the list reads as a change history. `filter[environment-id]` and `filter[template-id]` narrow both the deployments listed and the routes each one carries.This endpoint requires a production API key; sandbox API keys receive 401.
+        /// Returns a list of your organization&apos;s deployments, newest first. Results are returned in reverse chronological order.Each deployment&apos;s `routes` carry the effective state as of that deployment — the newest route per (resource template, environment) key at or before it. Pass `filter[changes-only]=true` to render only the rows each deployment wrote, so the list reads as a change history. `filter[environment-id]` and `filter[template-id]` narrow both the deployments listed and the routes each one carries. A deployment can carry at most 1,000 routes; when one would carry more, the request returns 422, and these filters narrow it.This endpoint requires a production API key; sandbox API keys receive 401.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Persona.OpenApiClient.Models.ListAllDeployments200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -56,6 +56,7 @@ namespace Soenneker.Persona.OpenApiClient.Deployments
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse">When receiving a 429 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,6 +74,7 @@ namespace Soenneker.Persona.OpenApiClient.Deployments
                 { "401", global::Soenneker.Persona.OpenApiClient.Models.UnauthorizedResponse.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Persona.OpenApiClient.Models.ForbiddenResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Persona.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Persona.OpenApiClient.Models.UnprocessableEntityResponse.CreateFromDiscriminatorValue },
                 { "429", global::Soenneker.Persona.OpenApiClient.Models.TooManyRequestsResponse.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
@@ -80,7 +82,7 @@ namespace Soenneker.Persona.OpenApiClient.Deployments
             return await RequestAdapter.SendAsync<global::Soenneker.Persona.OpenApiClient.Models.ListAllDeployments200Response>(requestInfo, global::Soenneker.Persona.OpenApiClient.Models.ListAllDeployments200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a list of your organization&apos;s deployments, newest first. Results are returned in reverse chronological order.Each deployment&apos;s `routes` carry the effective state as of that deployment — the newest route per (resource template, environment) key at or before it. Pass `filter[changes-only]=true` to render only the rows each deployment wrote, so the list reads as a change history. `filter[environment-id]` and `filter[template-id]` narrow both the deployments listed and the routes each one carries.This endpoint requires a production API key; sandbox API keys receive 401.
+        /// Returns a list of your organization&apos;s deployments, newest first. Results are returned in reverse chronological order.Each deployment&apos;s `routes` carry the effective state as of that deployment — the newest route per (resource template, environment) key at or before it. Pass `filter[changes-only]=true` to render only the rows each deployment wrote, so the list reads as a change history. `filter[environment-id]` and `filter[template-id]` narrow both the deployments listed and the routes each one carries. A deployment can carry at most 1,000 routes; when one would carry more, the request returns 422, and these filters narrow it.This endpoint requires a production API key; sandbox API keys receive 401.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -108,7 +110,7 @@ namespace Soenneker.Persona.OpenApiClient.Deployments
             return new global::Soenneker.Persona.OpenApiClient.Deployments.DeploymentsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a list of your organization&apos;s deployments, newest first. Results are returned in reverse chronological order.Each deployment&apos;s `routes` carry the effective state as of that deployment — the newest route per (resource template, environment) key at or before it. Pass `filter[changes-only]=true` to render only the rows each deployment wrote, so the list reads as a change history. `filter[environment-id]` and `filter[template-id]` narrow both the deployments listed and the routes each one carries.This endpoint requires a production API key; sandbox API keys receive 401.
+        /// Returns a list of your organization&apos;s deployments, newest first. Results are returned in reverse chronological order.Each deployment&apos;s `routes` carry the effective state as of that deployment — the newest route per (resource template, environment) key at or before it. Pass `filter[changes-only]=true` to render only the rows each deployment wrote, so the list reads as a change history. `filter[environment-id]` and `filter[template-id]` narrow both the deployments listed and the routes each one carries. A deployment can carry at most 1,000 routes; when one would carry more, the request returns 422, and these filters narrow it.This endpoint requires a production API key; sandbox API keys receive 401.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DeploymentsRequestBuilderGetQueryParameters 

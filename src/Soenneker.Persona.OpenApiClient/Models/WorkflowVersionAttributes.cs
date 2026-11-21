@@ -19,6 +19,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if (parseNode.GetChildNode("created-at") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("created-at"); }
             else if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("deployments") is null) { _explicitNullValueDeployments = default!; _explicitNullProperties?.Remove("deployments"); }
+            else if (parseNode.GetChildNode("deployments") is { } nullNodeDeployments && nullNodeDeployments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deployments = null;
             if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
             else if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
             if (parseNode.GetChildNode("inputs") is null) { _explicitNullValueInputs = default!; _explicitNullProperties?.Remove("inputs"); }
@@ -41,6 +43,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if (parseNode.GetChildNode("trigger-type") is { } nullNodeTriggerType && nullNodeTriggerType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TriggerType = null;
             if (parseNode.GetChildNode("updated-at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated-at"); }
             else if (parseNode.GetChildNode("updated-at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("version-tag") is null) { _explicitNullValueVersionTag = default!; _explicitNullProperties?.Remove("version-tag"); }
+            else if (parseNode.GetChildNode("version-tag") is { } nullNodeVersionTag && nullNodeVersionTag.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VersionTag = null;
             if (parseNode.GetChildNode("workflow-name") is null) { _explicitNullValueWorkflowName = default!; _explicitNullProperties?.Remove("workflow-name"); }
             else if (parseNode.GetChildNode("workflow-name") is { } nullNodeWorkflowName && nullNodeWorkflowName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WorkflowName = null;
         }
@@ -48,6 +52,16 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The createdAt property</summary>
         public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at"); else _explicitNullProperties?.Remove("created-at"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
+        /// <summary>Deployment routes currently sending traffic to this version, one per environment. A paused or archived workflow sends no traffic, and `live` says whether this version is running. Its routes stay listed unless deactivating it replaced them with routes that run nothing. A route runs one version, or splits traffic between two (one of which may run nothing), and its version references carry each version&apos;s token and tag. Each item has the same shape as a route in a Deployment&apos;s `routes` from the Deployments API, and its `source-deployment-id` names the deployment that wrote it. Omitted under the same conditions as `version-tag`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute>? Deployments { get => _explicitNullValueDeployments; set { _explicitNullValueDeployments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployments"); else _explicitNullProperties?.Remove("deployments"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute>? _explicitNullValueDeployments = default!;
+#nullable restore
+#else
+        public List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute> Deployments { get => _explicitNullValueDeployments; set { _explicitNullValueDeployments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deployments"); else _explicitNullProperties?.Remove("deployments"); } }
+        private List<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute> _explicitNullValueDeployments = default!;
+#endif
         /// <summary>A description of the changes in this version. Draft versions have no description until one is set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -130,6 +144,16 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>When this version was last edited. Does not cover edits to `inputs` or `outputs`; poll those values directly rather than this timestamp to detect input-contract changes.</summary>
         public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated-at"); else _explicitNullProperties?.Remove("updated-at"); } }
         private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
+        /// <summary>The version&apos;s deployment tag, when one was minted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Persona.OpenApiClient.Models.VersionTagOneOf2? VersionTag { get => _explicitNullValueVersionTag; set { _explicitNullValueVersionTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version-tag"); else _explicitNullProperties?.Remove("version-tag"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.VersionTagOneOf2? _explicitNullValueVersionTag = default!;
+#nullable restore
+#else
+        public global::Soenneker.Persona.OpenApiClient.Models.VersionTagOneOf2 VersionTag { get => _explicitNullValueVersionTag; set { _explicitNullValueVersionTag = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("version-tag"); else _explicitNullProperties?.Remove("version-tag"); } }
+        private global::Soenneker.Persona.OpenApiClient.Models.VersionTagOneOf2 _explicitNullValueVersionTag = default!;
+#endif
         /// <summary>The name of the Workflow this version belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -156,9 +180,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(13)
+            return new Dictionary<string, Action<IParseNode>>(15)
             {
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "deployments", n => { Deployments = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute>(global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "inputs", n => { Inputs = n.GetCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersionAttributesInputsItem>(global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersionAttributesInputsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "last-updater", n => { LastUpdater = n.GetStringValue(); } },
@@ -170,6 +195,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "trigger-type", n => { TriggerType = n.GetStringValue(); } },
                 { "updated-at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
+                { "version-tag", n => { VersionTag = n.GetObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VersionTagOneOf2>(global::Soenneker.Persona.OpenApiClient.Models.VersionTagOneOf2.CreateFromDiscriminatorValue); } },
                 { "workflow-name", n => { WorkflowName = n.GetStringValue(); } },
             };
         }
@@ -181,6 +207,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.DeploymentRoute>("deployments", Deployments);
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Persona.OpenApiClient.Models.WorkflowVersionAttributesInputsItem>("inputs", Inputs);
             writer.WriteStringValue("last-updater", LastUpdater);
@@ -192,6 +219,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("trigger-type", TriggerType);
             writer.WriteDateTimeOffsetValue("updated-at", UpdatedAt);
+            writer.WriteObjectValue<global::Soenneker.Persona.OpenApiClient.Models.VersionTagOneOf2>("version-tag", VersionTag);
             writer.WriteStringValue("workflow-name", WorkflowName);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }

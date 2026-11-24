@@ -46016,6 +46016,76 @@
               "string"
             ],
             "description": "The country name of the individual\u0027s registered address as described by Singpass. Singpass codes follow ICA\u0027s legacy list rather than ISO 3166-1, so this description is the only reliable source for the country name."
+          },
+          "employer-name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The name of the employer, as registered with Singpass. Only available for foreigners (FIN holders)."
+          },
+          "employment-sector": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The sector of the work pass, such as MANUFACTURING, CONSTRUCTION or SERVICE. Only available for foreigners with a valid work pass."
+          },
+          "notice-of-assessment-amount-sgd": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "The total income amount, in Singapore dollars, on the latest Notice of Assessment. Null when there is no assessment in the last 2 years."
+          },
+          "notice-of-assessment-year": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The year of assessment (YYYY) of the latest Notice of Assessment."
+          },
+          "notice-of-assessment-category": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The category of the Notice of Assessment (ORIGINAL, AMENDED, ADDITIONAL or REPAYMENT)."
+          },
+          "notice-of-assessment-employment-income-sgd": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "The employment income, in Singapore dollars, on the Notice of Assessment."
+          },
+          "notice-of-assessment-trade-income-sgd": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "The trade income, in Singapore dollars, on the Notice of Assessment."
+          },
+          "notice-of-assessment-rent-income-sgd": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "The rental income, in Singapore dollars, on the Notice of Assessment."
+          },
+          "notice-of-assessment-interest-income-sgd": {
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "The interest income, in Singapore dollars, on the Notice of Assessment."
+          },
+          "notice-of-assessment-tax-clearance": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Whether tax clearance applies to the Notice of Assessment (Y or N)."
           }
         }
       },
@@ -144057,6 +144127,76 @@
             "string"
           ],
           "description": "The country name of the individual\u0027s registered address as described by Singpass. Singpass codes follow ICA\u0027s legacy list rather than ISO 3166-1, so this description is the only reliable source for the country name."
+        },
+        "employer-name": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "The name of the employer, as registered with Singpass. Only available for foreigners (FIN holders)."
+        },
+        "employment-sector": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "The sector of the work pass, such as MANUFACTURING, CONSTRUCTION or SERVICE. Only available for foreigners with a valid work pass."
+        },
+        "notice-of-assessment-amount-sgd": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "description": "The total income amount, in Singapore dollars, on the latest Notice of Assessment. Null when there is no assessment in the last 2 years."
+        },
+        "notice-of-assessment-year": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "The year of assessment (YYYY) of the latest Notice of Assessment."
+        },
+        "notice-of-assessment-category": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "The category of the Notice of Assessment (ORIGINAL, AMENDED, ADDITIONAL or REPAYMENT)."
+        },
+        "notice-of-assessment-employment-income-sgd": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "description": "The employment income, in Singapore dollars, on the Notice of Assessment."
+        },
+        "notice-of-assessment-trade-income-sgd": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "description": "The trade income, in Singapore dollars, on the Notice of Assessment."
+        },
+        "notice-of-assessment-rent-income-sgd": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "description": "The rental income, in Singapore dollars, on the Notice of Assessment."
+        },
+        "notice-of-assessment-interest-income-sgd": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "description": "The interest income, in Singapore dollars, on the Notice of Assessment."
+        },
+        "notice-of-assessment-tax-clearance": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Whether tax clearance applies to the Notice of Assessment (Y or N)."
         }
       }
     },

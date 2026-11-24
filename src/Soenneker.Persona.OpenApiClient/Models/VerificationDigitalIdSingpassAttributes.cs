@@ -48,6 +48,10 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if (parseNode.GetChildNode("created-at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
             if (parseNode.GetChildNode("created-at-ts") is null) { _explicitNullValueCreatedAtTs = default!; _explicitNullProperties?.Remove("created-at-ts"); }
             else if (parseNode.GetChildNode("created-at-ts") is { } nullNodeCreatedAtTs && nullNodeCreatedAtTs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAtTs = null;
+            if (parseNode.GetChildNode("employer-name") is null) { _explicitNullValueEmployerName = default!; _explicitNullProperties?.Remove("employer-name"); }
+            else if (parseNode.GetChildNode("employer-name") is { } nullNodeEmployerName && nullNodeEmployerName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmployerName = null;
+            if (parseNode.GetChildNode("employment-sector") is null) { _explicitNullValueEmploymentSector = default!; _explicitNullProperties?.Remove("employment-sector"); }
+            else if (parseNode.GetChildNode("employment-sector") is { } nullNodeEmploymentSector && nullNodeEmploymentSector.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmploymentSector = null;
             if (parseNode.GetChildNode("hanyu-pinyin-alias-name") is null) { _explicitNullValueHanyuPinyinAliasName = default!; _explicitNullProperties?.Remove("hanyu-pinyin-alias-name"); }
             else if (parseNode.GetChildNode("hanyu-pinyin-alias-name") is { } nullNodeHanyuPinyinAliasName && nullNodeHanyuPinyinAliasName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HanyuPinyinAliasName = null;
             if (parseNode.GetChildNode("hanyu-pinyin-name") is null) { _explicitNullValueHanyuPinyinName = default!; _explicitNullProperties?.Remove("hanyu-pinyin-name"); }
@@ -64,6 +68,22 @@ namespace Soenneker.Persona.OpenApiClient.Models
             else if (parseNode.GetChildNode("nationality") is { } nullNodeNationality && nullNodeNationality.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Nationality = null;
             if (parseNode.GetChildNode("nationality-description") is null) { _explicitNullValueNationalityDescription = default!; _explicitNullProperties?.Remove("nationality-description"); }
             else if (parseNode.GetChildNode("nationality-description") is { } nullNodeNationalityDescription && nullNodeNationalityDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NationalityDescription = null;
+            if (parseNode.GetChildNode("notice-of-assessment-amount-sgd") is null) { _explicitNullValueNoticeOfAssessmentAmountSgd = default!; _explicitNullProperties?.Remove("notice-of-assessment-amount-sgd"); }
+            else if (parseNode.GetChildNode("notice-of-assessment-amount-sgd") is { } nullNodeNoticeOfAssessmentAmountSgd && nullNodeNoticeOfAssessmentAmountSgd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoticeOfAssessmentAmountSgd = null;
+            if (parseNode.GetChildNode("notice-of-assessment-category") is null) { _explicitNullValueNoticeOfAssessmentCategory = default!; _explicitNullProperties?.Remove("notice-of-assessment-category"); }
+            else if (parseNode.GetChildNode("notice-of-assessment-category") is { } nullNodeNoticeOfAssessmentCategory && nullNodeNoticeOfAssessmentCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoticeOfAssessmentCategory = null;
+            if (parseNode.GetChildNode("notice-of-assessment-employment-income-sgd") is null) { _explicitNullValueNoticeOfAssessmentEmploymentIncomeSgd = default!; _explicitNullProperties?.Remove("notice-of-assessment-employment-income-sgd"); }
+            else if (parseNode.GetChildNode("notice-of-assessment-employment-income-sgd") is { } nullNodeNoticeOfAssessmentEmploymentIncomeSgd && nullNodeNoticeOfAssessmentEmploymentIncomeSgd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoticeOfAssessmentEmploymentIncomeSgd = null;
+            if (parseNode.GetChildNode("notice-of-assessment-interest-income-sgd") is null) { _explicitNullValueNoticeOfAssessmentInterestIncomeSgd = default!; _explicitNullProperties?.Remove("notice-of-assessment-interest-income-sgd"); }
+            else if (parseNode.GetChildNode("notice-of-assessment-interest-income-sgd") is { } nullNodeNoticeOfAssessmentInterestIncomeSgd && nullNodeNoticeOfAssessmentInterestIncomeSgd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoticeOfAssessmentInterestIncomeSgd = null;
+            if (parseNode.GetChildNode("notice-of-assessment-rent-income-sgd") is null) { _explicitNullValueNoticeOfAssessmentRentIncomeSgd = default!; _explicitNullProperties?.Remove("notice-of-assessment-rent-income-sgd"); }
+            else if (parseNode.GetChildNode("notice-of-assessment-rent-income-sgd") is { } nullNodeNoticeOfAssessmentRentIncomeSgd && nullNodeNoticeOfAssessmentRentIncomeSgd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoticeOfAssessmentRentIncomeSgd = null;
+            if (parseNode.GetChildNode("notice-of-assessment-tax-clearance") is null) { _explicitNullValueNoticeOfAssessmentTaxClearance = default!; _explicitNullProperties?.Remove("notice-of-assessment-tax-clearance"); }
+            else if (parseNode.GetChildNode("notice-of-assessment-tax-clearance") is { } nullNodeNoticeOfAssessmentTaxClearance && nullNodeNoticeOfAssessmentTaxClearance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoticeOfAssessmentTaxClearance = null;
+            if (parseNode.GetChildNode("notice-of-assessment-trade-income-sgd") is null) { _explicitNullValueNoticeOfAssessmentTradeIncomeSgd = default!; _explicitNullProperties?.Remove("notice-of-assessment-trade-income-sgd"); }
+            else if (parseNode.GetChildNode("notice-of-assessment-trade-income-sgd") is { } nullNodeNoticeOfAssessmentTradeIncomeSgd && nullNodeNoticeOfAssessmentTradeIncomeSgd.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoticeOfAssessmentTradeIncomeSgd = null;
+            if (parseNode.GetChildNode("notice-of-assessment-year") is null) { _explicitNullValueNoticeOfAssessmentYear = default!; _explicitNullProperties?.Remove("notice-of-assessment-year"); }
+            else if (parseNode.GetChildNode("notice-of-assessment-year") is { } nullNodeNoticeOfAssessmentYear && nullNodeNoticeOfAssessmentYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NoticeOfAssessmentYear = null;
             if (parseNode.GetChildNode("pass-expiry-date") is null) { _explicitNullValuePassExpiryDate = default!; _explicitNullProperties?.Remove("pass-expiry-date"); }
             else if (parseNode.GetChildNode("pass-expiry-date") is { } nullNodePassExpiryDate && nullNodePassExpiryDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PassExpiryDate = null;
             if (parseNode.GetChildNode("pass-status") is null) { _explicitNullValuePassStatus = default!; _explicitNullProperties?.Remove("pass-status"); }
@@ -207,6 +227,26 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <summary>The time the verification was created in Unix timestamp format</summary>
         public int? CreatedAtTs { get => _explicitNullValueCreatedAtTs; set { _explicitNullValueCreatedAtTs = value; AdditionalData?.Remove("created-at-ts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created-at-ts"); else _explicitNullProperties?.Remove("created-at-ts"); } }
         private int? _explicitNullValueCreatedAtTs = default!;
+        /// <summary>The name of the employer, as registered with Singpass. Only available for foreigners (FIN holders).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EmployerName { get => _explicitNullValueEmployerName; set { _explicitNullValueEmployerName = value; AdditionalData?.Remove("employer-name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("employer-name"); else _explicitNullProperties?.Remove("employer-name"); } }
+        private string? _explicitNullValueEmployerName = default!;
+#nullable restore
+#else
+        public string EmployerName { get => _explicitNullValueEmployerName; set { _explicitNullValueEmployerName = value; AdditionalData?.Remove("employer-name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("employer-name"); else _explicitNullProperties?.Remove("employer-name"); } }
+        private string _explicitNullValueEmployerName = default!;
+#endif
+        /// <summary>The sector of the work pass, such as MANUFACTURING, CONSTRUCTION or SERVICE. Only available for foreigners with a valid work pass.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EmploymentSector { get => _explicitNullValueEmploymentSector; set { _explicitNullValueEmploymentSector = value; AdditionalData?.Remove("employment-sector"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("employment-sector"); else _explicitNullProperties?.Remove("employment-sector"); } }
+        private string? _explicitNullValueEmploymentSector = default!;
+#nullable restore
+#else
+        public string EmploymentSector { get => _explicitNullValueEmploymentSector; set { _explicitNullValueEmploymentSector = value; AdditionalData?.Remove("employment-sector"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("employment-sector"); else _explicitNullProperties?.Remove("employment-sector"); } }
+        private string _explicitNullValueEmploymentSector = default!;
+#endif
         /// <summary>The hanyuPinyinAliasName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -286,6 +326,51 @@ namespace Soenneker.Persona.OpenApiClient.Models
 #else
         public string NationalityDescription { get => _explicitNullValueNationalityDescription; set { _explicitNullValueNationalityDescription = value; AdditionalData?.Remove("nationality-description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nationality-description"); else _explicitNullProperties?.Remove("nationality-description"); } }
         private string _explicitNullValueNationalityDescription = default!;
+#endif
+        /// <summary>The total income amount, in Singapore dollars, on the latest Notice of Assessment. Null when there is no assessment in the last 2 years.</summary>
+        public double? NoticeOfAssessmentAmountSgd { get => _explicitNullValueNoticeOfAssessmentAmountSgd; set { _explicitNullValueNoticeOfAssessmentAmountSgd = value; AdditionalData?.Remove("notice-of-assessment-amount-sgd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notice-of-assessment-amount-sgd"); else _explicitNullProperties?.Remove("notice-of-assessment-amount-sgd"); } }
+        private double? _explicitNullValueNoticeOfAssessmentAmountSgd = default!;
+        /// <summary>The category of the Notice of Assessment (ORIGINAL, AMENDED, ADDITIONAL or REPAYMENT).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NoticeOfAssessmentCategory { get => _explicitNullValueNoticeOfAssessmentCategory; set { _explicitNullValueNoticeOfAssessmentCategory = value; AdditionalData?.Remove("notice-of-assessment-category"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notice-of-assessment-category"); else _explicitNullProperties?.Remove("notice-of-assessment-category"); } }
+        private string? _explicitNullValueNoticeOfAssessmentCategory = default!;
+#nullable restore
+#else
+        public string NoticeOfAssessmentCategory { get => _explicitNullValueNoticeOfAssessmentCategory; set { _explicitNullValueNoticeOfAssessmentCategory = value; AdditionalData?.Remove("notice-of-assessment-category"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notice-of-assessment-category"); else _explicitNullProperties?.Remove("notice-of-assessment-category"); } }
+        private string _explicitNullValueNoticeOfAssessmentCategory = default!;
+#endif
+        /// <summary>The employment income, in Singapore dollars, on the Notice of Assessment.</summary>
+        public double? NoticeOfAssessmentEmploymentIncomeSgd { get => _explicitNullValueNoticeOfAssessmentEmploymentIncomeSgd; set { _explicitNullValueNoticeOfAssessmentEmploymentIncomeSgd = value; AdditionalData?.Remove("notice-of-assessment-employment-income-sgd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notice-of-assessment-employment-income-sgd"); else _explicitNullProperties?.Remove("notice-of-assessment-employment-income-sgd"); } }
+        private double? _explicitNullValueNoticeOfAssessmentEmploymentIncomeSgd = default!;
+        /// <summary>The interest income, in Singapore dollars, on the Notice of Assessment.</summary>
+        public double? NoticeOfAssessmentInterestIncomeSgd { get => _explicitNullValueNoticeOfAssessmentInterestIncomeSgd; set { _explicitNullValueNoticeOfAssessmentInterestIncomeSgd = value; AdditionalData?.Remove("notice-of-assessment-interest-income-sgd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notice-of-assessment-interest-income-sgd"); else _explicitNullProperties?.Remove("notice-of-assessment-interest-income-sgd"); } }
+        private double? _explicitNullValueNoticeOfAssessmentInterestIncomeSgd = default!;
+        /// <summary>The rental income, in Singapore dollars, on the Notice of Assessment.</summary>
+        public double? NoticeOfAssessmentRentIncomeSgd { get => _explicitNullValueNoticeOfAssessmentRentIncomeSgd; set { _explicitNullValueNoticeOfAssessmentRentIncomeSgd = value; AdditionalData?.Remove("notice-of-assessment-rent-income-sgd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notice-of-assessment-rent-income-sgd"); else _explicitNullProperties?.Remove("notice-of-assessment-rent-income-sgd"); } }
+        private double? _explicitNullValueNoticeOfAssessmentRentIncomeSgd = default!;
+        /// <summary>Whether tax clearance applies to the Notice of Assessment (Y or N).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NoticeOfAssessmentTaxClearance { get => _explicitNullValueNoticeOfAssessmentTaxClearance; set { _explicitNullValueNoticeOfAssessmentTaxClearance = value; AdditionalData?.Remove("notice-of-assessment-tax-clearance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notice-of-assessment-tax-clearance"); else _explicitNullProperties?.Remove("notice-of-assessment-tax-clearance"); } }
+        private string? _explicitNullValueNoticeOfAssessmentTaxClearance = default!;
+#nullable restore
+#else
+        public string NoticeOfAssessmentTaxClearance { get => _explicitNullValueNoticeOfAssessmentTaxClearance; set { _explicitNullValueNoticeOfAssessmentTaxClearance = value; AdditionalData?.Remove("notice-of-assessment-tax-clearance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notice-of-assessment-tax-clearance"); else _explicitNullProperties?.Remove("notice-of-assessment-tax-clearance"); } }
+        private string _explicitNullValueNoticeOfAssessmentTaxClearance = default!;
+#endif
+        /// <summary>The trade income, in Singapore dollars, on the Notice of Assessment.</summary>
+        public double? NoticeOfAssessmentTradeIncomeSgd { get => _explicitNullValueNoticeOfAssessmentTradeIncomeSgd; set { _explicitNullValueNoticeOfAssessmentTradeIncomeSgd = value; AdditionalData?.Remove("notice-of-assessment-trade-income-sgd"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notice-of-assessment-trade-income-sgd"); else _explicitNullProperties?.Remove("notice-of-assessment-trade-income-sgd"); } }
+        private double? _explicitNullValueNoticeOfAssessmentTradeIncomeSgd = default!;
+        /// <summary>The year of assessment (YYYY) of the latest Notice of Assessment.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? NoticeOfAssessmentYear { get => _explicitNullValueNoticeOfAssessmentYear; set { _explicitNullValueNoticeOfAssessmentYear = value; AdditionalData?.Remove("notice-of-assessment-year"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notice-of-assessment-year"); else _explicitNullProperties?.Remove("notice-of-assessment-year"); } }
+        private string? _explicitNullValueNoticeOfAssessmentYear = default!;
+#nullable restore
+#else
+        public string NoticeOfAssessmentYear { get => _explicitNullValueNoticeOfAssessmentYear; set { _explicitNullValueNoticeOfAssessmentYear = value; AdditionalData?.Remove("notice-of-assessment-year"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notice-of-assessment-year"); else _explicitNullProperties?.Remove("notice-of-assessment-year"); } }
+        private string _explicitNullValueNoticeOfAssessmentYear = default!;
 #endif
         /// <summary>The passExpiryDate property</summary>
         public Date? PassExpiryDate { get => _explicitNullValuePassExpiryDate; set { _explicitNullValuePassExpiryDate = value; AdditionalData?.Remove("pass-expiry-date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pass-expiry-date"); else _explicitNullProperties?.Remove("pass-expiry-date"); } }
@@ -402,7 +487,7 @@ namespace Soenneker.Persona.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(35)
+            return new Dictionary<string, Action<IParseNode>>(45)
             {
                 { "address-country-code", n => { AddressCountryCode = n.GetStringValue(); } },
                 { "address-country-description", n => { AddressCountryDescription = n.GetStringValue(); } },
@@ -419,6 +504,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "country-code", n => { CountryCode = n.GetStringValue(); } },
                 { "created-at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "created-at-ts", n => { CreatedAtTs = n.GetIntValue(); } },
+                { "employer-name", n => { EmployerName = n.GetStringValue(); } },
+                { "employment-sector", n => { EmploymentSector = n.GetStringValue(); } },
                 { "hanyu-pinyin-alias-name", n => { HanyuPinyinAliasName = n.GetStringValue(); } },
                 { "hanyu-pinyin-name", n => { HanyuPinyinName = n.GetStringValue(); } },
                 { "identity-coi", n => { IdentityCoi = n.GetStringValue(); } },
@@ -427,6 +514,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "nationality", n => { Nationality = n.GetStringValue(); } },
                 { "nationality-description", n => { NationalityDescription = n.GetStringValue(); } },
+                { "notice-of-assessment-amount-sgd", n => { NoticeOfAssessmentAmountSgd = n.GetDoubleValue(); } },
+                { "notice-of-assessment-category", n => { NoticeOfAssessmentCategory = n.GetStringValue(); } },
+                { "notice-of-assessment-employment-income-sgd", n => { NoticeOfAssessmentEmploymentIncomeSgd = n.GetDoubleValue(); } },
+                { "notice-of-assessment-interest-income-sgd", n => { NoticeOfAssessmentInterestIncomeSgd = n.GetDoubleValue(); } },
+                { "notice-of-assessment-rent-income-sgd", n => { NoticeOfAssessmentRentIncomeSgd = n.GetDoubleValue(); } },
+                { "notice-of-assessment-tax-clearance", n => { NoticeOfAssessmentTaxClearance = n.GetStringValue(); } },
+                { "notice-of-assessment-trade-income-sgd", n => { NoticeOfAssessmentTradeIncomeSgd = n.GetDoubleValue(); } },
+                { "notice-of-assessment-year", n => { NoticeOfAssessmentYear = n.GetStringValue(); } },
                 { "pass-expiry-date", n => { PassExpiryDate = n.GetDateValue(); } },
                 { "pass-status", n => { PassStatus = n.GetStringValue(); } },
                 { "pass-type", n => { PassType = n.GetStringValue(); } },
@@ -463,6 +558,8 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("country-code", CountryCode);
             writer.WriteDateTimeOffsetValue("created-at", CreatedAt);
             writer.WriteIntValue("created-at-ts", CreatedAtTs);
+            writer.WriteStringValue("employer-name", EmployerName);
+            writer.WriteStringValue("employment-sector", EmploymentSector);
             writer.WriteStringValue("hanyu-pinyin-alias-name", HanyuPinyinAliasName);
             writer.WriteStringValue("hanyu-pinyin-name", HanyuPinyinName);
             writer.WriteStringValue("identity-coi", IdentityCoi);
@@ -471,6 +568,14 @@ namespace Soenneker.Persona.OpenApiClient.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("nationality", Nationality);
             writer.WriteStringValue("nationality-description", NationalityDescription);
+            writer.WriteDoubleValue("notice-of-assessment-amount-sgd", NoticeOfAssessmentAmountSgd);
+            writer.WriteStringValue("notice-of-assessment-category", NoticeOfAssessmentCategory);
+            writer.WriteDoubleValue("notice-of-assessment-employment-income-sgd", NoticeOfAssessmentEmploymentIncomeSgd);
+            writer.WriteDoubleValue("notice-of-assessment-interest-income-sgd", NoticeOfAssessmentInterestIncomeSgd);
+            writer.WriteDoubleValue("notice-of-assessment-rent-income-sgd", NoticeOfAssessmentRentIncomeSgd);
+            writer.WriteStringValue("notice-of-assessment-tax-clearance", NoticeOfAssessmentTaxClearance);
+            writer.WriteDoubleValue("notice-of-assessment-trade-income-sgd", NoticeOfAssessmentTradeIncomeSgd);
+            writer.WriteStringValue("notice-of-assessment-year", NoticeOfAssessmentYear);
             writer.WriteDateValue("pass-expiry-date", PassExpiryDate);
             writer.WriteStringValue("pass-status", PassStatus);
             writer.WriteStringValue("pass-type", PassType);

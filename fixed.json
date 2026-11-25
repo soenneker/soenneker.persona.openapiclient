@@ -30717,6 +30717,81 @@
         },
         "description": "PII-filtered snapshot of a Database Business Footprint verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
       },
+      "SourceDataVerificationAgeKey": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Age Key Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SourceDataVerificationAgeKeyType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationAgeKeyPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of an Age Key verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
+      "SourceDataVerificationBankPennydrop": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Bank Pennydrop Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SourceDataVerificationBankPennydropType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationBankPennydropPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Bank Pennydrop verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
+      "SourceDataVerificationPersonaId": {
+        "unevaluatedProperties": {
+          "not": {}
+        },
+        "title": "Persona ID Verification Source Data",
+        "required": [
+          "type",
+          "id",
+          "peekable-attributes"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SourceDataVerificationPersonaIdType"
+          },
+          "id": {
+            "type": "string",
+            "description": "The underlying source object\u0027s token."
+          },
+          "peekable-attributes": {
+            "$ref": "#/components/schemas/SourceDataVerificationPersonaIdPeekableAttributes"
+          }
+        },
+        "description": "PII-filtered snapshot of a Persona ID verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+      },
       "SourceDataVerificationBusinessWebsite": {
         "unevaluatedProperties": {
           "not": {}
@@ -30927,6 +31002,9 @@
             "connect/source-data/verification/brand-asset": "#/components/schemas/SourceDataVerificationBrandAsset",
             "connect/source-data/verification/database-vat-number": "#/components/schemas/SourceDataVerificationDatabaseVatNumber",
             "connect/source-data/verification/database-business-footprint": "#/components/schemas/SourceDataVerificationDatabaseBusinessFootprint",
+            "connect/source-data/verification/age-key": "#/components/schemas/SourceDataVerificationAgeKey",
+            "connect/source-data/verification/bank-pennydrop": "#/components/schemas/SourceDataVerificationBankPennydrop",
+            "connect/source-data/verification/persona-id": "#/components/schemas/SourceDataVerificationPersonaId",
             "connect/source-data/verification/business-website": "#/components/schemas/SourceDataVerificationBusinessWebsite",
             "connect/source-data/verification/database-uk-dvla": "#/components/schemas/SourceDataVerificationDatabaseUkDvla",
             "connect/source-data/verification/database-standard": "#/components/schemas/SourceDataVerificationDatabaseStandard",
@@ -30949,6 +31027,9 @@
             "connect/source-data/verification/brand-asset": "#/components/schemas/SourceDataRelatedObjectSourceDataVerificationBrandAsset",
             "connect/source-data/verification/database-vat-number": "#/components/schemas/SourceDataRelatedObjectSourceDataVerificationDatabaseVatNumber",
             "connect/source-data/verification/database-business-footprint": "#/components/schemas/SourceDataRelatedObjectSourceDataVerificationDatabaseBusinessFootprint",
+            "connect/source-data/verification/age-key": "#/components/schemas/SourceDataRelatedObjectSourceDataVerificationAgeKey",
+            "connect/source-data/verification/bank-pennydrop": "#/components/schemas/SourceDataRelatedObjectSourceDataVerificationBankPennydrop",
+            "connect/source-data/verification/persona-id": "#/components/schemas/SourceDataRelatedObjectSourceDataVerificationPersonaId",
             "connect/source-data/verification/business-website": "#/components/schemas/SourceDataRelatedObjectSourceDataVerificationBusinessWebsite",
             "connect/source-data/verification/database-uk-dvla": "#/components/schemas/SourceDataRelatedObjectSourceDataVerificationDatabaseUkDvla",
             "connect/source-data/verification/database-standard": "#/components/schemas/SourceDataRelatedObjectSourceDataVerificationDatabaseStandard",
@@ -30981,6 +31062,15 @@
             },
             {
               "$ref": "#/components/schemas/SourceDataVerificationDatabaseBusinessFootprint"
+            },
+            {
+              "$ref": "#/components/schemas/SourceDataVerificationAgeKey"
+            },
+            {
+              "$ref": "#/components/schemas/SourceDataVerificationBankPennydrop"
+            },
+            {
+              "$ref": "#/components/schemas/SourceDataVerificationPersonaId"
             },
             {
               "$ref": "#/components/schemas/SourceDataVerificationBusinessWebsite"
@@ -31025,6 +31115,9 @@
               "connect/source-data/verification/brand-asset": "#/components/schemas/SourceDataVerificationBrandAsset",
               "connect/source-data/verification/database-vat-number": "#/components/schemas/SourceDataVerificationDatabaseVatNumber",
               "connect/source-data/verification/database-business-footprint": "#/components/schemas/SourceDataVerificationDatabaseBusinessFootprint",
+              "connect/source-data/verification/age-key": "#/components/schemas/SourceDataVerificationAgeKey",
+              "connect/source-data/verification/bank-pennydrop": "#/components/schemas/SourceDataVerificationBankPennydrop",
+              "connect/source-data/verification/persona-id": "#/components/schemas/SourceDataVerificationPersonaId",
               "connect/source-data/verification/business-website": "#/components/schemas/SourceDataVerificationBusinessWebsite",
               "connect/source-data/verification/database-uk-dvla": "#/components/schemas/SourceDataVerificationDatabaseUkDvla",
               "connect/source-data/verification/database-standard": "#/components/schemas/SourceDataVerificationDatabaseStandard",
@@ -31047,6 +31140,9 @@
               "connect/source-data/verification/brand-asset": "#/components/schemas/SourceDataVerificationBrandAsset",
               "connect/source-data/verification/database-vat-number": "#/components/schemas/SourceDataVerificationDatabaseVatNumber",
               "connect/source-data/verification/database-business-footprint": "#/components/schemas/SourceDataVerificationDatabaseBusinessFootprint",
+              "connect/source-data/verification/age-key": "#/components/schemas/SourceDataVerificationAgeKey",
+              "connect/source-data/verification/bank-pennydrop": "#/components/schemas/SourceDataVerificationBankPennydrop",
+              "connect/source-data/verification/persona-id": "#/components/schemas/SourceDataVerificationPersonaId",
               "connect/source-data/verification/business-website": "#/components/schemas/SourceDataVerificationBusinessWebsite",
               "connect/source-data/verification/database-uk-dvla": "#/components/schemas/SourceDataVerificationDatabaseUkDvla",
               "connect/source-data/verification/database-standard": "#/components/schemas/SourceDataVerificationDatabaseStandard",
@@ -36679,6 +36775,51 @@
               },
               {
                 "$ref": "#/components/schemas/SourceDataVerificationDatabaseBusinessFootprint"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataVerificationAgeKey"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataVerificationBankPennydrop"
+              }
+            ],
+            "type": "object"
+          },
+          {
+            "allOf": [
+              {
+                "unevaluatedProperties": {
+                  "not": {}
+                },
+                "type": "object",
+                "description": "PII-filtered snapshot of the share token\u0027s source object.\nPresent only when \u0060peek-source-data=true\u0060 was passed on the\nshow endpoint, the caller is the destination organization, and\nthe destination organization has access to the source data\npeek capability. Omitted from list responses.\n"
+              },
+              {
+                "$ref": "#/components/schemas/SourceDataVerificationPersonaId"
               }
             ],
             "type": "object"
@@ -72155,6 +72296,78 @@
         },
         "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
       },
+      "SourceDataVerificationAgeKeyType": {
+        "enum": [
+          "connect/source-data/verification/age-key"
+        ],
+        "type": "string",
+        "x-client-original-const": "connect/source-data/verification/age-key",
+        "x-ms-enum": {
+          "name": "SourceDataVerificationAgeKeyType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/age-key",
+              "name": "ConnectSourceDataVerificationAgeKey"
+            }
+          ]
+        }
+      },
+      "SourceDataVerificationAgeKeyPeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        },
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
+      "SourceDataVerificationBankPennydropType": {
+        "enum": [
+          "connect/source-data/verification/bank-pennydrop"
+        ],
+        "type": "string",
+        "x-client-original-const": "connect/source-data/verification/bank-pennydrop",
+        "x-ms-enum": {
+          "name": "SourceDataVerificationBankPennydropType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/bank-pennydrop",
+              "name": "ConnectSourceDataVerificationBankPennydrop"
+            }
+          ]
+        }
+      },
+      "SourceDataVerificationBankPennydropPeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        },
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
+      "SourceDataVerificationPersonaIdType": {
+        "enum": [
+          "connect/source-data/verification/persona-id"
+        ],
+        "type": "string",
+        "x-client-original-const": "connect/source-data/verification/persona-id",
+        "x-ms-enum": {
+          "name": "SourceDataVerificationPersonaIdType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "connect/source-data/verification/persona-id",
+              "name": "ConnectSourceDataVerificationPersonaId"
+            }
+          ]
+        }
+      },
+      "SourceDataVerificationPersonaIdPeekableAttributes": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+        },
+        "description": "Bag of source-object attributes exposed to the destination organization per the source\norganization\u0027s PII-share configuration. Each scalar entry (e.g. \u0060status\u0060, \u0060country-code\u0060,\n\u0060id-class\u0060) is a \u0060{visibility, value}\u0060 wrapper; see \u0060source-data-peekable-attribute.yaml\u0060.\nInquiry, Account, and Txn subtypes additionally expose a nested \u0060fields\u0060 sub-bucket\ncontaining standard and custom user-space fields (e.g. \u0060name-first\u0060, \u0060birthdate\u0060, org-defined\nfields); verification subtypes do not. The source object\u0027s \u0060status\u0060 (when applicable to the\nsubtype) appears here as a peekable attribute, not as a top-level scalar. Entries stripped\nentirely by the configuration are omitted from the bag. The concrete shape \u2014 including\nwhich subtypes expose \u0060fields\u0060 \u2014 is declared per-subtype.\n"
+      },
       "SourceDataVerificationBusinessWebsiteType": {
         "enum": [
           "connect/source-data/verification/business-website"
@@ -100925,6 +101138,102 @@
               }
             },
             "description": "PII-filtered snapshot of a Database Business Footprint verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+          }
+        ]
+      },
+      "SourceDataRelatedObjectSourceDataVerificationAgeKey": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SourceDataRelatedObject"
+          },
+          {
+            "unevaluatedProperties": {
+              "not": {}
+            },
+            "title": "Age Key Verification Source Data",
+            "required": [
+              "type",
+              "id",
+              "peekable-attributes"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/SourceDataVerificationAgeKeyType"
+              },
+              "id": {
+                "type": "string",
+                "description": "The underlying source object\u0027s token."
+              },
+              "peekable-attributes": {
+                "$ref": "#/components/schemas/SourceDataVerificationAgeKeyPeekableAttributes"
+              }
+            },
+            "description": "PII-filtered snapshot of an Age Key verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+          }
+        ]
+      },
+      "SourceDataRelatedObjectSourceDataVerificationBankPennydrop": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SourceDataRelatedObject"
+          },
+          {
+            "unevaluatedProperties": {
+              "not": {}
+            },
+            "title": "Bank Pennydrop Verification Source Data",
+            "required": [
+              "type",
+              "id",
+              "peekable-attributes"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/SourceDataVerificationBankPennydropType"
+              },
+              "id": {
+                "type": "string",
+                "description": "The underlying source object\u0027s token."
+              },
+              "peekable-attributes": {
+                "$ref": "#/components/schemas/SourceDataVerificationBankPennydropPeekableAttributes"
+              }
+            },
+            "description": "PII-filtered snapshot of a Bank Pennydrop verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
+          }
+        ]
+      },
+      "SourceDataRelatedObjectSourceDataVerificationPersonaId": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SourceDataRelatedObject"
+          },
+          {
+            "unevaluatedProperties": {
+              "not": {}
+            },
+            "title": "Persona ID Verification Source Data",
+            "required": [
+              "type",
+              "id",
+              "peekable-attributes"
+            ],
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "#/components/schemas/SourceDataVerificationPersonaIdType"
+              },
+              "id": {
+                "type": "string",
+                "description": "The underlying source object\u0027s token."
+              },
+              "peekable-attributes": {
+                "$ref": "#/components/schemas/SourceDataVerificationPersonaIdPeekableAttributes"
+              }
+            },
+            "description": "PII-filtered snapshot of a Persona ID verification. The \u0060peekable-attributes\u0060 bag carries\nwhichever PII-filtered scalar attributes the source organization\u0027s configuration allows.\nVerification subtypes do not expose a nested \u0060fields\u0060 sub-bucket.\n"
           }
         ]
       },
@@ -137207,6 +137516,15 @@
           "$ref": "#/components/schemas/SourceDataVerificationDatabaseBusinessFootprint"
         },
         {
+          "$ref": "#/components/schemas/SourceDataVerificationAgeKey"
+        },
+        {
+          "$ref": "#/components/schemas/SourceDataVerificationBankPennydrop"
+        },
+        {
+          "$ref": "#/components/schemas/SourceDataVerificationPersonaId"
+        },
+        {
           "$ref": "#/components/schemas/SourceDataVerificationBusinessWebsite"
         },
         {
@@ -137272,6 +137590,9 @@
           "connect/source-data/verification/brand-asset": "#/components/schemas/SourceDataVerificationBrandAsset",
           "connect/source-data/verification/database-vat-number": "#/components/schemas/SourceDataVerificationDatabaseVatNumber",
           "connect/source-data/verification/database-business-footprint": "#/components/schemas/SourceDataVerificationDatabaseBusinessFootprint",
+          "connect/source-data/verification/age-key": "#/components/schemas/SourceDataVerificationAgeKey",
+          "connect/source-data/verification/bank-pennydrop": "#/components/schemas/SourceDataVerificationBankPennydrop",
+          "connect/source-data/verification/persona-id": "#/components/schemas/SourceDataVerificationPersonaId",
           "connect/source-data/verification/business-website": "#/components/schemas/SourceDataVerificationBusinessWebsite",
           "connect/source-data/verification/database-uk-dvla": "#/components/schemas/SourceDataVerificationDatabaseUkDvla",
           "connect/source-data/verification/database-standard": "#/components/schemas/SourceDataVerificationDatabaseStandard",
@@ -137302,6 +137623,9 @@
           "connect/source-data/verification/brand-asset": "#/components/schemas/SourceDataVerificationBrandAsset",
           "connect/source-data/verification/database-vat-number": "#/components/schemas/SourceDataVerificationDatabaseVatNumber",
           "connect/source-data/verification/database-business-footprint": "#/components/schemas/SourceDataVerificationDatabaseBusinessFootprint",
+          "connect/source-data/verification/age-key": "#/components/schemas/SourceDataVerificationAgeKey",
+          "connect/source-data/verification/bank-pennydrop": "#/components/schemas/SourceDataVerificationBankPennydrop",
+          "connect/source-data/verification/persona-id": "#/components/schemas/SourceDataVerificationPersonaId",
           "connect/source-data/verification/business-website": "#/components/schemas/SourceDataVerificationBusinessWebsite",
           "connect/source-data/verification/database-uk-dvla": "#/components/schemas/SourceDataVerificationDatabaseUkDvla",
           "connect/source-data/verification/database-standard": "#/components/schemas/SourceDataVerificationDatabaseStandard",
@@ -139588,6 +139912,57 @@
         },
         "peekable-attributes": {
           "$ref": "#/components/schemas/SourceDataVerificationDatabaseBusinessFootprintAllOf2PeekableAttributesProperty"
+        }
+      }
+    },
+    "SourceDataVerificationAgeKeyAllOf2": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ConnectSourceDataVerificationAgeKeyType"
+        },
+        "id": {
+          "examples": [
+            "ver_ABC123"
+          ],
+          "type": "string"
+        },
+        "peekable-attributes": {
+          "$ref": "#/components/schemas/SourceDataVerificationAgeKeyAllOf2PeekableAttributesProperty"
+        }
+      }
+    },
+    "SourceDataVerificationBankPennydropAllOf2": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ConnectSourceDataVerificationBankPennydropType"
+        },
+        "id": {
+          "examples": [
+            "ver_ABC123"
+          ],
+          "type": "string"
+        },
+        "peekable-attributes": {
+          "$ref": "#/components/schemas/SourceDataVerificationBankPennydropAllOf2PeekableAttributesProperty"
+        }
+      }
+    },
+    "SourceDataVerificationPersonaIdAllOf2": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/components/schemas/ConnectSourceDataVerificationPersonaIdType"
+        },
+        "id": {
+          "examples": [
+            "ver_ABC123"
+          ],
+          "type": "string"
+        },
+        "peekable-attributes": {
+          "$ref": "#/components/schemas/SourceDataVerificationPersonaIdAllOf2PeekableAttributesProperty"
         }
       }
     },
@@ -145214,6 +145589,24 @@
         "$ref": "#/components/schemas/SourceDataPeekableAttribute"
       }
     },
+    "SourceDataVerificationAgeKeyAllOf2PeekableAttributes": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+      }
+    },
+    "SourceDataVerificationBankPennydropAllOf2PeekableAttributes": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+      }
+    },
+    "SourceDataVerificationPersonaIdAllOf2PeekableAttributes": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+      }
+    },
     "SourceDataVerificationBusinessWebsiteAllOf2PeekableAttributes": {
       "type": "object",
       "additionalProperties": {
@@ -145695,6 +146088,24 @@
       }
     },
     "SourceDataVerificationDatabaseBusinessFootprintAllOf2PeekableAttributesProperty": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+      }
+    },
+    "SourceDataVerificationAgeKeyAllOf2PeekableAttributesProperty": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+      }
+    },
+    "SourceDataVerificationBankPennydropAllOf2PeekableAttributesProperty": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/SourceDataPeekableAttribute"
+      }
+    },
+    "SourceDataVerificationPersonaIdAllOf2PeekableAttributesProperty": {
       "type": "object",
       "additionalProperties": {
         "$ref": "#/components/schemas/SourceDataPeekableAttribute"
@@ -147395,6 +147806,57 @@
           {
             "value": "connect/source-data/verification/database-business-footprint",
             "name": "ConnectSourceDataVerificationDatabaseBusinessFootprint"
+          }
+        ]
+      }
+    },
+    "ConnectSourceDataVerificationAgeKeyType": {
+      "enum": [
+        "connect/source-data/verification/age-key"
+      ],
+      "type": "string",
+      "x-client-original-const": "connect/source-data/verification/age-key",
+      "x-ms-enum": {
+        "name": "ConnectSourceDataVerificationAgeKeyType",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "connect/source-data/verification/age-key",
+            "name": "ConnectSourceDataVerificationAgeKey"
+          }
+        ]
+      }
+    },
+    "ConnectSourceDataVerificationBankPennydropType": {
+      "enum": [
+        "connect/source-data/verification/bank-pennydrop"
+      ],
+      "type": "string",
+      "x-client-original-const": "connect/source-data/verification/bank-pennydrop",
+      "x-ms-enum": {
+        "name": "ConnectSourceDataVerificationBankPennydropType",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "connect/source-data/verification/bank-pennydrop",
+            "name": "ConnectSourceDataVerificationBankPennydrop"
+          }
+        ]
+      }
+    },
+    "ConnectSourceDataVerificationPersonaIdType": {
+      "enum": [
+        "connect/source-data/verification/persona-id"
+      ],
+      "type": "string",
+      "x-client-original-const": "connect/source-data/verification/persona-id",
+      "x-ms-enum": {
+        "name": "ConnectSourceDataVerificationPersonaIdType",
+        "modelAsString": false,
+        "values": [
+          {
+            "value": "connect/source-data/verification/persona-id",
+            "name": "ConnectSourceDataVerificationPersonaId"
           }
         ]
       }

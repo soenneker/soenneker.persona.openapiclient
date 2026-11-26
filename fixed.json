@@ -53514,7 +53514,7 @@
             "items": {
               "$ref": "#/components/schemas/ExtractionResponsesItemStructuredResultsItemProperty"
             },
-            "description": "A list of structured AI extraction results with locations stripped. Values are recursive \u2014 objects contain nested structured results \u2014 but bounding-box location data is omitted from the API response."
+            "description": "A list of structured AI extraction results with locations stripped. Values are recursive \u2014 objects contain nested structured results \u2014 but bounding-box location data is omitted from the API response. When Guided extraction compares a list, its array node and each row object include \u0060match-level\u0060 (\u0060full\u0060, \u0060partial\u0060, or \u0060none\u0060) in their \u0060metadata\u0060."
           },
           "results": {
             "type": "array",
@@ -108494,6 +108494,42 @@
                   "extraction-type": "guided",
                   "field-name": "name",
                   "results": []
+                },
+                {
+                  "extraction-type": "guided",
+                  "field-name": "register",
+                  "results": [],
+                  "structured-results": [
+                    {
+                      "type": "object",
+                      "metadata": {
+                        "match-level": "full"
+                      },
+                      "value": {
+                        "directors": {
+                          "type": "array",
+                          "metadata": {
+                            "match-level": "full"
+                          },
+                          "value": [
+                            {
+                              "type": "object",
+                              "metadata": {
+                                "match-level": "full"
+                              },
+                              "value": {
+                                "name": {
+                                  "type": "string",
+                                  "metadata": {},
+                                  "value": "Mira Ash"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
                 }
               ],
               "document-type": "other",
